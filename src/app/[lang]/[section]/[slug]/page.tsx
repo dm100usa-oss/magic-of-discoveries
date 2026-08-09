@@ -12,6 +12,7 @@ import {
 import { coloringPages, pagesForLang } from "@/data/coloringPages";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard, PageHead } from "@/components/Chrome";
+import { RatingLink } from "@/components/Rating";
 import { SITE_URL, PUBLISHER, AUTHORS } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, itemPath } from "@/lib/routes";
 
@@ -202,6 +203,15 @@ export default async function ItemPage({
             <p className="lead-text">{copy.lead}</p>
 
             <BuyButtons book={book} lang={lang} />
+            {book.rating && paper ? (
+              <RatingLink
+                rating={book.rating}
+                asin={paper.asin}
+                labelReviews={t.book.ratingReviews}
+                labelSource={t.book.ratingSource}
+                ariaLabel={t.book.ratingAria}
+              />
+            ) : null}
             <p className="buy-note">
               {t.book.formatNote}
               {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}

@@ -14,6 +14,13 @@ export interface BookFormat {
   price: string;
 }
 
+/** Оценки покупателей на Amazon. Показываем глазам, в разметку не кладем:
+    Google запрещает выдавать чужой рейтинг за собственный. */
+export interface AmazonRating {
+  value: number;
+  count: number;
+}
+
 export type AgeGroup = "1-3" | "3-5" | "5-7" | "7-10" | "teens-adults";
 
 export type BookType = "bedtime" | "coloring" | "drawing" | "bilingual";
@@ -48,12 +55,14 @@ export interface Book {
   /** Прямая ссылка на карточку PDF в старом магазине. Пусто = цифровой версии нет. */
   pdfUrl?: string;
   cover: string;
+  rating?: AmazonRating;
   slug: Partial<Record<UiLang, string>>;
   copy: Partial<Record<UiLang, BookCopy>>;
 }
 
 const AMZ = "https://www.amazon.com/dp/";
 export const amazonUrl = (asin: string) => AMZ + asin;
+export const amazonReviewsUrl = (asin: string) => AMZ + asin + "#customerReviews";
 
 const WIX = "https://dvchbooks.wixsite.com/website-13/product-page/";
 
@@ -140,6 +149,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328205", price: "$6.99" }],
     pdfUrl: WIX + "spanish-4",
     cover: "/covers/first-coloring-111-es.jpg",
+    rating: { value: 4.9, count: 26 },
     slug: { es: "primer-libro-colorear-bebes-1-3-anos-111-dibujos" },
     copy: {
       es: {
@@ -182,6 +192,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328566", price: "$6.99" }],
     pdfUrl: WIX + "english-5",
     cover: "/covers/little-max-coloring-1-en.jpg",
+    rating: { value: 4.6, count: 3 },
     slug: { en: "little-max-first-coloring-book-toddlers-1-3" },
     copy: {
       en: {
@@ -222,6 +233,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328590", price: "$6.99" }],
     pdfUrl: WIX + "el-primer-libro-de-colorear-para-bebés-de-1-3-años-de-pequeño-max",
     cover: "/covers/little-max-coloring-1-es.jpg",
+    rating: { value: 5.0, count: 2 },
     slug: { es: "pequeno-max-primer-libro-colorear-bebes-1-3-anos" },
     copy: {
       es: {
@@ -264,6 +276,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328450", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-шаблон-книги",
     cover: "/covers/little-max-coloring-2-en.jpg",
+    rating: { value: 5.0, count: 1 },
     slug: { en: "little-max-coloring-book-toddlers-1-3-volume-2" },
     copy: {
       en: {
@@ -344,6 +357,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCPZPX6Z", price: "$2.99" },
     ],
     cover: "/covers/where-going-max-en.jpg",
+    rating: { value: 4.8, count: 19 },
     slug: { en: "where-are-you-going-little-max-bedtime-book-toddlers" },
     copy: {
       en: {
@@ -383,6 +397,7 @@ export const books: Book[] = [
     size: "21.6 x 21.6 cm",
     formats: [{ kind: "paperback", asin: "1963328469", price: "$12.99" }],
     cover: "/covers/where-going-max-es.jpg",
+    rating: { value: 5.0, count: 2 },
     slug: { es: "a-donde-vas-pequeno-max-cuento-para-dormir-bebes" },
     copy: {
       es: {
@@ -424,6 +439,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DH3P9ZDR", price: "$2.99" },
     ],
     cover: "/covers/where-going-max-bilingual.jpg",
+    rating: { value: 4.9, count: 21 },
     slug: {
       en: "where-are-you-going-little-max-bilingual-english-spanish",
       es: "a-donde-vas-pequeno-max-bilingue-ingles-espanol",
@@ -493,6 +509,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DH3JSFF3", price: "$2.99" },
     ],
     cover: "/covers/where-been-max-en.jpg",
+    rating: { value: 4.9, count: 9 },
     slug: { en: "where-have-you-been-little-max-bedtime-stories-toddlers" },
     copy: {
       en: {
@@ -535,6 +552,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DH3SBLWJ", price: "$2.99" },
     ],
     cover: "/covers/where-been-max-es.jpg",
+    rating: { value: 5.0, count: 4 },
     slug: { es: "donde-has-estado-pequeno-max-cuentos-para-dormir-ninos" },
     copy: {
       es: {
@@ -578,6 +596,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCQC5T9T", price: "$3.00" },
     ],
     cover: "/covers/how-to-draw-111-en.jpg",
+    rating: { value: 4.9, count: 36 },
     slug: { en: "how-to-draw-111-easy-step-by-step-drawings-for-kids" },
     copy: {
       en: {
@@ -621,6 +640,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCR4W3YB", price: "$3.00" },
     ],
     cover: "/covers/how-to-draw-111-es.jpg",
+    rating: { value: 5.0, count: 16 },
     slug: { es: "como-dibujar-111-dibujos-faciles-paso-a-paso-para-ninos" },
     copy: {
       es: {
@@ -664,6 +684,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328728", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-шаблон-книги",
     cover: "/covers/how-to-draw-everything-en.jpg",
+    rating: { value: 5.0, count: 1 },
     slug: { en: "how-to-draw-everything-easy-drawings-for-kids" },
     copy: {
       en: {
@@ -740,6 +761,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0D2M74DG8", price: "$3.00" },
     ],
     cover: "/covers/lucky-rocky-friendship-en.jpg",
+    rating: { value: 5.0, count: 22 },
     slug: { en: "adventures-of-lucky-rocky-magic-of-friendship-stories-kids" },
     copy: {
       en: {
@@ -782,6 +804,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0D2BPZ6NS", price: "$3.00" },
     ],
     cover: "/covers/lucky-rocky-friendship-es.jpg",
+    rating: { value: 4.9, count: 24 },
     slug: { es: "aventuras-de-rocky-el-afortunado-magia-de-la-amistad-cuentos" },
     copy: {
       es: {
@@ -826,6 +849,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCVKSQTN", price: "$3.00" },
     ],
     cover: "/covers/lucky-rocky-kindness-en.jpg",
+    rating: { value: 4.2, count: 5 },
     slug: { en: "adventures-of-lucky-rocky-magic-of-kindness-stories-kids" },
     copy: {
       en: {
@@ -867,6 +891,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DD5S79W1", price: "$3.00" },
     ],
     cover: "/covers/lucky-rocky-kindness-es.jpg",
+    rating: { value: 5.0, count: 2 },
     slug: { es: "aventuras-de-rocky-el-afortunado-magia-de-la-bondad-cuentos" },
     copy: {
       es: {
@@ -910,6 +935,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCVGV239", price: "$3.00" },
     ],
     cover: "/covers/lucky-rocky-two-in-one-en.jpg",
+    rating: { value: 5.0, count: 9 },
     slug: { en: "adventures-of-lucky-rocky-two-in-one-hardcover-gift-edition" },
     copy: {
       en: {
@@ -952,6 +978,7 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DD6M59PH", price: "$3.00" },
     ],
     cover: "/covers/lucky-rocky-two-in-one-es.jpg",
+    rating: { value: 5.0, count: 5 },
     slug: { es: "aventuras-de-rocky-el-afortunado-edicion-dos-en-uno-tapa-dura" },
     copy: {
       es: {

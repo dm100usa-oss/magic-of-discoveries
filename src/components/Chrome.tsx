@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Book, UiLang } from "@/data/books";
 import { cheapestFormat } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
+import { RatingMini } from "@/components/Rating";
 import { SITE_NAME, SOCIAL } from "@/lib/site";
 import { homePath, sectionPath, itemPath } from "@/lib/routes";
 
@@ -101,6 +102,7 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
           {copy.title}
         </p>
         <p className="card__meta">{t.catalog.ages[book.age]}</p>
+        {book.rating ? <RatingMini rating={book.rating} /> : null}
         {price ? <p className="card__price">{price}</p> : null}
       </div>
     </Link>

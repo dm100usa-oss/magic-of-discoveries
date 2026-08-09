@@ -84,6 +84,7 @@ export default async function SectionPage({
       age: b.age,
       type: b.type,
       price: cheapestFormat(b)?.price,
+      rating: b.rating,
     }));
 
     return (

@@ -54,6 +54,9 @@ export interface Dictionary {
     publisher: string;
     author: string;
     formatNote: string;
+    ratingReviews: string;
+    ratingSource: string;
+    ratingAria: string;
   };
   free: {
     title: string;
@@ -145,6 +148,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       publisher: "Publisher",
       author: "Author",
       formatNote: "Prices are set by Amazon and may change.",
+      ratingReviews: "ratings",
+      ratingSource: "Read the reviews on Amazon",
+      ratingAria: "Read customer reviews on Amazon",
     },
     free: {
       title: "Free coloring pages to print",
@@ -238,6 +244,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       publisher: "Editorial",
       author: "Autor",
       formatNote: "Los precios los fija Amazon y pueden cambiar.",
+      ratingReviews: "valoraciones",
+      ratingSource: "Leer las opiniones en Amazon",
+      ratingAria: "Leer las opiniones de los clientes en Amazon",
     },
     free: {
       title: "Dibujos gratis para imprimir",
@@ -331,6 +340,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       publisher: "Издательство",
       author: "Автор",
       formatNote: "Цены устанавливает Amazon, они могут меняться.",
+      ratingReviews: "оценок",
+      ratingSource: "Читать отзывы на Amazon",
+      ratingAria: "Читать отзывы покупателей на Amazon",
     },
     free: {
       title: "Бесплатные раскраски для печати",

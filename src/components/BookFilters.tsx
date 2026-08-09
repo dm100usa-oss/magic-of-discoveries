@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { RatingMini } from "@/components/Rating";
 
 export interface CardItem {
   id: string;
@@ -12,6 +13,7 @@ export interface CardItem {
   age: string;
   type: string;
   price?: string;
+  rating?: { value: number; count: number };
 }
 
 interface Props {
@@ -89,6 +91,7 @@ export default function BookFilters({ items, ages, types, labels }: Props) {
                   {i.title}
                 </p>
                 <p className="card__meta">{i.ageLabel}</p>
+                {i.rating ? <RatingMini rating={i.rating} /> : null}
                 {i.price ? <p className="card__price">{i.price}</p> : null}
               </div>
             </Link>

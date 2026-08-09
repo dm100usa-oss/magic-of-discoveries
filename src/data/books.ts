@@ -427,6 +427,7 @@ export const books: Book[] = [
     type: "bilingual",
     series: "little-max",
     size: "8.5 x 8.5 in",
+    cover: "/covers/where-going-max-bilingual.jpg",
     formats: [
       { kind: "paperback", asin: "1963328876", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3P9ZDR", price: "$2.99" },
@@ -581,6 +582,7 @@ export const books: Book[] = [
     pairId: "how-to-draw-111-es",
     drawings: 111,
     size: "8.5 x 11 in",
+    cover: "/covers/how-to-draw-111-en.jpg",
     formats: [
       { kind: "paperback", asin: "1963328140", price: "$14.99" },
       { kind: "kindle", asin: "B0DCQC5T9T", price: "$3.00" },
@@ -624,6 +626,7 @@ export const books: Book[] = [
     pairId: "how-to-draw-111-en",
     drawings: 111,
     size: "21.6 x 27.9 cm",
+    cover: "/covers/how-to-draw-111-es.jpg",
     formats: [
       { kind: "paperback", asin: "1963328175", price: "$14.99" },
       { kind: "kindle", asin: "B0DCR4W3YB", price: "$3.00" },
@@ -669,6 +672,7 @@ export const books: Book[] = [
     pairId: "how-to-draw-everything-es",
     drawings: 111,
     size: "8.5 x 11 in",
+    cover: "/covers/how-to-draw-everything-en.jpg",
     formats: [{ kind: "paperback", asin: "1963328728", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-шаблон-книги",
     rating: { value: 5.0, count: 1 },
@@ -742,11 +746,11 @@ export const books: Book[] = [
     series: "lucky-rocky",
     pairId: "lucky-rocky-friendship-es",
     size: "8.5 x 8.5 in",
+    cover: "/covers/lucky-rocky-friendship-en.jpg",
     formats: [
       { kind: "paperback", asin: "1963328019", price: "$13.99" },
       { kind: "kindle", asin: "B0D2M74DG8", price: "$3.00" },
     ],
-    cover: "/covers/lucky-rocky-friendship-en.jpg",
     rating: { value: 5.0, count: 22 },
     slug: { en: "adventures-of-lucky-rocky-magic-of-friendship-stories-kids" },
     copy: {
@@ -785,11 +789,11 @@ export const books: Book[] = [
     series: "lucky-rocky",
     pairId: "lucky-rocky-friendship-en",
     size: "21.6 x 21.6 cm",
+    cover: "/covers/lucky-rocky-friendship-es.jpg",
     formats: [
       { kind: "paperback", asin: "1963328043", price: "$13.99" },
       { kind: "kindle", asin: "B0D2BPZ6NS", price: "$3.00" },
     ],
-    cover: "/covers/lucky-rocky-friendship-es.jpg",
     rating: { value: 4.9, count: 24 },
     slug: { es: "aventuras-de-rocky-el-afortunado-magia-de-la-amistad-cuentos" },
     copy: {
@@ -830,11 +834,11 @@ export const books: Book[] = [
     series: "lucky-rocky",
     pairId: "lucky-rocky-kindness-es",
     size: "8.5 x 8.5 in",
+    cover: "/covers/lucky-rocky-kindness-en.jpg",
     formats: [
       { kind: "paperback", asin: "1963328698", price: "$13.99" },
       { kind: "kindle", asin: "B0DCVKSQTN", price: "$3.00" },
     ],
-    cover: "/covers/lucky-rocky-kindness-en.jpg",
     rating: { value: 4.2, count: 5 },
     slug: { en: "adventures-of-lucky-rocky-magic-of-kindness-stories-kids" },
     copy: {
@@ -872,11 +876,11 @@ export const books: Book[] = [
     series: "lucky-rocky",
     pairId: "lucky-rocky-kindness-en",
     size: "21.6 x 21.6 cm",
+    cover: "/covers/lucky-rocky-kindness-es.jpg",
     formats: [
       { kind: "paperback", asin: "1963328620", price: "$12.99" },
       { kind: "kindle", asin: "B0DD5S79W1", price: "$3.00" },
     ],
-    cover: "/covers/lucky-rocky-kindness-es.jpg",
     rating: { value: 5.0, count: 2 },
     slug: { es: "aventuras-de-rocky-el-afortunado-magia-de-la-bondad-cuentos" },
     copy: {
@@ -916,11 +920,11 @@ export const books: Book[] = [
     series: "lucky-rocky",
     pairId: "lucky-rocky-two-in-one-es",
     size: "8.5 x 8.5 in",
+    cover: "/covers/lucky-rocky-two-in-one-en.jpg",
     formats: [
       { kind: "hardcover", asin: "1963328981", price: "$28.25" },
       { kind: "kindle", asin: "B0DCVGV239", price: "$3.00" },
     ],
-    cover: "/covers/lucky-rocky-two-in-one-en.jpg",
     rating: { value: 5.0, count: 9 },
     slug: { en: "adventures-of-lucky-rocky-two-in-one-hardcover-gift-edition" },
     copy: {
@@ -959,11 +963,11 @@ export const books: Book[] = [
     series: "lucky-rocky",
     pairId: "lucky-rocky-two-in-one-en",
     size: "21.6 x 21.6 cm",
+    cover: "/covers/lucky-rocky-two-in-one-es.jpg",
     formats: [
       { kind: "hardcover", asin: "1963328914", price: "$28.25" },
       { kind: "kindle", asin: "B0DD6M59PH", price: "$3.00" },
     ],
-    cover: "/covers/lucky-rocky-two-in-one-es.jpg",
     rating: { value: 5.0, count: 5 },
     slug: { es: "aventuras-de-rocky-el-afortunado-edicion-dos-en-uno-tapa-dura" },
     copy: {
@@ -1155,6 +1159,7 @@ export const books: Book[] = [
     pairId: "take-a-break-food-es",
     drawings: 50,
     size: "8.5 x 11 in",
+    cover: "/covers/take-a-break-food-en.jpg",
     formats: [{ kind: "paperback", asin: "1963328329", price: "$7.99" }],
     pdfUrl: WIX + "english-2",
     slug: { en: "take-a-break-food-and-snacks-easy-coloring-book" },
@@ -1191,6 +1196,7 @@ export const books: Book[] = [
     pairId: "take-a-break-food-en",
     drawings: 50,
     size: "21.6 x 27.9 cm",
+    cover: "/covers/take-a-break-food-es.jpg",
     formats: [{ kind: "paperback", asin: "1963328426", price: "$7.99" }],
     pdfUrl: WIX + "spanish-3",
     slug: { es: "tomate-un-descanso-historias-deliciosas-libro-colorear" },

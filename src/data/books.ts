@@ -1022,6 +1022,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328167", price: "$8.99" }],
     pdfUrl: WIX + "english-3",
     cover: "/covers/take-a-break-animals-en.jpg",
+    rating: { value: 5.0, count: 26 },
     slug: { en: "take-a-break-cute-animals-easy-coloring-book-adults" },
     copy: {
       en: {
@@ -1060,6 +1061,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328264", price: "$8.99" }],
     pdfUrl: WIX + "spanish-2",
     cover: "/covers/take-a-break-animals-es.jpg",
+    rating: { value: 5.0, count: 11 },
     slug: { es: "tomate-un-descanso-animales-adorables-libro-colorear-adultos" },
     copy: {
       es: {
@@ -1098,6 +1100,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328299", price: "$7.99" }],
     pdfUrl: WIX + "english-1",
     cover: "/covers/take-a-break-ocean-en.jpg",
+    rating: { value: 5.0, count: 7 },
     slug: { en: "take-a-break-ocean-easy-coloring-book-adults-kids" },
     copy: {
       en: {
@@ -1135,6 +1138,7 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328396", price: "$7.99" }],
     pdfUrl: WIX + "spanish-1",
     cover: "/covers/take-a-break-ocean-es.jpg",
+    rating: { value: 5.0, count: 6 },
     slug: { es: "tomate-un-descanso-belleza-del-oceano-libro-colorear-facil" },
     copy: {
       es: {

@@ -247,7 +247,7 @@ ul.inside li::marker { color: var(--pink-hot); }
 .faq summary { cursor: pointer; font-weight: 800; list-style: none; font-size: var(--t-body); }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::before { content: "+"; color: var(--pink-hot); font-weight: 900; margin-right: 0.5rem; }
-.faq details[open] summary::before { content: "–"; }
+.faq details[open] summary::before { content: "-"; }
 .faq p { margin: 0.6rem 0 0.2rem; color: var(--ink-2); }
 
 /* ==================== ФИЛЬТРЫ ==================== */

@@ -780,6 +780,40 @@ export const books: Book[] = [
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-friendship-en.jpg",
     coverSize: { w: 900, h: 1160 },
+    artwork: [
+      {
+        file: "/art/rocky-friendship-en-bee.jpg",
+        w: 600,
+        h: 600,
+        alt: { en: "A bee carrying two small buckets of honey across a flower meadow, an illustration from The Magic of Friendship" },
+      },
+      {
+        file: "/art/rocky-friendship-en-owl.jpg",
+        w: 600,
+        h: 600,
+        alt: { en: "Granny Owl in glasses opens her door with a lantern to let Rocky in out of the rain" },
+      },
+      {
+        file: "/art/rocky-friendship-en-mouse.jpg",
+        w: 600,
+        h: 600,
+        alt: { en: "Little Max the mouse in a sailor shirt and captain's cap holding on to a leafy branch" },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/rocky-friendship-en-themes.jpg",
+        w: 1920,
+        h: 600,
+        alt: { en: "Kindness, friendship, curiosity, respect and creativity: what the Lucky Rocky stories are about" },
+      },
+      {
+        file: "/art/rocky-friendship-en-slogan.jpg",
+        w: 1920,
+        h: 600,
+        alt: { en: "Discoveries that help kids: The Adventures of Lucky Rocky, illustrated short stories for children ages 3 and up" },
+      },
+    ],
     formats: [
       { kind: "paperback", asin: "1963328019", price: "$13.99" },
       { kind: "kindle", asin: "B0D2M74DG8", price: "$3.00" },
@@ -895,34 +929,6 @@ export const books: Book[] = [
     pairId: "lucky-rocky-kindness-es",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-kindness-en.jpg",
-    artwork: [
-      {
-        file: "/art/lucky-rocky-kindness-bee.jpg",
-        w: 600,
-        h: 600,
-        alt: { en: "A bee carrying two small buckets of honey across a flower meadow, from The Magic of Kindness" },
-      },
-      {
-        file: "/art/lucky-rocky-kindness-owl.jpg",
-        w: 600,
-        h: 600,
-        alt: { en: "An owl in glasses opens her door with a lantern to let Rocky in out of the rain" },
-      },
-      {
-        file: "/art/lucky-rocky-kindness-mouse.jpg",
-        w: 600,
-        h: 600,
-        alt: { en: "A small mouse in a sailor shirt holding on to a leafy branch" },
-      },
-    ],
-    banners: [
-      {
-        file: "/art/lucky-rocky-kindness-themes.jpg",
-        w: 1920,
-        h: 600,
-        alt: { en: "Kindness, friendship, curiosity, respect and creativity: the themes of the Lucky Rocky stories" },
-      },
-    ],
     coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328698", price: "$13.99" },

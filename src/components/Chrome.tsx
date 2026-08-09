@@ -65,7 +65,7 @@ export function Footer({ lang }: { lang: UiLang }) {
         <a href={SOCIAL.pinterest}>Pinterest</a> · <a href={SOCIAL.youtube}>YouTube</a>
       </p>
       <p style={{ margin: 0 }}>
-        © 2024–{new Date().getFullYear()} {SITE_NAME} — {t.footer.rights}
+        © 2024-{new Date().getFullYear()} {SITE_NAME}. {t.footer.rights}
       </p>
     </footer>
   );

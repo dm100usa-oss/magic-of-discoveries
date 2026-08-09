@@ -86,7 +86,7 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
           rel="nofollow sponsored noopener"
           target="_blank"
         >
-          {label[f.kind]} — {f.price}
+          {label[f.kind]} · {f.price}
         </a>
       ))}
       {book.pdfUrl ? (

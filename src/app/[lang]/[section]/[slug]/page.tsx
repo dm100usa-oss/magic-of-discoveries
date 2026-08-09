@@ -204,8 +204,8 @@ export default async function ItemPage({
                 <img
                   src={book.cover}
                   alt={copy.title}
-                  width={900}
-                  height={1160}
+                  width={book.coverSize?.w ?? 900}
+                  height={book.coverSize?.h ?? 1160}
                   fetchPriority="high"
                 />
               ) : (

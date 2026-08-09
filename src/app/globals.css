@@ -198,7 +198,7 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
   display: flex; align-items: center; justify-content: center;
   background: linear-gradient(150deg, var(--pink-pale), var(--mint-pale));
 }
-.card__cover img { width: 100%; height: 100%; object-fit: cover; }
+.card__cover img { width: 100%; height: 100%; object-fit: contain; padding: 6%; }
 .card__placeholder {
   font-family: var(--font-display); color: var(--pink-deep);
   font-size: var(--t-small); text-align: center; padding: 0.9rem; line-height: 1.3;
@@ -217,11 +217,14 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 @media (min-width: 900px) { .book { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
 
 .book__cover .inner {
-  aspect-ratio: 3 / 4; border-radius: var(--radius); overflow: hidden;
+  border-radius: var(--radius); overflow: hidden;
   background: linear-gradient(150deg, var(--pink-pale), var(--mint-pale));
   box-shadow: var(--shadow-lift);
   display: flex; align-items: center; justify-content: center;
+  min-height: 220px;
 }
+/* Пусто, обложки еще нет: держим место прямоугольником */
+.book__cover .inner:not(:has(img)) { aspect-ratio: 3 / 4; }
 @media (min-width: 900px) { .book__cover { position: sticky; top: 1.5rem; } }
 
 .book h1 { font-family: var(--font-display); font-size: var(--t-h1); margin: 0 0 var(--gap-1); line-height: 1.14; }
@@ -348,5 +351,5 @@ ul.inside li::marker { color: var(--pink-hot); }
   margin-top: 0.3rem;
 }
 
-/* Обложки книг */
-.book__cover .inner img { width: 100%; height: 100%; object-fit: cover; }
+/* Обложки книг: показываем в настоящих пропорциях, квадратные не режем */
+.book__cover .inner img { display: block; width: 100%; height: auto; }

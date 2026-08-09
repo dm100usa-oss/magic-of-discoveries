@@ -94,7 +94,7 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
       <div className="card__frame">
         <div className="card__cover">
           {book.cover ? (
-            <img src={book.cover} alt={copy.title} loading="lazy" width={900} height={1160} />
+            <img src={book.cover} alt={copy.title} loading="lazy" width={book.coverSize?.w ?? 900} height={book.coverSize?.h ?? 1160} />
           ) : (
             <span className="card__placeholder">{copy.title}</span>
           )}

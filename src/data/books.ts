@@ -56,6 +56,8 @@ export interface Book {
   pdfUrl?: string;
   /** Файл обложки в /public/covers/. Пусто = показываем название на цветном фоне. */
   cover?: string;
+  /** Настоящие пропорции файла обложки, чтобы браузер не дергал страницу при загрузке. */
+  coverSize?: { w: number; h: number };
   rating?: AmazonRating;
   slug: Partial<Record<UiLang, string>>;
   copy: Partial<Record<UiLang, BookCopy>>;
@@ -109,6 +111,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "8.5 x 11 in",
     cover: "/covers/first-coloring-book-111-en.jpg",
+    coverSize: { w: 900, h: 1165 },
     formats: [{ kind: "paperback", asin: "1963328272", price: "$6.99" }],
     pdfUrl: WIX + "english-4",
     slug: { en: "first-coloring-book-toddlers-1-3-111-drawings" },
@@ -148,6 +151,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "21.6 x 27.9 cm",
     cover: "/covers/first-coloring-book-111-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328205", price: "$6.99" }],
     pdfUrl: WIX + "spanish-4",
     rating: { value: 4.9, count: 26 },
@@ -191,6 +195,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "8.5 x 11 in",
     cover: "/covers/little-max-coloring-1-en.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328566", price: "$6.99" }],
     pdfUrl: WIX + "english-5",
     rating: { value: 4.6, count: 3 },
@@ -232,6 +237,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "21.6 x 27.9 cm",
     cover: "/covers/little-max-coloring-1-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328590", price: "$6.99" }],
     pdfUrl: WIX + "el-primer-libro-de-colorear-para-bebés-de-1-3-años-de-pequeño-max",
     rating: { value: 5.0, count: 2 },
@@ -275,6 +281,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "8.5 x 11 in",
     cover: "/covers/little-max-coloring-2-en.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328450", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-шаблон-книги",
     rating: { value: 5.0, count: 1 },
@@ -315,6 +322,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "21.6 x 27.9 cm",
     cover: "/covers/little-max-coloring-2-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328558", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-копия-шаблон-книги",
     slug: { es: "pequeno-max-libro-colorear-bebes-1-3-anos-volumen-2" },
@@ -353,6 +361,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "where-going-max-es",
     size: "8.5 x 8.5 in",
+    cover: "/covers/where-going-max-en.jpg",
+    coverSize: { w: 900, h: 909 },
     formats: [
       { kind: "paperback", asin: "1963328434", price: "$12.99" },
       { kind: "kindle", asin: "B0DCPZPX6Z", price: "$2.99" },
@@ -395,6 +405,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "where-going-max-en",
     size: "21.6 x 21.6 cm",
+    cover: "/covers/where-going-max-es.jpg",
+    coverSize: { w: 900, h: 909 },
     formats: [{ kind: "paperback", asin: "1963328469", price: "$12.99" }],
     rating: { value: 5.0, count: 2 },
     slug: { es: "a-donde-vas-pequeno-max-cuento-para-dormir-bebes" },
@@ -434,6 +446,7 @@ export const books: Book[] = [
     series: "little-max",
     size: "8.5 x 8.5 in",
     cover: "/covers/where-going-max-bilingual.jpg",
+    coverSize: { w: 900, h: 1169 },
     formats: [
       { kind: "paperback", asin: "1963328876", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3P9ZDR", price: "$2.99" },
@@ -503,6 +516,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "where-been-max-es",
     size: "8.5 x 8.5 in",
+    cover: "/covers/where-been-max-en.jpg",
+    coverSize: { w: 900, h: 907 },
     formats: [
       { kind: "paperback", asin: "1963328582", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3JSFF3", price: "$2.99" },
@@ -545,6 +560,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "where-been-max-en",
     size: "21.6 x 21.6 cm",
+    cover: "/covers/where-been-max-es.jpg",
+    coverSize: { w: 900, h: 907 },
     formats: [
       { kind: "paperback", asin: "196332868X", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3SBLWJ", price: "$2.99" },
@@ -589,6 +606,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "8.5 x 11 in",
     cover: "/covers/how-to-draw-111-en.jpg",
+    coverSize: { w: 900, h: 1165 },
     formats: [
       { kind: "paperback", asin: "1963328140", price: "$14.99" },
       { kind: "kindle", asin: "B0DCQC5T9T", price: "$3.00" },
@@ -633,6 +651,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "21.6 x 27.9 cm",
     cover: "/covers/how-to-draw-111-es.jpg",
+    coverSize: { w: 900, h: 1157 },
     formats: [
       { kind: "paperback", asin: "1963328175", price: "$14.99" },
       { kind: "kindle", asin: "B0DCR4W3YB", price: "$3.00" },
@@ -679,6 +698,7 @@ export const books: Book[] = [
     drawings: 111,
     size: "8.5 x 11 in",
     cover: "/covers/how-to-draw-everything-en.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328728", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-шаблон-книги",
     rating: { value: 5.0, count: 1 },
@@ -715,6 +735,8 @@ export const books: Book[] = [
     pairId: "how-to-draw-everything-en",
     drawings: 111,
     size: "21.6 x 27.9 cm",
+    cover: "/covers/how-to-draw-everything-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328752", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-копия-шаблон-книги",
     slug: { es: "como-dibujar-todo-dibujos-faciles-paso-a-paso-ninos" },
@@ -753,6 +775,7 @@ export const books: Book[] = [
     pairId: "lucky-rocky-friendship-es",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-friendship-en.jpg",
+    coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328019", price: "$13.99" },
       { kind: "kindle", asin: "B0D2M74DG8", price: "$3.00" },
@@ -796,6 +819,7 @@ export const books: Book[] = [
     pairId: "lucky-rocky-friendship-en",
     size: "21.6 x 21.6 cm",
     cover: "/covers/lucky-rocky-friendship-es.jpg",
+    coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328043", price: "$13.99" },
       { kind: "kindle", asin: "B0D2BPZ6NS", price: "$3.00" },
@@ -841,6 +865,7 @@ export const books: Book[] = [
     pairId: "lucky-rocky-kindness-es",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-kindness-en.jpg",
+    coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328698", price: "$13.99" },
       { kind: "kindle", asin: "B0DCVKSQTN", price: "$3.00" },
@@ -883,6 +908,7 @@ export const books: Book[] = [
     pairId: "lucky-rocky-kindness-en",
     size: "21.6 x 21.6 cm",
     cover: "/covers/lucky-rocky-kindness-es.jpg",
+    coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328620", price: "$12.99" },
       { kind: "kindle", asin: "B0DD5S79W1", price: "$3.00" },
@@ -927,6 +953,7 @@ export const books: Book[] = [
     pairId: "lucky-rocky-two-in-one-es",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-two-in-one-en.jpg",
+    coverSize: { w: 900, h: 1162 },
     formats: [
       { kind: "hardcover", asin: "1963328981", price: "$28.25" },
       { kind: "kindle", asin: "B0DCVGV239", price: "$3.00" },
@@ -970,6 +997,7 @@ export const books: Book[] = [
     pairId: "lucky-rocky-two-in-one-en",
     size: "21.6 x 21.6 cm",
     cover: "/covers/lucky-rocky-two-in-one-es.jpg",
+    coverSize: { w: 900, h: 1157 },
     formats: [
       { kind: "hardcover", asin: "1963328914", price: "$28.25" },
       { kind: "kindle", asin: "B0DD6M59PH", price: "$3.00" },
@@ -1016,6 +1044,7 @@ export const books: Book[] = [
     drawings: 50,
     size: "8.5 x 11 in",
     cover: "/covers/take-a-break-animals-en.jpg",
+    coverSize: { w: 900, h: 1162 },
     formats: [{ kind: "paperback", asin: "1963328167", price: "$8.99" }],
     pdfUrl: WIX + "english-3",
     rating: { value: 5.0, count: 26 },
@@ -1055,6 +1084,7 @@ export const books: Book[] = [
     drawings: 50,
     size: "21.6 x 27.9 cm",
     cover: "/covers/take-a-break-animals-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328264", price: "$8.99" }],
     pdfUrl: WIX + "spanish-2",
     rating: { value: 5.0, count: 11 },
@@ -1094,6 +1124,7 @@ export const books: Book[] = [
     drawings: 50,
     size: "8.5 x 11 in",
     cover: "/covers/take-a-break-ocean-en.jpg",
+    coverSize: { w: 900, h: 1168 },
     formats: [{ kind: "paperback", asin: "1963328299", price: "$7.99" }],
     pdfUrl: WIX + "english-1",
     rating: { value: 5.0, count: 7 },
@@ -1132,6 +1163,7 @@ export const books: Book[] = [
     drawings: 50,
     size: "21.6 x 27.9 cm",
     cover: "/covers/take-a-break-ocean-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328396", price: "$7.99" }],
     pdfUrl: WIX + "spanish-1",
     rating: { value: 5.0, count: 6 },
@@ -1170,6 +1202,7 @@ export const books: Book[] = [
     drawings: 50,
     size: "8.5 x 11 in",
     cover: "/covers/take-a-break-food-en.jpg",
+    coverSize: { w: 900, h: 1162 },
     formats: [{ kind: "paperback", asin: "1963328329", price: "$7.99" }],
     pdfUrl: WIX + "english-2",
     slug: { en: "take-a-break-food-and-snacks-easy-coloring-book" },
@@ -1207,6 +1240,7 @@ export const books: Book[] = [
     drawings: 50,
     size: "21.6 x 27.9 cm",
     cover: "/covers/take-a-break-food-es.jpg",
+    coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328426", price: "$7.99" }],
     pdfUrl: WIX + "spanish-3",
     slug: { es: "tomate-un-descanso-historias-deliciosas-libro-colorear" },

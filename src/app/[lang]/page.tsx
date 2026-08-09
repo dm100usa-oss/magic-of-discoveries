@@ -73,7 +73,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <h2 className="section">{t.home.kidsTitle}</h2>
           <p className="lead">{t.home.kidsLead}</p>
           <div className="grid">
-            {kids.slice(0, 8).map((b) => (
+            {kids.map((b) => (
               <BookCard key={b.id} book={b} lang={lang} />
             ))}
           </div>

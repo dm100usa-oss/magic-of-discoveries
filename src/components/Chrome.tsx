@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Book, UiLang } from "@/data/books";
 import { cheapestFormat } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
-import { SITE_NAME, SOCIAL, path } from "@/lib/site";
+import { SITE_NAME, SOCIAL } from "@/lib/site";
+import { homePath, sectionPath, itemPath } from "@/lib/routes";
 
 const BRAND = "MAGIC of DISCOVERIES";
 
@@ -19,23 +20,23 @@ export function Brand() {
 export function Header({ lang }: { lang: UiLang }) {
   const t = dictionaries[lang];
   const items: [string, string][] = [
-    [path(lang), t.nav.home],
-    [path(lang, "books"), t.nav.books],
-    [path(lang, "coloring-pages"), t.nav.coloringPages],
-    [path(lang, "about"), t.nav.about],
-    [path(lang, "contact"), t.nav.contact],
+    [homePath(lang), t.nav.home],
+    [sectionPath(lang, "books"), t.nav.books],
+    [sectionPath(lang, "coloring"), t.nav.coloringPages],
+    [sectionPath(lang, "about"), t.nav.about],
+    [sectionPath(lang, "contact"), t.nav.contact],
   ];
   return (
     <header>
       <div className="topbar" />
       <div className="masthead">
-        <Link href={path(lang)} style={{ textDecoration: "none" }}>
+        <Link href={homePath(lang)} style={{ textDecoration: "none" }}>
           <Brand />
         </Link>
         <p className="byline">Ricardo &amp; Maria Demi</p>
         <div className="langbar">
           {activeLangs.map((l) => (
-            <Link key={l} href={path(l)} aria-current={l === lang}>
+            <Link key={l} href={homePath(l)} aria-current={l === lang}>
               {dictionaries[l].label}
             </Link>
           ))}
@@ -63,7 +64,7 @@ export function Footer({ lang }: { lang: UiLang }) {
         <a href={SOCIAL.pinterest}>Pinterest</a> · <a href={SOCIAL.youtube}>YouTube</a>
       </p>
       <p style={{ margin: 0 }}>
-        © {new Date().getFullYear()} {SITE_NAME} — {t.footer.rights}
+        © 2024–{new Date().getFullYear()} {SITE_NAME} — {t.footer.rights}
       </p>
     </footer>
   );
@@ -88,7 +89,7 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
   if (!copy || !slug) return null;
   const price = cheapestFormat(book)?.price;
   return (
-    <Link className="card" href={path(lang, "books", slug)}>
+    <Link className="card" href={itemPath(lang, "books", slug)}>
       <div className="card__frame">
         <div className="card__cover">
           <span className="card__placeholder">{copy.title}</span>

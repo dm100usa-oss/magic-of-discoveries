@@ -4,7 +4,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: SITE_NAME, template: `%s | ${SITE_NAME}` },
+  title: { default: `${SITE_NAME} — books by Ricardo & Maria Demi`, template: `%s | ${SITE_NAME}` },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

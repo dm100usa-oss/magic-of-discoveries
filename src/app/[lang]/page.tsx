@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import { booksForLang, type UiLang } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard } from "@/components/Chrome";
-import { reviews } from "@/lib/reviews";
-import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, path } from "@/lib/site";
+import { reviewsByLang } from "@/lib/reviews";
+import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL } from "@/lib/site";
+import { homePath, sectionPath } from "@/lib/routes";
 
 export async function generateMetadata({
   params,
@@ -14,10 +15,10 @@ export async function generateMetadata({
   const { lang } = await params;
   const t = dictionaries[lang as UiLang];
   return {
-    title: `${t.home.heroTitle} | ${SITE_NAME}`,
+    title: t.home.heroTitle,
     description: t.home.heroLead,
     alternates: {
-      canonical: path(lang as UiLang),
+      canonical: homePath(lang as UiLang),
       languages: Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}/${l}`])),
     },
   };
@@ -28,6 +29,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
   const lang = raw as UiLang;
   const t = dictionaries[lang];
   const all = booksForLang(lang);
+  const revs = reviewsByLang[lang];
   const kids = all.filter((b) => b.age !== "teens-adults");
   const adults = all.filter((b) => b.age === "teens-adults");
 
@@ -54,21 +56,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* Блок 1: обещание */}
       <section className="band">
         <div className="wrap">
-          <p className="eyebrow">{t.home.heroEyebrow}</p>
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(30px, 5.5vw, 52px)",
-              margin: "0 0 16px",
-              lineHeight: 1.12,
-            }}
-          >
-            {t.home.heroTitle}
-          </h1>
-          <p className="lead" style={{ fontSize: 18 }}>
-            {t.home.heroLead}
+          <p className="script-title" style={{ fontSize: "clamp(1.3rem, 1rem + 1.4vw, 1.9rem)", margin: "0 0 0.3rem" }}>
+            {t.home.heroEyebrow}
           </p>
-          <Link className="btn btn--pink" href={path(lang, "books")}>
+          <h1 className="hero">{t.home.heroTitle}</h1>
+          <p className="lead">{t.home.heroLead}</p>
+          <Link className="btn btn--pink" href={sectionPath(lang, "books")}>
             {t.home.heroCta}
           </Link>
         </div>
@@ -77,7 +70,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* Блок 2: детям */}
       <section className="band band--mint">
         <div className="wrap">
-          <p className="eyebrow">shop</p>
           <h2 className="section">{t.home.kidsTitle}</h2>
           <p className="lead">{t.home.kidsLead}</p>
           <div className="grid">
@@ -91,7 +83,6 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* Блок 3: взрослым */}
       <section className="band">
         <div className="wrap">
-          <p className="eyebrow">shop</p>
           <h2 className="section">{t.home.adultsTitle}</h2>
           <p className="lead">{t.home.adultsLead}</p>
           <div className="grid">
@@ -105,10 +96,9 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {/* Блок 4: бесплатные раскраски. Вход из поиска. */}
       <section className="band band--cream">
         <div className="wrap">
-          <p className="eyebrow">free</p>
           <h2 className="section">{t.home.freeTitle}</h2>
           <p className="lead">{t.home.freeLead}</p>
-          <Link className="btn btn--sun" href={path(lang, "coloring-pages")}>
+          <Link className="btn btn--sun" href={sectionPath(lang, "coloring")}>
             {t.home.freeCta}
           </Link>
         </div>
@@ -119,13 +109,14 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="wrap">
           <p className="script-title">{t.home.reviewsTitle}</p>
           <div className="reviews">
-            {reviews.map((r) => (
+            {revs.map((r) => (
               <div className="review" key={r.who}>
-                <div className="stars" aria-label={`${r.stars} out of 5`}>
-                  {"★".repeat(r.stars)}
-                </div>
-                <p style={{ margin: 0 }}>{r.text}</p>
+                <div className="stars">{"★".repeat(r.stars)}</div>
+                <p>{r.text}</p>
                 <span className="who">{r.who}</span>
+                {r.translated && t.home.reviewTranslated ? (
+                  <span className="note">{t.home.reviewTranslated}</span>
+                ) : null}
               </div>
             ))}
           </div>

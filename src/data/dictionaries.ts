@@ -23,6 +23,7 @@ export interface Dictionary {
     freeLead: string;
     freeCta: string;
     reviewsTitle: string;
+    reviewTranslated: string;
     browseAll: string;
   };
   catalog: {
@@ -102,6 +103,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Single pages you can print at home right now. No account, no payment. Each one comes from one of our books, so if your child likes it, you know where to find a hundred more.",
       freeCta: "Browse printable pages",
       reviewsTitle: "Parents are loving it",
+      reviewTranslated: "",
       browseAll: "See all books",
     },
     catalog: {
@@ -194,6 +196,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Páginas sueltas que puedes imprimir en casa ahora mismo. Sin registro y sin pagar. Cada una sale de uno de nuestros libros, así que si le gusta a tu hijo, ya sabes dónde hay cien más.",
       freeCta: "Ver dibujos para imprimir",
       reviewsTitle: "Lo que dicen los padres",
+      reviewTranslated: "Traducido del inglés",
       browseAll: "Ver todos los libros",
     },
     catalog: {
@@ -286,6 +289,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Отдельные листы, которые можно распечатать дома прямо сейчас. Без регистрации и без оплаты.",
       freeCta: "Смотреть раскраски",
       reviewsTitle: "Что говорят родители",
+      reviewTranslated: "Перевод с английского",
       browseAll: "Все книги",
     },
     catalog: {

@@ -60,8 +60,8 @@ export interface Book {
   coverSize?: { w: number; h: number };
   /** Иллюстрации из книги. Показываются в блоке "что внутри". */
   artwork?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
-  /** Широкая полоса с темами книги. */
-  themeBanner?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> };
+  /** Широкие полосы: темы книги, разворот, для кого. */
+  banners?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
   rating?: AmazonRating;
   slug: Partial<Record<UiLang, string>>;
   copy: Partial<Record<UiLang, BookCopy>>;
@@ -823,6 +823,32 @@ export const books: Book[] = [
     pairId: "lucky-rocky-friendship-en",
     size: "21.6 x 21.6 cm",
     cover: "/covers/lucky-rocky-friendship-es.jpg",
+    banners: [
+      {
+        file: "/art/rocky-friendship-es-spread.jpg",
+        w: 2331,
+        h: 1442,
+        alt: {
+          es: "Páginas interiores del libro: Rocky y sus amigos conocen a Pequeño Max, con texto en letra grande y una ilustración a color en la página opuesta",
+        },
+      },
+      {
+        file: "/art/rocky-friendship-es-ages.jpg",
+        w: 2880,
+        h: 900,
+        alt: {
+          es: "Para leer antes de dormir a niños de 3 a 5 años y para practicar la lectura con niños de 6 a 8 años",
+        },
+      },
+      {
+        file: "/art/rocky-friendship-es-print.jpg",
+        w: 3179,
+        h: 993,
+        alt: {
+          es: "Historias en letra grande que facilitan la lectura, con la abuelita Lechuza y los cachorros frente a su casa en el árbol",
+        },
+      },
+    ],
     coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328043", price: "$13.99" },
@@ -889,12 +915,14 @@ export const books: Book[] = [
         alt: { en: "A small mouse in a sailor shirt holding on to a leafy branch" },
       },
     ],
-    themeBanner: {
-      file: "/art/lucky-rocky-kindness-themes.jpg",
-      w: 1920,
-      h: 600,
-      alt: { en: "Kindness, friendship, curiosity, respect and creativity: the themes of the Lucky Rocky stories" },
-    },
+    banners: [
+      {
+        file: "/art/lucky-rocky-kindness-themes.jpg",
+        w: 1920,
+        h: 600,
+        alt: { en: "Kindness, friendship, curiosity, respect and creativity: the themes of the Lucky Rocky stories" },
+      },
+    ],
     coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328698", price: "$13.99" },

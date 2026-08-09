@@ -258,16 +258,17 @@ export default async function ItemPage({
               </>
             ) : null}
 
-            {book.themeBanner ? (
+            {book.banners?.map((b) => (
               <img
+                key={b.file}
                 className="theme-banner"
-                src={book.themeBanner.file}
-                alt={book.themeBanner.alt[lang] ?? book.themeBanner.alt.en ?? copy.title}
-                width={book.themeBanner.w}
-                height={book.themeBanner.h}
+                src={b.file}
+                alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
+                width={b.w}
+                height={b.h}
                 loading="lazy"
               />
-            ) : null}
+            ))}
 
             <h2 className="section">{t.book.forWhom}</h2>
             <p>{copy.forWhom}</p>

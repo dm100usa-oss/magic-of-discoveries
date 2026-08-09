@@ -85,6 +85,7 @@ export default async function SectionPage({
       type: b.type,
       price: cheapestFormat(b)?.price,
       rating: b.rating,
+      cover: b.cover,
     }));
 
     return (

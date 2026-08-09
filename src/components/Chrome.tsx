@@ -93,7 +93,11 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
     <Link className="card" href={itemPath(lang, "books", slug)}>
       <div className="card__frame">
         <div className="card__cover">
-          <span className="card__placeholder">{copy.title}</span>
+          {book.cover ? (
+            <img src={book.cover} alt={copy.title} loading="lazy" width={900} height={1160} />
+          ) : (
+            <span className="card__placeholder">{copy.title}</span>
+          )}
         </div>
         <p className="card__title">
           <span className="flag" aria-hidden>

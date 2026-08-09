@@ -347,3 +347,6 @@ ul.inside li::marker { color: var(--pink-hot); }
   font-size: var(--t-micro); color: var(--ink-2); font-weight: 700;
   margin-top: 0.3rem;
 }
+
+/* Обложки книг */
+.book__cover .inner img { width: 100%; height: 100%; object-fit: cover; }

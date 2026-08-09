@@ -14,6 +14,7 @@ export interface CardItem {
   type: string;
   price?: string;
   rating?: { value: number; count: number };
+  cover?: string;
 }
 
 interface Props {
@@ -82,7 +83,11 @@ export default function BookFilters({ items, ages, types, labels }: Props) {
             <Link className="card" key={i.id} href={i.href}>
               <div className="card__frame">
                 <div className="card__cover">
-                  <span className="card__placeholder">{i.title}</span>
+                  {i.cover ? (
+                    <img src={i.cover} alt={i.title} loading="lazy" width={900} height={1160} />
+                  ) : (
+                    <span className="card__placeholder">{i.title}</span>
+                  )}
                 </div>
                 <p className="card__title">
                   <span className="flag" aria-hidden>

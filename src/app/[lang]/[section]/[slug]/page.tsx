@@ -51,7 +51,12 @@ export async function generateMetadata({
       title: copy.title,
       description: copy.subtitle,
       alternates: { canonical: itemPath(lang, "books", slug), languages },
-      openGraph: { title: copy.title, description: copy.lead, type: "article" },
+      openGraph: {
+        title: copy.title,
+        description: copy.lead,
+        type: "article",
+        images: book.cover ? [{ url: book.cover, width: 900, height: 1160 }] : undefined,
+      },
     };
   }
 
@@ -165,6 +170,7 @@ export default async function ItemPage({
             ? "https://schema.org/Hardcover"
             : "https://schema.org/Paperback",
         description: copy.lead,
+        image: book.cover ? `${SITE_URL}${book.cover}` : undefined,
         typicalAgeRange: book.age === "teens-adults" ? "13-" : book.age,
         offers: book.formats.map((f) => ({
           "@type": "Offer",
@@ -194,7 +200,17 @@ export default async function ItemPage({
         <div className="book">
           <div className="book__cover">
             <div className="inner">
-              <span className="card__placeholder">{copy.title}</span>
+              {book.cover ? (
+                <img
+                  src={book.cover}
+                  alt={copy.title}
+                  width={900}
+                  height={1160}
+                  fetchPriority="high"
+                />
+              ) : (
+                <span className="card__placeholder">{copy.title}</span>
+              )}
             </div>
           </div>
 

@@ -54,7 +54,8 @@ export interface Book {
   formats: BookFormat[];
   /** Прямая ссылка на карточку PDF в старом магазине. Пусто = цифровой версии нет. */
   pdfUrl?: string;
-  cover: string;
+  /** Файл обложки в /public/covers/. Пусто = показываем название на цветном фоне. */
+  cover?: string;
   rating?: AmazonRating;
   slug: Partial<Record<UiLang, string>>;
   copy: Partial<Record<UiLang, BookCopy>>;
@@ -109,7 +110,6 @@ export const books: Book[] = [
     size: '8.5 x 11 in',
     formats: [{ kind: "paperback", asin: "1963328272", price: "$6.99" }],
     pdfUrl: WIX + "english-4",
-    cover: "/covers/first-coloring-111-en.jpg",
     slug: { en: "first-coloring-book-toddlers-1-3-111-drawings" },
     copy: {
       en: {
@@ -148,7 +148,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328205", price: "$6.99" }],
     pdfUrl: WIX + "spanish-4",
-    cover: "/covers/first-coloring-111-es.jpg",
     rating: { value: 4.9, count: 26 },
     slug: { es: "primer-libro-colorear-bebes-1-3-anos-111-dibujos" },
     copy: {
@@ -191,7 +190,6 @@ export const books: Book[] = [
     size: "8.5 x 11 in",
     formats: [{ kind: "paperback", asin: "1963328566", price: "$6.99" }],
     pdfUrl: WIX + "english-5",
-    cover: "/covers/little-max-coloring-1-en.jpg",
     rating: { value: 4.6, count: 3 },
     slug: { en: "little-max-first-coloring-book-toddlers-1-3" },
     copy: {
@@ -232,7 +230,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328590", price: "$6.99" }],
     pdfUrl: WIX + "el-primer-libro-de-colorear-para-bebés-de-1-3-años-de-pequeño-max",
-    cover: "/covers/little-max-coloring-1-es.jpg",
     rating: { value: 5.0, count: 2 },
     slug: { es: "pequeno-max-primer-libro-colorear-bebes-1-3-anos" },
     copy: {
@@ -275,7 +272,6 @@ export const books: Book[] = [
     size: "8.5 x 11 in",
     formats: [{ kind: "paperback", asin: "1963328450", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-шаблон-книги",
-    cover: "/covers/little-max-coloring-2-en.jpg",
     rating: { value: 5.0, count: 1 },
     slug: { en: "little-max-coloring-book-toddlers-1-3-volume-2" },
     copy: {
@@ -315,7 +311,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328558", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-копия-шаблон-книги",
-    cover: "/covers/little-max-coloring-2-es.jpg",
     slug: { es: "pequeno-max-libro-colorear-bebes-1-3-anos-volumen-2" },
     copy: {
       es: {
@@ -356,7 +351,6 @@ export const books: Book[] = [
       { kind: "paperback", asin: "1963328434", price: "$12.99" },
       { kind: "kindle", asin: "B0DCPZPX6Z", price: "$2.99" },
     ],
-    cover: "/covers/where-going-max-en.jpg",
     rating: { value: 4.8, count: 19 },
     slug: { en: "where-are-you-going-little-max-bedtime-book-toddlers" },
     copy: {
@@ -396,7 +390,6 @@ export const books: Book[] = [
     pairId: "where-going-max-en",
     size: "21.6 x 21.6 cm",
     formats: [{ kind: "paperback", asin: "1963328469", price: "$12.99" }],
-    cover: "/covers/where-going-max-es.jpg",
     rating: { value: 5.0, count: 2 },
     slug: { es: "a-donde-vas-pequeno-max-cuento-para-dormir-bebes" },
     copy: {
@@ -438,7 +431,6 @@ export const books: Book[] = [
       { kind: "paperback", asin: "1963328876", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3P9ZDR", price: "$2.99" },
     ],
-    cover: "/covers/where-going-max-bilingual.jpg",
     rating: { value: 4.9, count: 21 },
     slug: {
       en: "where-are-you-going-little-max-bilingual-english-spanish",
@@ -508,7 +500,6 @@ export const books: Book[] = [
       { kind: "paperback", asin: "1963328582", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3JSFF3", price: "$2.99" },
     ],
-    cover: "/covers/where-been-max-en.jpg",
     rating: { value: 4.9, count: 9 },
     slug: { en: "where-have-you-been-little-max-bedtime-stories-toddlers" },
     copy: {
@@ -551,7 +542,6 @@ export const books: Book[] = [
       { kind: "paperback", asin: "196332868X", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3SBLWJ", price: "$2.99" },
     ],
-    cover: "/covers/where-been-max-es.jpg",
     rating: { value: 5.0, count: 4 },
     slug: { es: "donde-has-estado-pequeno-max-cuentos-para-dormir-ninos" },
     copy: {
@@ -595,7 +585,6 @@ export const books: Book[] = [
       { kind: "paperback", asin: "1963328140", price: "$14.99" },
       { kind: "kindle", asin: "B0DCQC5T9T", price: "$3.00" },
     ],
-    cover: "/covers/how-to-draw-111-en.jpg",
     rating: { value: 4.9, count: 36 },
     slug: { en: "how-to-draw-111-easy-step-by-step-drawings-for-kids" },
     copy: {
@@ -639,7 +628,6 @@ export const books: Book[] = [
       { kind: "paperback", asin: "1963328175", price: "$14.99" },
       { kind: "kindle", asin: "B0DCR4W3YB", price: "$3.00" },
     ],
-    cover: "/covers/how-to-draw-111-es.jpg",
     rating: { value: 5.0, count: 16 },
     slug: { es: "como-dibujar-111-dibujos-faciles-paso-a-paso-para-ninos" },
     copy: {
@@ -683,7 +671,6 @@ export const books: Book[] = [
     size: "8.5 x 11 in",
     formats: [{ kind: "paperback", asin: "1963328728", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-шаблон-книги",
-    cover: "/covers/how-to-draw-everything-en.jpg",
     rating: { value: 5.0, count: 1 },
     slug: { en: "how-to-draw-everything-easy-drawings-for-kids" },
     copy: {
@@ -720,7 +707,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328752", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-копия-шаблон-книги",
-    cover: "/covers/how-to-draw-everything-es.jpg",
     slug: { es: "como-dibujar-todo-dibujos-faciles-paso-a-paso-ninos" },
     copy: {
       es: {
@@ -1021,7 +1007,6 @@ export const books: Book[] = [
     size: "8.5 x 11 in",
     formats: [{ kind: "paperback", asin: "1963328167", price: "$8.99" }],
     pdfUrl: WIX + "english-3",
-    cover: "/covers/take-a-break-animals-en.jpg",
     rating: { value: 5.0, count: 26 },
     slug: { en: "take-a-break-cute-animals-easy-coloring-book-adults" },
     copy: {
@@ -1060,7 +1045,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328264", price: "$8.99" }],
     pdfUrl: WIX + "spanish-2",
-    cover: "/covers/take-a-break-animals-es.jpg",
     rating: { value: 5.0, count: 11 },
     slug: { es: "tomate-un-descanso-animales-adorables-libro-colorear-adultos" },
     copy: {
@@ -1099,7 +1083,6 @@ export const books: Book[] = [
     size: "8.5 x 11 in",
     formats: [{ kind: "paperback", asin: "1963328299", price: "$7.99" }],
     pdfUrl: WIX + "english-1",
-    cover: "/covers/take-a-break-ocean-en.jpg",
     rating: { value: 5.0, count: 7 },
     slug: { en: "take-a-break-ocean-easy-coloring-book-adults-kids" },
     copy: {
@@ -1137,7 +1120,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328396", price: "$7.99" }],
     pdfUrl: WIX + "spanish-1",
-    cover: "/covers/take-a-break-ocean-es.jpg",
     rating: { value: 5.0, count: 6 },
     slug: { es: "tomate-un-descanso-belleza-del-oceano-libro-colorear-facil" },
     copy: {
@@ -1175,7 +1157,6 @@ export const books: Book[] = [
     size: "8.5 x 11 in",
     formats: [{ kind: "paperback", asin: "1963328329", price: "$7.99" }],
     pdfUrl: WIX + "english-2",
-    cover: "/covers/take-a-break-food-en.jpg",
     slug: { en: "take-a-break-food-and-snacks-easy-coloring-book" },
     copy: {
       en: {
@@ -1212,7 +1193,6 @@ export const books: Book[] = [
     size: "21.6 x 27.9 cm",
     formats: [{ kind: "paperback", asin: "1963328426", price: "$7.99" }],
     pdfUrl: WIX + "spanish-3",
-    cover: "/covers/take-a-break-food-es.jpg",
     slug: { es: "tomate-un-descanso-historias-deliciosas-libro-colorear" },
     copy: {
       es: {

@@ -38,6 +38,7 @@ export interface Dictionary {
   };
   book: {
     inside: string;
+    artwork: string;
     forWhom: string;
     faq: string;
     buyPaperback: string;
@@ -132,6 +133,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
     },
     book: {
       inside: "What is inside",
+      artwork: "Pictures from the book",
       forWhom: "Who it is for",
       faq: "Questions parents ask",
       buyPaperback: "Buy the paperback on Amazon",
@@ -228,6 +230,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
     },
     book: {
       inside: "Qué contiene",
+      artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
       faq: "Preguntas de los padres",
       buyPaperback: "Comprar en tapa blanda en Amazon",
@@ -324,6 +327,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
     },
     book: {
       inside: "Что внутри",
+      artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",
       faq: "Вопросы родителей",
       buyPaperback: "Купить в мягкой обложке на Amazon",

@@ -353,3 +353,18 @@ ul.inside li::marker { color: var(--pink-hot); }
 
 /* Обложки книг: показываем в настоящих пропорциях, квадратные не режем */
 .book__cover .inner img { display: block; width: 100%; height: auto; }
+
+/* Иллюстрации из книги */
+.artwork {
+  display: grid; gap: 0.75rem; margin: 0 0 var(--gap-3);
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 520px) { .artwork { grid-template-columns: repeat(2, 1fr); } }
+.artwork img {
+  width: 100%; height: auto; border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+}
+.theme-banner {
+  width: 100%; height: auto; border-radius: var(--radius);
+  box-shadow: var(--shadow); margin: 0 0 var(--gap-3);
+}

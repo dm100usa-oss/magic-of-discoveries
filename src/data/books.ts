@@ -58,6 +58,10 @@ export interface Book {
   cover?: string;
   /** Настоящие пропорции файла обложки, чтобы браузер не дергал страницу при загрузке. */
   coverSize?: { w: number; h: number };
+  /** Иллюстрации из книги. Показываются в блоке "что внутри". */
+  artwork?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
+  /** Широкая полоса с темами книги. */
+  themeBanner?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> };
   rating?: AmazonRating;
   slug: Partial<Record<UiLang, string>>;
   copy: Partial<Record<UiLang, BookCopy>>;
@@ -865,6 +869,32 @@ export const books: Book[] = [
     pairId: "lucky-rocky-kindness-es",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-kindness-en.jpg",
+    artwork: [
+      {
+        file: "/art/lucky-rocky-kindness-bee.jpg",
+        w: 600,
+        h: 600,
+        alt: { en: "A bee carrying two small buckets of honey across a flower meadow, from The Magic of Kindness" },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-owl.jpg",
+        w: 600,
+        h: 600,
+        alt: { en: "An owl in glasses opens her door with a lantern to let Rocky in out of the rain" },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-mouse.jpg",
+        w: 600,
+        h: 600,
+        alt: { en: "A small mouse in a sailor shirt holding on to a leafy branch" },
+      },
+    ],
+    themeBanner: {
+      file: "/art/lucky-rocky-kindness-themes.jpg",
+      w: 1920,
+      h: 600,
+      alt: { en: "Kindness, friendship, curiosity, respect and creativity: the themes of the Lucky Rocky stories" },
+    },
     coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328698", price: "$13.99" },

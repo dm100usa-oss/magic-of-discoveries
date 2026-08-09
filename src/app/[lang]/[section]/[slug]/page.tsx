@@ -240,6 +240,35 @@ export default async function ItemPage({
               ))}
             </ul>
 
+            {book.artwork?.length ? (
+              <>
+                <h2 className="section">{t.book.artwork}</h2>
+                <div className="artwork">
+                  {book.artwork.map((a) => (
+                    <img
+                      key={a.file}
+                      src={a.file}
+                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
+                      width={a.w}
+                      height={a.h}
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </>
+            ) : null}
+
+            {book.themeBanner ? (
+              <img
+                className="theme-banner"
+                src={book.themeBanner.file}
+                alt={book.themeBanner.alt[lang] ?? book.themeBanner.alt.en ?? copy.title}
+                width={book.themeBanner.w}
+                height={book.themeBanner.h}
+                loading="lazy"
+              />
+            ) : null}
+
             <h2 className="section">{t.book.forWhom}</h2>
             <p>{copy.forWhom}</p>
 

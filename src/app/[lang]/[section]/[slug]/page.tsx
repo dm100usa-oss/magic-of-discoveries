@@ -463,6 +463,9 @@ export default async function ItemPage({
   const freeSlug = freePage?.slug[lang];
   const freeSheets =
     freePage && freeSlug ? allSheets(freePage, lang).slice(0, freePage.spread ? 6 : 10) : [];
+  // Сколько страниц реально можно распечатать. Разворот это две страницы.
+  const freeSheetPages =
+    freePage && freeSlug ? sheetCount(freePage, lang) * (freePage.spread ? 2 : 1) : 0;
 
   const schema = {
     "@context": "https://schema.org",
@@ -623,7 +626,12 @@ export default async function ItemPage({
           {freePage && freeSheets.length ? (
             <>
               <h2 className="section">{t.free.bookSheetsTitle}</h2>
-              <p>{freePage.copy[lang]?.bookSheetsLead ?? t.free.bookSheetsLead}</p>
+              <p>
+                {(freePage.copy[lang]?.bookSheetsLead ?? t.free.bookSheetsLead).replace(
+                  "{n}",
+                  String(freeSheetPages)
+                )}
+              </p>
               <div className={freePage.spread ? "fan fan--spread" : "fan"}>
                 {freeSheets.map((sh, i) => (
                   <img
@@ -642,7 +650,7 @@ export default async function ItemPage({
               </div>
               <p style={{ marginBottom: "var(--gap-3)" }}>
                 <Link className="btn btn--mint" href={itemPath(lang, "coloring", freeSlug!)}>
-                  {t.free.bookSheetsCta}
+                  {t.free.bookSheetsCta.replace("{n}", String(freeSheetPages))}
                 </Link>
               </p>
             </>

@@ -62,6 +62,9 @@ export interface Book {
   artwork?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
   /** Широкая полоса вверху, сразу под кнопками покупки. */
   bannerLead?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> };
+  /** Одна строка над блоком картинок. Объясняет человеку, зачем он на них смотрит,
+      и дает поисковику текст рядом с картинками. Подписей под самими картинками нет. */
+  showcaseLead?: Partial<Record<UiLang, string>>;
   /** Широкие полосы: темы книги, разворот, для кого. */
   banners?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
   rating?: AmazonRating;
@@ -121,6 +124,9 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328272", price: "$6.99" }],
     pdfUrl: WIX + "english-4",
     rating: { value: 5.0, count: 19 },
+    showcaseLead: {
+      en: "Three things we checked on every page before it went into the book: the shape stays simple, the picture fills the sheet, and the animal looks friendly enough that a child wants to start.",
+    },
     bannerLead: {
       file: "/art/first-coloring-111-header.png",
       w: 1941,

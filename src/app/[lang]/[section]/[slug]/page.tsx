@@ -532,15 +532,52 @@ export default async function ItemPage({
               </ul>
             ) : null}
 
-            {book.bannerLead ? (
-              <img
-                className="theme-banner"
-                src={book.bannerLead.file}
-                alt={book.bannerLead.alt[lang] ?? book.bannerLead.alt.en ?? copy.title}
-                width={book.bannerLead.w}
-                height={book.bannerLead.h}
-                fetchPriority="high"
-              />
+            {book.bannerLead || book.artwork?.length || book.banners?.length ? (
+              <div className="showcase">
+                {book.showcaseLead?.[lang] ?? book.showcaseLead?.en ? (
+                  <p className="showcase__lead">
+                    {book.showcaseLead[lang] ?? book.showcaseLead.en}
+                  </p>
+                ) : null}
+
+                {book.bannerLead ? (
+                  <img
+                    className="theme-banner"
+                    src={book.bannerLead.file}
+                    alt={book.bannerLead.alt[lang] ?? book.bannerLead.alt.en ?? copy.title}
+                    width={book.bannerLead.w}
+                    height={book.bannerLead.h}
+                    fetchPriority="high"
+                  />
+                ) : null}
+
+                {book.artwork?.length ? (
+                  <div className="artwork">
+                    {book.artwork.map((a) => (
+                      <img
+                        key={a.file}
+                        src={a.file}
+                        alt={a.alt[lang] ?? a.alt.en ?? copy.title}
+                        width={a.w}
+                        height={a.h}
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                ) : null}
+
+                {book.banners?.map((b) => (
+                  <img
+                    key={b.file}
+                    className="theme-banner"
+                    src={b.file}
+                    alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
+                    width={b.w}
+                    height={b.h}
+                    loading="lazy"
+                  />
+                ))}
+              </div>
             ) : null}
 
             <h2 className="section">{t.book.inside}</h2>
@@ -550,23 +587,8 @@ export default async function ItemPage({
               ))}
             </ul>
 
-            {book.artwork?.length ? (
-              <>
-                <h2 className="section">{t.book.artwork}</h2>
-                <div className="artwork">
-                  {book.artwork.map((a) => (
-                    <img
-                      key={a.file}
-                      src={a.file}
-                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
-                      width={a.w}
-                      height={a.h}
-                      loading="lazy"
-                    />
-                  ))}
-                </div>
-              </>
-            ) : null}
+            <h2 className="section">{t.book.forWhom}</h2>
+            <p>{copy.forWhom}</p>
 
             {freePage && freeSheets.length ? (
               <>
@@ -593,20 +615,7 @@ export default async function ItemPage({
               </>
             ) : null}
 
-            {book.banners?.map((b) => (
-              <img
-                key={b.file}
-                className="theme-banner"
-                src={b.file}
-                alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
-                width={b.w}
-                height={b.h}
-                loading="lazy"
-              />
-            ))}
 
-            <h2 className="section">{t.book.forWhom}</h2>
-            <p>{copy.forWhom}</p>
 
             <div className="specs">
               <dl>

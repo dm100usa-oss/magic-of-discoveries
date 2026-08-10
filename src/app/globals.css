@@ -135,8 +135,17 @@ img { max-width: 100%; height: auto; display: block; }
 .pagehead h1 {
   font-family: var(--font-display); color: #fff; margin: 0;
   font-size: var(--t-h1); line-height: 1.15;
+  max-width: 24ch; margin-inline: auto;
 }
 .pagehead p { color: #fff; margin: 0.7rem auto 0; max-width: 46ch; font-size: var(--t-lead); }
+
+/* На телефоне длинный заголовок раздувается на весь экран. Уменьшаем,
+   чтобы первый экран показывал и заголовок, и начало текста. */
+@media (max-width: 560px) {
+  .pagehead { padding: 1.5rem 1rem 1.75rem; }
+  .pagehead h1 { font-size: clamp(1.35rem, 1.1rem + 2.2vw, 1.75rem); }
+  .pagehead p { font-size: 1rem; margin-top: 0.6rem; }
+}
 
 /* ==================== БЛОКИ ==================== */
 
@@ -427,7 +436,7 @@ dl.retail dt {
 dl.retail dd { margin: 0; font-size: var(--t-small); }
 
 /* Страница-руководство */
-.guide { padding: var(--band-y) 0; max-width: 78ch; margin-inline: auto; }
+.guide { padding: var(--band-y) clamp(1rem, 4vw, 2rem); max-width: 78ch; margin-inline: auto; }
 .guide .prose p { font-size: var(--t-lead); max-width: none; }
 
 /* Книга-решение внизу руководства */
@@ -494,7 +503,7 @@ ul.award-list li {
 /* Вступление на странице темы. Столбец по центру страницы, чтобы совпасть
    с заголовком над ним. Иначе текст прижат влево, а справа пустота. */
 .sheets-intro {
-  padding: var(--band-y) 0 var(--gap-4);
+  padding: var(--band-y) clamp(1rem, 4vw, 2rem) var(--gap-4);
   max-width: 74ch; margin-inline: auto;
 }
 .sheets-intro .prose p { font-size: var(--t-lead); max-width: none; }
@@ -568,4 +577,15 @@ ul.award-list li {
   .showcase .artwork { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
   .showcase .artwork img { border-radius: 8px; box-shadow: none; }
   .showcase .theme-banner { border-radius: 12px; }
+}
+
+/* Блок с книгой внутри кремовой полосы. Своя кремовая подложка на кремовом
+   фоне не видна, а ее отступы давали внизу пустую полосу. На телефоне это
+   читалось как обрыв страницы. */
+.band--cream .pick {
+  background: transparent; box-shadow: none;
+  padding: 0; margin: var(--gap-2) 0 0;
+}
+@media (max-width: 620px) {
+  .pick__cover img { max-width: 300px; margin-inline: auto; }
 }

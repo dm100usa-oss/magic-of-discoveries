@@ -154,7 +154,7 @@ export default async function SectionPage({
         </div>
 
         {/* Лестница по возрастам */}
-        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           <h2 className="section">{m.ladderTitle}</h2>
           <p className="lead">{m.ladderLead}</p>
           <div className="ladder">
@@ -188,7 +188,7 @@ export default async function SectionPage({
         ) : null}
 
         {/* Награды и рецензии */}
-        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           <h2 className="section">{m.awardsTitle}</h2>
           <p className="lead">{m.awardsLead}</p>
           <ul className="awards">
@@ -257,7 +257,7 @@ export default async function SectionPage({
         </div>
 
         {/* Методика целиком */}
-        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           <h2 className="section">{m.standardTitle}</h2>
           <p>{m.standardBody}</p>
           <p>
@@ -276,7 +276,7 @@ export default async function SectionPage({
     return (
       <>
         <PageHead title={h.title} lead={h.lead} />
-        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           {pages.length === 0 ? (
             <p className="lead">{t.free.comingSoon}</p>
           ) : (
@@ -341,7 +341,7 @@ export default async function SectionPage({
   return (
     <>
       <PageHead title={h.title} lead={h.lead} />
-      <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+      <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
         <p style={{ fontSize: "var(--t-lead)" }}>
           {t.contact.email}: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
         </p>

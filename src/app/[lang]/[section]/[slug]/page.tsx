@@ -293,7 +293,7 @@ export default async function ItemPage({
           </div>
         ) : null}
 
-        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           <h2 className="section">{f.faqTitle}</h2>
           <div className="faq">
             {copy.faq.map((q) => (
@@ -687,7 +687,7 @@ export default async function ItemPage({
         </div>
 
         {related.length ? (
-          <section style={{ padding: "0 0 var(--band-y)" }}>
+          <section style={{ padding: "0 clamp(1rem, 4vw, 2rem) var(--band-y)" }}>
             <p className="script-title">{t.book.related}</p>
             <div className="grid">
               {related.map((b) => (

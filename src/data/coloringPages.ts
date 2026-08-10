@@ -100,21 +100,6 @@ export const coloringPages: ColoringPage[] = [
         ],
       },
       {
-        id: "bonus",
-        title: {
-          es: "Portada del libro para colorear",
-          en: "Bonus sheet",
-          ru: "Титульный лист",
-        },
-        sheets: [
-          {
-            id: "portada",
-            name: { es: "Portada", en: "Cover page", ru: "Титульный лист" },
-            only: ["es"],
-          },
-        ],
-      },
-      {
         id: "birds",
         title: { en: "Birds", es: "Pájaros", ru: "Птицы" },
         sheets: [
@@ -174,12 +159,12 @@ export const coloringPages: ColoringPage[] = [
       },
       es: {
         title:
-          "21 dibujos para colorear gratis para imprimir, niños de 1 a 3 años. Dibujos grandes, trazos gruesos, fáciles de colorear",
+          "20 dibujos para colorear gratis para imprimir, niños de 1 a 3 años. Dibujos grandes, trazos gruesos, fáciles de colorear",
         lead:
           "Dibujados a mano para el primer libro para colorear de un niño. Un animal por página, contornos gruesos, y la palabra de abajo también se puede colorear.",
         body: [
           "A los dos años, la mayoría de los niños barre con el crayón en lugar de rellenar. Los trazos gruesos perdonan eso. El color cae más o menos dentro, el dibujo sigue pareciendo un león, y el niño siente que le salió. Ahí está la diferencia entre una página que se termina y una que se abandona.",
-          "Estas láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
+          "Estas veinte láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
           "El nombre debajo de cada animal también es un contorno, así que el niño puede colorear las letras y oír la palabra mientras lo hace. Con dos o tres años las primeras palabras entran así, sin lección y sin esfuerzo. Colorear de esta manera es una de las formas más sencillas de trabajar la motricidad fina a esta edad, y no cuesta más que una hoja de papel.",
           "Imprime las que quieras. Llévalas a un restaurante, a una sala de espera, a un viaje largo en coche. No hay que registrarse ni pagar nada.",
         ],
@@ -190,7 +175,7 @@ export const coloringPages: ColoringPage[] = [
           "Si usas marcadores, pon una hoja debajo",
           "Imprime el mismo animal dos veces y coloreen uno juntos",
         ],
-        pickLead: "Si a tu hijo le gustaron estas, en el libro del que salieron hay 111.",
+        pickLead: "Si a tu hijo le gustaron estas veinte, en el libro del que salieron hay 111.",
         pickTitle: "El libro del que salen estas páginas",
         pickPoints: [
           "111 dibujos hechos a mano con trazos gruesos",

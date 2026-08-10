@@ -533,156 +533,160 @@ export default async function ItemPage({
                 ))}
               </ul>
             ) : null}
+          </div>
+        </div>
 
-            {book.bannerLead || book.artwork?.length || book.banners?.length ? (
-              <div className="showcase">
-                {book.showcaseLead?.[lang] ?? book.showcaseLead?.en ? (
-                  <p className="showcase__lead">
-                    {book.showcaseLead[lang] ?? book.showcaseLead.en}
-                  </p>
-                ) : null}
+        {/* Ниже страница раскрывается на всю ширину: широкие баннеры
+            рисовались широкими, в узкой колонке они теряют силу. */}
+        <div className="book-body">
+          {book.bannerLead || book.artwork?.length || book.banners?.length ? (
+            <div className="showcase">
+              {book.showcaseLead?.[lang] ?? book.showcaseLead?.en ? (
+                <p className="showcase__lead">
+                  {book.showcaseLead[lang] ?? book.showcaseLead.en}
+                </p>
+              ) : null}
 
-                {book.bannerLead ? (
-                  <img
-                    className="theme-banner"
-                    src={book.bannerLead.file}
-                    alt={book.bannerLead.alt[lang] ?? book.bannerLead.alt.en ?? copy.title}
-                    width={book.bannerLead.w}
-                    height={book.bannerLead.h}
-                    fetchPriority="high"
-                  />
-                ) : null}
+              {book.bannerLead ? (
+                <img
+                  className="theme-banner"
+                  src={book.bannerLead.file}
+                  alt={book.bannerLead.alt[lang] ?? book.bannerLead.alt.en ?? copy.title}
+                  width={book.bannerLead.w}
+                  height={book.bannerLead.h}
+                  fetchPriority="high"
+                />
+              ) : null}
 
-                {book.artwork?.length ? (
-                  <div className="artwork">
-                    {book.artwork.map((a) => (
-                      <img
-                        key={a.file}
-                        src={a.file}
-                        alt={a.alt[lang] ?? a.alt.en ?? copy.title}
-                        width={a.w}
-                        height={a.h}
-                        loading="lazy"
-                      />
-                    ))}
-                  </div>
-                ) : null}
-
-                {book.banners?.map((b) => (
-                  <img
-                    key={b.file}
-                    className="theme-banner"
-                    src={b.file}
-                    alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
-                    width={b.w}
-                    height={b.h}
-                    loading="lazy"
-                  />
-                ))}
-              </div>
-            ) : null}
-
-            <h2 className="section">{t.book.inside}</h2>
-            <ul className="inside">
-              {copy.inside.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-
-            <h2 className="section">{t.book.forWhom}</h2>
-            <p>{copy.forWhom}</p>
-
-            {freePage && freeSheets.length ? (
-              <>
-                <h2 className="section">{t.free.bookSheetsTitle}</h2>
-                <p>{t.free.bookSheetsLead}</p>
-                <div className="fan">
-                  {freeSheets.map((sh, i) => (
+              {book.artwork?.length ? (
+                <div className="artwork">
+                  {book.artwork.map((a) => (
                     <img
-                      key={sh.id}
-                      src={previewUrl(sh.id, lang)}
-                      alt={t.free.sheetAlt.replace("{name}", sh.name[lang] ?? sh.name.en!)}
-                      width={642}
-                      height={822}
+                      key={a.file}
+                      src={a.file}
+                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
+                      width={a.w}
+                      height={a.h}
                       loading="lazy"
-                      style={{ ["--i" as string]: i }}
                     />
                   ))}
                 </div>
-                <p style={{ marginBottom: "var(--gap-3)" }}>
-                  <Link className="btn btn--mint" href={itemPath(lang, "coloring", freeSlug!)}>
-                    {t.free.bookSheetsCta}
-                  </Link>
-                </p>
-              </>
-            ) : null}
+              ) : null}
 
-
-
-            <div className="specs">
-              <dl>
-                <dt>{t.book.ageLabel}</dt>
-                <dd>{t.catalog.ages[book.age]}</dd>
-                {book.drawings ? (
-                  <>
-                    <dt>{t.book.drawings}</dt>
-                    <dd>{book.drawings}</dd>
-                  </>
-                ) : null}
-                <dt>{t.book.size}</dt>
-                <dd>{book.size}</dd>
-                <dt>ISBN / ASIN</dt>
-                <dd>{paper?.asin}</dd>
-                <dt>{t.book.author}</dt>
-                <dd>
-                  <a href={author.amazon} rel="nofollow noopener" target="_blank">
-                    {author.name}
-                  </a>
-                </dd>
-                <dt>{t.book.publisher}</dt>
-                <dd>{PUBLISHER}</dd>
-              </dl>
-            </div>
-
-            <p className="method-line">
-              {t.method.bookMethod}:{" "}
-              <Link href={sectionPath(lang, "method")}>{t.method.title}</Link>
-            </p>
-
-            <p className="retail-line">
-              {t.method.bookRetail}:{" "}
-              {retailers
-                .filter((r) => r.name !== "Amazon")
-                .map((r, i) => (
-                  <span key={r.name}>
-                    {i > 0 ? " · " : ""}
-                    <a href={r.url} rel="nofollow noopener" target="_blank">
-                      {r.name}
-                    </a>
-                  </span>
-                ))}
-            </p>
-
-            {pair && pairLang && pair.slug[pairLang] ? (
-              <p>
-                {t.book.alsoIn}{" "}
-                <Link href={itemPath(pairLang, "books", pair.slug[pairLang]!)}>
-                  {pairLang === "es" ? "Español" : "English"}
-                </Link>
-              </p>
-            ) : null}
-
-            <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
-              {t.book.faq}
-            </h2>
-            <div className="faq">
-              {copy.faq.map((f) => (
-                <details key={f.q}>
-                  <summary>{f.q}</summary>
-                  <p>{f.a}</p>
-                </details>
+              {book.banners?.map((b) => (
+                <img
+                  key={b.file}
+                  className="theme-banner"
+                  src={b.file}
+                  alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
+                  width={b.w}
+                  height={b.h}
+                  loading="lazy"
+                />
               ))}
             </div>
+          ) : null}
+
+          <h2 className="section">{t.book.inside}</h2>
+          <ul className="inside">
+            {copy.inside.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+
+          <h2 className="section">{t.book.forWhom}</h2>
+          <p>{copy.forWhom}</p>
+
+          {freePage && freeSheets.length ? (
+            <>
+              <h2 className="section">{t.free.bookSheetsTitle}</h2>
+              <p>{t.free.bookSheetsLead}</p>
+              <div className="fan">
+                {freeSheets.map((sh, i) => (
+                  <img
+                    key={sh.id}
+                    src={previewUrl(sh.id, lang)}
+                    alt={t.free.sheetAlt.replace("{name}", sh.name[lang] ?? sh.name.en!)}
+                    width={642}
+                    height={822}
+                    loading="lazy"
+                    style={{ ["--i" as string]: i }}
+                  />
+                ))}
+              </div>
+              <p style={{ marginBottom: "var(--gap-3)" }}>
+                <Link className="btn btn--mint" href={itemPath(lang, "coloring", freeSlug!)}>
+                  {t.free.bookSheetsCta}
+                </Link>
+              </p>
+            </>
+          ) : null}
+
+
+
+          <div className="specs">
+            <dl>
+              <dt>{t.book.ageLabel}</dt>
+              <dd>{t.catalog.ages[book.age]}</dd>
+              {book.drawings ? (
+                <>
+                  <dt>{t.book.drawings}</dt>
+                  <dd>{book.drawings}</dd>
+                </>
+              ) : null}
+              <dt>{t.book.size}</dt>
+              <dd>{book.size}</dd>
+              <dt>ISBN / ASIN</dt>
+              <dd>{paper?.asin}</dd>
+              <dt>{t.book.author}</dt>
+              <dd>
+                <a href={author.amazon} rel="nofollow noopener" target="_blank">
+                  {author.name}
+                </a>
+              </dd>
+              <dt>{t.book.publisher}</dt>
+              <dd>{PUBLISHER}</dd>
+            </dl>
+          </div>
+
+          <p className="method-line">
+            {t.method.bookMethod}:{" "}
+            <Link href={sectionPath(lang, "method")}>{t.method.title}</Link>
+          </p>
+
+          <p className="retail-line">
+            {t.method.bookRetail}:{" "}
+            {retailers
+              .filter((r) => r.name !== "Amazon")
+              .map((r, i) => (
+                <span key={r.name}>
+                  {i > 0 ? " · " : ""}
+                  <a href={r.url} rel="nofollow noopener" target="_blank">
+                    {r.name}
+                  </a>
+                </span>
+              ))}
+          </p>
+
+          {pair && pairLang && pair.slug[pairLang] ? (
+            <p>
+              {t.book.alsoIn}{" "}
+              <Link href={itemPath(pairLang, "books", pair.slug[pairLang]!)}>
+                {pairLang === "es" ? "Español" : "English"}
+              </Link>
+            </p>
+          ) : null}
+
+          <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
+            {t.book.faq}
+          </h2>
+          <div className="faq">
+            {copy.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
           </div>
         </div>
 

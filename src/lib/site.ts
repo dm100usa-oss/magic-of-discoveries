@@ -6,7 +6,7 @@ export const PUBLISHER = "Magic of Discoveries LLC";
 export const CONTACT_EMAIL = "magicofdiscoveries@gmail.com";
 
 /** Справочник по методике. Отдельный сайт, подтверждает подход. */
-export const METHOD_REFERENCE_URL = "https://ricardo-demi-books.vercel.app/method";
+export const METHOD_REFERENCE_URL = "https://www.ricardo-demi.com/method";
 
 export const SOCIAL = {
   instagram: "https://www.instagram.com/magic_of_discoveries",

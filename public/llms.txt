@@ -27,7 +27,7 @@ completed is what brings the child back the next day. The publisher calls this t
 ECL approach, for emotional, creative and linguistic development, which are treated
 as growing together rather than in sequence. The full framework, with age groups
 and per-format parameters, is published at
-https://ricardo-demi-books.vercel.app/method
+https://www.ricardo-demi.com/method
 
 The site has a section explaining this and answering common parent questions,
 at /en/method and /es/metodo. Each guide ends with one specific recommended title.

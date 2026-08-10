@@ -499,11 +499,11 @@ export const guides: Guide[] = [
         body: [
           "Somewhere around six or seven, a child usually starts judging their own drawing. Before that, a lopsided horse is a horse. After that, a lopsided horse is a failure, and a lot of children quietly stop.",
           "What rescues them is not encouragement. It is a method. If the child can see how the horse was built, the gap between what they imagined and what appeared on paper stops being a verdict on their ability and becomes a set of steps they have not learned yet.",
-          "Four steps is the useful number. Fewer and the jumps are too big to follow. More and the child loses the thread before the drawing appears. Every drawing in our step by step book is broken into four, and the steps go from whole shape to detail, never the reverse.",
+          "A small number of steps is what makes this work. Too few and the jumps are too big to follow. Too many and the child loses the thread before the drawing appears. In our step by step book each drawing is broken into a handful of steps, more for the harder subjects, and they always go from whole shape to detail, never the reverse.",
           "The last step matters as much as the first. The child should be able to hold the finished drawing next to the page and see that they got there. That comparison is the reward, and it is what brings them back to the next one.",
         ],
         checklist: [
-          "Every drawing broken into a small, fixed number of steps",
+          "Every drawing broken into a small number of steps",
           "Steps that go from whole shape to detail",
           "Subjects the child actually wants to draw",
           "Enough drawings that the method becomes a habit",
@@ -527,11 +527,11 @@ export const guides: Guide[] = [
         body: [
           "Alrededor de los seis o siete años, el niño suele empezar a juzgar su propio dibujo. Antes de eso, un caballo torcido es un caballo. Después, un caballo torcido es un fracaso, y muchos niños dejan de dibujar en silencio.",
           "Lo que los rescata no es el ánimo. Es un método. Si el niño puede ver cómo se construyó el caballo, la distancia entre lo que imaginó y lo que apareció en el papel deja de ser un veredicto sobre su capacidad y se convierte en unos pasos que todavía no ha aprendido.",
-          "Cuatro pasos es el número útil. Menos, y los saltos son demasiado grandes para seguirlos. Más, y el niño pierde el hilo antes de que aparezca el dibujo. Cada dibujo de nuestro libro paso a paso está dividido en cuatro, y los pasos van de la forma entera al detalle, nunca al revés.",
+          "Lo que hace que esto funcione es un número pequeño de pasos. Muy pocos, y los saltos son demasiado grandes para seguirlos. Demasiados, y el niño pierde el hilo antes de que aparezca el dibujo. En nuestro libro paso a paso cada dibujo se divide en unos pocos pasos, más en los temas difíciles, y siempre van de la forma entera al detalle, nunca al revés.",
           "El último paso importa tanto como el primero. El niño debe poder poner su dibujo terminado junto a la página y ver que llegó. Esa comparación es el premio, y es lo que lo trae de vuelta al siguiente.",
         ],
         checklist: [
-          "Cada dibujo dividido en un número pequeño y fijo de pasos",
+          "Cada dibujo dividido en un número pequeño de pasos",
           "Pasos que van de la forma entera al detalle",
           "Temas que el niño realmente quiere dibujar",
           "Suficientes dibujos para que el método se vuelva hábito",

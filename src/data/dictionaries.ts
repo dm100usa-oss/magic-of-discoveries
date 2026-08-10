@@ -136,7 +136,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       heroEyebrow: "Coloring, drawing and bedtime books",
       heroTitle: "Books that a small child can finish",
       heroLead:
-        "Thick outlines a two year old can follow. Bedtime stories short enough to reach the end. Drawing broken into four steps. Every book is made so the child succeeds at it, because that is what makes them come back tomorrow.",
+        "Thick outlines a two year old can follow. Bedtime stories short enough to reach the end. Drawing broken into simple steps. Every book is made so the child succeeds at it, because that is what makes them come back tomorrow.",
       heroCta: "See all books",
       kidsTitle: "For children",
       kidsLead:
@@ -313,7 +313,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       heroEyebrow: "Libros para colorear, dibujar y para dormir",
       heroTitle: "Libros que un niño pequeño sí termina",
       heroLead:
-        "Líneas gruesas que un niño de dos años puede seguir. Cuentos cortos que llegan al final. Dibujo dividido en cuatro pasos. Cada libro está hecho para que el niño lo consiga, porque eso es lo que hace que mañana vuelva a pedirlo.",
+        "Líneas gruesas que un niño de dos años puede seguir. Cuentos cortos que llegan al final. Dibujo dividido en pasos sencillos. Cada libro está hecho para que el niño lo consiga, porque eso es lo que hace que mañana vuelva a pedirlo.",
       heroCta: "Ver todos los libros",
       kidsTitle: "Para niños",
       kidsLead:

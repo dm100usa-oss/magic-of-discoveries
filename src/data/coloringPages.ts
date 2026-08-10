@@ -205,6 +205,159 @@ export const coloringPages: ColoringPage[] = [
       },
     },
   },
+
+  /* ===== Пошаговое рисование, развороты из книги How to Draw 111 ===== */
+  {
+    id: "draw-animals-step-by-step",
+    fromBookId: "how-to-draw-111-en",
+    fromBookIdEs: "how-to-draw-111-es",
+    slug: {
+      en: "free-printable-how-to-draw-animals-step-by-step-for-kids",
+      es: "como-dibujar-animales-paso-a-paso-para-imprimir-gratis",
+    },
+    groups: [
+      {
+        id: "safari",
+        title: {
+          en: "Big safari animals",
+          es: "Grandes animales de safari",
+          ru: "Крупные животные саванны",
+        },
+        sheets: [
+          S("draw-lion", "Lion", "León", "Лев"),
+          S("draw-elephant", "Elephant", "Elefante", "Слон"),
+          S("draw-zebra", "Zebra", "Cebra", "Зебра"),
+          S("draw-rhino", "Rhino", "Rinoceronte", "Носорог"),
+        ],
+      },
+      {
+        id: "jungle",
+        title: {
+          en: "Jungle and island animals",
+          es: "Animales de la selva y de las islas",
+          ru: "Джунгли и острова",
+        },
+        sheets: [
+          S("draw-monkey", "Monkey", "Mono", "Обезьяна"),
+          S("draw-crocodile", "Crocodile", "Cocodrilo", "Крокодил"),
+          S("draw-kangaroo", "Kangaroo", "Canguro", "Кенгуру"),
+          S("draw-lemur", "Lemur", "Lémur", "Лемур"),
+        ],
+      },
+      {
+        id: "birds",
+        title: { en: "Birds", es: "Pájaros", ru: "Птицы" },
+        sheets: [
+          S("draw-parrot", "Parrot", "Loro", "Попугай"),
+          S("draw-flamingo", "Flamingo", "Flamenco", "Фламинго"),
+        ],
+      },
+    ],
+    copy: {
+      en: {
+        title:
+          "Free printable how to draw pages for kids. Ten animals, steps on one sheet and room to practice on the next",
+        lead:
+          "Every download is two pages. The first shows the animal built up shape by shape. The second has the same animal in a dotted outline to trace, and a wide empty space where the child draws their own.",
+        body: [
+          "A child who says they cannot draw usually means they cannot draw the whole animal at once. Nobody can. What they can do is copy a circle, then an oval, then two ears. Six small copies later there is a lion on the page, and it was theirs. That moment is the entire point of these sheets.",
+          "These twenty pages are real pages from our printed book, drawn by hand. Print both sheets of an animal and set them side by side, the way they sit in the book. The child looks left and draws right.",
+          "Tracing the dotted outline first is worth the extra minute. It teaches the hand the shape before the child has to produce it alone, and it is good practice for fine motor control. After that the blank space is not intimidating, because the hand already knows where it is going.",
+          "Print as many as you like. No account, no email, nothing to pay.",
+        ],
+        howTo: [
+          "Each animal is one file with two pages inside: the steps, then the practice sheet",
+          "Print both pages single-sided and lay them side by side, not back to back",
+          "Two file sizes: US Letter and A4. Pick whichever your printer takes",
+          "A regular pencil first, so mistakes can be erased and the child keeps going",
+          "Trace the dotted animal, then draw your own in the empty space",
+        ],
+        pickLead:
+          "Loose sheets get lost by the end of the month. In the book the same pages are already bound in order, which is what turns them into a record.",
+        pickTitle: "The book these pages come from",
+        pickPoints: [
+          "111 animals, fairy-tale characters, flowers, food and gifts, broken into simple steps",
+          "Two kinds of practice for every drawing: a dotted outline to trace and a blank space to draw your own",
+          "231 pages, so no extra paper is needed and nothing gets separated",
+          "Every attempt stays in one place, in order, and years later you can open it and see how a child learned to draw",
+          "Finalist in the Educational category, Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "Why are there two pages for each animal?",
+            a: "Because that is how the book works. One page shows the steps, the facing page is where the child draws. Print both and put them next to each other and you have the spread from the book on your table.",
+          },
+          {
+            q: "Are these really free?",
+            a: "Yes. No account, no email, no payment. Print as many copies as you want, at home or at a school.",
+          },
+          {
+            q: "Can I use them in my classroom or library?",
+            a: "Yes, print them and hand them out freely. Please do not resell them or republish the files on another site.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same, only the sheet size differs.",
+          },
+          {
+            q: "What age are these for?",
+            a: "Roughly four to eight, depending on the child. A younger child can trace the dotted outline and stop there, which is already an achievement at that age.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "Dibujos paso a paso para imprimir gratis. Diez animales, los pasos en una hoja y sitio para practicar en la siguiente",
+        lead:
+          "Cada descarga son dos páginas. La primera muestra el animal construido forma a forma. La segunda trae el mismo animal en línea punteada para repasar y un espacio amplio en blanco donde el niño dibuja el suyo.",
+        body: [
+          "Cuando un niño dice que no sabe dibujar, casi siempre quiere decir que no sabe dibujar el animal entero de una vez. Nadie sabe. Lo que sí puede hacer es copiar un círculo, luego un óvalo, luego dos orejas. Seis copias pequeñas después hay un león en la hoja, y lo hizo él. Ese momento es todo el sentido de estas láminas.",
+          "Estas veinte páginas son páginas reales de nuestro libro impreso, dibujadas a mano. Imprime las dos hojas de un animal y ponlas una al lado de la otra, como están en el libro. El niño mira a la izquierda y dibuja a la derecha.",
+          "Vale la pena repasar primero la línea punteada. Enseña la forma a la mano antes de que el niño tenga que producirla solo, y es buena práctica de motricidad fina. Después el espacio en blanco ya no intimida, porque la mano sabe hacia dónde va.",
+          "Imprime las que quieras. Sin registro, sin correo, sin pagar nada.",
+        ],
+        howTo: [
+          "Cada animal es un archivo con dos páginas dentro: los pasos y luego la hoja de práctica",
+          "Imprime las dos páginas a una sola cara y ponlas una junto a la otra, no por delante y por detrás",
+          "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
+          "Primero un lápiz normal, así los errores se borran y el niño sigue adelante",
+          "Repasa el animal punteado y después dibuja el tuyo en el espacio en blanco",
+        ],
+        pickLead:
+          "Las hojas sueltas se pierden antes de que acabe el mes. En el libro esas mismas páginas ya están encuadernadas en orden, y eso es lo que las convierte en un recuerdo.",
+        pickTitle: "El libro del que salen estas páginas",
+        pickPoints: [
+          "111 animales, personajes de cuentos, flores, alimentos y regalos, divididos en pasos sencillos",
+          "Dos tipos de práctica en cada dibujo: una línea punteada para repasar y un espacio en blanco para dibujar el propio",
+          "231 páginas, así no hace falta papel aparte y nada se separa del resto",
+          "Cada intento se queda en un mismo sitio y en orden, y años después puedes abrirlo y ver cómo aprendió a dibujar",
+          "Finalista en la categoría Educativa de los Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "¿Por qué hay dos páginas por animal?",
+            a: "Porque así funciona el libro. Una página muestra los pasos y la de al lado es donde dibuja el niño. Imprime las dos y ponlas juntas: tendrás sobre la mesa la misma doble página del libro.",
+          },
+          {
+            q: "¿De verdad son gratis?",
+            a: "Sí. Sin registro, sin correo, sin pago. Imprime las copias que quieras, en casa o en una escuela.",
+          },
+          {
+            q: "¿Puedo usarlas en mi clase o en la biblioteca?",
+            a: "Sí, imprímelas y repártelas con total libertad. Solo te pedimos que no las revendas ni publiques los archivos en otra web.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elige A4. En Estados Unidos y Canadá, elige Carta. El dibujo es el mismo, solo cambia el tamaño de la hoja.",
+          },
+          {
+            q: "¿Para qué edad son?",
+            a: "Aproximadamente de cuatro a ocho años, según el niño. Uno más pequeño puede repasar la línea punteada y quedarse ahí, que a esa edad ya es un logro.",
+          },
+        ],
+      },
+    },
+  },
 ];
 
 export function pagesForLang(lang: UiLang): ColoringPage[] {

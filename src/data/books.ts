@@ -771,13 +771,15 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "How to Draw 111 Animals and Characters, Step by Step",
-        subtitle: "Every drawing broken into four steps a child can follow alone.",
+        subtitle: "Every drawing broken into simple steps a child can follow alone, with room to practice on the facing page.",
         lead:
-          "The point of this book is the moment a child draws something recognisable without an adult helping. Each of the 111 subjects is broken into four steps, starting from a circle or an oval, so the child can copy step one, then step two, and arrive at a finished animal on their own.",
+          "The point of this book is the moment a child draws something recognisable without an adult helping. Each of the 111 subjects is broken into simple steps, starting from a circle or an oval, so the child copies step one, then step two, and arrives at a finished animal on their own. Every drawing then gets a facing page to practice on, which is why the book runs to 231 pages and why nothing has to be done on loose paper. Years later that is what you are left with: one book, in order, showing exactly how a child learned to draw.",
         inside: [
           "111 subjects: animals, fairy-tale characters, flowers, food, gifts and more",
-          "Four steps per drawing, each step adding one simple shape",
-          "Space beside each sequence to draw your own",
+          "Simple steps for every drawing, each step adding one shape",
+          "Two kinds of practice on the facing page: a dotted outline to trace and a wide blank space to draw your own",
+          "A fun fact about each character, so there is something to read as well as draw",
+          "231 pages, so no extra paper is needed and every attempt stays in the book",
           "Finalist in the Educational category, Children's Book International Awards 2025",
           "8.5 x 11 inches",
         ],
@@ -791,6 +793,10 @@ export const books: Book[] = [
           {
             q: "How is this different from How to Draw Everything?",
             a: "This is the larger book with 111 subjects and more detail per drawing. How to Draw Everything is a shorter, simpler and cheaper introduction to the same method.",
+          },
+          {
+            q: "Does the child need a separate sketchbook?",
+            a: "No, and that is deliberate. Each drawing has its own practice page inside the book, so the finished attempts stay together in order instead of ending up on loose sheets that get thrown out.",
           },
         ],
       },
@@ -863,13 +869,15 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Cómo Dibujar 111 Animales y Personajes, Paso a Paso",
-        subtitle: "Cada dibujo dividido en cuatro pasos que el niño puede seguir solo.",
+        subtitle: "Cada dibujo dividido en pasos sencillos que el niño puede seguir solo, con sitio para practicar en la página de al lado.",
         lead:
-          "Lo importante de este libro es el momento en que un niño dibuja algo reconocible sin la ayuda de un adulto. Cada uno de los 111 temas se divide en cuatro pasos, empezando por un círculo o un óvalo, para que el niño copie el paso uno, luego el dos, y llegue solo a un animal terminado.",
+          "Lo importante de este libro es el momento en que un niño dibuja algo reconocible sin la ayuda de un adulto. Cada uno de los 111 temas se divide en pasos sencillos, empezando por un círculo o un óvalo: el niño copia el paso uno, luego el dos, y llega solo a un animal terminado. Después cada dibujo tiene su propia página para practicar, por eso el libro llega a 231 páginas y nada se hace en hojas sueltas. Años más tarde queda esto: un solo libro, en orden, que muestra cómo aprendió a dibujar.",
         inside: [
           "111 temas: animales, personajes de cuentos, flores, alimentos, regalos y más",
-          "Cuatro pasos por dibujo, cada paso añade una forma sencilla",
-          "Espacio junto a cada secuencia para dibujar el propio",
+          "Pasos sencillos en cada dibujo, cada paso añade una forma",
+          "Dos tipos de práctica en la página de al lado: una línea punteada para repasar y un espacio amplio en blanco",
+          "Un dato curioso sobre cada personaje, para leer además de dibujar",
+          "231 páginas, así no hace falta papel aparte y cada intento se queda en el libro",
           "Finalista en la categoría Educativa de los Children's Book International Awards 2025",
           "21.6 x 27.9 cm",
         ],
@@ -883,6 +891,10 @@ export const books: Book[] = [
           {
             q: "¿En qué se diferencia de Cómo Dibujar Todo?",
             a: "Este es el libro grande, con 111 temas y más detalle por dibujo. Cómo Dibujar Todo es una introducción más corta, más simple y más barata al mismo método.",
+          },
+          {
+            q: "¿Hace falta un cuaderno aparte?",
+            a: "No, y es intencionado. Cada dibujo tiene dentro su propia página de práctica, así los intentos terminados se quedan juntos y en orden, en vez de acabar en hojas sueltas que se tiran.",
           },
         ],
       },
@@ -947,7 +959,7 @@ export const books: Book[] = [
         title: "Cómo Dibujar Todo: Dibujos Fáciles Paso a Paso para Niños",
         subtitle: "La entrada corta y sencilla al dibujo paso a paso.",
         lead:
-          "Una versión más ligera del método paso a paso, a la mitad de precio. La misma lógica de cuatro pasos, con menos líneas por dibujo. Es el libro para probar primero si no sabes si al niño le va a gustar dibujar.",
+          "Una versión más ligera del método paso a paso, a la mitad de precio. La misma lógica de pasos sencillos, con menos líneas por dibujo. Es el libro para probar primero si no sabes si al niño le va a gustar dibujar.",
         inside: [
           "Secuencias paso a paso de animales, comida, plantas y objetos cotidianos",
           "Menos líneas por paso que en el libro grande de 111",

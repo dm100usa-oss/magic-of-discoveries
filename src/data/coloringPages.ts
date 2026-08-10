@@ -378,6 +378,144 @@ export const coloringPages: ColoringPage[] = [
       },
     },
   },
+  /* ===== Take a Break: Cute Animals, простые листы с толстой линией ===== */
+  {
+    id: "easy-adult-animals",
+    fromBookId: "take-a-break-animals-en",
+    fromBookIdEs: "take-a-break-animals-es",
+    slug: {
+      en: "free-printable-easy-animal-coloring-pages-for-adults",
+      es: "dibujos-de-animales-para-colorear-faciles-para-adultos-para-imprimir-gratis",
+    },
+    groups: [
+      {
+        id: "safari",
+        title: {
+          en: "Safari and jungle",
+          es: "Sabana y selva",
+          ru: "Сафари и джунгли",
+        },
+        sheets: [
+          S("easy-lion", "Lion", "León", "Лев"),
+          S("easy-elephant", "Elephant", "Elefante", "Слон"),
+          S("easy-zebra", "Zebra", "Cebra", "Зебра"),
+          S("easy-rhino", "Rhino", "Rinoceronte", "Носорог"),
+          S("easy-monkey", "Monkey", "Mono", "Обезьяна"),
+          S("easy-parrot", "Parrot", "Loro", "Попугай"),
+        ],
+      },
+      {
+        id: "woods-water",
+        title: {
+          en: "Woods, water and far places",
+          es: "Bosque, agua y lugares lejanos",
+          ru: "Лес, вода и дальние страны",
+        },
+        sheets: [
+          S("easy-bear", "Bear", "Oso", "Медведь"),
+          S("easy-raccoon", "Raccoon", "Mapache", "Енот"),
+          S("easy-frog", "Frog", "Rana", "Лягушка"),
+          S("easy-stork", "Stork", "Cigüeña", "Аист"),
+          S("easy-crocodile", "Crocodile", "Cocodrilo", "Крокодил"),
+          S("easy-kangaroo", "Kangaroo", "Canguro", "Кенгуру"),
+        ],
+      },
+    ],
+    copy: {
+      en: {
+        title:
+          "12 free printable easy coloring pages for adults. Thick lines, big shapes, one page in one sitting",
+        lead:
+          "Real pages from our printed book. Bold outlines and open areas, nothing tiny to squint at, and easy enough that a child can color the same sheet next to you.",
+        body: [
+          "Most adult coloring pages you find for free are dense mandalas. They take an hour, they ask a lot of your eyes, and half of them get abandoned somewhere in the third ring. These are the opposite. One animal, drawn large, with room to fill and lines thick enough to stay inside without effort.",
+          "That matters more than it sounds. A page you can finish is a page you come back to. These take about twenty minutes with a mug of tea, and at the end you have a whole picture rather than a corner of one.",
+          "All twelve are pages from our printed book, drawn by hand, not clipart pulled together for a website. Print them single-sided and any pen you like will do, including markers.",
+          "There is nothing to sign up for and nothing to pay. Print one, print all twelve, print the same one twice so two people can color it together.",
+        ],
+        howTo: [
+          "Two file sizes: US Letter and A4. Pick whichever your printer takes",
+          "Print single-sided on plain paper",
+          "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
+          "If you use markers, slip a spare sheet underneath",
+          "Print the same page twice and color one with someone else",
+        ],
+        pickLead: "If these twelve went quickly, there are 50 more in the book they came from.",
+        pickTitle: "The book these pages come from",
+        pickPoints: [
+          "50 hand drawn designs: animals, flowers, landscapes and plants",
+          "Large print: thick lines and open areas, comfortable when your eyes tire quickly",
+          "One design per page, printed on one side only, so markers do not spoil the next drawing",
+          "8.5 x 11 inches, the same size as these sheets",
+          "Easy enough for a child to color beside you, which is why the cover says adults and kids",
+        ],
+        faq: [
+          {
+            q: "Are these really free?",
+            a: "Yes. No account, no email, no payment. Print as many copies as you like, at home or anywhere else.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same, only the sheet size differs.",
+          },
+          {
+            q: "Can children color these?",
+            a: "Yes. The lines are thick and the shapes are large, which is exactly what a young hand needs. They were drawn for adults who want something easy, and that turns out to suit children too.",
+          },
+          {
+            q: "Can I use them in a class or a care home?",
+            a: "Yes, print them and hand them out freely. Please do not resell them or republish the files on another site.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "12 dibujos para colorear fáciles para adultos, gratis para imprimir. Trazos gruesos, formas grandes, una página de una sentada",
+        lead:
+          "Páginas reales de nuestro libro impreso. Contornos gruesos y zonas amplias, nada diminuto que forzar la vista, y tan sencillas que un niño puede colorear la misma hoja a tu lado.",
+        body: [
+          "Casi todos los dibujos gratis para adultos son mandalas muy cargados. Llevan una hora, exigen mucho a la vista, y la mitad se abandonan en el tercer anillo. Estos son lo contrario. Un animal, dibujado en grande, con espacio para rellenar y con trazos lo bastante gruesos para quedarse dentro sin esfuerzo.",
+          "Eso importa más de lo que parece. Una página que se termina es una página a la que se vuelve. Estas llevan unos veinte minutos con una taza de té, y al final tienes un dibujo entero y no una esquina.",
+          "Las doce son páginas de nuestro libro impreso, dibujadas a mano, no imágenes de archivo reunidas para una web. Imprímelas a una sola cara y sirve cualquier lápiz o rotulador.",
+          "No hay que registrarse ni pagar nada. Imprime una, imprime las doce, o imprime la misma dos veces para colorearla con alguien.",
+        ],
+        howTo: [
+          "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
+          "Imprime a una sola cara en papel normal",
+          "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
+          "Si usas rotuladores, pon una hoja debajo",
+          "Imprime la misma página dos veces y coloréala con alguien",
+        ],
+        pickLead: "Si estas doce se te han hecho cortas, en el libro del que salieron hay 50.",
+        pickTitle: "El libro del que salen estas páginas",
+        pickPoints: [
+          "50 dibujos hechos a mano: animales, flores, paisajes y plantas",
+          "Letra grande: trazos gruesos y zonas amplias, cómodo cuando la vista se cansa pronto",
+          "Un dibujo por página, impreso a una sola cara, para que los rotuladores no estropeen el siguiente",
+          "21.6 x 27.9 cm, el mismo tamaño que estas hojas",
+          "Bastante fácil para que un niño coloree a tu lado, y por eso la portada dice adultos y niños",
+        ],
+        faq: [
+          {
+            q: "¿De verdad son gratis?",
+            a: "Sí. Sin registro, sin correo, sin pago. Imprime las copias que quieras, en casa o donde sea.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elige A4. En Estados Unidos y Canadá, elige Carta. El dibujo es el mismo, solo cambia el tamaño de la hoja.",
+          },
+          {
+            q: "¿Pueden colorearlas los niños?",
+            a: "Sí. Los trazos son gruesos y las formas grandes, que es justo lo que necesita una mano pequeña. Se dibujaron para adultos que buscan algo fácil, y resulta que también les van bien a los niños.",
+          },
+          {
+            q: "¿Puedo usarlas en una clase o en una residencia?",
+            a: "Sí, imprímelas y repártelas con total libertad. Solo te pedimos que no las revendas ni publiques los archivos en otra web.",
+          },
+        ],
+      },
+    },
+  },
 ];
 
 export function pagesForLang(lang: UiLang): ColoringPage[] {

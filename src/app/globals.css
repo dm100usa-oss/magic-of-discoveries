@@ -91,42 +91,20 @@ img { max-width: 100%; height: auto; display: block; }
 
 .masthead { text-align: center; padding: clamp(1rem, 3vw, 1.75rem) 1rem 0.5rem; }
 
-/* Название сайта. Буквы как наклейки: широкая белая обводка вокруг каждой
-   буквы и еле заметный розовый контур снаружи. Белая обводка рисуется под
-   заливкой (paint-order), поэтому буква не худеет. Розовый контур собран
-   из теней, разнесенных чуть дальше белой обводки, и специально бледный:
-   он должен только очерчивать наклейку, а не рисовать вокруг буквы кольцо.
-   Цвета пастельные, как в образце, подняты по чистоте примерно на десятую
-   часть. Палитра сайта не тронута, эти оттенки живут только в названии. */
 .brand {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(1.6rem, 1rem + 4.4vw, 3.6rem);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
   margin: 0;
-  line-height: 1.18;
-  --ring: clamp(3px, 0.75vw, 9px);
-  --edge-pink: #f6dfe9;
+  line-height: 1.03;
 }
-.brand span {
-  -webkit-text-stroke: var(--ring) #fff;
-  paint-order: stroke fill;
-  text-shadow:
-    calc(var(--ring) * 1.35) 0 0 var(--edge-pink),
-    calc(var(--ring) * -1.35) 0 0 var(--edge-pink),
-    0 calc(var(--ring) * 1.35) 0 var(--edge-pink),
-    0 calc(var(--ring) * -1.35) 0 var(--edge-pink),
-    calc(var(--ring) * 0.95) calc(var(--ring) * 0.95) 0 var(--edge-pink),
-    calc(var(--ring) * -0.95) calc(var(--ring) * 0.95) 0 var(--edge-pink),
-    calc(var(--ring) * 0.95) calc(var(--ring) * -0.95) 0 var(--edge-pink),
-    calc(var(--ring) * -0.95) calc(var(--ring) * -0.95) 0 var(--edge-pink);
-}
-.brand span:nth-child(6n + 1) { color: #8ecdf7; }
-.brand span:nth-child(6n + 2) { color: #f7c74e; }
-.brand span:nth-child(6n + 3) { color: #ea5a92; }
-.brand span:nth-child(6n + 4) { color: #6fd3c4; }
-.brand span:nth-child(6n + 5) { color: #b6d94f; }
-.brand span:nth-child(6n) { color: #a86ade; }
+.brand span:nth-child(6n + 1) { color: var(--sky); }
+.brand span:nth-child(6n + 2) { color: var(--sun); }
+.brand span:nth-child(6n + 3) { color: var(--pink-hot); }
+.brand span:nth-child(6n + 4) { color: var(--mint); }
+.brand span:nth-child(6n + 5) { color: var(--leaf); }
+.brand span:nth-child(6n) { color: var(--grape); }
 
 .byline {
   font-family: var(--font-script);

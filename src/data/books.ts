@@ -1322,25 +1322,74 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328167", price: "$8.99" }],
     pdfUrl: WIX + "english-3",
     rating: { value: 5.0, count: 26 },
+    showcaseLead: {
+      en: "Four things worth seeing before you buy: how thick the lines are, how much open space each design has, how the pages are printed, and the range of subjects inside.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-animals-header.png",
+      w: 1940,
+      h: 1201,
+      alt: {
+        en: "Take a Break: Cute Animals, an easy large print coloring book for adults and kids, cover with a sleeping leopard and colored pencils",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-animals-lines.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          en: "Three pages from the book: strawberries, a monkey under a palm tree and a deer by a stream, all drawn with thick lines",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-size.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          en: "The book open at a duck among reeds, showing the 8.5 by 11 inch page and designs printed on one side only",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-themes.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          en: "Six more designs from the book: a snail, a parrot, a fox, a giraffe, acorns and a panda in bamboo",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-gift.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          en: "A wrapped present and colored pencils, the book as a gift for yourself or someone you love",
+        },
+      },
+    ],
     slug: { en: "take-a-break-cute-animals-easy-coloring-book-adults" },
     copy: {
       en: {
-        title: "Take a Break: Cute Animals. Easy Coloring Book for Adults",
-        subtitle: "50 bold and simple hand-drawn designs. No fine detail, no eye strain.",
+        title: "Take a Break: Cute Animals. Easy Coloring Book for Adults and Kids",
+        subtitle: "50 large print hand-drawn designs. No fine detail, no eye strain, one page finished in one sitting.",
         lead:
-          "An easy coloring book for adults, which is a smaller category than it should be. Most adult coloring books are dense mandalas that take an hour a page and leave you tense. These are 50 bold, open drawings you can finish in one sitting with a mug of tea.",
+          "An easy coloring book for adults, which is a smaller category than it should be. Most adult coloring books are dense mandalas that take an hour a page and leave you tense. These are 50 bold, open drawings you can finish in one sitting with a mug of tea. The lines are thick enough that a child can color the same page beside you, which is why the cover says adults and kids.",
         inside: [
           "50 hand-drawn designs: animals, flowers, landscapes and plants",
-          "Bold lines and open areas, comfortable for anyone whose eyes tire quickly",
-          "One design per page, printed single-sided",
+          "Large print: thick lines and open areas, comfortable for anyone whose eyes tire quickly",
+          "One design per page, printed single-sided, so markers do not spoil the next drawing",
           "8.5 x 11 inches",
         ],
         forWhom:
-          "Adults, teenagers, beginners and older colorists. Widely used for winding down in the evening and for shaky or tired hands.",
+          "Adults, teenagers, children coloring alongside a grown-up, beginners and older colorists. Widely used for winding down in the evening and for shaky or tired hands.",
         faq: [
           {
             q: "Is this too easy if I already color a lot?",
             a: "Possibly. This book is deliberately simple. If you want intricate mandalas, this is not that book. If you want to finish something in twenty minutes, it is.",
+          },
+          {
+            q: "Can children color in it too?",
+            a: "Yes. The shapes are large and the lines are thick, so children color these pages without help. The subjects are cute animals and plants rather than anything aimed only at grown-ups.",
           },
           faqBleed.en,
         ],
@@ -1362,25 +1411,74 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328264", price: "$8.99" }],
     pdfUrl: WIX + "spanish-2",
     rating: { value: 5.0, count: 11 },
+    showcaseLead: {
+      es: "Cuatro cosas que conviene ver antes de comprar: el grosor de la línea, el espacio libre de cada dibujo, cómo están impresas las páginas y la variedad de temas.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-animals-es-header.png",
+      w: 1940,
+      h: 1201,
+      alt: {
+        es: "Tómate un Descanso: Animales Adorables, libro de colorear fácil para adultos y niños, portada con un leopardo dormido y lápices de colores",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-animals-es-lines.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          es: "Tres páginas del libro: fresas, un mono bajo una palmera y un ciervo junto a un arroyo, dibujados con líneas gruesas",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-es-size.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          es: "El libro abierto por un patito entre juncos, con la página de 21,6 por 27,9 cm y los dibujos impresos por una sola cara",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-es-themes.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          es: "Seis dibujos más del libro: un caracol, un loro, un zorro, una jirafa, bellotas y un panda entre bambú",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-es-gift.png",
+        w: 1940,
+        h: 1201,
+        alt: {
+          es: "Un regalo envuelto y lápices de colores, el libro como regalo para ti o para alguien querido",
+        },
+      },
+    ],
     slug: { es: "tomate-un-descanso-animales-adorables-libro-colorear-adultos" },
     copy: {
       es: {
-        title: "Tómate un Descanso: Animales Adorables. Libro de Colorear Fácil para Adultos",
-        subtitle: "50 diseños grandes y sencillos, dibujados a mano. Sin detalle diminuto.",
+        title: "Tómate un Descanso: Animales Adorables. Libro de Colorear Fácil para Adultos y Niños",
+        subtitle: "50 diseños de línea gruesa, dibujados a mano. Sin detalle diminuto y una página se termina de una sentada.",
         lead:
-          "Un libro de colorear fácil para adultos, una categoría más pequeña de lo que debería. La mayoría de los libros para adultos son mandalas densos que exigen una hora por página y acaban cansando. Aquí hay 50 dibujos amplios y de línea gruesa que se terminan de una sentada con una taza de té.",
+          "Un libro de colorear fácil para adultos, una categoría más pequeña de lo que debería. La mayoría de los libros para adultos son mandalas densos que exigen una hora por página y acaban cansando. Aquí hay 50 dibujos amplios y de línea gruesa que se terminan de una sentada con una taza de té. La línea es tan gruesa que un niño puede colorear la misma página a tu lado, y por eso la portada dice adultos y niños.",
         inside: [
           "50 diseños dibujados a mano: animales, flores, paisajes y plantas",
-          "Líneas gruesas y zonas amplias, cómodas para quien se cansa la vista",
-          "Un diseño por página, impreso por una sola cara",
+          "Impresión grande: líneas gruesas y zonas amplias, cómodas para quien se cansa la vista",
+          "Un diseño por página, impreso por una sola cara, para que los marcadores no estropeen el dibujo siguiente",
           "21.6 x 27.9 cm",
         ],
         forWhom:
-          "Adultos, adolescentes, principiantes y personas mayores. Muy usado para desconectar por la noche y para manos cansadas o temblorosas.",
+          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y personas mayores. Muy usado para desconectar por la noche y para manos cansadas o temblorosas.",
         faq: [
           {
             q: "¿Es demasiado fácil si ya coloreo mucho?",
             a: "Puede que sí. Este libro es sencillo a propósito. Si buscas mandalas complejos, no es este. Si quieres terminar algo en veinte minutos, sí lo es.",
+          },
+          {
+            q: "¿Pueden colorearlo también los niños?",
+            a: "Sí. Las formas son grandes y las líneas gruesas, así que los niños colorean estas páginas sin ayuda. Los temas son animales tiernos y plantas, nada pensado solo para adultos.",
           },
           faqBleed.es,
         ],

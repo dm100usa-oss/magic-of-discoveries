@@ -94,23 +94,47 @@ img { max-width: 100%; height: auto; display: block; }
 .brand {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(1.6rem, 1rem + 4.4vw, 3.6rem);
+  font-size: clamp(2.15rem, 1.25rem + 5.2vw, 4.25rem);
   letter-spacing: 0.01em;
   margin: 0;
-  line-height: 1.03;
+  line-height: 0.96;
 }
-.brand span:nth-child(6n + 1) { color: var(--sky); }
-.brand span:nth-child(6n + 2) { color: var(--sun); }
-.brand span:nth-child(6n + 3) { color: var(--pink-hot); }
-.brand span:nth-child(6n + 4) { color: var(--mint); }
-.brand span:nth-child(6n + 5) { color: var(--leaf); }
-.brand span:nth-child(6n) { color: var(--grape); }
+.brand__line {
+  display: block;
+  width: fit-content;
+  margin-inline: auto;
+  white-space: nowrap;
+}
+.brand__line > span {
+  display: inline-block;
+  -webkit-text-stroke: 1px rgba(247, 79, 146, 0.26);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 2px 2px rgba(51, 32, 44, 0.07));
+}
+.brand__line > span:nth-child(6n + 1) { color: var(--sky); }
+.brand__line > span:nth-child(6n + 2) { color: var(--sun); }
+.brand__line > span:nth-child(6n + 3) { color: var(--pink-hot); }
+.brand__line > span:nth-child(6n + 4) { color: var(--mint); }
+.brand__line > span:nth-child(6n + 5) { color: var(--leaf); }
+.brand__line > span:nth-child(6n) { color: var(--grape); }
+
+/* Название разбито на две строки, и счет цветов на второй строке начинался
+   заново: D получала тот же голубой, что и M. В "MAGIC of" семь букв,
+   значит вторая строка должна продолжать круг с желтого. Здесь счет
+   второй строки сдвинут на одну позицию, и круг снова идет сплошным
+   через все название. */
+.brand__line + .brand__line > span:nth-child(6n + 1) { color: var(--sun); }
+.brand__line + .brand__line > span:nth-child(6n + 2) { color: var(--pink-hot); }
+.brand__line + .brand__line > span:nth-child(6n + 3) { color: var(--mint); }
+.brand__line + .brand__line > span:nth-child(6n + 4) { color: var(--leaf); }
+.brand__line + .brand__line > span:nth-child(6n + 5) { color: var(--grape); }
+.brand__line + .brand__line > span:nth-child(6n) { color: var(--sky); }
 
 .byline {
   font-family: var(--font-script);
   color: var(--pink-hot);
   font-size: clamp(1.1rem, 0.9rem + 1.2vw, 1.65rem);
-  margin: 0.15rem 0 0;
+  margin: 1.1rem 0 0;
 }
 
 .langbar { display: flex; justify-content: center; gap: 0.75rem; padding: 0.6rem 0 0.2rem; }

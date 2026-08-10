@@ -9,11 +9,15 @@ import { homePath, sectionPath, itemPath } from "@/lib/routes";
 const BRAND = "MAGIC of DISCOVERIES";
 
 export function Brand() {
+  const paint = (text: string, offset = 0) =>
+    text.split("").map((ch, i) =>
+      ch === " " ? " " : <span key={`${offset}-${i}`}>{ch}</span>
+    );
+
   return (
     <p className="brand" aria-label={SITE_NAME}>
-      {BRAND.split("").map((ch, i) =>
-        ch === " " ? " " : <span key={i}>{ch}</span>
-      )}
+      <span className="brand__line">{paint("MAGIC of")}</span>
+      <span className="brand__line">{paint("DISCOVERIES", 8)}</span>
     </p>
   );
 }

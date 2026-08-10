@@ -47,6 +47,13 @@
   --radius-sm: 12px;
   --shadow: 0 8px 26px rgba(217, 47, 116, 0.13);
   --shadow-lift: 0 14px 34px rgba(217, 47, 116, 0.2);
+  /* Подъем как в No AI Directory: плотная контактная тень у самой кромки
+     плюс мягкая рассеянная ниже. Свет сверху. Край почти невидимый,
+     работу делают тень и светлая фаска, а не контур. */
+  --shadow-raise: 0 2px 3px rgba(217, 47, 116, 0.10), 0 8px 22px rgba(217, 47, 116, 0.16);
+  --shadow-raise-hover: 0 4px 6px rgba(217, 47, 116, 0.12), 0 14px 32px rgba(217, 47, 116, 0.22);
+  --edge: 1px solid rgba(51, 32, 44, 0.06);
+  --bevel: inset 0 2px 0 rgba(255, 255, 255, 0.55);
   --maxw: 1200px;
 
   --font-display: "Baloo 2", system-ui, sans-serif;
@@ -174,48 +181,32 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 /* ==================== КНОПКИ ==================== */
 
 .btn {
-  display: inline-block; border: none; border-radius: 999px;
+  display: inline-block; border: var(--edge); border-radius: 999px;
   padding: 0.85rem 1.7rem; font-family: var(--font-body); font-weight: 800;
   font-size: var(--t-body); cursor: pointer; text-align: center;
-  box-shadow: var(--shadow);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  user-select: none;
+  box-shadow: var(--bevel), var(--shadow-raise);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
 }
-.btn:hover { text-decoration: none; box-shadow: var(--shadow-lift); }
-.btn:active { transform: scale(0.97); }
-/* У каждой кнопки свой край чуть темнее заливки. На светлом фоне и на
-   солнце с телефона одна тень кнопку не держит, край держит.
-   При нажатии заливка темнеет: на пальце сжатие почти не видно,
-   а потемнение видно всегда. Цвет нажатия это тот же цвет, умноженный
-   на 0.85, без осветления и без серой пленки поверх. */
-.btn--pink {
-  background: var(--pink-hot); color: #fff;
-  --press-bg: #d2437c;
-  box-shadow: var(--shadow), inset 0 0 0 1.5px var(--pink-deep);
+.btn:hover { text-decoration: none; box-shadow: var(--bevel), var(--shadow-raise-hover); }
+/* Нажатие: кнопка вдавливается и темнеет в своем же цвете.
+   Никакой серой пленки и никакого осветления, на пастельном они грязнят. */
+.btn:active {
+  transform: translateY(1px);
+  background: var(--press-bg, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 3px rgba(51, 32, 44, 0.12);
 }
-.btn--pink:hover { box-shadow: var(--shadow-lift), inset 0 0 0 1.5px var(--pink-deep); }
 
-.btn--sun {
-  background: var(--sun); color: #5a3900;
-  --press-bg: #d9a52b;
-  box-shadow: var(--shadow), inset 0 0 0 1.5px #d99a00;
-}
-.btn--sun:hover { box-shadow: var(--shadow-lift), inset 0 0 0 1.5px #d99a00; }
-
-.btn--mint {
-  background: var(--mint); color: #0c3f3b;
-  --press-bg: #53b0a8;
-  box-shadow: var(--shadow), inset 0 0 0 1.5px #35b3a9;
-}
-.btn--mint:hover { box-shadow: var(--shadow-lift), inset 0 0 0 1.5px #35b3a9; }
-
+.btn--pink { background: var(--pink-hot); color: #fff; --press-bg: #d2437c; }
+.btn--sun { background: var(--sun); color: #5a3900; --press-bg: #d9a52b; }
+.btn--mint { background: var(--mint); color: #0c3f3b; --press-bg: #53b0a8; }
+/* Светлая кнопка: тонкая розовая обводка вместо жирной,
+   подъем такой же, как у остальных. */
 .btn--ghost {
-  background: #fff; color: var(--pink-deep);
-  --press-bg: var(--pink-pale);
-  box-shadow: inset 0 0 0 2.5px var(--pink-hot);
+  background: #fff; color: var(--pink-deep); --press-bg: var(--pink-pale);
+  border-color: rgba(247, 79, 146, 0.55);
 }
-.btn--ghost:hover { box-shadow: inset 0 0 0 2.5px var(--pink-deep), var(--shadow); }
-
-.btn:active { background: var(--press-bg, inherit); }
+.btn--ghost:hover { border-color: var(--pink-hot); }
 
 /* ==================== СЕТКА КНИГ ==================== */
 
@@ -227,12 +218,12 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 .card:hover { text-decoration: none; }
 .card__frame {
   background: #fff; border-radius: var(--radius); padding: clamp(0.7rem, 1.6vw, 1.1rem);
-  border: 2px solid var(--pink-pale);
-  box-shadow: var(--shadow); height: 100%;
+  border: var(--edge);
+  box-shadow: var(--shadow-raise); height: 100%;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
-.card:hover .card__frame { transform: translateY(-5px); box-shadow: var(--shadow-lift); }
-.card:active .card__frame { transform: scale(0.99); box-shadow: var(--shadow); }
+.card:hover .card__frame { transform: translateY(-4px); box-shadow: var(--shadow-raise-hover); }
+.card:active .card__frame { transform: translateY(1px); box-shadow: 0 1px 3px rgba(51, 32, 44, 0.12); }
 .card__cover {
   aspect-ratio: 3 / 4; border-radius: var(--radius-sm); overflow: hidden;
   display: flex; align-items: center; justify-content: center;
@@ -481,12 +472,12 @@ dl.retail dd { margin: 0; font-size: var(--t-small); }
 @media (max-width: 620px) { .pick { grid-template-columns: 1fr; } }
 .pick__cover {
   display: block; background: #fff; border-radius: var(--radius);
-  border: 2px solid var(--pink-pale); padding: 0.6rem;
-  box-shadow: var(--shadow);
+  border: var(--edge); padding: 0.6rem;
+  box-shadow: var(--shadow-raise);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
-.pick__cover:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
-.pick__cover:active { transform: scale(0.99); box-shadow: var(--shadow); }
+.pick__cover:hover { transform: translateY(-4px); box-shadow: var(--shadow-raise-hover); }
+.pick__cover:active { transform: translateY(1px); box-shadow: 0 1px 3px rgba(51, 32, 44, 0.12); }
 .pick__cover img {
   display: block; width: 100%; height: auto;
   border-radius: var(--radius-sm);
@@ -522,12 +513,12 @@ ul.award-list li {
 .theme {
   display: block; text-decoration: none; color: inherit;
   background: var(--paper); border-radius: var(--radius);
-  border: 2px solid var(--pink-pale);
-  box-shadow: var(--shadow); padding: var(--gap-2);
+  border: var(--edge);
+  box-shadow: var(--shadow-raise); padding: var(--gap-2);
   transition: box-shadow 0.18s ease, transform 0.18s ease;
 }
-.theme:hover { box-shadow: var(--shadow-lift); transform: translateY(-2px); }
-.theme:active { transform: scale(0.99); box-shadow: var(--shadow); }
+.theme:hover { box-shadow: var(--shadow-raise-hover); transform: translateY(-2px); }
+.theme:active { transform: translateY(1px); box-shadow: 0 1px 3px rgba(51, 32, 44, 0.12); }
 .theme__strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: var(--gap-2); }
 .theme__strip img {
   width: 100%; height: auto; border-radius: var(--radius-sm);
@@ -571,16 +562,16 @@ ul.award-list li {
    Родитель на телефоне тычет в сам разворот, и это должно работать. */
 .sheet {
   margin: 0; background: #fff; border-radius: var(--radius);
-  border: 2px solid var(--pink-pale); padding: 0.7rem;
-  box-shadow: var(--shadow);
+  border: var(--edge); padding: 0.7rem;
+  box-shadow: var(--shadow-raise);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
-.sheet:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.sheet:hover { transform: translateY(-4px); box-shadow: var(--shadow-raise-hover); }
 .sheet__link { display: block; border-radius: var(--radius-sm); }
-.sheet__link:active { transform: scale(0.985); }
+.sheet__link:active { transform: translateY(1px); }
 .sheet img {
   width: 100%; height: auto; display: block; background: #fff;
-  border: 1px solid var(--pink-pale); border-radius: var(--radius-sm);
+  border: var(--edge); border-radius: var(--radius-sm);
 }
 .sheet h3 {
   font-family: var(--font-display); font-size: var(--t-h3); font-weight: 800;
@@ -596,8 +587,8 @@ ul.award-list li {
 }
 .fan img {
   width: 19%; min-width: 92px; height: auto; background: #fff;
-  border: 2px solid var(--pink-pale); border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
+  border: var(--edge); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-raise);
   margin-left: -3%;
   transform: rotate(calc((var(--i) - 4.5) * 2.6deg));
   transform-origin: bottom center;

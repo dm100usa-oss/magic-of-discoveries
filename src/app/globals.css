@@ -118,18 +118,6 @@ img { max-width: 100%; height: auto; display: block; }
 .brand__line > span:nth-child(6n + 5) { color: var(--leaf); }
 .brand__line > span:nth-child(6n) { color: var(--grape); }
 
-/* Название разбито на две строки, и счет цветов на второй строке начинался
-   заново: D получала тот же голубой, что и M. В "MAGIC of" семь букв,
-   значит вторая строка должна продолжать круг с желтого. Здесь счет
-   второй строки сдвинут на одну позицию, и круг снова идет сплошным
-   через все название. */
-.brand__line + .brand__line > span:nth-child(6n + 1) { color: var(--sun); }
-.brand__line + .brand__line > span:nth-child(6n + 2) { color: var(--pink-hot); }
-.brand__line + .brand__line > span:nth-child(6n + 3) { color: var(--mint); }
-.brand__line + .brand__line > span:nth-child(6n + 4) { color: var(--leaf); }
-.brand__line + .brand__line > span:nth-child(6n + 5) { color: var(--grape); }
-.brand__line + .brand__line > span:nth-child(6n) { color: var(--sky); }
-
 .byline {
   font-family: var(--font-script);
   color: var(--pink-hot);

@@ -1500,24 +1500,78 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328299", price: "$7.99" }],
     pdfUrl: WIX + "english-1",
     rating: { value: 5.0, count: 7 },
+    showcaseLead: {
+      en: "Four things worth seeing before you buy: how thick the lines are, the range of sea subjects inside, the page size, and how the pages are printed.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-ocean-header.png",
+      w: 1940,
+      h: 1200,
+      alt: {
+        en: "Take a Break: Ocean, an easy large print coloring book for adults and kids, cover with a sea otter floating on its back among shells and starfish",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-ocean-lines.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Three pages from the book: a submarine among seaweed, a group of shells and starfish, and a betta fish, all drawn with thick lines",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-themes.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Six more designs from the book: a school of fish, a shark, a treasure chest, a whale, a spiral shell and a mermaid on a rock",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-size.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "The book open at a beach umbrella and a ball, showing the 8.5 by 11 inch page and designs printed on one side only",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-gift.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "A wrapped present and colored pencils, the book as a gift for yourself or someone you love",
+        },
+      },
+    ],
     slug: { en: "take-a-break-ocean-easy-coloring-book-adults-kids" },
     copy: {
       en: {
         title: "Take a Break: Ocean. Easy Coloring Book for Adults and Kids",
-        subtitle: "50 bold sea drawings: sea animals, fish, quiet beaches.",
+        subtitle: "50 large print sea drawings. Thick lines, wide open water, one page finished in one sitting.",
         lead:
-          "Sea animals, fish, shells and calm beaches, drawn in the same bold easy style. Ocean subjects suit this format particularly well, because water, sand and sky are large open areas that reward slow, unhurried coloring.",
+          "Sea animals, fish, shells and quiet beaches, drawn in the same bold easy style as the rest of the series. Ocean subjects suit this format particularly well: water, sand and sky are large open areas, and there is nothing fiddly to squint at. The lines are thick enough that a child can color the same page beside you, which is why the cover says adults and kids.",
         inside: [
-          "50 hand-drawn ocean designs",
-          "Bold lines, large open areas",
-          "One design per page, single-sided",
+          "50 hand-drawn ocean designs: sea animals, fish, shells, boats, beaches and a mermaid",
+          "Large print: thick lines and wide open areas, comfortable for anyone whose eyes tire quickly",
+          "One design per page, printed single-sided, so markers do not spoil the next drawing",
           "8.5 x 11 inches",
         ],
-        forWhom: "Adults, teenagers and children coloring alongside a parent.",
+        forWhom:
+          "Adults, teenagers, children coloring alongside a grown-up, beginners and anyone who wants something calm at the end of the day. It is also an easy gift: the subjects are gentle and nothing in the book is aimed at one age only.",
         faq: [
           {
+            q: "Is this too easy if I already color a lot?",
+            a: "Possibly. This book is deliberately simple. If you want intricate mandalas, this is not that book. If you want to finish a page in twenty minutes, it is.",
+          },
+          {
             q: "Can a child use this book too?",
-            a: "Yes. The designs are simple enough for a school-age child, which is why families often color from the same book together.",
+            a: "Yes. The shapes are large and the lines are thick, so a school-age child colors these pages without help. Families often work through the same book together.",
+          },
+          {
+            q: "How is this different from the Cute Animals book in the series?",
+            a: "Same format, same line weight, different subjects. Cute Animals is land animals, flowers and plants. Ocean is sea life, shells, boats and beaches. Many readers own both.",
           },
           faqBleed.en,
         ],

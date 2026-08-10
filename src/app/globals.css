@@ -92,6 +92,42 @@ img { max-width: 100%; height: auto; display: block; }
    после удаления цветной полосы название поднялось к самому краю окна. */
 .masthead { text-align: center; padding: clamp(2.2rem, 3vw + 1.2rem, 2.95rem) 1rem 0.5rem; }
 
+/* Шар и название стоят в один ряд по центру. */
+.masthead__inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(0.8rem, 2.6vw, 2.4rem);
+}
+
+/* Размер шара взят с образца владельца: на снимке шар 248 на 356 точек,
+   название 991 на 295, то есть высота шара в 1.21 раза больше высоты
+   названия. Название занимает две строки, это 2.24 кегля, значит высота
+   шара равна 2.7 кегля названия. Формула ниже повторяет размер названия
+   и множит его на 2.7, поэтому шар и буквы всегда растут вместе. */
+.balloon {
+  height: calc(2.7 * clamp(2.47rem, 1.44rem + 6vw, 4.89rem));
+  width: auto; flex: none;
+  transform-origin: 50% 100%;
+  animation: balloon-in 1.5s cubic-bezier(0.22, 0.9, 0.3, 1) both,
+             balloon-float 7s ease-in-out 1.5s infinite;
+}
+/* Прилетает снизу слева один раз, дальше тихо покачивается.
+   Медленно и мягко: рядом текст, дерганая картинка мешала бы читать. */
+@keyframes balloon-in {
+  from { opacity: 0; transform: translate(-46px, 90px) rotate(-9deg) scale(0.86); }
+  to   { opacity: 1; transform: translate(0, 0) rotate(0deg) scale(1); }
+}
+@keyframes balloon-float {
+  0%   { transform: translateY(0) rotate(0deg); }
+  25%  { transform: translateY(-7px) rotate(1.6deg); }
+  50%  { transform: translateY(-10px) rotate(0deg); }
+  75%  { transform: translateY(-4px) rotate(-1.6deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+/* У кого в системе выключены анимации, шар стоит на месте. */
+@media (prefers-reduced-motion: reduce) {
+  .balloon { animation: none; }
+}
+
 .brand {
   font-family: var(--font-display);
   font-weight: 800;

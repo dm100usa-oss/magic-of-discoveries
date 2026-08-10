@@ -6,6 +6,7 @@ export interface Dictionary {
   nav: {
     home: string;
     books: string;
+    method: string;
     coloringPages: string;
     about: string;
     contact: string;
@@ -59,6 +60,35 @@ export interface Dictionary {
     ratingSource: string;
     ratingAria: string;
   };
+  method: {
+    title: string;
+    lead: string;
+    ideaTitle: string;
+    idea: string[];
+    ladderTitle: string;
+    ladderLead: string;
+    ladder: { age: string; can: string; needs: string }[];
+    guidesTitle: string;
+    guidesLead: string;
+    awardsTitle: string;
+    awardsLead: string;
+    reviewsTitle: string;
+    reviewsLead: string;
+    retailTitle: string;
+    retailLead: string;
+    regions: Record<string, string>;
+    standardTitle: string;
+    standardBody: string;
+    standardLink: string;
+    ageNote: string;
+    guideCheck: string;
+    guidePick: string;
+    guideFaq: string;
+    guideBack: string;
+    bookAward: string;
+    bookRetail: string;
+    bookMethod: string;
+  };
   free: {
     title: string;
     lead: string;
@@ -86,6 +116,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
     nav: {
       home: "Home",
       books: "Books",
+      method: "The method",
       coloringPages: "Free coloring pages",
       about: "About us",
       contact: "Contact",
@@ -154,10 +185,76 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ratingSource: "Read the reviews on Amazon",
       ratingAria: "Read customer reviews on Amazon",
     },
+    method: {
+      title: "Books built so a child can finish them",
+      lead:
+        "Every book we publish is made to one idea: the child has to succeed at it. A page a child completes is a page that makes them ask for another one tomorrow.",
+      ideaTitle: "The idea behind every book",
+      idea: [
+        "Children do not give up on drawing or reading because they lack interest. They give up when the result does not match what they pictured. A thin outline a small hand cannot follow, a story that runs longer than the child can listen, a drawing lesson with steps too big to copy. Each one ends the same way: the book closes.",
+        "So we design backwards from the finish. First we ask what the child can already do, then we set the line weight, the number of objects on the page, the length of the story and the number of drawing steps to sit just inside that. What comes out is a book that gets completed, and completion is what brings the child back.",
+        "Ricardo calls this the ECL approach, for emotional, creative and linguistic. The three grow together rather than in turn. A child feels something, draws it, and then finds the words for it, and the words deepen the feeling. Our bedtime stories, coloring books, drawing guides and bilingual editions are the same idea at four different stages.",
+      ],
+      ladderTitle: "What changes with age",
+      ladderLead:
+        "The age on a cover describes the book, not your child. Use this as a map, then check it against what your child actually does.",
+      ladder: [
+        {
+          age: "1 to 3 years",
+          can: "Sweeps a crayon rather than fills. Listens for a few minutes. Names familiar things.",
+          needs: "Thick outlines, one large object per page, short repeated phrases, large pictures.",
+        },
+        {
+          age: "3 to 5 years",
+          can: "Stays roughly inside the line. Follows a short sequence of events. Asks what happens next.",
+          needs: "More themes, several elements per page, a five to seven minute story with one clear problem.",
+        },
+        {
+          age: "5 to 7 years",
+          can: "Colors accurately. Follows dialogue. Starts judging their own drawing.",
+          needs: "More detail, longer stories with motives, drawing broken into steps that can be copied.",
+        },
+        {
+          age: "7 to 10 years",
+          can: "Works independently for longer. Reads alone. Compares their result to the example.",
+          needs: "Structured drawing, stories with real choices in them, a second language alongside a familiar one.",
+        },
+      ],
+      guidesTitle: "Choosing a book",
+      guidesLead:
+        "Short, practical answers to the questions parents actually ask, each ending in the one book we would hand you.",
+      awardsTitle: "Awards",
+      awardsLead: "Recognition for individual titles, with the program, category and year.",
+      reviewsTitle: "Independent reviews",
+      reviewsLead: "Editorial review platforms that assess books independently of the publisher.",
+      retailTitle: "Where our books are sold",
+      retailLead:
+        "Our titles are carried by retailers on four continents. If you are outside the United States, one of these will ship to you.",
+      regions: {
+        us: "United States",
+        europe: "Europe and United Kingdom",
+        latam: "Latin America",
+        africa: "Africa",
+        global: "Worldwide",
+      },
+      standardTitle: "The method in full",
+      standardBody:
+        "The full framework, including the age groups, the skill map and the parameters used for each kind of book, is published openly and can be read in its complete form.",
+      standardLink: "Read the full methodology",
+      ageNote:
+        "Ages are a starting point, not a rule. Buy for what your child does today, not for the number on the cover.",
+      guideCheck: "What to look for",
+      guidePick: "The book we would pick",
+      guideFaq: "Questions parents ask",
+      guideBack: "All guides",
+      bookAward: "Awarded",
+      bookRetail: "Also sold at",
+      bookMethod: "How this book is built",
+    },
     free: {
       title: "Free coloring pages to print",
       lead:
-        "Pick a page, print it, colour it. Every page here is a real page from one of our books, so nothing is drawn worse because it is free.",
+        "Pick a page, print it, color it. Every page here is a real page from one of our books, so nothing is drawn worse because it is free.",
       comingSoon:
         "The first pages are being prepared. If you want one particular animal or theme, write to us and we will put it up.",
     },
@@ -166,7 +263,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       body: [
         "Hi, we are Ricardo and Maria. Ricardo is an educator, researcher and writer. Maria loves design and drawing. We make books that help unlock what is already in a child, in a light and unforced way.",
         "We believe every child has hidden potential that can be developed from an early age. We do our best to bring something useful and something joyful to both children and their parents.",
-        "We have a beloved dog, an English Cocker Spaniel called Rocky, who became the hero of his own books. Our family lives in sunny Miami, Florida, and the city's colour and pace feed most of what we make.",
+        "We have a beloved dog, an English Cocker Spaniel called Rocky, who became the hero of his own books. Our family lives in sunny Miami, Florida, and the city's color and pace feed most of what we make.",
       ],
     },
     contact: {
@@ -183,6 +280,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
     nav: {
       home: "Inicio",
       books: "Libros",
+      method: "El método",
       coloringPages: "Dibujos gratis",
       about: "Quiénes somos",
       contact: "Contacto",
@@ -251,6 +349,72 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ratingSource: "Leer las opiniones en Amazon",
       ratingAria: "Leer las opiniones de los clientes en Amazon",
     },
+    method: {
+      title: "Libros hechos para que un niño pueda terminarlos",
+      lead:
+        "Cada libro que publicamos responde a una sola idea: el niño tiene que lograrlo. Una página que el niño termina es una página que le hace pedir otra mañana.",
+      ideaTitle: "La idea detrás de cada libro",
+      idea: [
+        "Los niños no abandonan el dibujo ni la lectura por falta de interés. Abandonan cuando el resultado no se parece a lo que imaginaban. Un contorno fino que una mano pequeña no puede seguir, un cuento más largo de lo que el niño aguanta escuchando, una lección de dibujo con pasos demasiado grandes para copiar. Todas terminan igual: el libro se cierra.",
+        "Por eso diseñamos empezando por el final. Primero preguntamos qué es capaz de hacer ya el niño, y después fijamos el grosor de línea, el número de objetos por página, la duración del cuento y el número de pasos de dibujo justo por debajo de ese límite. Lo que sale es un libro que se termina, y terminarlo es lo que hace volver al niño.",
+        "Ricardo llama a esto el enfoque ECL, por emocional, creativo y lingüístico. Los tres crecen juntos, no por turnos. El niño siente algo, lo dibuja, y luego encuentra las palabras, y las palabras profundizan lo que siente. Nuestros cuentos para dormir, libros para colorear, guías de dibujo y ediciones bilingües son la misma idea en cuatro etapas distintas.",
+      ],
+      ladderTitle: "Qué cambia con la edad",
+      ladderLead:
+        "La edad de una portada describe el libro, no a tu hijo. Usa esto como mapa y después contrástalo con lo que tu hijo hace de verdad.",
+      ladder: [
+        {
+          age: "1 a 3 años",
+          can: "Barre con el crayón en lugar de rellenar. Escucha unos minutos. Nombra cosas familiares.",
+          needs: "Contornos gruesos, un objeto grande por página, frases cortas que se repiten, ilustraciones grandes.",
+        },
+        {
+          age: "3 a 5 años",
+          can: "Se queda más o menos dentro de la línea. Sigue una secuencia corta de sucesos. Pregunta qué pasa después.",
+          needs: "Más temas, varios elementos por página, un cuento de cinco a siete minutos con un problema claro.",
+        },
+        {
+          age: "5 a 7 años",
+          can: "Colorea con precisión. Sigue diálogos. Empieza a juzgar su propio dibujo.",
+          needs: "Más detalle, cuentos más largos con motivaciones, dibujo dividido en pasos que se pueden copiar.",
+        },
+        {
+          age: "7 a 10 años",
+          can: "Trabaja solo durante más rato. Lee por su cuenta. Compara su resultado con el ejemplo.",
+          needs: "Dibujo estructurado, cuentos con decisiones reales, un segundo idioma junto a uno conocido.",
+        },
+      ],
+      guidesTitle: "Cómo elegir un libro",
+      guidesLead:
+        "Respuestas cortas y prácticas a las preguntas que los padres hacen de verdad, y cada una termina en el libro que te daríamos.",
+      awardsTitle: "Premios",
+      awardsLead: "Reconocimientos a títulos concretos, con el programa, la categoría y el año.",
+      reviewsTitle: "Reseñas independientes",
+      reviewsLead: "Plataformas editoriales que valoran los libros de forma independiente del editor.",
+      retailTitle: "Dónde se venden nuestros libros",
+      retailLead:
+        "Nuestros títulos están en librerías de cuatro continentes. Si estás fuera de Estados Unidos, alguna de estas te envía.",
+      regions: {
+        us: "Estados Unidos",
+        europe: "Europa y Reino Unido",
+        latam: "América Latina",
+        africa: "África",
+        global: "Todo el mundo",
+      },
+      standardTitle: "El método completo",
+      standardBody:
+        "El marco completo, con los grupos de edad, el mapa de habilidades y los parámetros usados para cada tipo de libro, está publicado de forma abierta y puede leerse entero.",
+      standardLink: "Leer la metodología completa",
+      ageNote:
+        "Las edades son un punto de partida, no una regla. Compra según lo que tu hijo hace hoy, no según el número de la portada.",
+      guideCheck: "En qué fijarse",
+      guidePick: "El libro que elegiríamos",
+      guideFaq: "Preguntas que hacen los padres",
+      guideBack: "Todas las guías",
+      bookAward: "Premiado",
+      bookRetail: "También a la venta en",
+      bookMethod: "Cómo está construido este libro",
+    },
     free: {
       title: "Dibujos gratis para imprimir",
       lead:
@@ -280,6 +444,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
     nav: {
       home: "Главная",
       books: "Книги",
+      method: "Метод",
       coloringPages: "Бесплатные раскраски",
       about: "О нас",
       contact: "Контакты",
@@ -347,6 +512,72 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ratingReviews: "оценок",
       ratingSource: "Читать отзывы на Amazon",
       ratingAria: "Читать отзывы покупателей на Amazon",
+    },
+    method: {
+      title: "Книги, которые ребенок может закончить",
+      lead:
+        "Каждая наша книга сделана по одному принципу: у ребенка должно получиться. Законченная страница это та, после которой ребенок просит следующую.",
+      ideaTitle: "Идея, на которой построены все книги",
+      idea: [
+        "Дети бросают рисовать и слушать не от отсутствия интереса. Они бросают, когда результат не совпадает с тем, что они себе представляли. Тонкий контур, в который маленькая рука не попадает. Сказка длиннее, чем ребенок может слушать. Шаг в рисовании, слишком большой, чтобы повторить. Итог всегда один: книга закрывается.",
+        "Поэтому мы проектируем от конца. Сначала смотрим, что ребенок уже умеет, и только потом задаем толщину линии, число предметов на странице, длину сказки и количество шагов в рисунке, чуть ниже его предела. Получается книга, которую доводят до конца, а именно это возвращает ребенка назавтра.",
+        "Рикардо называет это подходом ECL: эмоции, творчество, язык. Они растут не по очереди, а вместе. Ребенок что то чувствует, рисует это, потом находит слова, и слова углубляют чувство. Сказки на ночь, раскраски, пошаговое рисование и двуязычные издания это одна и та же идея на четырех стадиях.",
+      ],
+      ladderTitle: "Что меняется с возрастом",
+      ladderLead:
+        "Возраст на обложке описывает книгу, а не вашего ребенка. Пользуйтесь этим как картой и сверяйте с тем, что ребенок делает на самом деле.",
+      ladder: [
+        {
+          age: "1-3 года",
+          can: "Мажет карандашом, а не закрашивает. Слушает несколько минут. Называет знакомые предметы.",
+          needs: "Толстый контур, один крупный предмет на странице, короткие повторяющиеся фразы, большие картинки.",
+        },
+        {
+          age: "3-5 лет",
+          can: "Примерно попадает в контур. Следит за короткой цепочкой событий. Спрашивает, что дальше.",
+          needs: "Больше тем, несколько предметов на странице, сказка на пять семь минут с одной понятной задачей.",
+        },
+        {
+          age: "5-7 лет",
+          can: "Закрашивает точно. Понимает диалог. Начинает оценивать свой рисунок.",
+          needs: "Больше деталей, длиннее истории с мотивами, рисование, разбитое на повторяемые шаги.",
+        },
+        {
+          age: "7-10 лет",
+          can: "Работает самостоятельно дольше. Читает сам. Сравнивает свой результат с образцом.",
+          needs: "Структурное рисование, истории с настоящим выбором, второй язык рядом со знакомым.",
+        },
+      ],
+      guidesTitle: "Как выбрать книгу",
+      guidesLead:
+        "Короткие практические ответы на вопросы, которые родители задают на самом деле. Каждый заканчивается одной книгой.",
+      awardsTitle: "Награды",
+      awardsLead: "Награды отдельным изданиям, с названием премии, категорией и годом.",
+      reviewsTitle: "Независимые рецензии",
+      reviewsLead: "Рецензионные площадки, которые оценивают книги независимо от издательства.",
+      retailTitle: "Где продаются наши книги",
+      retailLead:
+        "Наши издания продаются на четырех континентах. Если вы за пределами США, одна из этих площадок доставит.",
+      regions: {
+        us: "США",
+        europe: "Европа и Великобритания",
+        latam: "Латинская Америка",
+        africa: "Африка",
+        global: "Весь мир",
+      },
+      standardTitle: "Методика целиком",
+      standardBody:
+        "Полное описание системы, с возрастными группами, картой навыков и параметрами для каждого типа книги, опубликовано открыто и доступно целиком.",
+      standardLink: "Читать методику полностью",
+      ageNote:
+        "Возраст это отправная точка, а не правило. Покупайте по тому, что ребенок умеет сегодня, а не по цифре на обложке.",
+      guideCheck: "На что смотреть",
+      guidePick: "Книга, которую мы бы выбрали",
+      guideFaq: "Вопросы родителей",
+      guideBack: "Все руководства",
+      bookAward: "Награды",
+      bookRetail: "Также продается в",
+      bookMethod: "Как построена эта книга",
     },
     free: {
       title: "Бесплатные раскраски для печати",

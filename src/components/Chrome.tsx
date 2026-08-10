@@ -23,6 +23,7 @@ export function Header({ lang }: { lang: UiLang }) {
   const items: [string, string][] = [
     [homePath(lang), t.nav.home],
     [sectionPath(lang, "books"), t.nav.books],
+    [sectionPath(lang, "method"), t.nav.method],
     [sectionPath(lang, "coloring"), t.nav.coloringPages],
     [sectionPath(lang, "about"), t.nav.about],
     [sectionPath(lang, "contact"), t.nav.contact],

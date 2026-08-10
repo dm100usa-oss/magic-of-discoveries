@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { booksForLang } from "@/data/books";
 import { pagesForLang } from "@/data/coloringPages";
+import { guidesForLang } from "@/data/method";
 import { activeLangs } from "@/data/dictionaries";
 import { SITE_URL } from "@/lib/site";
 import { sectionPath, itemPath, homePath, sectionSlugs } from "@/lib/routes";
@@ -18,6 +19,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
     for (const p of pagesForLang(lang)) {
       out.push({ url: SITE_URL + itemPath(lang, "coloring", p.slug[lang]!), priority: 0.7 });
+    }
+    for (const g of guidesForLang(lang)) {
+      out.push({ url: SITE_URL + itemPath(lang, "method", g.slug[lang]!), priority: 0.85 });
     }
   }
   return out;

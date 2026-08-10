@@ -10,11 +10,18 @@ import {
   type Book,
 } from "@/data/books";
 import { coloringPages, pagesForLang } from "@/data/coloringPages";
+import {
+  guidesForLang,
+  guideBySlug,
+  guideBookId,
+  awardsForBook,
+  retailers,
+} from "@/data/method";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard, PageHead } from "@/components/Chrome";
 import { RatingLink } from "@/components/Rating";
 import { SITE_URL, PUBLISHER, AUTHORS } from "@/lib/site";
-import { sectionFromSlug, sectionSlugs, itemPath } from "@/lib/routes";
+import { sectionFromSlug, sectionSlugs, itemPath, sectionPath } from "@/lib/routes";
 
 export function generateStaticParams() {
   const out: { lang: string; section: string; slug: string }[] = [];
@@ -24,6 +31,9 @@ export function generateStaticParams() {
     }
     for (const p of pagesForLang(lang)) {
       out.push({ lang, section: sectionSlugs[lang].coloring, slug: p.slug[lang]! });
+    }
+    for (const g of guidesForLang(lang)) {
+      out.push({ lang, section: sectionSlugs[lang].method, slug: g.slug[lang]! });
     }
   }
   return out;
@@ -68,6 +78,21 @@ export async function generateMetadata({
       title: copy.title,
       description: copy.lead,
       alternates: { canonical: itemPath(lang, "coloring", slug) },
+    };
+  }
+
+  if (s === "method") {
+    const guide = guideBySlug(lang, slug);
+    const copy = guide?.copy[lang];
+    if (!guide || !copy) return {};
+    const languages: Record<string, string> = {};
+    for (const l of activeLangs) {
+      if (guide.slug[l]) languages[l] = `${SITE_URL}${itemPath(l, "method", guide.slug[l]!)}`;
+    }
+    return {
+      title: copy.title,
+      description: copy.lead,
+      alternates: { canonical: itemPath(lang, "method", slug), languages },
     };
   }
   return {};
@@ -135,6 +160,115 @@ export default async function ItemPage({
     );
   }
 
+  /* ---------- Страница-руководство раздела Метод ---------- */
+  if (s === "method") {
+    const guide = guideBySlug(lang, slug);
+    const copy = guide?.copy[lang];
+    if (!guide || !copy) notFound();
+    const m = t.method;
+    const pick = bookById(guideBookId(guide, lang));
+    const pickCopy = pick?.copy[lang];
+    const pickSlug = pick?.slug[lang];
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: copy.title,
+          description: copy.lead,
+          inLanguage: lang,
+          author: { "@type": "Organization", name: PUBLISHER },
+          publisher: { "@type": "Organization", name: PUBLISHER },
+          mainEntityOfPage: `${SITE_URL}${itemPath(lang, "method", slug)}`,
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: copy.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <PageHead title={copy.title} lead={copy.lead} />
+
+        <div className="wrap guide">
+          <div className="prose">
+            {copy.body.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+
+          <h2 className="section">{m.guideCheck}</h2>
+          <ul className="inside">
+            {copy.checklist.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+
+          {pick && pickCopy && pickSlug ? (
+            <>
+              <h2 className="section">{m.guidePick}</h2>
+              <div className="pick">
+                <Link href={itemPath(lang, "books", pickSlug)} className="pick__cover">
+                  {pick.cover ? (
+                    <img
+                      src={pick.cover}
+                      alt={pickCopy.title}
+                      width={pick.coverSize?.w ?? 900}
+                      height={pick.coverSize?.h ?? 1160}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="card__placeholder">{pickCopy.title}</span>
+                  )}
+                </Link>
+                <div>
+                  <p className="lead-text">{copy.pick}</p>
+                  <p className="subtitle">
+                    <Link href={itemPath(lang, "books", pickSlug)}>{pickCopy.title}</Link>
+                  </p>
+                  <p>{pickCopy.subtitle}</p>
+                  <BuyButtons book={pick} lang={lang} />
+                  {pick.rating ? (
+                    <RatingLink
+                      rating={pick.rating}
+                      asin={(pick.formats.find((f) => f.kind !== "kindle") ?? pick.formats[0]).asin}
+                      labelReviews={t.book.ratingReviews}
+                      labelSource={t.book.ratingSource}
+                      ariaLabel={t.book.ratingAria}
+                    />
+                  ) : null}
+                  <p className="buy-note">{t.book.formatNote}</p>
+                </div>
+              </div>
+            </>
+          ) : null}
+
+          <h2 className="section">{m.guideFaq}</h2>
+          <div className="faq">
+            {copy.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+
+          <p style={{ padding: "var(--gap-4) 0 var(--band-y)" }}>
+            <Link href={sectionPath(lang, "method")}>{m.guideBack}</Link>
+          </p>
+        </div>
+      </>
+    );
+  }
+
   /* ---------- Страница книги ---------- */
   if (s !== "books") notFound();
   const book = bookBySlug(lang, slug);
@@ -154,6 +288,7 @@ export default async function ItemPage({
     .slice(0, 4);
 
   const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
+  const bookAwards = awardsForBook(book.id);
 
   const schema = {
     "@context": "https://schema.org",
@@ -233,6 +368,21 @@ export default async function ItemPage({
               {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}
             </p>
 
+            {bookAwards.length ? (
+              <ul className="award-list">
+                {bookAwards.map((a) => (
+                  <li key={`${a.program}-${a.year}`}>
+                    <span className="award-list__tag">{t.method.bookAward}</span>{" "}
+                    {a.result[lang] ?? a.result.en} · {a.category[lang] ?? a.category.en} ·{" "}
+                    <a href={a.programUrl} rel="nofollow noopener" target="_blank">
+                      {a.program}
+                    </a>{" "}
+                    {a.year}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
             <h2 className="section">{t.book.inside}</h2>
             <ul className="inside">
               {copy.inside.map((line) => (
@@ -297,6 +447,25 @@ export default async function ItemPage({
                 <dd>{PUBLISHER}</dd>
               </dl>
             </div>
+
+            <p className="method-line">
+              {t.method.bookMethod}:{" "}
+              <Link href={sectionPath(lang, "method")}>{t.method.title}</Link>
+            </p>
+
+            <p className="retail-line">
+              {t.method.bookRetail}:{" "}
+              {retailers
+                .filter((r) => r.name !== "Amazon")
+                .map((r, i) => (
+                  <span key={r.name}>
+                    {i > 0 ? " · " : ""}
+                    <a href={r.url} rel="nofollow noopener" target="_blank">
+                      {r.name}
+                    </a>
+                  </span>
+                ))}
+            </p>
 
             {pair && pairLang && pair.slug[pairLang] ? (
               <p>

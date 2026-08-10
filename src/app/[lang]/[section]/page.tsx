@@ -5,15 +5,23 @@ import {
   booksForLang,
   ageOrder,
   cheapestFormat,
+  bookById,
   type UiLang,
   type AgeGroup,
   type BookType,
 } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { pagesForLang } from "@/data/coloringPages";
+import {
+  awards,
+  reviewSources,
+  retailers,
+  guidesForLang,
+  type RetailerRegion,
+} from "@/data/method";
 import { PageHead } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
-import { SITE_URL, CONTACT_EMAIL, AUTHORS } from "@/lib/site";
+import { SITE_URL, CONTACT_EMAIL, PUBLISHER, AUTHORS, METHOD_REFERENCE_URL } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
 
 const TYPES: BookType[] = ["coloring", "drawing", "bedtime", "bilingual"];
@@ -31,6 +39,8 @@ function headingFor(lang: UiLang, s: Section) {
   switch (s) {
     case "books":
       return { title: t.catalog.title, lead: t.catalog.lead };
+    case "method":
+      return { title: t.method.title, lead: t.method.lead };
     case "coloring":
       return { title: t.free.title, lead: t.free.lead };
     case "about":
@@ -103,6 +113,158 @@ export default async function SectionPage({
               empty: t.catalog.empty,
             }}
           />
+        </div>
+      </>
+    );
+  }
+
+  /* ---------- Метод ---------- */
+  if (s === "method") {
+    const m = t.method;
+    const list = guidesForLang(lang);
+    const regionOrder: RetailerRegion[] = ["us", "europe", "latam", "africa", "global"];
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: PUBLISHER,
+      url: SITE_URL,
+      founder: [
+        { "@type": "Person", name: AUTHORS.ricardo.name, sameAs: AUTHORS.ricardo.amazon },
+        { "@type": "Person", name: AUTHORS.maria.name, sameAs: AUTHORS.maria.amazon },
+      ],
+      award: awards.map(
+        (a) => `${a.result[lang] ?? a.result.en}, ${a.category[lang] ?? a.category.en}, ${a.program} ${a.year}`
+      ),
+    };
+
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <PageHead title={h.title} lead={h.lead} />
+
+        {/* Идея */}
+        <div className="band band--cream">
+          <div className="wrap prose">
+            <h2 className="section">{m.ideaTitle}</h2>
+            {m.idea.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Лестница по возрастам */}
+        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+          <h2 className="section">{m.ladderTitle}</h2>
+          <p className="lead">{m.ladderLead}</p>
+          <div className="ladder">
+            {m.ladder.map((step) => (
+              <div className="ladder__step" key={step.age}>
+                <p className="ladder__age">{step.age}</p>
+                <p className="ladder__can">{step.can}</p>
+                <p className="ladder__needs">{step.needs}</p>
+              </div>
+            ))}
+          </div>
+          <p className="buy-note">{m.ageNote}</p>
+        </div>
+
+        {/* Руководства */}
+        {list.length ? (
+          <div className="band band--mint">
+            <div className="wrap">
+              <h2 className="section">{m.guidesTitle}</h2>
+              <p className="lead">{m.guidesLead}</p>
+              <ul className="guides">
+                {list.map((g) => (
+                  <li key={g.id}>
+                    <Link href={itemPath(lang, "method", g.slug[lang]!)}>{g.copy[lang]!.title}</Link>
+                    <span>{g.copy[lang]!.lead}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : null}
+
+        {/* Награды и рецензии */}
+        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+          <h2 className="section">{m.awardsTitle}</h2>
+          <p className="lead">{m.awardsLead}</p>
+          <ul className="awards">
+            {awards.map((a) => {
+              const book = bookById(a.bookId);
+              const title = book?.copy[lang]?.title ?? book?.copy.en?.title ?? a.bookId;
+              const href = book?.slug[lang] ? itemPath(lang, "books", book.slug[lang]!) : undefined;
+              return (
+                <li key={`${a.bookId}-${a.program}-${a.year}`}>
+                  <strong>{a.result[lang] ?? a.result.en}</strong>
+                  {" · "}
+                  {a.category[lang] ?? a.category.en}
+                  {" · "}
+                  <a href={a.programUrl} rel="nofollow noopener" target="_blank">
+                    {a.program}
+                  </a>{" "}
+                  {a.year}
+                  <br />
+                  {href ? <Link href={href}>{title}</Link> : title}
+                </li>
+              );
+            })}
+          </ul>
+
+          <h2 className="section">{m.reviewsTitle}</h2>
+          <p>{m.reviewsLead}</p>
+          <p>
+            {reviewSources.map((r, i) => (
+              <span key={r.name}>
+                {i > 0 ? " · " : ""}
+                <a href={r.url} rel="nofollow noopener" target="_blank">
+                  {r.name}
+                </a>
+              </span>
+            ))}
+          </p>
+        </div>
+
+        {/* Где продается */}
+        <div className="band band--pink">
+          <div className="wrap">
+            <h2 className="section">{m.retailTitle}</h2>
+            <p className="lead">{m.retailLead}</p>
+            <dl className="retail">
+              {regionOrder.map((region) => {
+                const inRegion = retailers.filter((r) => r.region === region);
+                if (!inRegion.length) return null;
+                return (
+                  <div key={region}>
+                    <dt>{m.regions[region]}</dt>
+                    <dd>
+                      {inRegion.map((r, i) => (
+                        <span key={r.name}>
+                          {i > 0 ? " · " : ""}
+                          <a href={r.url} rel="nofollow noopener" target="_blank">
+                            {r.name}
+                          </a>
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                );
+              })}
+            </dl>
+          </div>
+        </div>
+
+        {/* Методика целиком */}
+        <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
+          <h2 className="section">{m.standardTitle}</h2>
+          <p>{m.standardBody}</p>
+          <p>
+            <a className="btn btn--ghost" href={METHOD_REFERENCE_URL} rel="noopener" target="_blank">
+              {m.standardLink}
+            </a>
+          </p>
         </div>
       </>
     );

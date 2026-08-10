@@ -1,23 +1,26 @@
 import type { UiLang } from "@/data/books";
 
 /** Разделы сайта. Адрес каждого пишется на языке посетителя. */
-export type Section = "books" | "coloring" | "about" | "contact";
+export type Section = "books" | "method" | "coloring" | "about" | "contact";
 
 export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
   en: {
     books: "books",
+    method: "method",
     coloring: "free-coloring-pages",
     about: "about-us",
     contact: "contact",
   },
   es: {
     books: "libros",
+    method: "metodo",
     coloring: "dibujos-para-colorear-gratis",
     about: "quienes-somos",
     contact: "contacto",
   },
   ru: {
     books: "knigi",
+    method: "metod",
     coloring: "raskraski-dlya-pechati",
     about: "o-nas",
     contact: "kontakty",

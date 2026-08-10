@@ -368,3 +368,99 @@ ul.inside li::marker { color: var(--pink-hot); }
   width: 100%; height: auto; border-radius: var(--radius);
   box-shadow: var(--shadow); margin: 0 0 var(--gap-3);
 }
+
+/* ------------------------------------------------------------------ */
+/*  Раздел "Метод"                                                     */
+/* ------------------------------------------------------------------ */
+
+/* Лестница по возрастам */
+.ladder {
+  display: grid; gap: var(--gap-2); margin: var(--gap-3) 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 900px) { .ladder { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .ladder { grid-template-columns: 1fr; } }
+.ladder__step {
+  background: var(--paper); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: var(--gap-2);
+}
+.ladder__age {
+  font-family: var(--font-display); font-weight: 800;
+  color: var(--pink-deep); font-size: var(--t-h3); margin: 0 0 0.5rem;
+}
+.ladder__can { margin: 0 0 0.6rem; font-size: var(--t-small); }
+.ladder__needs {
+  margin: 0; font-size: var(--t-small); font-weight: 700; color: var(--mint-deep);
+}
+
+/* Список руководств */
+ul.guides { list-style: none; margin: var(--gap-3) 0 0; padding: 0; display: grid; gap: var(--gap-2); }
+@media (min-width: 760px) { ul.guides { grid-template-columns: 1fr 1fr; } }
+ul.guides li {
+  background: var(--paper); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: var(--gap-2);
+}
+ul.guides li a {
+  display: block; font-family: var(--font-display); font-weight: 800;
+  font-size: var(--t-h3); color: var(--pink-deep); text-decoration: none;
+  margin-bottom: 0.4rem;
+}
+ul.guides li a:hover { text-decoration: underline; }
+ul.guides li span { display: block; font-size: var(--t-small); color: var(--ink-2); }
+
+/* Награды */
+ul.awards { list-style: none; margin: var(--gap-3) 0; padding: 0; display: grid; gap: var(--gap-2); }
+@media (min-width: 760px) { ul.awards { grid-template-columns: 1fr 1fr; } }
+ul.awards li {
+  border-left: 5px solid var(--sun); padding: 0.55rem 0 0.55rem var(--gap-2);
+  font-size: var(--t-small);
+}
+ul.awards li strong { color: var(--pink-deep); }
+
+/* Где продается */
+dl.retail { margin: var(--gap-3) 0 0; }
+dl.retail div { margin-bottom: var(--gap-2); }
+dl.retail dt {
+  font-family: var(--font-display); font-weight: 800; color: var(--mint-deep);
+  margin-bottom: 0.25rem;
+}
+dl.retail dd { margin: 0; font-size: var(--t-small); }
+
+/* Страница-руководство */
+.guide { padding: var(--band-y) 0; max-width: 78ch; }
+.guide .prose p { font-size: var(--t-lead); }
+
+/* Книга-решение внизу руководства */
+.pick {
+  display: grid; gap: var(--gap-3); align-items: start;
+  grid-template-columns: 220px 1fr;
+  background: var(--cream); border-radius: var(--radius);
+  padding: var(--gap-3); box-shadow: var(--shadow);
+  margin: var(--gap-2) 0 var(--gap-4);
+}
+@media (max-width: 620px) { .pick { grid-template-columns: 1fr; } }
+.pick__cover { display: block; }
+.pick__cover img {
+  display: block; width: 100%; height: auto;
+  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+}
+.pick .subtitle {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: var(--t-h3); color: var(--pink-deep); margin: 0 0 0.4rem;
+}
+.pick .subtitle a { color: inherit; }
+
+/* Плашки наград на странице книги */
+ul.award-list { list-style: none; margin: 0 0 var(--gap-3); padding: 0; }
+ul.award-list li {
+  font-size: var(--t-small); margin-bottom: 0.4rem;
+  border-left: 5px solid var(--sun); padding-left: 0.75rem;
+}
+.award-list__tag {
+  display: inline-block; background: var(--sun); color: var(--ink);
+  font-family: var(--font-display); font-weight: 800;
+  font-size: var(--t-micro); border-radius: 999px; padding: 0.1rem 0.6rem;
+}
+
+/* Строки про метод и магазины на странице книги */
+.method-line, .retail-line { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 0.5rem; }

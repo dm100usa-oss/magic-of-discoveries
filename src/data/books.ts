@@ -209,7 +209,7 @@ export const books: Book[] = [
         title: "First Coloring Book for Toddlers Ages 1-3 by Little Max",
         subtitle: "111 easy, big and cozy drawings, with the mouse Little Max as a guide.",
         lead:
-          "The same easy, thick-lined drawings as our first coloring book, but this one is led by Little Max, the small mouse in a sailor shirt who appears throughout the Magic of Discoveries books. Children who already know Max from the bedtime stories recognise him instantly.",
+          "The same easy, thick-lined drawings as our first coloring book, but this one is led by Little Max, the small mouse in a sailor shirt who appears throughout the Magic of Discoveries books. Children who already know Max from the bedtime stories recognize him instantly.",
         inside: [
           "111 large drawings with thick, forgiving outlines",
           "Little Max appears through the book, so coloring becomes a small story",
@@ -545,7 +545,7 @@ export const books: Book[] = [
         faq: [
           {
             q: "Do I need the first book to understand this one?",
-            a: "No. Each book stands alone. Read together they work better, because the child recognises Max and the routine of leaving and coming home.",
+            a: "No. Each book stands alone. Read together they work better, because the child recognizes Max and the routine of leaving and coming home.",
           },
           {
             q: "How long does it take to read?",

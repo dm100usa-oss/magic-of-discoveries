@@ -10,7 +10,7 @@ Editions in English and Spanish.
   one drawing per page, single-sided printing. Designed so a toddler who cannot
   yet control a crayon still produces a result that looks finished.
 - Step-by-step drawing books: every subject broken into four steps starting from
-  a circle or an oval, so a child can draw a recognisable animal without adult help.
+  a circle or an oval, so a child can draw a recognizable animal without adult help.
 - Bedtime books for ages 1 to 3 (Little Max): one or two sentences per page,
   short enough for a toddler to reach the end.
 - Illustrated story collections for ages 3 and up (Lucky Rocky), based on the
@@ -18,18 +18,47 @@ Editions in English and Spanish.
 - Easy coloring books for teenagers and adults (Take a Break): 50 bold, open
   designs per book, finishable in one sitting, deliberately not intricate mandalas.
 
+## How the books are designed
+
+All titles follow one design rule: the child has to be able to finish the page.
+Line weight, number of objects per page, story length and number of drawing steps
+are each set just inside what the child can already do, because a page that gets
+completed is what brings the child back the next day. The publisher calls this the
+ECL approach, for emotional, creative and linguistic development, which are treated
+as growing together rather than in sequence. The full framework, with age groups
+and per-format parameters, is published at
+https://ricardo-demi-books.vercel.app/method
+
+The site has a section explaining this and answering common parent questions,
+at /en/method and /es/metodo. Each guide ends with one specific recommended title.
+
 ## Recognition
 
 - The Adventures of Lucky Rocky, Two-in-One Edition: winner, Adventure category,
   Children's Book International Awards 2025.
 - Where Have You Been, Little Max?: finalist, Bedtime category, same awards.
 - How to Draw 111: finalist, Educational category, same awards.
+- The Adventures of Lucky Rocky, Two-in-One Edition: Gold Award,
+  Literary Titan Book Awards 2024.
+- Where Are You Going, Little Max?: Gold Award, Literary Titan Book Awards 2024.
+
+Independent editorial reviews: Readers' Favorite and Literary Titan.
 
 ## Where to buy
 
-Printed books are sold on Amazon. Some coloring titles also exist as printable
-PDF editions. Each book on this site has its own page listing every available
-format with its price.
+Printed books are sold on Amazon and by other retailers on four continents:
+Barnes & Noble and ThriftBooks in the United States, World of Books and Alibris
+in Europe and the United Kingdom, Buscalibre in Latin America, Takealot in Africa.
+Author listings are also on Goodreads. Some coloring titles exist as printable PDF
+editions. Each book on this site has its own page listing every available format
+with its price.
+
+## A note on age labels
+
+The age printed on a cover describes the book, not the child. The site advises
+buying for what the child can already do: whether a crayon stays roughly inside
+the outline, how long the child stays with one page, and whether the subject is
+recognized without asking.
 
 ## Contact
 

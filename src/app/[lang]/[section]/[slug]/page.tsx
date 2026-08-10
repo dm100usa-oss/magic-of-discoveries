@@ -532,12 +532,41 @@ export default async function ItemPage({
               </ul>
             ) : null}
 
+            {book.bannerLead ? (
+              <img
+                className="theme-banner"
+                src={book.bannerLead.file}
+                alt={book.bannerLead.alt[lang] ?? book.bannerLead.alt.en ?? copy.title}
+                width={book.bannerLead.w}
+                height={book.bannerLead.h}
+                fetchPriority="high"
+              />
+            ) : null}
+
             <h2 className="section">{t.book.inside}</h2>
             <ul className="inside">
               {copy.inside.map((line) => (
                 <li key={line}>{line}</li>
               ))}
             </ul>
+
+            {book.artwork?.length ? (
+              <>
+                <h2 className="section">{t.book.artwork}</h2>
+                <div className="artwork">
+                  {book.artwork.map((a) => (
+                    <img
+                      key={a.file}
+                      src={a.file}
+                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
+                      width={a.w}
+                      height={a.h}
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              </>
+            ) : null}
 
             {freePage && freeSheets.length ? (
               <>
@@ -561,24 +590,6 @@ export default async function ItemPage({
                     {t.free.bookSheetsCta}
                   </Link>
                 </p>
-              </>
-            ) : null}
-
-            {book.artwork?.length ? (
-              <>
-                <h2 className="section">{t.book.artwork}</h2>
-                <div className="artwork">
-                  {book.artwork.map((a) => (
-                    <img
-                      key={a.file}
-                      src={a.file}
-                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
-                      width={a.w}
-                      height={a.h}
-                      loading="lazy"
-                    />
-                  ))}
-                </div>
               </>
             ) : null}
 

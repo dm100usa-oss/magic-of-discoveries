@@ -60,6 +60,8 @@ export interface Book {
   coverSize?: { w: number; h: number };
   /** Иллюстрации из книги. Показываются в блоке "что внутри". */
   artwork?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
+  /** Широкая полоса вверху, сразу под кнопками покупки. */
+  bannerLead?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> };
   /** Широкие полосы: темы книги, разворот, для кого. */
   banners?: { file: string; w: number; h: number; alt: Partial<Record<UiLang, string>> }[];
   rating?: AmazonRating;
@@ -119,6 +121,50 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328272", price: "$6.99" }],
     pdfUrl: WIX + "english-4",
     rating: { value: 5.0, count: 19 },
+    bannerLead: {
+      file: "/art/first-coloring-111-header.png",
+      w: 1941,
+      h: 601,
+      alt: {
+        en: "First Coloring Book For Toddlers by Ricardo Demi, cover with a lion, ages 1 to 3",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/first-coloring-111-simple.png",
+        w: 601,
+        h: 601,
+        alt: {
+          en: "Simple: an outline turtle drawn with thick lines, one object on the page",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-big.png",
+        w: 601,
+        h: 601,
+        alt: {
+          en: "Big: a cow drawing filling the page, colored in by a small child",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-cute.png",
+        w: 601,
+        h: 601,
+        alt: {
+          en: "Cute: a smiling red car, one of the everyday objects in the book",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/first-coloring-111-gift.png",
+        w: 1941,
+        h: 601,
+        alt: {
+          en: "The perfect gift for beginner artists, a doughnut drawing and colored pencils",
+        },
+      },
+    ],
     slug: { en: "first-coloring-book-toddlers-1-3-111-drawings" },
     copy: {
       en: {

@@ -34,7 +34,6 @@ export function Header({ lang }: { lang: UiLang }) {
   ];
   return (
     <header>
-      <div className="topbar" />
       <div className="masthead">
         <Link href={homePath(lang)} style={{ textDecoration: "none" }}>
           <Brand />

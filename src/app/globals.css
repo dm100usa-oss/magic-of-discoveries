@@ -88,11 +88,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ==================== ШАПКА ==================== */
 
-.topbar {
-  height: 10px;
-  background: linear-gradient(90deg, var(--sky), var(--sun), var(--pink-hot), var(--mint), var(--leaf));
-}
-
 .masthead { text-align: center; padding: clamp(1rem, 3vw, 1.75rem) 1rem 0.5rem; }
 
 .brand {

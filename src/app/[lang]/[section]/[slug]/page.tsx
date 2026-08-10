@@ -231,20 +231,20 @@ export default async function ItemPage({
         {groups.map((group) => (
           <section className="wrap" key={group.id}>
             <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
-            <div className="sheets">
+            <div className={page.spread ? "sheets sheets--spread" : "sheets"}>
               {group.sheets.map((sh) => {
                 const name = sh.name[lang] ?? sh.name.en!;
                 return (
                   <figure className="sheet" key={sh.id}>
                     <img
                       src={previewUrl(sh.id, lang)}
-                      alt={f.sheetAlt.replace("{name}", name)}
-                      width={642}
-                      height={822}
+                      alt={(copy.sheetAlt ?? f.sheetAlt).replace("{name}", name)}
+                      width={page.spread ? 1294 : 642}
+                      height={page.spread ? 816 : 822}
                       loading="lazy"
                     />
                     <figcaption>
-                      <h3>{f.sheetTitle.replace("{name}", name)}</h3>
+                      <h3>{(copy.sheetTitle ?? f.sheetTitle).replace("{name}", name)}</h3>
                       <p className="sheet__links">
                         <a className="btn btn--pink" href={printableUrl(sh.id, "letter", lang)} download>
                           {f.printLetter}
@@ -455,7 +455,8 @@ export default async function ItemPage({
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
   const freeSlug = freePage?.slug[lang];
-  const freeSheets = freePage && freeSlug ? allSheets(freePage, lang).slice(0, 10) : [];
+  const freeSheets =
+    freePage && freeSlug ? allSheets(freePage, lang).slice(0, freePage.spread ? 6 : 10) : [];
 
   const schema = {
     "@context": "https://schema.org",
@@ -616,15 +617,18 @@ export default async function ItemPage({
           {freePage && freeSheets.length ? (
             <>
               <h2 className="section">{t.free.bookSheetsTitle}</h2>
-              <p>{t.free.bookSheetsLead}</p>
-              <div className="fan">
+              <p>{freePage.copy[lang]?.bookSheetsLead ?? t.free.bookSheetsLead}</p>
+              <div className={freePage.spread ? "fan fan--spread" : "fan"}>
                 {freeSheets.map((sh, i) => (
                   <img
                     key={sh.id}
                     src={previewUrl(sh.id, lang)}
-                    alt={t.free.sheetAlt.replace("{name}", sh.name[lang] ?? sh.name.en!)}
-                    width={642}
-                    height={822}
+                    alt={(freePage.copy[lang]?.sheetAlt ?? t.free.sheetAlt).replace(
+                      "{name}",
+                      sh.name[lang] ?? sh.name.en!
+                    )}
+                    width={freePage.spread ? 1294 : 642}
+                    height={freePage.spread ? 816 : 822}
                     loading="lazy"
                     style={{ ["--i" as string]: i }}
                   />

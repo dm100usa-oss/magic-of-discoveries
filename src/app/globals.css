@@ -559,6 +559,27 @@ ul.award-list li {
   .fan img { width: 30%; margin-left: -4%; transform: rotate(calc((var(--i) - 4.5) * 1.4deg)); }
 }
 
+/* Развороты: лист это две страницы рядом, слева шаги, справа практика.
+   Картинка широкая, поэтому в ряд их помещается меньше. */
+.sheets--spread { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) { .sheets--spread { grid-template-columns: 1fr; } }
+
+/* Веер из разворотов: без нахлеста и почти без поворота,
+   иначе правая страница с местом для практики уходит под соседнюю. */
+.fan--spread {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem; justify-items: center;
+}
+.fan--spread img {
+  width: 100%; min-width: 0; margin-left: 0;
+  transform: rotate(calc((var(--i) - 2.5) * 0.8deg));
+}
+@media (max-width: 900px) { .fan--spread { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) {
+  .fan--spread img { width: 100%; margin-left: 0; transform: none; }
+}
+
+
 /* Блок картинок книги: шапка, три квадрата, нижняя полоса. Одно целое. */
 .showcase { margin: var(--gap-3) 0 var(--gap-4); }
 .showcase__lead {

@@ -26,6 +26,12 @@ export interface SheetGroup {
 
 export interface ColoringCopy {
   title: string;
+  /** Подпись над кнопками листа. Пусто = общая из словаря ("Раскраска {name}"). */
+  sheetTitle?: string;
+  /** Описание картинки словами, для Google Картинок. Пусто = общее из словаря. */
+  sheetAlt?: string;
+  /** Строка над веером на странице книги. Пусто = общая из словаря. */
+  bookSheetsLead?: string;
   lead: string;
   body: string[];
   /** Как печатать. Короткие практические строки. */
@@ -44,6 +50,9 @@ export interface ColoringPage {
   /** Испанское издание той же книги. */
   fromBookIdEs?: string;
   slug: Partial<Record<UiLang, string>>;
+  /** Лист это разворот из двух страниц: слева шаги, справа практика.
+      Превью широкое, поэтому сетка и веер показываются крупнее. */
+  spread?: boolean;
   copy: Partial<Record<UiLang, ColoringCopy>>;
   groups: SheetGroup[];
 }
@@ -215,6 +224,7 @@ export const coloringPages: ColoringPage[] = [
       en: "free-printable-how-to-draw-animals-step-by-step-for-kids",
       es: "como-dibujar-animales-paso-a-paso-para-imprimir-gratis",
     },
+    spread: true,
     groups: [
       {
         id: "safari",
@@ -257,6 +267,11 @@ export const coloringPages: ColoringPage[] = [
       en: {
         title:
           "Free printable how to draw pages for kids. Ten animals, steps on one sheet and room to practice on the next",
+        sheetTitle: "How to draw: {name}, step by step",
+        sheetAlt:
+          "Free printable {name} drawing pages: numbered steps on the left page, and on the right page a dotted outline to trace with a wide blank space to draw your own",
+        bookSheetsLead:
+          "Real spreads from the book, two pages each: the steps on one sheet, the practice page on the next. Ten of them are free to print, so you can try the method at your own table before you buy.",
         lead:
           "Every download is two pages. The first shows the animal built up shape by shape. The second has the same animal in a dotted outline to trace, and a wide empty space where the child draws their own.",
         body: [
@@ -308,6 +323,11 @@ export const coloringPages: ColoringPage[] = [
       es: {
         title:
           "Dibujos paso a paso para imprimir gratis. Diez animales, los pasos en una hoja y sitio para practicar en la siguiente",
+        sheetTitle: "Cómo dibujar: {name}, paso a paso",
+        sheetAlt:
+          "Láminas para dibujar {name} gratis para imprimir: los pasos numerados en la hoja izquierda y, en la derecha, la línea punteada para repasar y un espacio amplio en blanco para dibujar el propio",
+        bookSheetsLead:
+          "Dobles páginas reales del libro, dos hojas cada una: los pasos en una y la práctica en la siguiente. Diez se pueden imprimir gratis, para probar el método en casa antes de comprar.",
         lead:
           "Cada descarga son dos páginas. La primera muestra el animal construido forma a forma. La segunda trae el mismo animal en línea punteada para repasar y un espacio amplio en blanco donde el niño dibuja el suyo.",
         body: [

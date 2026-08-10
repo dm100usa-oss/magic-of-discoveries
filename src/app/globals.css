@@ -464,3 +464,83 @@ ul.award-list li {
 
 /* Строки про метод и магазины на странице книги */
 .method-line, .retail-line { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 0.5rem; }
+
+/* ------------------------------------------------------------------ */
+/*  Бесплатные раскраски                                               */
+/* ------------------------------------------------------------------ */
+
+/* Список тем */
+.themes { display: grid; gap: var(--gap-3); grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 620px) { .themes { grid-template-columns: 1fr; } }
+.theme {
+  display: block; text-decoration: none; color: inherit;
+  background: var(--paper); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: var(--gap-2);
+  transition: box-shadow 0.18s ease, transform 0.18s ease;
+}
+.theme:hover { box-shadow: var(--shadow-lift); transform: translateY(-2px); }
+.theme__strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: var(--gap-2); }
+.theme__strip img {
+  width: 100%; height: auto; border-radius: var(--radius-sm);
+  border: 2px solid var(--pink-pale); background: #fff;
+}
+.theme__title {
+  font-family: var(--font-display); font-weight: 800; font-size: var(--t-h3);
+  color: var(--pink-deep); margin: 0 0 0.25rem;
+}
+.theme__meta { margin: 0; font-size: var(--t-small); color: var(--ink-2); }
+
+/* Вступление на странице темы */
+.sheets-intro { padding: var(--band-y) 0 var(--gap-4); }
+.sheets-intro .prose p { font-size: var(--t-lead); }
+.howto {
+  background: var(--mint-pale); border-radius: var(--radius);
+  padding: var(--gap-2) var(--gap-3); margin-top: var(--gap-3);
+}
+.howto__title {
+  font-family: var(--font-display); font-weight: 800;
+  color: var(--mint-deep); margin: 0 0 0.5rem;
+}
+.howto ul { margin: 0; padding-left: 1.15rem; font-size: var(--t-small); }
+.howto li { margin-bottom: 0.35rem; }
+.howto li::marker { color: var(--mint); }
+
+/* Сетка листов */
+.sheets {
+  display: grid; gap: var(--gap-3); margin: var(--gap-2) 0 var(--band-y);
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 1000px) { .sheets { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px) { .sheets { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 420px) { .sheets { grid-template-columns: 1fr; } }
+.sheet { margin: 0; }
+.sheet img {
+  width: 100%; height: auto; display: block; background: #fff;
+  border: 2px solid var(--pink-pale); border-radius: var(--radius-sm);
+}
+.sheet h3 {
+  font-family: var(--font-display); font-size: var(--t-h3); font-weight: 800;
+  color: var(--ink); margin: 0.7rem 0 0.5rem;
+}
+.sheet__links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0; }
+.sheet__links .btn { font-size: var(--t-small); padding: 0.5rem 0.9rem; }
+
+/* Веер страниц на странице книги */
+.fan {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 0; margin: 0 0 var(--gap-3); padding: var(--gap-2) 0;
+}
+.fan img {
+  width: 19%; min-width: 92px; height: auto; background: #fff;
+  border: 2px solid var(--pink-pale); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  margin-left: -3%;
+  transform: rotate(calc((var(--i) - 4.5) * 2.6deg));
+  transform-origin: bottom center;
+  transition: transform 0.2s ease;
+}
+.fan img:first-child { margin-left: 0; }
+.fan img:hover { transform: rotate(0deg) translateY(-6px); z-index: 2; }
+@media (max-width: 620px) {
+  .fan img { width: 30%; margin-left: -4%; transform: rotate(calc((var(--i) - 4.5) * 1.4deg)); }
+}

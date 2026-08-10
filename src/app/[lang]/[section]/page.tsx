@@ -11,7 +11,7 @@ import {
   type BookType,
 } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
-import { pagesForLang } from "@/data/coloringPages";
+import { pagesForLang, sheetCount, previewUrl } from "@/data/coloringPages";
 import {
   awards,
   reviewSources,
@@ -270,7 +270,7 @@ export default async function SectionPage({
     );
   }
 
-  /* ---------- Бесплатные раскраски ---------- */
+  /* ---------- Бесплатные раскраски: список тем ---------- */
   if (s === "coloring") {
     const pages = pagesForLang(lang);
     return (
@@ -280,17 +280,31 @@ export default async function SectionPage({
           {pages.length === 0 ? (
             <p className="lead">{t.free.comingSoon}</p>
           ) : (
-            <div className="grid">
-              {pages.map((p) => (
-                <Link className="card" key={p.id} href={itemPath(lang, "coloring", p.slug[lang]!)}>
-                  <div className="card__frame">
-                    <div className="card__cover">
-                      <span className="card__placeholder">{p.copy[lang]!.title}</span>
+            <div className="themes">
+              {pages.map((p) => {
+                const c = p.copy[lang]!;
+                const first = p.groups[0].sheets.slice(0, 3);
+                return (
+                  <Link className="theme" key={p.id} href={itemPath(lang, "coloring", p.slug[lang]!)}>
+                    <div className="theme__strip">
+                      {first.map((sh) => (
+                        <img
+                          key={sh.id}
+                          src={previewUrl(sh.id)}
+                          alt=""
+                          width={642}
+                          height={822}
+                          loading="lazy"
+                        />
+                      ))}
                     </div>
-                    <p className="card__title">{p.copy[lang]!.title}</p>
-                  </div>
-                </Link>
-              ))}
+                    <p className="theme__title">{c.title}</p>
+                    <p className="theme__meta">
+                      {sheetCount(p)} {t.free.countLabel}
+                    </p>
+                  </Link>
+                );
+              })}
             </div>
           )}
         </div>

@@ -93,6 +93,16 @@ export interface Dictionary {
     title: string;
     lead: string;
     comingSoon: string;
+    howToTitle: string;
+    sheetTitle: string;
+    sheetAlt: string;
+    printLetter: string;
+    printA4: string;
+    faqTitle: string;
+    countLabel: string;
+    bookSheetsTitle: string;
+    bookSheetsLead: string;
+    bookSheetsCta: string;
   };
   about: {
     title: string;
@@ -257,6 +267,17 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Pick a page, print it, color it. Every page here is a real page from one of our books, so nothing is drawn worse because it is free.",
       comingSoon:
         "The first pages are being prepared. If you want one particular animal or theme, write to us and we will put it up.",
+      howToTitle: "Printing them",
+      sheetTitle: "{name} coloring page",
+      sheetAlt: "Free printable {name} coloring page for toddlers, thick outlines, one animal per page",
+      printLetter: "Print · US Letter",
+      printA4: "Print · A4",
+      faqTitle: "Questions parents ask",
+      countLabel: "printable pages",
+      bookSheetsTitle: "A few pages from inside",
+      bookSheetsLead:
+        "These are real pages from the book. You can print twenty of them free and see the line weight for yourself before you buy.",
+      bookSheetsCta: "Print 20 pages free",
     },
     about: {
       title: "About us",
@@ -421,6 +442,17 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Elige una página, imprímela y coloréala. Cada página es una página real de uno de nuestros libros, así que nada está peor dibujado por ser gratis.",
       comingSoon:
         "Estamos preparando las primeras páginas. Si quieres un animal o un tema concreto, escríbenos y lo publicamos.",
+      howToTitle: "Cómo imprimirlas",
+      sheetTitle: "Dibujo de {name} para colorear",
+      sheetAlt: "Dibujo de {name} para colorear gratis para imprimir, contornos gruesos, un animal por página",
+      printLetter: "Imprimir · Carta",
+      printA4: "Imprimir · A4",
+      faqTitle: "Preguntas que hacen los padres",
+      countLabel: "láminas para imprimir",
+      bookSheetsTitle: "Algunas páginas de dentro",
+      bookSheetsLead:
+        "Son páginas reales del libro. Puedes imprimir veinte gratis y comprobar tú mismo el grosor de la línea antes de comprar.",
+      bookSheetsCta: "Imprimir 20 láminas gratis",
     },
     about: {
       title: "Quiénes somos",
@@ -583,6 +615,17 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       title: "Бесплатные раскраски для печати",
       lead: "Выберите лист, распечатайте, раскрасьте.",
       comingSoon: "Первые листы готовятся.",
+      howToTitle: "Как печатать",
+      sheetTitle: "Раскраска {name}",
+      sheetAlt: "Бесплатная раскраска {name} для печати, толстый контур, одно животное на листе",
+      printLetter: "Печать · Letter",
+      printA4: "Печать · A4",
+      faqTitle: "Вопросы родителей",
+      countLabel: "листов для печати",
+      bookSheetsTitle: "Несколько страниц изнутри",
+      bookSheetsLead:
+        "Это настоящие страницы книги. Двадцать можно распечатать бесплатно и своими глазами оценить толщину линии до покупки.",
+      bookSheetsCta: "Распечатать 20 листов бесплатно",
     },
     about: {
       title: "О нас",

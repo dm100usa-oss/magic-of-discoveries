@@ -118,6 +118,7 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 1165 },
     formats: [{ kind: "paperback", asin: "1963328272", price: "$6.99" }],
     pdfUrl: WIX + "english-4",
+    rating: { value: 5.0, count: 19 },
     slug: { en: "first-coloring-book-toddlers-1-3-111-drawings" },
     copy: {
       en: {
@@ -127,10 +128,10 @@ export const books: Book[] = [
           "A first coloring book for a child who is still learning to hold a crayon. Every shape is large, rounded and drawn with a thick outline, so a one or two year old can stay roughly inside the lines and feel like it worked.",
         inside: [
           "111 drawings: animals, fairy-tale characters, flowers, food, gifts and everyday objects",
-          "Thick outlines and large shapes sized for a toddler grip",
+          "Every picture drawn by hand, with thick outlines and large shapes sized for a toddler grip",
           "One drawing per page, printed on one side",
           "The word under each picture can be colored too, which turns coloring into first reading",
-          "8.5 x 11 inches, comfortable to hold flat on a table or a car seat tray",
+          "8.5 x 11 inches, 114 pages, comfortable to hold flat on a table or a car seat tray",
         ],
         forWhom:
           "Ages 1, 2 and 3. Good for a first coloring book, for preschool and daycare, and as a gift when you do not know the child well.",
@@ -138,6 +139,10 @@ export const books: Book[] = [
           {
             q: "Is this too hard for a 1 year old?",
             a: "No. The drawings were made deliberately simple for the youngest end of the range. A one year old will scribble across the shape, a three year old will start staying inside it. The same book works through all three years.",
+          },
+          {
+            q: "How thick is the paper?",
+            a: "It is standard book paper, printed by Amazon, and a few parents have wished for something heavier. The book is built around that: each drawing sits on its own page with a blank back, so a marker that soaks through marks an empty sheet rather than a second picture. A spare sheet underneath solves it completely.",
           },
           faqPaperOrDigital.en,
           faqBleed.en,

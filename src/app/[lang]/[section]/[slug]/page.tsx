@@ -9,7 +9,15 @@ import {
   type UiLang,
   type Book,
 } from "@/data/books";
-import { coloringPages, pagesForLang } from "@/data/coloringPages";
+import {
+  pagesForLang,
+  pageBySlug,
+  sheetCount,
+  printableUrl,
+  previewUrl,
+  allSheets,
+  coloringPageForBook,
+} from "@/data/coloringPages";
 import {
   guidesForLang,
   guideBySlug,
@@ -71,13 +79,23 @@ export async function generateMetadata({
   }
 
   if (s === "coloring") {
-    const page = coloringPages.find((p) => p.slug[lang] === slug);
+    const page = pageBySlug(lang, slug);
     const copy = page?.copy[lang];
     if (!page || !copy) return {};
+    const languages: Record<string, string> = {};
+    for (const l of activeLangs) {
+      if (page.slug[l]) languages[l] = `${SITE_URL}${itemPath(l, "coloring", page.slug[l]!)}`;
+    }
     return {
       title: copy.title,
       description: copy.lead,
-      alternates: { canonical: itemPath(lang, "coloring", slug) },
+      alternates: { canonical: itemPath(lang, "coloring", slug), languages },
+      openGraph: {
+        title: copy.title,
+        description: copy.lead,
+        type: "article",
+        images: [{ url: previewUrl(page.groups[0].sheets[0].id) }],
+      },
     };
   }
 
@@ -134,27 +152,155 @@ export default async function ItemPage({
   const slug = decodeURIComponent(rawSlug);
   const t = dictionaries[lang];
 
-  /* ---------- Отдельная бесплатная раскраска ---------- */
+  /* ---------- Бесплатные раскраски: страница темы ---------- */
   if (s === "coloring") {
-    const page = coloringPages.find((p) => p.slug[lang] === slug);
+    const page = pageBySlug(lang, slug);
     const copy = page?.copy[lang];
     if (!page || !copy) notFound();
-    const source = bookById(page.fromBookId);
+    const f = t.free;
+    const bookId = lang === "es" && page.fromBookIdEs ? page.fromBookIdEs : page.fromBookId;
+    const pick = bookById(bookId);
+    const pickCopy = pick?.copy[lang];
+    const pickSlug = pick?.slug[lang];
+    const total = sheetCount(page);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: copy.title,
+          description: copy.lead,
+          inLanguage: lang,
+          author: { "@type": "Organization", name: PUBLISHER },
+          publisher: { "@type": "Organization", name: PUBLISHER },
+          mainEntityOfPage: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
+          image: page.groups
+            .flatMap((g) => g.sheets)
+            .slice(0, 6)
+            .map((sh) => `${SITE_URL}${previewUrl(sh.id)}`),
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: copy.faq.map((q) => ({
+            "@type": "Question",
+            name: q.q,
+            acceptedAnswer: { "@type": "Answer", text: q.a },
+          })),
+        },
+      ],
+    };
+
     return (
       <>
-        <PageHead title={copy.title} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <PageHead title={copy.title} lead={copy.lead} />
+
+        <div className="wrap sheets-intro">
+          <div className="prose">
+            {copy.body.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+          <div className="howto">
+            <p className="howto__title">{f.howToTitle}</p>
+            <ul>
+              {copy.howTo.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {page.groups.map((group) => (
+          <section className="wrap" key={group.id}>
+            <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
+            <div className="sheets">
+              {group.sheets.map((sh) => {
+                const name = sh.name[lang] ?? sh.name.en!;
+                return (
+                  <figure className="sheet" key={sh.id}>
+                    <img
+                      src={previewUrl(sh.id)}
+                      alt={f.sheetAlt.replace("{name}", name)}
+                      width={642}
+                      height={822}
+                      loading="lazy"
+                    />
+                    <figcaption>
+                      <h3>{f.sheetTitle.replace("{name}", name)}</h3>
+                      <p className="sheet__links">
+                        <a className="btn btn--pink" href={printableUrl(sh.id, "letter")} download>
+                          {f.printLetter}
+                        </a>
+                        <a className="btn btn--ghost" href={printableUrl(sh.id, "a4")} download>
+                          {f.printA4}
+                        </a>
+                      </p>
+                    </figcaption>
+                  </figure>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+
+        {/* Решение: книга, из которой взяты рисунки */}
+        {pick && pickCopy && pickSlug ? (
+          <div className="band band--cream">
+            <div className="wrap">
+              <h2 className="section">{copy.pickTitle}</h2>
+              <p className="lead">{copy.pickLead.replace("{n}", String(total))}</p>
+              <div className="pick">
+                <Link href={itemPath(lang, "books", pickSlug)} className="pick__cover">
+                  {pick.cover ? (
+                    <img
+                      src={pick.cover}
+                      alt={pickCopy.title}
+                      width={pick.coverSize?.w ?? 900}
+                      height={pick.coverSize?.h ?? 1160}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span className="card__placeholder">{pickCopy.title}</span>
+                  )}
+                </Link>
+                <div>
+                  <p className="subtitle">
+                    <Link href={itemPath(lang, "books", pickSlug)}>{pickCopy.title}</Link>
+                  </p>
+                  <ul className="inside">
+                    {copy.pickPoints.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                  <BuyButtons book={pick} lang={lang} />
+                  {pick.rating ? (
+                    <RatingLink
+                      rating={pick.rating}
+                      asin={(pick.formats.find((x) => x.kind !== "kindle") ?? pick.formats[0]).asin}
+                      labelReviews={t.book.ratingReviews}
+                      labelSource={t.book.ratingSource}
+                      ariaLabel={t.book.ratingAria}
+                    />
+                  ) : null}
+                  <p className="buy-note">{t.book.formatNote}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : null}
+
         <div className="wrap" style={{ padding: "var(--band-y) 0" }}>
-          <p className="lead">{copy.lead}</p>
-          <a className="btn btn--pink" href={page.file} download>
-            {copy.title}
-          </a>
-          {source && source.slug[lang] ? (
-            <p style={{ marginTop: "var(--gap-4)" }}>
-              <Link href={itemPath(lang, "books", source.slug[lang]!)}>
-                {source.copy[lang]?.title}
-              </Link>
-            </p>
-          ) : null}
+          <h2 className="section">{f.faqTitle}</h2>
+          <div className="faq">
+            {copy.faq.map((q) => (
+              <details key={q.q}>
+                <summary>{q.q}</summary>
+                <p>{q.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </>
     );
@@ -289,6 +435,9 @@ export default async function ItemPage({
 
   const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const bookAwards = awardsForBook(book.id);
+  const freePage = coloringPageForBook(book.id);
+  const freeSlug = freePage?.slug[lang];
+  const freeSheets = freePage && freeSlug ? allSheets(freePage).slice(0, 10) : [];
 
   const schema = {
     "@context": "https://schema.org",
@@ -389,6 +538,31 @@ export default async function ItemPage({
                 <li key={line}>{line}</li>
               ))}
             </ul>
+
+            {freePage && freeSheets.length ? (
+              <>
+                <h2 className="section">{t.free.bookSheetsTitle}</h2>
+                <p>{t.free.bookSheetsLead}</p>
+                <div className="fan">
+                  {freeSheets.map((sh, i) => (
+                    <img
+                      key={sh.id}
+                      src={previewUrl(sh.id)}
+                      alt={t.free.sheetAlt.replace("{name}", sh.name[lang] ?? sh.name.en!)}
+                      width={642}
+                      height={822}
+                      loading="lazy"
+                      style={{ ["--i" as string]: i }}
+                    />
+                  ))}
+                </div>
+                <p style={{ marginBottom: "var(--gap-3)" }}>
+                  <Link className="btn btn--mint" href={itemPath(lang, "coloring", freeSlug!)}>
+                    {t.free.bookSheetsCta}
+                  </Link>
+                </p>
+              </>
+            ) : null}
 
             {book.artwork?.length ? (
               <>

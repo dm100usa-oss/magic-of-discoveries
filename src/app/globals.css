@@ -88,7 +88,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ==================== ШАПКА ==================== */
 
-.masthead { text-align: center; padding: clamp(1rem, 3vw, 1.75rem) 1rem 0.5rem; }
+/* Отступ сверху увеличен примерно на 5 миллиметров, около 19 точек:
+   после удаления цветной полосы название поднялось к самому краю окна. */
+.masthead { text-align: center; padding: clamp(2.2rem, 3vw + 1.2rem, 2.95rem) 1rem 0.5rem; }
 
 .brand {
   font-family: var(--font-display);

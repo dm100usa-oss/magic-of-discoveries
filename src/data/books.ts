@@ -720,6 +720,53 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCQC5T9T", price: "$3.00" },
     ],
     rating: { value: 4.9, count: 36 },
+    showcaseLead: {
+      en: "Three things worth seeing before you buy: how a drawing is broken down into shapes a child can copy, the blank space next to it where they try it themselves, and what the finished picture looks like once it is colored.",
+    },
+    bannerLead: {
+      file: "/art/how-to-draw-111-header.png",
+      w: 1940,
+      h: 601,
+      alt: {
+        en: "How to Draw 111 by Ricardo Demi, the magic of creativity for kids, cover with step by step drawings and colored pencils",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/how-to-draw-111-steps.png",
+        w: 600,
+        h: 601,
+        alt: {
+          en: "Easy step by step: a teddy bear built up one simple shape at a time, starting from two circles",
+        },
+      },
+      {
+        file: "/art/how-to-draw-111-practice.png",
+        w: 600,
+        h: 601,
+        alt: {
+          en: "Space for practice: a baby seal outline with room beside it for the child to draw their own",
+        },
+      },
+      {
+        file: "/art/how-to-draw-111-results.png",
+        w: 600,
+        h: 601,
+        alt: {
+          en: "Excellent results: a monkey and a rose from the book, finished and colored in",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/how-to-draw-111-gift.png",
+        w: 1940,
+        h: 601,
+        alt: {
+          en: "The perfect gift for beginner artists, a wrapped present and colored pencils",
+        },
+      },
+    ],
     slug: { en: "how-to-draw-111-easy-step-by-step-drawings-for-kids" },
     copy: {
       en: {
@@ -765,6 +812,53 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCR4W3YB", price: "$3.00" },
     ],
     rating: { value: 5.0, count: 16 },
+    showcaseLead: {
+      es: "Tres cosas que conviene ver antes de comprar: cómo se descompone un dibujo en formas que el niño puede copiar, el espacio en blanco de al lado donde lo intenta él mismo, y qué aspecto tiene el dibujo terminado una vez coloreado.",
+    },
+    bannerLead: {
+      file: "/art/how-to-draw-111-es-header.png",
+      w: 1941,
+      h: 601,
+      alt: {
+        es: "Cómo Dibujar 111 de Ricardo Demi, la magia de la creatividad para niños, portada con dibujos paso a paso y lápices de colores",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/how-to-draw-111-es-steps.png",
+        w: 601,
+        h: 601,
+        alt: {
+          es: "Fácil paso a paso: un osito que se construye forma a forma, empezando por dos círculos",
+        },
+      },
+      {
+        file: "/art/how-to-draw-111-es-practice.png",
+        w: 601,
+        h: 601,
+        alt: {
+          es: "Espacio para practicar: una foca de contorno con sitio al lado para que el niño dibuje la suya",
+        },
+      },
+      {
+        file: "/art/how-to-draw-111-es-results.png",
+        w: 601,
+        h: 601,
+        alt: {
+          es: "Excelentes resultados: un mono y una rosa del libro, terminados y coloreados",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/how-to-draw-111-es-gift.png",
+        w: 1941,
+        h: 601,
+        alt: {
+          es: "El regalo perfecto para artistas principiantes, un regalo y lápices de colores",
+        },
+      },
+    ],
     slug: { es: "como-dibujar-111-dibujos-faciles-paso-a-paso-para-ninos" },
     copy: {
       es: {

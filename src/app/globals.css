@@ -554,3 +554,13 @@ ul.award-list li {
 .showcase .theme-banner { margin-bottom: 0.75rem; }
 .showcase .artwork { gap: 0.75rem; margin-bottom: 0.75rem; }
 .showcase > :last-child { margin-bottom: 0; }
+
+/* Блок картинок держит строй на всех экранах: три квадрата в ряд,
+   как их и рисовали. Общее правило .artwork на узком экране ломает
+   композицию на два столбца, здесь оно отменяется. */
+.showcase .artwork { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 520px) {
+  .showcase .artwork { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+  .showcase .artwork img { border-radius: 8px; box-shadow: none; }
+  .showcase .theme-banner { border-radius: 12px; }
+}

@@ -16,6 +16,7 @@ import {
   printableUrl,
   previewUrl,
   allSheets,
+  groupsForLang,
   coloringPageForBook,
 } from "@/data/coloringPages";
 import {
@@ -94,7 +95,7 @@ export async function generateMetadata({
         title: copy.title,
         description: copy.lead,
         type: "article",
-        images: [{ url: previewUrl(page.groups[0].sheets[0].id) }],
+        images: [{ url: previewUrl(page.groups[0].sheets[0].id, lang) }],
       },
     };
   }
@@ -162,7 +163,8 @@ export default async function ItemPage({
     const pick = bookById(bookId);
     const pickCopy = pick?.copy[lang];
     const pickSlug = pick?.slug[lang];
-    const total = sheetCount(page);
+    const total = sheetCount(page, lang);
+    const groups = groupsForLang(page, lang);
 
     const schema = {
       "@context": "https://schema.org",
@@ -175,10 +177,10 @@ export default async function ItemPage({
           author: { "@type": "Organization", name: PUBLISHER },
           publisher: { "@type": "Organization", name: PUBLISHER },
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
-          image: page.groups
+          image: groups
             .flatMap((g) => g.sheets)
             .slice(0, 6)
-            .map((sh) => `${SITE_URL}${previewUrl(sh.id)}`),
+            .map((sh) => `${SITE_URL}${previewUrl(sh.id, lang)}`),
         },
         {
           "@type": "FAQPage",
@@ -212,7 +214,7 @@ export default async function ItemPage({
           </div>
         </div>
 
-        {page.groups.map((group) => (
+        {groups.map((group) => (
           <section className="wrap" key={group.id}>
             <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
             <div className="sheets">
@@ -221,7 +223,7 @@ export default async function ItemPage({
                 return (
                   <figure className="sheet" key={sh.id}>
                     <img
-                      src={previewUrl(sh.id)}
+                      src={previewUrl(sh.id, lang)}
                       alt={f.sheetAlt.replace("{name}", name)}
                       width={642}
                       height={822}
@@ -230,10 +232,10 @@ export default async function ItemPage({
                     <figcaption>
                       <h3>{f.sheetTitle.replace("{name}", name)}</h3>
                       <p className="sheet__links">
-                        <a className="btn btn--pink" href={printableUrl(sh.id, "letter")} download>
+                        <a className="btn btn--pink" href={printableUrl(sh.id, "letter", lang)} download>
                           {f.printLetter}
                         </a>
-                        <a className="btn btn--ghost" href={printableUrl(sh.id, "a4")} download>
+                        <a className="btn btn--ghost" href={printableUrl(sh.id, "a4", lang)} download>
                           {f.printA4}
                         </a>
                       </p>
@@ -437,7 +439,7 @@ export default async function ItemPage({
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
   const freeSlug = freePage?.slug[lang];
-  const freeSheets = freePage && freeSlug ? allSheets(freePage).slice(0, 10) : [];
+  const freeSheets = freePage && freeSlug ? allSheets(freePage, lang).slice(0, 10) : [];
 
   const schema = {
     "@context": "https://schema.org",
@@ -598,7 +600,7 @@ export default async function ItemPage({
                   {freeSheets.map((sh, i) => (
                     <img
                       key={sh.id}
-                      src={previewUrl(sh.id)}
+                      src={previewUrl(sh.id, lang)}
                       alt={t.free.sheetAlt.replace("{name}", sh.name[lang] ?? sh.name.en!)}
                       width={642}
                       height={822}

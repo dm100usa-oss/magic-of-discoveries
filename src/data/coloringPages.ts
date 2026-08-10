@@ -9,10 +9,13 @@
 import type { UiLang } from "./books";
 
 export interface Sheet {
-  /** Короткое имя файла: /printables/<id>-letter.pdf, -a4.pdf, /printables/<id>.png */
+  /** Короткое имя файла. Английский лист: <id>. Испанский: <id>-es.
+      Пути: /printables/<file>-letter.pdf, -a4.pdf, /printables/<file>.png */
   id: string;
-  /** Название на языке страницы. На самом рисунке подпись всегда английская. */
+  /** Название на языке страницы. Подпись на самом рисунке на языке издания. */
   name: Partial<Record<UiLang, string>>;
+  /** Лист есть только на этих языках. Пусто = на всех. */
+  only?: UiLang[];
 }
 
 export interface SheetGroup {
@@ -97,6 +100,21 @@ export const coloringPages: ColoringPage[] = [
         ],
       },
       {
+        id: "bonus",
+        title: {
+          es: "Portada del libro para colorear",
+          en: "Bonus sheet",
+          ru: "Титульный лист",
+        },
+        sheets: [
+          {
+            id: "portada",
+            name: { es: "Portada", en: "Cover page", ru: "Титульный лист" },
+            only: ["es"],
+          },
+        ],
+      },
+      {
         id: "birds",
         title: { en: "Birds", es: "Pájaros", ru: "Птицы" },
         sheets: [
@@ -156,13 +174,13 @@ export const coloringPages: ColoringPage[] = [
       },
       es: {
         title:
-          "20 dibujos para colorear gratis para imprimir, niños de 1 a 3 años. Dibujos grandes, trazos gruesos, fáciles de colorear",
+          "21 dibujos para colorear gratis para imprimir, niños de 1 a 3 años. Dibujos grandes, trazos gruesos, fáciles de colorear",
         lead:
           "Dibujados a mano para el primer libro para colorear de un niño. Un animal por página, contornos gruesos, y la palabra de abajo también se puede colorear.",
         body: [
           "A los dos años, la mayoría de los niños barre con el crayón en lugar de rellenar. Los trazos gruesos perdonan eso. El color cae más o menos dentro, el dibujo sigue pareciendo un león, y el niño siente que le salió. Ahí está la diferencia entre una página que se termina y una que se abandona.",
-          "Estas veinte láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
-          "El nombre debajo de cada animal también es un contorno, así que el niño puede colorear las letras y oír la palabra mientras lo hace. Además está en inglés, de modo que la lámina sirve para ir viendo las primeras palabras en ese idioma sin esfuerzo. Colorear así es una de las formas más sencillas de trabajar la motricidad fina a esta edad, y no cuesta más que una hoja de papel.",
+          "Estas láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
+          "El nombre debajo de cada animal también es un contorno, así que el niño puede colorear las letras y oír la palabra mientras lo hace. Con dos o tres años las primeras palabras entran así, sin lección y sin esfuerzo. Colorear de esta manera es una de las formas más sencillas de trabajar la motricidad fina a esta edad, y no cuesta más que una hoja de papel.",
           "Imprime las que quieras. Llévalas a un restaurante, a una sala de espera, a un viaje largo en coche. No hay que registrarse ni pagar nada.",
         ],
         howTo: [
@@ -172,7 +190,7 @@ export const coloringPages: ColoringPage[] = [
           "Si usas marcadores, pon una hoja debajo",
           "Imprime el mismo animal dos veces y coloreen uno juntos",
         ],
-        pickLead: "Si a tu hijo le gustaron estas veinte, en el libro del que salieron hay 111.",
+        pickLead: "Si a tu hijo le gustaron estas, en el libro del que salieron hay 111.",
         pickTitle: "El libro del que salen estas páginas",
         pickPoints: [
           "111 dibujos hechos a mano con trazos gruesos",
@@ -212,13 +230,13 @@ export function pageBySlug(lang: UiLang, slug: string): ColoringPage | undefined
   return coloringPages.find((p) => p.slug[lang] === slug);
 }
 
-export function sheetCount(p: ColoringPage): number {
-  return p.groups.reduce((n, g) => n + g.sheets.length, 0);
+export function sheetCount(p: ColoringPage, lang: UiLang): number {
+  return groupsForLang(p, lang).reduce((n, g) => n + g.sheets.length, 0);
 }
 
 /** Все листы подряд, для веера на странице книги. */
-export function allSheets(p: ColoringPage): Sheet[] {
-  return p.groups.flatMap((g) => g.sheets);
+export function allSheets(p: ColoringPage, lang: UiLang): Sheet[] {
+  return groupsForLang(p, lang).flatMap((g) => g.sheets);
 }
 
 /** Страница раскрасок, собранная из этой книги. */
@@ -226,6 +244,18 @@ export function coloringPageForBook(bookId: string): ColoringPage | undefined {
   return coloringPages.find((p) => p.fromBookId === bookId || p.fromBookIdEs === bookId);
 }
 
-export const printableUrl = (id: string, size: "letter" | "a4") =>
-  `/printables/${id}-${size}.pdf`;
-export const previewUrl = (id: string) => `/printables/${id}.png`;
+/** Имя файла листа на этом языке. Испанские рисунки лежат с суффиксом -es. */
+export const sheetFile = (id: string, lang: UiLang) => (lang === "es" ? `${id}-es` : id);
+
+export const printableUrl = (id: string, size: "letter" | "a4", lang: UiLang) =>
+  `/printables/${sheetFile(id, lang)}-${size}.pdf`;
+
+export const previewUrl = (id: string, lang: UiLang) =>
+  `/printables/${sheetFile(id, lang)}.png`;
+
+/** Листы этой темы, доступные на этом языке. */
+export function groupsForLang(p: ColoringPage, lang: UiLang): SheetGroup[] {
+  return p.groups
+    .map((g) => ({ ...g, sheets: g.sheets.filter((sh) => !sh.only || sh.only.includes(lang)) }))
+    .filter((g) => g.sheets.length > 0);
+}

@@ -11,7 +11,7 @@ import {
   type BookType,
 } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
-import { pagesForLang, sheetCount, previewUrl } from "@/data/coloringPages";
+import { pagesForLang, sheetCount, previewUrl, groupsForLang } from "@/data/coloringPages";
 import {
   awards,
   reviewSources,
@@ -283,14 +283,14 @@ export default async function SectionPage({
             <div className="themes">
               {pages.map((p) => {
                 const c = p.copy[lang]!;
-                const first = p.groups[0].sheets.slice(0, 3);
+                const first = groupsForLang(p, lang)[0].sheets.slice(0, 3);
                 return (
                   <Link className="theme" key={p.id} href={itemPath(lang, "coloring", p.slug[lang]!)}>
                     <div className="theme__strip">
                       {first.map((sh) => (
                         <img
                           key={sh.id}
-                          src={previewUrl(sh.id)}
+                          src={previewUrl(sh.id, lang)}
                           alt=""
                           width={642}
                           height={822}
@@ -300,7 +300,7 @@ export default async function SectionPage({
                     </div>
                     <p className="theme__title">{c.title}</p>
                     <p className="theme__meta">
-                      {sheetCount(p)} {t.free.countLabel}
+                      {sheetCount(p, lang)} {t.free.countLabel}
                     </p>
                   </Link>
                 );

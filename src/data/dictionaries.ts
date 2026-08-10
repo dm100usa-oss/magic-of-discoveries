@@ -444,7 +444,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Estamos preparando las primeras páginas. Si quieres un animal o un tema concreto, escríbenos y lo publicamos.",
       howToTitle: "Cómo imprimirlas",
       sheetTitle: "Dibujo de {name} para colorear",
-      sheetAlt: "Dibujo de {name} para colorear gratis para imprimir, contornos gruesos, un animal por página",
+      sheetAlt: "Dibujo de {name} para colorear gratis para imprimir, contornos gruesos, un animal por página, con el nombre en español",
       printLetter: "Imprimir · Carta",
       printA4: "Imprimir · A4",
       faqTitle: "Preguntas que hacen los padres",

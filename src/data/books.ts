@@ -216,6 +216,53 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328205", price: "$6.99" }],
     pdfUrl: WIX + "spanish-4",
     rating: { value: 4.9, count: 26 },
+    showcaseLead: {
+      es: "Tres cosas que comprobamos en cada página antes de que entrara en el libro: la forma se mantiene simple, el dibujo llena la hoja, y el animal resulta lo bastante simpático como para que el niño quiera empezar.",
+    },
+    bannerLead: {
+      file: "/art/first-coloring-111-es-header.png",
+      w: 1941,
+      h: 601,
+      alt: {
+        es: "El Primer Libro de Colorear para Bebés de Ricardo Demi, portada con un león, de 1 a 3 años",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/first-coloring-111-es-simple.png",
+        w: 601,
+        h: 601,
+        alt: {
+          es: "Simples: una tortuga de contorno grueso, un solo objeto en la página",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-es-big.png",
+        w: 601,
+        h: 601,
+        alt: {
+          es: "Grandes: una vaca que llena la hoja, coloreada por un niño pequeño",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-es-cute.png",
+        w: 601,
+        h: 601,
+        alt: {
+          es: "Adorables: un coche rojo sonriente, uno de los objetos cotidianos del libro",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/first-coloring-111-es-gift.png",
+        w: 1941,
+        h: 601,
+        alt: {
+          es: "Un maravilloso regalo para artistas novatos, una rosquilla y lápices de colores",
+        },
+      },
+    ],
     slug: { es: "primer-libro-colorear-bebes-1-3-anos-111-dibujos" },
     copy: {
       es: {

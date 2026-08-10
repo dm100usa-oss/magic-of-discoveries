@@ -125,7 +125,7 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
       {book.formats.map((f) => (
         <a
           key={f.asin}
-          className={`btn ${f.kind === "kindle" ? "btn--ghost" : "btn--sun"}`}
+          className={`btn ${f.kind === "kindle" ? "btn--ghost" : "btn--sky"}`}
           href={amazonUrl(f.asin)}
           rel="nofollow sponsored noopener"
           target="_blank"

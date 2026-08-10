@@ -125,7 +125,7 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
       {book.formats.map((f) => (
         <a
           key={f.asin}
-          className={`btn ${f.kind === "kindle" ? "btn--ghost" : "btn--sky"}`}
+          className={`btn ${f.kind === "kindle" ? "btn--ghost" : "btn--pink"}`}
           href={amazonUrl(f.asin)}
           rel="nofollow sponsored noopener"
           target="_blank"
@@ -134,7 +134,7 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
         </a>
       ))}
       {book.pdfUrl ? (
-        <a className="btn btn--pink" href={book.pdfUrl} rel="noopener" target="_blank">
+        <a className="btn btn--sky" href={book.pdfUrl} rel="noopener" target="_blank">
           {t.buyPdf}
         </a>
       ) : null}

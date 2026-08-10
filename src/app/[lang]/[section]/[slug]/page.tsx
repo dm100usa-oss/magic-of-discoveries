@@ -182,6 +182,20 @@ export default async function ItemPage({
             .slice(0, 6)
             .map((sh) => `${SITE_URL}${previewUrl(sh.id, lang)}`),
         },
+        /* Права на каждый лист. Google показывает такие картинки
+           со значком "лицензируемое" и ставит ссылку на владельца. */
+        ...groups.flatMap((g) =>
+          g.sheets.map((sh) => ({
+            "@type": "ImageObject",
+            contentUrl: `${SITE_URL}${previewUrl(sh.id, lang)}`,
+            name: f.sheetTitle.replace("{name}", sh.name[lang] ?? sh.name.en!),
+            creator: { "@type": "Person", name: AUTHORS.ricardo.name },
+            copyrightNotice: `© ${new Date().getFullYear()} ${PUBLISHER}`,
+            creditText: PUBLISHER,
+            license: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
+            acquireLicensePage: `${SITE_URL}${sectionPath(lang, "contact")}`,
+          }))
+        ),
         {
           "@type": "FAQPage",
           mainEntity: copy.faq.map((q) => ({
@@ -294,6 +308,8 @@ export default async function ItemPage({
         ) : null}
 
         <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          <p className="rights">{f.rights}</p>
+
           <h2 className="section">{f.faqTitle}</h2>
           <div className="faq">
             {copy.faq.map((q) => (

@@ -617,3 +617,37 @@ ul.award-list li {
 @media (min-width: 900px) {
   .book__cover { position: sticky; top: var(--gap-2); }
 }
+
+/* ------------------------------------------------------------------ */
+/*  Защита рисунков                                                    */
+/* ------------------------------------------------------------------ */
+
+/* Обложки, баннеры, страницы книги и превью листов нельзя перетащить
+   мышью и нельзя выделить. От случайного копирования мимоходом.
+   Настоящая защита не в этом, а в подписи на самом листе, в авторстве
+   внутри файлов и в разметке прав. */
+.book__cover img,
+.card__cover img,
+.showcase img,
+.artwork img,
+.theme-banner,
+.fan img,
+.sheet img,
+.theme__strip img,
+.pick__cover img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+/* Ссылки под превью должны остаться нажимаемыми */
+.pick__cover, .theme, .card { pointer-events: auto; }
+
+/* Права на рисунки, под листами */
+.rights {
+  font-size: var(--t-small); color: var(--ink-2);
+  max-width: 78ch; margin: 0 0 var(--gap-4);
+  padding-top: var(--gap-2); border-top: 2px solid var(--pink-pale);
+}

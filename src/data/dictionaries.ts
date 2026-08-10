@@ -103,6 +103,7 @@ export interface Dictionary {
     bookSheetsTitle: string;
     bookSheetsLead: string;
     bookSheetsCta: string;
+    rights: string;
   };
   about: {
     title: string;
@@ -278,6 +279,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       bookSheetsLead:
         "These are real pages from the book. You can print twenty of them free and see the line weight for yourself before you buy.",
       bookSheetsCta: "Print 20 pages free",
+      rights:
+        "Drawings by Ricardo Demi, published by Magic of Discoveries LLC. Print as many copies as you like for home, school or daycare. Please do not resell them, republish the files, or use them in a book or product of your own.",
     },
     about: {
       title: "About us",
@@ -453,6 +456,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       bookSheetsLead:
         "Son páginas reales del libro. Puedes imprimir veinte gratis y comprobar tú mismo el grosor de la línea antes de comprar.",
       bookSheetsCta: "Imprimir 20 láminas gratis",
+      rights:
+        "Dibujos de Ricardo Demi, editados por Magic of Discoveries LLC. Imprime las copias que quieras para casa, la escuela o la guardería. Por favor no las revendas, no publiques los archivos ni las uses en un libro o producto propio.",
     },
     about: {
       title: "Quiénes somos",
@@ -626,6 +631,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       bookSheetsLead:
         "Это настоящие страницы книги. Двадцать можно распечатать бесплатно и своими глазами оценить толщину линии до покупки.",
       bookSheetsCta: "Распечатать 20 листов бесплатно",
+      rights:
+        "Рисунки Рикардо Деми, издательство Magic of Discoveries LLC. Печатайте сколько угодно для дома, школы и детского сада. Пожалуйста, не перепродавайте их, не выкладывайте файлы у себя и не используйте в своей книге или товаре.",
     },
     about: {
       title: "О нас",

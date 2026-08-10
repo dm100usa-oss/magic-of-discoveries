@@ -95,9 +95,10 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--font-display);
   font-weight: 800;
   font-size: clamp(2.15rem, 1.25rem + 5.2vw, 4.25rem);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
+  word-spacing: 0.3em;
   margin: 0;
-  line-height: 0.96;
+  line-height: 1.1;
 }
 .brand__line {
   display: block;
@@ -105,18 +106,77 @@ img { max-width: 100%; height: auto; display: block; }
   margin-inline: auto;
   white-space: nowrap;
 }
+/* Название сложено из трех слоев, снизу вверх:
+   1. розовая линия, отодвинутая от буквы,
+   2. белое поле между линией и буквой,
+   3. сама буква со своей гранью, темнее ее цвета.
+   Линия и поле собраны кольцом из 24 теней по кругу. Восьми не хватало:
+   в узких местах буквы кольцо рвалось, это и было видно.
+   Грань буквы дана обводкой var(--edge) и рисуется под заливкой
+   (paint-order), поэтому буква не худеет.
+   Все размеры в долях кегля, на телефоне уменьшаются сами.
+   Замеры сняты с образца владельца. */
 .brand__line > span {
   display: inline-block;
-  -webkit-text-stroke: 1px rgba(247, 79, 146, 0.26);
+  -webkit-text-stroke: 0.028em var(--edge);
   paint-order: stroke fill;
+  text-shadow:
+    +0.0550em +0.0000em 0 #fff,
+    +0.0531em +0.0142em 0 #fff,
+    +0.0476em +0.0275em 0 #fff,
+    +0.0389em +0.0389em 0 #fff,
+    +0.0275em +0.0476em 0 #fff,
+    +0.0142em +0.0531em 0 #fff,
+    +0.0000em +0.0550em 0 #fff,
+    -0.0142em +0.0531em 0 #fff,
+    -0.0275em +0.0476em 0 #fff,
+    -0.0389em +0.0389em 0 #fff,
+    -0.0476em +0.0275em 0 #fff,
+    -0.0531em +0.0142em 0 #fff,
+    -0.0550em +0.0000em 0 #fff,
+    -0.0531em -0.0142em 0 #fff,
+    -0.0476em -0.0275em 0 #fff,
+    -0.0389em -0.0389em 0 #fff,
+    -0.0275em -0.0476em 0 #fff,
+    -0.0142em -0.0531em 0 #fff,
+    -0.0000em -0.0550em 0 #fff,
+    +0.0142em -0.0531em 0 #fff,
+    +0.0275em -0.0476em 0 #fff,
+    +0.0389em -0.0389em 0 #fff,
+    +0.0476em -0.0275em 0 #fff,
+    +0.0531em -0.0142em 0 #fff,
+    +0.0820em +0.0000em 0 #fde1ea,
+    +0.0792em +0.0212em 0 #fde1ea,
+    +0.0710em +0.0410em 0 #fde1ea,
+    +0.0580em +0.0580em 0 #fde1ea,
+    +0.0410em +0.0710em 0 #fde1ea,
+    +0.0212em +0.0792em 0 #fde1ea,
+    +0.0000em +0.0820em 0 #fde1ea,
+    -0.0212em +0.0792em 0 #fde1ea,
+    -0.0410em +0.0710em 0 #fde1ea,
+    -0.0580em +0.0580em 0 #fde1ea,
+    -0.0710em +0.0410em 0 #fde1ea,
+    -0.0792em +0.0212em 0 #fde1ea,
+    -0.0820em +0.0000em 0 #fde1ea,
+    -0.0792em -0.0212em 0 #fde1ea,
+    -0.0710em -0.0410em 0 #fde1ea,
+    -0.0580em -0.0580em 0 #fde1ea,
+    -0.0410em -0.0710em 0 #fde1ea,
+    -0.0212em -0.0792em 0 #fde1ea,
+    -0.0000em -0.0820em 0 #fde1ea,
+    +0.0212em -0.0792em 0 #fde1ea,
+    +0.0410em -0.0710em 0 #fde1ea,
+    +0.0580em -0.0580em 0 #fde1ea,
+    +0.0710em -0.0410em 0 #fde1ea,
+    +0.0792em -0.0212em 0 #fde1ea;
   filter: drop-shadow(0 2px 2px rgba(51, 32, 44, 0.07));
 }
-.brand__line > span:nth-child(6n + 1) { color: var(--sky); }
-.brand__line > span:nth-child(6n + 2) { color: var(--sun); }
-.brand__line > span:nth-child(6n + 3) { color: var(--pink-hot); }
-.brand__line > span:nth-child(6n + 4) { color: var(--mint); }
-.brand__line > span:nth-child(6n + 5) { color: var(--leaf); }
-.brand__line > span:nth-child(6n) { color: var(--grape); }
+.brand__line > span:nth-child(6n + 1) { color: var(--sky); --edge: #2fa8cd; }
+.brand__line > span:nth-child(6n + 2) { color: var(--sun); --edge: #e09a00; }
+.brand__line > span:nth-child(6n + 3) { color: var(--pink-hot); --edge: #d92f74; }
+.brand__line > span:nth-child(6n + 4) { color: var(--mint); --edge: #35a89f; }
+.brand__line > span:nth-child(6n + 5) { color: var(--leaf); --edge: #7fb32a; }
+.brand__line > span:nth-child(6n) { color: var(--grape); --edge: #8d55b8; }
 
 .byline {
   font-family: var(--font-script);

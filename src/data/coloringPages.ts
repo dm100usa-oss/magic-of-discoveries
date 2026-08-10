@@ -553,20 +553,21 @@ export const coloringPages: ColoringPage[] = [
           S("ocean-island", "Palm island", "Isla con palmeras", "Остров с пальмами"),
           S("ocean-sailboat", "Sailboat", "Velero", "Парусник"),
           S("ocean-shells", "Shells and starfish", "Conchas y estrellas de mar", "Ракушки и морские звезды"),
+          S("ocean-mermaid", "Mermaid", "Sirena", "Русалка"),
         ],
       },
     ],
     copy: {
       en: {
         title:
-          "9 free printable ocean coloring pages for adults. Thick lines, wide open water, easy to finish",
+          "10 free printable ocean coloring pages for adults. Thick lines, wide open water, easy to finish",
         lead:
-          "Real pages from our printed ocean book. Sea otters, jellyfish, shells and quiet beaches, drawn with bold outlines and plenty of open space to fill.",
+          "Real pages from our printed ocean book. Sea otters, jellyfish, a mermaid, shells and quiet beaches, drawn with bold outlines and plenty of open space to fill.",
         body: [
           "Water, sand and sky are the reason ocean subjects work so well as easy coloring. They are large open areas. You can lay down a wash of blue without chasing a hairline border, and the page still looks finished.",
           "Every one of these is a page from our printed book, drawn by hand. Nothing here is filler assembled for a website. The line is thick enough that a child can color the same sheet next to you.",
           "A page takes about twenty minutes. That is the whole idea: something you actually finish in one sitting, rather than a mandala you abandon in the third ring.",
-          "There is nothing to sign up for and nothing to pay. Print one, print all nine, print the same one twice so two people can color it together.",
+          "There is nothing to sign up for and nothing to pay. Print one, print all ten, print the same one twice so two people can color it together.",
         ],
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
@@ -575,7 +576,7 @@ export const coloringPages: ColoringPage[] = [
           "If you use markers, slip a spare sheet underneath",
           "Blues and greens go a long way here, so keep a few shades of each within reach",
         ],
-        pickLead: "If these nine went quickly, there are 50 more in the book they came from.",
+        pickLead: "If these ten went quickly, there are 50 more in the book they came from.",
         pickTitle: "The book these pages come from",
         pickPoints: [
           "50 hand drawn ocean designs: sea animals, fish, shells, boats, beaches and a mermaid",
@@ -605,14 +606,14 @@ export const coloringPages: ColoringPage[] = [
       },
       es: {
         title:
-          "9 dibujos del océano para colorear gratis para imprimir, para adultos. Trazos gruesos, agua abierta, fáciles de terminar",
+          "10 dibujos del océano para colorear gratis para imprimir, para adultos. Trazos gruesos, agua abierta, fáciles de terminar",
         lead:
-          "Páginas reales de nuestro libro marino impreso. Nutrias, medusas, conchas y playas tranquilas, con contornos gruesos y mucho espacio abierto para rellenar.",
+          "Páginas reales de nuestro libro marino impreso. Nutrias, medusas, una sirena, conchas y playas tranquilas, con contornos gruesos y mucho espacio abierto para rellenar.",
         body: [
           "El agua, la arena y el cielo son la razón de que los temas del mar funcionen tan bien como colorear fácil. Son zonas amplias. Puedes extender un azul sin perseguir un borde finísimo, y la página igual queda terminada.",
           "Cada una de estas láminas es una página de nuestro libro impreso, dibujada a mano. Aquí no hay relleno reunido para una web. El trazo es lo bastante grueso para que un niño coloree la misma hoja a tu lado.",
           "Una página lleva unos veinte minutos. Esa es toda la idea: algo que de verdad terminas de una sentada, y no un mandala que abandonas en el tercer anillo.",
-          "No hay que registrarse ni pagar nada. Imprime una, imprime las nueve, o imprime la misma dos veces para colorearla con alguien.",
+          "No hay que registrarse ni pagar nada. Imprime una, imprime las diez, o imprime la misma dos veces para colorearla con alguien.",
         ],
         howTo: [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
@@ -621,7 +622,7 @@ export const coloringPages: ColoringPage[] = [
           "Si usas rotuladores, pon una hoja debajo",
           "Aquí los azules y los verdes se usan mucho, así que ten varios tonos de cada uno a mano",
         ],
-        pickLead: "Si estas nueve se te han hecho cortas, en el libro del que salieron hay 50.",
+        pickLead: "Si estas diez se te han hecho cortas, en el libro del que salieron hay 50.",
         pickTitle: "El libro del que salen estas páginas",
         pickPoints: [
           "50 diseños marinos dibujados a mano: animales del mar, peces, conchas, barcos, playas y una sirena",

@@ -1381,7 +1381,7 @@ export const books: Book[] = [
           "8.5 x 11 inches",
         ],
         forWhom:
-          "Adults, teenagers, children coloring alongside a grown-up, beginners and older colorists. Widely used for winding down in the evening and for shaky or tired hands.",
+          "Adults, teenagers, children coloring alongside a grown-up, beginners and older colorists. Two things come up again and again from readers: they color a page in the evening to let go of a hard workday, and they buy it as a gift and then keep it for themselves.",
         faq: [
           {
             q: "Is this too easy if I already color a lot?",
@@ -1470,7 +1470,7 @@ export const books: Book[] = [
           "21.6 x 27.9 cm",
         ],
         forWhom:
-          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y personas mayores. Muy usado para desconectar por la noche y para manos cansadas o temblorosas.",
+          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y personas mayores. Dos cosas se repiten en los comentarios de los lectores: colorean una página por la noche para soltar la tensión del día de trabajo, y lo compran como regalo y acaban quedándoselo.",
         faq: [
           {
             q: "¿Es demasiado fácil si ya coloreo mucho?",

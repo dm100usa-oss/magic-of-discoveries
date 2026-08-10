@@ -10,8 +10,8 @@ export const METHOD_REFERENCE_URL = "https://ricardo-demi-books.vercel.app/metho
 
 export const SOCIAL = {
   instagram: "https://www.instagram.com/magic_of_discoveries",
-  tiktok: "https://www.tiktok.com/@ricardo_maria_demi",
-  pinterest: "http://www.pinterest.com/magic_of_discoveries",
+  tiktok: "https://www.tiktok.com/@magic_of_discoveries",
+  pinterest: "https://www.pinterest.com/magic_of_discoveries",
   youtube: "https://www.youtube.com/@magic_of_discoveries",
 };
 

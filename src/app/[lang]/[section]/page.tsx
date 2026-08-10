@@ -21,7 +21,7 @@ import {
 } from "@/data/method";
 import { PageHead } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
-import { SITE_URL, CONTACT_EMAIL, PUBLISHER, AUTHORS, METHOD_REFERENCE_URL } from "@/lib/site";
+import { SITE_URL, CONTACT_EMAIL, PUBLISHER, AUTHORS, SOCIAL, METHOD_REFERENCE_URL } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
 
 const TYPES: BookType[] = ["coloring", "drawing", "bedtime", "bilingual"];
@@ -129,6 +129,15 @@ export default async function SectionPage({
       "@type": "Organization",
       name: PUBLISHER,
       url: SITE_URL,
+      email: CONTACT_EMAIL,
+      sameAs: [
+        SOCIAL.instagram,
+        SOCIAL.tiktok,
+        SOCIAL.pinterest,
+        SOCIAL.youtube,
+        AUTHORS.ricardo.amazon,
+        AUTHORS.maria.amazon,
+      ],
       founder: [
         { "@type": "Person", name: AUTHORS.ricardo.name, sameAs: AUTHORS.ricardo.amazon },
         { "@type": "Person", name: AUTHORS.maria.name, sameAs: AUTHORS.maria.amazon },

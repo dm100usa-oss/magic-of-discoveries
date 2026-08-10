@@ -236,13 +236,19 @@ export default async function ItemPage({
                 const name = sh.name[lang] ?? sh.name.en!;
                 return (
                   <figure className="sheet" key={sh.id}>
-                    <img
-                      src={previewUrl(sh.id, lang)}
-                      alt={(copy.sheetAlt ?? f.sheetAlt).replace("{name}", name)}
-                      width={page.spread ? 1294 : 642}
-                      height={page.spread ? 816 : 822}
-                      loading="lazy"
-                    />
+                    <a
+                      className="sheet__link"
+                      href={printableUrl(sh.id, lang === "es" ? "a4" : "letter", lang)}
+                      download
+                    >
+                      <img
+                        src={previewUrl(sh.id, lang)}
+                        alt={(copy.sheetAlt ?? f.sheetAlt).replace("{name}", name)}
+                        width={page.spread ? 1294 : 642}
+                        height={page.spread ? 816 : 822}
+                        loading="lazy"
+                      />
+                    </a>
                     <figcaption>
                       <h3>{(copy.sheetTitle ?? f.sheetTitle).replace("{name}", name)}</h3>
                       <p className="sheet__links">

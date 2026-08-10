@@ -182,11 +182,40 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 }
 .btn:hover { text-decoration: none; box-shadow: var(--shadow-lift); }
 .btn:active { transform: scale(0.97); }
-.btn--pink { background: var(--pink-hot); color: #fff; }
-.btn--sun { background: var(--sun); color: #5a3900; }
-.btn--mint { background: var(--mint); color: #0c3f3b; }
-.btn--ghost { background: #fff; color: var(--pink-deep); box-shadow: inset 0 0 0 2.5px var(--pink-hot); }
+/* У каждой кнопки свой край чуть темнее заливки. На светлом фоне и на
+   солнце с телефона одна тень кнопку не держит, край держит.
+   При нажатии заливка темнеет: на пальце сжатие почти не видно,
+   а потемнение видно всегда. Цвет нажатия это тот же цвет, умноженный
+   на 0.85, без осветления и без серой пленки поверх. */
+.btn--pink {
+  background: var(--pink-hot); color: #fff;
+  --press-bg: #d2437c;
+  box-shadow: var(--shadow), inset 0 0 0 1.5px var(--pink-deep);
+}
+.btn--pink:hover { box-shadow: var(--shadow-lift), inset 0 0 0 1.5px var(--pink-deep); }
+
+.btn--sun {
+  background: var(--sun); color: #5a3900;
+  --press-bg: #d9a52b;
+  box-shadow: var(--shadow), inset 0 0 0 1.5px #d99a00;
+}
+.btn--sun:hover { box-shadow: var(--shadow-lift), inset 0 0 0 1.5px #d99a00; }
+
+.btn--mint {
+  background: var(--mint); color: #0c3f3b;
+  --press-bg: #53b0a8;
+  box-shadow: var(--shadow), inset 0 0 0 1.5px #35b3a9;
+}
+.btn--mint:hover { box-shadow: var(--shadow-lift), inset 0 0 0 1.5px #35b3a9; }
+
+.btn--ghost {
+  background: #fff; color: var(--pink-deep);
+  --press-bg: var(--pink-pale);
+  box-shadow: inset 0 0 0 2.5px var(--pink-hot);
+}
 .btn--ghost:hover { box-shadow: inset 0 0 0 2.5px var(--pink-deep), var(--shadow); }
+
+.btn:active { background: var(--press-bg, inherit); }
 
 /* ==================== СЕТКА КНИГ ==================== */
 
@@ -198,10 +227,12 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 .card:hover { text-decoration: none; }
 .card__frame {
   background: #fff; border-radius: var(--radius); padding: clamp(0.7rem, 1.6vw, 1.1rem);
+  border: 2px solid var(--pink-pale);
   box-shadow: var(--shadow); height: 100%;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 .card:hover .card__frame { transform: translateY(-5px); box-shadow: var(--shadow-lift); }
+.card:active .card__frame { transform: scale(0.99); box-shadow: var(--shadow); }
 .card__cover {
   aspect-ratio: 3 / 4; border-radius: var(--radius-sm); overflow: hidden;
   display: flex; align-items: center; justify-content: center;
@@ -448,10 +479,17 @@ dl.retail dd { margin: 0; font-size: var(--t-small); }
   margin: var(--gap-2) 0 var(--gap-4);
 }
 @media (max-width: 620px) { .pick { grid-template-columns: 1fr; } }
-.pick__cover { display: block; }
+.pick__cover {
+  display: block; background: #fff; border-radius: var(--radius);
+  border: 2px solid var(--pink-pale); padding: 0.6rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.pick__cover:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.pick__cover:active { transform: scale(0.99); box-shadow: var(--shadow); }
 .pick__cover img {
   display: block; width: 100%; height: auto;
-  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+  border-radius: var(--radius-sm);
 }
 .pick .subtitle {
   font-family: var(--font-display); font-weight: 800;
@@ -484,10 +522,12 @@ ul.award-list li {
 .theme {
   display: block; text-decoration: none; color: inherit;
   background: var(--paper); border-radius: var(--radius);
+  border: 2px solid var(--pink-pale);
   box-shadow: var(--shadow); padding: var(--gap-2);
   transition: box-shadow 0.18s ease, transform 0.18s ease;
 }
 .theme:hover { box-shadow: var(--shadow-lift); transform: translateY(-2px); }
+.theme:active { transform: scale(0.99); box-shadow: var(--shadow); }
 .theme__strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: var(--gap-2); }
 .theme__strip img {
   width: 100%; height: auto; border-radius: var(--radius-sm);
@@ -527,10 +567,20 @@ ul.award-list li {
 @media (max-width: 1000px) { .sheets { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 720px) { .sheets { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 420px) { .sheets { grid-template-columns: 1fr; } }
-.sheet { margin: 0; }
+/* Лист это плашка целиком, а не просто картинка с кнопками под ней.
+   Родитель на телефоне тычет в сам разворот, и это должно работать. */
+.sheet {
+  margin: 0; background: #fff; border-radius: var(--radius);
+  border: 2px solid var(--pink-pale); padding: 0.7rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.sheet:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); }
+.sheet__link { display: block; border-radius: var(--radius-sm); }
+.sheet__link:active { transform: scale(0.985); }
 .sheet img {
   width: 100%; height: auto; display: block; background: #fff;
-  border: 2px solid var(--pink-pale); border-radius: var(--radius-sm);
+  border: 1px solid var(--pink-pale); border-radius: var(--radius-sm);
 }
 .sheet h3 {
   font-family: var(--font-display); font-size: var(--t-h3); font-weight: 800;
@@ -663,8 +713,9 @@ ul.award-list li {
   pointer-events: none;
 }
 
-/* Ссылки под превью должны остаться нажимаемыми */
-.pick__cover, .theme, .card { pointer-events: auto; }
+/* Ссылки и плашки должны остаться нажимаемыми: перетаскивание запрещено
+   самой картинке, а нажатие ловит ссылка вокруг нее. */
+.pick__cover, .theme, .card, .sheet__link { pointer-events: auto; }
 
 /* Права на рисунки, под листами */
 .rights {

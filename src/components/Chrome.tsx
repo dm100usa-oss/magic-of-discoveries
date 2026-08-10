@@ -35,9 +35,19 @@ export function Header({ lang }: { lang: UiLang }) {
   return (
     <header>
       <div className="masthead">
-        <Link href={homePath(lang)} style={{ textDecoration: "none" }}>
-          <Brand />
-        </Link>
+        <div className="masthead__inner">
+          <img
+            className="balloon"
+            src="/balloon.png"
+            alt=""
+            aria-hidden
+            width={520}
+            height={745}
+          />
+          <Link href={homePath(lang)} style={{ textDecoration: "none" }}>
+            <Brand />
+          </Link>
+        </div>
         <p className="byline">Ricardo &amp; Maria Demi</p>
         <div className="langbar">
           {activeLangs.map((l) => (

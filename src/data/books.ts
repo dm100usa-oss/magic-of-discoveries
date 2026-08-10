@@ -1593,24 +1593,78 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328396", price: "$7.99" }],
     pdfUrl: WIX + "spanish-1",
     rating: { value: 5.0, count: 6 },
+    showcaseLead: {
+      es: "Cuatro cosas que conviene ver antes de comprar: el grosor del trazo, la variedad de temas marinos, el tamaño de la página y cómo están impresos los dibujos.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-ocean-es-header.png",
+      w: 1940,
+      h: 1200,
+      alt: {
+        es: "Tómate un Descanso: Belleza del Océano, libro de colorear fácil de letra grande para adultos y niños, portada con una nutria marina flotando entre conchas y estrellas de mar",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-ocean-es-lines.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Tres páginas del libro: un submarino entre algas, un grupo de conchas y estrellas de mar, y un pez betta, todos dibujados con líneas gruesas",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-es-themes.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Seis diseños más del libro: un banco de peces, un tiburón, un cofre del tesoro, una ballena, una caracola y una sirena sobre una roca",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-es-size.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "El libro abierto en una sombrilla de playa y una pelota, con la página de 21,59 por 27,94 cm y los dibujos impresos por una sola cara",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-es-gift.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Un regalo envuelto y lápices de colores, el libro como regalo para ti o para alguien a quien quieres",
+        },
+      },
+    ],
     slug: { es: "tomate-un-descanso-belleza-del-oceano-libro-colorear-facil" },
     copy: {
       es: {
         title: "Tómate un Descanso: Belleza del Océano. Libro de Colorear Fácil",
-        subtitle: "50 dibujos marinos de línea gruesa: animales del mar, peces, playas tranquilas.",
+        subtitle: "50 dibujos marinos de letra grande. Trazo grueso, agua abierta, una página terminada de una sentada.",
         lead:
-          "Animales marinos, peces, conchas y playas tranquilas, dibujados con el mismo trazo grueso y fácil. Los temas del mar encajan muy bien en este formato, porque el agua, la arena y el cielo son zonas amplias que se disfrutan coloreando sin prisa.",
+          "Animales marinos, peces, conchas y playas tranquilas, dibujados con el mismo trazo grueso y fácil que el resto de la serie. Los temas del mar encajan muy bien en este formato: el agua, la arena y el cielo son zonas amplias y no hay nada diminuto que forzar la vista. El trazo es lo bastante grueso para que un niño coloree la misma página a tu lado, y por eso la portada dice adultos y niños.",
         inside: [
-          "50 diseños marinos dibujados a mano",
-          "Líneas gruesas y zonas amplias",
-          "Un diseño por página, por una sola cara",
+          "50 diseños marinos dibujados a mano: animales del mar, peces, conchas, barcos, playas y una sirena",
+          "Letra grande: líneas gruesas y zonas amplias, cómodo cuando la vista se cansa pronto",
+          "Un diseño por página, impreso por una sola cara, para que los rotuladores no estropeen el siguiente",
           "21.6 x 27.9 cm",
         ],
-        forWhom: "Adultos, adolescentes y niños que colorean junto a un adulto.",
+        forWhom:
+          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y cualquiera que quiera algo tranquilo al final del día. También es un regalo fácil: los temas son amables y nada en el libro apunta a una sola edad.",
         faq: [
           {
+            q: "¿Es demasiado fácil si ya coloreo mucho?",
+            a: "Puede que sí. Este libro es sencillo a propósito. Si buscas mandalas complejos, no es este. Si quieres terminar una página en veinte minutos, sí lo es.",
+          },
+          {
             q: "¿Puede usarlo también un niño?",
-            a: "Sí. Los diseños son bastante simples para un niño en edad escolar, por eso muchas familias colorean del mismo libro.",
+            a: "Sí. Las formas son grandes y las líneas gruesas, así que un niño en edad escolar colorea estas páginas sin ayuda. Muchas familias van coloreando el mismo libro juntas.",
+          },
+          {
+            q: "¿En qué se diferencia del libro de Animales Adorables de la misma serie?",
+            a: "Mismo formato, mismo grosor de línea, temas distintos. Animales Adorables trae animales de tierra, flores y plantas. Belleza del Océano trae vida marina, conchas, barcos y playas. Mucha gente tiene los dos.",
           },
           faqBleed.es,
         ],

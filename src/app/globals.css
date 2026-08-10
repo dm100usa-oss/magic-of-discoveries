@@ -427,8 +427,8 @@ dl.retail dt {
 dl.retail dd { margin: 0; font-size: var(--t-small); }
 
 /* Страница-руководство */
-.guide { padding: var(--band-y) 0; max-width: 78ch; }
-.guide .prose p { font-size: var(--t-lead); }
+.guide { padding: var(--band-y) 0; max-width: 78ch; margin-inline: auto; }
+.guide .prose p { font-size: var(--t-lead); max-width: none; }
 
 /* Книга-решение внизу руководства */
 .pick {
@@ -491,8 +491,13 @@ ul.award-list li {
 .theme__meta { margin: 0; font-size: var(--t-small); color: var(--ink-2); }
 
 /* Вступление на странице темы */
-.sheets-intro { padding: var(--band-y) 0 var(--gap-4); }
-.sheets-intro .prose p { font-size: var(--t-lead); }
+/* Вступление на странице темы. Столбец по центру страницы, чтобы совпасть
+   с заголовком над ним. Иначе текст прижат влево, а справа пустота. */
+.sheets-intro {
+  padding: var(--band-y) 0 var(--gap-4);
+  max-width: 74ch; margin-inline: auto;
+}
+.sheets-intro .prose p { font-size: var(--t-lead); max-width: none; }
 .howto {
   background: var(--mint-pale); border-radius: var(--radius);
   padding: var(--gap-2) var(--gap-3); margin-top: var(--gap-3);

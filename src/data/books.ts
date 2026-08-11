@@ -976,6 +976,71 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCPZPX6Z", price: "$2.99" },
     ],
     rating: { value: 4.8, count: 19 },
+    pages: 28,
+    published: "2024-04-26",
+    showcaseLead: {
+      en: "Pages from inside: Max asking the hen for an egg, the cow for milk and the goose for a feather, each animal on its own spread.",
+    },
+    bannerLead: {
+      file: "/art/where-going-max-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        en: "Where Are You Going, Little Max? by Ricardo Demi, discoveries that help kids, cover with the mouse in a sailor shirt among daisies",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/where-going-max-hen.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "An illustration from the book: Max talking to the hen and her two chicks on the farm path, a basket of eggs beside them",
+        },
+      },
+      {
+        file: "/art/where-going-max-cow.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "An illustration from the book: Max carrying two jugs of milk away from the meadow where the cow is grazing",
+        },
+      },
+      {
+        file: "/art/where-going-max-goose.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "An illustration from the book: Max riding on the goose across the pond, with two ducklings and water lilies around them",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/where-going-max-inside.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Short and cute stories, hand drawn illustrations and happy moments for toddlers: a spread where Max sets off with his cart",
+        },
+      },
+      {
+        file: "/art/where-going-max-pages.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Four spreads from the book: Max asking the sheep, the hen and the cow, and the whole family at the table sharing the milk",
+        },
+      },
+      {
+        file: "/art/where-going-max-learning.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          en: "What the child picks up along the way: simple tasks, new words, imagination, the world around them and memory",
+        },
+      },
+    ],
     slug: { en: "where-are-you-going-little-max-bedtime-book-toddlers" },
     copy: {
       en: {
@@ -1017,6 +1082,71 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 909 },
     formats: [{ kind: "paperback", asin: "1963328469", price: "$12.99" }],
     rating: { value: 5.0, count: 2 },
+    pages: 28,
+    published: "2024-04-25",
+    showcaseLead: {
+      es: "Páginas del interior: Max pidiéndole un huevo a la gallina, leche a la vaca y una pluma al ganso, cada animal en su propia doble página.",
+    },
+    bannerLead: {
+      file: "/art/where-going-max-es-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        es: "¿A dónde vas, pequeño Max? de Ricardo Demi, descubrimientos que ayudan a los niños, portada con el ratón con camiseta de marinero entre margaritas",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/where-going-max-es-hen.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          es: "Una ilustración del libro: Max hablando con la gallina y sus dos pollitos en el camino de la granja, con una cesta de huevos al lado",
+        },
+      },
+      {
+        file: "/art/where-going-max-es-cow.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          es: "Una ilustración del libro: Max llevándose dos jarras de leche del prado donde pasta la vaca",
+        },
+      },
+      {
+        file: "/art/where-going-max-es-goose.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          es: "Una ilustración del libro: Max montado en el ganso por el estanque, con dos patitos y nenúfares alrededor",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/where-going-max-es-inside.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Historias cortas y lindas, ilustraciones dibujadas a mano y momentos felices: una doble página en la que Max sale con su carrito",
+        },
+      },
+      {
+        file: "/art/where-going-max-es-pages.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Cuatro dobles páginas del libro: Max pidiéndole a la oveja, a la gallina y a la vaca, y toda la familia en la mesa compartiendo la leche",
+        },
+      },
+      {
+        file: "/art/where-going-max-es-learning.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          es: "Lo que el niño va aprendiendo por el camino: tareas sencillas, palabras nuevas, imaginación, el mundo que le rodea y memoria",
+        },
+      },
+    ],
     slug: { es: "a-donde-vas-pequeno-max-cuento-para-dormir-bebes" },
     copy: {
       es: {

@@ -71,6 +71,95 @@ export const reviewsByLang: Record<UiLang, Review[]> = { en, es, ru };
    На экране это цитаты, в машинную разметку они не идут: Google
    запрещает выдавать чужие оценки за собственные. */
 const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
+  "where-going-max-bilingual": {
+    en: [
+      {
+        text:
+          "Such a nice presentation, sure to hold the attention of 1 to 3 year olds. The graphics, both colors and characters, are wonderfully done and the animals depicted are adorable and cuddly. The bilingual element here is brief and simple, geared to the intended age group.",
+        who: "DWG38, December 3, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Gift for a 1 and a half year old who is learning Spanish as a first language and English as a second. This is a great book for learning.",
+        who: "Katt, January 3, 2026, US",
+        stars: 5,
+      },
+      {
+        text:
+          "My son needed a book for winter break to practice Spanish while away from his Spanish school. I do not read or speak Spanish, so this was perfect to keep track of his reading and understanding.",
+        who: "Eva B., December 29, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Una presentación preciosa, que sin duda mantiene la atención de los niños de 1 a 3 años. Los dibujos, tanto los colores como los personajes, están maravillosamente hechos, y los animales resultan adorables. La parte bilingüe es breve y sencilla, pensada para esa edad.",
+        who: "DWG38, 3 de diciembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+      {
+        text:
+          "Un regalo para un niño de año y medio que aprende español como primera lengua e inglés como segunda. Es un libro estupendo para aprender.",
+        who: "Katt, 3 de enero de 2026, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+      {
+        text:
+          "Mi hijo necesitaba un libro para las vacaciones de invierno, para practicar español fuera de su escuela en español. Yo no leo ni hablo español, así que fue perfecto para seguir su lectura y ver si entendía.",
+        who: "Eva B., 29 de diciembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
+  "where-going-max": {
+    en: [
+      {
+        text:
+          "I liked that this book had the repetition little ones need. The illustrations were adorable and the story was fun and engaging for toddlers. Smooth reading experience.",
+        who: "Susan M, August 24, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "This cute story follows little Max and his adventures asking different animals for things his family can use. The illustrations are phenomenal and will easily keep young children engaged. Children will learn from both the pictures of the animals and their sounds.",
+        who: "Shawna Brim, August 23, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "This book has become a favorite in our home. The stories are short but very interesting, and the illustrations are simply delightful. My child and I read it every day, and we enjoy it every time.",
+        who: "ABT, September 5, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Un libro infantil encantador que ha capturado la imaginación de mi pequeño desde la primera página. El texto está escrito de manera sencilla pero evocadora, ideal para niños en edad preescolar. Las ilustraciones son absolutamente hermosas.",
+        who: "Ekaterina Eliseeva Garcia, 21 de mayo de 2024, España",
+        stars: 5,
+      },
+      {
+        text:
+          "Me gustó que el libro tenga la repetición que los más pequeños necesitan. Las ilustraciones son adorables y la historia es divertida y entretenida para niños pequeños. Se lee con mucha fluidez.",
+        who: "Susan M, 24 de agosto de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+      {
+        text:
+          "Este libro se ha convertido en el favorito de casa. Los cuentos son cortos pero muy interesantes, y las ilustraciones son sencillamente encantadoras. Mi hijo y yo lo leemos cada día y siempre lo disfrutamos.",
+        who: "ABT, 5 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
   /* Испанские отзывы здесь настоящие, написаны по-испански покупателями
      испанского издания, поэтому пометки о переводе у них нет. */
   "first-coloring-book-111": {
@@ -181,6 +270,14 @@ export interface EditorialReview {
 }
 
 const editorial: Record<string, EditorialReview> = {
+  "where-going-max": {
+    text: {
+      en: "Demi cleverly introduces a range of farm animals, seamlessly incorporating the sounds they make, which adds an extra layer of fun for little ones.",
+      es: "Demi presenta con habilidad a varios animales de granja e incorpora con naturalidad los sonidos que hacen, lo que añade una capa más de diversión para los más pequeños.",
+    },
+    who: "Literary Titan",
+    url: "https://literarytitan.com/?s=Where+Are+You+Going%2C+Little+Max%3F",
+  },
   "first-coloring-book-111": {
     text: {
       en: "Each picture is thoughtfully placed in the center of the page, and features bold and curved outlines, helping little ones color within the boundaries.",

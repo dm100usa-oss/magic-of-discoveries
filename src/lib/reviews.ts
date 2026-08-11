@@ -116,6 +116,37 @@ const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
       },
     ],
   },
+  "lucky-rocky-two-in-one": {
+    en: [
+      {
+        text:
+          "This 2 in 1 story is like getting two books in one. It is a collection of short stories. The writing and illustrations are well done.",
+        who: "J. Tidwell, January 13, 2025, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Each chapter is its own story, and each story builds on the last. The stories are sweet little adventures with a lesson. The illustrations are bright and cheerful.",
+        who: "bookdragon, September 3, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Este libro no solo entretiene, sino que también enseña valores como la amistad, la bondad y el respeto. Además, introduce a los niños al idioma inglés de una manera positiva y divertida.",
+        who: "Gigi0205, 4 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Cada capítulo es una historia en sí misma, y cada historia se apoya en la anterior. Son pequeñas aventuras con una enseñanza. Las ilustraciones son alegres y luminosas.",
+        who: "bookdragon, 3 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
   "where-been-max": {
     en: [
       {
@@ -332,6 +363,13 @@ export interface EditorialReview {
 }
 
 const editorial: Record<string, EditorialReview> = {
+  "lucky-rocky-two-in-one": {
+    text: {
+      en: "readers feel like they too have experienced the power of both friendship and kindness",
+      es: "el lector siente que también ha vivido la fuerza de la amistad y de la bondad",
+    },
+    who: "Kathy Golden, Readers' Favorite",
+  },
   "where-been-max": {
     text: {
       en: "The beautiful illustrations complement the story, making the book visually appealing to young readers.",

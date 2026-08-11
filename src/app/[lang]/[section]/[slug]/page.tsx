@@ -656,7 +656,9 @@ export default async function ItemPage({
               {paper ? (
                 <p className="top-price">
                   <span className="top-price__value">{paper.price}</span>
-                  <span className="top-price__label">{t.book.priceFrom}</span>
+                  <span className="top-price__label">
+                    {paper.kind === "hardcover" ? t.book.priceFromHardcover : t.book.priceFrom}
+                  </span>
                 </p>
               ) : null}
               {book.rating && paper ? (

@@ -2352,6 +2352,10 @@ export const books: Book[] = [
     type: "bedtime",
     series: "lucky-rocky",
     pairId: "lucky-rocky-two-in-one-es",
+    ageShown: "3-8",
+    alsoAges: ["3-5"],
+    pages: 78,
+    published: "2024-08-11",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-two-in-one-en.jpg",
     coverSize: { w: 900, h: 1162 },
@@ -2360,21 +2364,87 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCVGV239", price: "$3.00" },
     ],
     rating: { value: 5.0, count: 9 },
+    showcaseLead: {
+      en: "Scenes from the two books: the forest where Rocky and his friends spend their days, tea at Grandma Owl's, and the caterpillar who dreams of becoming a butterfly.",
+    },
+    bannerLead: {
+      file: "/art/lucky-rocky-two-in-one-header.jpg",
+      w: 1940,
+      h: 606,
+      alt: {
+        en: "The Adventures of Lucky Rocky, Two-in-One Edition by Ricardo Demi, hardcover gift edition, short stories for kids ages 3 and up",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/lucky-rocky-two-in-one-forest.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "An illustration from the book: an otter by a tree stump talking to a bluebird on a branch",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-tea.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "An illustration from the book: Rocky, Penny and Brisket at the table with Grandma Owl, a pie and a red teapot",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-caterpillar.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "An illustration from the book: a caterpillar asleep on a leaf, dreaming of the butterflies it will fly with",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/lucky-rocky-two-in-one-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "A spread from the book: large print on the left page, a full color illustration of the cat and the runaway chickens on the right",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-values.jpg",
+        w: 1940,
+        h: 606,
+        alt: {
+          en: "What the stories are about: friendship, kindness, curiosity, respect, creativity. Rocky and his friends walking with Grandma Owl",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-set.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Two books in one: The Magic of Friendship and The Magic of Kindness together in the hardcover gift edition",
+        },
+      },
+    ],
     slug: { en: "adventures-of-lucky-rocky-two-in-one-hardcover-gift-edition" },
     copy: {
       en: {
         title: "The Adventures of Lucky Rocky: Two-in-One Hardcover Edition",
-        subtitle: "Both Rocky books in one hardcover volume. The gift edition.",
+        subtitle: "A hardcover gift edition about the adventures of Rocky the Lucky",
         lead:
-          "Winner in the Adventure category at the Children's Book International Awards 2025. Both Rocky collections bound together in hardcover. This is the edition to give rather than the one to buy for everyday reading, and the price reflects a sewn hardcover rather than a paperback.",
+          "The book brings together the best stories from the series, and it is sure to bring joy and happiness to kids and their parents alike.\n\nPerfect for bedtime reading with children aged 3 to 5, and for building independent reading in children aged 6 to 8.",
         inside: [
           "The Magic of Friendship and The Magic of Kindness in one volume",
+          "Beautiful illustrations that capture attention",
+          "Engaging stories that children will want to read to the end",
+          "Simple sentences printed in large font for easy reading",
+          "The basics of friendship, kindness, mutual assistance and respect, taught in a fun and easy way",
           "Hardcover binding, made to survive being read every night",
-          "Full color illustrations throughout",
           "Award winner, Adventure category, Children's Book International Awards 2025",
         ],
         forWhom:
-          "Birthdays, christenings and Christmas. For families who already know Rocky and want the permanent copy.",
+          "Ages 3 and up. A good fit for first-time readers, new parents and primary school teachers. A perfect gift for birthdays, holidays or any other important event, and for families who already know Rocky and want the permanent copy.",
         faq: [
           {
             q: "Why is this so much more than the paperbacks?",
@@ -2396,6 +2466,10 @@ export const books: Book[] = [
     type: "bedtime",
     series: "lucky-rocky",
     pairId: "lucky-rocky-two-in-one-en",
+    ageShown: "3-8",
+    alsoAges: ["3-5"],
+    pages: 78,
+    published: "2024-08-14",
     size: "21.6 x 21.6 cm",
     cover: "/covers/lucky-rocky-two-in-one-es.jpg",
     coverSize: { w: 900, h: 1157 },
@@ -2404,21 +2478,87 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DD6M59PH", price: "$3.00" },
     ],
     rating: { value: 5.0, count: 5 },
+    showcaseLead: {
+      es: "Escenas de los dos libros: el bosque donde Rocky y sus amigos pasan los días, la merienda en casa de la abuela búho y la oruga que sueña con volar entre mariposas.",
+    },
+    bannerLead: {
+      file: "/art/lucky-rocky-two-in-one-es-header.jpg",
+      w: 1940,
+      h: 606,
+      alt: {
+        es: "Las Aventuras de Rocky, el Afortunado, Edición Dos-en-Uno de Ricardo Demi, edición de regalo en tapa dura, cuentos en español para niños de 3 años en adelante",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/lucky-rocky-two-in-one-forest.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Una ilustración del libro: una nutria junto a un tocón habla con un pájaro azul posado en una rama",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-tea.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Una ilustración del libro: Rocky, Penny y Brisket a la mesa con la abuela búho, una tarta y una tetera roja",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-caterpillar.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Una ilustración del libro: una oruga dormida sobre una hoja sueña con las mariposas con las que volará",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/lucky-rocky-two-in-one-es-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Una página doble del libro: letra grande en la página izquierda y una ilustración a todo color del gato y las gallinas asustadas en la derecha",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-es-values.jpg",
+        w: 1940,
+        h: 606,
+        alt: {
+          es: "De qué tratan las historias: amistad, bondad, curiosidad, respeto, creatividad. Rocky y sus amigos paseando con la abuela búho",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-two-in-one-es-set.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Dos libros en uno: La Magia de la Amistad y La Magia de la Bondad juntos en la edición de regalo en tapa dura",
+        },
+      },
+    ],
     slug: { es: "aventuras-de-rocky-el-afortunado-edicion-dos-en-uno-tapa-dura" },
     copy: {
       es: {
         title: "Las Aventuras de Rocky, el Afortunado: Edición Dos en Uno en Tapa Dura",
-        subtitle: "Los dos libros de Rocky en un solo volumen de tapa dura. La edición de regalo.",
+        subtitle: "Una edición de regalo en tapa dura sobre las aventuras de Rocky, el Afortunado",
         lead:
-          "Ganador en la categoría Aventura de los Children's Book International Awards 2025. Las dos colecciones de Rocky encuadernadas juntas en tapa dura. Es la edición para regalar, no la del uso diario, y el precio corresponde a una tapa dura cosida y no a un libro de bolsillo.",
+          "El libro reúne las mejores historias de la serie y traerá momentos de alegría y felicidad a los niños y a sus padres.\n\nEs perfecta para leer a la hora de dormir a niños de 3 a 5 años y para reforzar la lectura independiente en niños de 6 a 8.",
         inside: [
           "La Magia de la Amistad y La Magia de la Bondad en un volumen",
+          "Hermosas ilustraciones que captan la atención",
+          "Historias envolventes que los niños querrán leer hasta el final",
+          "Frases simples impresas en letra grande para facilitar la lectura",
+          "Los fundamentos de la amistad, la bondad, la ayuda mutua y el respeto, de manera fácil e interesante",
           "Encuadernación en tapa dura, hecha para aguantar la lectura de cada noche",
-          "Ilustraciones a todo color",
           "Premio en la categoría Aventura, Children's Book International Awards 2025",
         ],
         forWhom:
-          "Cumpleaños, bautizos y Navidad. Para familias que ya conocen a Rocky y quieren el ejemplar definitivo.",
+          "De 3 años en adelante. Útil para primeros lectores, nuevos padres y maestros de primaria. El regalo perfecto para un cumpleaños, una fiesta o cualquier evento importante, y para las familias que ya conocen a Rocky y quieren el ejemplar definitivo.",
         faq: [
           {
             q: "¿Por qué cuesta bastante más que los de bolsillo?",

@@ -3053,20 +3053,67 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 1162 },
     formats: [{ kind: "paperback", asin: "1963328329", price: "$7.99" }],
     pdfUrl: WIX + "english-2",
+    showcaseLead: {
+      en: "Four things worth seeing before you buy: how thick the lines are, the page size and how the pages are printed, the range of subjects inside, and the book as a gift.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-food-header.jpg",
+      w: 1940,
+      h: 1200,
+      alt: {
+        en: "Take a Break: Food and Snacks, an easy large print coloring book for adults and kids, cover with a cup of coffee and a cupcake",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-food-lines.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Three pages from the book: a hot dog, cookies and a watermelon, all drawn with thick lines",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-size.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "The book open at a stack of pancakes with strawberries, showing the 8.5 by 11 inch page and designs printed on one side only",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-themes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Six more designs from the book: a pomegranate, grapes, a milkshake, a donut, a birthday cake and a slice of pizza",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-gift.jpg",
+        w: 1940,
+        h: 1199,
+        alt: {
+          en: "A wrapped present and colored pencils, the book as a gift for yourself or someone you love",
+        },
+      },
+    ],
     slug: { en: "take-a-break-food-and-snacks-easy-coloring-book" },
     copy: {
       en: {
         title: "Take a Break: Food and Snacks. Easy Coloring Book",
-        subtitle: "50 bold drawings of food, drinks, desserts and fruit.",
+        subtitle: "Take a short break!",
         lead:
-          "Coffee, cakes, fruit, sandwiches and desserts, in the same bold easy style. Food is the most popular theme in this series, probably because the colors are obvious and you can finish a page without deciding anything difficult.",
+          "Wonderful illustrations that are easy and fun to color. Sit back and give yourself some time for creativity.\n\nCoffee, cakes, fruit, pizza and desserts, drawn with thick lines so a page can be finished in one sitting.",
         inside: [
-          "50 hand-drawn designs: foods, drinks, desserts, fruit",
-          "Bold lines and open shapes",
-          "One design per page, single-sided",
-          "8.5 x 11 inches",
+          "50 big, bold and unique illustrations: foods, drinks, desserts, fruit and much more",
+          "All illustrations are hand-drawn",
+          "Simple drawings, easy to color for adults, teens, beginning artists and seniors",
+          "A perfect size, 8.5 x 11 inches",
+          "One illustration per page, printed on one side to prevent bleed-through",
         ],
-        forWhom: "Adults, teenagers and anyone who wants a page finished in one sitting.",
+        forWhom:
+          "Adults, teens, beginning artists and seniors. A perfect gift for any occasion.",
         faq: [
           {
             q: "Which Take a Break book should I start with?",
@@ -3094,20 +3141,67 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328426", price: "$7.99" }],
     pdfUrl: WIX + "spanish-3",
+    showcaseLead: {
+      es: "Cuatro cosas que conviene ver antes de comprar: el grosor del trazo, el tamaño de la página y cómo están impresos los dibujos, la variedad de temas y el libro como regalo.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-food-es-header.jpg",
+      w: 1940,
+      h: 1200,
+      alt: {
+        es: "Tómate un Descanso: Historias Deliciosas, libro de colorear fácil para adultos y niños, portada con una taza de café y una magdalena",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-food-es-lines.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Tres páginas del libro: un perrito caliente, unas galletas y una sandía, dibujados con líneas gruesas",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-es-size.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "El libro abierto por unas tortitas con fresas, con la página de 21,6 por 27,9 cm y los dibujos impresos por una sola cara",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-es-themes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Seis dibujos más del libro: una granada, unas uvas, un batido, un donut, una tarta de cumpleaños y una porción de pizza",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-es-gift.jpg",
+        w: 1940,
+        h: 1199,
+        alt: {
+          es: "Un regalo envuelto y lápices de colores, el libro como regalo para ti o para alguien querido",
+        },
+      },
+    ],
     slug: { es: "tomate-un-descanso-historias-deliciosas-libro-colorear" },
     copy: {
       es: {
         title: "Tómate un Descanso: Historias Deliciosas. Libro de Colorear Fácil",
-        subtitle: "50 dibujos de línea gruesa con alimentos, bebidas, postres y fruta.",
+        subtitle: "¡Tómate un pequeño descanso!",
         lead:
-          "Café, pasteles, fruta, bocadillos y postres, con el mismo trazo grueso y fácil. La comida es el tema más popular de la serie, probablemente porque los colores son evidentes y se termina una página sin tener que decidir nada difícil.",
+          "Maravillosas ilustraciones que son fáciles y divertidas de colorear. Ponte cómodo y regálate un poco de tiempo para la creatividad.\n\nCafé, pasteles, fruta, pizza y postres, dibujados con línea gruesa para que una página se termine de una sentada.",
         inside: [
-          "50 diseños dibujados a mano: alimentos, bebidas, postres, fruta",
-          "Líneas gruesas y formas amplias",
-          "Un diseño por página, por una sola cara",
-          "21.6 x 27.9 cm",
+          "50 diseños únicos, grandes y de línea gruesa: alimentos, bebidas, postres, fruta y mucho más",
+          "Todas las ilustraciones están dibujadas a mano",
+          "Dibujos sencillos, fáciles de colorear para adultos, adolescentes, artistas principiantes y personas mayores",
+          "Un tamaño ideal, 21,6 x 27,9 cm",
+          "Una ilustración por página, impresa por una sola cara para evitar que traspase",
         ],
-        forWhom: "Adultos, adolescentes y cualquiera que quiera acabar una página de una sentada.",
+        forWhom:
+          "Adultos, adolescentes, artistas principiantes y personas mayores. El regalo perfecto para cualquier ocasión.",
         faq: [
           {
             q: "¿Por cuál de los Tómate un Descanso empiezo?",

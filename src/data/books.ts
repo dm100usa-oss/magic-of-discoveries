@@ -1060,6 +1060,77 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DH3P9ZDR", price: "$2.99" },
     ],
     rating: { value: 4.9, count: 21 },
+    showcaseLead: {
+      en: "Pages from inside: Max asking the goose for a feather, the sheep for wool and the hen for an egg, each animal on its own spread.",
+      es: "Páginas del interior: Max pidiéndole una pluma al ganso, lana a la oveja y un huevo a la gallina, cada animal en su propia doble página.",
+    },
+    bannerLead: {
+      file: "/art/where-going-max-bilingual-header.jpg",
+      w: 1940,
+      h: 1200,
+      alt: {
+        en: "Where Are You Going, Little Max? by Ricardo Demi, bilingual stories in English and Spanish for kids, cover with the mouse and the cow",
+        es: "¿A dónde vas, pequeño Max? de Ricardo Demi, historias bilingües en inglés y español para bebés, portada con el ratón y la vaca",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/where-going-max-bilingual-goose.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "An illustration from the book: Max riding on the goose across the pond, with two ducklings and water lilies around them",
+          es: "Una ilustración del libro: Max montado en el ganso por el estanque, con dos patitos y nenúfares alrededor",
+        },
+      },
+      {
+        file: "/art/where-going-max-bilingual-sheep.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "An illustration from the book: Max thanking the sheep in a meadow of daisies, his cart already full of wool",
+          es: "Una ilustración del libro: Max dándole las gracias a la oveja en un prado de margaritas, con el carrito ya lleno de lana",
+        },
+      },
+      {
+        file: "/art/where-going-max-bilingual-hen.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "An illustration from the book: Max talking to the hen and her two chicks on the farm path, a basket of eggs beside them",
+          es: "Una ilustración del libro: Max hablando con la gallina y sus dos pollitos en el camino de la granja, con una cesta de huevos al lado",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/where-going-max-bilingual-inside.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Short stories, hand drawn illustrations and happy moments for toddlers: a spread with the English line above and the Spanish line below it",
+          es: "Historias cortas, ilustraciones dibujadas a mano y momentos felices: una doble página con la frase en inglés arriba y la misma frase en español debajo",
+        },
+      },
+      {
+        file: "/art/where-going-max-bilingual-cow.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "A spread from the book: Max asks the cow for milk and says please, the same words printed in English in black and in Spanish in blue",
+          es: "Una doble página del libro: Max le pide leche a la vaca y dice por favor, las mismas palabras impresas en inglés en negro y en español en azul",
+        },
+      },
+      {
+        file: "/art/where-going-max-bilingual-gift.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "The perfect gift for your little one: the last page, Max asleep in bed with the book beside him",
+          es: "El regalo perfecto para tu pequeño: la última página, Max dormido en la cama con el libro al lado",
+        },
+      },
+    ],
     slug: {
       en: "where-are-you-going-little-max-bilingual-english-spanish",
       es: "a-donde-vas-pequeno-max-bilingue-ingles-espanol",

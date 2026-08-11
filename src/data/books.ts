@@ -1052,9 +1052,11 @@ export const books: Book[] = [
     age: "1-3",
     type: "bilingual",
     series: "little-max",
-    size: "8.5 x 8.5 in",
+    size: "8.5 x 11 in",
     cover: "/covers/where-going-max-bilingual.jpg",
     coverSize: { w: 900, h: 1169 },
+    pages: 28,
+    published: "2024-09-04",
     formats: [
       { kind: "paperback", asin: "1963328876", price: "$12.99" },
       { kind: "kindle", asin: "B0DH3P9ZDR", price: "$2.99" },

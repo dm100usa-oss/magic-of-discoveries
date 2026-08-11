@@ -79,6 +79,62 @@ export const amazonReviewsUrl = (asin: string) => AMZ + asin + "#customerReviews
 const WIX = "https://dvchbooks.wixsite.com/website-13/product-page/";
 
 /* ------------------------------------------------------------------ */
+/*  Международные номера книг                                          */
+/* ------------------------------------------------------------------ */
+
+/** У бумажных и твердых изданий код Amazon это и есть десятизначный ISBN.
+    Проверяем контрольную цифру, чтобы случайный код не превратился в номер. */
+function isIsbn10(code: string): boolean {
+  if (code.length !== 10) return false;
+  let sum = 0;
+  for (let i = 0; i < 10; i++) {
+    const c = code[i];
+    const v = c === "X" ? 10 : c >= "0" && c <= "9" ? Number(c) : -1;
+    if (v < 0) return false;
+    sum += v * (10 - i);
+  }
+  return sum % 11 === 0;
+}
+
+/** Тринадцатизначный ISBN. Именно он стоит в книжных каталогах мира,
+    по нему книгу опознают поисковики и нейросети. */
+export function isbn13(code: string): string | undefined {
+  if (!isIsbn10(code)) return undefined;
+  const core = "978" + code.slice(0, 9);
+  let sum = 0;
+  for (let i = 0; i < 12; i++) sum += Number(core[i]) * (i % 2 === 0 ? 1 : 3);
+  return core + String((10 - (sum % 10)) % 10);
+}
+
+/** ISBN печатного издания книги. */
+export function bookIsbn13(book: Book): string | undefined {
+  const paper = book.formats.find((f) => f.kind !== "kindle");
+  return paper ? isbn13(paper.asin) : undefined;
+}
+
+/** Карточки книг в мировой базе знаний Wikidata.
+    Ссылка на карточку подтверждает, что книга это реальный объект,
+    а не название на сайте. Источник: каталог FSCBAC, ricardo-demi-books. */
+const WIKIDATA: Record<string, string> = {
+  "first-coloring-book-111-en": "Q137217801",
+  "little-max-coloring-1-en": "Q137275695",
+  "little-max-coloring-1-es": "Q137279061",
+  "where-going-max-en": "Q137219071",
+  "where-been-max-en": "Q137263694",
+  "how-to-draw-111-en": "Q137394644",
+  "how-to-draw-111-es": "Q137394793",
+  "lucky-rocky-friendship-en": "Q137319241",
+  "lucky-rocky-friendship-es": "Q137321602",
+  "lucky-rocky-kindness-en": "Q137394929",
+  "lucky-rocky-kindness-es": "Q137394997",
+  "lucky-rocky-two-in-one-en": "Q137442329",
+  "take-a-break-animals-en": "Q137361877",
+};
+
+export const wikidataUrl = (bookId: string): string | undefined =>
+  WIKIDATA[bookId] ? `https://www.wikidata.org/wiki/${WIKIDATA[bookId]}` : undefined;
+
+/* ------------------------------------------------------------------ */
 /*  Повторяющиеся куски текста                                        */
 /* ------------------------------------------------------------------ */
 

@@ -6,6 +6,8 @@ import {
   bookById,
   booksForLang,
   amazonUrl,
+  bookIsbn13,
+  wikidataUrl,
   type UiLang,
   type Book,
 } from "@/data/books";
@@ -29,8 +31,9 @@ import {
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard, PageHead } from "@/components/Chrome";
 import { RatingLink } from "@/components/Rating";
-import { SITE_URL, PUBLISHER, AUTHORS } from "@/lib/site";
+import { SITE_URL, PUBLISHER, AUTHORS, ADDRESS, SITE_PUBLISHED, SITE_UPDATED, OG_IMAGE } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, itemPath, sectionPath } from "@/lib/routes";
+import { langAlternates, breadcrumbs } from "@/lib/schema";
 
 export function generateStaticParams() {
   const out: { lang: string; section: string; slug: string }[] = [];
@@ -62,10 +65,13 @@ export async function generateMetadata({
     const book = bookBySlug(lang, slug);
     const copy = book?.copy[lang];
     if (!book || !copy) return {};
-    const languages: Record<string, string> = {};
-    for (const l of activeLangs) {
-      if (book.slug[l]) languages[l] = `${SITE_URL}${itemPath(l, "books", book.slug[l]!)}`;
-    }
+    const languages = langAlternates(
+      Object.fromEntries(
+        activeLangs
+          .filter((l) => book.slug[l])
+          .map((l) => [l, `${SITE_URL}${itemPath(l, "books", book.slug[l]!)}`])
+      )
+    );
     return {
       title: copy.title,
       description: copy.subtitle,
@@ -83,10 +89,13 @@ export async function generateMetadata({
     const page = pageBySlug(lang, slug);
     const copy = page?.copy[lang];
     if (!page || !copy) return {};
-    const languages: Record<string, string> = {};
-    for (const l of activeLangs) {
-      if (page.slug[l]) languages[l] = `${SITE_URL}${itemPath(l, "coloring", page.slug[l]!)}`;
-    }
+    const languages = langAlternates(
+      Object.fromEntries(
+        activeLangs
+          .filter((l) => page.slug[l])
+          .map((l) => [l, `${SITE_URL}${itemPath(l, "coloring", page.slug[l]!)}`])
+      )
+    );
     return {
       title: copy.title,
       description: copy.lead,
@@ -104,14 +113,25 @@ export async function generateMetadata({
     const guide = guideBySlug(lang, slug);
     const copy = guide?.copy[lang];
     if (!guide || !copy) return {};
-    const languages: Record<string, string> = {};
-    for (const l of activeLangs) {
-      if (guide.slug[l]) languages[l] = `${SITE_URL}${itemPath(l, "method", guide.slug[l]!)}`;
-    }
+    const languages = langAlternates(
+      Object.fromEntries(
+        activeLangs
+          .filter((l) => guide.slug[l])
+          .map((l) => [l, `${SITE_URL}${itemPath(l, "method", guide.slug[l]!)}`])
+      )
+    );
     return {
       title: copy.title,
       description: copy.lead,
       alternates: { canonical: itemPath(lang, "method", slug), languages },
+      openGraph: {
+        title: copy.title,
+        description: copy.lead,
+        type: "article",
+        publishedTime: SITE_PUBLISHED,
+        modifiedTime: SITE_UPDATED,
+        images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height }],
+      },
     };
   }
   return {};
@@ -175,7 +195,9 @@ export default async function ItemPage({
           description: copy.lead,
           inLanguage: lang,
           author: { "@type": "Organization", name: PUBLISHER },
-          publisher: { "@type": "Organization", name: PUBLISHER },
+          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          datePublished: SITE_PUBLISHED,
+          dateModified: SITE_UPDATED,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
           image: groups
             .flatMap((g) => g.sheets)
@@ -204,6 +226,10 @@ export default async function ItemPage({
             acceptedAnswer: { "@type": "Answer", text: q.a },
           })),
         },
+        breadcrumbs(lang, [
+          { name: t.nav.coloringPages, path: sectionPath(lang, "coloring") },
+          { name: copy.title, path: itemPath(lang, "coloring", slug) },
+        ]),
       ],
     };
 
@@ -349,7 +375,9 @@ export default async function ItemPage({
           description: copy.lead,
           inLanguage: lang,
           author: { "@type": "Organization", name: PUBLISHER },
-          publisher: { "@type": "Organization", name: PUBLISHER },
+          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          datePublished: SITE_PUBLISHED,
+          dateModified: SITE_UPDATED,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "method", slug)}`,
         },
         {
@@ -360,6 +388,10 @@ export default async function ItemPage({
             acceptedAnswer: { "@type": "Answer", text: f.a },
           })),
         },
+        breadcrumbs(lang, [
+          { name: t.nav.method, path: sectionPath(lang, "method") },
+          { name: copy.title, path: itemPath(lang, "method", slug) },
+        ]),
       ],
     };
 
@@ -474,9 +506,10 @@ export default async function ItemPage({
         "@type": "Book",
         name: copy.title,
         author: { "@type": "Person", name: author.name },
-        publisher: { "@type": "Organization", name: PUBLISHER },
+        publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
         inLanguage: book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
-        isbn: paper?.asin,
+        isbn: bookIsbn13(book),
+        sameAs: wikidataUrl(book.id),
         bookFormat:
           paper?.kind === "hardcover"
             ? "https://schema.org/Hardcover"
@@ -500,6 +533,10 @@ export default async function ItemPage({
           acceptedAnswer: { "@type": "Answer", text: f.a },
         })),
       },
+      breadcrumbs(lang, [
+        { name: t.nav.books, path: sectionPath(lang, "books") },
+        { name: copy.title, path: itemPath(lang, "books", slug) },
+      ]),
     ],
   };
 

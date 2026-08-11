@@ -5,6 +5,30 @@ export const SITE_NAME = "Magic of Discoveries";
 export const PUBLISHER = "Magic of Discoveries LLC";
 export const CONTACT_EMAIL = "magicofdiscoveries@gmail.com";
 
+/** Когда сайт был опубликован. Дата стоит в разметке статей.
+    Нейросети предпочитают материал с понятной датой. */
+export const SITE_PUBLISHED = "2026-08-09";
+
+/** Когда содержание правилось в последний раз.
+    Эту дату нужно менять при каждом обновлении текстов. */
+export const SITE_UPDATED = "2026-08-11";
+
+/** Где находится издательство. Улицу не публикуем, только город. */
+export const ADDRESS = {
+  "@type": "PostalAddress",
+  addressLocality: "Miami",
+  addressRegion: "FL",
+  addressCountry: "US",
+} as const;
+
+/** Картинка для соцсетей и мессенджеров. Показывается, когда ссылку
+    отправляют в чат или сохраняют в Pinterest. */
+export const OG_IMAGE = {
+  url: "/og-cover.png",
+  width: 1200,
+  height: 630,
+} as const;
+
 /** Справочник по методике. Отдельный сайт, подтверждает подход. */
 export const METHOD_REFERENCE_URL = "https://www.ricardo-demi.com/method";
 

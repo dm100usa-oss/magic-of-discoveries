@@ -21,8 +21,19 @@ import {
 } from "@/data/method";
 import { PageHead } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
-import { SITE_URL, CONTACT_EMAIL, PUBLISHER, AUTHORS, SOCIAL, METHOD_REFERENCE_URL } from "@/lib/site";
+import {
+  SITE_URL,
+  CONTACT_EMAIL,
+  PUBLISHER,
+  AUTHORS,
+  SOCIAL,
+  METHOD_REFERENCE_URL,
+  ADDRESS,
+  OG_IMAGE,
+} from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
+import { langAlternates, breadcrumbs } from "@/lib/schema";
+import { bookIsbn13 } from "@/data/books";
 
 const TYPES: BookType[] = ["coloring", "drawing", "bedtime", "bilingual"];
 
@@ -60,13 +71,21 @@ export async function generateMetadata({
   const s = sectionFromSlug(lang, decodeURIComponent(section));
   if (!s) return {};
   const h = headingFor(lang, s);
-  const languages = Object.fromEntries(
-    activeLangs.map((l) => [l, `${SITE_URL}${sectionPath(l, s)}`])
+  const languages = langAlternates(
+    Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}${sectionPath(l, s)}`]))
   );
+  const description = h.lead ?? dictionaries[lang].about.body[0];
   return {
     title: h.title,
-    description: h.lead ?? dictionaries[lang].about.body[0],
+    description,
     alternates: { canonical: sectionPath(lang, s), languages },
+    openGraph: {
+      title: h.title,
+      description,
+      type: "website",
+      url: `${SITE_URL}${sectionPath(lang, s)}`,
+      images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height }],
+    },
   };
 }
 
@@ -83,6 +102,15 @@ export default async function SectionPage({
   const t = dictionaries[lang];
   const h = headingFor(lang, s);
 
+  /* Путь по разделам. Google показывает его вместо голого адреса. */
+  const crumbs = {
+    "@context": "https://schema.org",
+    ...breadcrumbs(lang, [{ name: h.title, path: sectionPath(lang, s) }]),
+  };
+  const Crumbs = () => (
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
+  );
+
   /* ---------- Каталог книг ---------- */
   if (s === "books") {
     const items: CardItem[] = booksForLang(lang).map((b) => ({
@@ -98,8 +126,30 @@ export default async function SectionPage({
       cover: b.cover,
     }));
 
+    /* Каталог как список книг. Поисковик видит весь состав каталога,
+       даже если фильтры на странице ничего еще не показали. */
+    const listSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: h.title,
+      numberOfItems: items.length,
+      itemListElement: booksForLang(lang).map((b, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Book",
+          name: b.copy[lang]!.title,
+          url: `${SITE_URL}${itemPath(lang, "books", b.slug[lang]!)}`,
+          isbn: bookIsbn13(b),
+          author: { "@type": "Person", name: AUTHORS[b.author].name },
+        },
+      })),
+    };
+
     return (
       <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }} />
+        <Crumbs />
         <PageHead title={h.title} lead={h.lead} />
         <div className="wrap">
           <BookFilters
@@ -130,6 +180,7 @@ export default async function SectionPage({
       name: PUBLISHER,
       url: SITE_URL,
       email: CONTACT_EMAIL,
+      address: ADDRESS,
       sameAs: [
         SOCIAL.instagram,
         SOCIAL.tiktok,
@@ -150,6 +201,7 @@ export default async function SectionPage({
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <Crumbs />
         <PageHead title={h.title} lead={h.lead} />
 
         {/* Идея */}
@@ -284,6 +336,7 @@ export default async function SectionPage({
     const pages = pagesForLang(lang);
     return (
       <>
+        <Crumbs />
         <PageHead title={h.title} lead={h.lead} />
         <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           {pages.length === 0 ? (
@@ -325,6 +378,7 @@ export default async function SectionPage({
   if (s === "about") {
     return (
       <>
+        <Crumbs />
         <PageHead title={h.title} />
         <div className="band band--mint">
           <div className="wrap prose">
@@ -349,6 +403,25 @@ export default async function SectionPage({
   /* ---------- Контакты ---------- */
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: PUBLISHER,
+            url: SITE_URL,
+            address: ADDRESS,
+            contactPoint: {
+              "@type": "ContactPoint",
+              contactType: "customer support",
+              email: CONTACT_EMAIL,
+              availableLanguage: ["English", "Spanish"],
+            },
+          }),
+        }}
+      />
+      <Crumbs />
       <PageHead title={h.title} lead={h.lead} />
       <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
         <p style={{ fontSize: "var(--t-lead)" }}>

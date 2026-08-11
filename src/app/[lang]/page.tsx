@@ -4,8 +4,9 @@ import { booksForLang, type UiLang } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard } from "@/components/Chrome";
 import { reviewsByLang } from "@/lib/reviews";
-import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL } from "@/lib/site";
+import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, ADDRESS, CONTACT_EMAIL, OG_IMAGE } from "@/lib/site";
 import { homePath, sectionPath } from "@/lib/routes";
+import { langAlternates } from "@/lib/schema";
 
 export async function generateMetadata({
   params,
@@ -19,7 +20,16 @@ export async function generateMetadata({
     description: t.home.heroLead,
     alternates: {
       canonical: homePath(lang as UiLang),
-      languages: Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}/${l}`])),
+      languages: langAlternates(
+        Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}/${l}`]))
+      ),
+    },
+    openGraph: {
+      title: t.home.heroTitle,
+      description: t.home.heroLead,
+      type: "website",
+      url: `${SITE_URL}${homePath(lang as UiLang)}`,
+      images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height }],
     },
   };
 }
@@ -35,14 +45,32 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
   const orgSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE_NAME,
-    legalName: PUBLISHER,
-    url: SITE_URL,
-    sameAs: Object.values(SOCIAL),
-    founder: [
-      { "@type": "Person", name: "Ricardo Demi" },
-      { "@type": "Person", name: "Maria Demi" },
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#publisher`,
+        name: SITE_NAME,
+        legalName: PUBLISHER,
+        url: SITE_URL,
+        email: CONTACT_EMAIL,
+        address: ADDRESS,
+        logo: `${SITE_URL}${OG_IMAGE.url}`,
+        sameAs: Object.values(SOCIAL),
+        founder: [
+          { "@type": "Person", name: "Ricardo Demi" },
+          { "@type": "Person", name: "Maria Demi" },
+        ],
+      },
+      /* Разметка сайта как единого объекта. Помогает поисковику
+         понять, что все языковые версии это один сайт. */
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        url: `${SITE_URL}${homePath(lang)}`,
+        inLanguage: lang,
+        publisher: { "@id": `${SITE_URL}/#publisher` },
+      },
     ],
   };
 

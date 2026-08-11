@@ -116,6 +116,159 @@ const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
       },
     ],
   },
+  "lucky-rocky-kindness": {
+    en: [
+      {
+        text:
+          "Great collection of 5 short stories with valuable lessons for kids. Perfect for bedtime with well done pictures. Easy to read print.",
+        who: "Sptsmed, January 9, 2025, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Wonderful. I loved both the illustrations and story. More importantly, my daughter wanted me to read this for an entire week!",
+        who: "Snoodleman, May 19, 2025, US",
+        stars: 5,
+      },
+      {
+        text:
+          "The stories are short, sweet, and teach great lessons about friendship and kindness. The larger text makes it perfect for my little readers. This has quickly become a favorite in our bedtime routine!",
+        who: "Amber, December 2, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "The author has really thought about what bedtimes look like in millions of homes with several children. The illustrations are adorable and the stories evoke an old-world charm of simplicity, friendship and teamwork.",
+        who: "nikki goldstein, September 15, 2024, Australia",
+        stars: 4,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Este es un libro ideal para leer a la hora de dormir o para que los niños más grandes practiquen su lectura. Las ilustraciones muy bien hechas y coloridas.",
+        who: "Gigi0205, 12 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Las hermosas ilustraciones y las historias fueron suaves para los niños, con atención al detalle. Las diferentes historias dan espacio para que los padres lean durante días y tiempo para conversaciones reflexivas.",
+        who: "Nicole C, 24 de agosto de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Una estupenda colección de cinco cuentos cortos con buenas enseñanzas para los niños. Perfecto para la hora de dormir, con ilustraciones muy logradas y letra fácil de leer.",
+        who: "Sptsmed, 9 de enero de 2025, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
+  "take-a-break-animals": {
+    en: [
+      {
+        text:
+          "I bought this coloring book as a gift for a friend but ended up keeping it for myself! The drawings are simple but very cute. The illustrations are printed on one side of the page, which helps prevent colors from bleeding through.",
+        who: "Olga Gg, September 16, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "The illustrations are really cute and simple, making the coloring process enjoyable and easy. The book is perfect for any age.",
+        who: "Hanna Antoniv, November 18, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Many nice and cute pictures for coloring. Age appropriate. Good size. My child loves it!",
+        who: "GEO, September 26, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "This coloring book has become a favorite activity in our family. Everyone, from adults to children, found something they like in it. The simplicity of the drawings allows everyone to enjoy the process.",
+        who: "Veronika, September 24, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "The drawings are so cute and fun that you want to color them again and again. I especially liked that the pages are single-sided, it is really convenient.",
+        who: "Regular customer, September 22, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Los dibujos simples y adorables permiten relajarse. Me encantaron especialmente las ilustraciones de animales, tan divertidas y positivas. Lo recomiendo a todos.",
+        who: "Oleg S, 27 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Este libro para colorear es fantástico, con animales encantadores y escenas naturales. Los dibujos son simples, pero no aburridos. ¡Me encantó!",
+        who: "Olga, 9 de octubre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Dibujos simples y agradables que tanto niños como adultos pueden disfrutar coloreando. Un libro excelente para crear juntos.",
+        who: "Kamila, 23 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "El libro está lleno de ilustraciones variadas que entretienen a mis hijos durante horas. Las páginas son gruesas y resistentes, así que los colores no traspasan. Los dibujos son un desafío justo, sin llegar a frustrarlos.",
+        who: "Aleksei Reiman, 17 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
+  "take-a-break-ocean": {
+    en: [
+      {
+        text:
+          "I absolutely adore this coloring book! The illustrations of sea animals and beach scenes are so soothing and enjoyable to color. I buy a lot of coloring books, and this one is definitely a favorite.",
+        who: "Dorotha, October 13, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "I love that the illustrations are simple and easy to color, yet each drawing looks very stylish.",
+        who: "Olha Elsafti, September 4, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Really cool book. Large format, beautifully and clearly drawn pictures, thick white sheets. I bought this for my 3 year old grandson and he had a great time coloring the pictures.",
+        who: "Lumia, September 13, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Los dibujos son grandes y bien delineados, lo que los hace fáciles de colorear. Me gustaron especialmente las ilustraciones con animales marinos. Cada dibujo está en una página separada, así que nada traspasa a la página siguiente.",
+        who: "Victor Borsci, 11 de octubre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Un libro de colorear maravilloso. Las ilustraciones son bonitas y sencillas, adecuadas tanto para niños como para adultos. ¡Disfruté mucho el proceso!",
+        who: "alex, 22 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Un libro estupendo. Formato grande, dibujos claros y bien hechos, hojas gruesas y blancas. Lo compré para mi nieto de 3 años y se lo pasó muy bien coloreando.",
+        who: "Lumia, 13 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
   "lucky-rocky-friendship": {
     en: [
       {

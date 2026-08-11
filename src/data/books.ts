@@ -565,30 +565,46 @@ export const books: Book[] = [
     artwork: [
       {
         file: "/art/little-max-coloring-1-simple.jpg",
-        w: 1200,
-        h: 1200,
+        w: 600,
+        h: 600,
         alt: {
           en: "Simple: a snail drawn with a few thick lines, one object on the page",
         },
       },
       {
         file: "/art/little-max-coloring-1-big.jpg",
-        w: 1200,
-        h: 1200,
+        w: 600,
+        h: 600,
         alt: {
           en: "Big: a raccoon filling the page, partly colored in with pencil by a small child",
         },
       },
       {
         file: "/art/little-max-coloring-1-cute.jpg",
-        w: 1200,
-        h: 1200,
+        w: 600,
+        h: 600,
         alt: {
           en: "Cute: a stacking ring toy, one of the everyday things a toddler already knows",
         },
       },
     ],
     banners: [
+      {
+        file: "/art/little-max-coloring-1-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "The book open at a dog and a bunny, one drawing per page with the word underneath, 8.5 by 11 inches",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-themes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Ten of the 111 drawings: sneakers, moon, mushroom, candy, caterpillar, tomato, fox, squirrel, strawberry and a baby goose",
+        },
+      },
       {
         file: "/art/little-max-coloring-1-gift.jpg",
         w: 1940,
@@ -634,6 +650,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "little-max-coloring-1-en",
     drawings: 111,
+    pages: 114,
+    published: "2024-04-26",
     size: "21.6 x 27.9 cm",
     cover: "/covers/little-max-coloring-1-es.jpg",
     coverSize: { w: 900, h: 1164 },
@@ -654,30 +672,46 @@ export const books: Book[] = [
     artwork: [
       {
         file: "/art/little-max-coloring-1-es-simple.jpg",
-        w: 1200,
-        h: 1200,
+        w: 600,
+        h: 600,
         alt: {
           es: "Simples: un caracol dibujado con unas pocas líneas gruesas, un solo objeto en la página",
         },
       },
       {
         file: "/art/little-max-coloring-1-es-big.jpg",
-        w: 1200,
-        h: 1200,
+        w: 600,
+        h: 600,
         alt: {
           es: "Grandes: un mapache que llena la página, coloreado en parte a lápiz por un niño pequeño",
         },
       },
       {
         file: "/art/little-max-coloring-1-es-cute.jpg",
-        w: 1200,
-        h: 1200,
+        w: 600,
+        h: 600,
         alt: {
           es: "Adorables: una pirámide de anillas, una de las cosas cotidianas que el niño ya conoce",
         },
       },
     ],
     banners: [
+      {
+        file: "/art/little-max-coloring-1-es-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "El libro abierto por un perro y una liebre, un dibujo por página con la palabra debajo, 21.6 x 28 cm",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-es-themes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Diez de los 111 dibujos: zapatillas, luna, hongo, caramelos, oruga, tomate, zorro, ardilla, fresa y un ganso",
+        },
+      },
       {
         file: "/art/little-max-coloring-1-es-gift.jpg",
         w: 1940,
@@ -829,6 +863,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "little-max-coloring-2-en",
     drawings: 111,
+    pages: 114,
+    published: "2024-09-05",
     size: "21.6 x 27.9 cm",
     cover: "/covers/little-max-coloring-2-es.jpg",
     coverSize: { w: 900, h: 1164 },

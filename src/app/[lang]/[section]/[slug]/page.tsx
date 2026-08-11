@@ -511,6 +511,8 @@ export default async function ItemPage({
         publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
         inLanguage: book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
         isbn: bookIsbn13(book),
+        numberOfPages: book.pages,
+        datePublished: book.published,
         sameAs: wikidataUrl(book.id),
         bookFormat:
           paper?.kind === "hardcover"
@@ -546,11 +548,25 @@ export default async function ItemPage({
             {
               "@type": "VideoObject",
               name: `${copy.title}. ${t.book.video}`,
-              description: t.book.videoLead,
+              /* Развернутое описание кадров словами. Машина видео не
+                 смотрит, доверие она строит на этом тексте. */
+              description: video.description[lang] ?? video.description.en ?? t.book.videoLead,
               thumbnailUrl: `${SITE_URL}${video.poster}`,
               contentUrl: `${SITE_URL}${video.src}`,
               uploadDate: SITE_UPDATED,
               duration: `PT${video.seconds}S`,
+              inLanguage: lang,
+              isFamilyFriendly: true,
+              /* Ключевые моменты. Google умеет показывать их отдельными
+                 строками под ссылкой на страницу. */
+              hasPart: video.chapters.map((c, i) => ({
+                "@type": "Clip",
+                name: c.text[lang] ?? c.text.en,
+                startOffset: c.at,
+                endOffset: video.chapters[i + 1]?.at ?? video.seconds,
+                url: `${SITE_URL}${itemPath(lang, "books", slug)}#t=${c.at}`,
+              })),
+              about: { "@type": "Book", name: copy.title, isbn: bookIsbn13(book) },
               publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
             },
           ]
@@ -584,6 +600,14 @@ export default async function ItemPage({
           <div>
             <p className="subtitle">{copy.subtitle}</p>
             <p className="lead-text">{copy.lead}</p>
+
+            {/* Три факта до кнопки. Родитель решает за несколько секунд,
+                и ему нужны факты, а не абзац. Остальные факты ниже. */}
+            <ul className="quick-facts">
+              {copy.inside.slice(0, 3).map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
 
             <BuyButtons book={book} lang={lang} />
             {book.rating && paper ? (
@@ -671,10 +695,12 @@ export default async function ItemPage({
           {video ? (
             <>
               <h2 className="section">{t.book.video}</h2>
-              {/* На широком экране видео слева, текст справа: вертикальный
-                  ролик один посреди страницы смотрится потерянным. */}
-              <div className="book-video">
+              {/* На экране только то, что нужно человеку: ролик, короткий
+                  текст и кнопки. Описание кадров и секунды уходят в
+                  служебную часть страницы, ее человек не видит. */}
+              <div className="video-card">
                 <video
+                  className="video-card__media"
                   src={video.src}
                   poster={video.poster}
                   width={video.w}
@@ -684,9 +710,10 @@ export default async function ItemPage({
                   loop
                   playsInline
                   preload="none"
+                  aria-label={copy.title}
                 />
-                <div className="book-video__text">
-                  <p className="book-video__lead">{t.book.videoLead}</p>
+                <div className="video-card__text">
+                  <p className="video-card__lead">{t.book.videoLead}</p>
                   <ul className="inside">
                     {t.book.videoPoints.map((line) => (
                       <li key={line}>{line}</li>
@@ -698,12 +725,16 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          <h2 className="section">{t.book.inside}</h2>
-          <ul className="inside">
-            {copy.inside.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
+          {copy.inside.length > 3 ? (
+            <>
+              <h2 className="section">{t.book.inside}</h2>
+              <ul className="inside">
+                {copy.inside.slice(3).map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            </>
+          ) : null}
 
           <h2 className="section">{t.book.forWhom}</h2>
           <p>{copy.forWhom}</p>
@@ -753,10 +784,27 @@ export default async function ItemPage({
                   <dd>{book.drawings}</dd>
                 </>
               ) : null}
+              {book.pages ? (
+                <>
+                  <dt>{t.book.pagesLabel}</dt>
+                  <dd>{book.pages}</dd>
+                </>
+              ) : null}
               <dt>{t.book.size}</dt>
               <dd>{book.size}</dd>
-              <dt>ISBN / ASIN</dt>
-              <dd>{paper?.asin}</dd>
+              {book.published ? (
+                <>
+                  <dt>{t.book.publishedLabel}</dt>
+                  <dd>
+                    {new Date(book.published).toLocaleDateString(
+                      lang === "es" ? "es-ES" : "en-US",
+                      { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }
+                    )}
+                  </dd>
+                </>
+              ) : null}
+              <dt>ISBN</dt>
+              <dd>{bookIsbn13(book) ?? paper?.asin}</dd>
               <dt>{t.book.author}</dt>
               <dd>
                 <a href={author.amazon} rel="nofollow noopener" target="_blank">

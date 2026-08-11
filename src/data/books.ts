@@ -50,6 +50,10 @@ export interface Book {
   /** Парная книга на другом языке. Связывает издания между собой. */
   pairId?: string;
   drawings?: number;
+  /** Сколько страниц в печатном издании. Берется с карточки KDP. */
+  pages?: number;
+  /** Дата выхода печатного издания, вид 2024-08-08. */
+  published?: string;
   size: string;
   formats: BookFormat[];
   /** Прямая ссылка на карточку PDF в старом магазине. Пусто = цифровой версии нет. */
@@ -148,6 +152,11 @@ export type BookVideo = {
   /** Ширина и высота ролика, нужны браузеру, чтобы не дергать верстку. */
   w: number;
   h: number;
+  /** Развернутое описание ролика словами. На экран не выводится.
+      Поисковик и нейросети видео не смотрят, они читают этот текст. */
+  description: Partial<Record<UiLang, string>>;
+  /** Что происходит и на какой секунде. Тоже только для машины. */
+  chapters: { at: number; text: Partial<Record<UiLang, string>> }[];
 };
 
 const VIDEOS: Record<string, BookVideo> = {
@@ -157,6 +166,49 @@ const VIDEOS: Record<string, BookVideo> = {
     seconds: 33,
     w: 608,
     h: 1080,
+    description: {
+      en:
+        "An unedited flip through of the paperback edition of How to Draw 111 Amazing and Cute, " +
+        "filmed on a table with markers beside it. The clip shows the front cover held in a hand, " +
+        "the back cover, the title page, a full spread where a unicorn is drawn in six numbered steps " +
+        "with a dotted tracing page beside it, an empty practice page with one drawing per sheet, " +
+        "and the index listing all 111 subjects. Thirty three seconds, no sound.",
+      es:
+        "Un recorrido sin cortes por la edición en rústica de Cómo dibujar 111 Sorprendentes y Adorables, " +
+        "filmado sobre una mesa junto a los marcadores. Se ven la portada en la mano, la contraportada, " +
+        "la portadilla, una doble página donde un unicornio se dibuja en seis pasos numerados con una hoja " +
+        "punteada para calcar al lado, una hoja de práctica vacía con un dibujo por hoja, y el índice con " +
+        "los 111 temas. Treinta y tres segundos, sin sonido.",
+    },
+    chapters: [
+      { at: 0, text: { en: "The front cover, held in a hand", es: "La portada, en la mano" } },
+      {
+        at: 3,
+        text: {
+          en: "The back cover and what the book promises",
+          es: "La contraportada y lo que promete el libro",
+        },
+      },
+      { at: 9, text: { en: "The title page", es: "La portadilla" } },
+      {
+        at: 11,
+        text: {
+          en: "A unicorn drawn in six numbered steps, with a dotted tracing page beside it",
+          es: "Un unicornio dibujado en seis pasos numerados, con una hoja punteada para calcar al lado",
+        },
+      },
+      {
+        at: 18,
+        text: {
+          en: "An empty practice page, one drawing per sheet",
+          es: "Una hoja de práctica vacía, un dibujo por hoja",
+        },
+      },
+      {
+        at: 24,
+        text: { en: "The index of all 111 subjects", es: "El índice de los 111 temas" },
+      },
+    ],
   },
 };
 
@@ -797,6 +849,8 @@ export const books: Book[] = [
     type: "drawing",
     pairId: "how-to-draw-111-es",
     drawings: 111,
+    pages: 231,
+    published: "2024-08-08",
     size: "8.5 x 11 in",
     cover: "/covers/how-to-draw-111-en.jpg",
     coverSize: { w: 900, h: 1165 },
@@ -895,6 +949,8 @@ export const books: Book[] = [
     type: "drawing",
     pairId: "how-to-draw-111-en",
     drawings: 111,
+    pages: 231,
+    published: "2024-08-08",
     size: "21.6 x 27.9 cm",
     cover: "/covers/how-to-draw-111-es.jpg",
     coverSize: { w: 900, h: 1157 },

@@ -41,6 +41,8 @@ export interface Dictionary {
     video: string;
     videoLead: string;
     videoPoints: string[];
+    pagesLabel: string;
+    publishedLabel: string;
     inside: string;
     artwork: string;
     forWhom: string;
@@ -185,6 +187,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "You can watch one drawing grow from a simple shape into a finished character.",
         "This is the same book that arrives in the box.",
       ],
+      pagesLabel: "Pages",
+      publishedLabel: "Published",
       inside: "What is inside",
       artwork: "Pictures from the book",
       forWhom: "Who it is for",
@@ -370,6 +374,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Puedes ver cómo un dibujo crece desde una forma simple hasta un personaje terminado.",
         "Es el mismo libro que llega en la caja.",
       ],
+      pagesLabel: "Páginas",
+      publishedLabel: "Publicado",
       inside: "Qué contiene",
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
@@ -555,6 +561,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Видно, как рисунок вырастает из простой формы в готового персонажа.",
         "Это та же книга, которая приезжает в коробке.",
       ],
+      pagesLabel: "Страниц",
+      publishedLabel: "Издана",
       inside: "Что внутри",
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",

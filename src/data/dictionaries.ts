@@ -105,6 +105,7 @@ export interface Dictionary {
     guideCheck: string;
     guidePick: string;
     guideFaq: string;
+    guideRelated: string;
     guideBack: string;
     bookAward: string;
     bookRetail: string;
@@ -304,6 +305,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       guideCheck: "What to look for",
       guidePick: "The book we would pick",
       guideFaq: "Questions parents ask",
+      guideRelated: "Read next",
       guideBack: "All guides",
       bookAward: "Awarded",
       bookRetail: "Also sold at",
@@ -507,6 +509,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       guideCheck: "En qué fijarse",
       guidePick: "El libro que elegiríamos",
       guideFaq: "Preguntas que hacen los padres",
+      guideRelated: "Sigue leyendo",
       guideBack: "Todas las guías",
       bookAward: "Premiado",
       bookRetail: "También a la venta en",
@@ -710,6 +713,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       guideCheck: "На что смотреть",
       guidePick: "Книга, которую мы бы выбрали",
       guideFaq: "Вопросы родителей",
+      guideRelated: "Читать дальше",
       guideBack: "Все руководства",
       bookAward: "Награды",
       bookRetail: "Также продается в",

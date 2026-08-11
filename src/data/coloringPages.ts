@@ -423,6 +423,9 @@ export const coloringPages: ColoringPage[] = [
     ],
     copy: {
       en: {
+        sheetTitle: "{name} coloring page",
+        sheetAlt:
+          "Free printable {name} coloring page for adults and kids, thick lines and big open shapes, one design per page",
         title:
           "12 free printable easy coloring pages for adults. Thick lines, big shapes, one page in one sitting",
         lead:
@@ -469,6 +472,9 @@ export const coloringPages: ColoringPage[] = [
         ],
       },
       es: {
+        sheetTitle: "Dibujo de {name} para colorear",
+        sheetAlt:
+          "Dibujo de {name} para colorear gratis para imprimir, para adultos y niños, líneas gruesas y formas amplias, un diseño por página",
         title:
           "12 dibujos para colorear fáciles para adultos, gratis para imprimir. Trazos gruesos, formas grandes, una página de una sentada",
         lead:
@@ -559,6 +565,9 @@ export const coloringPages: ColoringPage[] = [
     ],
     copy: {
       en: {
+        sheetTitle: "{name} coloring page",
+        sheetAlt:
+          "Free printable {name} ocean coloring page for adults and kids, thick lines and wide open water, one design per page",
         title:
           "10 free printable ocean coloring pages for adults. Thick lines, wide open water, easy to finish",
         lead:
@@ -605,6 +614,9 @@ export const coloringPages: ColoringPage[] = [
         ],
       },
       es: {
+        sheetTitle: "Dibujo de {name} para colorear",
+        sheetAlt:
+          "Dibujo marino de {name} para colorear gratis para imprimir, para adultos y niños, líneas gruesas y mucho espacio abierto, un diseño por página",
         title:
           "10 dibujos del océano para colorear gratis para imprimir, para adultos. Trazos gruesos, agua abierta, fáciles de terminar",
         lead:
@@ -694,6 +706,9 @@ export const coloringPages: ColoringPage[] = [
     ],
     copy: {
       en: {
+        sheetTitle: "{name} coloring page",
+        sheetAlt:
+          "Free printable {name} food coloring page for adults and kids, thick lines and big simple shapes, one design per page",
         title:
           "Free printable food coloring pages for adults. Thick lines, big simple shapes, easy to finish",
         lead:
@@ -740,6 +755,9 @@ export const coloringPages: ColoringPage[] = [
         ],
       },
       es: {
+        sheetTitle: "Dibujo de {name} para colorear",
+        sheetAlt:
+          "Dibujo de {name} para colorear gratis para imprimir, para adultos y niños, líneas gruesas y formas grandes, un diseño por página",
         title:
           "Dibujos de comida para colorear gratis para imprimir, para adultos. Trazos gruesos, formas grandes, fáciles de terminar",
         lead:

@@ -132,6 +132,10 @@ export interface Guide {
   /** Испанское издание той же книги, для испанской версии страницы. */
   bookIdEs?: string;
   slug: Partial<Record<UiLang, string>>;
+  /** Соседние статьи по смыслу. Читатель идет дальше по теме,
+      а поисковик видит, что раздел это единая связная тема,
+      а не десять отдельных страниц. */
+  related?: string[];
   copy: Partial<Record<UiLang, GuideCopy>>;
 }
 
@@ -145,6 +149,7 @@ export const guides: Guide[] = [
       en: "how-to-choose-a-coloring-book-for-your-child",
       es: "como-elegir-un-libro-para-colorear-para-tu-hijo",
     },
+    related: ["what-to-look-for", "coloring-toddlers-1-3", "coloring-kids-4-8"],
     copy: {
       en: {
         title: "How to choose a coloring book for your child",
@@ -216,6 +221,7 @@ export const guides: Guide[] = [
       en: "coloring-books-for-toddlers-ages-1-3",
       es: "libros-para-colorear-para-bebes-de-1-a-3-anos",
     },
+    related: ["how-to-choose", "what-to-look-for", "first-bedtime-book"],
     copy: {
       en: {
         title: "Coloring books for toddlers ages 1 to 3",
@@ -285,6 +291,7 @@ export const guides: Guide[] = [
       en: "coloring-books-for-kids-ages-4-8",
       es: "libros-para-colorear-para-ninos-de-4-a-8-anos",
     },
+    related: ["how-to-choose", "teach-child-to-draw", "what-to-look-for"],
     copy: {
       en: {
         title: "Coloring books for kids ages 4 to 8",
@@ -354,6 +361,7 @@ export const guides: Guide[] = [
       en: "first-bedtime-books-for-toddlers",
       es: "primeros-cuentos-para-dormir-para-bebes",
     },
+    related: ["bedtime-preschoolers", "coloring-toddlers-1-3", "how-to-choose"],
     copy: {
       en: {
         title: "First bedtime books for toddlers",
@@ -423,6 +431,7 @@ export const guides: Guide[] = [
       en: "bedtime-stories-for-preschoolers",
       es: "cuentos-para-dormir-para-ninos-en-edad-preescolar",
     },
+    related: ["first-bedtime-book", "bilingual-books", "book-gifts"],
     copy: {
       en: {
         title: "Bedtime stories for preschoolers",
@@ -492,6 +501,7 @@ export const guides: Guide[] = [
       en: "how-to-teach-a-child-to-draw",
       es: "como-ensenar-a-un-nino-a-dibujar",
     },
+    related: ["coloring-kids-4-8", "how-to-choose", "book-gifts"],
     copy: {
       en: {
         title: "How to teach a child to draw",
@@ -560,6 +570,7 @@ export const guides: Guide[] = [
       en: "bilingual-books-english-spanish-for-kids",
       es: "libros-bilingues-ingles-espanol-para-ninos",
     },
+    related: ["bedtime-preschoolers", "first-bedtime-book", "book-gifts"],
     copy: {
       en: {
         title: "Bilingual books in English and Spanish for kids",
@@ -629,6 +640,7 @@ export const guides: Guide[] = [
       en: "book-gifts-for-kids-ages-3-7",
       es: "libros-de-regalo-para-ninos-de-3-a-7-anos",
     },
+    related: ["how-to-choose", "bedtime-preschoolers", "easy-coloring-adults"],
     copy: {
       en: {
         title: "Book gifts for kids ages 3 to 7",
@@ -698,6 +710,7 @@ export const guides: Guide[] = [
       en: "easy-coloring-books-for-adults",
       es: "libros-para-colorear-faciles-para-adultos",
     },
+    related: ["what-to-look-for", "how-to-choose", "book-gifts"],
     copy: {
       en: {
         title: "Easy coloring books for adults",
@@ -767,6 +780,7 @@ export const guides: Guide[] = [
       en: "what-to-look-for-in-a-coloring-book",
       es: "en-que-fijarse-al-comprar-un-libro-para-colorear",
     },
+    related: ["how-to-choose", "coloring-toddlers-1-3", "easy-coloring-adults"],
     copy: {
       en: {
         title: "What to look for in a coloring book",
@@ -844,4 +858,12 @@ export function guideBySlug(lang: UiLang, slug: string): Guide | undefined {
 export function guideBookId(g: Guide, lang: UiLang): string {
   if (lang === "es" && g.bookIdEs) return g.bookIdEs;
   return g.bookId;
+}
+
+/** Соседние статьи, которые есть на этом языке. */
+export function relatedGuides(guide: Guide, lang: UiLang): Guide[] {
+  const ids = guide.related ?? [];
+  return ids
+    .map((id) => guides.find((g) => g.id === id))
+    .filter((g): g is Guide => Boolean(g && g.slug[lang] && g.copy[lang]));
 }

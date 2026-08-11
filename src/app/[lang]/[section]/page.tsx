@@ -353,7 +353,10 @@ export default async function SectionPage({
                         <img
                           key={sh.id}
                           src={previewUrl(sh.id, lang)}
-                          alt=""
+                          alt={(c.sheetAlt ?? t.free.sheetAlt).replace(
+                            "{name}",
+                            sh.name[lang] ?? sh.name.en!
+                          )}
                           width={642}
                           height={822}
                           loading="lazy"

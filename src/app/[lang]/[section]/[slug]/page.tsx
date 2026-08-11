@@ -26,6 +26,7 @@ import {
   guidesForLang,
   guideBySlug,
   guideBookId,
+  relatedGuides,
   awardsForBook,
   retailers,
 } from "@/data/method";
@@ -68,11 +69,17 @@ export async function generateMetadata({
     const book = bookBySlug(lang, slug);
     const copy = book?.copy[lang];
     if (!book || !copy) return {};
+    // Английское и испанское издание это одна книга на двух языках.
+    // Связываем страницы пары, иначе поисковик считает их разными
+    // книгами и может решить, что одна дублирует другую.
+    const pair = book.pairId ? bookById(book.pairId) : undefined;
+    const editions = [book, ...(pair ? [pair] : [])];
     const languages = langAlternates(
       Object.fromEntries(
-        activeLangs
-          .filter((l) => book.slug[l])
-          .map((l) => [l, `${SITE_URL}${itemPath(l, "books", book.slug[l]!)}`])
+        activeLangs.flatMap((l) => {
+          const ed = editions.find((b) => b.slug[l]);
+          return ed ? [[l, `${SITE_URL}${itemPath(l, "books", ed.slug[l]!)}`]] : [];
+        })
       )
     );
     return {
@@ -366,6 +373,7 @@ export default async function ItemPage({
     if (!guide || !copy) notFound();
     const m = t.method;
     const pick = bookById(guideBookId(guide, lang));
+    const related = relatedGuides(guide, lang);
     const pickCopy = pick?.copy[lang];
     const pickSlug = pick?.slug[lang];
 
@@ -465,6 +473,22 @@ export default async function ItemPage({
               </details>
             ))}
           </div>
+
+          {related.length ? (
+            <>
+              <h2 className="section">{m.guideRelated}</h2>
+              <ul className="guide-next">
+                {related.map((g) => (
+                  <li key={g.id}>
+                    <Link href={itemPath(lang, "method", g.slug[lang]!)}>
+                      <b>{g.copy[lang]!.title}</b>
+                      <span>{g.copy[lang]!.lead}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
 
           <p style={{ padding: "var(--gap-4) 0 var(--band-y)" }}>
             <Link href={sectionPath(lang, "method")}>{m.guideBack}</Link>

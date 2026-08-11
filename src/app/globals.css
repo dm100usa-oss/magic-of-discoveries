@@ -833,6 +833,23 @@ dl.retail dd { margin: 0; font-size: var(--t-small); }
 }
 .pick .subtitle a { color: inherit; }
 
+/* Соседние статьи внизу руководства */
+.guide-next { list-style: none; margin: var(--gap-2) 0 var(--gap-4); padding: 0; display: grid; gap: var(--gap-2); }
+@media (min-width: 720px) { .guide-next { grid-template-columns: repeat(3, 1fr); } }
+.guide-next a {
+  display: block; height: 100%; text-decoration: none; color: inherit;
+  background: var(--cream); border-radius: var(--radius); border: var(--edge);
+  padding: var(--gap-2); box-shadow: var(--shadow);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+.guide-next a:hover { transform: translateY(-4px); box-shadow: var(--shadow-raise-hover); }
+.guide-next a:active { transform: translateY(1px); box-shadow: 0 1px 3px rgba(51, 32, 44, 0.12); }
+.guide-next b {
+  display: block; font-family: var(--font-display); font-weight: 800;
+  font-size: var(--t-h3); color: var(--pink-deep); margin-bottom: 0.35rem;
+}
+.guide-next span { display: block; font-size: var(--t-small); }
+
 /* Плашки наград на странице книги */
 ul.award-list { list-style: none; margin: 0 0 var(--gap-3); padding: 0; }
 ul.award-list li {

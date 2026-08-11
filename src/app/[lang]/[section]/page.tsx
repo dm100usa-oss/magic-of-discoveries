@@ -33,7 +33,7 @@ import {
 } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
-import { bookIsbn13 } from "@/data/books";
+import { bookIsbn13, bookAges } from "@/data/books";
 
 const TYPES: BookType[] = ["coloring", "drawing", "bedtime", "bilingual"];
 
@@ -119,7 +119,7 @@ export default async function SectionPage({
       title: b.copy[lang]!.title,
       flag: b.editionLang === "en" ? "\u{1F1FA}\u{1F1F8}" : b.editionLang === "es" ? "\u{1F1EA}\u{1F1F8}" : "\u{1F1FA}\u{1F1F8}\u{1F1EA}\u{1F1F8}",
       ageLabel: t.catalog.ages[b.age],
-      age: b.age,
+      ages: bookAges(b),
       type: b.type,
       price: cheapestFormat(b)?.price,
       rating: b.rating,

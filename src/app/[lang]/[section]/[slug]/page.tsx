@@ -495,6 +495,16 @@ export default async function ItemPage({
   const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const video = bookVideo(book.id);
   const bookRevs = reviewsForBook(book.id, lang);
+  /* Возраст, который видит человек: с Amazon, если он задан,
+     иначе группа каталога. */
+  /* Вводный текст состоит из коротких абзацев. В описание страницы
+     для поисковика они уходят одной строкой. */
+  const whyParts = copy.lead.split("\n\n");
+  const ageText = book.ageShown
+    ? t.book.ageYears
+        .replace("{a}", book.ageShown.split("-")[0])
+        .replace("{b}", book.ageShown.split("-")[1])
+    : t.catalog.ages[book.age];
   const topicGroups = topicsForBook(book.id);
   const topicList = allTopics(topicGroups, lang);
   const editorial = editorialForBook(book.id);
@@ -541,9 +551,9 @@ export default async function ItemPage({
           paper?.kind === "hardcover"
             ? "https://schema.org/Hardcover"
             : "https://schema.org/Paperback",
-        description: copy.lead,
+        description: copy.lead.replace(/\s+/g, " "),
         image: book.cover ? `${SITE_URL}${book.cover}` : undefined,
-        typicalAgeRange: book.age === "teens-adults" ? "13-" : book.age,
+        typicalAgeRange: book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age),
         offers: book.formats.map((f) => ({
           "@type": "Offer",
           price: f.price.replace("$", ""),
@@ -662,7 +672,7 @@ export default async function ItemPage({
             <ul className="key-specs">
               <li>
                 <span className="key-specs__label">{t.book.ageLabel}</span>
-                <span className="key-specs__value">{t.catalog.ages[book.age]}</span>
+                <span className="key-specs__value">{ageText}</span>
               </li>
               {book.pages ? (
                 <li>
@@ -762,7 +772,11 @@ export default async function ItemPage({
               там он тормозил чтение, а здесь отвечает на вопрос, который
               возникает после того, как человек увидел, что внутри. */}
           <h2 className="section">{t.book.whyTitle}</h2>
-          <p className="why-text">{copy.lead}</p>
+          {whyParts.map((part) => (
+            <p className="why-text" key={part.slice(0, 24)}>
+              {part}
+            </p>
+          ))}
 
           {video ? (
             <>
@@ -923,7 +937,7 @@ export default async function ItemPage({
           <div className="specs">
             <dl>
               <dt>{t.book.ageLabel}</dt>
-              <dd>{t.catalog.ages[book.age]}</dd>
+              <dd>{ageText}</dd>
               {book.drawings ? (
                 <>
                   <dt>{t.book.drawings}</dt>

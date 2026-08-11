@@ -50,6 +50,13 @@ export interface Book {
   /** Парная книга на другом языке. Связывает издания между собой. */
   pairId?: string;
   drawings?: number;
+  /** Возраст, который видит человек, вида "5-10". Уходит и в разметку.
+      Поле age остается основной полкой каталога. */
+  ageShown?: string;
+  /** Дополнительные полки каталога. Дети развиваются по-разному:
+      одна и та же книга может подходить и шестилетнему, и девятилетнему,
+      поэтому она должна находиться в обоих фильтрах. */
+  alsoAges?: AgeGroup[];
   /** Сколько страниц в печатном издании. Берется с карточки KDP. */
   pages?: number;
   /** Дата выхода печатного издания, вид 2024-08-08. */
@@ -849,6 +856,8 @@ export const books: Book[] = [
     type: "drawing",
     pairId: "how-to-draw-111-es",
     drawings: 111,
+    ageShown: "5-10",
+    alsoAges: ["7-10"],
     pages: 231,
     published: "2024-04-23",
     size: "8.5 x 11 in",
@@ -912,18 +921,19 @@ export const books: Book[] = [
         title: "How to Draw 111 Animals and Characters, Step by Step",
         subtitle: "Every drawing broken into simple steps a child can follow alone, with room to practice on the facing page.",
         lead:
-          "The point of this book is the moment a child draws something recognisable without an adult helping. Each of the 111 subjects is broken into simple steps, starting from a circle or an oval, so the child copies step one, then step two, and arrives at a finished animal on their own. Every drawing then gets a facing page to practice on, which is why the book runs to 231 pages and why nothing has to be done on loose paper. Years later that is what you are left with: one book, in order, showing exactly how a child learned to draw.",
+          "A guide made by professionals for children. Every drawing is broken down into six steps, usually, and not one step more: the child repeats them and gets there alone. Then traces the dotted outline, with enough room beside it to try twice.\n\nNothing gets lost or scattered across loose sheets. It all stays in one book, which can be signed and taken out years later to see how they started.",
         inside: [
-          "111 subjects: animals, fairy-tale characters, flowers, food, gifts and more",
-          "Simple steps for every drawing, each step adding one shape",
-          "Two kinds of practice on the facing page: a dotted outline to trace and a wide blank space to draw your own",
-          "A fun fact about each character, so there is something to read as well as draw",
-          "231 pages, so no extra paper is needed and every attempt stays in the book",
+          "Two full pages per subject: steps on one side, space to draw on the other",
+          "231 pages, so nothing is done on loose paper",
+          "111 subjects: animals, fairy-tale characters, flowers, food and more",
+          "Each step adds one shape, the previous step stays gray",
+          "A fun fact about every character",
+          "Drawings can be colored in once they are finished",
           "Finalist in the Educational category, Children's Book International Awards 2025",
           "8.5 x 11 inches",
         ],
         forWhom:
-          "Roughly ages 4 to 8, depending on the child. For children who say they cannot draw, and for teachers who need a quiet independent activity.",
+          "Ages 5 to 10, depending on the child: one starts at six, another only wants to at nine, and the book works for both. For children who say they cannot draw, for teachers who need a quiet independent activity, and for adults learning alongside them.",
         faq: [
           {
             q: "Does a child need help from an adult?",
@@ -949,6 +959,8 @@ export const books: Book[] = [
     type: "drawing",
     pairId: "how-to-draw-111-en",
     drawings: 111,
+    ageShown: "5-10",
+    alsoAges: ["7-10"],
     pages: 231,
     published: "2024-05-03",
     size: "21.6 x 27.9 cm",
@@ -1012,18 +1024,19 @@ export const books: Book[] = [
         title: "Cómo Dibujar 111 Animales y Personajes, Paso a Paso",
         subtitle: "Cada dibujo dividido en pasos sencillos que el niño puede seguir solo, con sitio para practicar en la página de al lado.",
         lead:
-          "Lo importante de este libro es el momento en que un niño dibuja algo reconocible sin la ayuda de un adulto. Cada uno de los 111 temas se divide en pasos sencillos, empezando por un círculo o un óvalo: el niño copia el paso uno, luego el dos, y llega solo a un animal terminado. Después cada dibujo tiene su propia página para practicar, por eso el libro llega a 231 páginas y nada se hace en hojas sueltas. Años más tarde queda esto: un solo libro, en orden, que muestra cómo aprendió a dibujar.",
+          "Una guía profesional de dibujo hecha para niños. Cada dibujo se divide normalmente en seis pasos, ni uno más: el niño los repite y llega al resultado por su cuenta. Después repasa la línea punteada, y al lado tiene tanto sitio que puede intentarlo dos veces.\n\nNada se pierde ni acaba en hojas sueltas. Todo se queda en un mismo libro, que se puede firmar y sacar años después para ver cómo empezó.",
         inside: [
-          "111 temas: animales, personajes de cuentos, flores, alimentos, regalos y más",
-          "Pasos sencillos en cada dibujo, cada paso añade una forma",
-          "Dos tipos de práctica en la página de al lado: una línea punteada para repasar y un espacio amplio en blanco",
-          "Un dato curioso sobre cada personaje, para leer además de dibujar",
-          "231 páginas, así no hace falta papel aparte y cada intento se queda en el libro",
+          "Dos páginas por tema: los pasos en una, sitio para dibujar en la otra",
+          "231 páginas, así nada se hace en hojas sueltas",
+          "111 temas: animales, personajes de cuentos, flores, alimentos y más",
+          "Cada paso añade una forma, el paso anterior queda en gris",
+          "Un dato curioso sobre cada personaje",
+          "Los dibujos se pueden colorear una vez terminados",
           "Finalista en la categoría Educativa de los Children's Book International Awards 2025",
           "21.6 x 27.9 cm",
         ],
         forWhom:
-          "Aproximadamente de 4 a 8 años, según el niño. Para quien dice que no sabe dibujar y para maestros que necesitan una actividad tranquila e independiente.",
+          "De 5 a 10 años, según el niño: uno empieza a los seis y otro solo quiere a los nueve, y el libro sirve para los dos. Para quien dice que no sabe dibujar, para maestros que necesitan una actividad tranquila e independiente, y para adultos que aprenden junto a ellos.",
         faq: [
           {
             q: "¿Necesita ayuda de un adulto?",
@@ -1895,6 +1908,11 @@ export const books: Book[] = [
 /* ------------------------------------------------------------------ */
 
 /** Книги, у которых есть страница на этом языке интерфейса. */
+/** Все возрастные полки книги: основная плюс дополнительные.
+    Дети развиваются по-разному, одна книга может подходить
+    и шестилетнему, и девятилетнему. */
+export const bookAges = (b: Book): AgeGroup[] => [b.age, ...(b.alsoAges ?? [])];
+
 export function booksForLang(lang: UiLang): Book[] {
   return books.filter((b) => Boolean(b.slug[lang] && b.copy[lang]));
 }

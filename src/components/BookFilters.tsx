@@ -10,7 +10,9 @@ export interface CardItem {
   title: string;
   flag: string;
   ageLabel: string;
-  age: string;
+  /** Все полки, на которых стоит книга. Одна книга может подходить
+      и шестилетнему, и девятилетнему, поэтому полок может быть две. */
+  ages: string[];
   type: string;
   price?: string;
   rating?: { value: number; count: number };
@@ -29,7 +31,7 @@ export default function BookFilters({ items, ages, types, labels }: Props) {
   const [type, setType] = useState<string | null>(null);
 
   const list = useMemo(
-    () => items.filter((i) => (!age || i.age === age) && (!type || i.type === type)),
+    () => items.filter((i) => (!age || i.ages.includes(age)) && (!type || i.type === type)),
     [items, age, type]
   );
 

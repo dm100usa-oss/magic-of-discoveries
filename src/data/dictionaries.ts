@@ -49,6 +49,7 @@ export interface Dictionary {
     langEn: string;
     langEs: string;
     langBoth: string;
+    ageYears: string;
     topicsTitle: string;
     topicsLead: string;
     topicsAll: string;
@@ -209,6 +210,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       langEn: "English",
       langEs: "Spanish",
       langBoth: "English and Spanish",
+      ageYears: "{a} to {b} years",
       topicsTitle: "Look for what your child loves",
       topicsLead: "Every subject in the book, grouped.",
       topicsAll: "See all {n} subjects",
@@ -410,6 +412,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       langEn: "Inglés",
       langEs: "Español",
       langBoth: "Inglés y español",
+      ageYears: "De {a} a {b} años",
       topicsTitle: "Busca lo que le gusta a tu hijo",
       topicsLead: "Todos los temas del libro, por grupos.",
       topicsAll: "Ver los {n} temas",
@@ -611,6 +614,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       langEn: "Английский",
       langEs: "Испанский",
       langBoth: "Английский и испанский",
+      ageYears: "От {a} до {b} лет",
       topicsTitle: "Найдите то, что любит ваш ребенок",
       topicsLead: "Все темы книги, по группам.",
       topicsAll: "Смотреть все {n} тем",

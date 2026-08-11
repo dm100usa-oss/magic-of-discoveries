@@ -490,7 +490,7 @@ ul.inside li::marker { color: var(--pink-hot); }
 /* ==================== ОЦЕНКИ ПОКУПАТЕЛЕЙ ==================== */
 
 .stars-track { position: relative; display: inline-block; white-space: nowrap; line-height: 1; }
-.stars-empty { color: #f3d4e2; letter-spacing: 1px; }
+.stars-empty { color: #f0dfc0; letter-spacing: 1px; }
 .stars-fill {
   position: absolute; inset: 0; overflow: hidden;
   color: var(--sun); letter-spacing: 1px;
@@ -512,15 +512,15 @@ ul.inside li::marker { color: var(--pink-hot); }
 .rating:active { transform: scale(0.985); }
 
 .rating__value {
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); line-height: 1;
-  color: var(--ink);
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.55rem); line-height: 1;
+  color: #c98a12;
 }
 .rating__mid { display: grid; gap: 0.15rem; font-size: var(--t-body); }
-.rating__count { font-weight: 700; color: var(--ink-2); font-size: var(--t-small); }
+.rating__count { font-weight: 600; color: #a8791f; font-size: var(--t-small); }
 .rating__source {
   margin-left: auto; text-align: right; font-size: var(--t-micro);
-  font-weight: 800; color: var(--pink-deep); max-width: 9rem; line-height: 1.25;
+  font-weight: 700; color: #b8860b; max-width: 9rem; line-height: 1.25;
 }
 @media (max-width: 420px) {
   .rating { flex-wrap: wrap; }
@@ -626,11 +626,10 @@ ul.inside li::marker { color: var(--pink-hot); }
   margin: 0;
 }
 .top-price__value {
-  font-family: var(--font-display, inherit);
-  font-weight: 800;
-  font-size: var(--t-h2);
+  font-weight: 700;
+  font-size: var(--t-h3);
   color: var(--ink);
-  line-height: 1;
+  line-height: 1.1;
 }
 .top-price__label {
   font-size: var(--t-small);

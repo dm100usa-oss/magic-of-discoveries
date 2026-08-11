@@ -1988,9 +1988,23 @@ export const books: Book[] = [
     type: "bedtime",
     series: "lucky-rocky",
     pairId: "lucky-rocky-friendship-es",
+    ageShown: "3-9",
+    alsoAges: ["5-7"],
+    published: "2024-04-23",
     size: "8.5 x 8.5 in",
     cover: "/covers/lucky-rocky-friendship-en.jpg",
     coverSize: { w: 900, h: 1160 },
+    showcaseLead: {
+      en: "Characters from the stories: the bee with her honey buckets, Granny Owl opening her door in the rain, and Little Max the mouse in his captain's cap.",
+    },
+    bannerLead: {
+      file: "/art/rocky-friendship-en-slogan.jpg",
+      w: 1920,
+      h: 600,
+      alt: {
+        en: "Discoveries that help kids: The Adventures of Lucky Rocky, The Magic of Friendship, illustrated short stories for children ages 3 and up",
+      },
+    },
     artwork: [
       {
         file: "/art/rocky-friendship-en-bee.jpg",
@@ -2013,16 +2027,26 @@ export const books: Book[] = [
     ],
     banners: [
       {
+        file: "/art/rocky-friendship-en-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "A spread from the book: large print on the left page, a full color illustration of Rocky, Penny and Brisket meeting Little Max on the right",
+        },
+      },
+      {
+        file: "/art/rocky-friendship-en-scenes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Scenes from the stories: the mouse sailing a paper boat, a beehive on a branch, jars of honey, Grandpa Jose looking for his glasses, the village shop and a beaver by his house",
+        },
+      },
+      {
         file: "/art/rocky-friendship-en-themes.jpg",
         w: 1920,
         h: 600,
         alt: { en: "Kindness, friendship, curiosity, respect and creativity: what the Lucky Rocky stories are about" },
-      },
-      {
-        file: "/art/rocky-friendship-en-slogan.jpg",
-        w: 1920,
-        h: 600,
-        alt: { en: "Discoveries that help kids: The Adventures of Lucky Rocky, illustrated short stories for children ages 3 and up" },
       },
     ],
     formats: [
@@ -2034,17 +2058,18 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "The Adventures of Lucky Rocky: The Magic of Friendship",
-        subtitle: "Short illustrated stories for children 3 and up.",
+        subtitle: "Short illustrated stories for children 3 and up",
         lead:
-          "Rocky is a real dog. He is the family's English Cocker Spaniel, and the stories started as things told about him at home before they became a book. Each story is short enough for one sitting and ends on something a child can talk about afterwards.",
+          "Let's help little ones fall asleep peacefully and let older children discover the magical world of reading books! This is the first book in the Magic of Discoveries series.\n\nPerfect for bedtime reading with children aged 3 to 5, and for building independent reading in children aged 6 to 8. A great addition to home and school libraries.",
         inside: [
-          "Several short stories, each readable in one sitting",
-          "Fully illustrated and colored throughout",
-          "Simple sentences in large type, readable by a child who is starting to read alone",
-          "Themes of making friends, sharing and sticking up for someone",
+          "Short stories, each one read in a single sitting",
+          "Beautiful hand drawn illustrations that capture attention",
+          "Simple sentences printed in large font for easy reading",
+          "The basics of friendship, kindness, mutual assistance and respect, taught in a fun and easy way",
+          "Funny incidents and clever plotlines children come back to again and again",
         ],
         forWhom:
-          "Ages 3 and up for reading aloud. Ages 6 to 8 for reading alone, thanks to the large type and short sentences.",
+          "Ages 3 and up. A good fit for first-time readers, new parents and primary school teachers, and a perfect gift for a birthday or a holiday.",
         faq: [
           {
             q: "Is Rocky a real dog?",
@@ -2066,8 +2091,43 @@ export const books: Book[] = [
     type: "bedtime",
     series: "lucky-rocky",
     pairId: "lucky-rocky-friendship-en",
+    ageShown: "3-9",
+    alsoAges: ["5-7"],
+    published: "2024-04-20",
     size: "21.6 x 21.6 cm",
     cover: "/covers/lucky-rocky-friendship-es.jpg",
+    coverSize: { w: 900, h: 1160 },
+    showcaseLead: {
+      es: "Personajes de los cuentos: la abeja con sus cubos de miel, la abuelita Lechuza abriendo la puerta bajo la lluvia y Pequeño Max con su gorro de capitán.",
+    },
+    bannerLead: {
+      file: "/art/rocky-friendship-es-slogan.jpg",
+      w: 1920,
+      h: 600,
+      alt: {
+        es: "Descubrimientos que ayudan a los niños: Las Aventuras de Rocky, el Afortunado, La Magia de la Amistad, cuentos cortos ilustrados para niños de 3 años en adelante",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/rocky-friendship-en-bee.jpg",
+        w: 600,
+        h: 600,
+        alt: { es: "Una abeja lleva dos cubos de miel sobre un prado de flores, ilustración de La Magia de la Amistad" },
+      },
+      {
+        file: "/art/rocky-friendship-en-owl.jpg",
+        w: 600,
+        h: 600,
+        alt: { es: "La abuelita Lechuza, con gafas y un farol, abre la puerta para que Rocky entre y no se moje" },
+      },
+      {
+        file: "/art/rocky-friendship-en-mouse.jpg",
+        w: 600,
+        h: 600,
+        alt: { es: "Pequeño Max, el ratoncito con camiseta de marinero y gorro de capitán, agarrado a una rama con hojas" },
+      },
+    ],
     banners: [
       {
         file: "/art/rocky-friendship-es-spread.jpg",
@@ -2078,11 +2138,11 @@ export const books: Book[] = [
         },
       },
       {
-        file: "/art/rocky-friendship-es-ages.jpg",
-        w: 2880,
-        h: 900,
+        file: "/art/rocky-friendship-es-scenes.jpg",
+        w: 1940,
+        h: 1200,
         alt: {
-          es: "Para leer antes de dormir a niños de 3 a 5 años y para practicar la lectura con niños de 6 a 8 años",
+          es: "Escenas de los cuentos: el ratoncito navegando en un barco de papel, una colmena en una rama, tarros de miel, el abuelo José buscando sus gafas, la tienda del pueblo y un castor junto a su casa",
         },
       },
       {
@@ -2093,8 +2153,23 @@ export const books: Book[] = [
           es: "Historias en letra grande que facilitan la lectura, con la abuelita Lechuza y los cachorros frente a su casa en el árbol",
         },
       },
+      {
+        file: "/art/rocky-friendship-es-ages.jpg",
+        w: 2880,
+        h: 900,
+        alt: {
+          es: "Para leer antes de dormir a niños de 3 a 5 años y para reforzar la lectura en niños de 6 a 8 años",
+        },
+      },
+      {
+        file: "/art/rocky-friendship-es-themes.jpg",
+        w: 1920,
+        h: 600,
+        alt: {
+          es: "Amistad, bondad, curiosidad, respeto y creatividad: de esto tratan los cuentos de Rocky el Afortunado",
+        },
+      },
     ],
-    coverSize: { w: 900, h: 1160 },
     formats: [
       { kind: "paperback", asin: "1963328043", price: "$13.99" },
       { kind: "kindle", asin: "B0D2BPZ6NS", price: "$3.00" },
@@ -2104,17 +2179,18 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Las Aventuras de Rocky, el Afortunado: La Magia de la Amistad",
-        subtitle: "Cuentos ilustrados cortos para niños de 3 años en adelante.",
+        subtitle: "Cuentos ilustrados cortos para niños de 3 años en adelante",
         lead:
-          "Rocky es un perro de verdad. Es el cocker spaniel inglés de la familia, y los cuentos empezaron siendo cosas que se contaban de él en casa antes de convertirse en libro. Cada cuento es lo bastante corto para leerlo de una vez y termina con algo de lo que el niño puede hablar después.",
+          "¡Ayudemos a los más pequeños a dormir tranquilamente y a los niños mayores a descubrir el mundo mágico de la lectura! Este es el primer libro de la serie La Magia de los Descubrimientos.\n\nEs perfecta para leer a la hora de dormir a niños de 3 a 5 años y para reforzar la lectura independiente en niños de 6 a 8. Una gran adición a las bibliotecas del hogar y la escuela.",
         inside: [
-          "Varios cuentos cortos, cada uno se lee de una sentada",
-          "Totalmente ilustrado y a color",
-          "Frases sencillas en letra grande, legibles para quien empieza a leer solo",
-          "Temas de hacer amigos, compartir y defender a alguien",
+          "Cuentos cortos, cada uno se lee de una sentada",
+          "Hermosas ilustraciones dibujadas a mano que captan la atención",
+          "Frases simples impresas en letra grande para facilitar la lectura",
+          "Los fundamentos de la amistad, la bondad, la ayuda mutua y el respeto, de manera fácil e interesante",
+          "Situaciones divertidas e historias inteligentes a las que el niño querrá volver una y otra vez",
         ],
         forWhom:
-          "Desde los 3 años para leer en voz alta. De 6 a 8 años para leer solo, gracias a la letra grande y las frases cortas.",
+          "De 3 años en adelante. Útil para primeros lectores, nuevos padres y maestros de primaria, y un regalo perfecto para un cumpleaños o una fiesta.",
         faq: [
           {
             q: "¿Rocky es un perro real?",

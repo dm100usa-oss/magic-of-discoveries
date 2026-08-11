@@ -116,6 +116,66 @@ const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
       },
     ],
   },
+  "lucky-rocky-friendship": {
+    en: [
+      {
+        text:
+          "We loved this book! Rocky is absolutely adorable, and the stories are full of kindness and humor.",
+        who: "Olha Z, October 26, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "My kid loves the book, chapters are perfect size for a short bedtime read. Full page illustrations are a rare thing these days, great to see those shine.",
+        who: "Valentina Sh, May 13, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "My three-year-old nephew loves this book. Cute illustrations, a good storyline that is easy to follow and sweet characters. Large format, too!",
+        who: "Anna, May 13, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "My kids enjoy reading this book every night. The stories are heartwarming and full of great lessons!",
+        who: "Aaron Daniels, September 21, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Easy to read, good thoughtful stories, good quality, nice pictures and graphics. A very nice book for a child's library.",
+        who: "Danil, June 8, 2024, UK",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Lindo libro para los más pequeños, me encantaron las ilustraciones, súper coloridas y coquetas. Las historias de Rocky también están muy lindas y divertidas.",
+        who: "Gigi0205, 26 de agosto de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Tenemos este libro en inglés y nos gusta mucho. Mi hija y yo estamos aprendiendo español juntas, así que elegimos esta edición en español. Genial para la hora de dormir, las historias son cortas pero están bien hechas.",
+        who: "Valentina Sh, 9 de julio de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Este libro es increíblemente dulce y educativo. Rocky es un gran modelo para los niños. Las historias son breves pero inolvidables. El tamaño de la letra es grande, lo que facilita los primeros intentos de lectura independiente.",
+        who: "Liza Lorang, 22 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Los colores y las ilustraciones son preciosas. El tamaño de letra es perfecto para contarle el cuento a mi hijo por la noche. Los cuentos son entretenidos, divertidos y con moraleja.",
+        who: "Ekaterina Eliseeva Garcia, 8 de mayo de 2024, España",
+        stars: 5,
+      },
+    ],
+  },
   "lucky-rocky-two-in-one": {
     en: [
       {

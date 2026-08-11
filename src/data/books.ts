@@ -731,6 +731,69 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328450", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-шаблон-книги",
     rating: { value: 5.0, count: 1 },
+    showcaseLead: {
+      en: "Three things worth seeing before you buy: how simple each shape is, how much of the page one drawing takes up, and the kind of subjects a toddler recognizes.",
+    },
+    bannerLead: {
+      file: "/art/little-max-coloring-2-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        en: "Little Max Coloring Book for Toddlers, Volume 2, cover with the mouse in a cap, beside a stack of colored pencils",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/little-max-coloring-2-simple.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          en: "Simple: a fish drawn with a few thick lines, one object on the page",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-big.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          en: "Big: an owl filling the page, partly colored in with pencil by a small child",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-cute.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          en: "Cute: a toy drum with sticks, one of the everyday things a toddler already knows",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/little-max-coloring-2-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "The book open at a baby elephant and a panda, one drawing per page with the word underneath, 8.5 by 11 inches",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-themes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Ten of the 111 drawings: palm tree, balloons, monkey, acorn, whale, toucan, giraffe, watermelon, helicopter and soccer ball",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          en: "The perfect gift for beginner artists, a popcorn box, party flags and colored pencils",
+        },
+      },
+    ],
     slug: { en: "little-max-coloring-book-toddlers-1-3-volume-2" },
     copy: {
       en: {
@@ -771,6 +834,69 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328558", price: "$6.99" }],
     pdfUrl: WIX + "копия-копия-копия-копия-копия-шаблон-книги",
+    showcaseLead: {
+      es: "Tres cosas que vale la pena ver antes de comprar: lo sencilla que es cada forma, cuánto ocupa un dibujo en la página y el tipo de cosas que el niño ya reconoce.",
+    },
+    bannerLead: {
+      file: "/art/little-max-coloring-2-es-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        es: "Libro de Colorear de Pequeño Max para Bebés, Volumen 2, portada con el ratón con gorra, junto a unos lápices de colores",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/little-max-coloring-2-es-simple.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          es: "Simples: un pez dibujado con unas pocas líneas gruesas, un solo objeto en la página",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-es-big.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          es: "Grandes: una lechuza que llena la página, coloreada en parte a lápiz por un niño pequeño",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-es-cute.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          es: "Adorables: un tambor de juguete con baquetas, una de las cosas cotidianas que el niño ya conoce",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/little-max-coloring-2-es-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "El libro abierto por un elefante bebé y un panda, un dibujo por página con la palabra debajo, 21.6 x 28 cm",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-es-themes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Diez de los 111 dibujos: palma, globos, mono, bellota, ballena, tucán, jirafa, sandía, helicóptero y balón de fútbol",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-es-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          es: "Un maravilloso regalo para artistas novatos, una caja de palomitas, banderines de fiesta y lápices de colores",
+        },
+      },
+    ],
     slug: { es: "pequeno-max-libro-colorear-bebes-1-3-anos-volumen-2" },
     copy: {
       es: {

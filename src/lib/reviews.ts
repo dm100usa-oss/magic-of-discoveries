@@ -62,3 +62,93 @@ const es: Review[] = [
 const ru: Review[] = es.map((r, i) => ({ ...r, text: en[i].text }));
 
 export const reviewsByLang: Record<UiLang, Review[]> = { en, es, ru };
+
+/* ------------------------------------------------------------------ */
+/*  Отзывы по конкретным книгам                                        */
+/* ------------------------------------------------------------------ */
+
+/* Отзывы покупателей с Amazon. Только настоящие, с именем и датой.
+   На экране это цитаты, в машинную разметку они не идут: Google
+   запрещает выдавать чужие оценки за собственные. */
+const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
+  "how-to-draw-111": {
+    en: [
+      {
+        text:
+          "My son is thrilled with the simplicity of the instructions, and he especially loves that he can color his masterpieces right away. I can see his confidence growing with each new drawing.",
+        who: "Victor Borsci, September 7, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Tracing kept my little one occupied for longer than anticipated. The fun facts here and there are a nice touch.",
+        who: "Valentina Sh, May 13, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "My child is gaining new skills independently and loves displaying his artwork. My only wish is for more animal options, but all in all, it is a great book.",
+        who: "Layla Saunders, November 1, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Mi hijo está encantado con lo sencillas que son las instrucciones, y sobre todo le gusta poder colorear sus obras enseguida. Veo cómo gana confianza con cada dibujo nuevo.",
+        who: "Victor Borsci, 7 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+      {
+        text:
+          "Calcar mantuvo entretenido a mi pequeño más tiempo del que esperaba. Los datos curiosos que aparecen aquí y allá son un detalle muy bonito.",
+        who: "Valentina Sh, 13 de mayo de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+      {
+        text:
+          "Mi hijo está aprendiendo cosas nuevas por su cuenta y le encanta enseñar sus dibujos. Lo único que echo en falta son más animales, pero por lo demás es un libro estupendo.",
+        who: "Layla Saunders, 1 de noviembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
+};
+
+/** Отзывы для страницы книги. Английское и испанское издание одной
+    книги показывают одни и те же отзывы, поэтому язык издания в ключе
+    не участвует. */
+export function reviewsForBook(bookId: string, lang: UiLang): Review[] {
+  const key = bookId.replace(/-(en|es)$/, "");
+  const set = bookReviews[key];
+  if (!set) return [];
+  return lang === "es" ? set.es : set.en;
+}
+
+/* Рецензия профессионального обозревателя. Это не отзыв покупателя,
+   поэтому стоит отдельно и с указанием издания. */
+export interface EditorialReview {
+  text: Partial<Record<UiLang, string>>;
+  who: string;
+  url?: string;
+}
+
+const editorial: Record<string, EditorialReview> = {
+  "how-to-draw-111": {
+    text: {
+      en: "With step-by-step instructions, this guide takes readers through a journey of wonder and beauty, by the end of which they will have a firm grasp on the fundamentals of drawing.",
+      es: "Con instrucciones paso a paso, esta guía lleva al lector por un recorrido de asombro y belleza, al final del cual habrá asimilado los fundamentos del dibujo.",
+    },
+    who: "Pikasho Deka, Readers' Favorite",
+    url:
+      "https://readersfavorite.com/book-review/how-to-draw-111-amazing-and-cute-animals-" +
+      "fairy-tale-characters-flowers-foods-gifts-and-other-themes-the-magic-of-creativity-for-kids",
+  },
+};
+
+export function editorialForBook(bookId: string): EditorialReview | undefined {
+  return editorial[bookId.replace(/-(en|es)$/, "")];
+}

@@ -43,6 +43,10 @@ export interface Dictionary {
     videoPoints: string[];
     pagesLabel: string;
     publishedLabel: string;
+    reviewsTitle: string;
+    reviewsSource: string;
+    editorialTitle: string;
+    editorialSource: string;
     inside: string;
     artwork: string;
     forWhom: string;
@@ -189,6 +193,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Pages",
       publishedLabel: "Published",
+      reviewsTitle: "What parents say",
+      reviewsSource: "Verified purchase reviews left on Amazon.",
+      editorialTitle: "Reviewed by",
+      editorialSource: "Read the full review",
       inside: "What is inside",
       artwork: "Pictures from the book",
       forWhom: "Who it is for",
@@ -376,6 +384,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Páginas",
       publishedLabel: "Publicado",
+      reviewsTitle: "Lo que dicen los padres",
+      reviewsSource: "Opiniones de compras verificadas publicadas en Amazon.",
+      editorialTitle: "Reseñado por",
+      editorialSource: "Leer la reseña completa",
       inside: "Qué contiene",
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
@@ -563,6 +575,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Страниц",
       publishedLabel: "Издана",
+      reviewsTitle: "Что говорят родители",
+      reviewsSource: "Отзывы подтвержденных покупок на Amazon.",
+      editorialTitle: "Рецензия",
+      editorialSource: "Читать рецензию целиком",
       inside: "Что внутри",
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",

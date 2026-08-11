@@ -35,6 +35,7 @@ import { RatingLink } from "@/components/Rating";
 import { SITE_URL, PUBLISHER, AUTHORS, ADDRESS, SITE_PUBLISHED, SITE_UPDATED, OG_IMAGE } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, itemPath, sectionPath } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
+import { reviewsForBook, editorialForBook } from "@/lib/reviews";
 
 export function generateStaticParams() {
   const out: { lang: string; section: string; slug: string }[] = [];
@@ -492,6 +493,8 @@ export default async function ItemPage({
 
   const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const video = bookVideo(book.id);
+  const bookRevs = reviewsForBook(book.id, lang);
+  const editorial = editorialForBook(book.id);
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
   const freeSlug = freePage?.slug[lang];
@@ -512,6 +515,17 @@ export default async function ItemPage({
         inLanguage: book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
         isbn: bookIsbn13(book),
         numberOfPages: book.pages,
+        /* Рецензия стороннего издания с ссылкой на первоисточник.
+           Оценку не ставим: чужие оценки в разметке Google запрещает. */
+        subjectOf: editorial
+          ? {
+              "@type": "Review",
+              reviewBody: editorial.text[lang] ?? editorial.text.en,
+              author: { "@type": "Person", name: "Pikasho Deka" },
+              publisher: { "@type": "Organization", name: "Readers' Favorite" },
+              url: editorial.url,
+            }
+          : undefined,
         datePublished: book.published,
         sameAs: wikidataUrl(book.id),
         bookFormat:
@@ -773,6 +787,43 @@ export default async function ItemPage({
           ) : null}
 
 
+
+          {bookRevs.length ? (
+            <>
+              <h2 className="section">{t.book.reviewsTitle}</h2>
+              <div className="reviews reviews--book">
+                {bookRevs.map((r) => (
+                  <div className="review" key={r.who}>
+                    <div className="stars">{"★".repeat(r.stars)}</div>
+                    <p>{r.text}</p>
+                    <span className="who">{r.who}</span>
+                    {r.translated && t.home.reviewTranslated ? (
+                      <span className="note">{t.home.reviewTranslated}</span>
+                    ) : null}
+                  </div>
+                ))}
+              </div>
+              <p className="reviews__source">{t.book.reviewsSource}</p>
+            </>
+          ) : null}
+
+          {editorial ? (
+            <p className="editorial">
+              <span className="editorial__mark">{t.book.editorialTitle}</span>
+              {editorial.text[lang] ?? editorial.text.en}
+              <span className="editorial__who">
+                {editorial.who}
+                {editorial.url ? (
+                  <>
+                    {" · "}
+                    <a href={editorial.url} rel="noopener" target="_blank">
+                      {t.book.editorialSource}
+                    </a>
+                  </>
+                ) : null}
+              </span>
+            </p>
+          ) : null}
 
           <div className="specs">
             <dl>

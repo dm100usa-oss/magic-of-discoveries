@@ -424,6 +424,44 @@ ul.inside li::marker { color: var(--pink-hot); }
 .review .who { display: block; margin-top: 0.8rem; font-size: var(--t-micro); font-weight: 700; opacity: 0.9; }
 .review .note { display: block; margin-top: 0.3rem; font-size: var(--t-micro); opacity: 0.75; }
 
+/* Отзывы на странице книги. Их три, поэтому колонок три, а не четыре
+   как на главной. */
+@media (min-width: 1024px) {
+  .reviews--book { grid-template-columns: repeat(3, 1fr); }
+}
+.reviews__source {
+  margin: var(--gap-1) 0 var(--gap-4);
+  font-size: var(--t-small);
+  color: var(--ink-2);
+}
+
+/* Рецензия обозревателя. Это не отзыв покупателя, поэтому выглядит
+   иначе: тихая цитата, а не цветная плашка. */
+.editorial {
+  margin: 0 0 var(--gap-4);
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--radius);
+  background: var(--mint-pale);
+  font-size: var(--t-small);
+  line-height: 1.55;
+  max-width: 78ch;
+}
+.editorial__mark {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--t-micro);
+  color: var(--mint-deep);
+  margin-bottom: 0.4rem;
+}
+.editorial__who {
+  display: block;
+  margin-top: 0.6rem;
+  font-weight: 700;
+  color: var(--mint-deep);
+}
+
 .script-title {
   font-family: var(--font-script); color: var(--pink-hot);
   font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem);

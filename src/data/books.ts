@@ -551,6 +551,53 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328566", price: "$6.99" }],
     pdfUrl: WIX + "english-5",
     rating: { value: 4.6, count: 3 },
+    showcaseLead: {
+      en: "Three things worth seeing before you buy: how simple each shape is, how much of the page one drawing takes up, and the kind of subjects a toddler recognizes.",
+    },
+    bannerLead: {
+      file: "/art/little-max-coloring-1-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        en: "First Coloring Book for Toddlers by Little Max, cover with the mouse in a sailor shirt, beside a stack of colored pencils",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/little-max-coloring-1-simple.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "Simple: a snail drawn with a few thick lines, one object on the page",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-big.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "Big: a raccoon filling the page, partly colored in with pencil by a small child",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-cute.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "Cute: a stacking ring toy, one of the everyday things a toddler already knows",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/little-max-coloring-1-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          en: "The perfect gift for beginner artists, a cupcake drawing, party flags and colored pencils",
+        },
+      },
+    ],
     slug: { en: "little-max-first-coloring-book-toddlers-1-3" },
     copy: {
       en: {
@@ -593,6 +640,53 @@ export const books: Book[] = [
     formats: [{ kind: "paperback", asin: "1963328590", price: "$6.99" }],
     pdfUrl: WIX + "el-primer-libro-de-colorear-para-bebés-de-1-3-años-de-pequeño-max",
     rating: { value: 5.0, count: 2 },
+    showcaseLead: {
+      es: "Tres cosas que vale la pena ver antes de comprar: lo sencilla que es cada forma, cuánto ocupa un dibujo en la página y el tipo de cosas que el niño ya reconoce.",
+    },
+    bannerLead: {
+      file: "/art/little-max-coloring-1-es-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        es: "El Primer Libro de Colorear para Bebés de Pequeño Max, portada con el ratón con camiseta de marinero, junto a unos lápices de colores",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/little-max-coloring-1-es-simple.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Simples: un caracol dibujado con unas pocas líneas gruesas, un solo objeto en la página",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-es-big.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Grandes: un mapache que llena la página, coloreado en parte a lápiz por un niño pequeño",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-es-cute.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Adorables: una pirámide de anillas, una de las cosas cotidianas que el niño ya conoce",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/little-max-coloring-1-es-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          es: "Un maravilloso regalo para artistas novatos, una magdalena, banderines de fiesta y lápices de colores",
+        },
+      },
+    ],
     slug: { es: "pequeno-max-primer-libro-colorear-bebes-1-3-anos" },
     copy: {
       es: {

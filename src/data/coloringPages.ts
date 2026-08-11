@@ -652,6 +652,141 @@ export const coloringPages: ColoringPage[] = [
       },
     },
   },
+  /* ===== Take a Break: Food and Snacks, простые листы с едой ===== */
+  {
+    id: "food-easy",
+    fromBookId: "take-a-break-food-en",
+    fromBookIdEs: "take-a-break-food-es",
+    slug: {
+      en: "free-printable-food-coloring-pages-for-adults",
+      es: "dibujos-de-comida-para-colorear-para-adultos-para-imprimir-gratis",
+    },
+    groups: [
+      {
+        id: "treats",
+        title: {
+          en: "Sweets and snacks",
+          es: "Dulces y comida",
+          ru: "Сладости и еда",
+        },
+        sheets: [
+          S("food-cake", "Birthday cake", "Tarta de cumpleaños", "Торт"),
+          S("food-icecream", "Ice cream bar", "Helado", "Мороженое"),
+          S("food-pizza", "Pizza slice", "Porción de pizza", "Кусок пиццы"),
+          S("food-burger", "Burger", "Hamburguesa", "Бургер"),
+          S("food-lemonade", "Lemonade", "Limonada", "Лимонад"),
+        ],
+      },
+      {
+        id: "fruit",
+        title: {
+          en: "Fruit and vegetables",
+          es: "Fruta y verdura",
+          ru: "Фрукты и овощи",
+        },
+        sheets: [
+          S("food-watermelon", "Watermelon", "Sandía", "Арбуз"),
+          S("food-grapes", "Grapes", "Uvas", "Виноград"),
+          S("food-pomegranate", "Pomegranate", "Granada", "Гранат"),
+          S("food-tomatoes", "Tomatoes", "Tomates", "Помидоры"),
+        ],
+      },
+    ],
+    copy: {
+      en: {
+        title:
+          "Free printable food coloring pages for adults. Thick lines, big simple shapes, easy to finish",
+        lead:
+          "Real pages from our printed food book. A birthday cake, pizza, a burger, lemonade, watermelon, grapes and more, drawn with bold outlines and plenty of open space to fill.",
+        body: [
+          "Food is the easiest subject to color, because you almost never have to decide what color anything should be. A watermelon is green outside and red inside, and that is the whole decision. The page fills up quickly and looks good while it does.",
+          "Every one of these is a page from our printed book, drawn by hand. Nothing here is filler assembled for a website. The line is thick enough that a child can color the same sheet next to you.",
+          "A page takes about twenty minutes. That is the whole idea: something you actually finish in one sitting, rather than a mandala you abandon in the third ring.",
+          "There is nothing to sign up for and nothing to pay. Print one, print all of them, print the same one twice so two people can color it together.",
+        ],
+        howTo: [
+          "Two file sizes: US Letter and A4. Pick whichever your printer takes",
+          "Print single-sided on plain paper",
+          "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
+          "If you use markers, slip a spare sheet underneath",
+          "Warm colors do most of the work here, so keep your reds, oranges and yellows within reach",
+        ],
+        pickLead: "If these went quickly, there are 50 more in the book they came from.",
+        pickTitle: "The book these pages come from",
+        pickPoints: [
+          "50 hand drawn designs: foods, drinks, desserts, fruit and much more",
+          "Large print: thick lines and open shapes, comfortable when your eyes tire quickly",
+          "One design per page, printed on one side only, so markers do not spoil the next drawing",
+          "8.5 x 11 inches, the same size as these sheets",
+          "Easy enough for a child to color beside you, which is why the cover says adults and kids",
+        ],
+        faq: [
+          {
+            q: "Are these really free?",
+            a: "Yes. No account, no email, no payment. Print as many copies as you like, at home or anywhere else.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same, only the sheet size differs.",
+          },
+          {
+            q: "Can children color these?",
+            a: "Yes. The shapes are large and the lines are thick, which is exactly what a young hand needs. They were drawn for adults who want something easy, and that turns out to suit children too.",
+          },
+          {
+            q: "Can I use them in a class or a care home?",
+            a: "Yes, print them and hand them out freely. Please do not resell them or republish the files on another site.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "Dibujos de comida para colorear gratis para imprimir, para adultos. Trazos gruesos, formas grandes, fáciles de terminar",
+        lead:
+          "Páginas reales de nuestro libro de comida impreso. Una tarta de cumpleaños, pizza, una hamburguesa, limonada, sandía, uvas y más, con contornos gruesos y mucho espacio abierto para rellenar.",
+        body: [
+          "La comida es el tema más fácil de colorear, porque casi nunca hay que decidir de qué color va nada. Una sandía es verde por fuera y roja por dentro, y ahí acaba la decisión. La página se llena rápido y queda bien mientras se llena.",
+          "Cada una de estas láminas es una página de nuestro libro impreso, dibujada a mano. Aquí no hay relleno reunido para una web. El trazo es lo bastante grueso para que un niño coloree la misma hoja a tu lado.",
+          "Una página lleva unos veinte minutos. Esa es toda la idea: algo que de verdad terminas de una sentada, y no un mandala que abandonas en el tercer anillo.",
+          "No hay que registrarse ni pagar nada. Imprime una, imprímelas todas, o imprime la misma dos veces para colorearla con alguien.",
+        ],
+        howTo: [
+          "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
+          "Imprime a una sola cara en papel normal",
+          "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
+          "Si usas rotuladores, pon una hoja debajo",
+          "Aquí mandan los colores cálidos, así que ten a mano los rojos, los naranjas y los amarillos",
+        ],
+        pickLead: "Si estas se te han hecho cortas, en el libro del que salieron hay 50.",
+        pickTitle: "El libro del que salen estas páginas",
+        pickPoints: [
+          "50 diseños dibujados a mano: alimentos, bebidas, postres, fruta y mucho más",
+          "Letra grande: líneas gruesas y formas amplias, cómodo cuando la vista se cansa pronto",
+          "Un diseño por página, impreso a una sola cara, para que los rotuladores no estropeen el siguiente",
+          "21.6 x 27.9 cm, el mismo tamaño que estas hojas",
+          "Bastante fácil para que un niño coloree a tu lado, y por eso la portada dice adultos y niños",
+        ],
+        faq: [
+          {
+            q: "¿De verdad son gratis?",
+            a: "Sí. Sin registro, sin correo, sin pago. Imprime las copias que quieras, en casa o donde sea.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elige A4. En Estados Unidos y Canadá, elige Carta. El dibujo es el mismo, solo cambia el tamaño de la hoja.",
+          },
+          {
+            q: "¿Pueden colorearlas los niños?",
+            a: "Sí. Las formas son grandes y los trazos gruesos, que es justo lo que necesita una mano pequeña. Se dibujaron para adultos que buscan algo fácil, y resulta que también les van bien a los niños.",
+          },
+          {
+            q: "¿Puedo usarlas en una clase o en una residencia?",
+            a: "Sí, imprímelas y repártelas con total libertad. Solo te pedimos que no las revendas ni publiques los archivos en otra web.",
+          },
+        ],
+      },
+    },
+  },
 ];
 
 export function pagesForLang(lang: UiLang): ColoringPage[] {

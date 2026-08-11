@@ -161,9 +161,9 @@ const firstColoring111: TopicGroup[] = [
         "Pufferfish", "Shrimp", "Manta ray",
       ],
       es: [
-        "Tiburón", "Delfín", "Ballena", "Cangrejo", "Pulpo", "Medusa", "Tortuga de mar",
-        "Pez ángel", "Caballito de mar", "Foca", "Pez payaso", "Molusco", "Ajolote",
-        "Pez globo", "Gamba", "Mantarraya",
+        "Tiburón", "Delfín", "Ballena", "Cangrejo", "Pulpo", "Medusa", "Tortuga",
+        "Pez ángel", "Hipocampo", "Foca", "Pez payaso", "Molusco", "Ajolote", "Pez globo",
+        "Camarón", "Raya",
       ],
     },
   },
@@ -190,8 +190,8 @@ const firstColoring111: TopicGroup[] = [
         "Rocket", "Scooter",
       ],
       es: [
-        "Coche", "Helicóptero", "Avión", "Globo aerostático", "Barco", "Submarino",
-        "Cohete", "Patinete",
+        "Coche", "Helicóptero", "Avión", "Globo aerostático", "Nave", "Submarino",
+        "Cohete", "Scooter",
       ],
     },
   },
@@ -215,8 +215,8 @@ const firstColoring111: TopicGroup[] = [
     items: {
       en: ["Sunglasses", "Beach umbrella", "Beach hat", "Globe", "Present", "Gamepad"],
       es: [
-        "Gafas de sol", "Sombrilla de playa", "Sombrero de playa", "Globo terráqueo",
-        "Regalo", "Mando de videojuegos",
+        "Gafas", "Sombrilla de playa", "Sombrero", "Globo terráqueo", "Regalo",
+        "Mando de videojuegos",
       ],
     },
   },
@@ -229,8 +229,8 @@ const firstColoring111: TopicGroup[] = [
         "Lily of the valley", "Lotus", "Tulip",
       ],
       es: [
-        "Hoja de arce", "Rosa", "Seta", "Trébol", "Girasol", "Piña de pino", "Cactus",
-        "Lirio de los valles", "Loto", "Tulipán",
+        "Hoja de arce", "Rosa", "Seta", "Trébol", "Girasol", "Piña", "Cacto", "Muguete",
+        "Loto", "Tulipán",
       ],
     },
   },
@@ -243,8 +243,8 @@ const firstColoring111: TopicGroup[] = [
         "Avocado", "Strawberry", "Pear", "Pineapple", "Lemon", "Pumpkin", "Donut",
       ],
       es: [
-        "Tarta", "Helado", "Sandía", "Zanahoria", "Brócoli", "Naranja", "Cerezas",
-        "Aguacate", "Fresa", "Pera", "Piña", "Limón", "Calabaza", "Dónut",
+        "Torta", "Helado", "Sandía", "Zanahoria", "Brócoli", "Naranja", "Guinda",
+        "Aguacate", "Fresa", "Pera", "Piña", "Limón", "Calabaza", "Buñuelo",
       ],
     },
   },

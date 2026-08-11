@@ -500,11 +500,14 @@ export default async function ItemPage({
   /* Вводный текст состоит из коротких абзацев. В описание страницы
      для поисковика они уходят одной строкой. */
   const whyParts = copy.lead.split("\n\n");
+  /* Возраст на странице книги пишем коротко, "1-3": рядом уже стоит
+     подпись "Возраст", слово "годы" только удлиняет строку. В каталоге
+     и в фильтре подписи рядом нет, там остается полная форма. */
   const ageText = book.ageShown
-    ? t.book.ageYears
-        .replace("{a}", book.ageShown.split("-")[0])
-        .replace("{b}", book.ageShown.split("-")[1])
-    : t.catalog.ages[book.age];
+    ? book.ageShown
+    : book.age === "teens-adults"
+      ? t.catalog.ages[book.age]
+      : book.age;
   const topicGroups = topicsForBook(book.id);
   const topicList = allTopics(topicGroups, lang);
   const editorial = editorialForBook(book.id);

@@ -167,6 +167,96 @@ export type BookVideo = {
 };
 
 const VIDEOS: Record<string, BookVideo> = {
+  "first-coloring-book-111-es": {
+    src: "/video/first-coloring-111-es.mp4",
+    poster: "/video/first-coloring-111-es-poster.jpg",
+    seconds: 19,
+    w: 608,
+    h: 1024,
+    description: {
+      es:
+        "Un recorrido sin cortes por la edición en español de El Primer Libro de Colorear para Bebés " +
+        "de 1 a 3 Años. Se ve la portada y después una página tras otra: un dibujo grande por hoja, " +
+        "impreso por una sola cara, con la palabra en español debajo en letras huecas, entre ellos " +
+        "el loro, el tulipán, la torta, el bádminton, las gafas, el grifo, el trol, el cangrejo, el pulpo, " +
+        "el perro, la ardilla, el zorro y la gallina. Diecinueve segundos, sin sonido.",
+      en:
+        "An unedited flip through of the Spanish edition of this book. The clip shows the cover and then " +
+        "page after page: one large drawing per sheet, printed on one side, with the Spanish word for it " +
+        "in outline letters underneath. Nineteen seconds, no sound.",
+    },
+    chapters: [
+      { at: 0, text: { es: "La portada", en: "The cover" } },
+      {
+        at: 2,
+        text: {
+          es: "Página tras página: un dibujo grande por hoja, con la palabra debajo",
+          en: "Page after page: one large drawing per sheet, with the word underneath",
+        },
+      },
+      {
+        at: 6,
+        text: {
+          es: "El reverso de la hoja, en blanco",
+          en: "The back of the sheet, blank",
+        },
+      },
+      {
+        at: 8,
+        text: {
+          es: "Flores, comida, objetos y animales, uno en cada página",
+          en: "Flowers, food, objects and animals, one on each page",
+        },
+      },
+    ],
+  },
+  "first-coloring-book-111-en": {
+    src: "/video/first-coloring-111.mp4",
+    poster: "/video/first-coloring-111-poster.jpg",
+    seconds: 46,
+    w: 608,
+    h: 1080,
+    description: {
+      en:
+        "An unedited flip through of the paperback edition of First Coloring Book for Toddlers Ages 1-3, " +
+        "filmed on a table. The clip shows the front cover, the back cover, the title page, and page after " +
+        "page of the book: one large drawing per sheet, printed on one side, with the word for it in outline " +
+        "letters underneath, among them broccoli, a lotus, a sunflower, a beach hat, a kite and a helicopter. " +
+        "It ends on the page at the front where a child writes their name. Forty six seconds, no sound.",
+      es:
+        "Un recorrido sin cortes por la edición en rústica de El Primer Libro de Colorear para Bebés de 1 a 3 Años, " +
+        "filmado sobre una mesa. Se ven la portada, la contraportada, la portadilla y una página tras otra: " +
+        "un dibujo grande por hoja, impreso por una sola cara, con la palabra debajo en letras huecas, " +
+        "entre ellos el brócoli, un loto, un girasol, un sombrero de playa, una cometa y un helicóptero. " +
+        "Termina en la página del principio donde el niño escribe su nombre. Cuarenta y seis segundos, sin sonido.",
+    },
+    chapters: [
+      { at: 0, text: { en: "The front cover", es: "La portada" } },
+      {
+        at: 8,
+        text: {
+          en: "The back cover and what the book promises",
+          es: "La contraportada y lo que promete el libro",
+        },
+      },
+      { at: 14, text: { en: "The title page", es: "La portadilla" } },
+      {
+        at: 16,
+        text: {
+          en: "Page after page: one large drawing per sheet, with the word underneath",
+          es: "Página tras página: un dibujo grande por hoja, con la palabra debajo",
+        },
+      },
+      {
+        at: 35,
+        text: {
+          en: "The page at the front where the child writes their name",
+          es: "La página del principio donde el niño escribe su nombre",
+        },
+      },
+      { at: 41, text: { en: "Back to the front cover", es: "De vuelta a la portada" } },
+    ],
+  },
   "how-to-draw-111-en": {
     src: "/video/how-to-draw-111.mp4",
     poster: "/video/how-to-draw-111-poster.jpg",

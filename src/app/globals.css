@@ -587,6 +587,10 @@ ul.inside li::marker { color: var(--pink-hot); }
 /* Четыре главных числа в верхнем блоке: возраст, страницы, язык,
    размер. Не таблица и не значки, а спокойная строка: подпись мелко
    сверху, значение крупно снизу. */
+/* Абзац "почему именно эта книга". Строку держим короткой,
+   длинные строки на всю ширину читаются тяжело. */
+.why-text { max-width: 72ch; font-size: var(--t-lead); }
+
 .key-specs {
   list-style: none;
   display: flex;
@@ -612,8 +616,8 @@ ul.inside li::marker { color: var(--pink-hot); }
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--gap-2);
-  margin: 0 0 var(--gap-3);
+  gap: var(--gap-2) var(--gap-3);
+  margin: var(--gap-2) 0 var(--gap-2);
 }
 .top-price {
   display: flex;
@@ -624,8 +628,9 @@ ul.inside li::marker { color: var(--pink-hot); }
 .top-price__value {
   font-family: var(--font-display, inherit);
   font-weight: 800;
-  font-size: var(--t-h3);
+  font-size: var(--t-h2);
   color: var(--ink);
+  line-height: 1;
 }
 .top-price__label {
   font-size: var(--t-small);

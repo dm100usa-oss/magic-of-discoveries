@@ -44,6 +44,7 @@ export interface Dictionary {
     pagesLabel: string;
     publishedLabel: string;
     priceFrom: string;
+    whyTitle: string;
     languageLabel: string;
     langEn: string;
     langEs: string;
@@ -203,6 +204,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       pagesLabel: "Pages",
       publishedLabel: "Published",
       priceFrom: "Paperback on Amazon",
+      whyTitle: "Why this book",
       languageLabel: "Language",
       langEn: "English",
       langEs: "Spanish",
@@ -403,6 +405,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       pagesLabel: "Páginas",
       publishedLabel: "Publicado",
       priceFrom: "Tapa blanda en Amazon",
+      whyTitle: "Por qué este libro",
       languageLabel: "Idioma",
       langEn: "Inglés",
       langEs: "Español",
@@ -603,6 +606,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       pagesLabel: "Страниц",
       publishedLabel: "Издана",
       priceFrom: "Мягкая обложка на Amazon",
+      whyTitle: "Почему именно эта книга",
       languageLabel: "Язык",
       langEn: "Английский",
       langEs: "Испанский",

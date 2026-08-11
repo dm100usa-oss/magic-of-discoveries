@@ -622,19 +622,43 @@ export default async function ItemPage({
 
           <div>
             <p className="subtitle">{copy.subtitle}</p>
-            <p className="lead-text">{copy.lead}</p>
 
-            {/* Три факта до кнопки. Родитель решает за несколько секунд,
-                и ему нужны факты, а не абзац. Остальные факты ниже. */}
-            <ul className="quick-facts">
-              {copy.inside.slice(0, 3).map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
+            {/* Сначала то, ради чего человек листает: цена, оценка,
+                награда. На телефоне это первое, что видно под обложкой. */}
+            <div className="top-trust">
+              {paper ? (
+                <p className="top-price">
+                  <span className="top-price__value">{paper.price}</span>
+                  <span className="top-price__label">{t.book.priceFrom}</span>
+                </p>
+              ) : null}
+              {book.rating && paper ? (
+                <RatingLink
+                  rating={book.rating}
+                  asin={paper.asin}
+                  labelReviews={t.book.ratingReviews}
+                  labelSource={t.book.ratingSource}
+                  ariaLabel={t.book.ratingAria}
+                />
+              ) : null}
+            </div>
 
-            {/* Четыре главных числа сразу под фактами: возраст, страницы,
-                язык и размер. Родитель за секунду понимает, подойдет ли
-                книга его ребенку, и не листает вниз за характеристиками. */}
+            {bookAwards.length ? (
+              <ul className="award-list">
+                {bookAwards.map((a) => (
+                  <li key={`${a.program}-${a.year}`}>
+                    <span className="award-list__tag">{t.method.bookAward}</span>{" "}
+                    {a.result[lang] ?? a.result.en} · {a.category[lang] ?? a.category.en} ·{" "}
+                    <a href={a.programUrl} rel="nofollow noopener" target="_blank">
+                      {a.program}
+                    </a>{" "}
+                    {a.year}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+
+            {/* Возраст, страницы, язык, размер. Подойдет ли книга ребенку. */}
             <ul className="key-specs">
               <li>
                 <span className="key-specs__label">{t.book.ageLabel}</span>
@@ -662,43 +686,13 @@ export default async function ItemPage({
               </li>
             </ul>
 
-            {/* Цена и оценка стоят наверху. За пять секунд родитель должен
-                узнать не только про книгу, но и сколько она стоит и что ее
-                уже проверили другие. Сама кнопка покупки ниже, после того
-                как он посмотрит, что внутри. */}
-            <div className="top-trust">
-              {paper ? (
-                <p className="top-price">
-                  <span className="top-price__value">{paper.price}</span>
-                  <span className="top-price__label">{t.book.priceFrom}</span>
-                </p>
-              ) : null}
-              {book.rating && paper ? (
-                <RatingLink
-                  rating={book.rating}
-                  asin={paper.asin}
-                  labelReviews={t.book.ratingReviews}
-                  labelSource={t.book.ratingSource}
-                  ariaLabel={t.book.ratingAria}
-                />
-              ) : null}
-            </div>
-
-
-            {bookAwards.length ? (
-              <ul className="award-list">
-                {bookAwards.map((a) => (
-                  <li key={`${a.program}-${a.year}`}>
-                    <span className="award-list__tag">{t.method.bookAward}</span>{" "}
-                    {a.result[lang] ?? a.result.en} · {a.category[lang] ?? a.category.en} ·{" "}
-                    <a href={a.programUrl} rel="nofollow noopener" target="_blank">
-                      {a.program}
-                    </a>{" "}
-                    {a.year}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
+            {/* Три факта. Абзац с первого экрана убран, он теперь
+                отдельным блоком ниже: "почему именно эта книга". */}
+            <ul className="quick-facts">
+              {copy.inside.slice(0, 3).map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -763,6 +757,12 @@ export default async function ItemPage({
             </p>
           </div>
 
+
+          {/* Почему именно эта книга. Абзац ушел сюда с первого экрана:
+              там он тормозил чтение, а здесь отвечает на вопрос, который
+              возникает после того, как человек увидел, что внутри. */}
+          <h2 className="section">{t.book.whyTitle}</h2>
+          <p className="why-text">{copy.lead}</p>
 
           {video ? (
             <>

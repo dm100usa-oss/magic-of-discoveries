@@ -623,20 +623,6 @@ export default async function ItemPage({
               ))}
             </ul>
 
-            <BuyButtons book={book} lang={lang} />
-            {book.rating && paper ? (
-              <RatingLink
-                rating={book.rating}
-                asin={paper.asin}
-                labelReviews={t.book.ratingReviews}
-                labelSource={t.book.ratingSource}
-                ariaLabel={t.book.ratingAria}
-              />
-            ) : null}
-            <p className="buy-note">
-              {t.book.formatNote}
-              {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}
-            </p>
 
             {bookAwards.length ? (
               <ul className="award-list">
@@ -705,6 +691,26 @@ export default async function ItemPage({
               ))}
             </div>
           ) : null}
+
+          {/* Блок покупки стоит после баннеров: сначала человек видит,
+              что внутри книги, и только потом принимает решение. */}
+          <div className="buy-block">
+            <BuyButtons book={book} lang={lang} />
+            {book.rating && paper ? (
+              <RatingLink
+                rating={book.rating}
+                asin={paper.asin}
+                labelReviews={t.book.ratingReviews}
+                labelSource={t.book.ratingSource}
+                ariaLabel={t.book.ratingAria}
+              />
+            ) : null}
+            <p className="buy-note">
+              {t.book.formatNote}
+              {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}
+            </p>
+          </div>
+
 
           {video ? (
             <>

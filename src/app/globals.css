@@ -613,6 +613,20 @@ ul.inside li::marker { color: var(--pink-hot); }
 }
 .key-specs__value { font-weight: 700; color: var(--ink-soft); }
 
+/* На телефоне все четыре значения держим в одном ряду: разбитая строка,
+   где размер уезжает вниз один, выглядит как ошибка верстки. */
+@media (max-width: 640px) {
+  .key-specs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.5rem;
+    padding: 0.8rem 0;
+  }
+  .key-specs li { gap: 0.2rem; }
+  .key-specs__label { font-size: 0.66rem; letter-spacing: 0.03em; }
+  .key-specs__value { font-size: 0.92rem; line-height: 1.25; }
+}
+
 /* Цена и оценка в верхнем блоке. Родитель должен узнать их
    за несколько секунд, не листая страницу. */
 .top-trust {

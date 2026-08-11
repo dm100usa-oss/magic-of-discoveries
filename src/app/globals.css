@@ -508,6 +508,26 @@ ul.inside li::marker { color: var(--pink-hot); }
   width: 100%; height: auto; border-radius: var(--radius-sm);
   box-shadow: var(--shadow);
 }
+/* Видео с перелистыванием книги. Вертикальное, поэтому ограничиваем
+   высоту, чтобы на компьютере оно не занимало весь экран. */
+.book-video {
+  margin: 0 0 var(--gap-3);
+  display: flex;
+  justify-content: center;
+}
+.book-video video {
+  width: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  aspect-ratio: 608 / 1080;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #f3ece4;
+}
+@media (max-width: 520px) {
+  .book-video video { width: 100%; max-height: none; }
+}
+
 .theme-banner {
   width: 100%; height: auto; border-radius: var(--radius);
   box-shadow: var(--shadow); margin: 0 0 var(--gap-3);

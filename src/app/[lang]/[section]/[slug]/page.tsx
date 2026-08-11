@@ -8,6 +8,7 @@ import {
   amazonUrl,
   bookIsbn13,
   wikidataUrl,
+  bookVideo,
   type UiLang,
   type Book,
 } from "@/data/books";
@@ -490,6 +491,7 @@ export default async function ItemPage({
     .slice(0, 4);
 
   const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
+  const video = bookVideo(book.id);
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
   const freeSlug = freePage?.slug[lang];
@@ -537,6 +539,22 @@ export default async function ItemPage({
         { name: t.nav.books, path: sectionPath(lang, "books") },
         { name: copy.title, path: itemPath(lang, "books", slug) },
       ]),
+      /* Видео отдельным объектом: так Google понимает, что на странице
+         есть ролик, и может показать его в разделе видео. */
+      ...(video
+        ? [
+            {
+              "@type": "VideoObject",
+              name: `${copy.title}. ${t.book.video}`,
+              description: t.book.videoLead,
+              thumbnailUrl: `${SITE_URL}${video.poster}`,
+              contentUrl: `${SITE_URL}${video.src}`,
+              uploadDate: SITE_UPDATED,
+              duration: `PT${video.seconds}S`,
+              publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+            },
+          ]
+        : []),
     ],
   };
 
@@ -648,6 +666,26 @@ export default async function ItemPage({
                 />
               ))}
             </div>
+          ) : null}
+
+          {video ? (
+            <>
+              <h2 className="section">{t.book.video}</h2>
+              <p>{t.book.videoLead}</p>
+              <div className="book-video">
+                <video
+                  src={video.src}
+                  poster={video.poster}
+                  width={video.w}
+                  height={video.h}
+                  controls
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                />
+              </div>
+            </>
           ) : null}
 
           <h2 className="section">{t.book.inside}</h2>

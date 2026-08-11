@@ -38,6 +38,8 @@ export interface Dictionary {
     empty: string;
   };
   book: {
+    video: string;
+    videoLead: string;
     inside: string;
     artwork: string;
     forWhom: string;
@@ -174,6 +176,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       empty: "Nothing matches that combination yet.",
     },
     book: {
+      video: "See the book in your hands",
+      videoLead:
+        "A page by page flip through the real book, so you can see the paper, the size and how the drawings build up before you buy.",
       inside: "What is inside",
       artwork: "Pictures from the book",
       forWhom: "Who it is for",
@@ -351,6 +356,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       empty: "Todavía no hay nada con esa combinación.",
     },
     book: {
+      video: "El libro en tus manos",
+      videoLead:
+        "Un recorrido página por página del libro real, para que veas el papel, el tamaño y cómo se construyen los dibujos antes de comprarlo.",
       inside: "Qué contiene",
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
@@ -528,6 +536,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       empty: "Пока ничего не подходит под этот выбор.",
     },
     book: {
+      video: "Книга в руках",
+      videoLead:
+        "Пролистывание настоящей книги страница за страницей: видно бумагу, размер и то, как рисунок собирается по шагам.",
       inside: "Что внутри",
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",

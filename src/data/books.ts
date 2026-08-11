@@ -135,6 +135,35 @@ export const wikidataUrl = (bookId: string): string | undefined =>
   WIKIDATA[bookId] ? `https://www.wikidata.org/wiki/${WIKIDATA[bookId]}` : undefined;
 
 /* ------------------------------------------------------------------ */
+/*  Видео с перелистыванием книги                                      */
+/* ------------------------------------------------------------------ */
+
+/** Ролик показывает бумагу, размер и то, как рисунок собирается
+    по шагам. Это снимает главное сомнение родителя перед покупкой:
+    что там внутри на самом деле. */
+export type BookVideo = {
+  src: string;
+  poster: string;
+  seconds: number;
+  /** Ширина и высота ролика, нужны браузеру, чтобы не дергать верстку. */
+  w: number;
+  h: number;
+};
+
+const VIDEOS: Record<string, BookVideo> = {
+  "how-to-draw-111-en": {
+    src: "/video/how-to-draw-111.mp4",
+    poster: "/video/how-to-draw-111-poster.jpg",
+    seconds: 33,
+    w: 608,
+    h: 1080,
+  },
+};
+
+export const bookVideo = (bookId: string): BookVideo | undefined => VIDEOS[bookId];
+
+
+/* ------------------------------------------------------------------ */
 /*  Повторяющиеся куски текста                                        */
 /* ------------------------------------------------------------------ */
 

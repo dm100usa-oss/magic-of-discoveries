@@ -36,6 +36,7 @@ import { SITE_URL, PUBLISHER, AUTHORS, ADDRESS, SITE_PUBLISHED, SITE_UPDATED, OG
 import { sectionFromSlug, sectionSlugs, itemPath, sectionPath } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
 import { reviewsForBook, editorialForBook } from "@/lib/reviews";
+import { topicsForBook, allTopics, TOPIC_PREVIEW } from "@/data/bookTopics";
 
 export function generateStaticParams() {
   const out: { lang: string; section: string; slug: string }[] = [];
@@ -494,6 +495,8 @@ export default async function ItemPage({
   const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const video = bookVideo(book.id);
   const bookRevs = reviewsForBook(book.id, lang);
+  const topicGroups = topicsForBook(book.id);
+  const topicList = allTopics(topicGroups, lang);
   const editorial = editorialForBook(book.id);
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
@@ -515,6 +518,12 @@ export default async function ItemPage({
         inLanguage: book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
         isbn: bookIsbn13(book),
         numberOfPages: book.pages,
+        /* Полный состав книги для машины. Нейросети читают его мгновенно
+           и по нему рекомендуют книгу тому, кто спросил про конкретное
+           животное или предмет. */
+        about: topicList.length
+          ? topicList.map((name) => ({ "@type": "Thing", name }))
+          : undefined,
         /* Рецензия стороннего издания с ссылкой на первоисточник.
            Оценку не ставим: чужие оценки в разметке Google запрещает. */
         subjectOf: editorial
@@ -753,6 +762,43 @@ export default async function ItemPage({
                   <li key={line}>{line}</li>
                 ))}
               </ul>
+            </>
+          ) : null}
+
+          {topicGroups.length ? (
+            <>
+              <h2 className="section">{t.book.topicsTitle}</h2>
+              <p>{t.book.topicsLead}</p>
+              {/* На экране только группы и несколько примеров: человек
+                  решает за секунды. Полный список свернут, но лежит
+                  на той же странице, поэтому его читают и поисковики. */}
+              <ul className="topics">
+                {topicGroups.map((g) => {
+                  const items = g.items[lang] ?? g.items.en ?? [];
+                  return (
+                    <li key={g.id}>
+                      <span className="topics__group">{g.title[lang] ?? g.title.en}</span>
+                      <span className="topics__examples">
+                        {items.slice(0, TOPIC_PREVIEW).join(" · ")}
+                      </span>
+                      <span className="topics__count">
+                        {t.book.topicsCount.replace("{n}", String(items.length))}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+              <details className="topics-all">
+                <summary>{t.book.topicsAll.replace("{n}", String(topicList.length))}</summary>
+                <div className="topics-all__body">
+                  {topicGroups.map((g) => (
+                    <p key={g.id}>
+                      <strong>{g.title[lang] ?? g.title.en}. </strong>
+                      {(g.items[lang] ?? g.items.en ?? []).join(", ")}
+                    </p>
+                  ))}
+                </div>
+              </details>
             </>
           ) : null}
 

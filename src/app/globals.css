@@ -584,6 +584,57 @@ ul.inside li::marker { color: var(--pink-hot); }
   .video-card__media { max-width: 340px; margin: 0 auto; }
 }
 
+/* ------------------------------------------------------------------ */
+/*  Состав книги по темам                                               */
+/* ------------------------------------------------------------------ */
+
+/* Человек пробегает восемь строк глазами за несколько секунд.
+   Полный список свернут: он нужен тем, кто ищет конкретное животное,
+   и поисковикам, а остальным он не мешает. */
+.topics {
+  list-style: none;
+  margin: 0 0 var(--gap-2);
+  padding: 0;
+  max-width: 78ch;
+}
+.topics li {
+  display: grid;
+  grid-template-columns: 12rem 1fr auto;
+  gap: 0.4rem 1rem;
+  align-items: baseline;
+  padding: 0.6rem 0;
+  border-top: 1px solid rgba(51, 32, 44, 0.08);
+}
+.topics li:first-child { border-top: 0; }
+.topics__group { font-weight: 800; }
+.topics__examples { color: var(--ink-2); }
+.topics__count {
+  font-size: var(--t-small);
+  font-weight: 700;
+  color: var(--pink-hot);
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .topics li { grid-template-columns: 1fr auto; }
+  .topics__examples { grid-column: 1 / -1; }
+}
+
+.topics-all { margin: 0 0 var(--gap-4); max-width: 78ch; }
+.topics-all summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--pink-hot);
+  font-size: var(--t-small);
+}
+.topics-all__body {
+  margin-top: var(--gap-2);
+  font-size: var(--t-small);
+  color: var(--ink-2);
+  line-height: 1.6;
+}
+.topics-all__body p { margin: 0 0 0.6rem; }
+.topics-all__body strong { color: var(--ink); }
+
 /* Блок покупки. Стоит после баннеров, во всю ширину страницы,
    поэтому кнопки ограничиваем по ширине, иначе они выглядят тяжело. */
 .buy-block {

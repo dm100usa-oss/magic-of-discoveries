@@ -43,6 +43,10 @@ export interface Dictionary {
     videoPoints: string[];
     pagesLabel: string;
     publishedLabel: string;
+    topicsTitle: string;
+    topicsLead: string;
+    topicsAll: string;
+    topicsCount: string;
     reviewsTitle: string;
     reviewsSource: string;
     editorialTitle: string;
@@ -193,6 +197,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Pages",
       publishedLabel: "Published",
+      topicsTitle: "Look for what your child loves",
+      topicsLead: "Every subject in the book, grouped.",
+      topicsAll: "See all {n} subjects",
+      topicsCount: "{n} in total",
       reviewsTitle: "What parents say",
       reviewsSource: "Verified purchase reviews left on Amazon.",
       editorialTitle: "Reviewed by",
@@ -384,6 +392,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Páginas",
       publishedLabel: "Publicado",
+      topicsTitle: "Busca lo que le gusta a tu hijo",
+      topicsLead: "Todos los temas del libro, por grupos.",
+      topicsAll: "Ver los {n} temas",
+      topicsCount: "{n} en total",
       reviewsTitle: "Lo que dicen los padres",
       reviewsSource: "Opiniones de compras verificadas publicadas en Amazon.",
       editorialTitle: "Reseñado por",
@@ -575,6 +587,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Страниц",
       publishedLabel: "Издана",
+      topicsTitle: "Найдите то, что любит ваш ребенок",
+      topicsLead: "Все темы книги, по группам.",
+      topicsAll: "Смотреть все {n} тем",
+      topicsCount: "всего {n}",
       reviewsTitle: "Что говорят родители",
       reviewsSource: "Отзывы подтвержденных покупок на Amazon.",
       editorialTitle: "Рецензия",

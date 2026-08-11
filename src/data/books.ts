@@ -950,6 +950,7 @@ export const books: Book[] = [
     pairId: "how-to-draw-111-en",
     drawings: 111,
     pages: 231,
+    published: "2024-05-03",
     size: "21.6 x 27.9 cm",
     cover: "/covers/how-to-draw-111-es.jpg",
     coverSize: { w: 900, h: 1157 },

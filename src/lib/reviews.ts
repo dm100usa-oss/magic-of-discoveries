@@ -116,6 +116,68 @@ const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
       },
     ],
   },
+  "where-been-max": {
+    en: [
+      {
+        text:
+          "This book has a few great stories about fun adventures that Max goes on. The pictures are great! Readers will be inspired to plan their next adventure, perhaps to the beach or a nice picnic in the park.",
+        who: "Latia T Smith, September 15, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "A darling, educational book of adventures with Max the mouse. These bedtime stories are perfect for younger children. The illustrations are adorable too.",
+        who: "P. Shumway, September 29, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "We loved this little book. The illustrations were calming and the stories were easy enough to read for my kindergartner. Well done.",
+        who: "D. Baker, September 19, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Little Max has a number of adventures including a trip to the zoo, a picnic and others. The book is nicely illustrated to capture the eye of children. A cute story.",
+        who: "Jeff Peck, September 22, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "This book has four parts, featuring little Max experiencing a day in different scenarios like the zoo, the beach, a fair, a picnic. The illustrations are a delight and the story is simple and cute. Really lovely!",
+        who: "CJWReader, September 26, 2024, UK",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "El ratón Max es un aventurero, tiene todo tipo de amigos. Estos cuentos son muy divertidos, entretienen a mi hijo antes de ir a dormir.",
+        who: "Lupe, 24 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Es un libro encantador, con ilustraciones coloridas y vibrantes que capturan la atención de los niños. Las historias son entretenidas y fáciles de seguir, y ayudan a los pequeños a recordar palabras nuevas mientras disfrutan de las imágenes. A mi hijo de 2 años le fascinaron especialmente los animales.",
+        who: "Josh L., 19 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "Un libro precioso y muy bien ilustrado sobre Pequeño Max y sus aventuras. Estoy mejorando mi español y este cuento sencillo, corto y fácil me ha ayudado muchísimo. Espero con ganas más libros de la serie.",
+        who: "Results Designed, 26 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+      {
+        text:
+          "Compré varios libros en español para mi hijo, que va a un jardín de infancia en español, alemán e inglés. Los usamos para practicar el acento y para leer las palabras en voz alta. Es una herramienta estupenda para él. Historia bonita e ilustraciones muy buenas.",
+        who: "Megan DeVere, 16 de septiembre de 2024, EE. UU.",
+        stars: 5,
+        translated: true,
+      },
+    ],
+  },
   "where-going-max": {
     en: [
       {
@@ -270,6 +332,13 @@ export interface EditorialReview {
 }
 
 const editorial: Record<string, EditorialReview> = {
+  "where-been-max": {
+    text: {
+      en: "The beautiful illustrations complement the story, making the book visually appealing to young readers.",
+      es: "Las hermosas ilustraciones acompañan la historia y hacen del libro algo muy atractivo para los pequeños lectores.",
+    },
+    who: "Doreen Chombu, Readers' Favorite",
+  },
   "where-going-max": {
     text: {
       en: "Demi cleverly introduces a range of farm animals, seamlessly incorporating the sounds they make, which adds an extra layer of fun for little ones.",

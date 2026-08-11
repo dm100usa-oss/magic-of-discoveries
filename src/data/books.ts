@@ -1326,6 +1326,8 @@ export const books: Book[] = [
     type: "bedtime",
     series: "little-max",
     pairId: "where-been-max-es",
+    pages: 52,
+    published: "2024-09-03",
     size: "8.5 x 8.5 in",
     cover: "/covers/where-been-max-en.jpg",
     coverSize: { w: 900, h: 907 },
@@ -1334,29 +1336,98 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DH3JSFF3", price: "$2.99" },
     ],
     rating: { value: 4.9, count: 9 },
+    showcaseLead: {
+      en: "Four places Max has been, and what he saw in each one: squirrels in the park, a steamboat out at sea, and a pony ride at the fair.",
+    },
+    bannerLead: {
+      file: "/art/where-been-max-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        en: "Where Have You Been, Little Max? by Ricardo Demi, bedtime stories for toddlers 1 to 3, cover with Max the mouse holding cotton candy",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/where-been-max-squirrels.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "In the park: three red squirrels in an oak tree with soap bubbles floating past",
+        },
+      },
+      {
+        file: "/art/where-been-max-boat.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "At the beach: a smiling steamboat sailing past an island, with seagulls and a hot air balloon",
+        },
+      },
+      {
+        file: "/art/where-been-max-pony.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          en: "At the fair: Max the mouse riding a pony past the striped tent",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/where-been-max-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "A spread from the book: Max photographs a lion, a monkey and a giraffe at the zoo, with short hand lettered text on the left page",
+        },
+      },
+      {
+        file: "/art/where-been-max-scenes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Three more spreads: an elephant showering Max with its trunk, dolphins watching him build a sand castle, and Max waving goodbye at the fair",
+        },
+      },
+      {
+        file: "/art/where-been-max-learning.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          en: "What the stories give a toddler: new words, simple tasks, imagination, a picture of the world around them",
+        },
+      },
+    ],
     slug: { en: "where-have-you-been-little-max-bedtime-stories-toddlers" },
     copy: {
       en: {
         title: "Where Have You Been, Little Max?",
-        subtitle: "Bedtime stories for toddlers 1 to 3. The second Little Max book.",
+        subtitle: "Four short bedtime stories about where Max has been",
         lead:
-          "Little Max comes back and tells where he has been. The sentences are still short, but this book asks the child to remember what happened a page ago, which is the next small step after a simple there-and-back story.",
+          "Max comes back and tells where he has been. At the zoo an elephant sprayed him with water from its trunk. At the beach dolphins swam up to look at the sand castle he built. At the fair he rode a pony. In the park squirrels jumped through the branches over his head.\n\nEach story runs a few spreads and ends before a small child runs out of patience. Read one and turn off the light, or read all four.\n\nMax never lectures anybody. He just tells what he saw, and by morning the child wants to go and see it too.",
         inside: [
-          "Short sentences, one small event per page",
-          "A gentle memory thread running through the book",
-          "Full color illustrations",
-          "Recognised finalist, Bedtime category, Children's Book International Awards 2025",
+          "Four short stories: the zoo, the beach, the fair, the park",
+          "Simple words and one thing happening per page, so a toddler keeps the thread",
+          "Hand drawn illustrations on every spread, something to look at while listening",
+          "Animals named as they appear: lion, giraffe, elephant, zebra, parrot, dolphins, squirrels",
+          "52 pages, 8.5 x 8.5 inches",
+          "Finalist in the Bedtime Stories category, Children's Book International Awards 2025",
         ],
         forWhom:
-          "Ages 1 to 3, and a natural second book after Where Are You Going, Little Max?",
+          "Ages 1 to 3, read aloud at bedtime. And for children who already know Max from Where Are You Going, Little Max? This is the second book about him, though the two can be read in either order.",
         faq: [
           {
             q: "Do I need the first book to understand this one?",
-            a: "No. Each book stands alone. Read together they work better, because the child recognizes Max and the routine of leaving and coming home.",
+            a: "No. Each book stands on its own. Together they work better, because the child already knows Max and recognizes him.",
           },
           {
-            q: "How long does it take to read?",
-            a: "Two to three minutes aloud, at a pace slow enough for a toddler.",
+            q: "How long does it take to read aloud?",
+            a: "One story takes two to three minutes at a toddler's pace. The whole book takes about ten.",
+          },
+          {
+            q: "What does the child come away with?",
+            a: "The names of animals they meet in the stories, and four familiar places described in words a one year old can follow: the zoo, the beach, the fair and the park.",
           },
         ],
       },
@@ -1370,6 +1441,8 @@ export const books: Book[] = [
     type: "bedtime",
     series: "little-max",
     pairId: "where-been-max-en",
+    pages: 52,
+    published: "2024-09-14",
     size: "21.6 x 21.6 cm",
     cover: "/covers/where-been-max-es.jpg",
     coverSize: { w: 900, h: 907 },
@@ -1378,28 +1451,98 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DH3SBLWJ", price: "$2.99" },
     ],
     rating: { value: 5.0, count: 4 },
+    showcaseLead: {
+      es: "Cuatro sitios donde ha estado Max y lo que vio en cada uno: las ardillas del parque, un barco de vapor en el mar y un paseo a caballo en el mercadillo.",
+    },
+    bannerLead: {
+      file: "/art/where-been-max-es-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        es: "¿Dónde Has Estado, Pequeño Max? de Ricardo Demi, cuentos para dormir para niños de 1 a 3 años, portada con el ratoncito Max y un algodón de azúcar",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/where-been-max-squirrels.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          es: "En el parque: tres ardillas en un roble entre pompas de jabón",
+        },
+      },
+      {
+        file: "/art/where-been-max-boat.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          es: "En la playa: un barco de vapor sonriente pasa junto a una isla, con gaviotas y un globo aerostático",
+        },
+      },
+      {
+        file: "/art/where-been-max-pony.jpg",
+        w: 591,
+        h: 600,
+        alt: {
+          es: "En el mercadillo: el ratoncito Max montado a caballo delante de la carpa de rayas",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/where-been-max-es-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Una página doble del libro: Max fotografía a un león, un mono y una jirafa en el zoológico, con un texto corto en la página de la izquierda",
+        },
+      },
+      {
+        file: "/art/where-been-max-es-scenes.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Tres páginas dobles más: un elefante que ducha a Max con la trompa, los delfines que miran su castillo de arena y Max diciendo adiós en el mercadillo",
+        },
+      },
+      {
+        file: "/art/where-been-max-es-learning.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          es: "Lo que estas historias dan al niño: vocabulario nuevo, tareas simples, imaginación y comprensión del mundo que lo rodea",
+        },
+      },
+    ],
     slug: { es: "donde-has-estado-pequeno-max-cuentos-para-dormir-ninos" },
     copy: {
       es: {
         title: "¿Dónde Has Estado, Pequeño Max?",
-        subtitle: "Cuentos para dormir para niños de 1 a 3 años. El segundo libro de Pequeño Max.",
+        subtitle: "Cuatro cuentos cortos sobre dónde ha estado Max",
         lead:
-          "Pequeño Max vuelve y cuenta dónde ha estado. Las frases siguen siendo cortas, pero este libro pide al niño que recuerde lo que pasó una página antes, y ese es el siguiente paso después de un simple cuento de ida y vuelta.",
+          "Max vuelve y cuenta dónde ha estado. En el zoológico un elefante lo mojó con la trompa. En la playa los delfines se acercaron a mirar el castillo de arena que había construido. En el mercadillo montó a caballo. En el parque las ardillas saltaban por las ramas encima de su cabeza.\n\nCada historia ocupa unas pocas páginas dobles y se acaba antes de que el niño pequeño se canse. Se puede leer una y apagar la luz, o leer las cuatro.\n\nMax no da lecciones a nadie. Solo cuenta lo que vio, y por la mañana el niño quiere ir a verlo él mismo.",
         inside: [
-          "Frases cortas, un pequeño suceso por página",
-          "Un hilo de memoria suave que recorre el libro",
-          "Ilustraciones a todo color",
-          "Finalista en la categoría Bedtime de los Children's Book International Awards 2025",
+          "Cuatro historias cortas: el zoológico, la playa, el mercadillo y el parque",
+          "Palabras sencillas y una sola cosa por página, para que el niño no pierda el hilo",
+          "Ilustraciones dibujadas a mano en cada página doble, algo que mirar mientras escucha",
+          "Los animales aparecen con su nombre: león, jirafa, elefante, cebra, loro, delfines, ardillas",
+          "52 páginas, 21.6 x 21.6 cm",
+          "Finalista en la categoría Cuentos para dormir de los Children's Book International Awards 2025",
         ],
-        forWhom: "De 1 a 3 años, y segundo libro natural después de ¿A dónde vas, Pequeño Max?",
+        forWhom:
+          "De 1 a 3 años, para leer en voz alta antes de dormir. Y para los niños que ya conocen a Max por ¿A dónde vas, Pequeño Max? Este es el segundo libro sobre él, aunque se pueden leer en cualquier orden.",
         faq: [
           {
             q: "¿Necesito el primer libro para entender este?",
-            a: "No. Cada libro se sostiene solo. Leídos juntos funcionan mejor, porque el niño reconoce a Max y la rutina de salir y volver a casa.",
+            a: "No. Cada libro se sostiene solo. Juntos funcionan mejor, porque el niño ya conoce a Max y lo reconoce.",
           },
           {
-            q: "¿Cuánto se tarda en leerlo?",
-            a: "Dos o tres minutos en voz alta, a un ritmo lento para un niño pequeño.",
+            q: "¿Cuánto se tarda en leerlo en voz alta?",
+            a: "Una historia son dos o tres minutos al ritmo de un niño pequeño. El libro entero, unos diez.",
+          },
+          {
+            q: "¿Qué se lleva el niño?",
+            a: "Los nombres de los animales que aparecen en las historias y cuatro sitios conocidos contados con palabras que entiende un niño de un año: el zoológico, la playa, el mercadillo y el parque.",
           },
         ],
       },

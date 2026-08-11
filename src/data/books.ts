@@ -1399,6 +1399,69 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DCVKSQTN", price: "$3.00" },
     ],
     rating: { value: 4.2, count: 5 },
+    showcaseLead: {
+      en: "A few pages from inside: the oak where Grandma Owl lives, the yard where the chickens get a fright, and the caterpillar in her room full of toys.",
+    },
+    bannerLead: {
+      file: "/art/lucky-rocky-kindness-header.jpg",
+      w: 1940,
+      h: 606,
+      alt: {
+        en: "The Adventures of Lucky Rocky, the Magic of Kindness by Ricardo Demi, cover with the puppy Rocky and a hen, discoveries that help kids",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/lucky-rocky-kindness-tree.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "An illustration from the book: the old oak with a door and a window where Grandma Owl lives, a path leading up to it",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-chickens.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "An illustration from the book: the cat up a tree and three startled hens running from a tipped over bucket in the yard",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-caterpillar.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          en: "An illustration from the book: the caterpillar showing her drawing in a room scattered with blocks, puzzles and a drum",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/lucky-rocky-kindness-values.jpg",
+        w: 1940,
+        h: 606,
+        alt: {
+          en: "What the stories are about: friendship, kindness, curiosity, respect and creativity, with Grandma Beatrice bringing cookies out to the puppies",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "The book open at a spread: short story on the left page, a full color illustration of the yard on the right",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-art.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "Twelve illustrations from the book: the puppies, the cat, the birds, the ants, the caterpillar and a cup of milk with a muffin",
+        },
+      },
+    ],
     slug: { en: "adventures-of-lucky-rocky-magic-of-kindness-stories-kids" },
     copy: {
       en: {
@@ -1442,6 +1505,69 @@ export const books: Book[] = [
       { kind: "kindle", asin: "B0DD5S79W1", price: "$3.00" },
     ],
     rating: { value: 5.0, count: 2 },
+    showcaseLead: {
+      es: "Algunas páginas del interior: el roble donde vive la Abuela Búho, el patio donde las gallinas se llevan un susto y la oruga en su cuarto lleno de juguetes.",
+    },
+    bannerLead: {
+      file: "/art/lucky-rocky-kindness-es-header.jpg",
+      w: 1940,
+      h: 606,
+      alt: {
+        es: "Las Aventuras de Rocky el Afortunado, la Magia de la Bondad, de Ricardo Demi, portada con el perrito Rocky y una gallina, descubrimientos que ayudan a los niños",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/lucky-rocky-kindness-es-tree.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Una ilustración del libro: el viejo roble con una puerta y una ventana donde vive la Abuela Búho, con un camino que llega hasta ella",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-es-chickens.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Una ilustración del libro: el gato subido a un árbol y tres gallinas asustadas que huyen de un cubo volcado en el patio",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-es-caterpillar.jpg",
+        w: 1200,
+        h: 1200,
+        alt: {
+          es: "Una ilustración del libro: la oruga enseñando su dibujo en un cuarto lleno de bloques, rompecabezas y un tambor",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/lucky-rocky-kindness-es-values.jpg",
+        w: 1940,
+        h: 606,
+        alt: {
+          es: "De qué tratan los cuentos: amistad, bondad, curiosidad, respeto y creatividad, con la Abuela Beatriz sacando galletas a los perritos",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-es-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "El libro abierto por una doble página: el cuento corto a la izquierda y una ilustración a todo color del patio a la derecha",
+        },
+      },
+      {
+        file: "/art/lucky-rocky-kindness-es-art.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Doce ilustraciones del libro: los perritos, el gato, los pájaros, las hormigas, la oruga y una taza de leche con un bizcocho",
+        },
+      },
+    ],
     slug: { es: "aventuras-de-rocky-el-afortunado-magia-de-la-bondad-cuentos" },
     copy: {
       es: {

@@ -40,6 +40,7 @@ export interface Dictionary {
   book: {
     video: string;
     videoLead: string;
+    videoPoints: string[];
     inside: string;
     artwork: string;
     forWhom: string;
@@ -179,6 +180,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       video: "See the book in your hands",
       videoLead:
         "A page by page flip through the real book, so you can see the paper, the size and how the drawings build up before you buy.",
+      videoPoints: [
+        "Filmed on a table at home, so the paper and the size you see are the real ones.",
+        "You can watch one drawing grow from a simple shape into a finished character.",
+        "This is the same book that arrives in the box.",
+      ],
       inside: "What is inside",
       artwork: "Pictures from the book",
       forWhom: "Who it is for",
@@ -359,6 +365,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       video: "El libro en tus manos",
       videoLead:
         "Un recorrido página por página del libro real, para que veas el papel, el tamaño y cómo se construyen los dibujos antes de comprarlo.",
+      videoPoints: [
+        "Grabado sobre una mesa en casa, así que el papel y el tamaño que ves son los reales.",
+        "Puedes ver cómo un dibujo crece desde una forma simple hasta un personaje terminado.",
+        "Es el mismo libro que llega en la caja.",
+      ],
       inside: "Qué contiene",
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
@@ -539,6 +550,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       video: "Книга в руках",
       videoLead:
         "Пролистывание настоящей книги страница за страницей: видно бумагу, размер и то, как рисунок собирается по шагам.",
+      videoPoints: [
+        "Снято на столе дома, поэтому бумага и размер настоящие.",
+        "Видно, как рисунок вырастает из простой формы в готового персонажа.",
+        "Это та же книга, которая приезжает в коробке.",
+      ],
       inside: "Что внутри",
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",

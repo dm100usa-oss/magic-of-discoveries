@@ -671,7 +671,8 @@ export default async function ItemPage({
           {video ? (
             <>
               <h2 className="section">{t.book.video}</h2>
-              <p>{t.book.videoLead}</p>
+              {/* На широком экране видео слева, текст справа: вертикальный
+                  ролик один посреди страницы смотрится потерянным. */}
               <div className="book-video">
                 <video
                   src={video.src}
@@ -684,6 +685,15 @@ export default async function ItemPage({
                   playsInline
                   preload="none"
                 />
+                <div className="book-video__text">
+                  <p className="book-video__lead">{t.book.videoLead}</p>
+                  <ul className="inside">
+                    {t.book.videoPoints.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                  <BuyButtons book={book} lang={lang} />
+                </div>
               </div>
             </>
           ) : null}

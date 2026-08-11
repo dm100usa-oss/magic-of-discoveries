@@ -508,24 +508,31 @@ ul.inside li::marker { color: var(--pink-hot); }
   width: 100%; height: auto; border-radius: var(--radius-sm);
   box-shadow: var(--shadow);
 }
-/* Видео с перелистыванием книги. Вертикальное, поэтому ограничиваем
-   высоту, чтобы на компьютере оно не занимало весь экран. */
+/* Видео с перелистыванием книги. Ролик вертикальный, поэтому на широком
+   экране он стоит слева, а справа от него текст и кнопки покупки. */
 .book-video {
   margin: 0 0 var(--gap-3);
-  display: flex;
-  justify-content: center;
+  display: grid;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(240px, 320px) 1fr;
+  align-items: center;
 }
 .book-video video {
-  width: auto;
-  max-width: 100%;
-  max-height: 70vh;
+  width: 100%;
+  height: auto;
   aspect-ratio: 608 / 1080;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   background: #f3ece4;
 }
-@media (max-width: 520px) {
-  .book-video video { width: 100%; max-height: none; }
+.book-video__text { align-self: center; }
+.book-video__lead { font-size: var(--t-lead); margin: 0 0 var(--gap-2); }
+.book-video__text .inside { margin-bottom: var(--gap-2); }
+
+@media (max-width: 780px) {
+  .book-video { grid-template-columns: 1fr; justify-items: center; }
+  .book-video video { max-width: 320px; }
+  .book-video__text { text-align: left; }
 }
 
 .theme-banner {

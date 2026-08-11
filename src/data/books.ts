@@ -919,13 +919,13 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "How to Draw 111 Animals and Characters, Step by Step",
-        subtitle: "Every drawing broken into simple steps a child can follow alone, with room to practice on the facing page.",
+        subtitle: "Children draw it themselves, step by step, right in the book",
         lead:
           "A guide made by professionals for children. Every drawing is broken down into six steps, usually, and not one step more: the child repeats them and gets there alone. Then traces the dotted outline, with enough room beside it to try twice.\n\nNothing gets lost or scattered across loose sheets. It all stays in one book, which can be signed and taken out years later to see how they started.",
         inside: [
-          "Two full pages per subject: steps on one side, space to draw on the other",
-          "231 pages, so nothing is done on loose paper",
-          "111 subjects: animals, fairy-tale characters, flowers, food and more",
+          "Two full spreads for every drawing",
+          "231 pages, no extra paper needed",
+          "111 drawings: animals, fairy-tale characters, flowers, food",
           "Each step adds one shape, the previous step stays gray",
           "A fun fact about every character",
           "Drawings can be colored in once they are finished",
@@ -1022,13 +1022,13 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Cómo Dibujar 111 Animales y Personajes, Paso a Paso",
-        subtitle: "Cada dibujo dividido en pasos sencillos que el niño puede seguir solo, con sitio para practicar en la página de al lado.",
+        subtitle: "El niño dibuja solo, paso a paso, en el propio libro",
         lead:
           "Una guía profesional de dibujo hecha para niños. Cada dibujo se divide normalmente en seis pasos, ni uno más: el niño los repite y llega al resultado por su cuenta. Después repasa la línea punteada, y al lado tiene tanto sitio que puede intentarlo dos veces.\n\nNada se pierde ni acaba en hojas sueltas. Todo se queda en un mismo libro, que se puede firmar y sacar años después para ver cómo empezó.",
         inside: [
-          "Dos páginas por tema: los pasos en una, sitio para dibujar en la otra",
-          "231 páginas, así nada se hace en hojas sueltas",
-          "111 temas: animales, personajes de cuentos, flores, alimentos y más",
+          "Dos páginas dobles por cada dibujo",
+          "231 páginas, no hace falta papel aparte",
+          "111 dibujos: animales, personajes de cuentos, flores, alimentos",
           "Cada paso añade una forma, el paso anterior queda en gris",
           "Un dato curioso sobre cada personaje",
           "Los dibujos se pueden colorear una vez terminados",

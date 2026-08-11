@@ -633,6 +633,20 @@ export default async function ItemPage({
           <div>
             <p className="subtitle">{copy.subtitle}</p>
 
+            {/* Три факта перечислением, сразу за ними объяснение.
+                Человек читает сверху вниз и все понимает до баннеров. */}
+            <ul className="quick-facts">
+              {copy.inside.slice(0, 3).map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+
+            {whyParts.map((part) => (
+              <p className="why-text" key={part.slice(0, 24)}>
+                {part}
+              </p>
+            ))}
+
             {/* Сначала то, ради чего человек листает: цена, оценка,
                 награда. На телефоне это первое, что видно под обложкой. */}
             <div className="top-trust">
@@ -696,13 +710,6 @@ export default async function ItemPage({
               </li>
             </ul>
 
-            {/* Три факта. Абзац с первого экрана убран, он теперь
-                отдельным блоком ниже: "почему именно эта книга". */}
-            <ul className="quick-facts">
-              {copy.inside.slice(0, 3).map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
           </div>
         </div>
 
@@ -767,16 +774,6 @@ export default async function ItemPage({
             </p>
           </div>
 
-
-          {/* Почему именно эта книга. Абзац ушел сюда с первого экрана:
-              там он тормозил чтение, а здесь отвечает на вопрос, который
-              возникает после того, как человек увидел, что внутри. */}
-          <h2 className="section">{t.book.whyTitle}</h2>
-          {whyParts.map((part) => (
-            <p className="why-text" key={part.slice(0, 24)}>
-              {part}
-            </p>
-          ))}
 
           {video ? (
             <>

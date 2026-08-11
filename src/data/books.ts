@@ -1766,30 +1766,102 @@ export const books: Book[] = [
     type: "drawing",
     pairId: "how-to-draw-everything-es",
     drawings: 111,
+    ageShown: "5-8",
+    alsoAges: ["7-10"],
+    pages: 104,
+    published: "2024-08-12",
     size: "8.5 x 11 in",
     cover: "/covers/how-to-draw-everything-en.jpg",
     coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328728", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-шаблон-книги",
-    rating: { value: 5.0, count: 1 },
+    showcaseLead: {
+      en: "How one drawing is built up step by step, the space for practice beside it, and what the finished drawings look like colored in.",
+    },
+    bannerLead: {
+      file: "/art/how-to-draw-everything-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        en: "How to Draw Everything by Ricardo Demi, the magic of creativity for kids, cover with 111 easy step by step drawings",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/how-to-draw-everything-steps.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          en: "Easy step by step: a chick drawn in five steps, starting from one simple shape",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-practice.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          en: "Space for practice: a squirrel outline with room beside it for the child to draw their own",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-results.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          en: "Excellent results: a gift box, an ice cream cone and a strawberry from the book, finished and colored in",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/how-to-draw-everything-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "A spread from the book: a dog and a snail step by step, with a dotted outline to trace at the bottom of each page",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-drawings.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          en: "111 cute drawings: butterfly, tree, bird, sailboat, shorts, umbrella, hat, hen, pillow, pie",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          en: "The perfect gift for beginner artists, a frosted donut and paper flags",
+        },
+      },
+    ],
     slug: { en: "how-to-draw-everything-easy-drawings-for-kids" },
     copy: {
       en: {
         title: "How to Draw Everything: Easy Step-by-Step Drawings for Kids",
-        subtitle: "The short, simple entry to step-by-step drawing.",
+        subtitle: "Can you learn to draw easily? Sure, you can!",
         lead:
-          "A lighter version of the step-by-step method, at half the price. Same four-step logic, fewer lines per drawing. This is the one to try first if you are not sure the child will take to drawing at all.",
+          "Learning to draw is easy when the guide is clear. Every drawing here is broken into a few simple steps, and there are two ways to practice right on the page: trace the dotted outline, then draw your own beside it.\n\nNo extra paper needed, and the finished drawing can be colored in.",
         inside: [
-          "Step-by-step sequences for animals, food, plants and everyday objects",
-          "Fewer lines per step than the larger 111 book",
-          "Room to practise on the page",
-          "8.5 x 11 inches",
+          "111 cute drawings: animals, flowers, foods, gifts and more",
+          "Two kinds of practice for every drawing",
+          "Large drawings and simple steps, a teaching method recommended by real artists",
+          "A fun fact about each character",
+          "104 pages, 8.5 x 11 inches",
         ],
-        forWhom: "Ages 4 to 8, and a good first purchase before committing to the larger book.",
+        forWhom:
+          "Ages 5 and up. For beginner artists and their teachers, and for anyone who wants to draw. An easy gift for a birthday or a holiday.",
         faq: [
           {
-            q: "Which drawing book should I start with?",
-            a: "Start here if the child is younger or has not drawn much. Go straight to How to Draw 111 if they already draw regularly and want more subjects.",
+            q: "How is this different from How to Draw 111?",
+            a: "Same method and the same kinds of subjects. This one is shorter, 104 pages instead of 231, and costs half as much.",
+          },
+          {
+            q: "Does the child need an adult nearby?",
+            a: "No. The steps are shown in pictures, so a child who cannot read yet can follow them.",
           },
           faqPaperOrDigital.en,
         ],
@@ -1804,29 +1876,102 @@ export const books: Book[] = [
     type: "drawing",
     pairId: "how-to-draw-everything-en",
     drawings: 111,
+    ageShown: "5-8",
+    alsoAges: ["7-10"],
+    pages: 104,
+    published: "2024-08-29",
     size: "21.6 x 27.9 cm",
     cover: "/covers/how-to-draw-everything-es.jpg",
     coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328752", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-копия-шаблон-книги",
+    showcaseLead: {
+      es: "Cómo se construye un dibujo paso a paso, el espacio para practicar que hay al lado y qué aspecto tienen los dibujos ya coloreados.",
+    },
+    bannerLead: {
+      file: "/art/how-to-draw-everything-es-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        es: "Cómo Dibujar Todo de Ricardo Demi, la magia de la creatividad para niños, portada con 111 dibujos fáciles paso a paso",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/how-to-draw-everything-es-steps.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          es: "Fácil paso a paso: un pollito dibujado en cinco pasos, a partir de una forma sencilla",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-es-practice.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          es: "Espacio para practicar: una ardilla de contorno con sitio al lado para que el niño dibuje la suya",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-es-results.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          es: "Excelentes resultados: un regalo, un helado y una fresa del libro, terminados y coloreados",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/how-to-draw-everything-es-spread.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "Una página doble del libro: un perro y un caracol paso a paso, con un contorno de puntos para repasar al final de cada página",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-es-drawings.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          es: "111 dibujos lindos: mariposa, árbol, pájaro, velero, pantalones, paraguas, gorro, gallina, almohada, tarta",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-es-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          es: "El regalo perfecto para artistas principiantes, un donut glaseado y banderines",
+        },
+      },
+    ],
     slug: { es: "como-dibujar-todo-dibujos-faciles-paso-a-paso-ninos" },
     copy: {
       es: {
         title: "Cómo Dibujar Todo: Dibujos Fáciles Paso a Paso para Niños",
-        subtitle: "La entrada corta y sencilla al dibujo paso a paso.",
+        subtitle: "¿Es posible aprender a dibujar fácilmente? ¡Por supuesto!",
         lead:
-          "Una versión más ligera del método paso a paso, a la mitad de precio. La misma lógica de pasos sencillos, con menos líneas por dibujo. Es el libro para probar primero si no sabes si al niño le va a gustar dibujar.",
+          "Aprender a dibujar es fácil cuando el manual se entiende. Aquí cada dibujo se divide en unos pocos pasos sencillos, y hay dos formas de practicar en la misma página: repasar el contorno de puntos y dibujar el tuyo al lado.\n\nNo hace falta papel aparte, y el dibujo terminado se puede colorear.",
         inside: [
-          "Secuencias paso a paso de animales, comida, plantas y objetos cotidianos",
-          "Menos líneas por paso que en el libro grande de 111",
-          "Espacio para practicar en la misma página",
-          "21.6 x 27.9 cm",
+          "111 dibujos adorables: animales, flores, alimentos, regalos y más",
+          "Dos tipos de práctica para cada dibujo",
+          "Dibujos grandes y pasos sencillos, un método de enseñanza recomendado por verdaderos artistas",
+          "Mucho espacio para practicar",
+          "104 páginas, 21.6 x 27.9 cm",
         ],
-        forWhom: "De 4 a 8 años, y buena primera compra antes de pasar al libro grande.",
+        forWhom:
+          "A partir de 5 años. Para artistas principiantes y sus maestros, y para cualquiera que quiera dibujar. Un buen regalo de cumpleaños o de fiestas.",
         faq: [
           {
-            q: "¿Con qué libro de dibujo empiezo?",
-            a: "Empieza por este si el niño es más pequeño o ha dibujado poco. Ve directo a Cómo Dibujar 111 si ya dibuja a menudo y quiere más temas.",
+            q: "¿En qué se diferencia de Cómo Dibujar 111?",
+            a: "Mismo método y el mismo tipo de temas. Este es más corto, 104 páginas en vez de 231, y cuesta la mitad.",
+          },
+          {
+            q: "¿Hace falta un adulto al lado?",
+            a: "No. Los pasos se muestran con dibujos, así que un niño que todavía no lee puede seguirlos.",
           },
           faqPaperOrDigital.es,
         ],

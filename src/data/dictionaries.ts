@@ -43,6 +43,11 @@ export interface Dictionary {
     videoPoints: string[];
     pagesLabel: string;
     publishedLabel: string;
+    priceFrom: string;
+    languageLabel: string;
+    langEn: string;
+    langEs: string;
+    langBoth: string;
     topicsTitle: string;
     topicsLead: string;
     topicsAll: string;
@@ -197,6 +202,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Pages",
       publishedLabel: "Published",
+      priceFrom: "Paperback on Amazon",
+      languageLabel: "Language",
+      langEn: "English",
+      langEs: "Spanish",
+      langBoth: "English and Spanish",
       topicsTitle: "Look for what your child loves",
       topicsLead: "Every subject in the book, grouped.",
       topicsAll: "See all {n} subjects",
@@ -392,6 +402,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Páginas",
       publishedLabel: "Publicado",
+      priceFrom: "Tapa blanda en Amazon",
+      languageLabel: "Idioma",
+      langEn: "Inglés",
+      langEs: "Español",
+      langBoth: "Inglés y español",
       topicsTitle: "Busca lo que le gusta a tu hijo",
       topicsLead: "Todos los temas del libro, por grupos.",
       topicsAll: "Ver los {n} temas",
@@ -587,6 +602,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ],
       pagesLabel: "Страниц",
       publishedLabel: "Издана",
+      priceFrom: "Мягкая обложка на Amazon",
+      languageLabel: "Язык",
+      langEn: "Английский",
+      langEs: "Испанский",
+      langBoth: "Английский и испанский",
       topicsTitle: "Найдите то, что любит ваш ребенок",
       topicsLead: "Все темы книги, по группам.",
       topicsAll: "Смотреть все {n} тем",

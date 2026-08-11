@@ -632,6 +632,58 @@ export default async function ItemPage({
               ))}
             </ul>
 
+            {/* Четыре главных числа сразу под фактами: возраст, страницы,
+                язык и размер. Родитель за секунду понимает, подойдет ли
+                книга его ребенку, и не листает вниз за характеристиками. */}
+            <ul className="key-specs">
+              <li>
+                <span className="key-specs__label">{t.book.ageLabel}</span>
+                <span className="key-specs__value">{t.catalog.ages[book.age]}</span>
+              </li>
+              {book.pages ? (
+                <li>
+                  <span className="key-specs__label">{t.book.pagesLabel}</span>
+                  <span className="key-specs__value">{book.pages}</span>
+                </li>
+              ) : null}
+              <li>
+                <span className="key-specs__label">{t.book.languageLabel}</span>
+                <span className="key-specs__value">
+                  {book.editionLang === "bilingual"
+                    ? t.book.langBoth
+                    : book.editionLang === "es"
+                      ? t.book.langEs
+                      : t.book.langEn}
+                </span>
+              </li>
+              <li>
+                <span className="key-specs__label">{t.book.size}</span>
+                <span className="key-specs__value">{book.size}</span>
+              </li>
+            </ul>
+
+            {/* Цена и оценка стоят наверху. За пять секунд родитель должен
+                узнать не только про книгу, но и сколько она стоит и что ее
+                уже проверили другие. Сама кнопка покупки ниже, после того
+                как он посмотрит, что внутри. */}
+            <div className="top-trust">
+              {paper ? (
+                <p className="top-price">
+                  <span className="top-price__value">{paper.price}</span>
+                  <span className="top-price__label">{t.book.priceFrom}</span>
+                </p>
+              ) : null}
+              {book.rating && paper ? (
+                <RatingLink
+                  rating={book.rating}
+                  asin={paper.asin}
+                  labelReviews={t.book.ratingReviews}
+                  labelSource={t.book.ratingSource}
+                  ariaLabel={t.book.ratingAria}
+                />
+              ) : null}
+            </div>
+
 
             {bookAwards.length ? (
               <ul className="award-list">
@@ -705,15 +757,6 @@ export default async function ItemPage({
               что внутри книги, и только потом принимает решение. */}
           <div className="buy-block">
             <BuyButtons book={book} lang={lang} />
-            {book.rating && paper ? (
-              <RatingLink
-                rating={book.rating}
-                asin={paper.asin}
-                labelReviews={t.book.ratingReviews}
-                labelSource={t.book.ratingSource}
-                ariaLabel={t.book.ratingAria}
-              />
-            ) : null}
             <p className="buy-note">
               {t.book.formatNote}
               {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}

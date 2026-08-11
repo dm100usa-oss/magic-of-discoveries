@@ -262,6 +262,8 @@ export const books: Book[] = [
     type: "coloring",
     pairId: "first-coloring-book-111-es",
     drawings: 111,
+    pages: 114,
+    published: "2024-04-22",
     size: "8.5 x 11 in",
     cover: "/covers/first-coloring-book-111-en.jpg",
     coverSize: { w: 900, h: 1165 },
@@ -319,15 +321,18 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "First Coloring Book for Toddlers Ages 1-3",
-        subtitle: "111 big, simple drawings with thick outlines. One drawing per page.",
+        subtitle: "A first coloring book your little one can finish all by themselves",
         lead:
-          "A first coloring book for a child who is still learning to hold a crayon. Every shape is large, rounded and drawn with a thick outline, so a one or two year old can stay roughly inside the lines and feel like it worked.",
+          "A toddler cannot follow a thin line yet. They miss it, get upset, and give up. Here the shapes are large, the outlines are thick, and there is nothing fussy inside them. Your child colors one in, sees that it worked, and asks for the next page.\n\nFifteen quiet minutes while your child is busy on their own.\n\nThis book was made by professionals who are parents themselves. That is where both the experience and the love for children come from.",
         inside: [
-          "111 drawings: animals, fairy-tale characters, flowers, food, gifts and everyday objects",
-          "Every picture drawn by hand, with thick outlines and large shapes sized for a toddler grip",
-          "One drawing per page, printed on one side",
+          "111 drawings, all hand drawn by professional illustrators",
+          "Thick outlines and large shapes, so your child stays inside the lines",
+          "One drawing per page, so a marker cannot show through onto the next one",
           "The word under each picture can be colored too, which turns coloring into first reading",
-          "8.5 x 11 inches, 114 pages, comfortable to hold flat on a table or a car seat tray",
+          "Every picture sits in the center of the page, comfortable for a left or a right handed child",
+          "Animals, sea creatures, fairy-tale characters, vehicles, flowers and food",
+          "A page at the front where your child writes their name",
+          "114 pages, 8.5 x 11 inches",
         ],
         forWhom:
           "Ages 1, 2 and 3. Good for a first coloring book, for preschool and daycare, and as a gift when you do not know the child well.",
@@ -354,6 +359,8 @@ export const books: Book[] = [
     type: "coloring",
     pairId: "first-coloring-book-111-en",
     drawings: 111,
+    pages: 114,
+    published: "2024-04-29",
     size: "21.6 x 27.9 cm",
     cover: "/covers/first-coloring-book-111-es.jpg",
     coverSize: { w: 900, h: 1164 },
@@ -411,15 +418,18 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "El Primer Libro de Colorear para Bebés de 1 a 3 Años",
-        subtitle: "111 dibujos grandes y sencillos con líneas gruesas. Un dibujo por página.",
+        subtitle: "Un primer libro para colorear que tu peque puede terminar solo",
         lead:
-          "Un primer libro para colorear pensado para un niño que todavía está aprendiendo a sujetar el lápiz. Todas las formas son grandes, redondeadas y con líneas gruesas, para que un bebé de uno o dos años pueda mantenerse más o menos dentro del contorno y sentir que lo logró.",
+          "Un niño pequeño todavía no puede seguir una línea fina. Se sale, se frustra y lo deja. Aquí las formas son grandes, el contorno es grueso y dentro no hay nada complicado. Colorea uno, ve que le ha salido bien y pide la página siguiente.\n\nQuince minutos de calma mientras el niño está entretenido solo.\n\nEste libro lo han hecho profesionales que además son padres. De ahí vienen la experiencia y el cariño por los niños.",
         inside: [
-          "111 dibujos: animales, personajes de cuentos, flores, alimentos, regalos y objetos cotidianos",
-          "Líneas gruesas y formas grandes, pensadas para manos pequeñas",
-          "Un dibujo por página, impreso por una sola cara",
+          "111 dibujos, todos hechos a mano por ilustradores profesionales",
+          "Líneas gruesas y formas grandes, para que el niño no se salga del contorno",
+          "Un dibujo por página, para que el rotulador no traspase al siguiente",
           "La palabra debajo de cada dibujo también se puede colorear, y así colorear se convierte en primera lectura",
-          "21.6 x 27.9 cm, cómodo sobre la mesa o sobre la bandeja del asiento del coche",
+          "Cada dibujo está en el centro de la página, cómodo tanto para zurdos como para diestros",
+          "Animales, animales marinos, personajes de cuentos, vehículos, flores y comida",
+          "Una página al principio donde el niño escribe su nombre",
+          "114 páginas, 21.6 x 27.9 cm",
         ],
         forWhom:
           "Para niños de 1, 2 y 3 años. Sirve como primer libro para colorear, para preescolar y guardería, y como regalo cuando no conoces bien al niño.",

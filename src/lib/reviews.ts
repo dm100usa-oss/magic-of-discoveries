@@ -71,6 +71,50 @@ export const reviewsByLang: Record<UiLang, Review[]> = { en, es, ru };
    На экране это цитаты, в машинную разметку они не идут: Google
    запрещает выдавать чужие оценки за собственные. */
 const bookReviews: Record<string, { en: Review[]; es: Review[] }> = {
+  /* Испанские отзывы здесь настоящие, написаны по-испански покупателями
+     испанского издания, поэтому пометки о переводе у них нет. */
+  "first-coloring-book-111": {
+    en: [
+      {
+        text:
+          "My oldest kids have more advanced coloring books but my 1 year old needed something just for her. The shapes in the pages are simplistic and not overly complicated for her to draw all over. The line work is thick so it is easier for her.",
+        who: "Adam Smith, September 30, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "My 22 month old son adores this book, loves to flip through the pages and ask about each animal. They are cute cartoons but have enough detail he can tell them all apart.",
+        who: "TeriyakiChicken, September 30, 2024, US",
+        stars: 5,
+      },
+      {
+        text:
+          "Simple and large pictures are perfect for toddlers who are just starting to use crayons. There are many themes in the book which makes coloring exciting. We enjoy coloring together.",
+        who: "Ilia M, September 24, 2024, US",
+        stars: 5,
+      },
+    ],
+    es: [
+      {
+        text:
+          "Me encanta, se lo he comprado a mi bebé de 13 meses junto con las ceras de colores y ha estado súper entretenido. Vienen muchas hojas de diferentes tipos, frutas, animales, con el dibujo bien grande y la palabra debajo.",
+        who: "Marta Pintado, 7 de diciembre de 2025, España",
+        stars: 5,
+      },
+      {
+        text:
+          "Compramos este libro para nuestro hijo de dos años. Se ha entusiasmado mucho con colorear animales y flores. El libro es perfecto para su edad.",
+        who: "Keith, 3 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+      {
+        text:
+          "El libro es perfecto para los pequeños artistas. Lo regalamos en un cumpleaños, y al niño le encantó.",
+        who: "Javi, 17 de septiembre de 2024, EE. UU.",
+        stars: 5,
+      },
+    ],
+  },
   "how-to-draw-111": {
     en: [
       {
@@ -137,6 +181,14 @@ export interface EditorialReview {
 }
 
 const editorial: Record<string, EditorialReview> = {
+  "first-coloring-book-111": {
+    text: {
+      en: "Each picture is thoughtfully placed in the center of the page, and features bold and curved outlines, helping little ones color within the boundaries.",
+      es: "Cada dibujo está colocado con cuidado en el centro de la página, con contornos gruesos y redondeados que ayudan a los pequeños a colorear dentro de los bordes.",
+    },
+    who: "Maalin Ogaja, Readers' Favorite",
+    url: "https://readersfavorite.com/book-review/first-coloring-book-for-toddlers-ages-1-3",
+  },
   "how-to-draw-111": {
     text: {
       en: "With step-by-step instructions, this guide takes readers through a journey of wonder and beauty, by the end of which they will have a firm grasp on the fundamentals of drawing.",

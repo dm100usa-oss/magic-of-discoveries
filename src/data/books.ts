@@ -2063,9 +2063,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "The Adventures of Lucky Rocky: The Magic of Friendship",
-        subtitle: "Short illustrated stories for children 3 and up",
+        subtitle: "Short bedtime stories for children ages 3-8",
         lead:
-          "Let's help little ones fall asleep peacefully and let older children discover the magical world of reading books! This is the first book in the Magic of Discoveries series.\n\nPerfect for bedtime reading with children aged 3 to 5, and for building independent reading in children aged 6 to 8. A great addition to home and school libraries.",
+          "Warm, gentle stories about Rocky the puppy for a cozy evening read before sleep. This is the first book of Rocky's adventures. Children ages 3 to 5 enjoy it read aloud with a parent, and the large, simple text helps children ages 6 to 8 take their first steps in reading on their own. Rocky's cheerful adventures are about friendship, kindness and curiosity.",
         inside: [
           "Short stories, each one read in a single sitting",
           "Beautiful hand drawn illustrations that capture attention",
@@ -2185,9 +2185,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Las Aventuras de Rocky, el Afortunado: La Magia de la Amistad",
-        subtitle: "Cuentos ilustrados cortos para niños de 3 años en adelante",
+        subtitle: "Cuentos cortos para la hora de dormir, para niños de 3 a 8 años",
         lead:
-          "¡Ayudemos a los más pequeños a dormir tranquilamente y a los niños mayores a descubrir el mundo mágico de la lectura! Este es el primer libro de la serie La Magia de los Descubrimientos.\n\nEs perfecta para leer a la hora de dormir a niños de 3 a 5 años y para reforzar la lectura independiente en niños de 6 a 8. Una gran adición a las bibliotecas del hogar y la escuela.",
+          "Historias tiernas y tranquilas sobre el cachorro Rocky para una lectura acogedora antes de dormir. Este es el primer libro de las aventuras de Rocky. A los niños de 3 a 5 años les gusta escucharlo junto a sus padres, y la letra grande y las frases simples ayudan a los niños de 6 a 8 años a dar sus primeros pasos en la lectura independiente. Las divertidas aventuras de Rocky hablan de amistad, bondad y curiosidad.",
         inside: [
           "Cuentos cortos, cada uno se lee de una sentada",
           "Hermosas ilustraciones dibujadas a mano que captan la atención",
@@ -2299,9 +2299,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "The Adventures of Lucky Rocky: The Magic of Kindness",
-        subtitle: "The second collection of Rocky stories, for children 3 and up.",
+        subtitle: "Stories about kindness and caring for children ages 3-8",
         lead:
-          "The second book of Rocky stories. Where the first was about making friends, this one is about what you do when nobody is watching. The stories are slightly longer and the situations less obvious, which suits a child who has started to argue back.",
+          "Rocky the puppy's adventures continue, with new short stories about friendship, kindness, helping each other and respect. Children ages 3 to 5 enjoy them read aloud at bedtime, and the large print and simple sentences suit children ages 6 to 8 who are starting to read on their own.",
         inside: [
           "Several short illustrated stories",
           "Slightly longer than the Friendship book",
@@ -2409,9 +2409,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Las Aventuras de Rocky, el Afortunado: La Magia de la Bondad",
-        subtitle: "La segunda colección de cuentos de Rocky, para niños de 3 años en adelante.",
+        subtitle: "Cuentos sobre la bondad y el cuidado, para niños de 3 a 8 años",
         lead:
-          "El segundo libro de cuentos de Rocky. Si el primero trataba de hacer amigos, este trata de lo que uno hace cuando nadie mira. Los cuentos son algo más largos y las situaciones menos evidentes, lo que encaja con un niño que ya empieza a replicar.",
+          "Continúan las aventuras del cachorro Rocky, con nuevos cuentos cortos sobre la amistad, la bondad, la ayuda mutua y el respeto. A los niños de 3 a 5 años les gusta escucharlos junto a sus padres antes de dormir, y la letra grande y las frases simples son adecuadas para los niños de 6 a 8 años que empiezan a leer solos.",
         inside: [
           "Varios cuentos cortos ilustrados",
           "Algo más largos que los del libro de la Amistad",
@@ -2521,9 +2521,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "The Adventures of Lucky Rocky: Two-in-One Hardcover Edition",
-        subtitle: "A hardcover gift edition about the adventures of Rocky the Lucky",
+        subtitle: "A large hardcover gift collection for children ages 3-8",
         lead:
-          "The book brings together the best stories from the series, and it is sure to bring joy and happiness to kids and their parents alike.\n\nPerfect for bedtime reading with children aged 3 to 5, and for building independent reading in children aged 6 to 8.",
+          "Two Rocky books in one hardcover gift edition, the full collection of his warm and cheerful adventures. For children ages 3 to 5 it is a big book of stories to share at bedtime, and the large print suits children ages 6 to 8 taking their first steps in reading on their own. Bright illustrations and a favorite character make it a gift that comes back off the shelf again and again.",
         inside: [
           "The Magic of Friendship and The Magic of Kindness in one volume",
           "Beautiful illustrations that capture attention",
@@ -2635,9 +2635,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Las Aventuras de Rocky, el Afortunado: Edición Dos en Uno en Tapa Dura",
-        subtitle: "Una edición de regalo en tapa dura sobre las aventuras de Rocky, el Afortunado",
+        subtitle: "Un gran libro de regalo en tapa dura, para niños de 3 a 8 años",
         lead:
-          "El libro reúne las mejores historias de la serie y traerá momentos de alegría y felicidad a los niños y a sus padres.\n\nEs perfecta para leer a la hora de dormir a niños de 3 a 5 años y para reforzar la lectura independiente en niños de 6 a 8.",
+          "Dos libros de Rocky en una edición de regalo en tapa dura, la colección completa de sus aventuras tiernas y divertidas. Para los niños de 3 a 5 años es un gran libro de cuentos para leer juntos antes de dormir, y la letra grande es adecuada para los niños de 6 a 8 años que dan sus primeros pasos en la lectura independiente. Las ilustraciones a todo color y un personaje querido lo convierten en un regalo al que se vuelve una y otra vez.",
         inside: [
           "La Magia de la Amistad y La Magia de la Bondad en un volumen",
           "Hermosas ilustraciones que captan la atención",

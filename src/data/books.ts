@@ -1049,9 +1049,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Where Are You Going, Little Max?",
-        subtitle: "A bedtime book for toddlers 1 to 3, with very short sentences.",
+        subtitle: "Bedtime stories for toddlers ages 1-3",
         lead:
-          "A short bedtime book for the age when a child cannot yet sit through a story. Little Max sets off, meets someone, and comes home. Each page is one or two sentences, so a tired toddler reaches the end before losing interest, which is what makes a book become the one they ask for every night.",
+          "A gentle story for toddlers ages 1 to 3 about Little Max the mouse and the farm animals he meets. Along with Max a child meets the cow, the hen, the sheep and the goose, hears the sound each one makes, and learns where milk, eggs, wool and feathers come from. In a simple, clear way the story introduces politeness, kindness and sharing, and the bright illustrations and short text suit reading together before bed.",
         inside: [
           "One or two sentences per page, written to be read aloud",
           "A simple there-and-back journey, the story shape toddlers understand first",
@@ -1155,9 +1155,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "¿A dónde vas, Pequeño Max?",
-        subtitle: "Un cuento para dormir para niños de 1 a 3 años, con frases muy cortas.",
+        subtitle: "Cuentos para dormir para niños de 1 a 3 años",
         lead:
-          "Un cuento corto para la edad en la que el niño todavía no aguanta una historia entera. Pequeño Max sale, se encuentra con alguien y vuelve a casa. Cada página tiene una o dos frases, así que un niño cansado llega al final antes de perder el interés, y eso es lo que hace que un libro se convierta en el que pide cada noche.",
+          "Una historia tierna para niños de 1 a 3 años sobre el ratoncito Pequeño Max y los animales de la granja que va conociendo. Junto a Max, el niño conoce a la vaca, la gallina, la oveja y el ganso, escucha el sonido que hace cada uno y descubre de dónde vienen la leche, los huevos, la lana y las plumas. De forma sencilla y clara, la historia le habla de la cortesía, la bondad y el saber compartir, y las ilustraciones vivas y el texto corto son perfectos para leer juntos antes de dormir.",
         inside: [
           "Una o dos frases por página, escritas para leer en voz alta",
           "Un viaje de ida y vuelta, la forma de historia que los niños pequeños entienden primero",
@@ -1274,9 +1274,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Where Are You Going, Little Max? Bilingual English and Spanish",
-        subtitle: "Both languages on the same page, for toddlers 1 to 3.",
+        subtitle: "Bilingual bedtime stories for toddlers ages 1-3, English and Spanish",
         lead:
-          "The bedtime book in both languages at once. Each page carries the English and the Spanish together, so a grandparent who speaks only Spanish and a parent who speaks only English can read the same book to the same child without swapping copies.",
+          "The favorite Little Max stories in English and Spanish at once, with side-by-side text on every page. Simple repetitive phrases help a toddler memorize first words and pick up a second language naturally while reading together. Short stories, bright illustrations and the two languages highlighted in different colors make the book easy to read at bedtime or any time with a parent.",
         inside: [
           "English and Spanish on every page",
           "One or two sentences per language, per page",
@@ -1297,9 +1297,9 @@ export const books: Book[] = [
       },
       es: {
         title: "¿A dónde vas, Pequeño Max? Edición bilingüe inglés y español",
-        subtitle: "Los dos idiomas en la misma página, para niños de 1 a 3 años.",
+        subtitle: "Cuentos bilingües para dormir, para niños de 1 a 3 años, en inglés y español",
         lead:
-          "El cuento para dormir en los dos idiomas a la vez. Cada página lleva el inglés y el español juntos, así que una abuela que solo habla español y un padre que solo habla inglés pueden leer el mismo libro al mismo niño sin cambiar de ejemplar.",
+          "Las historias favoritas de Pequeño Max en inglés y español a la vez, con el texto uno al lado del otro en cada página. Las frases repetitivas ayudan al pequeño a memorizar sus primeras palabras y a acercarse al segundo idioma de forma natural mientras leen juntos. Las historias cortas, las ilustraciones vivas y los dos idiomas resaltados en diferentes colores hacen que el libro sea cómodo para leer antes de dormir o en cualquier momento con sus padres.",
         inside: [
           "Inglés y español en cada página",
           "Una o dos frases por idioma y por página",
@@ -1407,9 +1407,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Where Have You Been, Little Max?",
-        subtitle: "Four short bedtime stories about where Max has been",
+        subtitle: "Bedtime stories for toddlers ages 1-3, new adventures",
         lead:
-          "Max comes back and tells where he has been. At the zoo an elephant sprayed him with water from its trunk. At the beach dolphins swam up to look at the sand castle he built. At the fair he rode a pony. In the park squirrels jumped through the branches over his head.\n\nEach story runs a few spreads and ends before a small child runs out of patience. Read one and turn off the light, or read all four.\n\nMax never lectures anybody. He just tells what he saw, and by morning the child wants to go and see it too.",
+          "Short bedtime stories for toddlers ages 1 to 3 about Little Max's new discoveries. Along with him a child goes to the zoo, to the beach, to the fair and on a picnic in the park, and meets animals, sea creatures, new places and new words. Simple stories and colorful illustrations build curiosity, widen a child's vocabulary and help them make sense of the world around them.",
         inside: [
           "Four short stories: the zoo, the beach, the fair, the park",
           "Simple words and one thing happening per page, so a toddler keeps the thread",
@@ -1522,9 +1522,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "¿Dónde Has Estado, Pequeño Max?",
-        subtitle: "Cuatro cuentos cortos sobre dónde ha estado Max",
+        subtitle: "Cuentos para dormir para niños de 1 a 3 años, nuevas historias",
         lead:
-          "Max vuelve y cuenta dónde ha estado. En el zoológico un elefante lo mojó con la trompa. En la playa los delfines se acercaron a mirar el castillo de arena que había construido. En el mercadillo montó a caballo. En el parque las ardillas saltaban por las ramas encima de su cabeza.\n\nCada historia ocupa unas pocas páginas dobles y se acaba antes de que el niño pequeño se canse. Se puede leer una y apagar la luz, o leer las cuatro.\n\nMax no da lecciones a nadie. Solo cuenta lo que vio, y por la mañana el niño quiere ir a verlo él mismo.",
+          "Cuentos cortos para la hora de dormir, para niños de 1 a 3 años, sobre los nuevos descubrimientos de Pequeño Max. Junto a él, el niño va al zoológico, a la playa, a la feria y de picnic al parque, y conoce animales, criaturas del mar, lugares nuevos y palabras nuevas. Las historias simples y las ilustraciones llenas de color despiertan la curiosidad, amplían el vocabulario y ayudan a descubrir el mundo que le rodea.",
         inside: [
           "Cuatro historias cortas: el zoológico, la playa, el mercadillo y el parque",
           "Palabras sencillas y una sola cosa por página, para que el niño no pierda el hilo",

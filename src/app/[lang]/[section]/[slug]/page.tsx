@@ -33,8 +33,21 @@ import {
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard, PageHead } from "@/components/Chrome";
 import { RatingLink } from "@/components/Rating";
-import { SITE_URL, PUBLISHER, AUTHORS, ADDRESS, SITE_PUBLISHED, SITE_UPDATED, OG_IMAGE } from "@/lib/site";
-import { sectionFromSlug, sectionSlugs, itemPath, sectionPath } from "@/lib/routes";
+import {
+  SITE_URL,
+  PUBLISHER,
+  AUTHORS,
+  ADDRESS,
+  SITE_PUBLISHED,
+  SITE_UPDATED,
+  OG_IMAGE,
+} from "@/lib/site";
+import {
+  sectionFromSlug,
+  sectionSlugs,
+  itemPath,
+  sectionPath,
+} from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
 import { reviewsForBook, editorialForBook } from "@/lib/reviews";
 import { topicsForBook, allTopics, TOPIC_PREVIEW } from "@/data/bookTopics";
@@ -43,13 +56,25 @@ export function generateStaticParams() {
   const out: { lang: string; section: string; slug: string }[] = [];
   for (const lang of activeLangs) {
     for (const b of booksForLang(lang)) {
-      out.push({ lang, section: sectionSlugs[lang].books, slug: b.slug[lang]! });
+      out.push({
+        lang,
+        section: sectionSlugs[lang].books,
+        slug: b.slug[lang]!,
+      });
     }
     for (const p of pagesForLang(lang)) {
-      out.push({ lang, section: sectionSlugs[lang].coloring, slug: p.slug[lang]! });
+      out.push({
+        lang,
+        section: sectionSlugs[lang].coloring,
+        slug: p.slug[lang]!,
+      });
     }
     for (const g of guidesForLang(lang)) {
-      out.push({ lang, section: sectionSlugs[lang].method, slug: g.slug[lang]! });
+      out.push({
+        lang,
+        section: sectionSlugs[lang].method,
+        slug: g.slug[lang]!,
+      });
     }
   }
   return out;
@@ -78,9 +103,11 @@ export async function generateMetadata({
       Object.fromEntries(
         activeLangs.flatMap((l) => {
           const ed = editions.find((b) => b.slug[l]);
-          return ed ? [[l, `${SITE_URL}${itemPath(l, "books", ed.slug[l]!)}`]] : [];
-        })
-      )
+          return ed
+            ? [[l, `${SITE_URL}${itemPath(l, "books", ed.slug[l]!)}`]]
+            : [];
+        }),
+      ),
     );
     return {
       title: copy.title,
@@ -90,7 +117,9 @@ export async function generateMetadata({
         title: copy.title,
         description: copy.lead,
         type: "article",
-        images: book.cover ? [{ url: book.cover, width: 900, height: 1160 }] : undefined,
+        images: book.cover
+          ? [{ url: book.cover, width: 900, height: 1160 }]
+          : undefined,
       },
     };
   }
@@ -103,8 +132,11 @@ export async function generateMetadata({
       Object.fromEntries(
         activeLangs
           .filter((l) => page.slug[l])
-          .map((l) => [l, `${SITE_URL}${itemPath(l, "coloring", page.slug[l]!)}`])
-      )
+          .map((l) => [
+            l,
+            `${SITE_URL}${itemPath(l, "coloring", page.slug[l]!)}`,
+          ]),
+      ),
     );
     return {
       title: copy.title,
@@ -127,8 +159,11 @@ export async function generateMetadata({
       Object.fromEntries(
         activeLangs
           .filter((l) => guide.slug[l])
-          .map((l) => [l, `${SITE_URL}${itemPath(l, "method", guide.slug[l]!)}`])
-      )
+          .map((l) => [
+            l,
+            `${SITE_URL}${itemPath(l, "method", guide.slug[l]!)}`,
+          ]),
+      ),
     );
     return {
       title: copy.title,
@@ -140,7 +175,9 @@ export async function generateMetadata({
         type: "article",
         publishedTime: SITE_PUBLISHED,
         modifiedTime: SITE_UPDATED,
-        images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height }],
+        images: [
+          { url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height },
+        ],
       },
     };
   }
@@ -149,7 +186,11 @@ export async function generateMetadata({
 
 function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
   const t = dictionaries[lang].book;
-  const label = { paperback: t.buyPaperback, hardcover: t.buyHardcover, kindle: t.buyKindle } as const;
+  const label = {
+    paperback: t.buyPaperback,
+    hardcover: t.buyHardcover,
+    kindle: t.buyKindle,
+  } as const;
   return (
     <div className="buys">
       {book.formats.map((f) => (
@@ -164,7 +205,12 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
         </a>
       ))}
       {book.pdfUrl ? (
-        <a className="btn btn--sky" href={book.pdfUrl} rel="noopener" target="_blank">
+        <a
+          className="btn btn--sky"
+          href={book.pdfUrl}
+          rel="noopener"
+          target="_blank"
+        >
           {t.buyPdf}
         </a>
       ) : null}
@@ -189,7 +235,8 @@ export default async function ItemPage({
     const copy = page?.copy[lang];
     if (!page || !copy) notFound();
     const f = t.free;
-    const bookId = lang === "es" && page.fromBookIdEs ? page.fromBookIdEs : page.fromBookId;
+    const bookId =
+      lang === "es" && page.fromBookIdEs ? page.fromBookIdEs : page.fromBookId;
     const pick = bookById(bookId);
     const pickCopy = pick?.copy[lang];
     const pickSlug = pick?.slug[lang];
@@ -205,7 +252,11 @@ export default async function ItemPage({
           description: copy.lead,
           inLanguage: lang,
           author: { "@type": "Organization", name: PUBLISHER },
-          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          publisher: {
+            "@type": "Organization",
+            name: PUBLISHER,
+            address: ADDRESS,
+          },
           datePublished: SITE_PUBLISHED,
           dateModified: SITE_UPDATED,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
@@ -226,7 +277,7 @@ export default async function ItemPage({
             creditText: PUBLISHER,
             license: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
             acquireLicensePage: `${SITE_URL}${sectionPath(lang, "contact")}`,
-          }))
+          })),
         ),
         {
           "@type": "FAQPage",
@@ -245,7 +296,10 @@ export default async function ItemPage({
 
     return (
       <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <PageHead title={copy.title} lead={copy.lead} />
 
         <div className="wrap sheets-intro">
@@ -274,24 +328,44 @@ export default async function ItemPage({
                   <figure className="sheet" key={sh.id}>
                     <a
                       className="sheet__link"
-                      href={printableUrl(sh.id, lang === "es" ? "a4" : "letter", lang)}
+                      href={printableUrl(
+                        sh.id,
+                        lang === "es" ? "a4" : "letter",
+                        lang,
+                      )}
                       download
                     >
                       <img
                         src={previewUrl(sh.id, lang)}
-                        alt={(copy.sheetAlt ?? f.sheetAlt).replace("{name}", name)}
+                        alt={(copy.sheetAlt ?? f.sheetAlt).replace(
+                          "{name}",
+                          name,
+                        )}
                         width={page.spread ? 1294 : 642}
                         height={page.spread ? 816 : 822}
                         loading="lazy"
                       />
                     </a>
                     <figcaption>
-                      <h3>{(copy.sheetTitle ?? f.sheetTitle).replace("{name}", name)}</h3>
+                      <h3>
+                        {(copy.sheetTitle ?? f.sheetTitle).replace(
+                          "{name}",
+                          name,
+                        )}
+                      </h3>
                       <p className="sheet__links">
-                        <a className="btn btn--pink" href={printableUrl(sh.id, "letter", lang)} download>
+                        <a
+                          className="btn btn--pink"
+                          href={printableUrl(sh.id, "letter", lang)}
+                          download
+                        >
                           {f.printLetter}
                         </a>
-                        <a className="btn btn--ghost" href={printableUrl(sh.id, "a4", lang)} download>
+                        <a
+                          className="btn btn--ghost"
+                          href={printableUrl(sh.id, "a4", lang)}
+                          download
+                        >
                           {f.printA4}
                         </a>
                       </p>
@@ -308,9 +382,14 @@ export default async function ItemPage({
           <div className="band band--cream">
             <div className="wrap">
               <h2 className="section">{copy.pickTitle}</h2>
-              <p className="lead">{copy.pickLead.replace("{n}", String(total))}</p>
+              <p className="lead">
+                {copy.pickLead.replace("{n}", String(total))}
+              </p>
               <div className="pick">
-                <Link href={itemPath(lang, "books", pickSlug)} className="pick__cover">
+                <Link
+                  href={itemPath(lang, "books", pickSlug)}
+                  className="pick__cover"
+                >
                   {pick.cover ? (
                     <img
                       src={pick.cover}
@@ -325,7 +404,9 @@ export default async function ItemPage({
                 </Link>
                 <div>
                   <p className="subtitle">
-                    <Link href={itemPath(lang, "books", pickSlug)}>{pickCopy.title}</Link>
+                    <Link href={itemPath(lang, "books", pickSlug)}>
+                      {pickCopy.title}
+                    </Link>
                   </p>
                   <ul className="inside">
                     {copy.pickPoints.map((line) => (
@@ -336,8 +417,14 @@ export default async function ItemPage({
                   {pick.rating ? (
                     <RatingLink
                       rating={pick.rating}
-                      asin={(pick.formats.find((x) => x.kind !== "kindle") ?? pick.formats[0]).asin}
+                      asin={
+                        (
+                          pick.formats.find((x) => x.kind !== "kindle") ??
+                          pick.formats[0]
+                        ).asin
+                      }
                       labelReviews={t.book.ratingReviews}
+                      labelReviewsOne={t.book.ratingReviewsOne}
                       labelSource={t.book.ratingSource}
                       ariaLabel={t.book.ratingAria}
                     />
@@ -349,7 +436,10 @@ export default async function ItemPage({
           </div>
         ) : null}
 
-        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+        <div
+          className="wrap"
+          style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}
+        >
           <p className="rights">{f.rights}</p>
 
           <h2 className="section">{f.faqTitle}</h2>
@@ -386,7 +476,11 @@ export default async function ItemPage({
           description: copy.lead,
           inLanguage: lang,
           author: { "@type": "Organization", name: PUBLISHER },
-          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          publisher: {
+            "@type": "Organization",
+            name: PUBLISHER,
+            address: ADDRESS,
+          },
           datePublished: SITE_PUBLISHED,
           dateModified: SITE_UPDATED,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "method", slug)}`,
@@ -408,7 +502,10 @@ export default async function ItemPage({
 
     return (
       <>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <PageHead title={copy.title} lead={copy.lead} />
 
         <div className="wrap guide">
@@ -429,7 +526,10 @@ export default async function ItemPage({
             <>
               <h2 className="section">{m.guidePick}</h2>
               <div className="pick">
-                <Link href={itemPath(lang, "books", pickSlug)} className="pick__cover">
+                <Link
+                  href={itemPath(lang, "books", pickSlug)}
+                  className="pick__cover"
+                >
                   {pick.cover ? (
                     <img
                       src={pick.cover}
@@ -445,15 +545,23 @@ export default async function ItemPage({
                 <div>
                   <p className="lead-text">{copy.pick}</p>
                   <p className="subtitle">
-                    <Link href={itemPath(lang, "books", pickSlug)}>{pickCopy.title}</Link>
+                    <Link href={itemPath(lang, "books", pickSlug)}>
+                      {pickCopy.title}
+                    </Link>
                   </p>
                   <p>{pickCopy.subtitle}</p>
                   <BuyButtons book={pick} lang={lang} />
                   {pick.rating ? (
                     <RatingLink
                       rating={pick.rating}
-                      asin={(pick.formats.find((f) => f.kind !== "kindle") ?? pick.formats[0]).asin}
+                      asin={
+                        (
+                          pick.formats.find((f) => f.kind !== "kindle") ??
+                          pick.formats[0]
+                        ).asin
+                      }
                       labelReviews={t.book.ratingReviews}
+                      labelReviewsOne={t.book.ratingReviewsOne}
                       labelSource={t.book.ratingSource}
                       ariaLabel={t.book.ratingAria}
                     />
@@ -513,10 +621,14 @@ export default async function ItemPage({
     : undefined;
 
   const related = booksForLang(lang)
-    .filter((b) => b.id !== book.id && (b.series === book.series || b.age === book.age))
+    .filter(
+      (b) =>
+        b.id !== book.id && (b.series === book.series || b.age === book.age),
+    )
     .slice(0, 4);
 
-  const paper = book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
+  const paper =
+    book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const video = bookVideo(book.id);
   const bookRevs = reviewsForBook(book.id, lang);
   /* Возраст, который видит человек: с Amazon, если он задан,
@@ -539,10 +651,14 @@ export default async function ItemPage({
   const freePage = coloringPageForBook(book.id);
   const freeSlug = freePage?.slug[lang];
   const freeSheets =
-    freePage && freeSlug ? allSheets(freePage, lang).slice(0, freePage.spread ? 6 : 10) : [];
+    freePage && freeSlug
+      ? allSheets(freePage, lang).slice(0, freePage.spread ? 6 : 10)
+      : [];
   // Сколько страниц реально можно распечатать. Разворот это две страницы.
   const freeSheetPages =
-    freePage && freeSlug ? sheetCount(freePage, lang) * (freePage.spread ? 2 : 1) : 0;
+    freePage && freeSlug
+      ? sheetCount(freePage, lang) * (freePage.spread ? 2 : 1)
+      : 0;
 
   const schema = {
     "@context": "https://schema.org",
@@ -551,8 +667,13 @@ export default async function ItemPage({
         "@type": "Book",
         name: copy.title,
         author: { "@type": "Person", name: author.name },
-        publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
-        inLanguage: book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
+        publisher: {
+          "@type": "Organization",
+          name: PUBLISHER,
+          address: ADDRESS,
+        },
+        inLanguage:
+          book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
         isbn: bookIsbn13(book),
         numberOfPages: book.pages,
         /* Полный состав книги для машины. Нейросети читают его мгновенно
@@ -580,7 +701,8 @@ export default async function ItemPage({
             : "https://schema.org/Paperback",
         description: copy.lead.replace(/\s+/g, " "),
         image: book.cover ? `${SITE_URL}${book.cover}` : undefined,
-        typicalAgeRange: book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age),
+        typicalAgeRange:
+          book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age),
         offers: book.formats.map((f) => ({
           "@type": "Offer",
           price: f.price.replace("$", ""),
@@ -610,7 +732,10 @@ export default async function ItemPage({
               name: `${copy.title}. ${t.book.video}`,
               /* Развернутое описание кадров словами. Машина видео не
                  смотрит, доверие она строит на этом тексте. */
-              description: video.description[lang] ?? video.description.en ?? t.book.videoLead,
+              description:
+                video.description[lang] ??
+                video.description.en ??
+                t.book.videoLead,
               thumbnailUrl: `${SITE_URL}${video.poster}`,
               contentUrl: `${SITE_URL}${video.src}`,
               uploadDate: SITE_UPDATED,
@@ -626,8 +751,16 @@ export default async function ItemPage({
                 endOffset: video.chapters[i + 1]?.at ?? video.seconds,
                 url: `${SITE_URL}${itemPath(lang, "books", slug)}#t=${c.at}`,
               })),
-              about: { "@type": "Book", name: copy.title, isbn: bookIsbn13(book) },
-              publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+              about: {
+                "@type": "Book",
+                name: copy.title,
+                isbn: bookIsbn13(book),
+              },
+              publisher: {
+                "@type": "Organization",
+                name: PUBLISHER,
+                address: ADDRESS,
+              },
             },
           ]
         : []),
@@ -636,7 +769,10 @@ export default async function ItemPage({
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <PageHead title={copy.title} />
 
       <div className="wrap">
@@ -681,7 +817,9 @@ export default async function ItemPage({
                 <p className="top-price">
                   <span className="top-price__value">{paper.price}</span>
                   <span className="top-price__label">
-                    {paper.kind === "hardcover" ? t.book.priceFromHardcover : t.book.priceFrom}
+                    {paper.kind === "hardcover"
+                      ? t.book.priceFromHardcover
+                      : t.book.priceFrom}
                   </span>
                 </p>
               ) : null}
@@ -690,6 +828,7 @@ export default async function ItemPage({
                   rating={book.rating}
                   asin={paper.asin}
                   labelReviews={t.book.ratingReviews}
+                  labelReviewsOne={t.book.ratingReviewsOne}
                   labelSource={t.book.ratingSource}
                   ariaLabel={t.book.ratingAria}
                 />
@@ -700,9 +839,16 @@ export default async function ItemPage({
               <ul className="award-list">
                 {bookAwards.map((a) => (
                   <li key={`${a.program}-${a.year}`}>
-                    <span className="award-list__tag">{t.method.bookAward}</span>{" "}
-                    {a.result[lang] ?? a.result.en} · {a.category[lang] ?? a.category.en} ·{" "}
-                    <a href={a.programUrl} rel="nofollow noopener" target="_blank">
+                    <span className="award-list__tag">
+                      {t.method.bookAward}
+                    </span>{" "}
+                    {a.result[lang] ?? a.result.en} ·{" "}
+                    {a.category[lang] ?? a.category.en} ·{" "}
+                    <a
+                      href={a.programUrl}
+                      rel="nofollow noopener"
+                      target="_blank"
+                    >
                       {a.program}
                     </a>{" "}
                     {a.year}
@@ -738,7 +884,6 @@ export default async function ItemPage({
                 <span className="key-specs__value">{book.size}</span>
               </li>
             </ul>
-
           </div>
         </div>
 
@@ -747,7 +892,7 @@ export default async function ItemPage({
         <div className="book-body">
           {book.bannerLead || book.artwork?.length || book.banners?.length ? (
             <div className="showcase">
-              {book.showcaseLead?.[lang] ?? book.showcaseLead?.en ? (
+              {(book.showcaseLead?.[lang] ?? book.showcaseLead?.en) ? (
                 <p className="showcase__lead">
                   {book.showcaseLead[lang] ?? book.showcaseLead.en}
                 </p>
@@ -757,7 +902,11 @@ export default async function ItemPage({
                 <img
                   className="theme-banner"
                   src={book.bannerLead.file}
-                  alt={book.bannerLead.alt[lang] ?? book.bannerLead.alt.en ?? copy.title}
+                  alt={
+                    book.bannerLead.alt[lang] ??
+                    book.bannerLead.alt.en ??
+                    copy.title
+                  }
                   width={book.bannerLead.w}
                   height={book.bannerLead.h}
                   fetchPriority="high"
@@ -802,7 +951,6 @@ export default async function ItemPage({
               {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}
             </p>
           </div>
-
 
           {video ? (
             <>
@@ -860,19 +1008,26 @@ export default async function ItemPage({
                   const items = g.items[lang] ?? g.items.en ?? [];
                   return (
                     <li key={g.id}>
-                      <span className="topics__group">{g.title[lang] ?? g.title.en}</span>
+                      <span className="topics__group">
+                        {g.title[lang] ?? g.title.en}
+                      </span>
                       <span className="topics__examples">
                         {items.slice(0, TOPIC_PREVIEW).join(" · ")}
                       </span>
                       <span className="topics__count">
-                        {t.book.topicsCount.replace("{n}", String(items.length))}
+                        {t.book.topicsCount.replace(
+                          "{n}",
+                          String(items.length),
+                        )}
                       </span>
                     </li>
                   );
                 })}
               </ul>
               <details className="topics-all">
-                <summary>{t.book.topicsAll.replace("{n}", String(topicList.length))}</summary>
+                <summary>
+                  {t.book.topicsAll.replace("{n}", String(topicList.length))}
+                </summary>
                 <div className="topics-all__body">
                   {topicGroups.map((g) => (
                     <p key={g.id}>
@@ -892,20 +1047,18 @@ export default async function ItemPage({
             <>
               <h2 className="section">{t.free.bookSheetsTitle}</h2>
               <p>
-                {(freePage.copy[lang]?.bookSheetsLead ?? t.free.bookSheetsLead).replace(
-                  "{n}",
-                  String(freeSheetPages)
-                )}
+                {(
+                  freePage.copy[lang]?.bookSheetsLead ?? t.free.bookSheetsLead
+                ).replace("{n}", String(freeSheetPages))}
               </p>
               <div className={freePage.spread ? "fan fan--spread" : "fan"}>
                 {freeSheets.map((sh, i) => (
                   <img
                     key={sh.id}
                     src={previewUrl(sh.id, lang)}
-                    alt={(freePage.copy[lang]?.sheetAlt ?? t.free.sheetAlt).replace(
-                      "{name}",
-                      sh.name[lang] ?? sh.name.en!
-                    )}
+                    alt={(
+                      freePage.copy[lang]?.sheetAlt ?? t.free.sheetAlt
+                    ).replace("{name}", sh.name[lang] ?? sh.name.en!)}
                     width={freePage.spread ? 1294 : 642}
                     height={freePage.spread ? 816 : 822}
                     loading="lazy"
@@ -914,14 +1067,15 @@ export default async function ItemPage({
                 ))}
               </div>
               <p style={{ marginBottom: "var(--gap-3)" }}>
-                <Link className="btn btn--mint" href={itemPath(lang, "coloring", freeSlug!)}>
+                <Link
+                  className="btn btn--mint"
+                  href={itemPath(lang, "coloring", freeSlug!)}
+                >
                   {t.free.bookSheetsCta.replace("{n}", String(freeSheetPages))}
                 </Link>
               </p>
             </>
           ) : null}
-
-
 
           {bookRevs.length ? (
             <>
@@ -984,7 +1138,12 @@ export default async function ItemPage({
                   <dd>
                     {new Date(book.published).toLocaleDateString(
                       lang === "es" ? "es-ES" : "en-US",
-                      { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" }
+                      {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                        timeZone: "UTC",
+                      },
                     )}
                   </dd>
                 </>
@@ -1044,7 +1203,9 @@ export default async function ItemPage({
         </div>
 
         {related.length ? (
-          <section style={{ padding: "0 clamp(1rem, 4vw, 2rem) var(--band-y)" }}>
+          <section
+            style={{ padding: "0 clamp(1rem, 4vw, 2rem) var(--band-y)" }}
+          >
             <p className="script-title">{t.book.related}</p>
             <div className="grid">
               {related.map((b) => (

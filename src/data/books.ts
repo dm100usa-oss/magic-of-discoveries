@@ -411,9 +411,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "First Coloring Book for Toddlers Ages 1-3",
-        subtitle: "A first coloring book your little one can finish all by themselves",
+        subtitle: "A first coloring book for toddlers ages 1-3",
         lead:
-          "A toddler cannot follow a thin line yet. They miss it, get upset, and give up. Here the shapes are large, the outlines are thick, and there is nothing fussy inside them. Your child colors one in, sees that it worked, and asks for the next page.\n\nFifteen quiet minutes while your child is busy on their own.\n\nThis book was made by professionals who are parents themselves. That is where both the experience and the love for children come from.",
+          "111 big, simple pictures, hand drawn with thick lines, no small detail, one drawing per page. Animals, fairy-tale characters, flowers, foods and everyday objects keep every page new. The word under each picture can be colored too, so first words and letters come along with the coloring.",
         inside: [
           "111 drawings, all hand drawn by professional illustrators",
           "Thick outlines and large shapes, so your child stays inside the lines",
@@ -508,9 +508,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "El Primer Libro de Colorear para Bebés de 1 a 3 Años",
-        subtitle: "Un primer libro para colorear que tu peque puede terminar solo",
+        subtitle: "El primer libro para colorear para niños de 1 a 3 años",
         lead:
-          "Un niño pequeño todavía no puede seguir una línea fina. Se sale, se frustra y lo deja. Aquí las formas son grandes, el contorno es grueso y dentro no hay nada complicado. Colorea uno, ve que le ha salido bien y pide la página siguiente.\n\nQuince minutos de calma mientras el niño está entretenido solo.\n\nEste libro lo han hecho profesionales que además son padres. De ahí vienen la experiencia y el cariño por los niños.",
+          "111 dibujos simples y grandes, dibujados a mano con líneas gruesas, sin detalles pequeños y con un dibujo por página. Animales, personajes de cuento, flores, comidas y objetos cotidianos hacen que cada página sea nueva. La palabra debajo de cada dibujo también se puede colorear, y así llegan las primeras palabras y letras.",
         inside: [
           "111 dibujos, todos hechos a mano por ilustradores profesionales",
           "Líneas gruesas y formas grandes, para que el niño no se salga del contorno",
@@ -545,6 +545,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "little-max-coloring-1-es",
     drawings: 111,
+    pages: 114,
+    published: "2024-04-26",
     size: "8.5 x 11 in",
     cover: "/covers/little-max-coloring-1-en.jpg",
     coverSize: { w: 900, h: 1164 },
@@ -618,9 +620,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "First Coloring Book for Toddlers Ages 1-3 by Little Max",
-        subtitle: "111 easy, big and cozy drawings, with the mouse Little Max as a guide.",
+        subtitle: "A first coloring book made for small hands",
         lead:
-          "The same easy, thick-lined drawings as our first coloring book, but this one is led by Little Max, the small mouse in a sailor shirt who appears throughout the Magic of Discoveries books. Children who already know Max from the bedtime stories recognize him instantly.",
+          "111 big pictures, hand drawn with thick lines, no small detail, one drawing per page. It is easier for a toddler to color on their own, to steady the hand and hold attention, and the word under each picture becomes one of the first they ever read. And Little Max, the cheerful mouse, turns first coloring into a small adventure.",
         inside: [
           "111 large drawings with thick, forgiving outlines",
           "Little Max appears through the book, so coloring becomes a small story",
@@ -725,9 +727,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "El Primer Libro de Colorear de Pequeño Max, para Bebés de 1 a 3 Años",
-        subtitle: "111 dibujos simples, grandes y acogedores, guiados por el ratoncito Pequeño Max.",
+        subtitle: "El primer libro para colorear, hecho para manos pequeñas",
         lead:
-          "Los mismos dibujos fáciles de línea gruesa que en nuestro primer libro para colorear, pero aquí el guía es Pequeño Max, el ratoncito con camiseta de marinero que aparece en toda la serie La Magia de los Descubrimientos. Los niños que ya conocen a Max por los cuentos lo reconocen enseguida.",
+          "111 dibujos simples y grandes, dibujados a mano con líneas gruesas, sin detalles pequeños y con un dibujo por página. Al pequeño le resulta más fácil colorear solo, ejercitar la mano y mantener la atención, y la palabra debajo de cada dibujo se convierte en una de las primeras que lee. Y el simpático ratoncito Pequeño Max convierte el primer contacto con los colores en una pequeña aventura.",
         inside: [
           "111 dibujos grandes con contornos gruesos y tolerantes",
           "Pequeño Max aparece a lo largo del libro y colorear se vuelve un pequeño relato",
@@ -759,6 +761,8 @@ export const books: Book[] = [
     series: "little-max",
     pairId: "little-max-coloring-2-es",
     drawings: 111,
+    pages: 114,
+    published: "2024-09-05",
     size: "8.5 x 11 in",
     cover: "/covers/little-max-coloring-2-en.jpg",
     coverSize: { w: 900, h: 1164 },
@@ -832,9 +836,9 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Little Max Coloring Book for Toddlers Ages 1-3, Volume 2",
-        subtitle: "111 more easy drawings. The second book, for when the first one runs out.",
+        subtitle: "A coloring book for toddlers ages 1-3, with new drawings",
         lead:
-          "A second volume of Little Max drawings, at the same easy level. Parents usually buy this one once the first book is full and the child asks for more of the same, which for a two year old matters more than variety.",
+          "111 new big pictures, hand drawn with thick lines, no small detail, one drawing per page. Along with the new pictures a toddler colors their names, learns new words and steadies the hand and attention. And Little Max, the cheerful mouse, is here again.",
         inside: [
           "111 new drawings, none repeated from the first volume",
           "Same thick outlines and large shapes, no step up in difficulty",
@@ -937,9 +941,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Libro de Colorear de Pequeño Max para Bebés de 1 a 3 Años, Volumen 2",
-        subtitle: "111 dibujos más, igual de fáciles. El segundo libro, para cuando el primero se acaba.",
+        subtitle: "Un libro para colorear para niños de 1 a 3 años, con dibujos nuevos",
         lead:
-          "Un segundo volumen de dibujos de Pequeño Max, con el mismo nivel de facilidad. Los padres suelen comprarlo cuando el primer libro ya está lleno y el niño pide más de lo mismo, algo que a los dos años importa más que la variedad.",
+          "111 dibujos nuevos, simples y grandes, dibujados a mano con líneas gruesas, sin detalles pequeños y con un dibujo por página. Junto con los dibujos nuevos, el pequeño colorea sus nombres, aprende palabras nuevas y ejercita la mano y la atención. Y el simpático ratoncito Pequeño Max está de nuevo a su lado.",
         inside: [
           "111 dibujos nuevos, ninguno repetido del primer volumen",
           "Las mismas líneas gruesas y formas grandes, sin subir la dificultad",

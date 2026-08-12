@@ -17,12 +17,14 @@ export function RatingLink({
   rating,
   asin,
   labelReviews,
+  labelReviewsOne,
   labelSource,
   ariaLabel,
 }: {
   rating: AmazonRating;
   asin: string;
   labelReviews: string;
+  labelReviewsOne: string;
   labelSource: string;
   ariaLabel: string;
 }) {
@@ -38,7 +40,7 @@ export function RatingLink({
       <span className="rating__mid">
         <Stars value={rating.value} />
         <span className="rating__count">
-          {rating.count} {labelReviews}
+          {rating.count} {rating.count === 1 ? labelReviewsOne : labelReviews}
         </span>
       </span>
       <span className="rating__source">{labelSource}</span>

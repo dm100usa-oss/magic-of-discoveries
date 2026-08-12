@@ -78,6 +78,8 @@ export interface Dictionary {
     author: string;
     formatNote: string;
     ratingReviews: string;
+    /** Форма для одного голоса: "1 rating", а не "1 ratings". */
+    ratingReviewsOne: string;
     ratingSource: string;
     ratingAria: string;
   };
@@ -241,6 +243,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       author: "Author",
       formatNote: "Prices are set by Amazon and may change.",
       ratingReviews: "ratings",
+      ratingReviewsOne: "rating",
       ratingSource: "Read the reviews on Amazon",
       ratingAria: "Read customer reviews on Amazon",
     },
@@ -445,6 +448,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       author: "Autor",
       formatNote: "Los precios los fija Amazon y pueden cambiar.",
       ratingReviews: "valoraciones",
+      ratingReviewsOne: "valoración",
       ratingSource: "Leer las opiniones en Amazon",
       ratingAria: "Leer las opiniones de los clientes en Amazon",
     },
@@ -649,6 +653,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       author: "Автор",
       formatNote: "Цены устанавливает Amazon, они могут меняться.",
       ratingReviews: "оценок",
+      ratingReviewsOne: "оценка",
       ratingSource: "Читать отзывы на Amazon",
       ratingAria: "Читать отзывы покупателей на Amazon",
     },

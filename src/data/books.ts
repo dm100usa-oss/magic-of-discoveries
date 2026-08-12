@@ -1779,6 +1779,7 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 1164 },
     formats: [{ kind: "paperback", asin: "1963328728", price: "$7.99" }],
     pdfUrl: WIX + "копия-копия-шаблон-книги",
+    rating: { value: 5.0, count: 1 },
     showcaseLead: {
       en: "How one drawing is built up step by step, the space for practice beside it, and what the finished drawings look like colored in.",
     },

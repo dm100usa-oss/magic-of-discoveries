@@ -24,6 +24,16 @@ export interface TeachersTheme {
   count: number;
 }
 
+export interface TeachersImage {
+  src: string;
+  w: number;
+  h: number;
+  /** Что изображено. Нейросеть картинку не видит, она читает это. */
+  alt: string;
+  /** Подпись под картинкой. Видна человеку и тоже читается нейросетью. */
+  caption: string;
+}
+
 export interface TeachersCard {
   kind: "free" | "paid";
   title: string;
@@ -31,6 +41,7 @@ export interface TeachersCard {
   cta: string;
   /** Адрес карточки на площадке. Пустая строка прячет кнопку. */
   url: string;
+  cover: TeachersImage;
 }
 
 export interface TeachersCopy {
@@ -49,6 +60,8 @@ export interface TeachersCopy {
   stepsTitle: string;
   steps: TeachersStep[];
   stepsNote: string;
+  /** Настоящий лист задания. Главное доказательство на странице. */
+  sample: TeachersImage;
 
   skillsTitle: string;
   /** Главный термин, выносится отдельно и крупно. */
@@ -58,11 +71,13 @@ export interface TeachersCopy {
   fitTitle: string;
   fitLead: string;
   fit: string[];
+  fitImage: TeachersImage;
 
   bookTitle: string;
   book: string[];
   themesTitle: string;
   themes: TeachersTheme[];
+  themesImage: TeachersImage;
 
   methodTitle: string;
   method: string;
@@ -143,6 +158,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     ],
     stepsNote:
       "Drawing, fine motor practice, handwriting, and vocabulary all come together in one activity.",
+    sample: {
+      src: "/teachers/sample-page-en.jpg",
+      w: 1000,
+      h: 1294,
+      alt: "A directed drawing worksheet for grades K-2. A row of six numbered boxes shows a lion built up from a circle. Below it, a dashed lion outline to trace, an empty box to draw in, and primary ruled lines with the word Lion to trace and write.",
+      caption:
+        "One activity page from the collection. All four stages sit on a single sheet: follow the steps, trace, draw and color, then trace and write the word.",
+    },
 
     skillsTitle: "What students practice",
     skillsLead: "Fine motor skills",
@@ -166,6 +189,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       "Sub plans",
       "Learning centers",
     ],
+    fitImage: {
+      src: "/teachers/early-en.jpg",
+      w: 900,
+      h: 900,
+      alt: "Four versions of the same lion drawing: a dashed outline to trace, a plain outline, a lion drawn independently, and a finished lion colored in with a tree, grass and a flower added around it.",
+      caption:
+        "Open space is left around each drawing on purpose. A student who finishes early can add a background and keep working independently.",
+    },
 
     bookTitle: "What is in the full book",
     book: [
@@ -183,6 +214,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       { name: "Nature", count: 5 },
       { name: "Food", count: 6 },
     ],
+    themesImage: {
+      src: "/teachers/themes-en.jpg",
+      w: 900,
+      h: 900,
+      alt: "Illustrated contents of the collection: rows of small line drawings grouped by theme, with animals, sea life, fantasy, vehicles, sports and hobbies, things, nature and food, each numbered.",
+      caption:
+        "The illustrated table of contents. Every drawing in the book is shown, so a teacher can find one in seconds.",
+    },
 
     methodTitle: "About the method",
     method:
@@ -240,6 +279,13 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "One activity from each theme, with nothing shortened and no watermarks. 10 pages, PDF.",
         cta: "Get the free sample",
         url: TPT.freeEn,
+        cover: {
+          src: "/teachers/cover-free-en.jpg",
+          w: 700,
+          h: 700,
+          alt: "Cover of the free 8-activity sample: an English directed drawing page with a lion, marked FREE, 8 ACTIVITIES, NO PREP, GRADES K-2.",
+          caption: "",
+        },
       },
       {
         kind: "paid",
@@ -247,6 +293,13 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "The complete Volume 1 collection with a teacher page and an illustrated table of contents. 58 pages, PDF.",
         cta: "See the full resource",
         url: TPT.paidEn,
+        cover: {
+          src: "/teachers/cover-paid-en.jpg",
+          w: 700,
+          h: 700,
+          alt: "Cover of the full English collection: a directed drawing page with a lion, marked 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
+          caption: "",
+        },
       },
     ],
   },
@@ -296,6 +349,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     ],
     stepsNote:
       "Dibujo, motricidad fina, escritura a mano y vocabulario se reúnen en una sola actividad.",
+    sample: {
+      src: "/teachers/sample-page-es.jpg",
+      w: 1000,
+      h: 1294,
+      alt: "Hoja de dibujo dirigido para los grados K-2. Una fila de seis casillas numeradas muestra cómo se construye un león a partir de un círculo. Debajo, un contorno punteado para repasar, un recuadro vacío para dibujar y una pauta de tres líneas con la palabra León para repasar y escribir.",
+      caption:
+        "Una hoja de actividad de la colección. Las cuatro etapas caben en una sola página: sigue los pasos, repasa, dibuja y colorea, y por último repasa y escribe la palabra.",
+    },
 
     skillsTitle: "Qué practica el alumno",
     skillsLead: "Motricidad fina",
@@ -319,6 +380,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       "Clases con sustituto",
       "Centros de aprendizaje",
     ],
+    fitImage: {
+      src: "/teachers/early-es.jpg",
+      w: 900,
+      h: 900,
+      alt: "Cuatro versiones del mismo león: un contorno punteado para repasar, un contorno simple, un león dibujado por el alumno y un león coloreado con un árbol, hierba y una flor añadidos alrededor.",
+      caption:
+        "Alrededor de cada dibujo se deja espacio libre a propósito. El alumno que termina antes puede añadir un fondo y seguir trabajando por su cuenta.",
+    },
 
     bookTitle: "Qué incluye el libro completo",
     book: [
@@ -336,6 +405,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       { name: "Naturaleza", count: 5 },
       { name: "Comida", count: 6 },
     ],
+    themesImage: {
+      src: "/teachers/themes-es.jpg",
+      w: 900,
+      h: 900,
+      alt: "Índice ilustrado de la colección: filas de pequeños dibujos a línea agrupados por tema, con animales, vida marina, fantasía, vehículos, deportes y pasatiempos, cosas, naturaleza y comida, cada uno numerado.",
+      caption:
+        "El índice ilustrado. Muestra todos los dibujos del libro, de modo que el maestro encuentra uno en segundos.",
+    },
 
     methodTitle: "Sobre el método",
     method:
@@ -393,6 +470,13 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "Una actividad de cada tema, sin recortes y sin marcas de agua. 10 páginas, PDF.",
         cta: "Descargar la muestra gratuita",
         url: TPT.freeEs,
+        cover: {
+          src: "/teachers/cover-free-es.jpg",
+          w: 700,
+          h: 700,
+          alt: "Portada de la muestra gratuita de 8 actividades: una hoja de dibujo dirigido en español con un león, marcada FREE, 8 ACTIVITIES, NO PREP, GRADES K-2.",
+          caption: "",
+        },
       },
       {
         kind: "paid",
@@ -400,6 +484,13 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "El volumen 1 completo, con página para el maestro e índice ilustrado. 58 páginas, PDF.",
         cta: "Ver la colección completa",
         url: TPT.paidEs,
+        cover: {
+          src: "/teachers/cover-paid-es.jpg",
+          w: 700,
+          h: 700,
+          alt: "Portada de la colección completa en español: una hoja de dibujo dirigido con un león, marcada 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
+          caption: "",
+        },
       },
     ],
   },

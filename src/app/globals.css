@@ -1076,3 +1076,42 @@ ul.award-list li {
   max-width: 78ch; margin: 0 0 var(--gap-4);
   padding-top: var(--gap-2); border-top: 2px solid var(--pink-pale);
 }
+
+/* ==================== РАЗДЕЛ ДЛЯ УЧИТЕЛЕЙ ==================== */
+
+/* Колонка текста стоит по центру полосы, а не жмется к левому краю.
+   На широком экране справа больше не остается пустого поля,
+   на телефоне колонка просто занимает всю ширину. */
+.tw { max-width: 74ch; margin-inline: auto; }
+.tw p { max-width: none; }
+.tw > h2.section:first-child { margin-top: 0; }
+
+/* Картинка с подписью. Подпись видна человеку и читается нейросетью,
+   поэтому она обязательна у каждой картинки этого раздела. */
+.figure { margin: var(--gap-3) auto 0; }
+.figure img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.figure figcaption {
+  font-size: var(--t-small); color: var(--ink-2);
+  margin-top: 0.7rem; text-align: center;
+}
+.figure--page { max-width: 560px; }
+.figure--square { max-width: 460px; }
+
+/* Две карточки в конце: обложка и текст рядом, на телефоне друг под другом. */
+.tcards { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
+@media (min-width: 760px) { .tcards { grid-template-columns: 1fr 1fr; } }
+.tcard {
+  background: var(--paper); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: var(--gap-2);
+  display: grid; gap: var(--gap-2); align-items: start;
+}
+@media (min-width: 420px) { .tcard { grid-template-columns: 132px 1fr; } }
+.tcard img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--radius-sm); box-shadow: var(--shadow);
+}
+.tcard h3 { margin: 0 0 0.5rem; font-size: var(--t-h3); }
+.tcard p { margin: 0 0 0.9rem; font-size: var(--t-small); color: var(--ink-2); }

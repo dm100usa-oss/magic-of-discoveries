@@ -218,25 +218,33 @@ export default async function SectionPage({
 
         {/* Определение. Первый абзац страницы, его берет нейросеть. */}
         <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem) 0" }}>
-          <p className="lead">{c.definition}</p>
+          <div className="tw">
+            <p className="lead" style={{ maxWidth: "none" }}>
+              {c.definition}
+            </p>
+          </div>
         </div>
 
         {/* Чей это формат */}
         <div className="band band--cream">
           <div className="wrap prose">
-            <h2 className="section">{c.originTitle}</h2>
-            {c.origin.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
-            ))}
+            <div className="tw">
+              <h2 className="section">{c.originTitle}</h2>
+              {c.origin.map((para) => (
+                <p key={para.slice(0, 24)}>{para}</p>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Почему помогает */}
         <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
-          <h2 className="section">{c.whyTitle}</h2>
-          {c.why.map((para) => (
-            <p key={para.slice(0, 24)}>{para}</p>
-          ))}
+          <div className="tw">
+            <h2 className="section">{c.whyTitle}</h2>
+            {c.why.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
         </div>
 
         {/* Четыре этапа */}
@@ -253,6 +261,16 @@ export default async function SectionPage({
               ))}
             </ol>
             <p className="buy-note">{c.stepsNote}</p>
+            <figure className="figure figure--page">
+              <img
+                src={c.sample.src}
+                alt={c.sample.alt}
+                width={c.sample.w}
+                height={c.sample.h}
+                loading="lazy"
+              />
+              <figcaption>{c.sample.caption}</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -283,28 +301,51 @@ export default async function SectionPage({
                 </span>
               ))}
             </div>
+            <figure className="figure figure--square">
+              <img
+                src={c.fitImage.src}
+                alt={c.fitImage.alt}
+                width={c.fitImage.w}
+                height={c.fitImage.h}
+                loading="lazy"
+              />
+              <figcaption>{c.fitImage.caption}</figcaption>
+            </figure>
           </div>
         </div>
 
         {/* Состав книги и темы */}
         <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
-          <h2 className="section">{c.bookTitle}</h2>
-          {c.book.map((para) => (
-            <p key={para.slice(0, 24)}>{para}</p>
-          ))}
-          <h2 className="section">{c.themesTitle}</h2>
-          <div className="chips">
-            {c.themes.map((th) => (
-              <span className="chip" key={th.name}>
-                {th.name} {th.count}
-              </span>
+          <div className="tw">
+            <h2 className="section">{c.bookTitle}</h2>
+            {c.book.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
             ))}
+            <h2 className="section">{c.themesTitle}</h2>
+            <div className="chips">
+              {c.themes.map((th) => (
+                <span className="chip" key={th.name}>
+                  {th.name} {th.count}
+                </span>
+              ))}
+            </div>
+            <figure className="figure figure--square">
+              <img
+                src={c.themesImage.src}
+                alt={c.themesImage.alt}
+                width={c.themesImage.w}
+                height={c.themesImage.h}
+                loading="lazy"
+              />
+              <figcaption>{c.themesImage.caption}</figcaption>
+            </figure>
           </div>
         </div>
 
         {/* Метод и издательство. Два разных доказательства, поэтому врозь. */}
         <div className="band band--cream">
           <div className="wrap prose">
+            <div className="tw">
             <h2 className="section">{c.methodTitle}</h2>
             <p>{c.method}</p>
             <p>
@@ -316,13 +357,14 @@ export default async function SectionPage({
             {c.publisher.map((para) => (
               <p key={para.slice(0, 24)}>{para}</p>
             ))}
+            </div>
           </div>
         </div>
 
         {/* Вопросы и ответы */}
         <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
           <h2 className="section">{c.faqTitle}</h2>
-          <div className="faq">
+          <div className="faq tw">
             {c.faq.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>
@@ -337,13 +379,20 @@ export default async function SectionPage({
           <div className="wrap">
             <h2 className="section">{c.ctaTitle}</h2>
             <p className="lead">{c.ctaLead}</p>
-            <div className="guides">
+            <div className="tcards">
               {c.cards.map((card) => (
-                <div key={card.title}>
-                  <strong>{card.title}</strong>
-                  <span>{card.text}</span>
-                  {card.url ? (
-                    <div className="buys" style={{ marginTop: "0.9rem" }}>
+                <div className="tcard" key={card.title}>
+                  <img
+                    src={card.cover.src}
+                    alt={card.cover.alt}
+                    width={card.cover.w}
+                    height={card.cover.h}
+                    loading="lazy"
+                  />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.text}</p>
+                    {card.url ? (
                       <a
                         className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
                         href={card.url}
@@ -352,8 +401,8 @@ export default async function SectionPage({
                       >
                         {card.cta}
                       </a>
-                    </div>
-                  ) : null}
+                    ) : null}
+                  </div>
                 </div>
               ))}
             </div>

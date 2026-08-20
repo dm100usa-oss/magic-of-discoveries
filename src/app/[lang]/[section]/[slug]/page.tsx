@@ -30,6 +30,13 @@ import {
   awardsForBook,
   retailers,
 } from "@/data/method";
+import {
+  articlesForLang,
+  articleBySlug,
+  relatedArticles,
+  articleUi,
+} from "@/data/teacherArticles";
+import { teachersForLang } from "@/data/teachers";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard, PageHead } from "@/components/Chrome";
 import { RatingLink } from "@/components/Rating";
@@ -74,6 +81,13 @@ export function generateStaticParams() {
         lang,
         section: sectionSlugs[lang].method,
         slug: g.slug[lang]!,
+      });
+    }
+    for (const a of articlesForLang(lang)) {
+      out.push({
+        lang,
+        section: sectionSlugs[lang].teachers,
+        slug: a.slug[lang]!,
       });
     }
   }
@@ -148,6 +162,24 @@ export async function generateMetadata({
         type: "article",
         images: [{ url: previewUrl(page.groups[0].sheets[0].id, lang) }],
       },
+    };
+  }
+
+  if (s === "teachers") {
+    const art = articleBySlug(lang, slug);
+    const c = art?.copy[lang];
+    if (!art || !c) return {};
+    const languages = langAlternates(
+      Object.fromEntries(
+        activeLangs
+          .filter((l) => art.slug[l])
+          .map((l) => [l, `${SITE_URL}${itemPath(l, "teachers", art.slug[l]!)}`]),
+      ),
+    );
+    return {
+      title: c.title,
+      description: c.answer.slice(0, 300),
+      alternates: { canonical: itemPath(lang, "teachers", slug), languages },
     };
   }
 
@@ -457,6 +489,169 @@ export default async function ItemPage({
   }
 
   /* ---------- Страница-руководство раздела Метод ---------- */
+  /* ---------- Статья раздела для учителей ---------- */
+  if (s === "teachers") {
+    const art = articleBySlug(lang, slug);
+    const c = art?.copy[lang];
+    const hub = teachersForLang(lang);
+    const ui = articleUi[lang];
+    if (!art || !c || !hub || !ui) notFound();
+    const related = relatedArticles(art, lang);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          headline: c.title,
+          description: c.lead,
+          /* Прямой ответ первым абзацем. Его нейросеть берет целиком. */
+          abstract: c.answer,
+          inLanguage: lang,
+          author: { "@type": "Organization", name: PUBLISHER },
+          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          datePublished: SITE_PUBLISHED,
+          dateModified: SITE_UPDATED,
+          mainEntityOfPage: `${SITE_URL}${itemPath(lang, "teachers", slug)}`,
+          about: { "@type": "Thing", name: "Directed drawing" },
+          audience: [
+            { "@type": "EducationalAudience", educationalRole: "teacher" },
+            { "@type": "EducationalAudience", educationalRole: "parent" },
+            { "@type": "EducationalAudience", educationalRole: "homeschooler" },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: c.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+        breadcrumbs(lang, [
+          { name: t.nav.teachers, path: sectionPath(lang, "teachers") },
+          { name: c.title, path: itemPath(lang, "teachers", slug) },
+        ]),
+      ],
+    };
+
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <PageHead title={c.title} lead={c.lead} />
+
+        {/* Прямой ответ. Первый абзац страницы. */}
+        <section className="teach-block">
+          <div className="teach">
+            <p className="teach-def">{c.answer}</p>
+          </div>
+        </section>
+
+        {c.body.map((part, i) => (
+          <section
+            key={part.h}
+            className={i % 2 === 0 ? "band band--cream" : "teach-block"}
+          >
+            <div className="teach">
+              <h2 className="section">{part.h}</h2>
+              {part.p.map((para) => (
+                <p className="teach-p" key={para.slice(0, 24)}>
+                  {para}
+                </p>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        {/* Короткий список. Его нейросети тоже цитируют охотно. */}
+        <section className="band band--mint">
+          <div className="teach">
+            <h2 className="section">{c.listTitle}</h2>
+            <ul className="teach-list">
+              {c.list.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{ui.faq}</h2>
+            <div className="faq faq--two">
+              {c.faq.map((f, i) => (
+                <details key={f.q} open={i < 2}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Те же две книги, что и на главной странице раздела. */}
+        <section className="band band--mint">
+          <div className="teach">
+            <h2 className="section">{c.ctaTitle}</h2>
+            <p className="teach-p">{c.ctaLead}</p>
+            <div className="tcards">
+              {hub.cards.map((card) => (
+                <div className="tcard" key={card.title}>
+                  <img
+                    src={card.cover.src}
+                    alt={card.cover.alt}
+                    width={card.cover.w}
+                    height={card.cover.h}
+                    loading="lazy"
+                  />
+                  <div>
+                    <h3>{card.title}</h3>
+                    <p>{card.text}</p>
+                    {card.url ? (
+                      <a
+                        className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
+                        href={card.url}
+                        rel="nofollow sponsored noopener"
+                        target="_blank"
+                      >
+                        {card.cta}
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Соседние статьи и возврат в раздел: три страницы должны
+            выглядеть одной темой, а не тремя отдельными листами. */}
+        <section className="teach-block">
+          <div className="teach">
+            {related.length ? (
+              <>
+                <h2 className="section">{ui.related}</h2>
+                <ul className="guide-next">
+                  {related.map((a) => (
+                    <li key={a.id}>
+                      <Link href={itemPath(lang, "teachers", a.slug[lang]!)}>
+                        <b>{a.copy[lang]!.title}</b>
+                        <span>{a.copy[lang]!.lead}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <p className="teach-p" style={{ marginTop: "var(--gap-3)" }}>
+              <Link href={sectionPath(lang, "teachers")}>{ui.back}</Link>
+            </p>
+          </div>
+        </section>
+      </>
+    );
+  }
+
   if (s === "method") {
     const guide = guideBySlug(lang, slug);
     const copy = guide?.copy[lang];

@@ -20,6 +20,7 @@ import {
   type RetailerRegion,
 } from "@/data/method";
 import { teachersForLang, METHOD_URL } from "@/data/teachers";
+import { articlesForLang, articleUi } from "@/data/teacherArticles";
 import { PageHead } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
 import {
@@ -454,6 +455,30 @@ export default async function SectionPage({
                 </div>
               ))}
             </div>
+
+            {/* Три статьи раздела. Одна страница отвечает на один вопрос,
+                четыре страницы делают раздел темой, а не одиноким листом. */}
+            {(() => {
+              const arts = articlesForLang(lang);
+              const ui = articleUi[lang];
+              return arts.length && ui ? (
+                <>
+                  <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
+                    {ui.related}
+                  </h2>
+                  <ul className="guide-next">
+                    {arts.map((a) => (
+                      <li key={a.id}>
+                        <Link href={itemPath(lang, "teachers", a.slug[lang]!)}>
+                          <b>{a.copy[lang]!.title}</b>
+                          <span>{a.copy[lang]!.lead}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null;
+            })()}
 
             {/* Та же книга на другом языке. Учитель двуязычного класса
                 читает страницу на своем языке, и без этой строки он

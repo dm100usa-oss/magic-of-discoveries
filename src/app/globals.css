@@ -1279,10 +1279,15 @@ ul.award-list li {
 /* На телефоне обложка во всю ширину карточки. На узком экране
    ограничение в 210 и 260 точек оставляло широкие пустые поля
    по бокам, а обложка это главное, что человек разглядывает. */
+/* Порог 900 выбран не случайно: до него карточки идут в одну колонку
+   и место справа от обложки все равно пустует. Выше 900 карточки
+   встают парой, и там обложка остается прежнего размера. */
+@media (max-width: 899px) {
+  .teach .tcard img,
+  .tcards--top .tcard img { max-width: 100%; margin-inline: auto; }
+}
 @media (max-width: 640px) {
   .teach .tcard { padding: 1rem; }
-  .teach .tcard img,
-  .tcards--top .tcard img { max-width: 100%; }
 }
 
 
@@ -1301,3 +1306,14 @@ ul.award-list li {
 }
 .teach-other > span { flex: 1 1 16rem; }
 .teach-other .btn { flex: 0 0 auto; }
+
+
+/* Короткий список внутри статьи. Крупнее обычного маркированного,
+   потому что это один из кусков, которые цитируют целиком. */
+.teach-list { margin: var(--gap-3) 0 0; padding-left: 1.3rem; }
+.teach-list li {
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.28rem);
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+.teach-list li::marker { color: var(--pink-hot); }

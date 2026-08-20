@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { booksForLang, type UiLang } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
@@ -14,6 +15,12 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const { lang } = await params;
+  /* Неизвестный язык в адресе, например /EN или /xx. Такие адреса
+     приходят по кривым ссылкам и от роботов. Без этой проверки
+     страница падала с ошибкой сервера, а поисковик считает ошибку
+     сервера поводом реже заходить на весь сайт. Отдаем пустой
+     заголовок, а сам показ страницы отдает 404. */
+  if (!activeLangs.includes(lang as UiLang)) return {};
   const t = dictionaries[lang as UiLang];
   return {
     title: t.home.heroTitle,
@@ -36,6 +43,7 @@ export async function generateMetadata({
 
 export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: raw } = await params;
+  if (!activeLangs.includes(raw as UiLang)) notFound();
   const lang = raw as UiLang;
   const t = dictionaries[lang];
   const all = booksForLang(lang);

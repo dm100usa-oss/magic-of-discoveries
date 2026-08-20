@@ -73,6 +73,11 @@ export async function generateMetadata({
   params: Promise<{ lang: string; section: string }>;
 }): Promise<Metadata> {
   const { lang: raw, section } = await params;
+  /* Неизвестный язык в адресе, например /EN или /xx. Без этой проверки
+     дальше берется словарь несуществующего языка и страница падает
+     с ошибкой сервера. Поисковик считает ошибку сервера поводом реже
+     заходить на весь сайт, поэтому отдаем обычное "страница не найдена". */
+  if (!activeLangs.includes(raw as UiLang)) return {};
   const lang = raw as UiLang;
   const s = sectionFromSlug(lang, decodeURIComponent(section));
   if (!s) return {};
@@ -101,6 +106,7 @@ export default async function SectionPage({
   params: Promise<{ lang: string; section: string }>;
 }) {
   const { lang: raw, section } = await params;
+  if (!activeLangs.includes(raw as UiLang)) notFound();
   const lang = raw as UiLang;
   const s = sectionFromSlug(lang, decodeURIComponent(section));
   if (!s) notFound();

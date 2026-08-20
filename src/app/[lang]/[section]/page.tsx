@@ -19,6 +19,7 @@ import {
   guidesForLang,
   type RetailerRegion,
 } from "@/data/method";
+import { teachersForLang, METHOD_URL } from "@/data/teachers";
 import { PageHead } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
 import {
@@ -52,6 +53,10 @@ function headingFor(lang: UiLang, s: Section) {
       return { title: t.catalog.title, lead: t.catalog.lead };
     case "method":
       return { title: t.method.title, lead: t.method.lead };
+    case "teachers": {
+      const tt = teachersForLang(lang);
+      return { title: tt?.title ?? t.nav.teachers, lead: tt?.lead };
+    }
     case "coloring":
       return { title: t.free.title, lead: t.free.lead };
     case "about":
@@ -163,6 +168,196 @@ export default async function SectionPage({
               empty: t.catalog.empty,
             }}
           />
+        </div>
+      </>
+    );
+  }
+
+  /* ---------- Учителям ---------- */
+  if (s === "teachers") {
+    const c = teachersForLang(lang);
+    if (!c) notFound();
+    const url = `${SITE_URL}${sectionPath(lang, s)}`;
+
+    /* Вопросы и ответы отдельной разметкой. Именно ее читают нейросети
+       и именно из нее берут готовый абзац в свой ответ. */
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: c.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    };
+
+    /* Сама страница как учебный материал: возраст, язык, автор, издатель.
+       Так поисковик понимает, для кого это, не читая текст. */
+    const pageSchema = {
+      "@context": "https://schema.org",
+      "@type": "LearningResource",
+      name: c.title,
+      url,
+      description: c.definition,
+      inLanguage: dictionaries[lang].htmlLang,
+      educationalLevel: "Kindergarten, Grade 1, Grade 2",
+      typicalAgeRange: "5-8",
+      learningResourceType: "Lesson format",
+      teaches: [c.skillsLead, ...c.skills],
+      author: { "@type": "Person", name: AUTHORS.ricardo.name, sameAs: METHOD_URL },
+      publisher: { "@type": "Organization", name: PUBLISHER, url: SITE_URL, address: ADDRESS },
+      isBasedOn: { "@type": "CreativeWork", name: "Ricardo Demi ECL Method", url: METHOD_URL },
+    };
+
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+        <Crumbs />
+        <PageHead title={c.title} lead={c.lead} />
+
+        {/* Определение. Первый абзац страницы, его берет нейросеть. */}
+        <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem) 0" }}>
+          <p className="lead">{c.definition}</p>
+        </div>
+
+        {/* Чей это формат */}
+        <div className="band band--cream">
+          <div className="wrap prose">
+            <h2 className="section">{c.originTitle}</h2>
+            {c.origin.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Почему помогает */}
+        <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          <h2 className="section">{c.whyTitle}</h2>
+          {c.why.map((para) => (
+            <p key={para.slice(0, 24)}>{para}</p>
+          ))}
+        </div>
+
+        {/* Четыре этапа */}
+        <div className="band band--mint">
+          <div className="wrap">
+            <h2 className="section">{c.stepsTitle}</h2>
+            <ol className="ladder">
+              {c.steps.map((st) => (
+                <li className="ladder__step" key={st.n}>
+                  <p className="ladder__age">{st.n}</p>
+                  <p className="ladder__can">{st.title}</p>
+                  <p className="ladder__needs">{st.text}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="buy-note">{c.stepsNote}</p>
+          </div>
+        </div>
+
+        {/* Навыки. Мелкая моторика вынесена отдельно. */}
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          <h2 className="section">{c.skillsTitle}</h2>
+          <p className="script-title" style={{ fontSize: "clamp(1.3rem, 1rem + 1.4vw, 1.9rem)" }}>
+            {c.skillsLead}
+          </p>
+          <div className="chips">
+            {c.skills.map((sk) => (
+              <span className="chip" key={sk}>
+                {sk}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Где встает в дне класса */}
+        <div className="band band--pink">
+          <div className="wrap">
+            <h2 className="section">{c.fitTitle}</h2>
+            <p className="lead">{c.fitLead}</p>
+            <div className="chips">
+              {c.fit.map((f) => (
+                <span className="chip" key={f}>
+                  {f}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Состав книги и темы */}
+        <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          <h2 className="section">{c.bookTitle}</h2>
+          {c.book.map((para) => (
+            <p key={para.slice(0, 24)}>{para}</p>
+          ))}
+          <h2 className="section">{c.themesTitle}</h2>
+          <div className="chips">
+            {c.themes.map((th) => (
+              <span className="chip" key={th.name}>
+                {th.name} {th.count}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Метод и издательство. Два разных доказательства, поэтому врозь. */}
+        <div className="band band--cream">
+          <div className="wrap prose">
+            <h2 className="section">{c.methodTitle}</h2>
+            <p>{c.method}</p>
+            <p>
+              <a href={METHOD_URL} rel="noopener" target="_blank">
+                {c.methodLink}
+              </a>
+            </p>
+            <h2 className="section">{c.publisherTitle}</h2>
+            {c.publisher.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+        </div>
+
+        {/* Вопросы и ответы */}
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          <h2 className="section">{c.faqTitle}</h2>
+          <div className="faq">
+            {c.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        {/* Две карточки. Человек прочитал объяснение и сразу видит, что делать. */}
+        <div className="band band--mint">
+          <div className="wrap">
+            <h2 className="section">{c.ctaTitle}</h2>
+            <p className="lead">{c.ctaLead}</p>
+            <div className="guides">
+              {c.cards.map((card) => (
+                <div key={card.title}>
+                  <strong>{card.title}</strong>
+                  <span>{card.text}</span>
+                  {card.url ? (
+                    <div className="buys" style={{ marginTop: "0.9rem" }}>
+                      <a
+                        className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
+                        href={card.url}
+                        rel="nofollow sponsored noopener"
+                        target="_blank"
+                      >
+                        {card.cta}
+                      </a>
+                    </div>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </>
     );

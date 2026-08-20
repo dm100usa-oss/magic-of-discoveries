@@ -1,0 +1,408 @@
+// Раздел для учителей. Классы K-2, США.
+//
+// Правило этой страницы: ничего, чего нельзя проверить, открыв книгу.
+// Все числа взяты из готового PDF: 58 страниц, 55 заданий, восемь тем,
+// страница для учителя, оглавление на два разворота.
+//
+// Directed drawing это общеизвестная школьная практика, мы ее не присваиваем.
+// Нам принадлежит формат задания Draw, Trace, Write: структура страницы,
+// порядок этапов и связка рисунка со словом.
+//
+// Награды относятся к другим книгам издательства, не к этому набору.
+// Формулировка на странице разводит это прямо, чтобы учитель не прочел иначе.
+
+import type { UiLang } from "./books";
+
+export interface TeachersStep {
+  n: string;
+  title: string;
+  text: string;
+}
+
+export interface TeachersTheme {
+  name: string;
+  count: number;
+}
+
+export interface TeachersCard {
+  kind: "free" | "paid";
+  title: string;
+  text: string;
+  cta: string;
+  /** Адрес карточки на площадке. Пустая строка прячет кнопку. */
+  url: string;
+}
+
+export interface TeachersCopy {
+  title: string;
+  lead: string;
+
+  /** Определение одной фразой. Первое, что видит и человек, и нейросеть. */
+  definition: string;
+
+  originTitle: string;
+  origin: string[];
+
+  whyTitle: string;
+  why: string[];
+
+  stepsTitle: string;
+  steps: TeachersStep[];
+  stepsNote: string;
+
+  skillsTitle: string;
+  /** Главный термин, выносится отдельно и крупно. */
+  skillsLead: string;
+  skills: string[];
+
+  fitTitle: string;
+  fitLead: string;
+  fit: string[];
+
+  bookTitle: string;
+  book: string[];
+  themesTitle: string;
+  themes: TeachersTheme[];
+
+  methodTitle: string;
+  method: string;
+  methodLink: string;
+
+  publisherTitle: string;
+  publisher: string[];
+
+  faqTitle: string;
+  faq: { q: string; a: string }[];
+
+  ctaTitle: string;
+  ctaLead: string;
+  cards: TeachersCard[];
+}
+
+/* ------------------------------------------------------------------ */
+/*  Адреса карточек на площадке                                        */
+/*  Все четыре карточки проверены и открываются.                       */
+/* ------------------------------------------------------------------ */
+
+const TPT = {
+  paidEn:
+    "https://www.teacherspayteachers.com/Product/Directed-Drawing-Grades-K-2-55-No-Prep-Draw-Trace-Write-Worksheets-17437620",
+  paidEs:
+    "https://www.teacherspayteachers.com/Product/Spanish-Directed-Drawing-Grades-K-2-55-No-Prep-Dibujo-Dirigido-Worksheets-17437840",
+  freeEn:
+    "https://www.teacherspayteachers.com/Product/FREE-Directed-Drawing-Grades-K-2-8-No-Prep-Draw-Trace-Write-Worksheets-17431866",
+  freeEs:
+    "https://www.teacherspayteachers.com/Product/FREE-Spanish-Directed-Drawing-Grades-K-2-8-No-Prep-Dibujo-Dirigido-Worksheets-17437338",
+};
+
+export const METHOD_URL = "https://www.ricardo-demi.com/method";
+
+export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
+  /* =================== АНГЛИЙСКИЙ =================== */
+  en: {
+    title: "Directed Drawing for K-2: The Draw, Trace, Write Format",
+    lead: "Four stages on one page: follow the steps, trace, draw independently, write the word.",
+
+    definition:
+      "Directed drawing for grades K-2 is an activity in which a student builds a picture from simple lines and shapes by following a visual sequence, traces the finished outline, recreates the drawing independently, and then writes the matching word on primary ruled lines. All four stages fit on a single page and require no preparation: choose an activity, print it, and hand it out to students.",
+
+    originTitle: "Where this format comes from",
+    origin: [
+      "Directed drawing itself is a long-established classroom practice.",
+      "Draw, Trace, Write is a format developed by Ricardo Demi for grades K-2 and built on principles of the ECL method. It brings together a specific page structure, a set order of stages, and a direct link between the drawing and the written word.",
+    ],
+
+    whyTitle: "Why a step-by-step model helps",
+    why: [
+      "For a student who is just beginning to draw, a blank page can be a demanding task. The student has to decide what to draw, where to start, and how to place the drawing on the page, all at once. A visual model breaks that task into small, clear actions.",
+      "Tracing provides a bridge between following the visual model and drawing independently. The student first repeats the movement with a guide, then reproduces the shape without one. Handwriting practice follows a similar order: trace the word first, write it independently after.",
+    ],
+
+    stepsTitle: "The four stages",
+    steps: [
+      {
+        n: "1",
+        title: "Follow the steps",
+        text: "A sequence of images shows how the drawing is built from simple shapes.",
+      },
+      {
+        n: "2",
+        title: "Trace",
+        text: "The student traces the finished outline along a dashed guide.",
+      },
+      {
+        n: "3",
+        title: "Draw and color",
+        text: "The student recreates the drawing in an open space and colors it.",
+      },
+      {
+        n: "4",
+        title: "Trace and write the word",
+        text: "The student traces the word, then writes it on primary ruled lines.",
+      },
+    ],
+    stepsNote:
+      "Drawing, fine motor practice, handwriting, and vocabulary all come together in one activity.",
+
+    skillsTitle: "What students practice",
+    skillsLead: "Fine motor skills",
+    skills: [
+      "Pencil control",
+      "Hand-eye coordination",
+      "Placing a drawing on the page",
+      "Following a visual sequence",
+      "Working independently",
+      "Letter formation",
+      "One new vocabulary word per page",
+    ],
+
+    fitTitle: "Where it fits in the school day",
+    fitLead: "One page, no setup, and nothing to explain twice once the routine is familiar.",
+    fit: [
+      "Morning work",
+      "Early finishers",
+      "Writing centers",
+      "Independent work",
+      "Sub plans",
+      "Learning centers",
+    ],
+
+    bookTitle: "What is in the full book",
+    book: [
+      "55 full-page directed drawing activities, a teacher page explaining how the activities work, and a two-page illustrated table of contents. 58 pages, US Letter, black and white.",
+      "55 activities are enough to use one a week for a full school year and still have pages left over.",
+    ],
+    themesTitle: "Eight themes",
+    themes: [
+      { name: "Animals", count: 20 },
+      { name: "Sea Life", count: 8 },
+      { name: "Fantasy", count: 5 },
+      { name: "Vehicles", count: 4 },
+      { name: "Sports and Hobbies", count: 4 },
+      { name: "Things", count: 3 },
+      { name: "Nature", count: 5 },
+      { name: "Food", count: 6 },
+    ],
+
+    methodTitle: "About the method",
+    method:
+      "Draw, Trace, Write is built on principles of the Ricardo Demi ECL method that connect creative activity with language development. The full method is documented separately.",
+    methodLink: "Read the ECL method",
+
+    publisherTitle: "About the publisher",
+    publisher: [
+      "Magic of Discoveries LLC, Miami, Florida. Twenty-seven published children's titles in English and Spanish.",
+      "Other books from the publisher have been recognized by the Children's Book International Awards in 2025 and the Literary Titan Book Awards in 2024, including two Gold Awards.",
+    ],
+
+    faqTitle: "Frequently asked questions",
+    faq: [
+      {
+        q: "Is directed drawing appropriate for kindergarten?",
+        a: "Yes. These activities are designed for grades K-2. Kindergarten students may rely more on the tracing stage, while second graders often move straight from the model to drawing on their own. The same page works at both levels.",
+      },
+      {
+        q: "How long does one activity take?",
+        a: "It depends on the grade and on whether students color the drawing. An activity can stay short as a warm-up, or run longer if students add a background of their own.",
+      },
+      {
+        q: "Is any prep required?",
+        a: "No. Print and hand out. There is nothing to cut, glue, or assemble.",
+      },
+      {
+        q: "Can I use this for early finishers?",
+        a: "Yes, this is one of the main uses. Open space is left around the finished drawing on purpose, so a student can add trees, grass, rocks, or the sun and turn a single figure into a scene. The small themed illustrations and the lettering on the page can also be colored. A student who finishes early has somewhere to keep working without interrupting the rest of the class or waiting on the teacher.",
+      },
+      {
+        q: "How is this different from a coloring page?",
+        a: "On a coloring page the student fills in someone else's drawing. Here the student draws the subject and then writes the word. The work involves pencil control, sequencing, and vocabulary, not color alone.",
+      },
+      {
+        q: "What skills does directed drawing practice?",
+        a: "Fine motor skills, handwriting, vocabulary, and following visual directions. Students control the pencil, place the drawing on the page, trace and write the target word, and work independently from the start of the activity to the end.",
+      },
+      {
+        q: "Does this work for ESL and newcomer students?",
+        a: "Yes. Each page focuses on one word connected to the picture. For a student who is still learning English, the visual guide makes the task clear without relying on lengthy verbal instructions.",
+      },
+      {
+        q: "Is there a Spanish version?",
+        a: "Yes. The same set of activities is published with Spanish vocabulary on every page, for Spanish classes and dual language classrooms.",
+      },
+    ],
+
+    ctaTitle: "Try it in your classroom",
+    ctaLead: "Both are available on Teachers Pay Teachers, in English and in Spanish.",
+    cards: [
+      {
+        kind: "free",
+        title: "Free 8-activity sample",
+        text: "One activity from each theme, with nothing shortened and no watermarks. 10 pages, PDF.",
+        cta: "Get the free sample",
+        url: TPT.freeEn,
+      },
+      {
+        kind: "paid",
+        title: "Full 55-activity resource",
+        text: "The complete Volume 1 collection with a teacher page and an illustrated table of contents. 58 pages, PDF.",
+        cta: "See the full resource",
+        url: TPT.paidEn,
+      },
+    ],
+  },
+
+  /* =================== ИСПАНСКИЙ =================== */
+  es: {
+    title: "Dibujo dirigido para K-2: el formato dibuja, repasa y escribe",
+    lead: "Cuatro etapas en una sola hoja: sigue los pasos, repasa, dibuja solo y escribe la palabra.",
+
+    definition:
+      "El dibujo dirigido para los grados K-2 es una actividad en la que el alumno construye un dibujo a partir de líneas y formas sencillas siguiendo una secuencia visual, repasa el contorno terminado, vuelve a dibujarlo por su cuenta y después escribe la palabra correspondiente sobre pauta de tres líneas. Las cuatro etapas caben en una sola hoja y no requieren preparación: elija la actividad, imprímala y repártala.",
+
+    originTitle: "De dónde viene este formato",
+    origin: [
+      "El dibujo dirigido es una práctica escolar conocida desde hace mucho tiempo.",
+      "Dibuja, repasa y escribe es un formato desarrollado por Ricardo Demi para los grados K-2 y construido sobre los principios del método ECL. Reúne una estructura de página determinada, un orden fijo de etapas y una relación directa entre el dibujo y la palabra escrita.",
+    ],
+
+    whyTitle: "Por qué ayuda un modelo paso a paso",
+    why: [
+      "Para un alumno que apenas empieza a dibujar, la hoja en blanco puede ser una tarea exigente. Tiene que decidir a la vez qué dibujar, por dónde empezar y cómo situar el dibujo en la página. Un modelo visual divide esa tarea en acciones pequeñas y claras.",
+      "Repasar el contorno funciona como puente entre seguir el modelo y dibujar solo. El alumno primero repite el movimiento con una guía y después reproduce la forma sin ella. La escritura sigue un orden parecido: primero se repasa la palabra y después se escribe de forma independiente.",
+    ],
+
+    stepsTitle: "Las cuatro etapas",
+    steps: [
+      {
+        n: "1",
+        title: "Sigue los pasos",
+        text: "Una secuencia de imágenes muestra cómo se construye el dibujo a partir de formas sencillas.",
+      },
+      {
+        n: "2",
+        title: "Repasa",
+        text: "El alumno repasa el contorno terminado sobre la guia punteada.",
+      },
+      {
+        n: "3",
+        title: "Dibuja y colorea",
+        text: "El alumno vuelve a dibujar la figura en un espacio libre y la colorea.",
+      },
+      {
+        n: "4",
+        title: "Repasa y escribe la palabra",
+        text: "El alumno repasa la palabra y luego la escribe sobre pauta de tres líneas.",
+      },
+    ],
+    stepsNote:
+      "Dibujo, motricidad fina, escritura a mano y vocabulario se reúnen en una sola actividad.",
+
+    skillsTitle: "Qué practica el alumno",
+    skillsLead: "Motricidad fina",
+    skills: [
+      "Control del lápiz",
+      "Coordinación ojo-mano",
+      "Situar el dibujo en la página",
+      "Seguir una secuencia visual",
+      "Trabajo autónomo",
+      "Trazado de letras",
+      "Una palabra nueva por página",
+    ],
+
+    fitTitle: "Dónde encaja en la jornada escolar",
+    fitLead: "Una hoja, sin preparación, y sin volver a explicar nada cuando la rutina ya es conocida.",
+    fit: [
+      "Trabajo de la mañana",
+      "Alumnos que terminan antes",
+      "Centro de escritura",
+      "Trabajo autónomo",
+      "Clases con sustituto",
+      "Centros de aprendizaje",
+    ],
+
+    bookTitle: "Qué incluye el libro completo",
+    book: [
+      "55 actividades de dibujo dirigido a página completa, una página para el maestro que explica cómo funcionan y un índice ilustrado de dos páginas. 58 páginas, tamaño carta, blanco y negro.",
+      "55 actividades alcanzan para usar una por semana durante todo el curso escolar y aún sobran páginas.",
+    ],
+    themesTitle: "Ocho temas",
+    themes: [
+      { name: "Animales", count: 20 },
+      { name: "Vida marina", count: 8 },
+      { name: "Fantasía", count: 5 },
+      { name: "Vehículos", count: 4 },
+      { name: "Deportes y pasatiempos", count: 4 },
+      { name: "Cosas", count: 3 },
+      { name: "Naturaleza", count: 5 },
+      { name: "Comida", count: 6 },
+    ],
+
+    methodTitle: "Sobre el método",
+    method:
+      "Dibuja, repasa y escribe se apoya en los principios del método ECL de Ricardo Demi, que relacionan la actividad creativa con el desarrollo del lenguaje. El método completo está documentado por separado.",
+    methodLink: "Leer el método ECL",
+
+    publisherTitle: "Sobre la editorial",
+    publisher: [
+      "Magic of Discoveries LLC, Miami, Florida. Veintisiete libros infantiles publicados en inglés y español.",
+      "Otros libros de la editorial han sido reconocidos por los Children's Book International Awards en 2025 y los Literary Titan Book Awards en 2024, con dos premios de oro entre ellos.",
+    ],
+
+    faqTitle: "Preguntas frecuentes",
+    faq: [
+      {
+        q: "¿Sirve el dibujo dirigido para kindergarten?",
+        a: "Sí. Las actividades están pensadas para los grados K-2. En kindergarten el alumno suele apoyarse más en la etapa de repasar, mientras que en segundo grado muchos pasan directamente del modelo al dibujo propio. La misma hoja funciona en ambos niveles.",
+      },
+      {
+        q: "¿Cuánto dura una actividad?",
+        a: "Depende del grado y de si el alumno colorea el dibujo. La actividad puede quedarse corta, como calentamiento, o alargarse si el alumno añade un fondo propio.",
+      },
+      {
+        q: "¿Hay que preparar algo?",
+        a: "No. Imprimir y repartir. No hay nada que recortar, pegar ni montar.",
+      },
+      {
+        q: "¿Sirve para los alumnos que terminan antes?",
+        a: "Sí, es uno de los usos principales. Alrededor del dibujo terminado se deja espacio libre a propósito, para que el alumno pueda añadir árboles, hierba, piedras o el sol y convertir una figura en una escena. Los dibujos pequeños y las letras de la hoja también se pueden colorear. Así el alumno que acaba antes tiene dónde seguir trabajando sin interrumpir al resto de la clase ni esperar al maestro.",
+      },
+      {
+        q: "¿En qué se diferencia de una hoja para colorear?",
+        a: "En una hoja para colorear el alumno rellena el dibujo de otra persona. Aquí el alumno dibuja la figura y después escribe la palabra. El trabajo pasa por el control del lápiz, la secuencia y el vocabulario, no solo por el color.",
+      },
+      {
+        q: "¿Qué habilidades practica el dibujo dirigido?",
+        a: "Motricidad fina, escritura a mano, vocabulario y seguimiento de instrucciones visuales. El alumno controla el lápiz, situa el dibujo en la página, repasa y escribe la palabra, y trabaja de forma autónoma de principio a fin.",
+      },
+      {
+        q: "¿Funciona para alumnos que aprenden español?",
+        a: "Sí. Cada página se centra en una palabra ligada a la imagen. Para un alumno que todavía está aprendiendo el idioma, la guia visual deja clara la tarea sin depender de instrucciones habladas largas.",
+      },
+      {
+        q: "¿Hay versión en inglés?",
+        a: "Sí. El mismo conjunto de actividades está publicado con vocabulario en inglés en cada página.",
+      },
+    ],
+
+    ctaTitle: "Pruébelo en su clase",
+    ctaLead: "Ambos están disponibles en Teachers Pay Teachers, en inglés y en español.",
+    cards: [
+      {
+        kind: "free",
+        title: "Muestra gratuita de 8 actividades",
+        text: "Una actividad de cada tema, sin recortes y sin marcas de agua. 10 páginas, PDF.",
+        cta: "Descargar la muestra gratuita",
+        url: TPT.freeEs,
+      },
+      {
+        kind: "paid",
+        title: "Colección completa de 55 actividades",
+        text: "El volumen 1 completo, con página para el maestro e índice ilustrado. 58 páginas, PDF.",
+        cta: "Ver la colección completa",
+        url: TPT.paidEs,
+      },
+    ],
+  },
+};
+
+export const teachersForLang = (lang: UiLang): TeachersCopy | undefined => teachers[lang];

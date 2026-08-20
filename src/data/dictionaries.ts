@@ -7,6 +7,7 @@ export interface Dictionary {
     home: string;
     books: string;
     method: string;
+    teachers: string;
     coloringPages: string;
     about: string;
     contact: string;
@@ -152,6 +153,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       home: "Home",
       books: "Books",
       method: "The method",
+      teachers: "For teachers",
       coloringPages: "Free coloring pages",
       about: "About us",
       contact: "Contact",
@@ -357,6 +359,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       home: "Inicio",
       books: "Libros",
       method: "El método",
+      teachers: "Para maestros",
       coloringPages: "Dibujos gratis",
       about: "Quiénes somos",
       contact: "Contacto",
@@ -562,6 +565,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       home: "Главная",
       books: "Книги",
       method: "Метод",
+      teachers: "Учителям",
       coloringPages: "Бесплатные раскраски",
       about: "О нас",
       contact: "Контакты",

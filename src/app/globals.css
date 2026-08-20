@@ -753,6 +753,7 @@ ul.inside li::marker { color: var(--pink-hot); }
 .ladder {
   display: grid; gap: var(--gap-2); margin: var(--gap-3) 0;
   grid-template-columns: repeat(4, 1fr);
+  list-style: none; padding: 0;
 }
 @media (max-width: 900px) { .ladder { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .ladder { grid-template-columns: 1fr; } }
@@ -1115,3 +1116,131 @@ ul.award-list li {
 }
 .tcard h3 { margin: 0 0 0.5rem; font-size: var(--t-h3); }
 .tcard p { margin: 0 0 0.9rem; font-size: var(--t-small); color: var(--ink-2); }
+
+
+/* ==================== РАЗДЕЛ ДЛЯ УЧИТЕЛЕЙ ====================
+   Одна колонка чтения. Заголовки, текст, плашки, картинки и карточки
+   стоят на одной левой границе, поэтому страница не выглядит рваной.
+   Колонка шире обычной, а шрифт крупнее: строка остается в пределах
+   восьмидесяти знаков, дальше читать тяжело.                        */
+
+:root {
+  --teach-col: 1000px;   /* колонка чтения */
+  --teach-wide: 1240px;  /* парные картинки, шире колонки */
+}
+
+.teach {
+  max-width: var(--teach-col);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+.teach--wide { max-width: var(--teach-wide); }
+
+/* Полосы без цветной заливки получают такие же отступы сверху и снизу,
+   как цветные, иначе ритм страницы сбивается. */
+.teach-block { padding: var(--band-y) 0; }
+
+.teach > h2.section { margin-top: 0; }
+.teach > h2.section:not(:first-child) { margin-top: var(--gap-4, 2rem); }
+
+.teach-p,
+.teach-def {
+  max-width: none;
+  font-size: clamp(1.12rem, 1rem + 0.55vw, 1.42rem);
+  line-height: 1.66;
+  margin: 0 0 var(--gap-2);
+}
+.teach-def { color: var(--ink); font-weight: 500; }
+.teach-p:last-child { margin-bottom: 0; }
+
+.teach .buy-note {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  margin: var(--gap-2) 0 0;
+}
+.teach-script { margin: 0 0 var(--gap-2); }
+
+/* Плашки крупнее: раньше это был самый мелкий шрифт на странице,
+   хотя именно в них перечислены достоинства. */
+.teach .chips { gap: 0.6rem; }
+.teach .chip {
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.12rem);
+  padding: 0.55rem 1.05rem;
+  line-height: 1.35;
+}
+
+/* Четыре этапа. Два ряда по два: при четырех в ряд карточка сужалась
+   до двухсот тридцати точек и текст рассыпался на пять строк.
+   Шрифт внутри приведен к общему размеру страницы. */
+.teach .ladder { grid-template-columns: 1fr; gap: clamp(1rem, 2vw, 1.5rem); }
+@media (min-width: 620px) { .teach .ladder { grid-template-columns: 1fr 1fr; } }
+.teach .ladder__step { padding: clamp(1.1rem, 2vw, 1.6rem); }
+.teach .ladder__age { font-size: clamp(1.5rem, 1.3rem + 0.6vw, 1.9rem); margin-bottom: 0.35rem; }
+.teach .ladder__can {
+  font-size: clamp(1.08rem, 1rem + 0.35vw, 1.28rem);
+  font-weight: 800; margin-bottom: 0.4rem;
+}
+.teach .ladder__needs { font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem); font-weight: 500; line-height: 1.55; }
+
+/* Картинки. Каждая с подписью, подпись читают и человек, и нейросеть. */
+.tfig { margin: 0; }
+.tfig img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  background: var(--paper);
+}
+.tfig figcaption {
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.08rem);
+  color: var(--ink-2);
+  margin-top: 0.7rem;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Две картинки рядом. На узком экране встают друг под другом. */
+.tpair { display: grid; gap: clamp(1rem, 2.5vw, 2rem); margin-top: var(--gap-3); }
+@media (min-width: 820px) { .tpair { grid-template-columns: 1fr 1fr; align-items: start; } }
+/* Листы задания вытянутые, поэтому им дается меньше ширины,
+   чем квадратным баннерам: иначе они уходят за высоту экрана. */
+.tpair--pages { max-width: 1000px; margin-inline: auto; }
+
+/* Одиночная картинка внутри колонки. */
+.teach > .tfig { margin-top: var(--gap-3); }
+
+/* Кнопка сразу под листами задания. */
+.teach-cta { margin: var(--gap-3) 0 0; text-align: center; }
+
+/* Вопросы в две колонки. Вопрос с ответом не разрывается между ними. */
+@media (min-width: 860px) {
+  .faq--two { columns: 2; column-gap: clamp(2rem, 4vw, 3.5rem); }
+  .faq--two details { break-inside: avoid; -webkit-column-break-inside: avoid; }
+}
+.faq--two { max-width: none; }
+.faq--two summary { font-size: clamp(1.04rem, 1rem + 0.25vw, 1.18rem); }
+.faq--two p { font-size: clamp(1rem, 0.97rem + 0.2vw, 1.12rem); line-height: 1.6; }
+
+/* Две карточки внизу. Рядом только на широком экране: на планшете
+   обложка ужималась до размера почтовой марки.
+   Обложка сверху, текст под ней: при обложке сбоку на кнопку
+   оставалось около двухсот точек и надпись ломалась на две строки. */
+.teach .tcards { grid-template-columns: 1fr; }
+@media (min-width: 900px) { .teach .tcards { grid-template-columns: 1fr 1fr; } }
+.teach .tcard { padding: var(--gap-3); grid-template-columns: 1fr; }
+@media (min-width: 420px) { .teach .tcard { grid-template-columns: 1fr; } }
+.teach .tcard img { max-width: 260px; }
+.teach .tcard h3 { font-size: clamp(1.2rem, 1.1rem + 0.4vw, 1.45rem); }
+.teach .tcard p { font-size: clamp(1rem, 0.95rem + 0.2vw, 1.1rem); }
+.teach .tcard .btn { display: inline-block; }
+
+
+/* Две книги вверху страницы. Обложка, название, кнопка, без описания:
+   описание есть внизу, а вверху блок должен быть коротким. */
+.teach-block--top { padding: clamp(1.8rem, 3vw, 2.6rem) 0 0; }
+.tcards--top { margin-top: 0; }
+.tcards--top .tcard { text-align: center; justify-items: center; }
+.tcards--top .tcard img { max-width: 210px; margin-inline: auto; }
+.tcards--top .tcard-title {
+  margin: 0 0 0.9rem;
+  font-weight: 800;
+  font-size: clamp(1.15rem, 1.05rem + 0.35vw, 1.35rem);
+  line-height: 1.3;
+}

@@ -62,6 +62,8 @@ export interface TeachersCopy {
   stepsNote: string;
   /** Настоящий лист задания. Главное доказательство на странице. */
   sample: TeachersImage;
+  /** Второй лист, другая тема. На широком экране стоит рядом с первым. */
+  sample2: TeachersImage;
 
   skillsTitle: string;
   /** Главный термин, выносится отдельно и крупно. */
@@ -72,6 +74,8 @@ export interface TeachersCopy {
   fitLead: string;
   fit: string[];
   fitImage: TeachersImage;
+  /** Второй баннер. На широком экране стоит рядом с первым. */
+  fitImage2: TeachersImage;
 
   bookTitle: string;
   book: string[];
@@ -164,7 +168,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       h: 1294,
       alt: "A directed drawing worksheet for grades K-2. A row of six numbered boxes shows a lion built up from a circle. Below it, a dashed lion outline to trace, an empty box to draw in, and primary ruled lines with the word Lion to trace and write.",
       caption:
-        "One activity page from the collection. All four stages sit on a single sheet: follow the steps, trace, draw and color, then trace and write the word.",
+        "Lion, from the Animals theme.",
+    },
+    sample2: {
+      src: "/teachers/sample-page-2-en.jpg",
+      w: 1000,
+      h: 1294,
+      alt: "A directed drawing worksheet for grades K-2. Six numbered boxes show a unicorn built up from simple curved shapes. Below them, a dashed unicorn outline to trace, an empty box to draw in, and primary ruled lines with the word Unicorn to trace and write.",
+      caption: "Unicorn, from the Fantasy theme.",
     },
 
     skillsTitle: "What students practice",
@@ -197,6 +208,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       caption:
         "Open space is left around each drawing on purpose. A student who finishes early can add a background and keep working independently.",
     },
+    fitImage2: {
+      src: "/teachers/print-en.jpg",
+      w: 900,
+      h: 900,
+      alt: "Four printed directed drawing worksheets fanned out, showing a parrot, a zebra, an elephant and a lion, under a banner reading No Prep, Print and Go, 55 activities.",
+      caption:
+        "Nothing to cut, glue or assemble. Choose an activity, print it, and hand it out.",
+    },
 
     bookTitle: "What is in the full book",
     book: [
@@ -215,12 +234,12 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       { name: "Food", count: 6 },
     ],
     themesImage: {
-      src: "/teachers/themes-en.jpg",
+      src: "/teachers/yearlong-en.jpg",
       w: 900,
       h: 900,
-      alt: "Illustrated contents of the collection: rows of small line drawings grouped by theme, with animals, sea life, fantasy, vehicles, sports and hobbies, things, nature and food, each numbered.",
+      alt: "Illustrated contents of the full book: eight themes listed with page ranges, then rows of small line drawings, each with its name and page number, including a lion, an elephant, a zebra, a parrot, a crocodile, a monkey, a kangaroo, a rhino, a mermaid, a unicorn, a dragon, a car, a helicopter and an airplane.",
       caption:
-        "The illustrated table of contents. Every drawing in the book is shown, so a teacher can find one in seconds.",
+        "The illustrated table of contents. Every one of the 55 drawings is shown with its page number, so a teacher can find one in seconds.",
     },
 
     methodTitle: "About the method",
@@ -354,8 +373,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       w: 1000,
       h: 1294,
       alt: "Hoja de dibujo dirigido para los grados K-2. Una fila de seis casillas numeradas muestra cómo se construye un león a partir de un círculo. Debajo, un contorno punteado para repasar, un recuadro vacío para dibujar y una pauta de tres líneas con la palabra León para repasar y escribir.",
-      caption:
-        "Una hoja de actividad de la colección. Las cuatro etapas caben en una sola página: sigue los pasos, repasa, dibuja y colorea, y por último repasa y escribe la palabra.",
+      caption: "León, del tema Animales.",
+    },
+    sample2: {
+      src: "/teachers/sample-page-2-es.jpg",
+      w: 1000,
+      h: 1294,
+      alt: "Hoja de dibujo dirigido para los grados K-2. Seis casillas numeradas muestran cómo se construye un unicornio a partir de formas curvas sencillas. Debajo, el contorno punteado del unicornio para repasar, un recuadro vacío para dibujar y una pauta de tres líneas con la palabra Unicornio para repasar y escribir.",
+      caption: "Unicornio, del tema Fantasía.",
     },
 
     skillsTitle: "Qué practica el alumno",
@@ -388,6 +413,14 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       caption:
         "Alrededor de cada dibujo se deja espacio libre a propósito. El alumno que termina antes puede añadir un fondo y seguir trabajando por su cuenta.",
     },
+    fitImage2: {
+      src: "/teachers/print-es.jpg",
+      w: 900,
+      h: 900,
+      alt: "Cuatro hojas de dibujo dirigido impresas y superpuestas, con un loro, una cebra, un elefante y un león, bajo un rótulo que dice sin preparación, imprime y reparte, 55 actividades.",
+      caption:
+        "No hay que recortar, pegar ni montar nada. Elija la actividad, imprímala y repártala.",
+    },
 
     bookTitle: "Qué incluye el libro completo",
     book: [
@@ -406,12 +439,12 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       { name: "Comida", count: 6 },
     ],
     themesImage: {
-      src: "/teachers/themes-es.jpg",
+      src: "/teachers/yearlong-es.jpg",
       w: 900,
       h: 900,
-      alt: "Índice ilustrado de la colección: filas de pequeños dibujos a línea agrupados por tema, con animales, vida marina, fantasía, vehículos, deportes y pasatiempos, cosas, naturaleza y comida, cada uno numerado.",
+      alt: "Índice ilustrado del libro completo: los ocho temas con sus páginas y, debajo, filas de pequeños dibujos a línea con su nombre y su número de página, entre ellos un león, un elefante, una cebra, un loro, un cocodrilo, un mono, un canguro, un rinoceronte, una sirena, un unicornio, un dragón, un coche, un helicóptero y un avión.",
       caption:
-        "El índice ilustrado. Muestra todos los dibujos del libro, de modo que el maestro encuentra uno en segundos.",
+        "El índice ilustrado. Muestra los 55 dibujos con su número de página, de modo que el maestro encuentra uno en segundos.",
     },
 
     methodTitle: "Sobre el método",

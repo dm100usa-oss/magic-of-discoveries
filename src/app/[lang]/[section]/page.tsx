@@ -178,6 +178,10 @@ export default async function SectionPage({
     const c = teachersForLang(lang);
     if (!c) notFound();
     const url = `${SITE_URL}${sectionPath(lang, s)}`;
+    /* Бесплатный набор нужен дважды: кнопка сразу под листами задания
+       и карточка в конце. Учитель убеждается на середине страницы,
+       и ему должно быть куда нажать, не долистывая до низа. */
+    const free = c.cards.find((card) => card.kind === "free");
 
     /* Вопросы и ответы отдельной разметкой. Именно ее читают нейросети
        и именно из нее берут готовый абзац в свой ответ. */
@@ -209,6 +213,14 @@ export default async function SectionPage({
       isBasedOn: { "@type": "CreativeWork", name: "Ricardo Demi ECL Method", url: METHOD_URL },
     };
 
+    /* Картинка с подписью. Подпись видна человеку и читается нейросетью. */
+    const Fig = ({ img }: { img: typeof c.sample }) => (
+      <figure className="tfig">
+        <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" />
+        <figcaption>{img.caption}</figcaption>
+      </figure>
+    );
+
     return (
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
@@ -216,40 +228,74 @@ export default async function SectionPage({
         <Crumbs />
         <PageHead title={c.title} lead={c.lead} />
 
-        {/* Определение. Первый абзац страницы, его берет нейросеть. */}
-        <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem) 0" }}>
-          <div className="tw">
-            <p className="lead" style={{ maxWidth: "none" }}>
-              {c.definition}
-            </p>
-          </div>
-        </div>
-
-        {/* Чей это формат */}
-        <div className="band band--cream">
-          <div className="wrap prose">
-            <div className="tw">
-              <h2 className="section">{c.originTitle}</h2>
-              {c.origin.map((para) => (
-                <p key={para.slice(0, 24)}>{para}</p>
+        {/* Обе книги сразу под заголовком: обложка, название, кнопка.
+            Тот же выбор повторен внизу, там с полным описанием.
+            Вверху описание убрано, иначе блок отодвигает объяснение
+            и первый абзац уходит с экрана. */}
+        <section className="teach-block teach-block--top">
+          <div className="teach">
+            <div className="tcards tcards--top">
+              {c.cards.map((card) => (
+                <div className="tcard" key={`top-${card.title}`}>
+                  <img
+                    src={card.cover.src}
+                    alt={card.cover.alt}
+                    width={card.cover.w}
+                    height={card.cover.h}
+                  />
+                  <div>
+                    <p className="tcard-title">{card.title}</p>
+                    {card.url ? (
+                      <a
+                        className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
+                        href={card.url}
+                        rel="nofollow sponsored noopener"
+                        target="_blank"
+                      >
+                        {card.cta}
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Почему помогает */}
-        <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
-          <div className="tw">
-            <h2 className="section">{c.whyTitle}</h2>
-            {c.why.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
+        {/* Определение. Первый абзац страницы, его берет нейросеть. */}
+        <section className="teach-block">
+          <div className="teach">
+            <p className="teach-def">{c.definition}</p>
+          </div>
+        </section>
+
+        {/* Чей это формат */}
+        <section className="band band--cream">
+          <div className="teach">
+            <h2 className="section">{c.originTitle}</h2>
+            {c.origin.map((para) => (
+              <p className="teach-p" key={para.slice(0, 24)}>
+                {para}
+              </p>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Четыре этапа */}
-        <div className="band band--mint">
-          <div className="wrap">
+        {/* Почему помогает */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{c.whyTitle}</h2>
+            {c.why.map((para) => (
+              <p className="teach-p" key={para.slice(0, 24)}>
+                {para}
+              </p>
+            ))}
+          </div>
+        </section>
+
+        {/* Четыре этапа и два настоящих листа рядом */}
+        <section className="band band--mint">
+          <div className="teach">
             <h2 className="section">{c.stepsTitle}</h2>
             <ol className="ladder">
               {c.steps.map((st) => (
@@ -261,39 +307,42 @@ export default async function SectionPage({
               ))}
             </ol>
             <p className="buy-note">{c.stepsNote}</p>
-            <figure className="figure figure--page">
-              <img
-                src={c.sample.src}
-                alt={c.sample.alt}
-                width={c.sample.w}
-                height={c.sample.h}
-                loading="lazy"
-              />
-              <figcaption>{c.sample.caption}</figcaption>
-            </figure>
           </div>
-        </div>
+          <div className="teach teach--wide">
+            <div className="tpair tpair--pages">
+              <Fig img={c.sample} />
+              <Fig img={c.sample2} />
+            </div>
+            {free?.url ? (
+              <p className="teach-cta">
+                <a className="btn btn--sky" href={free.url} rel="nofollow sponsored noopener" target="_blank">
+                  {free.cta}
+                </a>
+              </p>
+            ) : null}
+          </div>
+        </section>
 
         {/* Навыки. Мелкая моторика вынесена отдельно. */}
-        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
-          <h2 className="section">{c.skillsTitle}</h2>
-          <p className="script-title" style={{ fontSize: "clamp(1.3rem, 1rem + 1.4vw, 1.9rem)" }}>
-            {c.skillsLead}
-          </p>
-          <div className="chips">
-            {c.skills.map((sk) => (
-              <span className="chip" key={sk}>
-                {sk}
-              </span>
-            ))}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{c.skillsTitle}</h2>
+            <p className="script-title teach-script">{c.skillsLead}</p>
+            <div className="chips">
+              {c.skills.map((sk) => (
+                <span className="chip" key={sk}>
+                  {sk}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* Где встает в дне класса */}
-        <div className="band band--pink">
-          <div className="wrap">
+        {/* Где встает в дне класса. Два баннера рядом. */}
+        <section className="band band--pink">
+          <div className="teach">
             <h2 className="section">{c.fitTitle}</h2>
-            <p className="lead">{c.fitLead}</p>
+            <p className="teach-p">{c.fitLead}</p>
             <div className="chips">
               {c.fit.map((f) => (
                 <span className="chip" key={f}>
@@ -301,25 +350,23 @@ export default async function SectionPage({
                 </span>
               ))}
             </div>
-            <figure className="figure figure--square">
-              <img
-                src={c.fitImage.src}
-                alt={c.fitImage.alt}
-                width={c.fitImage.w}
-                height={c.fitImage.h}
-                loading="lazy"
-              />
-              <figcaption>{c.fitImage.caption}</figcaption>
-            </figure>
           </div>
-        </div>
+          <div className="teach teach--wide">
+            <div className="tpair">
+              <Fig img={c.fitImage} />
+              <Fig img={c.fitImage2} />
+            </div>
+          </div>
+        </section>
 
         {/* Состав книги и темы */}
-        <div className="wrap prose" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
-          <div className="tw">
+        <section className="teach-block">
+          <div className="teach">
             <h2 className="section">{c.bookTitle}</h2>
             {c.book.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
+              <p className="teach-p" key={para.slice(0, 24)}>
+                {para}
+              </p>
             ))}
             <h2 className="section">{c.themesTitle}</h2>
             <div className="chips">
@@ -329,56 +376,50 @@ export default async function SectionPage({
                 </span>
               ))}
             </div>
-            <figure className="figure figure--square">
-              <img
-                src={c.themesImage.src}
-                alt={c.themesImage.alt}
-                width={c.themesImage.w}
-                height={c.themesImage.h}
-                loading="lazy"
-              />
-              <figcaption>{c.themesImage.caption}</figcaption>
-            </figure>
+            <Fig img={c.themesImage} />
           </div>
-        </div>
+        </section>
 
         {/* Метод и издательство. Два разных доказательства, поэтому врозь. */}
-        <div className="band band--cream">
-          <div className="wrap prose">
-            <div className="tw">
+        <section className="band band--cream">
+          <div className="teach">
             <h2 className="section">{c.methodTitle}</h2>
-            <p>{c.method}</p>
-            <p>
+            <p className="teach-p">{c.method}</p>
+            <p className="teach-p">
               <a href={METHOD_URL} rel="noopener" target="_blank">
                 {c.methodLink}
               </a>
             </p>
             <h2 className="section">{c.publisherTitle}</h2>
             {c.publisher.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
+              <p className="teach-p" key={para.slice(0, 24)}>
+                {para}
+              </p>
             ))}
+          </div>
+        </section>
+
+        {/* Вопросы и ответы. На широком экране в две колонки.
+            Первые два открыты: иначе виден только ряд плюсиков. */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{c.faqTitle}</h2>
+            <div className="faq faq--two">
+              {c.faq.map((f, i) => (
+                <details key={f.q} open={i < 2}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Вопросы и ответы */}
-        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
-          <h2 className="section">{c.faqTitle}</h2>
-          <div className="faq tw">
-            {c.faq.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
+        </section>
 
         {/* Две карточки. Человек прочитал объяснение и сразу видит, что делать. */}
-        <div className="band band--mint">
-          <div className="wrap">
+        <section className="band band--mint">
+          <div className="teach">
             <h2 className="section">{c.ctaTitle}</h2>
-            <p className="lead">{c.ctaLead}</p>
+            <p className="teach-p">{c.ctaLead}</p>
             <div className="tcards">
               {c.cards.map((card) => (
                 <div className="tcard" key={card.title}>
@@ -407,7 +448,7 @@ export default async function SectionPage({
               ))}
             </div>
           </div>
-        </div>
+        </section>
       </>
     );
   }

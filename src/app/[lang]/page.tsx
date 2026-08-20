@@ -6,6 +6,10 @@ import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard } from "@/components/Chrome";
 import { reviewsByLang } from "@/lib/reviews";
 import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, ADDRESS, CONTACT_EMAIL, OG_IMAGE } from "@/lib/site";
+import { awards } from "@/data/method";
+
+/** Второй сайт: там полностью описан метод ECL. */
+const METHOD_SITE = "https://www.ricardo-demi.com";
 import { homePath, sectionPath } from "@/lib/routes";
 import { langAlternates } from "@/lib/schema";
 
@@ -63,10 +67,39 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         email: CONTACT_EMAIL,
         address: ADDRESS,
         logo: `${SITE_URL}${OG_IMAGE.url}`,
-        sameAs: Object.values(SOCIAL),
+        /* Второй сайт стоит в этом же списке: для машины это значит,
+           что издательство и автор метода это одно и то же лицо. */
+        sameAs: [...Object.values(SOCIAL), METHOD_SITE],
         founder: [
-          { "@type": "Person", name: "Ricardo Demi" },
-          { "@type": "Person", name: "Maria Demi" },
+          {
+            "@type": "Person",
+            name: "Ricardo Demi",
+            jobTitle: "Author and creator of the ECL method",
+            sameAs: [`${METHOD_SITE}/method`],
+          },
+          { "@type": "Person", name: "Maria Demi", jobTitle: "Illustrator" },
+        ],
+        /* Кратко и словами: что это за издательство и что оно делает.
+           Нейросеть читает это поле раньше любого текста на странице. */
+        description: t.home.what,
+        /* Награды. Раньше поле было пустым, и по разметке выходило,
+           что подтверждений у издательства нет вовсе. */
+        award: awards.map(
+          (a) => `${a.result[lang] ?? a.result.en} ${a.program} ${a.year}`,
+        ),
+        knowsAbout: [
+          "Children's coloring books",
+          "Directed drawing for grades K-2",
+          "Early childhood language development",
+          "Handwriting practice for kindergarten",
+          "Bedtime stories for toddlers",
+        ],
+        /* Кому адресовано. Без этого поля выходило, что сайт только
+           для родителей, хотя половина материалов для школы. */
+        audience: [
+          { "@type": "PeopleAudience", audienceType: "Parents" },
+          { "@type": "EducationalAudience", educationalRole: "teacher" },
+          { "@type": "EducationalAudience", educationalRole: "homeschooler" },
         ],
       },
       /* Разметка сайта как единого объекта. Помогает поисковику
@@ -79,6 +112,20 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         inLanguage: lang,
         publisher: { "@id": `${SITE_URL}/#publisher` },
       },
+      /* Вопросы и ответы главной страницы. Именно из них нейросети
+         берут готовый абзац, отвечая "что это за сайт". */
+      ...(t.home.faq.length
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: t.home.faq.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
@@ -100,6 +147,18 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Link className="btn btn--pink" href={sectionPath(lang, "books")}>
             {t.home.heroCta}
           </Link>
+        </div>
+      </section>
+
+      {/* Блок 1а: что это за сайт. Один абзац, три строки на экране.
+          Человек понимает, куда попал. Нейросеть берет его целиком,
+          отвечая на вопрос "что это за сайт и для кого".
+          Ничего не спрятано: то же самое лежит в разметке страницы,
+          иначе поисковик считает расхождение обманом. */}
+      <section className="band band--cream">
+        <div className="wrap">
+          <h2 className="section">{t.home.whatTitle}</h2>
+          <p className="what-lead">{t.home.what}</p>
         </div>
       </section>
 
@@ -140,6 +199,20 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         </div>
       </section>
 
+      {/* Блок 4а: чем отличается. Короткий список, такие цитируют
+          охотнее всего. Каждый пункт проверяем: числа из каталога,
+          награды из списка наград, бесплатное действительно без почты. */}
+      <section className="band">
+        <div className="wrap">
+          <h2 className="section">{t.home.whyTitle}</h2>
+          <ul className="why-list">
+            {t.home.why.map((line) => (
+              <li key={line.slice(0, 24)}>{line}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       {/* Блок 5: отзывы */}
       <section className="band">
         <div className="wrap">
@@ -158,6 +231,26 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           </div>
         </div>
       </section>
+
+      {/* Блок 6: вопросы. Свернуты, чтобы не удлинять главную:
+          человек открывает нажатием, а в коде страницы они есть
+          всегда, и машина читает их независимо от того, открыты
+          они или нет. */}
+      {t.home.faq.length ? (
+        <section className="band band--cream">
+          <div className="wrap">
+            <h2 className="section">{t.home.faqTitle}</h2>
+            <div className="faq faq--two">
+              {t.home.faq.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </>
   );
 }

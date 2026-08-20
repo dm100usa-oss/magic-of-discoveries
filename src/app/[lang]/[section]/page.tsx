@@ -206,6 +206,13 @@ export default async function SectionPage({
       inLanguage: dictionaries[lang].htmlLang,
       educationalLevel: "Kindergarten, Grade 1, Grade 2",
       typicalAgeRange: "5-8",
+      /* Кому адресовано. Раньше стоял только уровень образования,
+         и по разметке выходило, что материал только для школы. */
+      audience: [
+        { "@type": "EducationalAudience", educationalRole: "teacher" },
+        { "@type": "EducationalAudience", educationalRole: "parent" },
+        { "@type": "EducationalAudience", educationalRole: "homeschooler" },
+      ],
       learningResourceType: "Lesson format",
       teaches: [c.skillsLead, ...c.skills],
       author: { "@type": "Person", name: AUTHORS.ricardo.name, sameAs: METHOD_URL },
@@ -447,6 +454,24 @@ export default async function SectionPage({
                 </div>
               ))}
             </div>
+
+            {/* Та же книга на другом языке. Учитель двуязычного класса
+                читает страницу на своем языке, и без этой строки он
+                вторую книгу не найдет: пришлось бы переключать язык
+                сайта и искать раздел заново. */}
+            {c.otherLang?.url ? (
+              <p className="teach-other">
+                <span>{c.otherLang.text}</span>
+                <a
+                  className="btn btn--sun"
+                  href={c.otherLang.url}
+                  rel="nofollow sponsored noopener"
+                  target="_blank"
+                >
+                  {c.otherLang.cta}
+                </a>
+              </p>
+            ) : null}
           </div>
         </section>
       </>

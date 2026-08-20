@@ -1284,3 +1284,20 @@ ul.award-list li {
   .teach .tcard img,
   .tcards--top .tcard img { max-width: 100%; }
 }
+
+
+/* Строка про издание на другом языке. Стоит под двумя карточками,
+   отдельной строкой, а не третьей карточкой: третья карточка спорила
+   бы с основными двумя и размывала выбор. */
+.teach-other {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.4rem);
+  margin: var(--gap-3) 0 0;
+  padding: clamp(1rem, 2vw, 1.35rem) clamp(1.1rem, 2.2vw, 1.6rem);
+  background: var(--paper); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  color: var(--ink-2);
+}
+.teach-other > span { flex: 1 1 16rem; }
+.teach-other .btn { flex: 0 0 auto; }

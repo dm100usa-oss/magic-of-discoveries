@@ -96,6 +96,11 @@ export interface TeachersCopy {
   ctaTitle: string;
   ctaLead: string;
   cards: TeachersCard[];
+
+  /** Те же задания на другом языке. Учитель двуязычного класса читает
+      на своем языке и без этой ссылки вторую книгу просто не найдет:
+      ему пришлось бы переключать язык сайта и искать раздел заново. */
+  otherLang: { text: string; cta: string; url: string };
 }
 
 /* ------------------------------------------------------------------ */
@@ -123,7 +128,7 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     lead: "Four stages on one page: follow the steps, trace, draw independently, write the word.",
 
     definition:
-      "Directed drawing for grades K-2 is an activity in which a student builds a picture from simple lines and shapes by following a visual sequence, traces the finished outline, recreates the drawing independently, and then writes the matching word on primary ruled lines. All four stages fit on a single page and require no preparation: choose an activity, print it, and hand it out to students.",
+      "Directed drawing for grades K-2, ages 5 to 8, is an activity in which a student builds a picture from simple lines and shapes by following a step by step visual sequence, traces the finished outline, recreates the drawing independently, and then writes the matching word on primary ruled lines. All four stages fit on a single page and require no preparation: choose an activity, print it, and hand it out. The same draw and write format works in a kindergarten, first grade or second grade classroom and at a homeschool table.",
 
     originTitle: "Where this format comes from",
     origin: [
@@ -183,22 +188,28 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     skills: [
       "Pencil control",
       "Hand-eye coordination",
-      "Placing a drawing on the page",
+      "Spatial awareness on the page",
+      "Following directions",
       "Following a visual sequence",
       "Working independently",
       "Letter formation",
+      "Handwriting practice",
       "One new vocabulary word per page",
     ],
 
     fitTitle: "Where it fits in the school day",
-    fitLead: "One page, no setup, and nothing to explain twice once the routine is familiar.",
+    fitLead:
+      "One page, no setup, and nothing to explain twice once the routine is familiar. The same no-prep page works in a classroom of twenty and at a kitchen table with one child.",
     fit: [
       "Morning work",
+      "Morning basket at home",
       "Early finishers",
       "Writing centers",
       "Independent work",
       "Sub plans",
       "Learning centers",
+      "Homeschool",
+      "Special education",
     ],
     fitImage: {
       src: "/teachers/early-en.jpg",
@@ -285,7 +296,23 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       },
       {
         q: "Is there a Spanish version?",
-        a: "Yes. The same set of activities is published with Spanish vocabulary on every page, for Spanish classes and dual language classrooms.",
+        a: "Yes. The same set of activities is published with Spanish vocabulary on every page, for Spanish classes and dual language classrooms. Both editions are linked at the bottom of this page, so a dual language teacher can use the same routine in both languages.",
+      },
+      {
+        q: "Can I use this for homeschool?",
+        a: "Yes. Nothing about the format assumes a classroom. The full book holds 55 activities, which is one a week for a full school year with pages left over, and a child works through a page alone once the routine is familiar. Many families use one page as part of morning basket or morning time, ages 5 to 8.",
+      },
+      {
+        q: "Does this work in special education?",
+        a: "Teachers use these pages with students who need a predictable routine and a clear model. Each page follows the same four stages in the same order, the drawing is broken into simple shapes, and a student who is not ready to draw independently can stay on the tracing stage as long as needed. Nothing on the page is timed.",
+      },
+      {
+        q: "How is this different from a step by step drawing book?",
+        a: "A drawing book stops at the picture. Here the page continues into handwriting: the student traces the finished outline, draws the subject independently, then traces and writes the matching word on primary ruled lines. Drawing and writing sit on the same sheet, which is why these are used in writing centers rather than only at an art table.",
+      },
+      {
+        q: "What are good directed drawing subjects for a zoo or animal unit?",
+        a: "The Animals theme holds 20 activities, among them a lion, an elephant, a zebra, a monkey, a rhino, a kangaroo and a flamingo, so a teacher can pull a matching page for a zoo unit. Sea Life adds 8 more. The illustrated table of contents shows every drawing with its page number.",
       },
     ],
 
@@ -321,6 +348,12 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         },
       },
     ],
+
+    otherLang: {
+      text: "Teaching a dual language or Spanish class? The same 55 activities are published with Spanish vocabulary on every page.",
+      cta: "See the Spanish edition",
+      url: TPT.paidEs,
+    },
   },
 
   /* =================== ИСПАНСКИЙ =================== */
@@ -329,7 +362,7 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     lead: "Cuatro etapas en una sola hoja: sigue los pasos, repasa, dibuja solo y escribe la palabra.",
 
     definition:
-      "El dibujo dirigido para los grados K-2 es una actividad en la que el alumno construye un dibujo a partir de líneas y formas sencillas siguiendo una secuencia visual, repasa el contorno terminado, vuelve a dibujarlo por su cuenta y después escribe la palabra correspondiente sobre pauta de tres líneas. Las cuatro etapas caben en una sola hoja y no requieren preparación: elija la actividad, imprímala y repártala.",
+      "El dibujo dirigido para los grados K-2, de 5 a 8 años, es una actividad en la que el alumno construye un dibujo a partir de líneas y formas sencillas siguiendo una secuencia visual paso a paso, repasa el contorno terminado, vuelve a dibujarlo por su cuenta y después escribe la palabra correspondiente sobre pauta de tres líneas. Las cuatro etapas caben en una sola hoja y no requieren preparación: elija la actividad, imprímala y repártala. El mismo formato de dibujar y escribir sirve en un aula de kínder, primero o segundo grado y en la mesa de una familia que educa en casa.",
 
     originTitle: "De dónde viene este formato",
     origin: [
@@ -387,6 +420,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     skillsLead: "Motricidad fina",
     skills: [
       "Control del lápiz",
+      "Orientación en la hoja",
+      "Seguir instrucciones",
       "Coordinación ojo-mano",
       "Situar el dibujo en la página",
       "Seguir una secuencia visual",
@@ -396,7 +431,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     ],
 
     fitTitle: "Dónde encaja en la jornada escolar",
-    fitLead: "Una hoja, sin preparación, y sin volver a explicar nada cuando la rutina ya es conocida.",
+    fitLead:
+      "Una hoja, sin preparación, y sin volver a explicar nada cuando la rutina ya es conocida. La misma hoja sirve en un aula de veinte alumnos y en la mesa de la cocina con un solo niño.",
     fit: [
       "Trabajo de la mañana",
       "Alumnos que terminan antes",
@@ -404,6 +440,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       "Trabajo autónomo",
       "Clases con sustituto",
       "Centros de aprendizaje",
+      "Educación en casa",
+      "Educación especial",
     ],
     fitImage: {
       src: "/teachers/early-es.jpg",
@@ -490,7 +528,23 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
       },
       {
         q: "¿Hay versión en inglés?",
-        a: "Sí. El mismo conjunto de actividades está publicado con vocabulario en inglés en cada página.",
+        a: "Sí. El mismo conjunto de actividades está publicado con vocabulario en inglés en cada página. Las dos ediciones están enlazadas al final de esta página, de modo que un maestro de clase bilingüe puede seguir la misma rutina en los dos idiomas.",
+      },
+      {
+        q: "¿Sirve para educar en casa?",
+        a: "Sí. El formato no da por supuesta un aula. El libro completo reúne 55 actividades, una por semana durante todo el curso y aún sobran páginas, y el niño resuelve una hoja solo en cuanto conoce la rutina. Muchas familias usan una hoja como parte de la rutina de la mañana, de 5 a 8 años.",
+      },
+      {
+        q: "¿Funciona en educación especial?",
+        a: "Los maestros usan estas hojas con alumnos que necesitan una rutina previsible y un modelo claro. Cada página sigue las mismas cuatro etapas en el mismo orden, el dibujo está descompuesto en formas sencillas, y el alumno que todavía no dibuja por su cuenta puede quedarse en la etapa de repasar el tiempo que haga falta. Nada en la página está cronometrado.",
+      },
+      {
+        q: "¿En qué se diferencia de un libro de dibujo paso a paso?",
+        a: "Un libro de dibujo termina en la imagen. Aquí la página continúa en la escritura: el alumno repasa el contorno terminado, dibuja la figura por su cuenta y después repasa y escribe la palabra sobre pauta de tres líneas. El dibujo y la escritura están en la misma hoja, y por eso estas páginas se usan en los centros de escritura y no solo en la mesa de arte.",
+      },
+      {
+        q: "¿Qué dibujos sirven para una unidad de animales o del zoológico?",
+        a: "El tema Animales reúne 20 actividades, entre ellas un león, un elefante, una cebra, un mono, un rinoceronte, un canguro y un flamenco, así que el maestro encuentra una página que acompañe la unidad. Vida marina añade 8 más. El índice ilustrado muestra todos los dibujos con su número de página.",
       },
     ],
 
@@ -526,6 +580,12 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         },
       },
     ],
+  
+    otherLang: {
+      text: "¿Da clase en inglés o en un aula bilingüe? Las mismas 55 actividades están publicadas con vocabulario en inglés en cada página.",
+      cta: "Ver la edición en inglés",
+      url: TPT.paidEn,
+    },
   },
 };
 

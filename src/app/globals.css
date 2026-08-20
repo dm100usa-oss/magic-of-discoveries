@@ -1149,7 +1149,13 @@ ul.award-list li {
   font-size: clamp(1.12rem, 1rem + 0.55vw, 1.42rem);
   line-height: 1.66;
   margin: 0 0 var(--gap-2);
+  /* Выравнивание по обоим краям, как в печатной книге:
+     правый край ровный, а не рваный. */
+  text-align: justify;
 }
+/* Последняя строка абзаца остается по левому краю, ее не растягивает. */
+.teach-p,
+.teach-def { text-align-last: left; }
 .teach-def { color: var(--ink); font-weight: 500; }
 .teach-p:last-child { margin-bottom: 0; }
 

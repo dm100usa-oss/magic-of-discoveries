@@ -67,7 +67,7 @@ export const teacherArticles: TeacherArticle[] = [
       en: "directed-drawing-and-writing-k-2",
       es: "dibujo-dirigido-y-escritura-k-2",
     },
-    related: ["classroom-routines", "skills-and-special-cases"],
+    related: ["fifteen-minute-routine", "first-weeks", "classroom-routines"],
     copy: {
       en: {
         title: "Directed drawing and writing for K-2",
@@ -216,7 +216,7 @@ export const teacherArticles: TeacherArticle[] = [
       en: "no-prep-directed-drawing-morning-work-early-finishers",
       es: "dibujo-dirigido-sin-preparacion-rutinas-de-clase",
     },
-    related: ["draw-and-write", "skills-and-special-cases"],
+    related: ["fifteen-minute-routine", "first-weeks", "draw-and-write"],
     copy: {
       en: {
         title: "No prep directed drawing for morning work and early finishers",
@@ -379,7 +379,7 @@ export const teacherArticles: TeacherArticle[] = [
       en: "directed-drawing-fine-motor-following-directions-esl",
       es: "dibujo-dirigido-motricidad-fina-instrucciones-esl",
     },
-    related: ["draw-and-write", "classroom-routines"],
+    related: ["draw-and-write", "classroom-routines", "fifteen-minute-routine"],
     copy: {
       en: {
         title: "Fine motor skills, following directions, ESL and special education",
@@ -543,6 +543,322 @@ export const teacherArticles: TeacherArticle[] = [
         ctaTitle: "Vea una hoja real",
         ctaLead:
           "La muestra gratuita son ocho actividades completas, sin recortes y sin marcas de agua.",
+      },
+    },
+  },
+
+  /* ================================================================
+     4. Рутина на пятнадцать минут
+     ================================================================ */
+  {
+    id: "fifteen-minute-routine",
+    slug: {
+      en: "directed-drawing-15-minute-routine-k-2",
+      es: "dibujo-dirigido-rutina-de-15-minutos-k-2",
+    },
+    related: ["classroom-routines", "first-weeks", "draw-and-write"],
+    copy: {
+      en: {
+        title: "Directed drawing in 15 minutes: a ready routine for K-2",
+        lead: "A simple plan for the session: what the teacher does and how the time is spent.",
+
+        answer:
+          "The main part of a directed drawing activity in grades K-2 can be done in about fifteen minutes. Students follow the printed steps in order, trace the finished outline, draw the subject on their own, then trace and write the matching word. Every instruction is on the sheet itself, so the teacher does not need to prepare a model in advance or explain each part of the task in detail.",
+
+        body: [
+          {
+            h: "Why a short activity is enough",
+            p: [
+              "A full art period is not required. A short activity is easier to place inside morning work, an independent center, a transition between lessons, or the time given to students who finish other work early.",
+              "The repeated sequence tells a student what to do: look at the steps, build the drawing stage by stage, trace the outline, draw it independently, then trace and write the word. A student who works more slowly than the rest still finishes with something complete, because the outline is already there to trace and does not have to be invented.",
+              "Repeated over time, the format supports confidence, following a sequence, fine motor control and independent work. Those are the reasons teachers keep it in the schedule, rather than the drawing itself.",
+            ],
+          },
+          {
+            h: "A sample fifteen minute plan",
+            p: [
+              "Minute one: hand out the sheets and name the subject. Minutes two to eight: work through the stages of the drawing, with the teacher calling the number of each step and giving the class time to repeat it. Every stage is printed in front of the student, so showing the drawing on the board is optional, though a teacher can work through the first steps together with the class when the group needs more support.",
+              "Minutes nine to eleven: trace the dashed outline and try the subject independently in the open space. Minutes twelve and thirteen: trace the word, then write it on the ruled line. Minutes fourteen and fifteen: finish up, while students who are already done begin coloring or add a simple setting around the drawing.",
+              "This is an approximate pace rather than a stopwatch. In kindergarten the activity may take fifteen to twenty minutes, especially early in the year. In grades one and two a familiar task usually moves faster.",
+            ],
+          },
+          {
+            h: "When students work at different speeds",
+            p: [
+              "The class stays together only through the first steps. After that students naturally separate, and the sheet is built for it.",
+              "Those who finish early do not need a separate assignment: they color the drawing, or add grass, a tree, clouds and other pieces of a setting in the space left around it. Those who need more time can be asked to complete the traced outline and the word first, and to continue the independent drawing or the coloring later.",
+              "In both cases the student takes part in the same class activity and finishes it at a level that is reachable for them.",
+            ],
+          },
+        ],
+
+        listTitle: "What you need",
+        list: [
+          "One printed sheet per student",
+          "A pencil",
+          "An eraser",
+          "Colored pencils or crayons for students who finish early",
+          "No further preparation",
+        ],
+
+        faq: [
+          {
+            q: "How long does the activity take?",
+            a: "About fifteen minutes in grades one and two. In kindergarten it may take up to twenty minutes, especially early in the year, because writing the word is slower at that stage.",
+          },
+          {
+            q: "Does the teacher need to be able to draw?",
+            a: "No. The sequence of the drawing is already printed on the sheet, and the teacher calls out the steps and keeps the pace.",
+          },
+          {
+            q: "Does the teacher need to draw on the board?",
+            a: "Not necessarily. Students can follow the steps directly on their own sheet. A teacher who prefers to model can still work through the first stages on the board if the class needs that support.",
+          },
+          {
+            q: "What do students do when they finish early?",
+            a: "They color the drawing or build a small scene around it. The sheet leaves open space for that on purpose, so early finishers do not need a separate task.",
+          },
+          {
+            q: "Can one sheet fill a whole lesson?",
+            a: "Yes. With coloring, a background around the drawing and a short sentence about the subject, the same sheet extends into a full block of independent work.",
+          },
+        ],
+
+        ctaTitle: "Try the format",
+        ctaLead:
+          "One free activity from each theme, or the full year-long collection. Both on Teachers Pay Teachers.",
+      },
+
+      es: {
+        title: "Dibujo dirigido en 15 minutos: una rutina lista para K-2",
+        lead: "Un plan sencillo para la sesión: qué hace el maestro y cómo se reparte el tiempo.",
+
+        answer:
+          "La parte principal de una actividad de dibujo dirigido en los grados K-2 puede hacerse en unos quince minutos. Los alumnos siguen en orden los pasos impresos, repasan el contorno terminado, dibujan la figura por su cuenta y después repasan y escriben la palabra correspondiente. Todas las instrucciones están en la propia hoja, así que el maestro no necesita preparar un modelo de antemano ni explicar en detalle cada parte de la tarea.",
+
+        body: [
+          {
+            h: "Por qué basta con una actividad corta",
+            p: [
+              "No hace falta reservar una clase entera. Una actividad corta encaja mejor dentro de la rutina de la mañana, en un centro de trabajo independiente, en el paso de una clase a otra, o en el tiempo de quienes terminan antes otra tarea.",
+              "La secuencia repetida le dice al alumno qué hacer: mirar los pasos, construir el dibujo por etapas, repasar el contorno, dibujarlo por su cuenta y después repasar y escribir la palabra. Un alumno que trabaja más despacio que el resto termina igualmente con algo acabado, porque el contorno ya está ahí para repasar y no hay que inventarlo.",
+              "Repetido a lo largo del tiempo, el formato apoya la confianza, el seguir una secuencia, el control del lápiz y el trabajo autónomo. Esas son las razones por las que los maestros lo mantienen en el horario, más que el dibujo en sí.",
+            ],
+          },
+          {
+            h: "Un plan aproximado de quince minutos",
+            p: [
+              "Minuto uno: repartir las hojas y nombrar el tema. Minutos dos a ocho: recorrer las etapas del dibujo, con el maestro nombrando el número de cada paso y dando tiempo a la clase para repetirlo. Cada etapa está impresa delante del alumno, así que mostrar el dibujo en la pizarra es opcional, aunque el maestro puede hacer los primeros pasos junto con la clase cuando el grupo necesita más apoyo.",
+              "Minutos nueve a once: repasar el contorno punteado e intentar la figura por su cuenta en el espacio libre. Minutos doce y trece: repasar la palabra y después escribirla sobre la pauta. Minutos catorce y quince: cerrar el trabajo, mientras quienes ya han terminado empiezan a colorear o añaden un entorno sencillo alrededor del dibujo.",
+              "Es un ritmo aproximado, no un cronómetro. En kínder la actividad puede llevar de quince a veinte minutos, sobre todo al principio del curso. En primero y segundo, una tarea ya conocida suele ir más rápida.",
+            ],
+          },
+          {
+            h: "Cuando los alumnos van a distinta velocidad",
+            p: [
+              "La clase avanza junta solo durante los primeros pasos. Después los alumnos se separan de forma natural, y la hoja está pensada para eso.",
+              "Quien termina antes no necesita otra tarea: colorea el dibujo, o añade hierba, un árbol, nubes y otras piezas de un entorno en el espacio que queda alrededor. A quien necesita más tiempo se le puede pedir que complete primero el contorno repasado y la palabra, y que siga más tarde con el dibujo propio o con el color.",
+              "En los dos casos el alumno participa en la misma actividad de clase y la termina en un nivel que sí puede alcanzar.",
+            ],
+          },
+        ],
+
+        listTitle: "Qué hace falta",
+        list: [
+          "Una hoja impresa por alumno",
+          "Un lápiz",
+          "Una goma de borrar",
+          "Lápices de colores o ceras para quienes terminan antes",
+          "Ninguna preparación adicional",
+        ],
+
+        faq: [
+          {
+            q: "¿Cuánto dura la actividad?",
+            a: "Unos quince minutos en primero y segundo. En kínder puede llegar a veinte minutos, sobre todo al principio del curso, porque escribir la palabra va más despacio en esa etapa.",
+          },
+          {
+            q: "¿El maestro tiene que saber dibujar?",
+            a: "No. La secuencia del dibujo ya está impresa en la hoja; el maestro va nombrando los pasos y marcando el ritmo.",
+          },
+          {
+            q: "¿Hay que dibujar en la pizarra?",
+            a: "No necesariamente. Los alumnos pueden seguir los pasos en su propia hoja. El maestro que prefiere modelar puede hacer las primeras etapas en la pizarra si la clase necesita ese apoyo.",
+          },
+          {
+            q: "¿Qué hacen los que terminan antes?",
+            a: "Colorean el dibujo o construyen una escena pequeña alrededor. La hoja deja espacio libre para eso a propósito, así que no hace falta darles otra tarea.",
+          },
+          {
+            q: "¿Una hoja puede llenar una clase entera?",
+            a: "Sí. Con color, un fondo alrededor del dibujo y una frase corta sobre la figura, la misma hoja se extiende hasta un bloque completo de trabajo independiente.",
+          },
+        ],
+
+        ctaTitle: "Pruebe el formato",
+        ctaLead:
+          "Una actividad gratuita de cada tema, o la colección completa para todo el año. Las dos en Teachers Pay Teachers.",
+      },
+    },
+  },
+
+  /* ================================================================
+     5. Первые недели учебного года
+     ================================================================ */
+  {
+    id: "first-weeks",
+    slug: {
+      en: "directed-drawing-first-weeks-of-school-k-2",
+      es: "dibujo-dirigido-primeras-semanas-de-curso-k-2",
+    },
+    related: ["fifteen-minute-routine", "classroom-routines", "draw-and-write"],
+    copy: {
+      en: {
+        title: "Directed drawing in the first weeks of school",
+        lead: "How a short repeated activity helps students start a task, work through it and finish it.",
+
+        answer:
+          "In the first weeks of the school year, directed drawing can be used for more than drawing skills. Because every sheet is built the same way, it helps establish a clear working routine: students get their materials, move through the steps in order, finish the drawing and clear their space. The subjects and the drawings change, while the order of the work stays familiar, so each session takes the teacher less explaining than the one before.",
+
+        body: [
+          {
+            h: "Why a repeated routine helps a class",
+            p: [
+              "In the first weeks a teacher is starting instruction and building working habits at the same time: taking out the right supplies, listening to a short direction, beginning without a long wait, and carrying a task through to the end.",
+              "Directed drawing suits that work because every sheet is built the same way: build the drawing step by step, trace the outline, draw it independently, trace and write the word, and color or add to the drawing if there is time. The teacher introduces that order once. In the sessions that follow the character or the object changes, and the sequence stays the same.",
+            ],
+          },
+          {
+            h: "The first week: getting to know the order of the work",
+            p: [
+              "The drawing can be new every day. What stays the same is the format and the order of the steps, not the subject.",
+              "During the first week it helps to choose the simplest subjects and to work through the main steps together with the whole class. The teacher names the stage, students find it on the sheet and repeat it. There is no need to aim for identical drawings or identical speed.",
+              "After a few sessions most students need noticeably fewer prompts. They already know where the steps are, where the open space for their own drawing is, and where the line for the word is.",
+            ],
+          },
+          {
+            h: "The second and third weeks: more independence",
+            p: [
+              "Once the structure is familiar, the sheets can go into the parts of the day where quiet independent work is most useful: morning work, learning centers, the time right after recess, work for students who finished something else early, the end of the day, or the stretch when the teacher is with a small group.",
+              "The teacher still watches the room and helps the students who need it, but no longer has to explain the whole task from the beginning each time.",
+              "After a few weeks students have a collection of finished pages. It shows progress clearly and gives the teacher something concrete to talk about with families.",
+            ],
+          },
+        ],
+
+        listTitle: "What this routine can give a class",
+        list: [
+          "Students start work sooner because the format is familiar",
+          "The sequence of a task becomes easier to follow",
+          "Students work more independently as the weeks go on",
+          "It also allows for different working speeds: early finishers move on to coloring and a background, while students who work more slowly concentrate on the traced outline and the main stages",
+          "Each student ends up with a collection of finished pages",
+        ],
+
+        faq: [
+          {
+            q: "When can we start?",
+            a: "From the first days of the year. Choose a simple subject and work through the steps together with the class.",
+          },
+          {
+            q: "Do the sheets need to be used every day?",
+            a: "Not necessarily. In the first weeks they can be used daily or a few times a week, depending on the schedule and on what the class needs.",
+          },
+          {
+            q: "Should the same drawing be repeated for several days?",
+            a: "No. The drawings can be different each time. What repeats is the familiar sequence of the work, not the subject.",
+          },
+          {
+            q: "What about a student who joins the class later?",
+            a: "Show them the main parts of the sheet and do the first activity with a little support. Because the structure repeats, a new student catches up with the rest quickly.",
+          },
+          {
+            q: "Does the format work for kindergarten?",
+            a: "Yes. The finished outline is there to trace, and the word is dashed before it is written. If needed, writing the word independently can be shortened or moved to a later point in the year.",
+          },
+          {
+            q: "Does this replace an art lesson?",
+            a: "No. It is a short activity that brings together step by step drawing, fine motor practice, independent work, handwriting and vocabulary.",
+          },
+        ],
+
+        ctaTitle: "Start the year with it",
+        ctaLead:
+          "One free activity from each theme, or the full year-long collection. Both on Teachers Pay Teachers.",
+      },
+
+      es: {
+        title: "Dibujo dirigido en las primeras semanas de curso",
+        lead: "Cómo una actividad corta y repetida ayuda al alumno a empezar una tarea, sacarla adelante y terminarla.",
+
+        answer:
+          "En las primeras semanas del curso, el dibujo dirigido puede usarse para algo más que la destreza de dibujar. Como todas las hojas están construidas igual, ayuda a establecer una rutina de trabajo clara: los alumnos cogen el material, recorren los pasos en orden, terminan el dibujo y recogen su sitio. Los temas y los dibujos cambian, mientras el orden del trabajo sigue siendo conocido, de modo que cada sesión exige menos explicación que la anterior.",
+
+        body: [
+          {
+            h: "Por qué una rutina repetida ayuda a la clase",
+            p: [
+              "En las primeras semanas el maestro empieza a enseñar y a la vez está formando hábitos de trabajo: sacar el material adecuado, escuchar una consigna corta, empezar sin una espera larga y llevar una tarea hasta el final.",
+              "El dibujo dirigido encaja en ese trabajo porque todas las hojas están construidas igual: construir el dibujo paso a paso, repasar el contorno, dibujarlo por su cuenta, repasar y escribir la palabra, y colorear o completar el dibujo si queda tiempo. El maestro presenta ese orden una vez. En las sesiones siguientes cambia el personaje o el objeto, y la secuencia se mantiene.",
+            ],
+          },
+          {
+            h: "La primera semana: conocer el orden del trabajo",
+            p: [
+              "El dibujo puede ser nuevo cada día. Lo que se mantiene igual es el formato y el orden de los pasos, no el tema.",
+              "Durante la primera semana conviene elegir las figuras más sencillas y recorrer los pasos principales junto con toda la clase. El maestro nombra la etapa, los alumnos la localizan en la hoja y la repiten. No hace falta buscar dibujos iguales ni la misma velocidad.",
+              "Después de unas cuantas sesiones, la mayoría necesita bastantes menos indicaciones. Ya saben dónde están los pasos, dónde queda el espacio libre para su propio dibujo y dónde está la pauta para la palabra.",
+            ],
+          },
+          {
+            h: "La segunda y la tercera semana: más autonomía",
+            p: [
+              "Cuando la estructura ya resulta conocida, las hojas pueden ir a las partes del día en que el trabajo tranquilo y autónomo viene mejor: la rutina de la mañana, los centros de aprendizaje, el rato justo después del recreo, el trabajo para quien ha terminado antes otra cosa, el final del día, o el tiempo en que el maestro está con un grupo pequeño.",
+              "El maestro sigue observando la clase y ayudando a quien lo necesita, pero ya no tiene que explicar la tarea entera desde el principio cada vez.",
+              "Al cabo de unas semanas los alumnos tienen una colección de hojas terminadas. Muestra el avance con claridad y le da al maestro algo concreto que comentar con las familias.",
+            ],
+          },
+        ],
+
+        listTitle: "Qué puede aportar esta rutina a la clase",
+        list: [
+          "Los alumnos empiezan antes porque el formato ya les resulta conocido",
+          "La secuencia de la tarea se sigue con más facilidad",
+          "El trabajo se vuelve más autónomo con el paso de las semanas",
+          "También tiene en cuenta los distintos ritmos de trabajo: quien termina antes pasa a colorear y al fondo, y quien va más despacio se concentra en el contorno repasado y en las etapas principales",
+          "Cada alumno acaba con una colección de hojas terminadas",
+        ],
+
+        faq: [
+          {
+            q: "¿Cuándo se puede empezar?",
+            a: "Desde los primeros días del curso. Elija una figura sencilla y recorra los pasos junto con la clase.",
+          },
+          {
+            q: "¿Hay que usar las hojas todos los días?",
+            a: "No necesariamente. En las primeras semanas pueden usarse a diario o varias veces por semana, según el horario y según lo que necesite la clase.",
+          },
+          {
+            q: "¿Conviene repetir el mismo dibujo varios días?",
+            a: "No. Los dibujos pueden ser distintos cada vez. Lo que se repite es la secuencia conocida del trabajo, no el tema.",
+          },
+          {
+            q: "¿Y un alumno que se incorpora más tarde?",
+            a: "Enséñele las partes principales de la hoja y haga con él la primera actividad con un poco de apoyo. Como la estructura se repite, se pone al ritmo del resto enseguida.",
+          },
+          {
+            q: "¿Sirve el formato para kínder?",
+            a: "Sí. El contorno terminado está ahí para repasar, y la palabra aparece punteada antes de escribirse. Si hace falta, escribir la palabra de forma autónoma puede acortarse o dejarse para más adelante en el curso.",
+          },
+          {
+            q: "¿Esto sustituye a la clase de plástica?",
+            a: "No. Es una actividad corta que reúne dibujo paso a paso, motricidad fina, trabajo autónomo, escritura y vocabulario.",
+          },
+        ],
+
+        ctaTitle: "Empiece el curso con esto",
+        ctaLead:
+          "Una actividad gratuita de cada tema, o la colección completa para todo el año. Las dos en Teachers Pay Teachers.",
       },
     },
   },

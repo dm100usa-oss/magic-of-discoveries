@@ -8,28 +8,60 @@ import { homePath, sectionPath, itemPath } from "@/lib/routes";
 
 const BRAND = "MAGIC of DISCOVERIES";
 
-/* Облако. Нарисовано двумя слоями: снизу тот же силуэт голубым и с толстой
-   обводкой, сверху он же белым. Голубой выглядывает по краю ровной каймой,
-   а все внутренние стыки кружков закрыты белым. */
-function Cloud({ className }: { className: string }) {
-  const bumps = (
+/* Все три рисунка неба сделаны в том же ключе, что и название на сайте:
+   у фигуры своя кромка чуть темнее заливки, дальше белая обводка, дальше
+   бледно-розовая, и мягкая тень снизу. Плюс заливка не плоская, а с
+   переходом, чтобы читался объем. */
+
+/* Облако. Силуэт собран из кругов, поэтому каждый слой рисуется целиком:
+   так внутренние стыки кругов не видны. Объем дают отдельные переливы
+   на каждом коме, поэтому облако выглядит пухлым, а не плоским. */
+function Cloud({ className, uid }: { className: string; uid: string }) {
+  const shape = (
     <>
-      <circle cx="124" cy="60" r="48" />
-      <circle cx="72" cy="86" r="30" />
-      <circle cx="180" cy="84" r="28" />
-      <circle cx="40" cy="102" r="22" />
-      <circle cx="211" cy="105" r="19" />
+      <circle cx="104" cy="54" r="52" />
+      <circle cx="50" cy="86" r="34" />
+      <circle cx="154" cy="82" r="34" />
+      <circle cx="26" cy="104" r="24" />
+      <circle cx="178" cy="104" r="24" />
+      <rect x="26" y="104" width="152" height="24" />
     </>
   );
   return (
-    <svg className={className} viewBox="8 4 228 128" aria-hidden focusable="false">
-      <g fill="#4da3e8" stroke="#4da3e8" strokeWidth="5" strokeLinejoin="round">
-        {bumps}
-        <rect x="40" y="104" width="171" height="20" />
-      </g>
-      <g fill="#ffffff" stroke="#ffffff" strokeWidth="1.4" strokeLinejoin="round">
-        {bumps}
-        <rect x="40" y="96" width="171" height="28" />
+    <svg className={className} viewBox="-2 -2 208 134" aria-hidden focusable="false">
+      <defs>
+        <radialGradient id={`puff-${uid}`} cx="38%" cy="26%" r="76%">
+          <stop offset="0.58" stopColor="#ffffff" />
+          <stop offset="0.86" stopColor="#f6fafe" />
+          <stop offset="1" stopColor="#c7ddf2" />
+        </radialGradient>
+        <linearGradient
+          id={`band-${uid}`}
+          gradientUnits="userSpaceOnUse"
+          x1="0" y1="70" x2="0" y2="128"
+        >
+          <stop offset="0" stopColor="#ffffff" />
+          <stop offset="1" stopColor="#cfe2f4" />
+        </linearGradient>
+        <clipPath id={`clip-${uid}`}>
+          <circle cx="104" cy="54" r="52" />
+          <circle cx="50" cy="86" r="34" />
+          <circle cx="154" cy="82" r="34" />
+          <circle cx="26" cy="104" r="24" />
+          <circle cx="178" cy="104" r="24" />
+          <rect x="26" y="94" width="152" height="34" />
+        </clipPath>
+      </defs>
+      <g fill="#fde1ea" stroke="#fde1ea" strokeWidth="9" strokeLinejoin="round">{shape}</g>
+      <g fill="#ffffff" stroke="#ffffff" strokeWidth="5.5" strokeLinejoin="round">{shape}</g>
+      <g fill="#a8cfee" stroke="#a8cfee" strokeWidth="2.6" strokeLinejoin="round">{shape}</g>
+      <g clipPath={`url(#clip-${uid})`}>
+        <rect x="26" y="70" width="152" height="58" fill={`url(#band-${uid})`} />
+        <circle cx="104" cy="54" r="52" fill={`url(#puff-${uid})`} />
+        <circle cx="154" cy="82" r="34" fill={`url(#puff-${uid})`} />
+        <circle cx="50" cy="86" r="34" fill={`url(#puff-${uid})`} />
+        <circle cx="178" cy="104" r="24" fill={`url(#puff-${uid})`} />
+        <circle cx="26" cy="104" r="24" fill={`url(#puff-${uid})`} />
       </g>
     </svg>
   );
@@ -38,24 +70,36 @@ function Cloud({ className }: { className: string }) {
 /* Солнце. Диск стоит на месте, лучи вращаются: они собраны в отдельную
    группу, ей и задан поворот. */
 function Sun() {
-  const ray = <rect x="93" y="12" width="14" height="32" rx="7" />;
+  const rays = (
+    <>
+      {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
+        <g key={deg} transform={`rotate(${deg} 100 100)`}>
+          <rect x="96.25" y="9" width="7.5" height="36" rx="3.75" />
+        </g>
+      ))}
+    </>
+  );
   return (
-    <svg className="sky__sun" viewBox="8 8 184 184" aria-hidden focusable="false">
+    <svg className="sky__sun" viewBox="6 6 188 188" aria-hidden focusable="false">
       <defs>
-        <linearGradient id="sunFill" x1="0.15" y1="0" x2="0.85" y2="1">
-          <stop offset="0" stopColor="#ffb93f" />
-          <stop offset="0.55" stopColor="#ff9d1a" />
-          <stop offset="1" stopColor="#f0790a" />
+        <radialGradient id="sunDisc" cx="34%" cy="30%" r="78%">
+          <stop offset="0" stopColor="#ffd873" />
+          <stop offset="0.45" stopColor="#ffb02e" />
+          <stop offset="1" stopColor="#f07d0a" />
+        </radialGradient>
+        <linearGradient id="sunRay" x1="0" y1="1" x2="0" y2="0">
+          <stop offset="0" stopColor="#ffc25a" />
+          <stop offset="1" stopColor="#ff9c14" />
         </linearGradient>
       </defs>
-      <g className="sky__rays" fill="#ffa726">
-        {[0, 45, 90, 135, 180, 225, 270, 315].map((deg) => (
-          <g key={deg} transform={`rotate(${deg} 100 100)`}>
-            {ray}
-          </g>
-        ))}
+      <g className="sky__rays">
+        <g fill="#fde1ea" stroke="#fde1ea" strokeWidth="8" strokeLinejoin="round">{rays}</g>
+        <g fill="#ffffff" stroke="#ffffff" strokeWidth="5" strokeLinejoin="round">{rays}</g>
+        <g fill="url(#sunRay)" stroke="#e09a00" strokeWidth="1.8" strokeLinejoin="round">{rays}</g>
       </g>
-      <circle cx="100" cy="100" r="50" fill="url(#sunFill)" />
+      <circle cx="100" cy="100" r="48" fill="#fde1ea" stroke="#fde1ea" strokeWidth="9" />
+      <circle cx="100" cy="100" r="48" fill="#ffffff" stroke="#ffffff" strokeWidth="5.5" />
+      <circle cx="100" cy="100" r="48" fill="url(#sunDisc)" stroke="#e09a00" strokeWidth="2.4" />
     </svg>
   );
 }
@@ -63,40 +107,74 @@ function Sun() {
 /* Птичка. Стоит в самом конце второй строки названия, поэтому она вписана
    в строку: так она держится за буквы и не уезжает при смене размера окна. */
 function Bird() {
-  const body = (
+  const tail = "M74 44 C89 47 106 55 118 64 C116 67 113 68 110 67 C97 62 84 57 73 55 Z";
+  const shape = (
     <>
-      <path d="M76 50 C92 53 110 61 122 70 C119 74 116 75 112 74 C99 69 86 63 75 61 Z" />
-      <circle cx="40" cy="32" r="20" />
-      <ellipse cx="57" cy="50" rx="30" ry="23" />
+      <path d={tail} />
+      <circle cx="38" cy="30" r="17" />
+      <ellipse cx="56" cy="46" rx="28" ry="19" />
     </>
   );
   return (
-    <svg className="brand__bird" viewBox="0 0 126 96" aria-hidden focusable="false">
-      <g stroke="#f4741f" strokeWidth="3" strokeLinecap="round" fill="none">
-        <path d="M50 70 L47 88" />
-        <path d="M47 88 L39 92" />
-        <path d="M47 88 L54 92" />
-        <path d="M47 88 L47 93" />
-        <path d="M64 70 L68 88" />
-        <path d="M68 88 L60 92" />
-        <path d="M68 88 L75 92" />
-        <path d="M68 88 L68 93" />
+    <svg className="brand__bird" viewBox="0 6 122 90" aria-hidden focusable="false">
+      <defs>
+        <linearGradient
+          id="birdBody"
+          gradientUnits="userSpaceOnUse"
+          x1="30" y1="12" x2="80" y2="66"
+        >
+          <stop offset="0" stopColor="#8fd8fd" />
+          <stop offset="0.55" stopColor="#5cbcf6" />
+          <stop offset="1" stopColor="#3ea2e2" />
+        </linearGradient>
+        <linearGradient
+          id="birdWing"
+          gradientUnits="userSpaceOnUse"
+          x1="44" y1="36" x2="72" y2="60"
+        >
+          <stop offset="0" stopColor="#3d90e6" />
+          <stop offset="1" stopColor="#1a63c4" />
+        </linearGradient>
+        <linearGradient
+          id="birdTail"
+          gradientUnits="userSpaceOnUse"
+          x1="74" y1="44" x2="112" y2="68"
+        >
+          <stop offset="0" stopColor="#28539f" />
+          <stop offset="1" stopColor="#132f6c" />
+        </linearGradient>
+      </defs>
+      <g stroke="#f4741f" strokeWidth="2.6" strokeLinecap="round" fill="none">
+        <path d="M50 66 L47 87" />
+        <path d="M47 87 L40 91" />
+        <path d="M47 87 L54 91" />
+        <path d="M47 87 L47 92" />
+        <path d="M63 66 L67 87" />
+        <path d="M67 87 L60 91" />
+        <path d="M67 87 L74 91" />
+        <path d="M67 87 L67 92" />
       </g>
-      <g fill="#ffffff" stroke="#ffffff" strokeWidth="7" strokeLinejoin="round">
-        {body}
+      <g fill="#fde1ea" stroke="#fde1ea" strokeWidth="11" strokeLinejoin="round">{shape}</g>
+      <g fill="#ffffff" stroke="#ffffff" strokeWidth="6.5" strokeLinejoin="round">{shape}</g>
+      <g fill="#2f97cf" stroke="#2f97cf" strokeWidth="2.2" strokeLinejoin="round">{shape}</g>
+      <path d={tail} fill="url(#birdTail)" />
+      <g fill="url(#birdBody)">
+        <circle cx="38" cy="30" r="17" />
+        <ellipse cx="56" cy="46" rx="28" ry="19" />
       </g>
       <path
-        d="M76 50 C92 53 110 61 122 70 C119 74 116 75 112 74 C99 69 86 63 75 61 Z"
-        fill="#173a86"
+        d="M43 44 C51 37 68 36 76 44 C82 50 75 58 62 58 C51 58 40 52 43 44 Z"
+        fill="url(#birdWing)"
       />
-      <g fill="#5cbcf6">
-        <circle cx="40" cy="32" r="20" />
-        <ellipse cx="57" cy="50" rx="30" ry="23" />
-      </g>
-      <path d="M42 48 C52 38 74 37 84 48 C91 56 82 67 66 67 C52 67 39 58 42 48 Z" fill="#1e73d8" />
-      <path d="M23 31 L3 37 L23 43 Z" fill="#f7931e" />
-      <circle cx="41" cy="27" r="4" fill="#2b3245" />
-      <circle cx="42.3" cy="25.7" r="1.3" fill="#ffffff" />
+      <path
+        d="M22 29 L4 35 L22 40 Z"
+        fill="#f7931e"
+        stroke="#e07a12"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <circle cx="39" cy="26" r="3.6" fill="#2b3245" />
+      <circle cx="40.2" cy="24.8" r="1.2" fill="#ffffff" />
     </svg>
   );
 }
@@ -133,8 +211,8 @@ export function Header({ lang }: { lang: UiLang }) {
     <header>
       <div className="masthead">
         <div className="sky" aria-hidden>
-          <Cloud className="sky__cloud sky__cloud--big" />
-          <Cloud className="sky__cloud sky__cloud--small" />
+          <Cloud className="sky__cloud sky__cloud--big" uid="a" />
+          <Cloud className="sky__cloud sky__cloud--small" uid="b" />
           <Sun />
         </div>
         <div className="masthead__inner">

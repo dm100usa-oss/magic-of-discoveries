@@ -103,7 +103,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Слой с облаками и солнцем лежит под названием и не ловит нажатия. */
 .sky { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-.sky > svg { position: absolute; height: auto; }
+.sky > svg { position: absolute; height: auto; filter: drop-shadow(0 3px 3px rgba(51, 32, 44, 0.10)); }
 .masthead__inner, .byline, .langbar { position: relative; z-index: 1; }
 
 .sky__cloud--big {
@@ -268,10 +268,11 @@ img { max-width: 100%; height: auto; display: block; }
    поля по бокам гасят ее ширину, чтобы строка не сдвинулась с центра. */
 .brand__bird {
   display: inline-block;
-  width: 0.66em;
+  width: 0.65em;
   height: auto;
   vertical-align: baseline;
-  margin: 0 -0.15em 0.49em -0.55em;
+  margin: 0 -0.15em 0.48em -0.54em;
+  filter: drop-shadow(0 2px 2px rgba(51, 32, 44, 0.10));
   transform-origin: 50% 100%;
   animation: bird-hop 5.5s ease-in-out 2s infinite;
 }

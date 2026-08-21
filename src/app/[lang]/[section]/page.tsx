@@ -720,8 +720,64 @@ export default async function SectionPage({
 
   /* ---------- О нас ---------- */
   if (s === "about") {
+    /* Кто именно стоит за издательством. На странице это было написано
+       словами, но машина не видела, что речь о конкретных людях. Теперь
+       оба автора описаны отдельно, каждый со ссылкой на свою авторскую
+       страницу Amazon, которую можно проверить. Это же описание Гугл
+       и нейросети подтягивают, когда решают, доверять ли статьям. */
+    const aboutSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          name: PUBLISHER,
+          url: SITE_URL,
+          address: ADDRESS,
+          founder: [
+            {
+              "@type": "Person",
+              name: AUTHORS.ricardo.name,
+              jobTitle: "Publisher and author",
+              sameAs: [AUTHORS.ricardo.amazon, METHOD_REFERENCE_URL],
+            },
+            {
+              "@type": "Person",
+              name: AUTHORS.maria.name,
+              jobTitle: "Author and illustrator",
+              sameAs: [AUTHORS.maria.amazon],
+            },
+          ],
+        },
+        {
+          "@type": "Person",
+          name: AUTHORS.ricardo.name,
+          jobTitle: "Publisher and author",
+          worksFor: { "@type": "Organization", name: PUBLISHER },
+          url: `${SITE_URL}${sectionPath(lang, "about")}`,
+          sameAs: [AUTHORS.ricardo.amazon, METHOD_REFERENCE_URL],
+          knowsAbout: [
+            "Children's book publishing",
+            "Directed drawing",
+            "Early literacy",
+          ],
+        },
+        {
+          "@type": "Person",
+          name: AUTHORS.maria.name,
+          jobTitle: "Author and illustrator",
+          worksFor: { "@type": "Organization", name: PUBLISHER },
+          url: `${SITE_URL}${sectionPath(lang, "about")}`,
+          sameAs: [AUTHORS.maria.amazon],
+          knowsAbout: ["Coloring books", "Illustration"],
+        },
+      ],
+    };
     return (
       <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+        />
         <Crumbs />
         <PageHead title={h.title} />
         <div className="band band--mint">

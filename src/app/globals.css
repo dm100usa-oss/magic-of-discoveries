@@ -559,6 +559,15 @@ ul.inside li::marker { color: var(--pink-hot); }
   max-width: 74ch; margin: 0 auto 1rem; opacity: 0.82; line-height: 1.55;
 }
 
+/* Подпись автора и даты под заголовком статьи. Мельче основного текста
+   и приглушена: это опора для доверия, а не часть чтения. */
+.byline {
+  font-size: var(--t-small);
+  opacity: 0.75;
+  margin: 0;
+}
+.byline a { font-weight: 800; }
+
 .prose p { max-width: 66ch; font-size: var(--t-lead); }
 
 @media (prefers-reduced-motion: reduce) {

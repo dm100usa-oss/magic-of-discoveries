@@ -33,6 +33,11 @@ export interface TeacherArticleCopy {
 
 export interface TeacherArticle {
   id: string;
+  /** Своя дата у каждой статьи, а не одна общая на весь сайт.
+      Ставим только то, что правда: выдуманная дата публикации это
+      мелкая неправда, которую машина сверит с моментом первого обхода. */
+  published: string;
+  updated: string;
   slug: Partial<Record<UiLang, string>>;
   /** Соседние статьи. Читатель идет дальше по теме, а поисковик видит
       связный раздел, а не три отдельные страницы. */
@@ -43,17 +48,23 @@ export interface TeacherArticle {
 /** Подписи вокруг текста статьи. Держим здесь, чтобы не трогать общий
     словарь сайта: они нужны только этим трем страницам. */
 export const articleUi: Partial<
-  Record<UiLang, { faq: string; related: string; back: string }>
+  Record<UiLang, { faq: string; related: string; back: string; by: string; published: string; updated: string }>
 > = {
   en: {
     faq: "Frequently asked questions",
     related: "Read next",
     back: "Back to directed drawing for K-2",
+    by: "By",
+    published: "Published",
+    updated: "Updated",
   },
   es: {
     faq: "Preguntas frecuentes",
     related: "Seguir leyendo",
     back: "Volver a dibujo dirigido para K-2",
+    by: "Por",
+    published: "Publicado",
+    updated: "Actualizado",
   },
 };
 
@@ -63,6 +74,8 @@ export const teacherArticles: TeacherArticle[] = [
      ================================================================ */
   {
     id: "draw-and-write",
+    published: "2026-08-09",
+    updated: "2026-08-21",
     slug: {
       en: "directed-drawing-and-writing-k-2",
       es: "dibujo-dirigido-y-escritura-k-2",
@@ -212,6 +225,8 @@ export const teacherArticles: TeacherArticle[] = [
      ================================================================ */
   {
     id: "classroom-routines",
+    published: "2026-08-09",
+    updated: "2026-08-21",
     slug: {
       en: "no-prep-directed-drawing-morning-work-early-finishers",
       es: "dibujo-dirigido-sin-preparacion-rutinas-de-clase",
@@ -375,6 +390,8 @@ export const teacherArticles: TeacherArticle[] = [
      ================================================================ */
   {
     id: "skills-and-special-cases",
+    published: "2026-08-09",
+    updated: "2026-08-21",
     slug: {
       en: "directed-drawing-fine-motor-following-directions-esl",
       es: "dibujo-dirigido-motricidad-fina-instrucciones-esl",
@@ -552,6 +569,8 @@ export const teacherArticles: TeacherArticle[] = [
      ================================================================ */
   {
     id: "fifteen-minute-routine",
+    published: "2026-08-21",
+    updated: "2026-08-21",
     slug: {
       en: "directed-drawing-15-minute-routine-k-2",
       es: "dibujo-dirigido-rutina-de-15-minutos-k-2",
@@ -707,6 +726,8 @@ export const teacherArticles: TeacherArticle[] = [
      ================================================================ */
   {
     id: "first-weeks",
+    published: "2026-08-21",
+    updated: "2026-08-21",
     slug: {
       en: "directed-drawing-first-weeks-of-school-k-2",
       es: "dibujo-dirigido-primeras-semanas-de-curso-k-2",

@@ -48,6 +48,7 @@ import {
   SITE_PUBLISHED,
   SITE_UPDATED,
   OG_IMAGE,
+  METHOD_REFERENCE_URL,
 } from "@/lib/site";
 import {
   sectionFromSlug,
@@ -56,6 +57,15 @@ import {
   sectionPath,
 } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
+
+/* Дата словами, на языке страницы. В коде остается машинная запись,
+   человеку показываем привычную. */
+function fmtDate(iso: string, lang: string): string {
+  return new Date(`${iso}T12:00:00Z`).toLocaleDateString(
+    lang === "es" ? "es-ES" : "en-US",
+    { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" },
+  );
+}
 import { reviewsForBook, editorialForBook } from "@/lib/reviews";
 import { topicsForBook, allTopics, TOPIC_PREVIEW } from "@/data/bookTopics";
 
@@ -514,10 +524,22 @@ export default async function ItemPage({
           /* Прямой ответ первым абзацем. Его нейросеть берет целиком. */
           abstract: c.answer,
           inLanguage: lang,
-          author: { "@type": "Organization", name: PUBLISHER },
+          /* Автор статьи это человек с именем, а не компания. Поисковик
+             и нейросеть заметно больше доверяют тексту с живым автором,
+             которого можно проверить по внешней ссылке. */
+          author: {
+            "@type": "Person",
+            name: "Ricardo Demi",
+            url: `${SITE_URL}${sectionPath(lang, "about")}`,
+            sameAs: [
+              "https://www.amazon.com/stores/Ricardo-Demi/author/B0D3CQP21H",
+              METHOD_REFERENCE_URL,
+            ],
+          },
           publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
-          datePublished: SITE_PUBLISHED,
-          dateModified: SITE_UPDATED,
+          /* Свои даты у каждой статьи, а не одна общая на весь сайт. */
+          datePublished: art.published,
+          dateModified: art.updated,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "teachers", slug)}`,
           about: { "@type": "Thing", name: "Directed drawing" },
           audience: [
@@ -545,6 +567,28 @@ export default async function ItemPage({
       <>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <PageHead title={c.title} lead={c.lead} />
+
+        {/* Подпись автора и даты. Видны человеку, а не только машине:
+            читатель должен знать, кто написал и когда, до того как начнет
+            доверять тексту. Имя ведет на страницу об издательстве. */}
+        <section className="teach-block">
+          <div className="teach">
+            <p className="byline">
+              {ui.by}{" "}
+              <Link href={sectionPath(lang, "about")}>Ricardo Demi</Link>
+              {" · "}
+              {ui.published}{" "}
+              <time dateTime={art.published}>{fmtDate(art.published, lang)}</time>
+              {art.updated !== art.published ? (
+                <>
+                  {" · "}
+                  {ui.updated}{" "}
+                  <time dateTime={art.updated}>{fmtDate(art.updated, lang)}</time>
+                </>
+              ) : null}
+            </p>
+          </div>
+        </section>
 
         {/* Прямой ответ. Первый абзац страницы. */}
         <section className="teach-block">

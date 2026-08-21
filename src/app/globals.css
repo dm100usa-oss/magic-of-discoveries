@@ -553,6 +553,11 @@ ul.inside li::marker { color: var(--pink-hot); }
 }
 .footer a { color: #0c3f3b; font-weight: 800; }
 .footer p { margin: 0 0 0.4rem; }
+/* Строка о том, кто мы и для кого сайт. Стоит на каждой странице.
+   Уже основного текста и чуть приглушена: это опора, а не главное. */
+.footer__about {
+  max-width: 74ch; margin: 0 auto 1rem; opacity: 0.82; line-height: 1.55;
+}
 
 .prose p { max-width: 66ch; font-size: var(--t-lead); }
 
@@ -1410,3 +1415,13 @@ ul.award-list li {
   margin-bottom: 0.8rem;
 }
 .why-list li::marker { color: var(--pink-hot); }
+
+/* Страница для адресов, которых на сайте нет. */
+.nf { text-align: center; padding-block: clamp(1rem, 3vw, 2rem); }
+.nf__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  margin-top: 1.6rem;
+}

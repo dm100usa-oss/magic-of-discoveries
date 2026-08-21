@@ -254,6 +254,7 @@ export function Footer({ lang }: { lang: UiLang }) {
   const t = dictionaries[lang];
   return (
     <footer className="footer">
+      <p className="footer__about">{t.footer.about}</p>
       <p style={{ margin: "0 0 8px" }}>
         <a href={SOCIAL.instagram}>Instagram</a> · <a href={SOCIAL.tiktok}>TikTok</a> ·{" "}
         <a href={SOCIAL.pinterest}>Pinterest</a> · <a href={SOCIAL.youtube}>YouTube</a>

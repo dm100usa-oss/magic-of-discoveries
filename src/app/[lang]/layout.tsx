@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import "../globals.css";
 import { Header, Footer } from "@/components/Chrome";
 import { activeLangs, dictionaries } from "@/data/dictionaries";
@@ -41,8 +40,11 @@ export default async function LangLayout({
   params: Promise<{ lang: string }>;
 }) {
   const { lang } = await params;
-  if (!activeLangs.includes(lang as UiLang)) notFound();
-  const l = lang as UiLang;
+  /* Неизвестный первый кусок адреса это не повод обрывать страницу.
+     Каркас собирается на английском, а сама страница внутри него покажет
+     "страницы нет" и вернет нужный код ответа. Так гость видит шапку, меню
+     и ссылки, а не голую заглушку движка. */
+  const l = (activeLangs.includes(lang as UiLang) ? lang : "en") as UiLang;
   /* Язык стоит на самой странице: так его читают поисковики,
      переводчики и голосовые помощники. */
   return (

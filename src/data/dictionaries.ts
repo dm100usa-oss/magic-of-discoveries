@@ -155,6 +155,10 @@ export interface Dictionary {
   footer: {
     rights: string;
     follow: string;
+    /* Одна строка о том, кто мы и для кого сайт. Стоит в подвале каждой
+       страницы, не только главной. Человек и нейросеть часто попадают
+       сразу на книгу или статью, и там им тоже нужен этот якорь. */
+    about: string;
   };
 }
 
@@ -405,7 +409,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       lead: "Questions about a book, a bulk order for a school, or a page you would like us to draw. Write to us.",
       email: "Email",
     },
-    footer: { rights: "All rights reserved", follow: "Follow" },
+    footer: {
+      rights: "All rights reserved",
+      follow: "Follow",
+      about:
+        "Magic of Discoveries is an independent family publisher in Miami, Florida, run by Ricardo and Maria Demi. Hand drawn coloring, step by step drawing and bedtime books in English and Spanish for children ages 1 to 8, easy coloring for teenagers and adults, free printable pages for parents, and no prep directed drawing materials for K-2 teachers, childcare and homeschool families.",
+    },
   },
 
   es: {
@@ -654,7 +663,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       lead: "Dudas sobre un libro, pedidos para un colegio o un dibujo que te gustaría que hiciéramos. Escríbenos.",
       email: "Correo",
     },
-    footer: { rights: "Todos los derechos reservados", follow: "Síguenos" },
+    footer: {
+      rights: "Todos los derechos reservados",
+      follow: "Síguenos",
+      about:
+        "Magic of Discoveries es una editorial familiar independiente de Miami, Florida, a cargo de Ricardo y Maria Demi. Libros para colorear, de dibujo paso a paso y de cuentos para dormir, dibujados a mano, en inglés y en español, para niños de 1 a 8 años; libros de colorear fáciles para adolescentes y adultos; páginas gratis para imprimir en casa; y material de dibujo dirigido sin preparación para maestros de K-2, guarderías y familias que educan en casa.",
+    },
   },
 
   ru: {
@@ -868,7 +882,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       lead: "Вопросы о книге, заказ для школы или рисунок, который вы хотели бы получить. Напишите нам.",
       email: "Почта",
     },
-    footer: { rights: "Все права защищены", follow: "Мы здесь" },
+    footer: {
+      rights: "Все права защищены",
+      follow: "Мы здесь",
+      about:
+        "Magic of Discoveries это независимое семейное издательство из Майами, Флорида. Им занимаются Рикардо и Мария Деми. Нарисованные от руки раскраски, книги пошагового рисования и книги на ночь на английском и испанском для детей от 1 до 8 лет, легкие раскраски для подростков и взрослых, бесплатные страницы для печати дома и материалы по рисованию без подготовки для учителей K-2, детских садов и семейного обучения.",
+    },
   },
 };
 

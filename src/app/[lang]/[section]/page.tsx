@@ -32,6 +32,7 @@ import {
   METHOD_REFERENCE_URL,
   ADDRESS,
   OG_IMAGE,
+  toddlerSiteUrl,
 } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
@@ -713,6 +714,22 @@ export default async function SectionPage({
               })}
             </div>
           )}
+
+          {/* Справочник о первых раскрасках.
+
+              В этот раздел приходят за листами для печати, и заметная
+              часть пришедших это родители малышей, которым нужен не
+              набор картинок, а ответ, какие листы вообще подходят
+              их ребенку. Ответ лежит на отдельном сайте, и до сих пор
+              отсюда туда не вело ничего. */}
+          <p className="lead" style={{ marginTop: "var(--gap-4)" }}>
+            {t.free.toddlerNote}
+          </p>
+          <p>
+            <a className="btn btn--ghost" href={toddlerSiteUrl(lang)} rel="noopener">
+              {t.free.toddlerCta}
+            </a>
+          </p>
         </div>
       </>
     );

@@ -49,6 +49,7 @@ import {
   SITE_UPDATED,
   OG_IMAGE,
   METHOD_REFERENCE_URL,
+  toddlerSiteUrl,
 } from "@/lib/site";
 import {
   sectionFromSlug,
@@ -872,6 +873,12 @@ export default async function ItemPage({
     )
     .slice(0, 4);
 
+  /* Раскраска для самых маленьких. Только у таких книг внизу стоит
+     ссылка на справочник о первых раскрасках: он про этот возраст
+     и про этот тип книги, и ставить его у книги для семилетнего
+     значило бы отправлять человека не туда. */
+  const isToddlerColoring = book.age === "1-3" && book.type === "coloring";
+
   const paper =
     book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const video = bookVideo(book.id);
@@ -939,7 +946,27 @@ export default async function ItemPage({
             }
           : undefined,
         datePublished: book.published,
-        sameAs: wikidataUrl(book.id),
+        /* Внешние адреса, по которым машина опознает эту книгу.
+
+           Раньше здесь стоял один адрес, запись в Викиданных, и он
+           уходил в разметку как строка. Теперь это список: к записи
+           в Викиданных добавляется наш справочный сайт о первых
+           раскрасках, там у книги есть своя развернутая страница.
+
+           Смысл поля sameAs именно в этом: не "похожие ссылки",
+           а "это та же самая вещь, вот где еще она описана". Для
+           нейросети два независимых описания одной книги весят
+           заметно больше, чем одно. */
+        sameAs: (() => {
+          const out = [
+            wikidataUrl(book.id),
+            isToddlerColoring ? toddlerSiteUrl(lang) : undefined,
+          ].filter(Boolean);
+          /* Пусто значит поля нет вовсе. Пустой список в разметке
+             читается как "мы искали и не нашли ничего", а это не то,
+             что мы хотим сказать о книге. */
+          return out.length ? out : undefined;
+        })(),
         bookFormat:
           paper?.kind === "hardcover"
             ? "https://schema.org/Hardcover"
@@ -1445,6 +1472,38 @@ export default async function ItemPage({
               </details>
             ))}
           </div>
+
+          {/* Справочный сайт о первых раскрасках.
+
+              Стоит только у раскрасок для 1-3 лет: у книги для семи лет
+              ссылка на справочник о первых раскрасках была бы обманом.
+
+              Стоит после вопросов, а не среди кнопок покупки, и это
+              намеренно. Человек, который дочитал до сюда, не купил
+              сразу, значит сомневается, подходит ли книга. Ему нужен
+              не еще один призыв купить, а место, где можно проверить.
+
+              Ссылка идет с объяснением в несколько строк, а не голой
+              кнопкой. Кнопка сообщает машине только свое название,
+              текст рядом объясняет, что за сайт на том конце и чем он
+              отличается от этой страницы. */}
+          {isToddlerColoring ? (
+            <>
+              <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
+                {t.book.guideSiteTitle}
+              </h2>
+              <p>{t.book.guideSiteText}</p>
+              <p>
+                <a
+                  className="btn btn--ghost"
+                  href={toddlerSiteUrl(lang)}
+                  rel="noopener"
+                >
+                  {t.book.guideSiteCta}
+                </a>
+              </p>
+            </>
+          ) : null}
         </div>
 
         {related.length ? (

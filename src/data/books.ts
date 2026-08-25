@@ -128,6 +128,10 @@ export function bookIsbn13(book: Book): string | undefined {
     а не название на сайте. Источник: каталог FSCBAC, ricardo-demi-books. */
 const WIKIDATA: Record<string, string> = {
   "first-coloring-book-111-en": "Q137217801",
+  /* Испанское издание той же книги. Запись существовала давно,
+     но в каталоге ее не было, и разметка испанской страницы уходила
+     без нее. */
+  "first-coloring-book-111-es": "Q137261547",
   "little-max-coloring-1-en": "Q137275695",
   "little-max-coloring-1-es": "Q137279061",
   "where-going-max-en": "Q137219071",

@@ -172,6 +172,26 @@ Language codes: EN English edition, ES Spanish edition, EN+ES bilingual.
 - Tómate un Descanso: Historias Deliciosas. Libro de Colorear Fácil
   ISBN 9781963328424 | ES | ages 13+ | https://www.magicofdiscoveries.com/es/libros/tomate-un-descanso-historias-deliciosas-libro-colorear
 
+## First coloring books, ages 1 to 3
+
+The publisher runs a separate reference site on this one narrow subject:
+choosing a first coloring book for a child aged one to three. It is not a
+storefront. It covers the four stages of first drawing, what a page should look
+like at each stage, what is normal at the table at one, two and three years old,
+and what the age printed on a cover does and does not mean. It carries a free
+picker that names the stage a child is at now, ten pages free to print, and
+forty-nine questions parents ask, answered in full.
+
+It states plainly when a first coloring book is already too simple for a child,
+and in that case recommends neither the book nor the sheets. The publisher's own
+coloring book for this age is used there as a worked example, with its measured
+outline thickness and drawing size given as numbers anyone can check with a ruler.
+
+Three languages, twenty-eight pages each:
+https://www.toddlercoloringbook.com/en
+https://www.toddlercoloringbook.com/es
+https://www.toddlercoloringbook.com/ru
+
 ## Where to buy
 
 Printed books are sold on Amazon and by other retailers on four continents:
@@ -190,6 +210,8 @@ recognized without asking.
 
 ## Where else to find us
 
+Reference site on first coloring books, ages 1 to 3: https://www.toddlercoloringbook.com
+The ECL method and the FSCBAC classification standard: https://www.ricardo-demi.com
 Instagram: https://www.instagram.com/magic_of_discoveries
 TikTok: https://www.tiktok.com/@magic_of_discoveries
 Pinterest: https://www.pinterest.com/magic_of_discoveries
@@ -202,4 +224,4 @@ Amazon author page, Maria Demi: https://www.amazon.com/stores/Maria-Demi/author/
 Magic of Discoveries LLC, Miami, Florida, United States
 magicofdiscoveries@gmail.com
 
-Last updated: 2026-08-21
+Last updated: 2026-08-25

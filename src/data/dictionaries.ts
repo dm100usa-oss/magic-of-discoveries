@@ -84,6 +84,13 @@ export interface Dictionary {
     pdfNote: string;
     alsoIn: string;
     related: string;
+    /* Ссылка на отдельный справочный сайт о первых раскрасках 1-3.
+       Заголовок, объяснение и надпись на ссылке. Объяснение важнее
+       ссылки: и человек, и машина по нему понимают, зачем туда идти
+       и чем тот сайт отличается от этой страницы. */
+    guideSiteTitle: string;
+    guideSiteText: string;
+    guideSiteCta: string;
     detailsTitle: string;
     drawings: string;
     size: string;
@@ -138,6 +145,12 @@ export interface Dictionary {
     printA4: string;
     faqTitle: string;
     countLabel: string;
+    /* Указатель на справочник о первых раскрасках. Стоит внизу
+       раздела бесплатных листов: сюда приходят родители малышей,
+       и им чаще всего нужен не набор листов, а ответ, какие листы
+       вообще подходят их ребенку. */
+    toddlerNote: string;
+    toddlerCta: string;
     bookSheetsTitle: string;
     bookSheetsLead: string;
     bookSheetsCta: string;
@@ -297,6 +310,15 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       pdfNote: "The PDF opens in our print shop and is sent to your email after checkout.",
       alsoIn: "Also available in",
       related: "You may also like",
+      guideSiteTitle: "Not sure this is the right level for your child?",
+      guideSiteText:
+        "We run a separate reference site about first coloring books for ages 1 to 3. " +
+        "It explains the four stages of first drawing, what a page should look like at each " +
+        "one, and what is normal at the table at one, two and three years old. It has a free " +
+        "picker that names the stage your child is at now, ten pages you can print today, and " +
+        "it says plainly when a first coloring book is already too simple. This book is used " +
+        "there as a worked example, not as the answer to every case.",
+      guideSiteCta: "Open the guide to first coloring books",
       detailsTitle: "Book details",
       drawings: "Drawings",
       size: "Size",
@@ -389,6 +411,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       printA4: "Print · A4",
       faqTitle: "Questions parents ask",
       countLabel: "printable pages",
+      toddlerNote:
+        "Coloring with a child under three, and not sure which sheets suit them? We run a " +
+        "separate reference site about first coloring books for ages 1 to 3: the four stages " +
+        "of first drawing, a free picker that names the stage your child is at now, and ten " +
+        "pages sorted by how simple they are.",
+      toddlerCta: "First coloring books, ages 1 to 3",
       bookSheetsTitle: "A few pages from inside",
       bookSheetsLead:
         "These are real pages from the book. You can print {n} of them free and see the line weight for yourself before you buy.",
@@ -551,6 +579,16 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       pdfNote: "El PDF se abre en nuestra tienda de impresión y se envía por correo tras la compra.",
       alsoIn: "También disponible en",
       related: "También te puede gustar",
+      guideSiteTitle: "¿No está seguro de que este sea el nivel adecuado?",
+      guideSiteText:
+        "Tenemos un sitio de consulta aparte sobre los primeros libros para colorear de 1 a 3 " +
+        "años. Explica las cuatro etapas del primer dibujo, cómo debe ser una página en cada " +
+        "una y qué es normal en la mesa al año, a los dos y a los tres. Incluye una " +
+        "herramienta gratuita que indica en qué etapa está su hijo ahora, diez hojas que puede " +
+        "imprimir hoy mismo, y dice con claridad cuándo un primer libro para colorear ya " +
+        "resulta demasiado sencillo. Este libro se usa allí como ejemplo, no como respuesta " +
+        "para todos los casos.",
+      guideSiteCta: "Abrir la guía sobre primeros libros para colorear",
       detailsTitle: "Ficha del libro",
       drawings: "Dibujos",
       size: "Tamaño",
@@ -643,6 +681,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       printA4: "Imprimir · A4",
       faqTitle: "Preguntas que hacen los padres",
       countLabel: "láminas para imprimir",
+      toddlerNote:
+        "¿Colorea con un niño menor de tres años y no sabe qué hojas le convienen? Tenemos un " +
+        "sitio de consulta aparte sobre los primeros libros para colorear de 1 a 3 años: las " +
+        "cuatro etapas del primer dibujo, una herramienta gratuita que indica en qué etapa " +
+        "está su hijo ahora y diez hojas ordenadas por sencillez.",
+      toddlerCta: "Primeros libros para colorear, de 1 a 3 años",
       bookSheetsTitle: "Algunas páginas de dentro",
       bookSheetsLead:
         "Son páginas reales del libro. Puedes imprimir {n} gratis y comprobar tú mismo el grosor de la línea antes de comprar.",
@@ -772,6 +816,15 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       pdfNote: "PDF открывается в нашем магазине печати и приходит на почту после оплаты.",
       alsoIn: "Также есть на",
       related: "Может понравиться",
+      guideSiteTitle: "Не уверены, что это подходит вашему ребенку?",
+      guideSiteText:
+        "У нас есть отдельный справочный сайт о первых раскрасках для детей от года до трех. " +
+        "Там разобраны четыре этапа первого рисования, какой должна быть страница на каждом " +
+        "из них и что считать нормальным за столом в год, в два и в три. Есть бесплатный " +
+        "подборщик, который называет этап ребенка прямо сейчас, десять листов для печати и " +
+        "прямой ответ в том случае, когда первая раскраска ребенку уже проста. Эта книга " +
+        "стоит там как пример, а не как ответ на любой случай.",
+      guideSiteCta: "Открыть справочник о первых раскрасках",
       detailsTitle: "О книге",
       drawings: "Рисунков",
       size: "Размер",
@@ -862,6 +915,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       printA4: "Печать · A4",
       faqTitle: "Вопросы родителей",
       countLabel: "листов для печати",
+      toddlerNote:
+        "Раскрашиваете с ребенком младше трех лет и не знаете, какие листы ему подойдут? У нас " +
+        "есть отдельный справочный сайт о первых раскрасках для детей от года до трех: четыре " +
+        "этапа первого рисования, бесплатный подборщик, который называет этап ребенка прямо " +
+        "сейчас, и десять листов, разобранных по сложности.",
+      toddlerCta: "Первые раскраски, от года до трех",
       bookSheetsTitle: "Несколько страниц изнутри",
       bookSheetsLead:
         "Это настоящие страницы книги. {n} можно распечатать бесплатно и своими глазами оценить толщину линии до покупки.",

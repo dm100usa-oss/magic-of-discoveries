@@ -5,7 +5,7 @@ import { booksForLang, type UiLang } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard } from "@/components/Chrome";
 import { reviewsByLang } from "@/lib/reviews";
-import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, ADDRESS, CONTACT_EMAIL, OG_IMAGE } from "@/lib/site";
+import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, ADDRESS, CONTACT_EMAIL, OG_IMAGE, TODDLER_SITE } from "@/lib/site";
 import { awards } from "@/data/method";
 
 /** Второй сайт: там полностью описан метод ECL. */
@@ -67,9 +67,12 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         email: CONTACT_EMAIL,
         address: ADDRESS,
         logo: `${SITE_URL}${OG_IMAGE.url}`,
-        /* Второй сайт стоит в этом же списке: для машины это значит,
-           что издательство и автор метода это одно и то же лицо. */
-        sameAs: [...Object.values(SOCIAL), METHOD_SITE],
+        /* Другие сайты издательства стоят в этом же списке: для машины
+           это значит, что каталог, справочник по методике и справочник
+           о первых раскрасках принадлежат одному издательству, а не
+           трем разным. Без этого поля они выглядят как случайно
+           похожие сайты. */
+        sameAs: [...Object.values(SOCIAL), METHOD_SITE, TODDLER_SITE],
         founder: [
           {
             "@type": "Person",

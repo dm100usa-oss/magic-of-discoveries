@@ -176,7 +176,7 @@ const firstColoring111: TopicGroup[] = [
         "Magic cauldron", "Wizard's hat", "Magic potion",
       ],
       es: [
-        "Sirena", "Unicornio", "Dragón", "Corona", "Gnomo", "Grifo", "Trol", "Hada",
+        "Sirena", "Unicornio", "Dragón", "Corona", "Gnomo", "Grifo", "Trole", "Hada",
         "Caldera mágica", "Sombrero de mago", "Poción mágica",
       ],
     },
@@ -190,7 +190,7 @@ const firstColoring111: TopicGroup[] = [
         "Rocket", "Scooter",
       ],
       es: [
-        "Coche", "Helicóptero", "Avión", "Globo aerostático", "Nave", "Submarino",
+        "Máquina", "Helicóptero", "Avión", "Globo", "Nave", "Submarino",
         "Cohete", "Scooter",
       ],
     },
@@ -215,8 +215,7 @@ const firstColoring111: TopicGroup[] = [
     items: {
       en: ["Sunglasses", "Beach umbrella", "Beach hat", "Globe", "Present", "Gamepad"],
       es: [
-        "Gafas", "Sombrilla de playa", "Sombrero", "Globo terráqueo", "Regalo",
-        "Mando de videojuegos",
+        "Gafas", "Sombrilla de playa", "Sombrero", "Globo", "Regalo", "Gamepads",
       ],
     },
   },
@@ -229,7 +228,7 @@ const firstColoring111: TopicGroup[] = [
         "Lily of the valley", "Lotus", "Tulip",
       ],
       es: [
-        "Hoja de arce", "Rosa", "Seta", "Trébol", "Girasol", "Piña", "Cacto", "Muguete",
+        "Hoja de arce", "Rosa", "Seta", "Trébol", "Girasol", "Chichón", "Cacto", "Muguete",
         "Loto", "Tulipán",
       ],
     },

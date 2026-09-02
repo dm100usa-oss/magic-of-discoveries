@@ -260,33 +260,40 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
 
 /* Покупка печатного PDF прямо здесь.
 
-   Два размера листа стоят рядом, под каждым одна строка о том, кому он
-   подходит. Выбирает покупатель: подсказка помогает, но не решает за него.
+   Кнопка одна, и цена на ней одна: два размера листа это не два товара,
+   а один и тот же файл под разную бумагу. Показывать две кнопки по 4.99
+   рядом означало бы намекать, что платить надо дважды.
 
-   Это обычная форма, а не кнопка на скриптах. Она работает даже там,
-   где скрипты отключены, и Google видит ее как понятное действие,
-   а не как пустую ссылку. */
+   Размер выбирается после нажатия, там же коротко сказано, кому какой
+   подходит. Раскрытие сделано без скриптов, поэтому работает всегда,
+   а поисковик видит обе покупки как понятные действия. */
 function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
   const t = dictionaries[lang].book;
   const back = itemPath(lang, "books", book.slug[lang] ?? "");
 
   return (
-    <>
-      {(["letter", "a4"] as const).map((format) => (
-        <form key={format} action="/api/checkout" method="post" className="buy-pdf">
-          <input type="hidden" name="book" value={book.id} />
-          <input type="hidden" name="format" value={format} />
-          <input type="hidden" name="lang" value={lang} />
-          <input type="hidden" name="back" value={back} />
-          <button type="submit" className="btn btn--sky">
-            {format === "letter" ? t.buyPdfLetter : t.buyPdfA4} · {PDF_PRICE_LABEL}
-          </button>
-          <span className="buy-pdf__hint">
-            {format === "letter" ? t.pdfLetterHint : t.pdfA4Hint}
-          </span>
-        </form>
-      ))}
-    </>
+    <details className="buy-pdf">
+      <summary className="btn btn--sky">
+        {t.buyPdf} · {PDF_PRICE_LABEL}
+      </summary>
+      <div className="buy-pdf__pick">
+        <p className="buy-pdf__lead">{t.pdfPickSize}</p>
+        {(["letter", "a4"] as const).map((format) => (
+          <form key={format} action="/api/checkout" method="post">
+            <input type="hidden" name="book" value={book.id} />
+            <input type="hidden" name="format" value={format} />
+            <input type="hidden" name="lang" value={lang} />
+            <input type="hidden" name="back" value={back} />
+            <button type="submit" className="btn btn--ghost">
+              {format === "letter" ? t.buyPdfLetter : t.buyPdfA4}
+            </button>
+            <span className="buy-pdf__hint">
+              {format === "letter" ? t.pdfLetterHint : t.pdfA4Hint}
+            </span>
+          </form>
+        ))}
+      </div>
+    </details>
   );
 }
 

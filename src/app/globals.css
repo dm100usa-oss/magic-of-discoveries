@@ -455,11 +455,34 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 .buys { display: grid; gap: 0.6rem; margin-bottom: 0.6rem; }
 .buy-note { font-size: var(--t-small); color: var(--ink-2); margin: 0.4rem 0 var(--gap-4); }
 
-/* Покупка PDF: кнопка и под ней одна строка о том, кому этот размер
-   листа подходит. Строка намеренно тише кнопки: она подсказывает,
-   а решает покупатель. */
-.buy-pdf { display: grid; gap: 0.25rem; }
-.buy-pdf .btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; border: 0; }
+/* Покупка PDF. Кнопка одна, с одной ценой: два размера листа это один
+   товар под разную бумагу, и показывать две цены рядом нельзя, иначе
+   человек решит, что платить надо дважды. Размер выбирается после
+   нажатия, раскрытием, без скриптов. */
+.buy-pdf > summary {
+  width: 100%;
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+.buy-pdf > summary::-webkit-details-marker { display: none; }
+.buy-pdf__pick {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+  padding: 0.95rem 1.05rem 1.1rem;
+  border: var(--edge);
+  border-radius: var(--radius);
+  background: #fff;
+}
+.buy-pdf__lead {
+  margin: 0;
+  font-size: var(--t-small);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.buy-pdf__pick form { display: grid; gap: 0.2rem; }
+.buy-pdf__pick .btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; }
 .buy-pdf__hint {
   font-size: var(--t-small);
   color: var(--ink-2);

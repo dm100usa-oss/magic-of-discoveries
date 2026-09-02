@@ -86,6 +86,8 @@ export interface Dictionary {
        Решает покупатель, подсказка только помогает не ошибиться. */
     buyPdfLetter: string;
     buyPdfA4: string;
+    /** Строка над выбором размера листа, после нажатия кнопки. */
+    pdfPickSize: string;
     pdfLetterHint: string;
     pdfA4Hint: string;
     pdfNote: string;
@@ -314,8 +316,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Buy the hardcover on Amazon",
       buyKindle: "Read on Kindle",
       buyPdf: "Download the printable PDF",
-      buyPdfLetter: "Printable PDF, Letter",
-      buyPdfA4: "Printable PDF, A4",
+      buyPdfLetter: "Letter, 8.5 x 11 in",
+      buyPdfA4: "A4",
+      pdfPickSize: "Choose your paper size:",
       pdfLetterHint: "Recommended for the US and Canada. Standard 8.5 x 11 in paper.",
       pdfA4Hint: "Recommended for Europe, the UK and most other countries.",
       pdfNote:
@@ -588,8 +591,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Comprar en tapa dura en Amazon",
       buyKindle: "Leer en Kindle",
       buyPdf: "Descargar el PDF para imprimir",
-      buyPdfLetter: "PDF para imprimir, Carta",
-      buyPdfA4: "PDF para imprimir, A4",
+      buyPdfLetter: "Carta, 8.5 x 11 pulgadas",
+      buyPdfA4: "A4",
+      pdfPickSize: "Elija el tamaño de papel:",
       pdfLetterHint:
         "Recomendado para Estados Unidos y Canadá. Papel Carta de 8.5 x 11 pulgadas.",
       pdfA4Hint:
@@ -832,8 +836,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Купить в твердой обложке на Amazon",
       buyKindle: "Читать на Kindle",
       buyPdf: "Скачать PDF для печати",
-      buyPdfLetter: "PDF для печати, Letter",
-      buyPdfA4: "PDF для печати, A4",
+      buyPdfLetter: "Letter, 8.5 на 11 дюймов",
+      buyPdfA4: "A4",
+      pdfPickSize: "Выберите размер листа:",
       pdfLetterHint: "Рекомендуем для США и Канады. Лист 8.5 на 11 дюймов.",
       pdfA4Hint: "Рекомендуем для Европы и остальных стран.",
       pdfNote:

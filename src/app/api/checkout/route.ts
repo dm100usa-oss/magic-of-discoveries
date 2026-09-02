@@ -48,10 +48,6 @@ export async function POST(request: Request) {
       "metadata[book]": id,
       "metadata[format]": format,
       "metadata[lang]": lang,
-      /* Тот же набор кладем на сам платеж: в письме и в панели Stripe
-         сразу видно, что именно куплено. */
-      "payment_intent_data[metadata][book]": id,
-      "payment_intent_data[metadata][format]": format,
       locale: lang === "es" ? "es" : "en",
       success_url: `${origin}/${lang}/thank-you?s={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}${back}`,
@@ -60,6 +56,19 @@ export async function POST(request: Request) {
     return NextResponse.redirect(session.url as string, 303);
   } catch (error) {
     console.error("checkout failed", error);
-    return NextResponse.redirect(`${origin}${back}?pay=error`, 303);
+    /* Пока идет наладка, причину сбоя показываем прямо на экране:
+       иначе владелец сайта видит только возврат на страницу книги
+       и не может понять, что именно не так. Убрать после запуска. */
+    const reason = error instanceof Error ? error.message : String(error);
+    return new NextResponse(
+      "Payment could not be started.\n\nReason: " + reason + "\n",
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "text/plain; charset=utf-8",
+          "Cache-Control": "no-store",
+        },
+      }
+    );
   }
 }

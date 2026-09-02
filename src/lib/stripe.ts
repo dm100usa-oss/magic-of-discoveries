@@ -33,7 +33,15 @@ export async function stripe(
     cache: "no-store",
   });
 
-  const data = (await response.json()) as Record<string, unknown>;
+  const raw = await response.text();
+  let data: Record<string, unknown>;
+  try {
+    data = JSON.parse(raw) as Record<string, unknown>;
+  } catch {
+    throw new Error(
+      `Stripe ответил ${response.status}: ${raw.slice(0, 200)}`
+    );
+  }
   if (!response.ok) {
     const error = data.error as { message?: string } | undefined;
     throw new Error(error?.message ?? `Stripe ответил ${response.status}`);

@@ -102,6 +102,20 @@ export async function generateMetadata({
   };
 }
 
+/* Адрес нашей страницы набора для учителей.
+
+   Тетради Directed Drawing стоят в английском каталоге: испанские
+   тоже, потому что это тетради для американского класса, где учат
+   испанские слова. Поэтому со страницы на любом языке ведем туда,
+   где страница у книги действительно есть. */
+function ownBookHref(bookId: string, lang: UiLang): string | null {
+  const b = bookById(bookId);
+  if (!b) return null;
+  const at: UiLang = b.slug[lang] ? lang : "en";
+  const slug = b.slug[at];
+  return slug ? itemPath(at, "books", slug) : null;
+}
+
 export default async function SectionPage({
   params,
 }: {
@@ -271,6 +285,18 @@ export default async function SectionPage({
                         {card.cta}
                       </a>
                     ) : null}
+                    {/* Покупка у нас. Стоит второй, когда набор есть и
+                        на площадке, и первой, когда он только у нас. */}
+                    {(() => {
+                      const own = card.bookId
+                        ? ownBookHref(card.bookId, lang)
+                        : null;
+                      return own && card.siteCta ? (
+                        <Link className="btn btn--sky" href={own}>
+                          {card.siteCta} · {PDF_PRICE_LABEL}
+                        </Link>
+                      ) : null;
+                    })()}
                   </div>
                 </div>
               ))}
@@ -459,6 +485,18 @@ export default async function SectionPage({
                         {card.cta}
                       </a>
                     ) : null}
+                    {/* Покупка у нас. Стоит второй, когда набор есть и
+                        на площадке, и первой, когда он только у нас. */}
+                    {(() => {
+                      const own = card.bookId
+                        ? ownBookHref(card.bookId, lang)
+                        : null;
+                      return own && card.siteCta ? (
+                        <Link className="btn btn--sky" href={own}>
+                          {card.siteCta} · {PDF_PRICE_LABEL}
+                        </Link>
+                      ) : null;
+                    })()}
                   </div>
                 </div>
               ))}

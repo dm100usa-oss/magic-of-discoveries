@@ -41,6 +41,16 @@ export interface TeachersCard {
   cta: string;
   /** Адрес карточки на площадке. Пустая строка прячет кнопку. */
   url: string;
+  /* Тот же набор на нашем сайте. Номер книги в каталоге, а не адрес:
+     адрес страницы собирается из каталога и меняется вместе с ним.
+     Пусто значит своей страницы у набора нет.
+
+     Учитель, который дочитал эту страницу, готов покупать. Раньше
+     единственная кнопка уводила его на площадку, и наша доля от
+     покупки уменьшалась. Теперь рядом стоит вторая, наша. */
+  bookId?: string;
+  /** Надпись на нашей кнопке. Цена подставляется сама. */
+  siteCta?: string;
   cover: TeachersImage;
 }
 
@@ -317,7 +327,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     ],
 
     ctaTitle: "Try it in your classroom",
-    ctaLead: "Both are available on Teachers Pay Teachers, in English and in Spanish.",
+    ctaLead:
+      "Start with the free sample. The full sets are available here as an instant download, and Volume 1 is also on Teachers Pay Teachers.",
     cards: [
       {
         kind: "free",
@@ -339,11 +350,29 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "The complete Volume 1 collection with a teacher page and an illustrated table of contents. 58 pages, PDF.",
         cta: "See the full resource",
         url: TPT.paidEn,
+        bookId: "directed-drawing-k2-en",
+        siteCta: "Buy the PDF here",
         cover: {
           src: "/teachers/cover-paid-en.jpg",
           w: 700,
           h: 700,
           alt: "Cover of the full English collection: a directed drawing page with a lion, marked 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
+          caption: "",
+        },
+      },
+      {
+        kind: "paid",
+        title: "Volume 2: 56 more activities",
+        text: "A second full year in the same format, with all new subjects and a bugs section. 59 pages, PDF. Available here only.",
+        cta: "",
+        url: "",
+        bookId: "directed-drawing-k2-2-en",
+        siteCta: "Buy the PDF here",
+        cover: {
+          src: "/covers/directed-drawing-k2-2-en.jpg",
+          w: 900,
+          h: 900,
+          alt: "Cover of Volume 2 in English: a directed drawing page with a bear, marked 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
           caption: "",
         },
       },
@@ -549,7 +578,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
     ],
 
     ctaTitle: "Pruébelo en su clase",
-    ctaLead: "Ambos están disponibles en Teachers Pay Teachers, en inglés y en español.",
+    ctaLead:
+      "Empiece por la muestra gratuita. Las colecciones completas se descargan aquí mismo, y el volumen 1 también está en Teachers Pay Teachers.",
     cards: [
       {
         kind: "free",
@@ -571,11 +601,29 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "El volumen 1 completo, con página para el maestro e índice ilustrado. 58 páginas, PDF.",
         cta: "Ver la colección completa",
         url: TPT.paidEs,
+        bookId: "directed-drawing-k2-es",
+        siteCta: "Comprar el PDF aquí",
         cover: {
           src: "/teachers/cover-paid-es.jpg",
           w: 700,
           h: 700,
           alt: "Portada de la colección completa en español: una hoja de dibujo dirigido con un león, marcada 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
+          caption: "",
+        },
+      },
+      {
+        kind: "paid",
+        title: "Volumen 2: 56 actividades más",
+        text: "Un segundo año completo con el mismo formato, con dibujos nuevos y un tema de insectos. 59 páginas, PDF. Solo aquí.",
+        cta: "",
+        url: "",
+        bookId: "directed-drawing-k2-2-es",
+        siteCta: "Comprar el PDF aquí",
+        cover: {
+          src: "/covers/directed-drawing-k2-2-es.jpg",
+          w: 900,
+          h: 900,
+          alt: "Portada del volumen 2 en español: una hoja de dibujo dirigido con un oso, marcada 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
           caption: "",
         },
       },

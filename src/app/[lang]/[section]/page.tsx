@@ -35,6 +35,7 @@ import {
   toddlerSiteUrl,
 } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
+import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
 import { bookIsbn13, bookAges } from "@/data/books";
 
@@ -134,7 +135,7 @@ export default async function SectionPage({
       ageLabel: t.catalog.ages[b.age],
       ages: bookAges(b),
       type: b.type,
-      price: cheapestFormat(b)?.price,
+      price: cheapestFormat(b)?.price ?? (hasPdf(b.id) ? PDF_PRICE_LABEL : undefined),
       rating: b.rating,
       cover: b.cover,
     }));

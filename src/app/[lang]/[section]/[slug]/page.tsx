@@ -58,7 +58,7 @@ import {
   sectionPath,
 } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
-import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
+import { hasPdf, PDF_PRICE_LABEL, PDF_PRICE_CENTS } from "@/lib/pdfShop";
 
 /* Дата словами, на языке страницы. В коде остается машинная запись,
    человеку показываем привычную. */
@@ -1007,21 +1007,39 @@ export default async function ItemPage({
              что мы хотим сказать о книге. */
           return out.length ? out : undefined;
         })(),
-        bookFormat:
-          paper?.kind === "hardcover"
+        /* Вид издания. У тетрадей для учителей бумажного издания нет,
+           продается только файл, и называть их мягкой обложкой нельзя. */
+        bookFormat: paper
+          ? paper.kind === "hardcover"
             ? "https://schema.org/Hardcover"
-            : "https://schema.org/Paperback",
+            : "https://schema.org/Paperback"
+          : "https://schema.org/EBook",
         description: copy.lead.replace(/\s+/g, " "),
         image: book.cover ? `${SITE_URL}${book.cover}` : undefined,
         typicalAgeRange:
           book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age),
-        offers: book.formats.map((f) => ({
-          "@type": "Offer",
-          price: f.price.replace("$", ""),
-          priceCurrency: "USD",
-          availability: "https://schema.org/InStock",
-          url: amazonUrl(f.asin),
-        })),
+        /* Где книгу можно купить. Если бумажного издания нет, машина
+           должна видеть хотя бы нашу цену за файл, иначе книга уходит
+           в поиск и в ответы нейросетей вовсе без цены. */
+        offers: book.formats.length
+          ? book.formats.map((f) => ({
+              "@type": "Offer",
+              price: f.price.replace("$", ""),
+              priceCurrency: "USD",
+              availability: "https://schema.org/InStock",
+              url: amazonUrl(f.asin),
+            }))
+          : hasPdf(book.id)
+            ? [
+                {
+                  "@type": "Offer",
+                  price: (PDF_PRICE_CENTS / 100).toFixed(2),
+                  priceCurrency: "USD",
+                  availability: "https://schema.org/InStock",
+                  url: `${SITE_URL}${itemPath(lang, "books", slug)}`,
+                },
+              ]
+            : undefined,
       },
       {
         "@type": "FAQPage",
@@ -1456,8 +1474,12 @@ export default async function ItemPage({
                   </dd>
                 </>
               ) : null}
-              <dt>ISBN</dt>
-              <dd>{bookIsbn13(book) ?? paper?.asin}</dd>
+              {bookIsbn13(book) ?? paper?.asin ? (
+                <>
+                  <dt>ISBN</dt>
+                  <dd>{bookIsbn13(book) ?? paper?.asin}</dd>
+                </>
+              ) : null}
               <dt>{t.book.author}</dt>
               <dd>
                 <a href={author.amazon} rel="nofollow noopener" target="_blank">

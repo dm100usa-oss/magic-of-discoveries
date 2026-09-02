@@ -1988,6 +1988,241 @@ export const books: Book[] = [
     },
   },
 
+  /* ===== Directed Drawing K-2: тетради для американских учителей =====
+
+     Четыре тетради, два тома в двух изданиях. На бумаге они не выходили
+     и на Amazon их нет: это рабочие листы, которые учитель печатает сам.
+     Поэтому кнопка покупки здесь одна, наша.
+
+     Испанские тома стоят в английском каталоге намеренно. Это тетради
+     для американского класса, где учат испанские слова: страница для
+     учителя написана по-английски, а задания и слова внутри испанские.
+     Испаноязычному родителю такая книга не адресована. */
+  {
+    id: "directed-drawing-k2-en",
+    author: "ricardo",
+    editionLang: "en",
+    age: "5-7",
+    type: "drawing",
+    series: "directed-drawing-k2",
+    pairId: "directed-drawing-k2-es",
+    drawings: 55,
+    ageShown: "5-8",
+    pages: 58,
+    size: "8.5 x 11 in",
+    cover: "/covers/directed-drawing-k2-en.jpg",
+    coverSize: { w: 900, h: 900 },
+    formats: [],
+    slug: { en: "directed-drawing-worksheets-grades-k-2" },
+    copy: {
+      en: {
+        title: "Directed Drawing Worksheets for Grades K-2: Draw, Trace, Write",
+        subtitle: "55 no-prep activities. Choose a page, print, and go.",
+        lead:
+          "Four stages on one page. The student follows six numbered steps to build the drawing, traces the finished outline, draws it independently in the open box, then traces and writes the word on primary ruled lines.\n\nNothing to cut, glue, or prepare. Every activity is one black-and-white page that prints on a classroom copier.",
+        inside: [
+          "55 full-page activities: animals, sea life, fantasy, vehicles, sports and hobbies, everyday things, nature, food",
+          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the word",
+          "A teacher page explaining how the activities work and an illustrated table of contents",
+          "Small themed pictures on every page for early finishers to color",
+          "58 pages, black and white, US Letter and A4 both included",
+        ],
+        forWhom:
+          "Kindergarten, first and second grade, ages 5 to 8. For classroom teachers, art and sub folders, homeschool, morning work, centers, and early finishers.",
+        faq: [
+          {
+            q: "Is this a printed book or a download?",
+            a: "A download. You get one PDF that you print yourself, as many copies as your class needs. There is no paperback edition.",
+          },
+          {
+            q: "Which paper size do I get?",
+            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+          },
+          {
+            q: "Can I print copies for my whole class?",
+            a: "Yes. One purchase covers one teacher and that teacher's students. A separate copy is needed for each additional teacher.",
+          },
+          {
+            q: "How is this different from Volume 2?",
+            a: "Same format and the same page layout, different subjects. Volume 1 opens with zoo and safari animals, Volume 2 with forest and farm animals and adds a bugs section.",
+          },
+          {
+            q: "Do students need to read to use it?",
+            a: "No. The steps are shown in pictures. The word at the bottom is traced first and written second, so a beginning writer can do the page independently.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "directed-drawing-k2-es",
+    author: "ricardo",
+    editionLang: "es",
+    age: "5-7",
+    type: "drawing",
+    series: "directed-drawing-k2",
+    pairId: "directed-drawing-k2-en",
+    drawings: 55,
+    ageShown: "5-8",
+    pages: 58,
+    size: "8.5 x 11 in",
+    cover: "/covers/directed-drawing-k2-es.jpg",
+    coverSize: { w: 900, h: 900 },
+    formats: [],
+    slug: { en: "spanish-directed-drawing-worksheets-grades-k-2" },
+    copy: {
+      en: {
+        title: "Spanish Directed Drawing Worksheets for Grades K-2: Dibujo Dirigido",
+        subtitle: "55 no-prep activities. Every word is written in Spanish.",
+        lead:
+          "The same four stages as our English set, with the vocabulary in Spanish. The student follows six numbered steps, traces the outline, draws independently, then traces and writes the Spanish word on primary ruled lines.\n\nBuilt for Spanish class, dual language and bilingual classrooms. The teacher page is in English so you can hand the set to any colleague; every student instruction and every word on the activity pages is in Spanish.",
+        inside: [
+          "55 full-page activities: animales, vida marina, fantasía, vehículos, deportes, objetos, naturaleza, comida",
+          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the Spanish word",
+          "Student instructions in Spanish on every page",
+          "A teacher page in English and an illustrated table of contents",
+          "58 pages, black and white, US Letter and A4 both included",
+        ],
+        forWhom:
+          "Spanish class, dual language and bilingual classrooms, kindergarten through second grade, ages 5 to 8. Also for Spanish-speaking families teaching writing at home.",
+        faq: [
+          {
+            q: "Are the drawings the same as in the English set?",
+            a: "Yes. Same 55 drawings and the same page layout. Only the language of the words and instructions is different.",
+          },
+          {
+            q: "Is this a bilingual resource?",
+            a: "No. Each set is in one language. The activity pages here are entirely in Spanish; the English edition is sold separately.",
+          },
+          {
+            q: "Is this a printed book or a download?",
+            a: "A download. You get one PDF that you print yourself, as many copies as your class needs.",
+          },
+          {
+            q: "Which paper size do I get?",
+            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+          },
+          {
+            q: "Can I print copies for my whole class?",
+            a: "Yes. One purchase covers one teacher and that teacher's students. A separate copy is needed for each additional teacher.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "directed-drawing-k2-2-en",
+    author: "ricardo",
+    editionLang: "en",
+    age: "5-7",
+    type: "drawing",
+    series: "directed-drawing-k2",
+    pairId: "directed-drawing-k2-2-es",
+    drawings: 56,
+    ageShown: "5-8",
+    pages: 59,
+    size: "8.5 x 11 in",
+    cover: "/covers/directed-drawing-k2-2-en.jpg",
+    coverSize: { w: 900, h: 900 },
+    formats: [],
+    slug: { en: "directed-drawing-worksheets-grades-k-2-volume-2" },
+    copy: {
+      en: {
+        title: "Directed Drawing Worksheets for Grades K-2, Volume 2: Draw, Trace, Write",
+        subtitle: "55 no-prep activities plus a bonus page. All new subjects.",
+        lead:
+          "A second full year of directed drawing in the same format: follow six numbered steps, trace the outline, draw it independently, then trace and write the word.\n\nEvery subject is new. Volume 2 starts with forest and farm animals and adds a bugs and little creatures section that the first set does not have.",
+        inside: [
+          "56 full-page activities: animals, bugs and little creatures, sea life, fantasy, vehicles, sports and hobbies, things, nature, food",
+          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the word",
+          "A teacher page explaining how the activities work and an illustrated table of contents",
+          "Small themed pictures on every page for early finishers to color",
+          "59 pages, black and white, US Letter and A4 both included",
+        ],
+        forWhom:
+          "Kindergarten, first and second grade, ages 5 to 8. For teachers who have finished Volume 1 and for anyone starting here.",
+        faq: [
+          {
+            q: "Do the subjects repeat from Volume 1?",
+            a: "No. All 56 subjects are new. The two sets together give a teacher 111 activities.",
+          },
+          {
+            q: "Do I need Volume 1 first?",
+            a: "No. Each set stands on its own and the page format is identical.",
+          },
+          {
+            q: "Is this a printed book or a download?",
+            a: "A download. You get one PDF that you print yourself, as many copies as your class needs.",
+          },
+          {
+            q: "Which paper size do I get?",
+            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+          },
+          {
+            q: "Can I print copies for my whole class?",
+            a: "Yes. One purchase covers one teacher and that teacher's students. A separate copy is needed for each additional teacher.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "directed-drawing-k2-2-es",
+    author: "ricardo",
+    editionLang: "es",
+    age: "5-7",
+    type: "drawing",
+    series: "directed-drawing-k2",
+    pairId: "directed-drawing-k2-2-en",
+    drawings: 56,
+    ageShown: "5-8",
+    pages: 59,
+    size: "8.5 x 11 in",
+    cover: "/covers/directed-drawing-k2-2-es.jpg",
+    coverSize: { w: 900, h: 900 },
+    formats: [],
+    slug: { en: "spanish-directed-drawing-worksheets-grades-k-2-volume-2" },
+    copy: {
+      en: {
+        title: "Spanish Directed Drawing Worksheets for Grades K-2, Volume 2: Dibujo Dirigido",
+        subtitle: "55 no-prep activities plus a bonus page, all in Spanish.",
+        lead:
+          "A second set of Spanish vocabulary activities in the same four-stage format: follow the steps, trace, draw independently, then trace and write the Spanish word.\n\nAll 56 subjects are new, including a bugs and little creatures section that the first set does not have.",
+        inside: [
+          "56 full-page activities: animales, insectos, vida marina, fantasía, vehículos, deportes, objetos, naturaleza, comida",
+          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the Spanish word",
+          "Student instructions in Spanish on every page",
+          "A teacher page in English and an illustrated table of contents",
+          "59 pages, black and white, US Letter and A4 both included",
+        ],
+        forWhom:
+          "Spanish class, dual language and bilingual classrooms, kindergarten through second grade, ages 5 to 8.",
+        faq: [
+          {
+            q: "Do the subjects repeat from Volume 1?",
+            a: "No. All 56 subjects are new. The two Spanish sets together give a teacher 111 activities.",
+          },
+          {
+            q: "Are the drawings the same as in the English Volume 2?",
+            a: "Yes. Same 56 drawings and the same page layout. Only the language of the words and instructions is different.",
+          },
+          {
+            q: "Is this a bilingual resource?",
+            a: "No. The activity pages here are entirely in Spanish; the English edition is sold separately.",
+          },
+          {
+            q: "Is this a printed book or a download?",
+            a: "A download. You get one PDF that you print yourself, as many copies as your class needs.",
+          },
+          {
+            q: "Which paper size do I get?",
+            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+          },
+        ],
+      },
+    },
+  },
+
   /* ===== Лаки Рокки: Дружба ===== */
   {
     id: "lucky-rocky-friendship-en",

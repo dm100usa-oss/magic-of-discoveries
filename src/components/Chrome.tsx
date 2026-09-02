@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Book, UiLang } from "@/data/books";
 import { cheapestFormat } from "@/data/books";
+import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { RatingMini } from "@/components/Rating";
 import { SITE_NAME, SOCIAL } from "@/lib/site";
@@ -283,7 +284,11 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
   const copy = book.copy[lang];
   const slug = book.slug[lang];
   if (!copy || !slug) return null;
-  const price = cheapestFormat(book)?.price;
+  /* Цена на карточке. У тетрадей для учителей бумажного издания нет,
+     и без этого запасного варианта карточка стояла бы в каталоге
+     вовсе без цены, рядом с книгами, у которых цена есть. */
+  const price =
+    cheapestFormat(book)?.price ?? (hasPdf(book.id) ? PDF_PRICE_LABEL : undefined);
   return (
     <Link className="card" href={itemPath(lang, "books", slug)}>
       <div className="card__frame">

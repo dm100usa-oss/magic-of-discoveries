@@ -56,6 +56,10 @@ export const pdfBookIds = [
   "take-a-break-ocean-es",
   "take-a-break-food-en",
   "take-a-break-food-es",
+  "directed-drawing-k2-en",
+  "directed-drawing-k2-es",
+  "directed-drawing-k2-2-en",
+  "directed-drawing-k2-2-es",
 ] as const;
 
 export type PdfBookId = (typeof pdfBookIds)[number];

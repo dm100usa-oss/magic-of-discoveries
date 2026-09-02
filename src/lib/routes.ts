@@ -1,7 +1,14 @@
 import type { UiLang } from "@/data/books";
 
 /** Разделы сайта. Адрес каждого пишется на языке посетителя. */
-export type Section = "books" | "method" | "teachers" | "coloring" | "about" | "contact";
+export type Section =
+  | "books"
+  | "method"
+  | "teachers"
+  | "coloring"
+  | "words"
+  | "about"
+  | "contact";
 
 export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
   en: {
@@ -9,6 +16,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     method: "method",
     teachers: "teachers",
     coloring: "free-coloring-pages",
+    words: "first-words",
     about: "about-us",
     contact: "contact",
   },
@@ -17,6 +25,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     method: "metodo",
     teachers: "maestros",
     coloring: "dibujos-para-colorear-gratis",
+    words: "primeras-palabras",
     about: "quienes-somos",
     contact: "contacto",
   },
@@ -25,6 +34,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     method: "metod",
     teachers: "uchitelyam",
     coloring: "raskraski-dlya-pechati",
+    words: "pervye-slova",
     about: "o-nas",
     contact: "kontakty",
   },

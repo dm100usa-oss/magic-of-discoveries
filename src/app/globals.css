@@ -1508,3 +1508,83 @@ ul.award-list li {
   justify-content: center;
   margin-top: 1.6rem;
 }
+
+/* ------------------------------------------------------------------ */
+/*  Раздел "Первые слова"                                              */
+/* ------------------------------------------------------------------ */
+
+/* Три настоящих рисунка со словом. На широком экране в ряд, на телефоне
+   в столбец: рисунок со словом под ним нельзя сжимать, иначе слово,
+   ради которого он тут и стоит, перестает читаться. */
+.wordshelf {
+  display: grid;
+  gap: var(--gap-2);
+  grid-template-columns: 1fr;
+  margin-top: var(--gap-2);
+}
+@media (min-width: 620px) {
+  .wordshelf { grid-template-columns: repeat(3, 1fr); }
+}
+.wordshelf__pic {
+  width: 100%;
+  height: auto;
+  max-width: 320px;
+  margin: 0 auto;
+  display: block;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 0.6rem;
+  box-shadow: var(--shadow-raise);
+}
+
+/* Название группы слов внутри темы. */
+.wordgroup {
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem);
+  margin: var(--gap-3) 0 0.6rem;
+  color: var(--ink-soft);
+}
+
+/* Список слов. Плашками, а не строкой через запятую: так человек
+   находит нужное животное глазами за секунду. */
+.wordlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.wordlist li {
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: clamp(0.98rem, 0.95rem + 0.15vw, 1.08rem);
+  box-shadow: 0 1px 2px rgba(51, 32, 44, 0.1);
+}
+.wordlist--links li { padding: 0; background: none; box-shadow: none; }
+.wordlist--links a { font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem); }
+
+/* Пары слов, английское и испанское. Двумя колонками, чтобы было
+   видно, что это одна и та же страница книги в двух изданиях. */
+.wordpairs {
+  list-style: none;
+  margin: var(--gap-2) 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 560px) {
+  .wordpairs { grid-template-columns: 1fr 1fr; }
+}
+.wordpairs li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  box-shadow: 0 1px 2px rgba(51, 32, 44, 0.1);
+}
+.wordpairs__a { font-weight: 600; }
+.wordpairs__b { color: var(--ink-2); }

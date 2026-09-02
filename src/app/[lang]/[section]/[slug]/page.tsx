@@ -37,6 +37,18 @@ import {
   articleUi,
 } from "@/data/teacherArticles";
 import { teachersForLang } from "@/data/teachers";
+import {
+  wordsPagesForLang,
+  wordsPageBySlug,
+  wordsSteps,
+  wordPictureUrl,
+  wordsList,
+  wordsGroups,
+  wordPairs,
+  wordsBookIds,
+  WORDS_BOOK_IDS,
+  WORDS_BOOK_IDS_ES,
+} from "@/data/firstWords";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { BookCard, PageHead } from "@/components/Chrome";
 import { RatingLink } from "@/components/Rating";
@@ -100,6 +112,13 @@ export function generateStaticParams() {
         lang,
         section: sectionSlugs[lang].teachers,
         slug: a.slug[lang]!,
+      });
+    }
+    for (const w of wordsPagesForLang(lang)) {
+      out.push({
+        lang,
+        section: sectionSlugs[lang].words,
+        slug: w.slug[lang]!,
       });
     }
   }
@@ -197,6 +216,30 @@ export async function generateMetadata({
       title: c.title,
       description: c.answer.slice(0, 300),
       alternates: { canonical: itemPath(lang, "teachers", slug), languages },
+    };
+  }
+
+  if (s === "words") {
+    const page = wordsPageBySlug(lang, slug);
+    const copy = page?.copy[lang];
+    if (!page || !copy) return {};
+    const languages = langAlternates(
+      Object.fromEntries(
+        activeLangs
+          .filter((l) => page.slug[l])
+          .map((l) => [l, `${SITE_URL}${itemPath(l, "words", page.slug[l]!)}`]),
+      ),
+    );
+    return {
+      title: copy.title,
+      description: copy.lead,
+      alternates: { canonical: itemPath(lang, "words", slug), languages },
+      openGraph: {
+        title: copy.title,
+        description: copy.definition,
+        type: "article",
+        images: [{ url: wordPictureUrl(page.pictures[0], lang, page) }],
+      },
     };
   }
 
@@ -892,6 +935,180 @@ export default async function ItemPage({
     );
   }
 
+  /* ---------- Первые слова: страница темы ---------- */
+  if (s === "words") {
+    const page = wordsPageBySlug(lang, slug);
+    const wc = page?.copy[lang];
+    if (!page || !wc) notFound();
+    const steps = wordsSteps[lang];
+    const shelf = wordsBookIds(lang)
+      .map((id) => bookById(id))
+      .filter((b): b is Book => Boolean(b));
+    const others = wordsPagesForLang(lang).filter((x) => x.id !== page.id);
+    const list = wordsList(page, lang);
+    const pairs = page.pairs ? wordPairs(page) : [];
+    const hubTitle = dictionaries[lang].nav.firstWords;
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          name: wc.title,
+          description: wc.definition,
+          inLanguage: lang,
+          url: `${SITE_URL}${itemPath(lang, "words", slug)}`,
+          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          /* Полный состав темы для машины. По нему нейросеть находит
+             страницу, когда спрашивают про конкретное слово. */
+          about: list.map((name) => ({ "@type": "Thing", name })),
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: wc.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+        breadcrumbs(lang, [
+          { name: hubTitle, path: sectionPath(lang, "words") },
+          { name: wc.title, path: itemPath(lang, "words", slug) },
+        ]),
+      ],
+    };
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <PageHead title={wc.title} lead={wc.lead} />
+
+        <section className="teach-block">
+          <div className="teach">
+            <p className="teach-def">{wc.definition}</p>
+          </div>
+        </section>
+
+        {/* Три настоящих рисунка со словом. */}
+        <section className="band band--cream">
+          <div className="teach">
+            <p className="teach-p">{wc.showcase}</p>
+            <div className="wordshelf">
+              {page.pictures.map((name) => (
+                <img
+                  key={name}
+                  className="wordshelf__pic"
+                  src={wordPictureUrl(name, lang, page)}
+                  alt={wc.showcase}
+                  width={700}
+                  height={700}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Все слова темы. Человеку это список, машине состав книги. */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{wc.wordsTitle}</h2>
+            <p className="teach-p">{wc.wordsLead}</p>
+            {page.pairs ? (
+              <ul className="wordpairs">
+                {pairs.map(([en, es]) => (
+                  <li key={en}>
+                    <span className="wordpairs__a">{en}</span>
+                    <span className="wordpairs__b">{es}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              wordsGroups(page).map((g) => (
+                <div key={g.id}>
+                  <h3 className="wordgroup">{g.title[lang] ?? g.title.en}</h3>
+                  <ul className="wordlist">
+                    {(g.items[lang] ?? g.items.en ?? []).map((name) => (
+                      <li key={name}>{name}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            )}
+          </div>
+        </section>
+
+        {/* Три действия. */}
+        <section className="band band--mint">
+          <div className="teach">
+            <h2 className="section">{dictionaries[lang].nav.firstWords}</h2>
+            <ol className="ladder">
+              {steps.map((st) => (
+                <li className="ladder__step" key={st.n}>
+                  <p className="ladder__age">{st.n}</p>
+                  <p className="ladder__can">{st.title}</p>
+                  <p className="ladder__needs">{st.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Книги. */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{wc.booksTitle}</h2>
+            <p className="teach-p">{wc.booksLead}</p>
+          </div>
+          <div className="wrap" style={{ paddingTop: "var(--gap-3)" }}>
+            <div className="grid">
+              {shelf.map((b) => (
+                <BookCard key={b.id} book={b} lang={lang} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Вопросы и ответы. */}
+        <section className="band band--pink">
+          <div className="teach">
+            <h2 className="section">{wc.faqTitle}</h2>
+            {wc.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        {/* Другие темы раздела. Без этих ссылок страницы стоят
+            островами и поисковик обходит их поодиночке. */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{hubTitle}</h2>
+            <ul className="wordlist wordlist--links">
+              {others.map((o) => (
+                <li key={o.id}>
+                  <Link href={itemPath(lang, "words", o.slug[lang]!)}>
+                    {o.copy[lang]!.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="teach-cta">
+              <Link className="btn btn--sky" href={sectionPath(lang, "words")}>
+                {hubTitle}
+              </Link>
+            </p>
+          </div>
+        </section>
+      </>
+    );
+  }
+
   /* ---------- Страница книги ---------- */
   if (s !== "books") notFound();
   const book = bookBySlug(lang, slug);
@@ -918,6 +1135,14 @@ export default async function ItemPage({
      и про этот тип книги, и ставить его у книги для семилетнего
      значило бы отправлять человека не туда. */
   const isToddlerColoring = book.age === "1-3" && book.type === "coloring";
+
+  /* Книги, где под каждым рисунком написано слово. Только у них внизу
+     стоит ссылка на раздел о первых словах: у остальных раскрасок
+     слов нет, и обещать их было бы обманом. */
+  const hasFirstWords = ([
+    ...WORDS_BOOK_IDS,
+    ...WORDS_BOOK_IDS_ES,
+  ] as readonly string[]).includes(book.id);
 
   const paper =
     book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
@@ -1545,6 +1770,22 @@ export default async function ItemPage({
               кнопкой. Кнопка сообщает машине только свое название,
               текст рядом объясняет, что за сайт на том конце и чем он
               отличается от этой страницы. */}
+          {/* Раздел о первых словах. Стоит только у книг, где слово
+              действительно написано под рисунком. */}
+          {hasFirstWords ? (
+            <>
+              <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
+                {t.book.wordsTitle}
+              </h2>
+              <p>{t.book.wordsText}</p>
+              <p>
+                <Link className="btn btn--ghost" href={sectionPath(lang, "words")}>
+                  {t.book.wordsCta}
+                </Link>
+              </p>
+            </>
+          ) : null}
+
           {isToddlerColoring ? (
             <>
               <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>

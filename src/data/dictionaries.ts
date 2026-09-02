@@ -9,6 +9,7 @@ export interface Dictionary {
     method: string;
     teachers: string;
     coloringPages: string;
+    firstWords: string;
     about: string;
     contact: string;
   };
@@ -100,6 +101,9 @@ export interface Dictionary {
     guideSiteTitle: string;
     guideSiteText: string;
     guideSiteCta: string;
+    wordsTitle: string;
+    wordsText: string;
+    wordsCta: string;
     detailsTitle: string;
     drawings: string;
     size: string;
@@ -194,6 +198,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       method: "The method",
       teachers: "For teachers",
       coloringPages: "Free coloring pages",
+      firstWords: "First words",
       about: "About us",
       contact: "Contact",
     },
@@ -334,6 +339,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "it says plainly when a first coloring book is already too simple. This book is used " +
         "there as a worked example, not as the answer to every case.",
       guideSiteCta: "Open the guide to first coloring books",
+      wordsTitle: "111 pictures, 111 first words",
+      wordsText:
+        "Under every drawing in this book the name of the object is printed, in hollow letters a child can color. The First Words section shows the pages up close and lists every word in the book, grouped by topic.",
+      wordsCta: "See how first words coloring works",
       detailsTitle: "Book details",
       drawings: "Drawings",
       size: "Size",
@@ -469,6 +478,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       method: "El método",
       teachers: "Para maestros",
       coloringPages: "Dibujos gratis",
+      firstWords: "Primeras palabras",
       about: "Quiénes somos",
       contact: "Contacto",
     },
@@ -610,6 +620,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "resulta demasiado sencillo. Este libro se usa allí como ejemplo, no como respuesta " +
         "para todos los casos.",
       guideSiteCta: "Abrir la guía sobre primeros libros para colorear",
+      wordsTitle: "111 dibujos, 111 primeras palabras",
+      wordsText:
+        "Debajo de cada dibujo de este libro está impreso el nombre del objeto, en letras huecas que el niño puede colorear. La sección Primeras palabras muestra las páginas de cerca y enumera todas las palabras del libro por temas.",
+      wordsCta: "Ver cómo funcionan las primeras palabras",
       detailsTitle: "Ficha del libro",
       drawings: "Dibujos",
       size: "Tamaño",
@@ -745,6 +759,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       method: "Метод",
       teachers: "Учителям",
       coloringPages: "Бесплатные раскраски",
+      firstWords: "Первые слова",
       about: "О нас",
       contact: "Контакты",
     },
@@ -852,6 +867,10 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "прямой ответ в том случае, когда первая раскраска ребенку уже проста. Эта книга " +
         "стоит там как пример, а не как ответ на любой случай.",
       guideSiteCta: "Открыть справочник о первых раскрасках",
+      wordsTitle: "111 рисунков, 111 первых слов",
+      wordsText:
+        "Под каждым рисунком в этой книге написано название предмета полыми буквами, которые ребенок может раскрасить. В разделе о первых словах страницы показаны крупно, а все слова книги собраны по темам.",
+      wordsCta: "Посмотреть, как устроены первые слова",
       detailsTitle: "О книге",
       drawings: "Рисунков",
       size: "Размер",

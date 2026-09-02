@@ -21,7 +21,7 @@ import {
 } from "@/data/method";
 import { teachersForLang, METHOD_URL } from "@/data/teachers";
 import { articlesForLang, articleUi } from "@/data/teacherArticles";
-import { PageHead } from "@/components/Chrome";
+import { PageHead, BookCard } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
 import {
   SITE_URL,
@@ -36,6 +36,14 @@ import {
 } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
 import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
+import {
+  wordsHub,
+  wordsSteps,
+  wordsPagesForLang,
+  wordsPageById,
+  wordPictureUrl,
+  wordsBookIds,
+} from "@/data/firstWords";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
 import { bookIsbn13, bookAges } from "@/data/books";
 
@@ -62,6 +70,10 @@ function headingFor(lang: UiLang, s: Section) {
     }
     case "coloring":
       return { title: t.free.title, lead: t.free.lead };
+    case "words": {
+      const w = wordsHub[lang];
+      return { title: w?.title ?? t.nav.firstWords, lead: w?.lead };
+    }
     case "about":
       return { title: t.about.title, lead: undefined };
     case "contact":
@@ -713,6 +725,193 @@ export default async function SectionPage({
   }
 
   /* ---------- Бесплатные раскраски: список тем ---------- */
+  /* ---------- Первые слова ---------- */
+  if (s === "words") {
+    const w = wordsHub[lang];
+    if (!w) notFound();
+    const pages = wordsPagesForLang(lang);
+    const steps = wordsSteps[lang];
+    const shelf = wordsBookIds(lang)
+      .map((id) => bookById(id))
+      .filter((b): b is NonNullable<typeof b> => Boolean(b));
+    /* Бесплатные листы: страница с животными для малышей. Это верх
+       воронки, отсюда человек уходит пробовать, а не покупать. */
+    const freePage = pagesForLang(lang).find((x) => x.id === "toddler-animals");
+
+    /* Машинная часть. Определение раздела, список страниц тем и
+       вопросы с ответами. Нейросеть берет ответ отсюда целиком. */
+    const wordsSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          name: w.title,
+          description: w.definition,
+          inLanguage: lang,
+          url: `${SITE_URL}${sectionPath(lang, "words")}`,
+          isPartOf: { "@type": "WebSite", name: PUBLISHER, url: SITE_URL },
+          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+        },
+        {
+          "@type": "ItemList",
+          name: w.topicsTitle,
+          numberOfItems: pages.length,
+          itemListElement: pages.map((pg, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: pg.copy[lang]!.title,
+            url: `${SITE_URL}${itemPath(lang, "words", pg.slug[lang]!)}`,
+          })),
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: w.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+      ],
+    };
+
+    return (
+      <>
+        <Crumbs />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(wordsSchema) }}
+        />
+        <PageHead title={w.title} lead={w.lead} />
+
+        {/* Короткий законченный ответ на вопрос "что это такое".
+            Первое, что читает и человек, и машина. */}
+        <section className="teach-block">
+          <div className="teach">
+            <p className="teach-def">{w.definition}</p>
+          </div>
+        </section>
+
+        {/* Три настоящие страницы книги. Доказательство вместо описания. */}
+        <section className="band band--cream">
+          <div className="teach">
+            <p className="teach-p">{w.showcase}</p>
+            <div className="wordshelf">
+              {["cat", "car", "icecream"].map((name) => (
+                <img
+                  key={name}
+                  className="wordshelf__pic"
+                  src={wordPictureUrl(name, lang)}
+                  alt={w.showcase}
+                  width={700}
+                  height={700}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Три действия: раскрась, назови, покажи слово. */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{w.howTitle}</h2>
+            <ol className="ladder">
+              {steps.map((st) => (
+                <li className="ladder__step" key={st.n}>
+                  <p className="ladder__age">{st.n}</p>
+                  <p className="ladder__can">{st.title}</p>
+                  <p className="ladder__needs">{st.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* Темы. Отсюда расходится весь раздел. */}
+        <section className="band band--mint">
+          <div className="teach">
+            <h2 className="section">{w.topicsTitle}</h2>
+            <p className="teach-p">{w.topicsLead}</p>
+            <div className="themes">
+              {pages.map((pg) => {
+                const card = w.topics.find((x) => x.page === pg.id);
+                const c = pg.copy[lang]!;
+                return (
+                  <Link
+                    className="theme"
+                    key={pg.id}
+                    href={itemPath(lang, "words", pg.slug[lang]!)}
+                  >
+                    <div className="theme__strip">
+                      {pg.pictures.map((name) => (
+                        <img
+                          key={name}
+                          src={wordPictureUrl(name, lang, pg)}
+                          alt={c.showcase}
+                          width={700}
+                          height={700}
+                          loading="lazy"
+                        />
+                      ))}
+                    </div>
+                    <p className="theme__title">{card?.title ?? c.title}</p>
+                    {card ? <p className="theme__meta">{card.text}</p> : null}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* Бесплатные листы: попробовать до покупки. */}
+        {freePage ? (
+          <section className="teach-block">
+            <div className="teach">
+              <h2 className="section">{w.freeTitle}</h2>
+              <p className="teach-p">{w.freeLead}</p>
+              <p className="teach-cta">
+                <Link
+                  className="btn btn--sky"
+                  href={itemPath(lang, "coloring", freePage.slug[lang]!)}
+                >
+                  {w.freeCta}
+                </Link>
+              </p>
+            </div>
+          </section>
+        ) : null}
+
+        {/* Книги. Нижняя часть воронки. */}
+        <section className="band band--pink">
+          <div className="teach">
+            <h2 className="section">{w.booksTitle}</h2>
+            <p className="teach-p">{w.booksLead}</p>
+          </div>
+          <div className="wrap" style={{ paddingTop: "var(--gap-3)" }}>
+            <div className="grid">
+              {shelf.map((b) => (
+                <BookCard key={b.id} book={b} lang={lang} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Вопросы и ответы. Короткий вопрос, законченный ответ. */}
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{w.faqTitle}</h2>
+            {w.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      </>
+    );
+  }
+
   if (s === "coloring") {
     const pages = pagesForLang(lang);
     return (

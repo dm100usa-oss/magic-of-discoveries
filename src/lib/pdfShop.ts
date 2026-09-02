@@ -18,6 +18,18 @@ import { bookById, type UiLang } from "@/data/books";
 /** Цена одной книги в центах. Едина для всех изданий. */
 export const PDF_PRICE_CENTS = 499;
 
+/* Налоговая категория товара по справочнику Stripe.
+
+   Точное название категории: Digital Books, downloaded, non subscription,
+   with permanent rights. То есть книга в электронном виде, которую
+   покупатель скачивает себе и пользуется бессрочно, без подписки.
+   Это ровно наш случай.
+
+   Указывать категорию обязательно: Stripe взял на себя роль продавца
+   и сам платит налоги, а ставка налога на книги во многих странах
+   ниже обычной. Без категории он отказывается принимать заказ. */
+export const PDF_TAX_CODE = "txcd_10302000";
+
 /** Цена, как ее видит покупатель. */
 export const PDF_PRICE_LABEL = "$4.99";
 
@@ -47,6 +59,21 @@ export const pdfBookIds = [
 ] as const;
 
 export type PdfBookId = (typeof pdfBookIds)[number];
+
+/** Книги, которые покупают маленькому ребенку. В письме к ним обращаемся
+    через малыша. Остальные, раскраски "Передышка" и пошаговое рисование,
+    покупают чаще себе или ребенку постарше, и там говорить о малыше
+    было бы невпопад. */
+const kidsBooks = new Set<string>([
+  "first-coloring-book-111-en",
+  "first-coloring-book-111-es",
+  "little-max-coloring-1-en",
+  "little-max-coloring-1-es",
+  "little-max-coloring-2-en",
+  "little-max-coloring-2-es",
+]);
+
+export const isForLittleOnes = (id: string) => kidsBooks.has(id);
 
 export function hasPdf(id: string): id is PdfBookId {
   return (pdfBookIds as readonly string[]).includes(id);

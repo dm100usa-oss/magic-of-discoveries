@@ -5,6 +5,7 @@ import {
   hasPdf,
   pdfProductName,
   PDF_PRICE_CENTS,
+  PDF_TAX_CODE,
   type PdfFormat,
 } from "@/lib/pdfShop";
 import { stripe } from "@/lib/stripe";
@@ -45,6 +46,7 @@ export async function POST(request: Request) {
         pdfProductName(id, lang),
       "line_items[0][price_data][product_data][description]":
         `Printable PDF, ${sheet}`,
+      "line_items[0][price_data][product_data][tax_code]": PDF_TAX_CODE,
       "metadata[book]": id,
       "metadata[format]": format,
       "metadata[lang]": lang,

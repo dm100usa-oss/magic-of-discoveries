@@ -297,6 +297,10 @@ function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
             </button>
           </form>
         ))}
+        {/* Пояснение о том, что покупатель получает, стоит здесь, а не
+            под всем блоком кнопок: снаружи оно читалось как примечание
+            и к покупке на Amazon тоже, хотя относится только к файлу. */}
+        <p className="buy-pdf__note">{t.pdfNote}</p>
       </div>
     </details>
   );
@@ -1254,10 +1258,6 @@ export default async function ItemPage({
               что внутри книги, и только потом принимает решение. */}
           <div className="buy-block">
             <BuyButtons book={book} lang={lang} />
-            <p className="buy-note">
-              {t.book.formatNote}
-              {hasPdf(book.id) ? ` ${t.book.pdfNote}` : ""}
-            </p>
           </div>
 
           {video ? (

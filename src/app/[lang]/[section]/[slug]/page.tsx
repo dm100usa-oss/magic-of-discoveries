@@ -287,7 +287,7 @@ function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
             <input type="hidden" name="format" value={format} />
             <input type="hidden" name="lang" value={lang} />
             <input type="hidden" name="back" value={back} />
-            <button type="submit" className="btn btn--ghost buy-pdf__size">
+            <button type="submit" className="btn buy-pdf__size">
               <span className="buy-pdf__name">
                 {format === "letter" ? t.buyPdfLetter : t.buyPdfA4}
               </span>

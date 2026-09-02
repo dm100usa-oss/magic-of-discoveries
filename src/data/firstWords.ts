@@ -16,7 +16,15 @@
 // их берет нейросеть, когда собирает ответ на вопрос родителя.
 
 import type { UiLang } from "./books";
-import { topicsForBook, type TopicGroup } from "./bookTopics";
+import {
+  themeWords,
+  themeCount,
+  wordBookName,
+  wordBookId,
+  wordText,
+  type WordTheme,
+  type WordPair,
+} from "./firstWordsList";
 
 /* ------------------------------------------------------------------ */
 /*  Книги раздела                                                      */
@@ -52,6 +60,8 @@ export interface WordsStep {
 export interface WordsCopy {
   /** Заголовок страницы и H1. Пишется под вопрос родителя. */
   title: string;
+  /** Вторая строка под заголовком. Живая, не поисковая. */
+  subtitle: string;
   /** Первый абзац: это то, что я ищу, да или нет. */
   lead: string;
   /** Законченный ответ на 40-80 слов. Его берет нейросеть. */
@@ -70,13 +80,13 @@ export interface WordsCopy {
 
 export interface WordsPage {
   id: string;
+  /** Тема состава книг. По ней собирается список слов из трех книг. */
+  theme: WordTheme;
   /** Имена рисунков в /public/words. Три штуки. */
   pictures: string[];
   /** Язык подписи на рисунках. Пусто значит язык страницы.
       Нужен страницам про слова другого языка. */
   pictureLang?: UiLang;
-  /** Группы состава книги, из которых берется список слов. */
-  groups: string[];
   /** Показывать слова парами, английское и испанское. */
   pairs?: boolean;
   slug: Partial<Record<UiLang, string>>;
@@ -181,42 +191,57 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
     howTitle: "How to use them",
     topicsTitle: "First words by topic",
     topicsLead:
-      "The words a small child meets first are the ones already around them: animals, food on the table, cars in the street. Each page below shows the drawings and lists every word in that group.",
+      "A toddler's world is already full of words: animals in picture books, food on the table, buses outside the window, socks on the floor. Pick a topic your child already loves and start there. Every page shows real drawings and lists all 333 words, book by book.",
     topics: [
       {
         page: "animals",
-        title: "Animal first words",
-        text: "55 animals, from cat and dog to lion, shark and butterfly.",
+        title: "Animal First Words",
+        text: "114 animals, from familiar cats and dogs to lions, pandas and butterflies.",
       },
       {
         page: "food",
-        title: "Food first words",
-        text: "14 foods a toddler already knows from the kitchen table.",
+        title: "Food First Words",
+        text: "59 foods, from apples and bananas to bread, cheese and pizza.",
       },
       {
         page: "vehicles",
-        title: "Vehicle first words",
-        text: "8 things that move: car, airplane, rocket, ship.",
+        title: "Vehicle First Words",
+        text: "23 things that go: bus, train, truck, tractor, plane and more.",
       },
       {
         page: "nature",
-        title: "Nature first words",
-        text: "10 flowers, leaves and plants from a walk in the park.",
+        title: "Nature First Words",
+        text: "38 pictures from outdoors: sun, moon, tree, flower and leaves.",
+      },
+      {
+        page: "clothes",
+        title: "Clothes First Words",
+        text: "16 pieces of clothing you name every single morning.",
+      },
+      {
+        page: "toys",
+        title: "Toy First Words",
+        text: "12 toys that are probably on the floor right now.",
+      },
+      {
+        page: "home",
+        title: "Home First Words",
+        text: "16 everyday things from around the house: cup, spoon, lamp, bed.",
       },
       {
         page: "objects",
-        title: "Everyday object first words",
-        text: "13 familiar things: a present, a camera, a beach hat.",
+        title: "Objects and Play",
+        text: "39 things from play, sport and music, including a few surprises.",
       },
       {
         page: "fairy",
-        title: "Fairy tale first words",
-        text: "11 storybook words: unicorn, dragon, mermaid, crown.",
+        title: "Fairy Tale First Words",
+        text: "16 storybook favorites: unicorn, dragon, mermaid, princess.",
       },
     ],
     booksTitle: "Where these pages come from",
     booksLead:
-      "Every drawing on this page is a real page from one of our coloring books. Each book holds 111 pictures with 111 words, one per page, in English or in Spanish.",
+      "Every drawing on this page is a real page from one of our coloring books. Three books, 111 pictures and 111 words in each, one per page, in English or in Spanish.",
     freeTitle: "Try a few free first",
     freeLead:
       "Twenty animal pages, the same big drawings with the word underneath, ready to print at home. See how your child takes to them before buying anything.",
@@ -263,42 +288,57 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
     howTitle: "Cómo se usan",
     topicsTitle: "Primeras palabras por tema",
     topicsLead:
-      "Muchas de las primeras palabras que compartimos con un niño nombran cosas que ya forman parte de su mundo: animales, alimentos, vehículos y objetos cotidianos. Hemos agrupado los dibujos por temas para que sea fácil explorar los que más le interesan.",
+      "El mundo de un niño pequeño ya está lleno de palabras: animales de los cuentos, comida en la mesa, autobuses en la calle, calcetines por el suelo. Elige el tema que más le gusta y empieza por ahí. Cada página muestra dibujos reales y enumera las 333 palabras, libro por libro.",
     topics: [
       {
         page: "animals",
         title: "Animales",
-        text: "55 animales, desde el gato y el perro hasta el león y la mariposa.",
+        text: "114 animales, del gato y el perro al león, el panda y la mariposa.",
       },
       {
         page: "food",
         title: "Comida",
-        text: "14 alimentos representados con dibujos grandes y sencillos.",
+        text: "59 alimentos, de la manzana y el plátano al pan, el queso y la pizza.",
       },
       {
         page: "vehicles",
         title: "Vehículos",
-        text: "8 vehículos y medios de transporte, del avión al cohete.",
+        text: "23 cosas que se mueven: autobús, tren, camión, tractor, avión y más.",
       },
       {
         page: "nature",
         title: "Naturaleza",
-        text: "10 plantas, flores y otros elementos de la naturaleza.",
+        text: "38 dibujos del exterior: sol, luna, árbol, flor y hojas.",
+      },
+      {
+        page: "clothes",
+        title: "Ropa",
+        text: "16 prendas que nombras cada mañana.",
+      },
+      {
+        page: "toys",
+        title: "Juguetes",
+        text: "12 juguetes que seguramente están ahora por el suelo.",
+      },
+      {
+        page: "home",
+        title: "La casa",
+        text: "16 cosas de todos los días: taza, cuchara, lámpara, cama.",
       },
       {
         page: "objects",
         title: "Objetos y juegos",
-        text: "13 objetos de la casa, el juego y la vida cotidiana.",
+        text: "39 cosas del juego, el deporte y la música, con alguna sorpresa.",
       },
       {
         page: "fairy",
         title: "Cuentos",
-        text: "11 personajes y objetos de fantasía: unicornio, dragón, sirena, corona y más.",
+        text: "16 personajes de cuento: unicornio, dragón, sirena, princesa.",
       },
     ],
     booksTitle: "De dónde salen estas páginas",
     booksLead:
-      "Todos los dibujos que ves aquí aparecen realmente en nuestros libros para colorear. Cada libro reúne 111 dibujos y 111 palabras, una por página, con ediciones en español y en inglés.",
+      "Todos los dibujos que ves aquí aparecen realmente en nuestros libros para colorear. Son tres libros, 111 dibujos y 111 palabras en cada uno, una por página, con ediciones en español y en inglés.",
     freeTitle: "Prueba algunas páginas gratis",
     freeLead:
       "Descarga 20 páginas de animales para imprimir en casa. Son los mismos dibujos grandes y sencillos, con una palabra debajo de cada imagen. Pruébalas con tu hijo antes de elegir el libro completo.",
@@ -342,11 +382,10 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
 /* ------------------------------------------------------------------ */
 
 export const wordsPages: WordsPage[] = [
-  /* ===== Животные ===== */
   {
     id: "animals",
-    pictures: ["cat", "lion", "shark"],
-    groups: ["land", "water"],
+    theme: "animals",
+    pictures: ["cat", "lion", "panda"],
     slug: {
       en: "animal-first-words",
       es: "primeras-palabras-animales",
@@ -354,78 +393,68 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "Animal First Words for Toddlers",
-        lead: "55 animals, one on each page, with the name printed underneath in letters big enough to color.",
+        subtitle: "From “meow” to “roar”",
+        lead: "114 animals across our three coloring books, each on its own page with a big, simple drawing and its name underneath.",
         definition:
-          "Animal first words are the names of animals a small child already meets in daily life and in picture books: cat, dog, bear, lion. On a coloring page each animal gets a page to itself, drawn with thick outlines, with its name printed underneath. The adult names the animal while the child colors it.",
-        showcase:
-          "A cat from the everyday group, a lion from the zoo group, a shark from the water group. Real pages, at full size.",
-        wordsTitle: "All 55 animal words",
+          "Animal first words are the names of animals a small child already meets at home, at the park and in picture books: cat, dog, cow, bear, lion. On a coloring page each animal gets a full page to itself, drawn with thick outlines, with its name printed below in hollow letters that can be colored too.",
+        showcase: "A cat, a lion and a panda, exactly as they appear inside the books.",
+        wordsTitle: "Every animal, book by book",
         wordsLead:
-          "The order is the order of the book. Everyday animals and zoo animals first, then the ones that live in water.",
+          "Pick an animal. Color it together. Say its name. Make the sound if you know it. Sometimes “meow” is all the conversation you need.",
         booksTitle: "Where these animals come from",
         booksLead:
-          "All 55 animals are in our first coloring books, one drawing per page with the word underneath.",
-        faqTitle: "Questions parents ask",
+          "Every animal here is a real page from one of our coloring books, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
         faq: [
           {
-            q: "Which animal words should a toddler learn first?",
-            a: "The ones they can point at: cat, dog, cow, duck, bear. Animals they see at home, in the street or in a picture book are easier to name and easier to remember than an exotic animal they have no reason to think about.",
+            q: "Which animal words should we start with?",
+            a: "Start with whatever your child already notices. Maybe it is the family dog. Maybe a duck at the park. Maybe, for reasons known only to toddlers, an elephant. There is no required order.",
           },
           {
-            q: "Are zoo animals too hard for a two year old?",
-            a: "No, and they are usually the favorites. A lion or an elephant is easy to recognize because it looks like nothing else. What matters is the drawing being big and simple, not the animal being familiar.",
+            q: "Are zoo animals too difficult for a two-year-old?",
+            a: "They do not have to be. A child does not need to meet a lion in real life to enjoy pointing at one. Picture books, toys and stories are part of a toddler's world too.",
           },
           {
-            q: "How many animals are in the book?",
-            a: "39 land animals and 16 water animals, 55 in all. The rest of the 111 pictures are food, vehicles, nature, everyday objects and fairy tale characters.",
-          },
-          {
-            q: "Can I get a few animal pages free?",
-            a: "Yes. Twenty animal pages from the books are free to print at home, with the word under each drawing, the same as in the printed edition.",
+            q: "Can we try some animal pages for free?",
+            a: "Yes. Twenty animal pages from the books are free to print at home, with the same big drawings and words underneath.",
           },
         ],
       },
       es: {
         title: "Primeras palabras: animales",
-        lead: "55 animales, uno por página, con dibujos grandes y sencillos y su nombre impreso debajo.",
+        subtitle: "Del «miau» al «rugido»",
+        lead: "114 animales repartidos en nuestros tres libros para colorear, cada uno en su propia página con un dibujo grande y su nombre debajo.",
         definition:
-          "Los animales son una forma natural de empezar a nombrar lo que aparece en una página. Gato, perro, oso o león son imágenes fáciles de reconocer y dan pie a hablar sobre sonidos, colores, patas y orejas mientras el niño colorea. Cada animal ocupa una hoja entera y lleva su nombre impreso debajo, en letras huecas.",
-        showcase:
-          "Un gato, un león y un tiburón. Páginas reales, tal como aparecen en nuestros libros.",
-        wordsTitle: "Las 55 palabras de animales",
+          "Las primeras palabras de animales son los nombres que un niño pequeño ya encuentra en casa, en el parque y en los cuentos: gato, perro, vaca, oso, león. Cada animal ocupa una hoja entera, dibujado con líneas gruesas, y lleva su nombre impreso debajo en letras huecas que también se pueden colorear.",
+        showcase: "Un gato, un león y un panda, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todos los animales, libro por libro",
         wordsLead:
-          "En el mismo orden en que aparecen en el libro: primero los animales terrestres y después los que viven en el agua.",
+          "Elige un animal. Coloréalo con tu hijo. Di su nombre. Haz el sonido si lo sabes. A veces un «miau» es toda la conversación que hace falta.",
         booksTitle: "De dónde salen estos animales",
         booksLead:
-          "Los 55 animales forman parte de nuestros primeros libros para colorear, con un dibujo grande y una palabra en cada página.",
+          "Cada animal de esta página es una página real de uno de nuestros libros para colorear, un dibujo por hoja con la palabra debajo.",
         faqTitle: "Preguntas de los padres",
         faq: [
           {
-            q: "¿Qué animales puedo nombrar primero?",
-            a: "Empieza por los que tu hijo ya conoce o puede encontrar con facilidad: gato, perro, vaca, pato u oso. También puedes seguir simplemente sus intereses. Si le encantan los leones o los elefantes, empieza por ellos.",
+            q: "¿Con qué animales conviene empezar?",
+            a: "Empieza por los que tu hijo ya nota. Puede ser el perro de casa. Puede ser un pato del parque. Puede ser, por razones que solo él conoce, un elefante. No hay un orden obligatorio.",
           },
           {
-            q: "¿Los animales del zoológico son demasiado difíciles para un niño pequeño?",
-            a: "No es necesario limitarse a los animales que ve todos los días. Los libros y los cuentos también forman parte de su mundo. Un león, una jirafa o un elefante pueden ser tan divertidos de señalar y nombrar como un gato.",
-          },
-          {
-            q: "¿Cuántos animales incluye el libro?",
-            a: "Incluye 55 animales: 39 terrestres y 16 acuáticos. Los demás dibujos, hasta completar 111, pertenecen a otros temas: comida, vehículos, naturaleza, objetos y personajes de cuento.",
+            q: "¿Los animales del zoológico son difíciles a los dos años?",
+            a: "No tienen por qué. Un niño no necesita ver un león de verdad para disfrutar señalándolo. Los cuentos, los juguetes y las historias también forman parte de su mundo.",
           },
           {
             q: "¿Hay páginas de animales gratis?",
-            a: "Sí. Puedes imprimir gratis 20 páginas de animales tomadas de nuestros libros, cada una con el nombre debajo del dibujo.",
+            a: "Sí. Veinte páginas de animales de los libros se pueden imprimir gratis en casa, con los mismos dibujos grandes y la palabra debajo.",
           },
         ],
       },
     },
   },
-
-  /* ===== Еда ===== */
   {
     id: "food",
-    pictures: ["cake", "icecream", "strawberry"],
-    groups: ["food"],
+    theme: "food",
+    pictures: ["apple", "cake", "pizza"],
     slug: {
       en: "food-first-words",
       es: "primeras-palabras-comida",
@@ -433,67 +462,68 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "Food First Words for Toddlers",
-        lead: "14 foods a small child already knows from the table, each with its name printed under the drawing.",
+        subtitle: "Words from the kitchen table",
+        lead: "59 foods across the three books, from apples and bananas to bread, cheese and a slice of pizza.",
         definition:
-          "Food first words are the names of things a child eats or sees being eaten: cake, orange, carrot, strawberry. They are easy words to practice because they come up several times a day, at every meal, without anyone having to arrange a lesson.",
-        showcase:
-          "Cake, ice cream and a strawberry, printed exactly as they appear in the book.",
-        wordsTitle: "All 14 food words",
-        wordsLead: "Sweets first, then fruit and vegetables.",
+          "Food first words are the names of things a child eats or watches being eaten: apple, banana, bread, cake. They are the easiest words to practice because they come up several times a day at the table, so the name and the object line up without anyone arranging a lesson.",
+        showcase: "An apple, a cake and a slice of pizza, exactly as they appear inside the books.",
+        wordsTitle: "Every food word, book by book",
+        wordsLead:
+          "Color an orange in the afternoon. Find a real one at dinner. Say the word again. That is the whole method.",
         booksTitle: "Where these pages come from",
         booksLead:
-          "The food group is part of the 111 pictures in our first coloring books, one drawing per page with the word underneath.",
-        faqTitle: "Questions parents ask",
+          "These food pages come from our three coloring books, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
         faq: [
           {
             q: "Why are food words good first words?",
-            a: "Because they repeat. A child hears orange, banana or cake several times a day at the table, so the name and the object line up naturally, without anyone setting time aside to teach.",
+            a: "Because they repeat. A child hears apple, banana or milk several times a day, so the word attaches itself to something already in front of them.",
           },
           {
-            q: "Can I use the page at mealtimes?",
-            a: "It works well. Color the carrot page in the afternoon, then hand a real carrot over at dinner and name it again. The page and the plate reinforce each other with no effort from you.",
+            q: "Can we connect the page with real food?",
+            a: "Of course. Color a carrot, then hand over a real carrot at dinner and name it again. Keep it playful; it does not need to become a lesson.",
           },
           {
-            q: "Which foods are in the book?",
-            a: "Cake, ice cream, watermelon, carrot, broccoli, orange, cherry, avocado, strawberry, pear, pineapple, lemon, pumpkin and a donut. Fourteen in all.",
+            q: "Is there an apple in the books?",
+            a: "Yes, in Little Max Book 1, along with banana, grapes, bread, cheese, egg and milk. The other two books add fruit, vegetables and treats.",
           },
         ],
       },
       es: {
         title: "Primeras palabras: comida",
-        lead: "14 alimentos, cada uno representado con un dibujo grande y su nombre debajo.",
+        subtitle: "Palabras de la mesa de la cocina",
+        lead: "59 alimentos en los tres libros, desde la manzana y el plátano hasta el pan, el queso y un trozo de pizza.",
         definition:
-          "La comida forma parte de la vida cotidiana del niño y ofrece muchas oportunidades para nombrar lo que ve. Estas páginas reúnen frutas, verduras y dulces que también aparecen en la mesa durante el día, así que la misma palabra se repite sin necesidad de convertirla en lección.",
-        showcase: "Tres páginas reales del libro: torta, helado y fresa.",
-        wordsTitle: "Las 14 palabras de comida",
-        wordsLead: "Primero los dulces, después las frutas y las verduras.",
+          "Las primeras palabras de comida son los nombres de lo que el niño come o ve comer: manzana, plátano, pan, torta. Son las más fáciles de practicar porque aparecen varias veces al día en la mesa, así que la palabra y la cosa se juntan solas.",
+        showcase: "Una manzana, una torta y un trozo de pizza, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todas las palabras de comida, libro por libro",
+        wordsLead:
+          "Colorea una naranja por la tarde. Encuentra una de verdad en la cena. Repite la palabra. Ese es todo el método.",
         booksTitle: "De dónde salen estas páginas",
         booksLead:
-          "Estos 14 dibujos forman parte de los 111 dibujos de nuestros primeros libros para colorear.",
+          "Estas páginas de comida vienen de nuestros tres libros para colorear, un dibujo por hoja con la palabra debajo.",
         faqTitle: "Preguntas de los padres",
         faq: [
           {
-            q: "¿Por qué usar palabras relacionadas con la comida?",
-            a: "Porque son fáciles de incorporar a una conversación cotidiana. Puedes colorear una naranja y volver a nombrarla más tarde, cuando aparezca una naranja de verdad en la cocina o en la mesa.",
+            q: "¿Por qué la comida funciona tan bien?",
+            a: "Porque se repite. El niño oye manzana, plátano o leche varias veces al día, así que la palabra se pega a algo que ya tiene delante.",
           },
           {
-            q: "¿Podemos relacionar el dibujo con alimentos reales?",
-            a: "Claro. Si colorean una zanahoria, pueden buscar después una zanahoria en la cocina y volver a decir su nombre. No hace falta convertirlo en una lección.",
+            q: "¿Podemos unir la página con comida de verdad?",
+            a: "Claro. Colorea una zanahoria y en la cena dale una zanahoria de verdad y vuelve a nombrarla. Sin convertirlo en lección.",
           },
           {
-            q: "¿Qué alimentos aparecen en el libro?",
-            a: "Torta, helado, sandía, zanahoria, brócoli, naranja, guinda, aguacate, fresa, pera, piña, limón, calabaza y buñuelo. Catorce en total.",
+            q: "¿Hay manzana en los libros?",
+            a: "Sí, en Pequeño Max libro 1, junto con plátano, uvas, pan, queso, huevo y leche. Los otros dos libros añaden frutas, verduras y dulces.",
           },
         ],
       },
     },
   },
-
-  /* ===== Транспорт ===== */
   {
     id: "vehicles",
-    pictures: ["airplane", "helicopter", "rocket"],
-    groups: ["vehicles"],
+    theme: "vehicles",
+    pictures: ["bus", "train", "truck"],
     slug: {
       en: "vehicle-first-words",
       es: "primeras-palabras-vehiculos",
@@ -501,71 +531,68 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "Vehicle First Words for Toddlers",
-        lead: "8 things that move, drawn big and simple, each with its name under the picture.",
+        subtitle: "Things that go",
+        lead: "23 vehicles across the three books: bus, train, truck, tractor, plane, boat and more, each drawn big and simple.",
         definition:
-          "Vehicle first words are the names of things that carry people and move: car, airplane, ship, rocket. Children point at them from the stroller long before they can say them, which makes the word easy to attach to something the child already cares about.",
-        showcase: "An airplane, a helicopter and a rocket, as printed in the book.",
-        wordsTitle: "All 8 vehicle words",
-        wordsLead: "On the road, in the air, on the water and beyond.",
+          "Vehicle first words are the names of things that move and carry people: car, bus, train, plane. Children point at them from the stroller long before they can say them, so the word attaches to something the child already cares about.",
+        showcase: "A bus, a train and a truck, exactly as they appear inside the books.",
+        wordsTitle: "Every vehicle, book by book",
+        wordsLead:
+          "Keep it simple. “Bus.” “The bus is big.” “Train.” No need to ask your child to repeat anything.",
         booksTitle: "Where these pages come from",
         booksLead:
-          "The vehicles are part of the 111 pictures in our first coloring books, one drawing per page with the word underneath.",
-        faqTitle: "Questions parents ask",
+          "The vehicles come from our three coloring books, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
         faq: [
           {
             q: "Why do toddlers latch onto vehicle words?",
-            a: "Because vehicles move and make noise, and a child notices them without being told to. A word attached to something a child already points at needs far less repetition than one they have no interest in.",
+            a: "Because vehicles move and make noise, and a child notices them without being told to. A word attached to something they already point at needs far less repetition.",
           },
           {
-            q: "Are there trucks and trains in the book?",
-            a: "Eight: car, helicopter, airplane, hot air balloon, ship, submarine, rocket and scooter. Trucks, trains and tractors appear in our directed drawing workbooks for older children.",
+            q: "Are there trucks and trains in the books?",
+            a: "Yes. Little Max Book 1 has bus, train, truck, tractor, bicycle and boat. The First Coloring Book adds car, helicopter, airplane, ship, submarine and rocket.",
           },
           {
-            q: "Is a rocket too abstract for a two year old?",
-            a: "In practice it is one of the easiest shapes to recognize: a simple cone on a tube. A child does not need to understand space travel to name the picture.",
+            q: "Is a rocket too complicated for a two-year-old?",
+            a: "Your child does not need to understand space travel. They can color the picture, hear its name and make their own rocket sound. That is more than enough.",
           },
         ],
       },
       es: {
         title: "Primeras palabras: vehículos",
-        lead: "8 vehículos y medios de transporte, dibujados con formas grandes y sencillas y con su nombre debajo.",
+        subtitle: "Cosas que se mueven",
+        lead: "23 vehículos en los tres libros: autobús, tren, camión, tractor, avión, barco y más, todos con formas grandes y sencillas.",
         definition:
-          "Los vehículos llaman la atención de muchos niños porque aparecen en la calle, en los juguetes y en los cuentos. Estas páginas ofrecen una forma sencilla de nombrarlos mientras el niño colorea: un vehículo por hoja, con su nombre impreso debajo en letras huecas.",
-        showcase: "Un avión, un helicóptero y un cohete, tal como aparecen en el libro.",
-        wordsTitle: "Las 8 palabras de vehículos",
+          "Las primeras palabras de vehículos son los nombres de lo que se mueve y lleva gente: coche, autobús, tren, avión. Los niños los señalan desde el carrito mucho antes de saber decirlos, así que la palabra se pega a algo que ya les interesa.",
+        showcase: "Un autobús, un tren y un camión, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todos los vehículos, libro por libro",
         wordsLead:
-          "Vehículos que se desplazan por carretera, por aire, por agua e incluso por el espacio.",
+          "Hazlo sencillo. «Autobús». «El autobús es grande». «Tren». No hace falta pedirle que repita nada.",
         booksTitle: "De dónde salen estas páginas",
         booksLead:
-          "Los vehículos forman parte de los 111 dibujos de nuestros primeros libros para colorear.",
+          "Los vehículos vienen de nuestros tres libros para colorear, un dibujo por hoja con la palabra debajo.",
         faqTitle: "Preguntas de los padres",
         faq: [
           {
-            q: "¿Cómo puedo hablar de los vehículos mientras coloreamos?",
-            a: "Puedes limitarte a nombrarlos o añadir algo que el niño ya conozca. «Avión». «El avión vuela». «Cohete». No hace falta pedirle que repita la palabra.",
+            q: "¿Por qué los niños se enganchan a los vehículos?",
+            a: "Porque se mueven y hacen ruido, y el niño se fija en ellos sin que nadie se lo pida. Una palabra pegada a algo que ya señala necesita mucha menos repetición.",
           },
           {
-            q: "¿Qué vehículos aparecen en el libro?",
-            a: "Ocho: máquina, helicóptero, avión, globo, nave, submarino, cohete y scooter. Cada uno con su nombre impreso debajo del dibujo.",
+            q: "¿Hay camiones y trenes en los libros?",
+            a: "Sí. Pequeño Max libro 1 trae autobús, tren, camión, tractor, bicicleta y barco. El primer libro para colorear añade helicóptero, avión, nave, submarino y cohete.",
           },
           {
-            q: "¿Hay camiones y trenes?",
-            a: "En este libro no. Los camiones, trenes y tractores aparecen en nuestros cuadernos de dibujo paso a paso, pensados para niños algo mayores.",
-          },
-          {
-            q: "¿Un cohete es demasiado complicado para un niño pequeño?",
-            a: "No hace falta que entienda cómo funciona. Puede simplemente reconocer el dibujo, colorearlo y escuchar su nombre, igual que con cualquier otro objeto de la página.",
+            q: "¿Un cohete no es demasiado para un niño de dos años?",
+            a: "No necesita entender los viajes espaciales. Puede colorear el dibujo, oír su nombre e inventar su propio sonido de cohete. Con eso basta.",
           },
         ],
       },
     },
   },
-
-  /* ===== Природа ===== */
   {
     id: "nature",
-    pictures: ["sunflower", "mushroom", "cactus"],
-    groups: ["nature"],
+    theme: "nature",
+    pictures: ["sun", "tree", "sunflower"],
     slug: {
       en: "nature-first-words",
       es: "primeras-palabras-naturaleza",
@@ -573,135 +600,344 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "Nature First Words for Toddlers",
-        lead: "10 flowers, leaves and plants from an ordinary walk, each with its name under the drawing.",
+        subtitle: "Words to take on a walk",
+        lead: "38 pictures from outdoors: sun, moon, star, cloud, tree, flower, leaf and more, each with its name underneath.",
         definition:
-          "Nature first words are the names of things a child picks up outdoors: leaf, flower, mushroom, pine cone. They pair well with coloring because the same object can be found on a walk that afternoon and named again in the child's own hand.",
-        showcase: "A sunflower, a mushroom and a cactus, as printed in the book.",
-        wordsTitle: "All 10 nature words",
-        wordsLead: "Leaves and flowers first, then the plants that grow indoors.",
+          "Nature first words are the names of things a child sees or picks up outdoors: sun, tree, flower, leaf. They pair well with coloring because the same thing can be found on a walk that afternoon and named again, with no lesson involved.",
+        showcase: "The sun, a tree and a sunflower, exactly as they appear inside the books.",
+        wordsTitle: "Every nature word, book by book",
+        wordsLead:
+          "Color a leaf today and look for one outside tomorrow. If you find it, say the word again. That is enough.",
         booksTitle: "Where these pages come from",
         booksLead:
-          "The nature group is part of the 111 pictures in our first coloring books, one drawing per page with the word underneath.",
-        faqTitle: "Questions parents ask",
+          "These nature pages come from our three coloring books, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
         faq: [
           {
-            q: "How do I use a nature page on a walk?",
-            a: "Color the maple leaf page before going out, then look for a real leaf in the park and say the word again. The page gives the walk a small purpose and the word gets said twice without a lesson.",
+            q: "How do we use a nature page on a walk?",
+            a: "Color a leaf or a flower before you go out, then look for something similar in the park. No scavenger hunt required. A little noticing is enough.",
           },
           {
-            q: "Which plants are in the book?",
-            a: "Maple leaf, rose, mushroom, clover, sunflower, pine cone, cactus, lily of the valley, lotus and tulip. Ten in all.",
+            q: "Does my toddler need to know every one of these words?",
+            a: "No. Some will be familiar, some completely new. Let your child pick what looks interesting. There is no list they have to finish.",
           },
           {
-            q: "Is a lotus a useful word for a small child?",
-            a: "Less useful than leaf or flower, and that is fine. A book that only held the ten most common words would be finished in a week. The unusual pictures are what keeps a child turning pages.",
+            q: "Which are the easiest to start with?",
+            a: "Sun, moon, star, cloud, tree and flower. They are in Little Max Book 1 and a child sees all of them on an ordinary day.",
           },
         ],
       },
       es: {
         title: "Primeras palabras: naturaleza",
-        lead: "10 dibujos de plantas, flores y otros elementos de la naturaleza, cada uno con su nombre debajo.",
+        subtitle: "Palabras para llevar de paseo",
+        lead: "38 dibujos del exterior: sol, luna, estrella, nube, árbol, flor, hoja y más, cada uno con su nombre debajo.",
         definition:
-          "Esta colección permite llevar la conversación más allá de la página. Algunas de estas formas se pueden encontrar durante un paseo, en un jardín o en casa, así que la palabra se dice una vez al colorear y otra vez al verla de verdad.",
-        showcase: "Un girasol, una seta y un cacto, tal como aparecen en el libro.",
-        wordsTitle: "Las 10 palabras de naturaleza",
+          "Las primeras palabras de naturaleza son los nombres de lo que el niño ve o recoge al aire libre: sol, árbol, flor, hoja. Van muy bien con el color porque la misma cosa se puede encontrar esa tarde en un paseo y volver a nombrarla, sin ninguna lección.",
+        showcase: "El sol, un árbol y un girasol, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todas las palabras de naturaleza, libro por libro",
         wordsLead:
-          "Una pequeña colección de hojas, flores, plantas y otras formas de la naturaleza.",
+          "Colorea una hoja hoy y busca una fuera mañana. Si la encontráis, repite la palabra. Con eso basta.",
         booksTitle: "De dónde salen estas páginas",
         booksLead:
-          "Los 10 dibujos forman parte de los 111 dibujos de nuestros primeros libros para colorear.",
+          "Estas páginas vienen de nuestros tres libros para colorear, un dibujo por hoja con la palabra debajo.",
         faqTitle: "Preguntas de los padres",
         faq: [
           {
-            q: "¿Cómo puedo usar estas páginas durante un paseo?",
-            a: "Pueden colorear una hoja o una flor antes de salir y después buscar algo parecido durante el paseo. Si lo encuentran, basta con volver a nombrarlo juntos.",
+            q: "¿Cómo se usa una página de naturaleza en un paseo?",
+            a: "Colorea una hoja o una flor antes de salir y luego busca algo parecido en el parque. No hace falta una búsqueda del tesoro: basta con fijarse un poco.",
           },
           {
-            q: "¿Qué plantas y elementos de la naturaleza aparecen?",
-            a: "Hoja de arce, rosa, seta, trébol, girasol, chichón, cacto, muguete, loto y tulipán. Diez en total.",
+            q: "¿Mi hijo tiene que conocer todas estas palabras?",
+            a: "No. Algunas le sonarán y otras serán nuevas. Deja que elija lo que le llame la atención. No hay ninguna lista que terminar.",
           },
           {
-            q: "¿Todas estas palabras tienen que ser conocidas para un niño pequeño?",
-            a: "No. Algunas serán familiares y otras serán nuevas. No es necesario aprenderlas todas: el niño puede elegir las páginas que más le gusten y descubrir el resto poco a poco.",
+            q: "¿Cuáles son las más fáciles para empezar?",
+            a: "Sol, luna, estrella, nube, árbol y flor. Están en Pequeño Max libro 1 y el niño las ve en un día cualquiera.",
           },
         ],
       },
     },
   },
-
-  /* ===== Предметы ===== */
+  {
+    id: "clothes",
+    theme: "clothes",
+    pictures: ["socks", "dress", "boots"],
+    slug: {
+      en: "clothes-first-words",
+      es: "primeras-palabras-ropa",
+    },
+    copy: {
+      en: {
+        title: "Clothes First Words for Toddlers",
+        subtitle: "Words you say every morning",
+        lead: "16 pieces of clothing: socks, shoes, boots, hat, coat, dress, pajamas and more, each with its name underneath.",
+        definition:
+          "Clothes first words are the names of the things a child puts on every day: socks, shoes, hat, coat. They are said out loud several times a day already, during dressing and undressing, so a coloring page simply gives the same word a picture to sit next to.",
+        showcase: "Socks, a dress and a pair of boots, exactly as they appear inside the books.",
+        wordsTitle: "Every clothing word, book by book",
+        wordsLead:
+          "Color the socks in the morning, then name the real ones at bedtime. The page and the drawer say the same word.",
+        booksTitle: "Where these pages come from",
+        booksLead:
+          "The clothes come from Little Max Book 1 and Book 2, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
+        faq: [
+          {
+            q: "Why are clothes useful first words?",
+            a: "Because getting dressed happens twice a day, every day. The word is already being said out loud; the page just gives it a picture.",
+          },
+          {
+            q: "Which clothes are in the books?",
+            a: "Socks, shoes, boots, hat, coat, pajamas, glasses, T-shirt, pants and dress in Book 1. Book 2 adds a cap, a top hat, a sombrero, sandals, flip-flops and a tank top.",
+          },
+          {
+            q: "My child will not sit still to color. Is that a problem?",
+            a: "Not at all. If the page lasts two minutes and the word gets said twice, it did its job.",
+          },
+        ],
+      },
+      es: {
+        title: "Primeras palabras: ropa",
+        subtitle: "Palabras que dices cada mañana",
+        lead: "16 prendas: calcetines, zapatos, botas, gorro, abrigo, vestido, pijama y más, cada una con su nombre debajo.",
+        definition:
+          "Las primeras palabras de ropa son los nombres de lo que el niño se pone cada día: calcetines, zapatos, gorro, abrigo. Ya se dicen en voz alta varias veces al día, al vestirse y al desvestirse, así que la página solo le pone un dibujo al lado a una palabra que ya suena en casa.",
+        showcase: "Unos calcetines, un vestido y unas botas, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todas las palabras de ropa, libro por libro",
+        wordsLead:
+          "Colorea los calcetines por la mañana y nombra los de verdad por la noche. La hoja y el cajón dicen la misma palabra.",
+        booksTitle: "De dónde salen estas páginas",
+        booksLead:
+          "La ropa viene de Pequeño Max libro 1 y libro 2, un dibujo por hoja con la palabra debajo.",
+        faqTitle: "Preguntas de los padres",
+        faq: [
+          {
+            q: "¿Por qué la ropa sirve como primeras palabras?",
+            a: "Porque vestirse pasa dos veces al día, todos los días. La palabra ya se dice en voz alta; la página solo le pone un dibujo.",
+          },
+          {
+            q: "¿Qué prendas hay en los libros?",
+            a: "Calcetines, zapatos, botas, gorro, abrigo, pijama, gafas, camiseta, pantalones y vestido en el libro 1. El libro 2 añade gorra, sombrero de copa, sombrero, sandalias, chanclas y camiseta sin mangas.",
+          },
+          {
+            q: "Mi hijo no se queda quieto coloreando. ¿Es un problema?",
+            a: "En absoluto. Si la hoja dura dos minutos y la palabra se dice dos veces, ya cumplió.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "toys",
+    theme: "toys",
+    pictures: ["teddy", "doll", "ball"],
+    slug: {
+      en: "toy-first-words",
+      es: "primeras-palabras-juguetes",
+    },
+    copy: {
+      en: {
+        title: "Toy First Words for Toddlers",
+        subtitle: "Words already lying on the floor",
+        lead: "12 toys: ball, balloon, blocks, book, doll, teddy bear, bubbles, kite and a present, each with its name underneath.",
+        definition:
+          "Toy first words are the names of the things a child already holds: ball, doll, teddy bear, blocks. The real object is usually within reach while the coloring is going on, so the drawing, the spoken word and the toy itself come together in one moment.",
+        showcase: "A teddy bear, a doll and a ball, exactly as they appear inside the books.",
+        wordsTitle: "Every toy word, book by book",
+        wordsLead:
+          "Color the teddy bear, then go and find the real one. Say its name once. Nothing else required.",
+        booksTitle: "Where these pages come from",
+        booksLead:
+          "The toys come from Little Max Book 1 and Book 2, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
+        faq: [
+          {
+            q: "Why do toy words work so well?",
+            a: "Because the toy is in the room. Color it, then hold it. The child links the drawing, the word and the thing itself without any explanation.",
+          },
+          {
+            q: "Which toys are in the books?",
+            a: "Ball, balloon, blocks, book, doll, teddy bear, bubbles, kite and a present in Book 1. Book 2 adds balloons, soap bubbles and a swing.",
+          },
+          {
+            q: "My child wants the toy, not the page. Is that a problem?",
+            a: "No. The page exists to open a small moment of conversation, not to keep a child at a table for twenty minutes.",
+          },
+        ],
+      },
+      es: {
+        title: "Primeras palabras: juguetes",
+        subtitle: "Palabras que ya están por el suelo",
+        lead: "12 juguetes: pelota, globo, cubos, libro, muñeca, osito, pompas, cometa y un regalo, cada uno con su nombre debajo.",
+        definition:
+          "Las primeras palabras de juguetes son los nombres de lo que el niño ya tiene en las manos: pelota, muñeca, osito, cubos. El objeto de verdad suele estar cerca mientras se colorea, así que el dibujo, la palabra dicha y el juguete se juntan en el mismo momento.",
+        showcase: "Un osito, una muñeca y una pelota, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todas las palabras de juguetes, libro por libro",
+        wordsLead:
+          "Colorea el osito y luego id a buscar el de verdad. Di su nombre una vez. No hace falta más.",
+        booksTitle: "De dónde salen estas páginas",
+        booksLead:
+          "Los juguetes vienen de Pequeño Max libro 1 y libro 2, un dibujo por hoja con la palabra debajo.",
+        faqTitle: "Preguntas de los padres",
+        faq: [
+          {
+            q: "¿Por qué funcionan tan bien los juguetes?",
+            a: "Porque el juguete está en la habitación. Coloréalo y luego cógelo. El niño une el dibujo, la palabra y la cosa sin ninguna explicación.",
+          },
+          {
+            q: "¿Qué juguetes hay en los libros?",
+            a: "Pelota, globo, cubos, libro, muñeca, osito, pompas de jabón, cometa y un regalo en el libro 1. El libro 2 añade globos, burbujas de jabón y un columpio.",
+          },
+          {
+            q: "Mi hijo quiere el juguete, no la hoja. ¿Es un problema?",
+            a: "No. La página existe para abrir un pequeño rato de conversación, no para tener al niño sentado veinte minutos.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "home",
+    theme: "home",
+    pictures: ["cup", "lamp", "key"],
+    slug: {
+      en: "home-first-words",
+      es: "primeras-palabras-casa",
+    },
+    copy: {
+      en: {
+        title: "Home First Words for Toddlers",
+        subtitle: "Words from around the house",
+        lead: "16 everyday things from home: cup, spoon, plate, chair, lamp, key, phone, bed and more, each with its name underneath.",
+        definition:
+          "Home first words are the names of the things a child sees an adult use all day: cup, spoon, plate, bed. They are among the first words most children say, because the object is right there and the word is repeated without anyone planning it.",
+        showcase: "A cup, a lamp and a key, exactly as they appear inside the books.",
+        wordsTitle: "Every home word, book by book",
+        wordsLead:
+          "Color the cup, then drink from a real one. The word gets said twice and nobody had to prepare a thing.",
+        booksTitle: "Where these pages come from",
+        booksLead:
+          "These pages come from Little Max Book 1 and Book 2, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
+        faq: [
+          {
+            q: "Why start with things from the house?",
+            a: "Because they are the words a child hears most. Cup, spoon and bed come up dozens of times a day with no effort from anyone.",
+          },
+          {
+            q: "Which things are in the books?",
+            a: "Cup, spoon, fork, plate, chair, lamp, key, phone, toothbrush, pillow, bed and a house in Book 1. Book 2 adds a pot, a frying pan, a kettle and a candle.",
+          },
+          {
+            q: "Can we use the real object with the page?",
+            a: "Yes, and it works better than anything else. Color it, then hold it, then name it. That is the whole idea.",
+          },
+        ],
+      },
+      es: {
+        title: "Primeras palabras: la casa",
+        subtitle: "Palabras de todos los días",
+        lead: "16 cosas de casa: taza, cuchara, plato, silla, lámpara, llave, teléfono, cama y más, cada una con su nombre debajo.",
+        definition:
+          "Las primeras palabras de la casa son los nombres de lo que el niño ve usar al adulto todo el día: taza, cuchara, plato, cama. Están entre las primeras que dicen casi todos los niños, porque el objeto está delante y la palabra se repite sin que nadie lo planee.",
+        showcase: "Una taza, una lámpara y una llave, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todas las palabras de la casa, libro por libro",
+        wordsLead:
+          "Colorea la taza y luego bebe de una de verdad. La palabra se dice dos veces y nadie tuvo que preparar nada.",
+        booksTitle: "De dónde salen estas páginas",
+        booksLead:
+          "Estas páginas vienen de Pequeño Max libro 1 y libro 2, un dibujo por hoja con la palabra debajo.",
+        faqTitle: "Preguntas de los padres",
+        faq: [
+          {
+            q: "¿Por qué empezar por las cosas de casa?",
+            a: "Porque son las palabras que el niño más oye. Taza, cuchara y cama aparecen decenas de veces al día sin ningún esfuerzo.",
+          },
+          {
+            q: "¿Qué cosas hay en los libros?",
+            a: "Taza, cuchara, tenedor, plato, silla, lámpara, llave, teléfono, cepillo de dientes, almohada, cama y una casa en el libro 1. El libro 2 añade olla, sartén, tetera y vela.",
+          },
+          {
+            q: "¿Podemos usar el objeto de verdad con la página?",
+            a: "Sí, y funciona mejor que ninguna otra cosa. Coloréalo, cógelo y nómbralo. Esa es toda la idea.",
+          },
+        ],
+      },
+    },
+  },
   {
     id: "objects",
-    pictures: ["present", "camera", "sunglasses"],
-    groups: ["sports", "things"],
+    theme: "objects",
+    pictures: ["drum", "present", "camera"],
     slug: {
       en: "everyday-object-first-words",
       es: "primeras-palabras-objetos",
     },
     copy: {
       en: {
-        title: "Everyday Object First Words for Toddlers",
-        lead: "13 familiar things from around the house and the beach bag, each with its name under the drawing.",
+        title: "Everyday Object and Play First Words",
+        subtitle: "Words from play, sport and music",
+        lead: "39 things from playtime and everyday life: a drum, a camera, a present, a ball, an umbrella and more.",
         definition:
-          "Everyday object first words are the names of things a child handles or watches an adult handle: a present, a camera, sunglasses, a ball. They are the easiest words of all to practice, because the real object is usually within reach while the coloring is going on.",
-        showcase: "A present, a camera and sunglasses, as printed in the book.",
-        wordsTitle: "All 13 object words",
-        wordsLead: "Play and hobbies first, then things around the house.",
+          "These are the names of objects a child meets in play and in family life: a drum, a camera, a beach ball, an umbrella. They are less predictable than food or clothes, which is exactly why children enjoy them: every page is a small surprise.",
+        showcase: "A drum, a present and a camera, exactly as they appear inside the books.",
+        wordsTitle: "Every object, book by book",
+        wordsLead:
+          "Some of these are in your house right now. Color the page, then go and find the real one.",
         booksTitle: "Where these pages come from",
         booksLead:
-          "These objects are part of the 111 pictures in our first coloring books, one drawing per page with the word underneath.",
-        faqTitle: "Questions parents ask",
+          "These objects come from all three coloring books, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
         faq: [
           {
-            q: "What makes object words easy to practice?",
-            a: "The real thing is usually in the room. Color the sunglasses page, then put your own sunglasses on and say the word again. The child links the drawing, the word and the object in one go.",
+            q: "Why include instruments and sports gear?",
+            a: "Because a book of only cats and apples runs out fast. The unusual pages are the ones a child comes back to.",
           },
           {
-            q: "Which objects are in the book?",
-            a: "Skateboard, kite, badminton, American football, camera, drum, beach ball, sunglasses, beach umbrella, beach hat, globe, present and gamepad.",
+            q: "Which objects are in the books?",
+            a: "Skateboard, kite, camera, drum, beach ball, sunglasses, globe, present and gamepad in the First Coloring Book. Book 2 adds a trumpet, maracas, a tambourine, a fishing rod, an anchor, a compass and more.",
           },
           {
-            q: "My child is more interested in the ball than the page. Is that a problem?",
-            a: "Not at all. The point of the page is to start the naming, not to hold attention for twenty minutes. If it ends with a ball on the floor and the word said out loud twice, it did its job.",
+            q: "Are these words too hard for a toddler?",
+            a: "Some are longer than others, and that is fine. Nobody is being tested. Say it once, color it, move on.",
           },
         ],
       },
       es: {
         title: "Primeras palabras: objetos y juegos",
-        lead: "13 objetos relacionados con el juego, la casa y la vida cotidiana, cada uno con su nombre debajo.",
+        subtitle: "Palabras del juego, el deporte y la música",
+        lead: "39 cosas del juego y de la vida diaria: un tambor, una cámara, un regalo, una pelota, un paraguas y más.",
         definition:
-          "Los objetos ofrecen muchas oportunidades para hablar mientras se colorea. Algunos están en casa y otros resultan familiares por los juegos, los deportes o las actividades de familia. Lo habitual es que el objeto de verdad esté cerca, y entonces el dibujo, la palabra y la cosa se juntan de una vez.",
-        showcase: "Un regalo, una cámara y unas gafas, tal como aparecen en el libro.",
-        wordsTitle: "Las 13 palabras de objetos y juegos",
+          "Son los nombres de los objetos que el niño encuentra jugando y en la vida de familia: un tambor, una cámara, una pelota de playa, un paraguas. Son menos previsibles que la comida o la ropa, y por eso mismo gustan: cada página es una pequeña sorpresa.",
+        showcase: "Un tambor, un regalo y una cámara, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todos los objetos, libro por libro",
         wordsLead:
-          "Objetos relacionados con el juego, los deportes, las aficiones y la vida cotidiana.",
+          "Algunos están en tu casa ahora mismo. Colorea la página y luego id a buscar el de verdad.",
         booksTitle: "De dónde salen estas páginas",
         booksLead:
-          "Estos dibujos forman parte de los 111 dibujos de nuestros primeros libros para colorear.",
+          "Estos objetos vienen de los tres libros para colorear, un dibujo por hoja con la palabra debajo.",
         faqTitle: "Preguntas de los padres",
         faq: [
           {
-            q: "¿Cómo puedo usar objetos reales junto con las páginas?",
-            a: "Si el objeto está en casa, puedes mostrarlo después de colorear. Coloreen unas gafas y después busquen unas gafas de verdad. Basta con nombrarlas y dejar que el niño haga la conexión a su manera.",
+            q: "¿Por qué incluir instrumentos y cosas de deporte?",
+            a: "Porque un libro de solo gatos y manzanas se acaba enseguida. Las páginas poco corrientes son a las que el niño vuelve.",
           },
           {
-            q: "¿Qué objetos aparecen en el libro?",
-            a: "Monopatín, cometa, bádminton, fútbol americano, cámara, tambor, pelota de playa, gafas, sombrilla de playa, sombrero, globo, regalo y gamepads.",
+            q: "¿Qué objetos hay en los libros?",
+            a: "Monopatín, cometa, cámara, tambor, pelota de playa, gafas, globo, regalo y gamepads en el primer libro. El libro 2 añade trompeta, maracas, pandereta, caña de pescar, ancla, brújula y más.",
           },
           {
-            q: "¿Qué pasa si a mi hijo solo le interesan algunas páginas?",
-            a: "No pasa nada. No es necesario completar las páginas en orden ni recorrer todas las palabras. Empieza por los dibujos que más le llamen la atención.",
+            q: "¿No son palabras demasiado difíciles?",
+            a: "Algunas son más largas que otras, y no pasa nada. Nadie está examinando a nadie. Se dice una vez, se colorea y se sigue.",
           },
         ],
       },
     },
   },
-
-  /* ===== Сказочные ===== */
   {
     id: "fairy",
-    pictures: ["unicorn", "dragon", "mermaid"],
-    groups: ["fantasy"],
+    theme: "fairy",
+    pictures: ["unicorn", "dragon", "dinosaur"],
     slug: {
       en: "fairy-tale-first-words",
       es: "primeras-palabras-cuentos",
@@ -709,68 +945,69 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "Fairy Tale First Words for Toddlers",
-        lead: "11 storybook characters and objects, each with its name printed under the drawing.",
+        subtitle: "A few words from make-believe",
+        lead: "16 storybook characters and magical things: unicorn, dragon, mermaid, fairy, princess, dinosaur and more.",
         definition:
-          "Fairy tale first words are the names of characters a child meets in stories before meeting them anywhere else: unicorn, dragon, mermaid, crown. They are worth coloring because the child already has a story attached to the picture, and a word attached to a story is remembered easily.",
-        showcase: "A unicorn, a dragon and a mermaid, as printed in the book.",
-        wordsTitle: "All 11 fairy tale words",
-        wordsLead: "Characters first, then the objects that belong to them.",
+          "Fairy tale first words are the names of characters a child meets in stories before meeting them anywhere else: unicorn, dragon, mermaid, princess. A word attached to a story a child already loves takes hold faster than the name of something they never think about.",
+        showcase: "A unicorn, a dragon and a dinosaur, exactly as they appear inside the books.",
+        wordsTitle: "Every storybook word, book by book",
+        wordsLead:
+          "Some are characters, some are magical objects. All of them belong in a good bedtime story.",
         booksTitle: "Where these pages come from",
         booksLead:
-          "The fairy tale group is part of the 111 pictures in our first coloring books, one drawing per page with the word underneath.",
-        faqTitle: "Questions parents ask",
+          "These pages come from the First Coloring Book and Little Max Book 1, one drawing per page with the word underneath.",
+        faqTitle: "Questions Parents Ask",
         faq: [
           {
-            q: "Should first words be real things only?",
-            a: "There is no rule saying so. A child who has heard about dragons at bedtime recognizes one instantly, and a word attached to a story they love takes hold faster than the name of an object they never think about.",
+            q: "Do first words have to be real things?",
+            a: "Not at all. A toddler's world includes stories. If your child loves dragons or unicorns, there is every reason to name them while coloring.",
           },
           {
-            q: "Which characters are in the book?",
-            a: "Mermaid, unicorn, dragon, crown, dwarf, griffin, troll, fairy, magic cauldron, wizard's hat and magic potion.",
+            q: "Which characters are in the books?",
+            a: "Mermaid, unicorn, dragon, crown, dwarf, griffin, troll, fairy, magic cauldron, wizard's hat and magic potion in the First Coloring Book. Little Max Book 1 adds a princess and a dinosaur.",
           },
           {
-            q: "Are the drawings frightening for a small child?",
-            a: "No. The dragon and the troll are drawn round and smiling, in the same style as the cat and the bunny. Nothing in the book is meant to be scary.",
+            q: "Are the drawings scary?",
+            a: "No. Our dragon and troll belong to the same friendly world as our cat and bunny. Even our monsters know how to smile.",
           },
         ],
       },
       es: {
         title: "Primeras palabras: cuentos",
-        lead: "11 personajes y objetos de fantasía, cada uno con su nombre impreso debajo.",
+        subtitle: "Unas cuantas palabras de fantasía",
+        lead: "16 personajes y objetos de cuento: unicornio, dragón, sirena, hada, princesa, dinosaurio y más.",
         definition:
-          "Las primeras palabras no tienen por qué limitarse a objetos cotidianos. Los cuentos también están llenos de imágenes que los niños reconocen y disfrutan: unicornios, dragones, sirenas, hadas y objetos mágicos. Si el niño ya tiene una historia unida al dibujo, la palabra le resulta más cercana.",
-        showcase: "Un unicornio, un dragón y una sirena, tal como aparecen en el libro.",
-        wordsTitle: "Las 11 palabras de cuentos",
+          "Las primeras palabras de cuento son los nombres de personajes que el niño conoce antes en las historias que en ningún otro sitio: unicornio, dragón, sirena, princesa. Una palabra unida a una historia que ya le gusta se fija antes que el nombre de algo en lo que nunca piensa.",
+        showcase: "Un unicornio, un dragón y un dinosaurio, tal como aparecen dentro de los libros.",
+        wordsTitle: "Todas las palabras de cuento, libro por libro",
         wordsLead:
-          "Personajes de fantasía y algunos de los objetos mágicos que aparecen en sus historias.",
+          "Unos son personajes y otros objetos mágicos. Todos caben en un buen cuento de antes de dormir.",
         booksTitle: "De dónde salen estas páginas",
         booksLead:
-          "Estos 11 dibujos forman parte de los 111 dibujos de nuestros primeros libros para colorear.",
+          "Estas páginas vienen del primer libro para colorear y de Pequeño Max libro 1, un dibujo por hoja con la palabra debajo.",
         faqTitle: "Preguntas de los padres",
         faq: [
           {
-            q: "¿Las primeras palabras tienen que ser siempre cosas reales?",
-            a: "No. Los cuentos también ofrecen muchas oportunidades para nombrar personajes y objetos. Si a tu hijo le gustan los dragones o los unicornios, pueden formar parte de la conversación igual que un gato o una pelota.",
+            q: "¿Las primeras palabras tienen que ser cosas reales?",
+            a: "En absoluto. El mundo de un niño incluye los cuentos. Si le gustan los dragones o los unicornios, hay todos los motivos para nombrarlos mientras colorea.",
           },
           {
-            q: "¿Qué personajes y objetos aparecen?",
-            a: "Sirena, unicornio, dragón, corona, gnomo, grifo, trole, hada, caldera mágica, sombrero de mago y poción mágica.",
+            q: "¿Qué personajes hay en los libros?",
+            a: "Sirena, unicornio, dragón, corona, gnomo, grifo, trole, hada, caldera mágica, sombrero de mago y poción mágica en el primer libro. Pequeño Max libro 1 añade una princesa y un dinosaurio.",
           },
           {
             q: "¿Los dibujos dan miedo?",
-            a: "No. Los personajes están dibujados con el mismo estilo amable y sencillo que el resto de la colección. Incluso el dragón y el trole tienen un aspecto simpático, pensado para niños pequeños.",
+            a: "No. Nuestro dragón y nuestro trol pertenecen al mismo mundo amable que el gato y el conejo. Hasta nuestros monstruos saben sonreír.",
           },
         ],
       },
     },
   },
-
-  /* ===== Английские слова ===== */
   {
     id: "english",
-    pictures: ["cat", "dog", "cake"],
+    theme: "animals",
+    pictures: ["cat", "dog", "apple"],
     pictureLang: "en",
-    groups: ["land", "food", "vehicles"],
     pairs: true,
     slug: {
       en: "first-english-words-for-toddlers",
@@ -779,69 +1016,45 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "First English Words for Toddlers",
-        lead: "The English edition prints an English word under every picture. Here is what is inside, and how it lines up with the Spanish edition.",
-        definition:
-          "First English words for toddlers are the everyday nouns a child hears most: cat, dog, car, cake. In our English edition each of the 111 pictures carries its English name underneath, printed in hollow letters that can be colored. The Spanish edition uses the same 111 drawings with Spanish names.",
-        showcase: "Cat, Dog and Cake, printed as they appear in the English edition.",
-        wordsTitle: "English and Spanish side by side",
-        wordsLead:
-          "Same drawing, two editions, two words. Useful if there are two languages at home and you want to know exactly what each book says.",
+        subtitle: "Familiar pictures, English words underneath",
+        lead: "Cat. Dog. Apple. Cake. The English edition prints one English word under every picture, 333 of them across three books.",
+        definition: "First English words for toddlers are the everyday nouns a child hears most: cat, dog, apple, car. In our English editions each of the 111 drawings in each book carries its English name underneath, printed in large hollow letters that can be colored in. The Spanish editions use the same drawings with Spanish names.",
+        showcase: "Cat, Dog and Apple, exactly as they appear in the English editions.",
+        wordsTitle: "The same picture in English and Spanish",
+        wordsLead: "One book prints Cat. The other prints Gato. Same drawing, same page, different word. Useful when there are two languages at home.",
         booksTitle: "The English editions",
-        booksLead:
-          "Three coloring books, 111 pictures and 111 English words in each, one per page.",
-        faqTitle: "Questions parents ask",
+        booksLead: "Three coloring books, 111 pictures and 111 English words in each, one on every page.",
+        faqTitle: "Questions Parents Ask",
         faq: [
-          {
-            q: "Is this a bilingual coloring book?",
-            a: "No. Each book is in one language. The English edition prints Cat, the Spanish edition prints Gato, and the drawings are identical. Families who want both buy both, and the pages match up page for page.",
-          },
-          {
-            q: "We speak Spanish at home and want English words. Which edition?",
-            a: "The English edition. The pictures need no translation, so a Spanish-speaking parent can use it without reading English: point at the drawing, say the English word printed under it.",
-          },
-          {
-            q: "Which English words should come first?",
-            a: "The ones the child hears most: names of family pets, food on the table, things in the street. A word that comes up ten times a day needs no practice sheet at all, only something to point at.",
-          },
+          { q: "Is this a bilingual coloring book?", a: "No. Each book is published in one language. The English edition prints Cat, the Spanish edition prints Gato, and the drawings are identical, page for page." },
+          { q: "We speak Spanish at home. Can we choose the English edition?", a: "Yes. The pictures need no translation, so a Spanish-speaking parent can use the book without reading English: point at the drawing, say the English word printed under it." },
+          { q: "Which English words should we start with?", a: "Start with pictures your child already loves. A pet, a favorite food, a bus. Or forget the order and let your child pick the next page." },
         ],
       },
       es: {
         title: "Primeras palabras en inglés para niños",
-        lead: "La edición en inglés incluye una palabra inglesa debajo de cada dibujo. Los mismos dibujos también están disponibles en la edición en español.",
-        definition:
-          "Las primeras palabras en inglés de esta colección son nombres de animales, alimentos, vehículos y objetos fáciles de representar: cat, dog, car, cake. Cada uno de los 111 dibujos lleva su nombre en inglés debajo, en letras huecas que también se pueden colorear.",
-        showcase: "Cat, Dog y Cake, tal como aparecen en la edición inglesa.",
-        wordsTitle: "Inglés y español, uno al lado del otro",
-        wordsLead:
-          "El mismo dibujo aparece en dos ediciones: una con la palabra en inglés y otra con la palabra en español. Así puedes ver exactamente qué palabra imprime cada libro.",
+        subtitle: "Los mismos dibujos, con la palabra en inglés",
+        lead: "Cat. Dog. Apple. Cake. La edición inglesa lleva una palabra en inglés debajo de cada dibujo, 333 en los tres libros.",
+        definition: "Las primeras palabras en inglés son los sustantivos de cada día: cat, dog, apple, car. En nuestras ediciones inglesas cada uno de los 111 dibujos de cada libro lleva su nombre en inglés debajo, en letras huecas que también se colorean. Las ediciones españolas usan los mismos dibujos con nombres en español.",
+        showcase: "Cat, Dog y Apple, tal como aparecen en las ediciones inglesas.",
+        wordsTitle: "El mismo dibujo en inglés y en español",
+        wordsLead: "Un libro imprime Cat. El otro imprime Gato. El mismo dibujo, la misma página, otra palabra. Útil en una casa de dos idiomas.",
         booksTitle: "Las ediciones en inglés",
-        booksLead:
-          "Nuestros libros para colorear incluyen 111 dibujos y 111 palabras en inglés, una por página.",
+        booksLead: "Tres libros para colorear, 111 dibujos y 111 palabras en inglés en cada uno, una por página.",
         faqTitle: "Preguntas de los padres",
         faq: [
-          {
-            q: "¿Es un libro bilingüe?",
-            a: "No. Cada libro utiliza un solo idioma. La edición inglesa imprime «Cat» y la edición española imprime «Gato». Los dibujos son los mismos, página por página.",
-          },
-          {
-            q: "En casa hablamos español. ¿Podemos elegir la edición en inglés?",
-            a: "Sí. Los dibujos permiten identificar cada objeto aunque el idioma principal de la familia sea el español, y la palabra de debajo muestra cómo se escribe su nombre en inglés.",
-          },
-          {
-            q: "¿Qué palabras en inglés conviene mirar primero?",
-            a: "Empieza por las que correspondan a cosas que el niño ya reconoce: animales, alimentos, juguetes u objetos cotidianos. También puedes dejar que elija simplemente sus dibujos favoritos.",
-          },
+          { q: "¿Es un libro bilingüe?", a: "No. Cada libro está publicado en un solo idioma. La edición inglesa imprime Cat y la española Gato, con dibujos idénticos, página por página." },
+          { q: "En casa hablamos español. ¿Podemos elegir la edición inglesa?", a: "Sí. Los dibujos no necesitan traducción: señala el dibujo y di la palabra en inglés que está impresa debajo." },
+          { q: "¿Por qué palabras conviene empezar?", a: "Por los dibujos que a tu hijo ya le gustan. Una mascota, una comida favorita, un autobús. O deja que elija él la página siguiente." },
         ],
       },
     },
   },
-
-  /* ===== Испанские слова ===== */
   {
     id: "spanish",
-    pictures: ["cat", "dog", "cake"],
+    theme: "animals",
+    pictures: ["cat", "dog", "apple"],
     pictureLang: "es",
-    groups: ["land", "food", "vehicles"],
     pairs: true,
     slug: {
       en: "first-spanish-words-for-toddlers",
@@ -850,58 +1063,36 @@ export const wordsPages: WordsPage[] = [
     copy: {
       en: {
         title: "First Spanish Words for Toddlers",
-        lead: "The Spanish edition prints a Spanish word under every picture. Same 111 drawings, Spanish names.",
-        definition:
-          "First Spanish words for toddlers are the everyday nouns a Spanish-speaking child hears most: gato, perro, torta, helado. Our Spanish edition prints the Spanish name under each of the 111 drawings in hollow letters that can be colored. The English edition uses the same drawings with English names.",
-        showcase: "Gato, Perro and Torta, printed as they appear in the Spanish edition.",
-        wordsTitle: "Spanish and English side by side",
-        wordsLead:
-          "Same drawing, two editions, two words. Useful for a dual language home, and for seeing exactly which Spanish word each page prints.",
+        subtitle: "Familiar pictures, Spanish words underneath",
+        lead: "Gato. Perro. Manzana. Torta. The Spanish edition prints one Spanish word under every picture, 333 of them across three books.",
+        definition: "First Spanish words for toddlers are the everyday nouns a Spanish-speaking child hears most: gato, perro, manzana, coche. Our Spanish editions print the Spanish name under each of the 111 drawings in each book, in hollow letters that can be colored in. The English editions use the same drawings with English names.",
+        showcase: "Gato, Perro and Manzana, exactly as they appear in the Spanish editions.",
+        wordsTitle: "The same picture in Spanish and English",
+        wordsLead: "One book prints Gato. The other prints Cat. Same drawing, same page, different word.",
         booksTitle: "The Spanish editions",
-        booksLead:
-          "Three coloring books, 111 pictures and 111 Spanish words in each, one per page.",
-        faqTitle: "Questions parents ask",
+        booksLead: "Three coloring books, 111 pictures and 111 Spanish words in each, one on every page.",
+        faqTitle: "Questions Parents Ask",
         faq: [
-          {
-            q: "Is this a bilingual coloring book?",
-            a: "No. Each book is in one language. The Spanish edition prints Gato, the English edition prints Cat, and the drawings are identical, page for page.",
-          },
-          {
-            q: "We speak English at home and want Spanish words. Which edition?",
-            a: "The Spanish edition. You do not need to read Spanish to use it: the picture tells you what the object is, and the word underneath is the Spanish name for it.",
-          },
-          {
-            q: "Which Spanish is used, Spain or Latin America?",
-            a: "Everyday words that are understood on both sides, chosen so a page never depends on a regional term. Where two names are common, the book uses the one a small child is most likely to hear.",
-          },
+          { q: "Is this a bilingual coloring book?", a: "No. Each book is published in one language. The Spanish edition prints Gato, the English edition prints Cat, using the same drawings." },
+          { q: "We speak English at home. Can we choose the Spanish edition?", a: "Yes. The picture tells you what the object is, and the word underneath is its Spanish name. You do not need to read Spanish to use it." },
+          { q: "Which variety of Spanish does the book use?", a: "Spanish varies from country to country, and some everyday objects have more than one perfectly correct name. Our books use simple, familiar words and keep the chosen vocabulary consistent throughout each edition." },
         ],
       },
       es: {
         title: "Primeras palabras en español para niños",
-        lead: "La edición en español incluye una palabra en español debajo de cada dibujo. Los mismos dibujos también están disponibles en la edición en inglés.",
-        definition:
-          "La colección reúne 111 dibujos de animales, alimentos, vehículos, naturaleza, objetos y personajes de cuento. Debajo de cada dibujo aparece su nombre en español, en letras huecas que también se pueden colorear.",
-        showcase: "Gato, Perro y Torta, tal como aparecen en la edición española.",
-        wordsTitle: "Español e inglés, uno al lado del otro",
-        wordsLead:
-          "El mismo dibujo aparece en dos ediciones: una con la palabra en español y otra con la palabra en inglés. Así cada familia puede elegir el idioma que quiere tener impreso en las páginas.",
+        subtitle: "Los mismos dibujos, con la palabra en español",
+        lead: "Gato. Perro. Manzana. Torta. La edición española lleva una palabra en español debajo de cada dibujo, 333 en los tres libros.",
+        definition: "Las primeras palabras en español son los sustantivos de cada día: gato, perro, manzana, coche. Nuestras ediciones españolas imprimen el nombre debajo de cada uno de los 111 dibujos de cada libro, en letras huecas que también se colorean. Las ediciones inglesas usan los mismos dibujos con nombres en inglés.",
+        showcase: "Gato, Perro y Manzana, tal como aparecen en las ediciones españolas.",
+        wordsTitle: "El mismo dibujo en español y en inglés",
+        wordsLead: "Un libro imprime Gato. El otro imprime Cat. El mismo dibujo, la misma página, otra palabra.",
         booksTitle: "Las ediciones en español",
-        booksLead:
-          "Nuestros libros para colorear incluyen 111 dibujos y 111 palabras en español, una por página.",
+        booksLead: "Tres libros para colorear, 111 dibujos y 111 palabras en español en cada uno, una por página.",
         faqTitle: "Preguntas de los padres",
         faq: [
-          {
-            q: "¿Es un libro bilingüe?",
-            a: "No. Cada libro está publicado en un solo idioma. La edición española imprime «Gato» y la inglesa «Cat», utilizando los mismos dibujos.",
-          },
-          {
-            q: "¿Qué variedad de español utiliza el libro?",
-            a: "Utilizamos palabras sencillas y de uso común. El español varía entre países y algunos objetos pueden tener más de un nombre correcto. En esos casos elegimos una variante y la mantenemos de forma consistente dentro de la edición.",
-          },
-          {
-            q: "¿Puede usarlo una familia que habla inglés?",
-            a: "Sí. Los dibujos permiten identificar cada objeto y ver cómo se escribe su nombre en español, aunque en casa no se hable ese idioma.",
-          },
+          { q: "¿Es un libro bilingüe?", a: "No. Cada libro está publicado en un solo idioma. La edición española imprime Gato y la inglesa Cat, con los mismos dibujos." },
+          { q: "¿Qué variedad de español usa el libro?", a: "El español cambia de un país a otro y algunos objetos tienen más de un nombre correcto. Usamos palabras sencillas y de uso común, y mantenemos el mismo criterio dentro de cada edición." },
+          { q: "¿Sirve para una familia que habla inglés?", a: "Sí. El dibujo dice qué es el objeto y la palabra de debajo es su nombre en español." },
         ],
       },
     },
@@ -929,27 +1120,13 @@ export function wordsPageById(id: string): WordsPage | undefined {
 export const wordPictureUrl = (name: string, lang: UiLang, page?: WordsPage) =>
   `/words/${name}-${page?.pictureLang ?? (lang === "es" ? "es" : "en")}.png`;
 
-/** Группы состава книги, из которых страница берет слова. */
-export function wordsGroups(page: WordsPage): TopicGroup[] {
-  const all = topicsForBook("first-coloring-book-111");
-  return page.groups
-    .map((id) => all.find((g) => g.id === id))
-    .filter(Boolean) as TopicGroup[];
-}
+/** Слова темы, разложенные по книгам. */
+export const pageWords = (page: WordsPage) => themeWords(page.theme);
 
-/** Слова темы на языке страницы. */
-export function wordsList(page: WordsPage, lang: UiLang): string[] {
-  return wordsGroups(page).flatMap((g) => g.items[lang] ?? g.items.en ?? []);
-}
+/** Сколько всего слов на странице темы. */
+export const pageWordCount = (page: WordsPage) => themeCount(page.theme);
 
-/** Пары английское слово плюс испанское. Порядок в обоих списках
-    одинаковый, поэтому пары собираются по номеру. */
-export function wordPairs(page: WordsPage, limit = 24): [string, string][] {
-  const out: [string, string][] = [];
-  for (const g of wordsGroups(page)) {
-    const en = g.items.en ?? [];
-    const es = g.items.es ?? [];
-    for (let i = 0; i < en.length && i < es.length; i++) out.push([en[i], es[i]]);
-  }
-  return out.slice(0, limit);
-}
+/** Слово на языке страницы. */
+export const wordOf = (p: WordPair, lang: UiLang) => wordText(p, lang);
+
+export { wordBookName, wordBookId };

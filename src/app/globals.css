@@ -1588,3 +1588,22 @@ ul.award-list li {
 }
 .wordpairs__a { font-weight: 600; }
 .wordpairs__b { color: var(--ink-2); }
+
+/* Название книги над списком слов и число слов в ней. */
+.wordgroup__count {
+  display: inline-block;
+  font-size: 0.86em;
+  font-weight: 600;
+  color: var(--ink-2);
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+/* Вторая строка под заголовком страницы темы. */
+.wordsub {
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.5rem);
+  color: var(--ink-soft);
+  margin: 0 0 var(--gap-2);
+}

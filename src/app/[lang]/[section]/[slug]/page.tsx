@@ -42,9 +42,10 @@ import {
   wordsPageBySlug,
   wordsSteps,
   wordPictureUrl,
-  wordsList,
-  wordsGroups,
-  wordPairs,
+  pageWords,
+  wordOf,
+  wordBookName,
+  wordBookId,
   wordsBookIds,
   WORDS_BOOK_IDS,
   WORDS_BOOK_IDS_ES,
@@ -945,8 +946,10 @@ export default async function ItemPage({
       .map((id) => bookById(id))
       .filter((b): b is Book => Boolean(b));
     const others = wordsPagesForLang(lang).filter((x) => x.id !== page.id);
-    const list = wordsList(page, lang);
-    const pairs = page.pairs ? wordPairs(page) : [];
+    /* Слова темы, разложенные по книгам. Человеку так понятно, какую
+       книгу покупать, а машине достается полный состав каждой. */
+    const byBook = pageWords(page);
+    const list = byBook.flatMap((b) => b.words.map((x) => wordOf(x, lang)));
     const hubTitle = dictionaries[lang].nav.firstWords;
 
     const schema = {
@@ -988,6 +991,7 @@ export default async function ItemPage({
 
         <section className="teach-block">
           <div className="teach">
+            <p className="wordsub">{wc.subtitle}</p>
             <p className="teach-def">{wc.definition}</p>
           </div>
         </section>
@@ -1017,26 +1021,43 @@ export default async function ItemPage({
             <h2 className="section">{wc.wordsTitle}</h2>
             <p className="teach-p">{wc.wordsLead}</p>
             {page.pairs ? (
+              /* Страницы про языки: слово из английского издания рядом
+                 со словом из испанского. Видно, что рисунок один. */
               <ul className="wordpairs">
-                {pairs.map(([en, es]) => (
-                  <li key={en}>
-                    <span className="wordpairs__a">{en}</span>
-                    <span className="wordpairs__b">{es}</span>
-                  </li>
-                ))}
+                {byBook
+                  .flatMap((b) => b.words)
+                  .slice(0, 40)
+                  .map((x) => (
+                    <li key={x.en}>
+                      <span className="wordpairs__a">{x.en}</span>
+                      <span className="wordpairs__b">{x.es}</span>
+                    </li>
+                  ))}
               </ul>
-            ) : (
-              wordsGroups(page).map((g) => (
-                <div key={g.id}>
-                  <h3 className="wordgroup">{g.title[lang] ?? g.title.en}</h3>
+            ) : null}
+            {!page.pairs && byBook.map(({ book, words }) => {
+              const b = bookById(wordBookId(book, lang));
+              const bSlug = b?.slug[lang] ?? b?.slug.en;
+              const bLang: UiLang = b?.slug[lang] ? lang : "en";
+              const name = wordBookName[book][lang] ?? wordBookName[book].en;
+              return (
+                <div key={book}>
+                  <h3 className="wordgroup">
+                    {bSlug ? (
+                      <Link href={itemPath(bLang, "books", bSlug)}>{name}</Link>
+                    ) : (
+                      name
+                    )}{" "}
+                    <span className="wordgroup__count">{words.length}</span>
+                  </h3>
                   <ul className="wordlist">
-                    {(g.items[lang] ?? g.items.en ?? []).map((name) => (
-                      <li key={name}>{name}</li>
+                    {words.map((x) => (
+                      <li key={wordOf(x, lang)}>{wordOf(x, lang)}</li>
                     ))}
                   </ul>
                 </div>
-              ))
-            )}
+              );
+            })}
           </div>
         </section>
 

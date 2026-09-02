@@ -58,6 +58,7 @@ import {
   sectionPath,
 } from "@/lib/routes";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
+import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
 
 /* Дата словами, на языке страницы. В коде остается машинная запись,
    человеку показываем привычную. */
@@ -252,17 +253,40 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
           {label[f.kind]} · {f.price}
         </a>
       ))}
-      {book.pdfUrl ? (
-        <a
-          className="btn btn--sky"
-          href={book.pdfUrl}
-          rel="noopener"
-          target="_blank"
-        >
-          {t.buyPdf}
-        </a>
-      ) : null}
+      {hasPdf(book.id) ? <PdfButtons book={book} lang={lang} /> : null}
     </div>
+  );
+}
+
+/* Покупка печатного PDF прямо здесь.
+
+   Два размера листа стоят рядом, под каждым одна строка о том, кому он
+   подходит. Выбирает покупатель: подсказка помогает, но не решает за него.
+
+   Это обычная форма, а не кнопка на скриптах. Она работает даже там,
+   где скрипты отключены, и Google видит ее как понятное действие,
+   а не как пустую ссылку. */
+function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
+  const t = dictionaries[lang].book;
+  const back = itemPath(lang, "books", book.slug[lang] ?? "");
+
+  return (
+    <>
+      {(["letter", "a4"] as const).map((format) => (
+        <form key={format} action="/api/checkout" method="post" className="buy-pdf">
+          <input type="hidden" name="book" value={book.id} />
+          <input type="hidden" name="format" value={format} />
+          <input type="hidden" name="lang" value={lang} />
+          <input type="hidden" name="back" value={back} />
+          <button type="submit" className="btn btn--sky">
+            {format === "letter" ? t.buyPdfLetter : t.buyPdfA4} · {PDF_PRICE_LABEL}
+          </button>
+          <span className="buy-pdf__hint">
+            {format === "letter" ? t.pdfLetterHint : t.pdfA4Hint}
+          </span>
+        </form>
+      ))}
+    </>
   );
 }
 
@@ -1220,7 +1244,7 @@ export default async function ItemPage({
             <BuyButtons book={book} lang={lang} />
             <p className="buy-note">
               {t.book.formatNote}
-              {book.pdfUrl ? ` ${t.book.pdfNote}` : ""}
+              {hasPdf(book.id) ? ` ${t.book.pdfNote}` : ""}
             </p>
           </div>
 

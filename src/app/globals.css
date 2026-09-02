@@ -455,6 +455,23 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 .buys { display: grid; gap: 0.6rem; margin-bottom: 0.6rem; }
 .buy-note { font-size: var(--t-small); color: var(--ink-2); margin: 0.4rem 0 var(--gap-4); }
 
+/* Покупка PDF: кнопка и под ней одна строка о том, кому этот размер
+   листа подходит. Строка намеренно тише кнопки: она подсказывает,
+   а решает покупатель. */
+.buy-pdf { display: grid; gap: 0.25rem; }
+.buy-pdf .btn { width: 100%; font: inherit; font-weight: 700; cursor: pointer; border: 0; }
+.buy-pdf__hint {
+  font-size: var(--t-small);
+  color: var(--ink-2);
+  line-height: 1.35;
+  padding: 0 0.2rem;
+}
+
+/* Страница после оплаты. Ничего лишнего: ссылка на файл и что дальше. */
+.thanks { max-width: 34rem; padding-top: var(--gap-3); padding-bottom: var(--gap-1); }
+.thanks .buys { max-width: 22rem; margin-top: var(--gap-3); }
+.thanks .note { font-size: var(--t-small); color: var(--ink-2); margin: 0.5rem 0; }
+
 ul.inside { margin: 0 0 var(--gap-2); padding-left: 1.15rem; }
 ul.inside li { margin-bottom: 0.5rem; }
 ul.inside li::marker { color: var(--pink-hot); }

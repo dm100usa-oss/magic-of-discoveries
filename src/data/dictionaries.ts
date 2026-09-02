@@ -81,6 +81,13 @@ export interface Dictionary {
     buyHardcover: string;
     buyKindle: string;
     buyPdf: string;
+    /* Две кнопки покупки: американский лист и европейский.
+       Под каждой одна строка о том, кому этот размер подходит.
+       Решает покупатель, подсказка только помогает не ошибиться. */
+    buyPdfLetter: string;
+    buyPdfA4: string;
+    pdfLetterHint: string;
+    pdfA4Hint: string;
     pdfNote: string;
     alsoIn: string;
     related: string;
@@ -307,7 +314,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Buy the hardcover on Amazon",
       buyKindle: "Read on Kindle",
       buyPdf: "Download the printable PDF",
-      pdfNote: "The PDF opens in our print shop and is sent to your email after checkout.",
+      buyPdfLetter: "Printable PDF, Letter",
+      buyPdfA4: "Printable PDF, A4",
+      pdfLetterHint: "Recommended for the US and Canada. Standard 8.5 x 11 in paper.",
+      pdfA4Hint: "Recommended for Europe, the UK and most other countries.",
+      pdfNote:
+        "The PDF is yours to keep and print at home as often as you like. The download link opens right after checkout and also arrives by email.",
       alsoIn: "Also available in",
       related: "You may also like",
       guideSiteTitle: "Not sure this is the right level for your child?",
@@ -576,7 +588,14 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Comprar en tapa dura en Amazon",
       buyKindle: "Leer en Kindle",
       buyPdf: "Descargar el PDF para imprimir",
-      pdfNote: "El PDF se abre en nuestra tienda de impresión y se envía por correo tras la compra.",
+      buyPdfLetter: "PDF para imprimir, Carta",
+      buyPdfA4: "PDF para imprimir, A4",
+      pdfLetterHint:
+        "Recomendado para Estados Unidos y Canadá. Papel Carta de 8.5 x 11 pulgadas.",
+      pdfA4Hint:
+        "Recomendado para España, América Latina y el resto de los países.",
+      pdfNote:
+        "El PDF es suyo: puede imprimirlo en casa cuantas veces quiera. El enlace de descarga se abre justo después del pago y también llega por correo.",
       alsoIn: "También disponible en",
       related: "También te puede gustar",
       guideSiteTitle: "¿No está seguro de que este sea el nivel adecuado?",
@@ -813,7 +832,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Купить в твердой обложке на Amazon",
       buyKindle: "Читать на Kindle",
       buyPdf: "Скачать PDF для печати",
-      pdfNote: "PDF открывается в нашем магазине печати и приходит на почту после оплаты.",
+      buyPdfLetter: "PDF для печати, Letter",
+      buyPdfA4: "PDF для печати, A4",
+      pdfLetterHint: "Рекомендуем для США и Канады. Лист 8.5 на 11 дюймов.",
+      pdfA4Hint: "Рекомендуем для Европы и остальных стран.",
+      pdfNote:
+        "PDF остается у вас, печатайте дома сколько угодно раз. Ссылка на скачивание открывается сразу после оплаты и приходит на почту.",
       alsoIn: "Также есть на",
       related: "Может понравиться",
       guideSiteTitle: "Не уверены, что это подходит вашему ребенку?",

@@ -125,8 +125,19 @@ export function assetPath(id: PdfBookId, format: PdfFormat): string {
    любая правка ломает подпись, и файл не отдается.
 --------------------------------------------------------------------------- */
 
-/** Сколько ссылка живет. Сутки. */
-export const DOWNLOAD_TTL_MS = 24 * 60 * 60 * 1000;
+/* Сколько ссылка живет и сколько раз по ней можно скачать.
+
+   Тридцать дней и пять скачиваний. Такой запас выбран не случайно:
+   на крупных площадках вроде Etsy купленный файл лежит в личном
+   кабинете покупателя вечно и качается сколько угодно раз, и люди
+   к этому привыкли. Кабинета у нас нет, заводить его ради книги за
+   пять долларов значит отпугнуть часть покупателей паролями.
+
+   Пять скачиваний покрывают все обычные случаи: оборвалась связь,
+   не нашел файл в загрузках, купил с телефона а печатает с компьютера.
+   А раздать ссылку знакомым дальше пятого уже не выйдет. */
+export const DOWNLOAD_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+export const DOWNLOAD_LIMIT = 5;
 
 const b64url = (input: Buffer | string) =>
   Buffer.from(input).toString("base64url");
@@ -134,14 +145,22 @@ const b64url = (input: Buffer | string) =>
 export function signDownload(
   id: PdfBookId,
   format: PdfFormat,
+  /** Номер заказа в Stripe. По нему ведется счет скачиваний. */
+  session: string,
   expiresAt = Date.now() + DOWNLOAD_TTL_MS
 ): string {
-  const payload = b64url(JSON.stringify({ i: id, f: format, e: expiresAt }));
+  const payload = b64url(
+    JSON.stringify({ i: id, f: format, s: session, e: expiresAt })
+  );
   const mac = createHmac("sha256", secret()).update(payload).digest("base64url");
   return `${payload}.${mac}`;
 }
 
-export type DownloadClaim = { id: PdfBookId; format: PdfFormat };
+export type DownloadClaim = {
+  id: PdfBookId;
+  format: PdfFormat;
+  session: string;
+};
 
 export function verifyDownload(token: string): DownloadClaim | null {
   const [payload, mac] = token.split(".");
@@ -159,7 +178,7 @@ export function verifyDownload(token: string): DownloadClaim | null {
     if (typeof data.e !== "number" || Date.now() > data.e) return null;
     if (!hasPdf(data.i)) return null;
     if (data.f !== "letter" && data.f !== "a4") return null;
-    return { id: data.i, format: data.f };
+    return { id: data.i, format: data.f, session: String(data.s ?? "") };
   } catch {
     return null;
   }
@@ -170,8 +189,8 @@ export const downloadUrl = (
   origin: string,
   id: PdfBookId,
   format: PdfFormat,
-  expiresAt?: number
-) => `${origin}/api/download?t=${signDownload(id, format, expiresAt)}`;
+  session: string
+) => `${origin}/api/download?t=${signDownload(id, format, session)}`;
 
 /** Название товара в чеке Stripe и в письме. */
 export function pdfProductName(id: PdfBookId, lang: UiLang): string {

@@ -42,7 +42,7 @@ export default async function ThankYouPage({
         const format = (
           order.format === "a4" ? "a4" : "letter"
         ) as PdfFormat;
-        link = `/api/download?t=${signDownload(order.book, format)}`;
+        link = `/api/download?t=${signDownload(order.book, format, s)}`;
       }
     } catch (error) {
       console.error("thank-you lookup failed", error);

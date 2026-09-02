@@ -73,3 +73,29 @@ export async function paidOrder(sessionId: string): Promise<PaidOrder | null> {
     email: details?.email ?? null,
   };
 }
+
+/* ---------------------------------------------------------------------------
+   Счет скачиваний.
+
+   Отдельного хранилища для этого не заводим: у каждого заказа в Stripe
+   есть место для наших пометок, туда и пишем, сколько раз файл забрали.
+   Заказ живет столько же, сколько ссылка, и другого списка покупок нам
+   держать не нужно.
+--------------------------------------------------------------------------- */
+
+/** Сколько раз по этому заказу уже скачивали. */
+export async function downloadsSoFar(sessionId: string): Promise<number> {
+  if (!/^cs_[A-Za-z0-9_]+$/.test(sessionId)) return 0;
+  const session = await stripe(`checkout/sessions/${sessionId}`);
+  if (session.payment_status !== "paid") return Number.MAX_SAFE_INTEGER;
+  const meta = (session.metadata ?? {}) as Record<string, string>;
+  const used = Number(meta.downloads ?? 0);
+  return Number.isFinite(used) && used >= 0 ? used : 0;
+}
+
+/** Отмечает еще одно скачивание. */
+export async function countDownload(sessionId: string, used: number) {
+  await stripe(`checkout/sessions/${sessionId}`, {
+    "metadata[downloads]": String(used + 1),
+  });
+}

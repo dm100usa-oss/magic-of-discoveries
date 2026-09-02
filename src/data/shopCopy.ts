@@ -47,7 +47,8 @@ export const shopCopy: Record<UiLang, ShopCopy> = {
     title: "Thank you. Your book is ready.",
     lead: "Payment went through. The file is yours to keep, print at home as many times as you like.",
     download: "Download the PDF",
-    expiry: "This download link is valid for 24 hours.",
+    expiry:
+      "The link stays active for 30 days and works up to 5 times. We suggest saving the file to your computer or phone right away, so it is always with you.",
     emailed:
       "We have also sent the link to your email. If it is not there in a few minutes, check the spam folder.",
     help: "Trouble downloading? Write to magicofdiscoveries@gmail.com and we will help.",
@@ -70,7 +71,8 @@ export const shopCopy: Record<UiLang, ShopCopy> = {
     title: "Gracias. Su libro está listo.",
     lead: "El pago se realizó correctamente. El archivo es suyo: puede imprimirlo en casa cuantas veces quiera.",
     download: "Descargar el PDF",
-    expiry: "Este enlace de descarga es válido durante 24 horas.",
+    expiry:
+      "El enlace funciona durante 30 días y permite hasta 5 descargas. Le recomendamos guardar el archivo en su ordenador o teléfono enseguida, para tenerlo siempre a mano.",
     emailed:
       "También le enviamos el enlace por correo. Si no llega en unos minutos, revise la carpeta de correo no deseado.",
     help: "¿Problemas con la descarga? Escriba a magicofdiscoveries@gmail.com y le ayudamos.",
@@ -93,7 +95,8 @@ export const shopCopy: Record<UiLang, ShopCopy> = {
     title: "Спасибо. Книга готова.",
     lead: "Оплата прошла. Файл ваш, печатайте дома сколько угодно раз.",
     download: "Скачать PDF",
-    expiry: "Ссылка для скачивания действует 24 часа.",
+    expiry:
+      "Ссылка действует 30 дней, скачать по ней можно до пяти раз. Советуем сразу сохранить файл на компьютер или телефон, чтобы он всегда был под рукой.",
     emailed:
       "Ссылку мы отправили и на почту. Если письма нет через несколько минут, посмотрите папку со спамом.",
     help: "Файл не скачивается? Напишите на magicofdiscoveries@gmail.com, поможем.",

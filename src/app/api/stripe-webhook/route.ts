@@ -46,13 +46,19 @@ function signatureIsValid(body: string, header: string, secret: string) {
   return a.length === b.length && timingSafeEqual(a, b);
 }
 
-async function sendLetter(to: string, lang: UiLang, book: string, format: PdfFormat) {
+async function sendLetter(
+  to: string,
+  lang: UiLang,
+  book: string,
+  format: PdfFormat,
+  session: string
+) {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.ORDER_FROM_EMAIL;
   if (!apiKey || !from) return;
 
   const t = shopCopy[lang];
-  const link = downloadUrl(SITE_URL, book as never, format);
+  const link = downloadUrl(SITE_URL, book as never, format, session);
   const title = pdfProductName(book as never, lang);
   const sheet = format === "letter" ? "Letter 8.5 x 11 in" : "A4";
   const kids = isForLittleOnes(book);
@@ -111,7 +117,7 @@ export async function POST(request: Request) {
 
     if (email && hasPdf(meta.book) && session.payment_status === "paid") {
       try {
-        await sendLetter(email, lang, meta.book, format);
+        await sendLetter(email, lang, meta.book, format, String(session.id ?? ""));
       } catch (error) {
         /* Письмо не ушло, но покупка состоялась и ссылку человек уже
            видел на экране. Роняем только запись в журнал. */

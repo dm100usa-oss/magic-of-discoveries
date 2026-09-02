@@ -40,6 +40,12 @@ export type ShopCopy = {
   /** Если оплата не прошла или ссылку открыли без заказа. */
   notFound: string;
   backHome: string;
+  /* Оплату не удалось даже начать: Stripe не ответил или отказал.
+     Покупателю про причину знать нечего, деньги не списаны. Причину
+     пишем в журнал сайта, ее видно в настройках Vercel. */
+  failTitle: string;
+  failText: string;
+  failBack: string;
 };
 
 export const shopCopy: Record<UiLang, ShopCopy> = {
@@ -66,6 +72,10 @@ export const shopCopy: Record<UiLang, ShopCopy> = {
     notFound:
       "We could not find this order. If you have paid and cannot reach your file, write to magicofdiscoveries@gmail.com and we will send it straight away.",
     backHome: "Back to the books",
+    failTitle: "The payment page did not open.",
+    failText:
+      "Nothing has been charged. This is on our side, not yours. Please try once more in a minute. If it happens again, write to magicofdiscoveries@gmail.com and we will send you the book straight away.",
+    failBack: "Back to the book",
   },
   es: {
     title: "Gracias. Su libro está listo.",
@@ -90,6 +100,10 @@ export const shopCopy: Record<UiLang, ShopCopy> = {
     notFound:
       "No encontramos este pedido. Si ya pagó y no puede abrir su archivo, escriba a magicofdiscoveries@gmail.com y se lo enviamos enseguida.",
     backHome: "Volver a los libros",
+    failTitle: "La página de pago no se abrió.",
+    failText:
+      "No se le ha cobrado nada. El fallo es nuestro, no suyo. Inténtelo de nuevo en un minuto. Si vuelve a ocurrir, escriba a magicofdiscoveries@gmail.com y le enviaremos el libro enseguida.",
+    failBack: "Volver al libro",
   },
   ru: {
     title: "Спасибо. Книга готова.",
@@ -114,5 +128,9 @@ export const shopCopy: Record<UiLang, ShopCopy> = {
     notFound:
       "Не нашли этот заказ. Если оплата прошла, а файла нет, напишите на magicofdiscoveries@gmail.com, вышлем сразу.",
     backHome: "Вернуться к книгам",
+    failTitle: "Страница оплаты не открылась.",
+    failText:
+      "Деньги не списаны. Это сбой на нашей стороне, не у вас. Попробуйте еще раз через минуту. Если повторится, напишите на magicofdiscoveries@gmail.com, и мы вышлем книгу сразу.",
+    failBack: "Вернуться к книге",
   },
 };

@@ -264,9 +264,12 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
    а один и тот же файл под разную бумагу. Показывать две кнопки по 4.99
    рядом означало бы намекать, что платить надо дважды.
 
-   Размер выбирается после нажатия, там же коротко сказано, кому какой
-   подходит. Раскрытие сделано без скриптов, поэтому работает всегда,
-   а поисковик видит обе покупки как понятные действия. */
+   Размер выбирается после нажатия. Подсказка о том, кому какой лист
+   подходит, стоит внутри самой кнопки второй строкой: отдельной строкой
+   под кнопкой она разбивала блок на слишком много кусков.
+
+   Раскрытие сделано без скриптов, поэтому работает всегда, а поисковик
+   видит обе покупки как понятные действия. */
 function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
   const t = dictionaries[lang].book;
   const back = itemPath(lang, "books", book.slug[lang] ?? "");
@@ -284,12 +287,14 @@ function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
             <input type="hidden" name="format" value={format} />
             <input type="hidden" name="lang" value={lang} />
             <input type="hidden" name="back" value={back} />
-            <button type="submit" className="btn btn--ghost">
-              {format === "letter" ? t.buyPdfLetter : t.buyPdfA4}
+            <button type="submit" className="btn btn--ghost buy-pdf__size">
+              <span className="buy-pdf__name">
+                {format === "letter" ? t.buyPdfLetter : t.buyPdfA4}
+              </span>
+              <span className="buy-pdf__hint">
+                {format === "letter" ? t.pdfLetterHint : t.pdfA4Hint}
+              </span>
             </button>
-            <span className="buy-pdf__hint">
-              {format === "letter" ? t.pdfLetterHint : t.pdfA4Hint}
-            </span>
           </form>
         ))}
       </div>

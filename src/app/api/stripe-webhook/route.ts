@@ -3,7 +3,13 @@ import { NextResponse } from "next/server";
 import type { UiLang } from "@/data/books";
 import { activeLangs } from "@/data/dictionaries";
 import { shopCopy } from "@/data/shopCopy";
-import { hasPdf, downloadUrl, pdfProductName, type PdfFormat } from "@/lib/pdfShop";
+import {
+  hasPdf,
+  downloadUrl,
+  pdfProductName,
+  isForLittleOnes,
+  type PdfFormat,
+} from "@/lib/pdfShop";
 import { SITE_URL, CONTACT_EMAIL, SITE_NAME } from "@/lib/site";
 
 /* Сообщение от Stripe о том, что деньги пришли.
@@ -49,15 +55,18 @@ async function sendLetter(to: string, lang: UiLang, book: string, format: PdfFor
   const link = downloadUrl(SITE_URL, book as never, format);
   const title = pdfProductName(book as never, lang);
   const sheet = format === "letter" ? "Letter 8.5 x 11 in" : "A4";
+  const kids = isForLittleOnes(book);
 
-  const html = `<div style="font-family:Georgia,serif;font-size:16px;line-height:1.6;color:#222">
-<p>${t.emailLead}</p>
-<p><strong>${title}</strong><br>${sheet}</p>
-<p><a href="${link}" style="display:inline-block;background:#1892c4;color:#fff;padding:12px 22px;border-radius:8px;text-decoration:none">${t.download}</a></p>
-<p>${t.expiry}</p>
-<p>${t.help}</p>
-<hr style="border:none;border-top:1px solid #ddd;margin:24px 0">
-<p style="font-size:13px;color:#666">${t.emailSign}</p>
+  const html = `<div style="font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.65;color:#26232b;max-width:34rem;margin:0 auto;padding:8px">
+<p>${kids ? t.emailLeadKids : t.emailLeadGeneral}</p>
+<p style="margin-top:26px"><strong>${title}</strong><br>${t.emailFormat}: ${sheet}</p>
+<p style="margin:26px 0"><a href="${link}" style="display:inline-block;background:#1892c4;color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;padding:14px 28px;border-radius:10px;text-decoration:none">${t.download}</a></p>
+<p style="font-size:14px;color:#5c5665">${t.expiry}</p>
+<p style="font-size:14px;color:#5c5665">${t.emailHelp}</p>
+<p style="margin-top:26px">${kids ? t.emailCloseKids : t.emailCloseGeneral}</p>
+<p style="margin-bottom:4px"><strong>${SITE_NAME}</strong></p>
+<hr style="border:none;border-top:1px solid #e3dfe6;margin:20px 0 12px">
+<p style="font-size:12px;color:#8a8391;font-style:italic;margin:0">${t.emailSign}</p>
 </div>`;
 
   await fetch("https://api.resend.com/emails", {

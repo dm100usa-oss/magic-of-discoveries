@@ -319,8 +319,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyPdfLetter: "Letter, 8.5 x 11 in",
       buyPdfA4: "A4",
       pdfPickSize: "Choose your paper size:",
-      pdfLetterHint: "Recommended for the US and Canada. Standard 8.5 x 11 in paper.",
-      pdfA4Hint: "Recommended for Europe, the UK and most other countries.",
+      pdfLetterHint: "Recommended for the US and Canada",
+      pdfA4Hint: "Recommended for Europe, the UK and most other countries",
       pdfNote:
         "The PDF is yours to keep and print at home as often as you like. The download link opens right after checkout and also arrives by email.",
       alsoIn: "Also available in",
@@ -594,10 +594,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyPdfLetter: "Carta, 8.5 x 11 pulgadas",
       buyPdfA4: "A4",
       pdfPickSize: "Elija el tamaño de papel:",
-      pdfLetterHint:
-        "Recomendado para Estados Unidos y Canadá. Papel Carta de 8.5 x 11 pulgadas.",
-      pdfA4Hint:
-        "Recomendado para España, América Latina y el resto de los países.",
+      pdfLetterHint: "Recomendado para Estados Unidos y Canadá",
+      pdfA4Hint: "Recomendado para España y el resto de los países",
       pdfNote:
         "El PDF es suyo: puede imprimirlo en casa cuantas veces quiera. El enlace de descarga se abre justo después del pago y también llega por correo.",
       alsoIn: "También disponible en",
@@ -839,8 +837,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyPdfLetter: "Letter, 8.5 на 11 дюймов",
       buyPdfA4: "A4",
       pdfPickSize: "Выберите размер листа:",
-      pdfLetterHint: "Рекомендуем для США и Канады. Лист 8.5 на 11 дюймов.",
-      pdfA4Hint: "Рекомендуем для Европы и остальных стран.",
+      pdfLetterHint: "Рекомендуем для США и Канады",
+      pdfA4Hint: "Рекомендуем для Европы и остальных стран",
       pdfNote:
         "PDF остается у вас, печатайте дома сколько угодно раз. Ссылка на скачивание открывается сразу после оплаты и приходит на почту.",
       alsoIn: "Также есть на",

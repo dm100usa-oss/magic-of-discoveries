@@ -27,8 +27,11 @@ export async function generateMetadata({
   if (!activeLangs.includes(lang as UiLang)) return {};
   const t = dictionaries[lang as UiLang];
   return {
-    title: t.home.heroTitle,
-    description: t.home.heroLead,
+    /* В поиске страница называется теми словами, которые люди набирают
+       в поисковой строке. Заголовок на экране обращен к человеку,
+       который уже пришел, и звучит иначе. */
+    title: t.home.seoTitle,
+    description: t.home.seoDescription,
     alternates: {
       canonical: homePath(lang as UiLang),
       languages: langAlternates(
@@ -36,8 +39,8 @@ export async function generateMetadata({
       ),
     },
     openGraph: {
-      title: t.home.heroTitle,
-      description: t.home.heroLead,
+      title: t.home.seoTitle,
+      description: t.home.seoDescription,
       type: "website",
       url: `${SITE_URL}${homePath(lang as UiLang)}`,
       images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height }],

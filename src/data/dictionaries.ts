@@ -14,6 +14,11 @@ export interface Dictionary {
     contact: string;
   };
   home: {
+    /* Заголовок первого экрана говорит человеку, о чем сайт.
+       Заголовок и описание для поиска составлены отдельно, из тех
+       слов, которые люди набирают в поисковой строке. */
+    seoTitle: string;
+    seoDescription: string;
     heroEyebrow: string;
     heroTitle: string;
     heroLead: string;
@@ -211,10 +216,13 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       contact: "Contact",
     },
     home: {
+      seoTitle: "Coloring and step by step drawing books for kids",
+      seoDescription:
+        "Coloring books, step by step drawing and bedtime stories for ages 1 to 8, each built around what a child can actually do. Drawn by hand, never by AI.",
       heroEyebrow: "Coloring, drawing and bedtime books",
-      heroTitle: "Books that a small child can finish",
+      heroTitle: "Books that make it easy for a child",
       heroLead:
-        "Thick outlines a two year old can follow. Bedtime stories short enough to reach the end. Drawing broken into simple steps. Every book is made so the child succeeds at it, because that is what makes them come back tomorrow.",
+        "Every book on this site has one thing in common: it is built around a child's age and what they can actually do. Younger children find it easier to color large pictures with bold outlines. Learning to draw is easier when a picture is broken into simple, easy to follow steps. A short bedtime story is just long enough to reach the end without losing interest. We hope these books turn out to be useful to your child and bring plenty of joy and new discoveries.",
       heroCta: "See all books",
       kidsTitle: "For children",
       kidsLead:
@@ -494,10 +502,13 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       contact: "Contacto",
     },
     home: {
+      seoTitle: "Libros para colorear y dibujar para niños",
+      seoDescription:
+        "Libros para colorear, dibujo paso a paso y cuentos para dormir de 1 a 8 años, pensados para lo que el niño ya es capaz de hacer. Dibujados a mano.",
       heroEyebrow: "Libros para colorear, dibujar y para dormir",
-      heroTitle: "Libros que un niño pequeño sí termina",
+      heroTitle: "Libros que se lo ponen fácil a los niños",
       heroLead:
-        "Líneas gruesas que un niño de dos años puede seguir. Cuentos cortos que llegan al final. Dibujo dividido en pasos sencillos. Cada libro está hecho para que el niño lo consiga, porque eso es lo que hace que mañana vuelva a pedirlo.",
+        "Todos los libros de este sitio tienen algo en común: cada uno está pensado para la edad del niño y para lo que ya es capaz de hacer. A los más pequeños les resulta más fácil colorear dibujos grandes con líneas gruesas. Aprender a dibujar es más sencillo cuando el dibujo se divide en pasos claros y fáciles de seguir. Un cuento corto dura justo lo suficiente para que el niño llegue al final sin perder el interés. Esperamos que estos libros le sean útiles a tu hijo y le traigan mucha alegría y descubrimientos nuevos.",
       heroCta: "Ver todos los libros",
       kidsTitle: "Para niños",
       kidsLead:
@@ -778,10 +789,13 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       contact: "Контакты",
     },
     home: {
-      heroEyebrow: "Раскраски, рисование и книги на ночь",
-      heroTitle: "Книги, которые маленький ребенок доводит до конца",
+      seoTitle: "Раскраски и книги по рисованию для детей",
+      seoDescription:
+        "Раскраски, пошаговое рисование и сказки на ночь для детей от 1 до 8 лет. Каждая книга сделана под возраст ребенка. Восемь книг на русском в формате PDF.",
+      heroEyebrow: "Раскраски, рисование и сказки на ночь",
+      heroTitle: "Книги, с которыми ребенку легко",
       heroLead:
-        "Толстые линии, в которые попадает двухлетний. Сказки, которые успевают закончиться. Рисование, разбитое на четыре шага. Каждая книга сделана так, чтобы у ребенка получилось, потому что именно поэтому он возвращается к ней завтра.",
+        "Все книги на сайте объединяет одно: каждая учитывает возраст и возможности ребенка. Малышу проще раскрашивать крупные рисунки с толстой линией. Учиться рисовать легче, когда рисунок разбит на простые понятные шаги. Короткую сказку ребенок успевает дослушать, не потеряв интереса. Надеемся, что эти книги будут полезны вашему ребенку и подарят ему много радости и приятных открытий.",
       heroCta: "Все книги",
       kidsTitle: "Детям",
       kidsLead:

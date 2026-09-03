@@ -1,0 +1,262 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { booksForLang, type UiLang } from "@/data/books";
+import { dictionaries, activeLangs } from "@/data/dictionaries";
+import { BookCard } from "@/components/Chrome";
+import { reviewsByLang } from "@/lib/reviews";
+import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, ADDRESS, CONTACT_EMAIL, OG_IMAGE, TODDLER_SITE } from "@/lib/site";
+import { awards } from "@/data/method";
+
+/** Второй сайт: там полностью описан метод ECL. */
+const METHOD_SITE = "https://www.ricardo-demi.com";
+import { homePath, sectionPath } from "@/lib/routes";
+import { langAlternates } from "@/lib/schema";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  /* Неизвестный язык в адресе, например /EN или /xx. Такие адреса
+     приходят по кривым ссылкам и от роботов. Без этой проверки
+     страница падала с ошибкой сервера, а поисковик считает ошибку
+     сервера поводом реже заходить на весь сайт. Отдаем пустой
+     заголовок, а сам показ страницы отдает 404. */
+  if (!activeLangs.includes(lang as UiLang)) return {};
+  const t = dictionaries[lang as UiLang];
+  return {
+    /* В поиске страница называется теми словами, которые люди набирают
+       в поисковой строке. Заголовок на экране обращен к человеку,
+       который уже пришел, и звучит иначе. */
+    title: t.home.seoTitle,
+    description: t.home.seoDescription,
+    alternates: {
+      canonical: homePath(lang as UiLang),
+      languages: langAlternates(
+        Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}/${l}`]))
+      ),
+    },
+    openGraph: {
+      title: t.home.seoTitle,
+      description: t.home.seoDescription,
+      type: "website",
+      url: `${SITE_URL}${homePath(lang as UiLang)}`,
+      images: [{ url: OG_IMAGE.url, width: OG_IMAGE.width, height: OG_IMAGE.height }],
+    },
+  };
+}
+
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang: raw } = await params;
+  if (!activeLangs.includes(raw as UiLang)) notFound();
+  const lang = raw as UiLang;
+  const t = dictionaries[lang];
+  const all = booksForLang(lang);
+  const revs = reviewsByLang[lang];
+  const kids = all.filter((b) => b.age !== "teens-adults");
+  const adults = all.filter((b) => b.age === "teens-adults");
+
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#publisher`,
+        name: SITE_NAME,
+        legalName: PUBLISHER,
+        url: SITE_URL,
+        email: CONTACT_EMAIL,
+        address: ADDRESS,
+        logo: `${SITE_URL}${OG_IMAGE.url}`,
+        /* Другие сайты издательства стоят в этом же списке: для машины
+           это значит, что каталог, справочник по методике и справочник
+           о первых раскрасках принадлежат одному издательству, а не
+           трем разным. Без этого поля они выглядят как случайно
+           похожие сайты. */
+        sameAs: [...Object.values(SOCIAL), METHOD_SITE, TODDLER_SITE],
+        founder: [
+          {
+            "@type": "Person",
+            name: "Ricardo Demi",
+            jobTitle: "Author and creator of the ECL method",
+            sameAs: [`${METHOD_SITE}/method`],
+          },
+          { "@type": "Person", name: "Maria Demi", jobTitle: "Illustrator" },
+        ],
+        /* Кратко и словами: что это за издательство и что оно делает.
+           Нейросеть читает это поле раньше любого текста на странице. */
+        description: t.home.what,
+        /* Награды. Раньше поле было пустым, и по разметке выходило,
+           что подтверждений у издательства нет вовсе. */
+        award: awards.map(
+          (a) => `${a.result[lang] ?? a.result.en} ${a.program} ${a.year}`,
+        ),
+        knowsAbout: [
+          "Children's coloring books",
+          "Directed drawing for grades K-2",
+          "Early childhood language development",
+          "Handwriting practice for kindergarten",
+          "Bedtime stories for toddlers",
+        ],
+        /* Кому адресовано. Без этого поля выходило, что сайт только
+           для родителей, хотя половина материалов для школы. */
+        audience: [
+          { "@type": "PeopleAudience", audienceType: "Parents" },
+          { "@type": "EducationalAudience", educationalRole: "teacher" },
+          { "@type": "EducationalAudience", educationalRole: "homeschooler" },
+        ],
+      },
+      /* Разметка сайта как единого объекта. Помогает поисковику
+         понять, что все языковые версии это один сайт. */
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        name: SITE_NAME,
+        url: `${SITE_URL}${homePath(lang)}`,
+        inLanguage: lang,
+        publisher: { "@id": `${SITE_URL}/#publisher` },
+      },
+      /* Вопросы и ответы главной страницы. Именно из них нейросети
+         берут готовый абзац, отвечая "что это за сайт". */
+      ...(t.home.faq.length
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: t.home.faq.map((f) => ({
+                "@type": "Question",
+                name: f.q,
+                acceptedAnswer: { "@type": "Answer", text: f.a },
+              })),
+            },
+          ]
+        : []),
+    ],
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
+
+      {/* Блок 1: обещание */}
+      <section className="band">
+        <div className="wrap">
+          <p className="script-title" style={{ fontSize: "clamp(1.3rem, 1rem + 1.4vw, 1.9rem)", margin: "0 0 0.3rem" }}>
+            {t.home.heroEyebrow}
+          </p>
+          <h1 className="hero">{t.home.heroTitle}</h1>
+          <p className="lead">{t.home.heroLead}</p>
+          <Link className="btn btn--pink" href={sectionPath(lang, "books")}>
+            {t.home.heroCta}
+          </Link>
+        </div>
+      </section>
+
+      {/* Блок 1а: что это за сайт. Один абзац, три строки на экране.
+          Человек понимает, куда попал. Нейросеть берет его целиком,
+          отвечая на вопрос "что это за сайт и для кого".
+          Ничего не спрятано: то же самое лежит в разметке страницы,
+          иначе поисковик считает расхождение обманом. */}
+      <section className="band band--cream">
+        <div className="wrap">
+          <h2 className="section">{t.home.whatTitle}</h2>
+          <p className="what-lead">{t.home.what}</p>
+        </div>
+      </section>
+
+      {/* Блок 2: детям */}
+      <section className="band band--mint">
+        <div className="wrap">
+          <h2 className="section">{t.home.kidsTitle}</h2>
+          <p className="lead">{t.home.kidsLead}</p>
+          <div className="grid">
+            {kids.map((b) => (
+              <BookCard key={b.id} book={b} lang={lang} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Блок 3: взрослым */}
+      <section className="band">
+        <div className="wrap">
+          <h2 className="section">{t.home.adultsTitle}</h2>
+          <p className="lead">{t.home.adultsLead}</p>
+          <div className="grid">
+            {adults.map((b) => (
+              <BookCard key={b.id} book={b} lang={lang} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Блок 4: бесплатные раскраски. Вход из поиска. */}
+      <section className="band band--cream">
+        <div className="wrap">
+          <h2 className="section">{t.home.freeTitle}</h2>
+          <p className="lead">{t.home.freeLead}</p>
+          <Link className="btn btn--sun" href={sectionPath(lang, "coloring")}>
+            {t.home.freeCta}
+          </Link>
+        </div>
+      </section>
+
+      {/* Блок 4а: чем отличается. Короткий список, такие цитируют
+          охотнее всего. Каждый пункт проверяем: числа из каталога,
+          награды из списка наград, бесплатное действительно без почты. */}
+      <section className="band">
+        <div className="wrap">
+          <h2 className="section">{t.home.whyTitle}</h2>
+          <ul className="why-list">
+            {t.home.why.map((line) => (
+              <li key={line.slice(0, 24)}>{line}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Блок 5: отзывы */}
+      <section className="band">
+        <div className="wrap">
+          <p className="script-title">{t.home.reviewsTitle}</p>
+          <div className="reviews">
+            {revs.map((r) => (
+              <div className="review" key={r.who}>
+                <div className="stars">{"★".repeat(r.stars)}</div>
+                <p>{r.text}</p>
+                <span className="who">{r.who}</span>
+                {r.translated && t.home.reviewTranslated ? (
+                  <span className="note">{t.home.reviewTranslated}</span>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Блок 6: вопросы. Свернуты, чтобы не удлинять главную:
+          человек открывает нажатием, а в коде страницы они есть
+          всегда, и машина читает их независимо от того, открыты
+          они или нет. */}
+      {t.home.faq.length ? (
+        <section className="band band--cream">
+          <div className="wrap">
+            <h2 className="section">{t.home.faqTitle}</h2>
+            <div className="faq faq--two">
+              {t.home.faq.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+    </>
+  );
+}

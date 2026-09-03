@@ -3507,6 +3507,69 @@ export const books: Book[] = [
     formats: [],
     enEditionAsin: "1963328272",
     rating: { value: 5.0, count: 19 },
+    showcaseLead: {
+      ru: "Три вещи мы проверяли на каждой странице, прежде чем поставить ее в книгу: форма остается простой, рисунок заполняет лист, а зверь выглядит достаточно добрым, чтобы ребенку захотелось начать.",
+    },
+    bannerLead: {
+      file: "/art/first-coloring-111-ru-header.png",
+      w: 1941,
+      h: 601,
+      alt: {
+        ru: "Первая книга-раскраска для малышей, обложка со львом и цветные карандаши",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/first-coloring-111-ru-simple.png",
+        w: 601,
+        h: 601,
+        alt: {
+          ru: "Простые: черепаха, нарисованная толстой линией, один предмет на странице",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-ru-big.png",
+        w: 601,
+        h: 601,
+        alt: {
+          ru: "Большие: корова во весь лист, раскрашенная маленьким ребенком",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-ru-cute.png",
+        w: 601,
+        h: 601,
+        alt: {
+          ru: "Милые: улыбающаяся красная машина, один из предметов из книги",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/first-coloring-111-ru-spread.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Книга раскрыта на страницах с лисой и курицей, лист 21,6 x 28 см, большие рисунки и новые слова",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-ru-themes.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "111 милых рисунков: самолет, дельфин, подводная лодка, фламинго, кролик, морской конек, роза, хомяк, олень и рыба-ангел",
+        },
+      },
+      {
+        file: "/art/first-coloring-111-ru-gift.png",
+        w: 1941,
+        h: 601,
+        alt: {
+          ru: "Прекрасный подарок для начинающих художников, пончик и цветные карандаши",
+        },
+      },
+    ],
     slug: { ru: "pervaya-kniga-raskraska-dlya-malyshey-1-3-goda" },
     copy: {
       ru: {
@@ -3557,6 +3620,53 @@ export const books: Book[] = [
     formats: [],
     enEditionAsin: "1963328566",
     rating: { value: 4.6, count: 3 },
+    showcaseLead: {
+      ru: "Мышонок Макс зовет раскрашивать. На любой странице книги видно одно и то же: простая форма, крупная фигура и добрый герой.",
+    },
+    bannerLead: {
+      file: "/art/little-max-coloring-1-ru-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        ru: "Маленький Макс. Первая книжка-раскраска, обложка с мышонком и цветные карандаши",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/little-max-coloring-1-ru-simple.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Простые: улитка, нарисованная толстой линией, один предмет на странице",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-ru-big.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Большие: енот во весь лист, раскрашенный карандашом",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-1-ru-cute.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Милые: разноцветная пирамидка из колец, одна из игрушек в книге",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/little-max-coloring-1-ru-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          ru: "Прекрасный подарок для начинающих художников, кекс и цветные карандаши",
+        },
+      },
+    ],
     slug: { ru: "malenkiy-maks-pervaya-knizhka-raskraska-kniga-1" },
     copy: {
       ru: {
@@ -3606,6 +3716,69 @@ export const books: Book[] = [
     formats: [],
     enEditionAsin: "1963328450",
     rating: { value: 5.0, count: 1 },
+    showcaseLead: {
+      ru: "Вторая книжка Макса устроена так же, как первая, но набор рисунков в ней другой от начала до конца.",
+    },
+    bannerLead: {
+      file: "/art/little-max-coloring-2-ru-header.png",
+      w: 1940,
+      h: 600,
+      alt: {
+        ru: "Маленький Макс. Первая книжка-раскраска, книга 2, обложка с мышонком и цветные карандаши",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/little-max-coloring-2-ru-simple.png",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Простые: рыбка, нарисованная толстой линией, один предмет на странице",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-ru-big.png",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Большие: сова во весь лист, раскрашенная карандашом",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-ru-cute.png",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Милые: барабан с палочками, одна из игрушек в книге",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/little-max-coloring-2-ru-spread.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          ru: "Книга раскрыта на страницах со слоненком и пандой, лист 21,6 x 28 см, большие рисунки и новые слова",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-ru-themes.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          ru: "111 милых рисунков: пальма, воздушные шары, обезьяна, желудь, кит, тукан, жираф, арбуз, вертолет и футбольный мяч",
+        },
+      },
+      {
+        file: "/art/little-max-coloring-2-ru-gift.png",
+        w: 1940,
+        h: 600,
+        alt: {
+          ru: "Прекрасный подарок для начинающих художников, попкорн и цветные карандаши",
+        },
+      },
+    ],
     slug: { ru: "malenkiy-maks-pervaya-knizhka-raskraska-kniga-2" },
     copy: {
       ru: {
@@ -3700,6 +3873,69 @@ export const books: Book[] = [
     formats: [],
     enEditionAsin: "1963328728",
     rating: { value: 5.0, count: 1 },
+    showcaseLead: {
+      ru: "Как один рисунок вырастает из простой формы за несколько шагов, сколько рядом остается места для практики и как выглядит готовый рисунок в цвете.",
+    },
+    bannerLead: {
+      file: "/art/how-to-draw-everything-ru-header.jpg",
+      w: 1940,
+      h: 600,
+      alt: {
+        ru: "Как нарисовать все на свете, обложка с утенком и цыплятами, магия творчества для детей",
+      },
+    },
+    artwork: [
+      {
+        file: "/art/how-to-draw-everything-ru-steps.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Легкие инструкции: цыпленок вырастает из простой формы за пять шагов",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-ru-practice.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Место для практики: контур белки и карандаш рядом с пустым полем",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-ru-results.jpg",
+        w: 600,
+        h: 600,
+        alt: {
+          ru: "Отличные результаты: раскрашенные подарок, клубника и мороженое",
+        },
+      },
+    ],
+    banners: [
+      {
+        file: "/art/how-to-draw-everything-ru-spread.png",
+        w: 1940,
+        h: 1200,
+        alt: {
+          ru: "Книга раскрыта на страницах с собакой и улиткой: шаги, готовый рисунок в цвете и пунктир для обводки",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-ru-drawings.jpg",
+        w: 1940,
+        h: 1200,
+        alt: {
+          ru: "111 милых рисунков: бабочка, дерево, птица, парусник, шорты, зонт, шапка, курица, подушка и пирог",
+        },
+      },
+      {
+        file: "/art/how-to-draw-everything-ru-gift.jpg",
+        w: 1940,
+        h: 600,
+        alt: {
+          ru: "Идеальный подарок для начинающих художников, пончик и флажки",
+        },
+      },
+    ],
     slug: { ru: "kak-narisovat-vse-na-svete-legko-shag-za-shagom" },
     copy: {
       ru: {
@@ -3745,6 +3981,51 @@ export const books: Book[] = [
     formats: [],
     enEditionAsin: "1963328167",
     rating: { value: 5.0, count: 26 },
+    showcaseLead: {
+      ru: "Четыре вещи, которые стоит увидеть до покупки: какой толщины линия, сколько на рисунке свободного места, как напечатаны страницы и какие темы внутри.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-animals-ru-header.png",
+      w: 1941,
+      h: 1201,
+      alt: {
+        ru: "Сделай перерыв, серия Милые животные, простая раскраска для взрослых и детей, обложка со спящим леопардом",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-animals-ru-lines.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Три страницы из книги: клубника, обезьянка под пальмой и олень у ручья, нарисованные толстой линией",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-ru-size.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Книга раскрыта на утенке среди камышей, лист 21,6 x 28 см, рисунки только на одной стороне листа",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-ru-themes.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Еще шесть рисунков из книги: улитка, попугай, лиса, жираф, желуди и панда в бамбуке",
+        },
+      },
+      {
+        file: "/art/take-a-break-animals-ru-gift.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Подарочная коробка и цветные карандаши, книга как подарок себе и тем, кого вы любите",
+        },
+      },
+    ],
     slug: { ru: "sdelay-pereryv-milye-zhivotnye-prostaya-raskraska" },
     copy: {
       ru: {
@@ -3791,6 +4072,51 @@ export const books: Book[] = [
     formats: [],
     enEditionAsin: "1963328299",
     rating: { value: 5.0, count: 7 },
+    showcaseLead: {
+      ru: "Четыре вещи, которые стоит увидеть до покупки: какой толщины линия, сколько на рисунке свободного места, как напечатаны страницы и какие темы внутри.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-ocean-ru-header.png",
+      w: 1941,
+      h: 1201,
+      alt: {
+        ru: "Сделай перерыв, серия Красота океана, простая раскраска для взрослых и детей, обложка с выдрой",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-ocean-ru-lines.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Три страницы из книги: подводная лодка среди водорослей, ракушки со звездой и рыбка с большими плавниками",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-ru-size.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Книга раскрыта на пляжном зонте с мячом и очками, лист 21,6 x 28 см, рисунки только на одной стороне листа",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-ru-themes.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Еще шесть рисунков из книги: стая рыб, акула, сундук с сокровищами, кит, раковина и русалка",
+        },
+      },
+      {
+        file: "/art/take-a-break-ocean-ru-gift.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Подарочная коробка и цветные карандаши, книга как подарок себе и тем, кого вы любите",
+        },
+      },
+    ],
     slug: { ru: "sdelay-pereryv-krasota-okeana-prostaya-raskraska" },
     copy: {
       ru: {
@@ -3836,6 +4162,51 @@ export const books: Book[] = [
     coverSize: { w: 900, h: 1165 },
     formats: [],
     enEditionAsin: "1963328329",
+    showcaseLead: {
+      ru: "Четыре вещи, которые стоит увидеть до покупки: какой толщины линия, сколько на рисунке свободного места, как напечатаны страницы и какие темы внутри.",
+    },
+    bannerLead: {
+      file: "/art/take-a-break-food-ru-header.png",
+      w: 1941,
+      h: 1201,
+      alt: {
+        ru: "Сделай перерыв, серия Вкусные истории, простая раскраска для взрослых и детей, обложка с чашкой кофе и пирожным",
+      },
+    },
+    banners: [
+      {
+        file: "/art/take-a-break-food-ru-lines.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Три страницы из книги: хот-дог, печенье разной формы и арбуз с отрезанным ломтем",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-ru-size.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Книга раскрыта на стопке блинов с клубникой, лист 21,6 x 28 см, рисунки только на одной стороне листа",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-ru-themes.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Еще шесть рисунков из книги: гранаты, виноград, молочный коктейль, пончик, торт со свечой и кусок пиццы",
+        },
+      },
+      {
+        file: "/art/take-a-break-food-ru-gift.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          ru: "Подарочная коробка и цветные карандаши, книга как подарок себе и тем, кого вы любите",
+        },
+      },
+    ],
     slug: { ru: "sdelay-pereryv-vkusnye-istorii-prostaya-raskraska" },
     copy: {
       ru: {

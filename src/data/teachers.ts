@@ -626,6 +626,20 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         },
       },
       {
+        kind: "free",
+        title: "Muestra gratuita del volumen 2, 9 actividades",
+        text: "Una actividad de cada uno de los nueve temas del volumen 2, completas y sin marcas de agua. 11 páginas, PDF, se descarga desde esta misma página.",
+        cta: "Descargar la muestra gratuita",
+        url: "/free/directed-drawing-k2-2-es-free-sample.pdf",
+        cover: {
+          src: "/teachers/cover-free-2-es.jpg",
+          w: 700,
+          h: 700,
+          alt: "Portada de la muestra gratuita de 9 actividades del volumen 2 en español: una hoja de dibujo dirigido con un zorro, marcada 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
+          caption: "",
+        },
+      },
+      {
         kind: "paid",
         title: "Volumen 2: 56 actividades más",
         text: "Un segundo año completo con el mismo formato, con dibujos nuevos y un tema de insectos. 59 páginas, PDF. Solo aquí.",

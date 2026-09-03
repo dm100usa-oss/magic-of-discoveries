@@ -1,6 +1,18 @@
 import type { UiLang } from "@/data/books";
 
 export const SITE_URL = "https://www.magicofdiscoveries.com";
+
+/* Постоянные опознаватели.
+
+   В разметке издательство и авторы описаны на нескольких страницах:
+   на главной, в разделе "О нас", на странице для учителей, в контактах.
+   Без общего опознавателя машина видит не одно издательство, описанное
+   в четырех местах, а четыре разные организации с одинаковым названием,
+   и вес между ними не складывается. Эти строки связывают все описания
+   в один объект. Адрес после решетки никуда не ведет, это просто имя. */
+export const ORG_ID = `${SITE_URL}/#publisher`;
+export const RICARDO_ID = `${SITE_URL}/#ricardo-demi`;
+export const MARIA_ID = `${SITE_URL}/#maria-demi`;
 export const SITE_NAME = "Magic of Discoveries";
 export const PUBLISHER = "Magic of Discoveries LLC";
 export const CONTACT_EMAIL = "magicofdiscoveries@gmail.com";
@@ -55,15 +67,28 @@ export const SOCIAL = {
   youtube: "https://www.youtube.com/@magic_of_discoveries",
 };
 
+/* Внешние страницы авторов. Чем больше независимых мест, где машина
+   находит того же самого человека, тем увереннее она о нем говорит.
+   Страница на Goodreads до сих пор лежала в другом списке и в разметку
+   авторов не попадала. */
 export const AUTHORS = {
   ricardo: {
     name: "Ricardo Demi",
     amazon: "https://www.amazon.com/stores/Ricardo-Demi/author/B0D3CQP21H",
+    goodreads: "https://www.goodreads.com/author/show/49458093.Ricardo_Demi",
   },
   maria: {
     name: "Maria Demi",
     amazon: "https://www.amazon.com/stores/Maria-Demi/author/B0DD5TGB1B",
   },
+};
+
+/** Все проверяемые адреса автора одной строкой. */
+export const authorSameAs = (who: "ricardo" | "maria") => {
+  const a = AUTHORS[who];
+  return [a.amazon, "goodreads" in a ? a.goodreads : undefined].filter(
+    Boolean,
+  ) as string[];
 };
 
 export const path = (lang: UiLang, ...parts: string[]) =>

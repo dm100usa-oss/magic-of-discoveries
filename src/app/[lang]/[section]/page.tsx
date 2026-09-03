@@ -33,6 +33,10 @@ import {
   ADDRESS,
   OG_IMAGE,
   toddlerSiteUrl,
+  ORG_ID,
+  RICARDO_ID,
+  MARIA_ID,
+  authorSameAs,
 } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
 import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
@@ -45,7 +49,7 @@ import {
   pagePictures,
   wordsBookIds,
 } from "@/data/firstWords";
-import { langAlternates, breadcrumbs } from "@/lib/schema";
+import { langAlternates, breadcrumbs, orgNode, orgRef, ricardoNode } from "@/lib/schema";
 import { bookIsbn13, bookAges } from "@/data/books";
 
 const TYPES: BookType[] = ["coloring", "drawing", "bedtime", "bilingual"];
@@ -242,6 +246,10 @@ export default async function SectionPage({
        Так поисковик понимает, для кого это, не читая текст. */
     const pageSchema = {
       "@context": "https://schema.org",
+      "@graph": [
+        orgNode(),
+        ricardoNode(lang),
+        {
       "@type": "LearningResource",
       name: c.title,
       url,
@@ -258,9 +266,11 @@ export default async function SectionPage({
       ],
       learningResourceType: "Lesson format",
       teaches: [c.skillsLead, ...c.skills],
-      author: { "@type": "Person", name: AUTHORS.ricardo.name, sameAs: METHOD_URL },
-      publisher: { "@type": "Organization", name: PUBLISHER, url: SITE_URL, address: ADDRESS },
+      author: { "@id": RICARDO_ID },
+      publisher: { "@id": ORG_ID },
       isBasedOn: { "@type": "CreativeWork", name: "Ricardo Demi ECL Method", url: METHOD_URL },
+        },
+      ],
     };
 
     /* Картинка с подписью. Подпись видна человеку и читается нейросетью. */
@@ -584,6 +594,7 @@ export default async function SectionPage({
     const schema = {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": ORG_ID,
       name: PUBLISHER,
       url: SITE_URL,
       email: CONTACT_EMAIL,
@@ -593,12 +604,12 @@ export default async function SectionPage({
         SOCIAL.tiktok,
         SOCIAL.pinterest,
         SOCIAL.youtube,
-        AUTHORS.ricardo.amazon,
-        AUTHORS.maria.amazon,
+        ...authorSameAs("ricardo"),
+        ...authorSameAs("maria"),
       ],
       founder: [
-        { "@type": "Person", name: AUTHORS.ricardo.name, sameAs: AUTHORS.ricardo.amazon },
-        { "@type": "Person", name: AUTHORS.maria.name, sameAs: AUTHORS.maria.amazon },
+        { "@id": RICARDO_ID, "@type": "Person", name: AUTHORS.ricardo.name, sameAs: authorSameAs("ricardo") },
+        { "@id": MARIA_ID, "@type": "Person", name: AUTHORS.maria.name, sameAs: authorSameAs("maria") },
       ],
       award: awards.map(
         (a) => `${a.result[lang] ?? a.result.en}, ${a.category[lang] ?? a.category.en}, ${a.program} ${a.year}`
@@ -757,14 +768,16 @@ export default async function SectionPage({
     const wordsSchema = {
       "@context": "https://schema.org",
       "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
         {
           "@type": "WebPage",
           name: w.title,
           description: w.definition,
           inLanguage: lang,
           url: `${SITE_URL}${sectionPath(lang, "words")}`,
-          isPartOf: { "@type": "WebSite", name: PUBLISHER, url: SITE_URL },
-          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          publisher: { "@id": ORG_ID },
         },
         {
           "@type": "ItemList",
@@ -997,33 +1010,19 @@ export default async function SectionPage({
     const aboutSchema = {
       "@context": "https://schema.org",
       "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
         {
-          "@type": "Organization",
-          name: PUBLISHER,
-          url: SITE_URL,
-          address: ADDRESS,
-          founder: [
-            {
-              "@type": "Person",
-              name: AUTHORS.ricardo.name,
-              jobTitle: "Publisher and author",
-              sameAs: [AUTHORS.ricardo.amazon, METHOD_REFERENCE_URL],
-            },
-            {
-              "@type": "Person",
-              name: AUTHORS.maria.name,
-              jobTitle: "Author and illustrator",
-              sameAs: [AUTHORS.maria.amazon],
-            },
-          ],
+          ...orgNode(),
+          founder: [{ "@id": RICARDO_ID }, { "@id": MARIA_ID }],
         },
         {
           "@type": "Person",
+          "@id": RICARDO_ID,
           name: AUTHORS.ricardo.name,
           jobTitle: "Publisher and author",
-          worksFor: { "@type": "Organization", name: PUBLISHER },
+          worksFor: { "@id": ORG_ID },
           url: `${SITE_URL}${sectionPath(lang, "about")}`,
-          sameAs: [AUTHORS.ricardo.amazon, METHOD_REFERENCE_URL],
+          sameAs: [...authorSameAs("ricardo"), METHOD_REFERENCE_URL],
           knowsAbout: [
             "Children's book publishing",
             "Directed drawing",
@@ -1032,11 +1031,12 @@ export default async function SectionPage({
         },
         {
           "@type": "Person",
+          "@id": MARIA_ID,
           name: AUTHORS.maria.name,
           jobTitle: "Author and illustrator",
-          worksFor: { "@type": "Organization", name: PUBLISHER },
+          worksFor: { "@id": ORG_ID },
           url: `${SITE_URL}${sectionPath(lang, "about")}`,
-          sameAs: [AUTHORS.maria.amazon],
+          sameAs: authorSameAs("maria"),
           knowsAbout: ["Coloring books", "Illustration"],
         },
       ],
@@ -1078,6 +1078,7 @@ export default async function SectionPage({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": ORG_ID,
             name: PUBLISHER,
             url: SITE_URL,
             address: ADDRESS,
@@ -1085,7 +1086,9 @@ export default async function SectionPage({
               "@type": "ContactPoint",
               contactType: "customer support",
               email: CONTACT_EMAIL,
-              availableLanguage: ["English", "Spanish"],
+              /* Русский тоже: русские страницы и русские книги на сайте
+                 есть, и письма на русском мы читаем. */
+              availableLanguage: ["English", "Spanish", "Russian"],
             },
           }),
         }}

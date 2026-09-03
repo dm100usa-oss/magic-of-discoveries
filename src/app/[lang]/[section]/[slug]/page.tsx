@@ -72,7 +72,7 @@ import {
   itemPath,
   sectionPath,
 } from "@/lib/routes";
-import { langAlternates, breadcrumbs } from "@/lib/schema";
+import { langAlternates, breadcrumbs, orgNode, orgRef, ricardoNode } from "@/lib/schema";
 import { hasPdf, PDF_PRICE_LABEL, PDF_PRICE_CENTS } from "@/lib/pdfShop";
 
 /* Дата словами, на языке страницы. В коде остается машинная запись,
@@ -385,17 +385,15 @@ export default async function ItemPage({
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
         {
           "@type": "Article",
           headline: copy.title,
           description: copy.lead,
           inLanguage: lang,
-          author: { "@type": "Organization", name: PUBLISHER },
-          publisher: {
-            "@type": "Organization",
-            name: PUBLISHER,
-            address: ADDRESS,
-          },
+          author: orgRef(),
+          publisher: orgRef(),
           datePublished: SITE_PUBLISHED,
           dateModified: SITE_UPDATED,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
@@ -611,6 +609,8 @@ export default async function ItemPage({
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
         {
           "@type": "Article",
           headline: c.title,
@@ -621,16 +621,8 @@ export default async function ItemPage({
           /* Автор статьи это человек с именем, а не компания. Поисковик
              и нейросеть заметно больше доверяют тексту с живым автором,
              которого можно проверить по внешней ссылке. */
-          author: {
-            "@type": "Person",
-            name: "Ricardo Demi",
-            url: `${SITE_URL}${sectionPath(lang, "about")}`,
-            sameAs: [
-              "https://www.amazon.com/stores/Ricardo-Demi/author/B0D3CQP21H",
-              METHOD_REFERENCE_URL,
-            ],
-          },
-          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          author: ricardoNode(lang),
+          publisher: orgRef(),
           /* Свои даты у каждой статьи, а не одна общая на весь сайт. */
           datePublished: art.published,
           dateModified: art.updated,
@@ -809,17 +801,15 @@ export default async function ItemPage({
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
         {
           "@type": "Article",
           headline: copy.title,
           description: copy.lead,
           inLanguage: lang,
-          author: { "@type": "Organization", name: PUBLISHER },
-          publisher: {
-            "@type": "Organization",
-            name: PUBLISHER,
-            address: ADDRESS,
-          },
+          author: orgRef(),
+          publisher: orgRef(),
           datePublished: SITE_PUBLISHED,
           dateModified: SITE_UPDATED,
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "method", slug)}`,
@@ -967,13 +957,15 @@ export default async function ItemPage({
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
         {
           "@type": "WebPage",
           name: wc.title,
           description: wc.definition,
           inLanguage: lang,
           url: `${SITE_URL}${itemPath(lang, "words", slug)}`,
-          publisher: { "@type": "Organization", name: PUBLISHER, address: ADDRESS },
+          publisher: orgRef(),
           /* Полный состав темы для машины. По нему нейросеть находит
              страницу, когда спрашивают про конкретное слово. */
           about: list.map((name) => ({ "@type": "Thing", name })),
@@ -1217,15 +1209,13 @@ export default async function ItemPage({
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
       {
         "@type": "Book",
         name: copy.title,
         author: { "@type": "Person", name: author.name },
-        publisher: {
-          "@type": "Organization",
-          name: PUBLISHER,
-          address: ADDRESS,
-        },
+        publisher: orgRef(),
         inLanguage:
           book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
         isbn: bookIsbn13(book),
@@ -1348,11 +1338,7 @@ export default async function ItemPage({
                 name: copy.title,
                 isbn: bookIsbn13(book),
               },
-              publisher: {
-                "@type": "Organization",
-                name: PUBLISHER,
-                address: ADDRESS,
-              },
+              publisher: orgRef(),
             },
           ]
         : []),

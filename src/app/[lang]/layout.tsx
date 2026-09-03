@@ -56,6 +56,11 @@ export default async function LangLayout({
           href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Caveat+Brush&family=Nunito:wght@400;700;800&display=swap"
           rel="stylesheet"
         />
+        {/* Короткая выжимка о сайте для нейросетей: кто мы, что издаем,
+            где что лежит. Файл лежит по адресу /llms.txt с самого начала,
+            но найти его до сих пор мог только тот, кто знал, что он есть.
+            Эта строка называет его на каждой странице. */}
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
       </head>
       <body>
         <Header lang={l} />

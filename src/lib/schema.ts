@@ -1,5 +1,14 @@
-import { SITE_URL } from "./site";
-import { homePath } from "./routes";
+import {
+  SITE_URL,
+  PUBLISHER,
+  ADDRESS,
+  ORG_ID,
+  RICARDO_ID,
+  AUTHORS,
+  authorSameAs,
+  METHOD_REFERENCE_URL,
+} from "./site";
+import { homePath, sectionSlugs } from "./routes";
 import { activeLangs, dictionaries } from "@/data/dictionaries";
 import type { UiLang } from "@/data/books";
 
@@ -30,3 +39,30 @@ export function breadcrumbs(lang: UiLang, trail: { name: string; path: string }[
     })),
   };
 }
+
+/* Издательство одним объектом и короткая ссылка на него.
+
+   Полное описание достаточно поставить на странице один раз, дальше
+   везде хватает ссылки: автор такой-то, издатель вот этот же самый.
+   Так на всех страницах сайта получается одно издательство, а не по
+   новой организации на каждой странице. */
+export const orgNode = () => ({
+  "@type": "Organization",
+  "@id": ORG_ID,
+  name: PUBLISHER,
+  url: SITE_URL,
+  address: ADDRESS,
+});
+
+export const orgRef = () => ({ "@id": ORG_ID });
+
+/** Рикардо как автор материала. Тем же опознавателем, что и в разделе
+    "О нас", чтобы это был один человек, а не однофамильцы. */
+export const ricardoNode = (lang: UiLang) => ({
+  "@type": "Person",
+  "@id": RICARDO_ID,
+  name: AUTHORS.ricardo.name,
+  url: `${SITE_URL}/${lang}/${sectionSlugs[lang].about}`,
+  sameAs: [...authorSameAs("ricardo"), METHOD_REFERENCE_URL],
+  worksFor: orgRef(),
+});

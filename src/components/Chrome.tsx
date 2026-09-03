@@ -4,7 +4,7 @@ import { cheapestFormat } from "@/data/books";
 import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { RatingMini } from "@/components/Rating";
-import { SITE_NAME, SOCIAL } from "@/lib/site";
+import { SITE_NAME, SOCIAL, METHOD_REFERENCE_URL, toddlerSiteUrl } from "@/lib/site";
 import { homePath, sectionPath, itemPath } from "@/lib/routes";
 
 const BRAND = "MAGIC of DISCOVERIES";
@@ -259,6 +259,16 @@ export function Footer({ lang }: { lang: UiLang }) {
   return (
     <footer className="footer">
       <p className="footer__about">{t.footer.about}</p>
+      {/* Два соседних сайта того же издательства. Раньше ссылки на них
+          стояли только внутри разметки и на отдельных страницах, то есть
+          человек их почти не видел, а машина видела их редко. Теперь они
+          на каждой странице. */}
+      <p className="footer__sites" style={{ margin: "0 0 8px" }}>
+        {t.footer.sitesTitle}:{" "}
+        <a href={METHOD_REFERENCE_URL}>{t.footer.methodSite}</a>
+        {" · "}
+        <a href={toddlerSiteUrl(lang)}>{t.footer.toddlerSite}</a>
+      </p>
       <p style={{ margin: "0 0 8px" }}>
         <a href={SOCIAL.instagram}>Instagram</a> · <a href={SOCIAL.tiktok}>TikTok</a> ·{" "}
         <a href={SOCIAL.pinterest}>Pinterest</a> · <a href={SOCIAL.youtube}>YouTube</a>

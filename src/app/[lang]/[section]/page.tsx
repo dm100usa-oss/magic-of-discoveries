@@ -288,11 +288,14 @@ export default async function SectionPage({
                   <div>
                     <p className="tcard-title">{card.title}</p>
                     {card.url ? (
+                      /* Адрес внутри сайта это наш файл, и помечать его
+                         как рекламную ссылку на площадку нельзя. */
                       <a
                         className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
                         href={card.url}
-                        rel="nofollow sponsored noopener"
-                        target="_blank"
+                        {...(card.url.startsWith("/")
+                          ? { download: true }
+                          : { rel: "nofollow sponsored noopener", target: "_blank" })}
                       >
                         {card.cta}
                       </a>
@@ -488,11 +491,14 @@ export default async function SectionPage({
                     <h3>{card.title}</h3>
                     <p>{card.text}</p>
                     {card.url ? (
+                      /* Адрес внутри сайта это наш файл, и помечать его
+                         как рекламную ссылку на площадку нельзя. */
                       <a
                         className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
                         href={card.url}
-                        rel="nofollow sponsored noopener"
-                        target="_blank"
+                        {...(card.url.startsWith("/")
+                          ? { download: true }
+                          : { rel: "nofollow sponsored noopener", target: "_blank" })}
                       >
                         {card.cta}
                       </a>

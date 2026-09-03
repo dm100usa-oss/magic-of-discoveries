@@ -361,6 +361,20 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         },
       },
       {
+        kind: "free",
+        title: "Free 9-activity sample, Volume 2",
+        text: "One activity from each of the nine themes in Volume 2, complete and unwatermarked. 11 pages, PDF, downloads straight from this page.",
+        cta: "Download the free sample",
+        url: "/free/directed-drawing-k2-2-en-free-sample.pdf",
+        cover: {
+          src: "/teachers/cover-free-2-en.jpg",
+          w: 700,
+          h: 700,
+          alt: "Cover of the free 9-activity sample from Volume 2: a directed drawing page with a fox, marked 55 ACTIVITIES, YEAR-LONG, NO PREP, GRADES K-2.",
+          caption: "",
+        },
+      },
+      {
         kind: "paid",
         title: "Volume 2: 56 more activities",
         text: "A second full year in the same format, with all new subjects and a bugs section. 59 pages, PDF. Available here only.",

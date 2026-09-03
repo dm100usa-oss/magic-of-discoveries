@@ -62,6 +62,8 @@ import {
   ADDRESS,
   SITE_PUBLISHED,
   SITE_UPDATED,
+  pagePublished,
+  pageUpdated,
   OG_IMAGE,
   METHOD_REFERENCE_URL,
   toddlerSiteUrl,
@@ -394,8 +396,8 @@ export default async function ItemPage({
           inLanguage: lang,
           author: orgRef(),
           publisher: orgRef(),
-          datePublished: SITE_PUBLISHED,
-          dateModified: SITE_UPDATED,
+          datePublished: pagePublished(page.published),
+          dateModified: pageUpdated(page.updated),
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
           image: groups
             .flatMap((g) => g.sheets)
@@ -810,8 +812,8 @@ export default async function ItemPage({
           inLanguage: lang,
           author: orgRef(),
           publisher: orgRef(),
-          datePublished: SITE_PUBLISHED,
-          dateModified: SITE_UPDATED,
+          datePublished: pagePublished(guide.published),
+          dateModified: pageUpdated(guide.updated),
           mainEntityOfPage: `${SITE_URL}${itemPath(lang, "method", slug)}`,
         },
         {
@@ -966,6 +968,8 @@ export default async function ItemPage({
           inLanguage: lang,
           url: `${SITE_URL}${itemPath(lang, "words", slug)}`,
           publisher: orgRef(),
+          datePublished: pagePublished(page.published),
+          dateModified: pageUpdated(page.updated),
           /* Полный состав темы для машины. По нему нейросеть находит
              страницу, когда спрашивают про конкретное слово. */
           about: list.map((name) => ({ "@type": "Thing", name })),
@@ -1320,7 +1324,9 @@ export default async function ItemPage({
                 t.book.videoLead,
               thumbnailUrl: `${SITE_URL}${video.poster}`,
               contentUrl: `${SITE_URL}${video.src}`,
-              uploadDate: SITE_UPDATED,
+              /* Когда ролик появился на сайте, а не когда мы в последний
+                 раз правили тексты. Прежняя дата была просто неверной. */
+              uploadDate: pagePublished(video.published),
               duration: `PT${video.seconds}S`,
               inLanguage: lang,
               isFamilyFriendly: true,

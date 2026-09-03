@@ -90,6 +90,10 @@ export interface WordsCopy {
 
 export interface WordsPage {
   id: string;
+  /* Свои даты страницы. Пусто значит берем общие даты сайта.
+     Меняем здесь всякий раз, когда правим текст этой страницы. */
+  published?: string;
+  updated?: string;
   /** Тема состава книг. По ней собирается список слов из трех книг. */
   theme: WordTheme;
   /** Имена рисунков в /public/words. Три штуки. */
@@ -492,6 +496,8 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
 const wordsPagesBase: WordsPage[] = [
   {
     id: "animals",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "animals",
     pictures: ["cat", "dog", "lion"],
     slug: {
@@ -561,6 +567,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "food",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "food",
     pictures: ["apple", "cake", "icecream"],
     slug: {
@@ -630,6 +638,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "vehicles",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "vehicles",
     pictures: ["bus", "train", "truck"],
     slug: {
@@ -699,6 +709,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "nature",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "nature",
     pictures: ["sun", "tree", "sunflower"],
     slug: {
@@ -768,6 +780,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "clothes",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "clothes",
     pictures: ["socks", "dress", "boots"],
     slug: {
@@ -837,6 +851,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "toys",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "toys",
     pictures: ["teddy", "doll", "ball"],
     slug: {
@@ -906,6 +922,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "home",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "home",
     pictures: ["cup", "lamp", "key"],
     slug: {
@@ -975,6 +993,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "objects",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "objects",
     pictures: ["drum", "camera", "trumpet"],
     slug: {
@@ -1044,6 +1064,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "fairy",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "fairy",
     pictures: ["unicorn", "dragon", "princess"],
     slug: {
@@ -1113,6 +1135,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "english",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "animals",
     pictures: ["cat", "dog", "apple"],
     pictureLang: "en",
@@ -1160,6 +1184,8 @@ const wordsPagesBase: WordsPage[] = [
   },
   {
     id: "spanish",
+    published: "2026-09-02",
+    updated: "2026-09-02",
     theme: "animals",
     pictures: ["cat", "dog", "apple"],
     pictureLang: "es",

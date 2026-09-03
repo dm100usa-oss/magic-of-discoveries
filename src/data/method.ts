@@ -127,6 +127,10 @@ export interface GuideCopy {
 
 export interface Guide {
   id: string;
+  /* Свои даты страницы. Пусто значит берем общие даты сайта.
+     Меняем здесь всякий раз, когда правим текст этой страницы. */
+  published?: string;
+  updated?: string;
   /** Книга-решение. Английское издание. */
   bookId: string;
   /** Испанское издание той же книги, для испанской версии страницы. */
@@ -143,6 +147,8 @@ export const guides: Guide[] = [
   /* ===== 1. Как выбрать. Флагманская страница раздела ===== */
   {
     id: "how-to-choose",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "little-max-coloring-1-en",
     bookIdEs: "little-max-coloring-1-es",
     slug: {
@@ -215,6 +221,8 @@ export const guides: Guide[] = [
   /* ===== 2. Раскраска для года-трех ===== */
   {
     id: "coloring-toddlers-1-3",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "first-coloring-book-111-en",
     bookIdEs: "first-coloring-book-111-es",
     slug: {
@@ -285,6 +293,8 @@ export const guides: Guide[] = [
   /* ===== 3. Раскраска для четырех-восьми ===== */
   {
     id: "coloring-kids-4-8",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "little-max-coloring-2-en",
     bookIdEs: "little-max-coloring-2-es",
     slug: {
@@ -355,6 +365,8 @@ export const guides: Guide[] = [
   /* ===== 4. Первая книга на ночь ===== */
   {
     id: "first-bedtime-book",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "where-going-max-en",
     bookIdEs: "where-going-max-es",
     slug: {
@@ -425,6 +437,8 @@ export const guides: Guide[] = [
   /* ===== 5. Сказки для дошкольника ===== */
   {
     id: "bedtime-preschoolers",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "lucky-rocky-friendship-en",
     bookIdEs: "lucky-rocky-friendship-es",
     slug: {
@@ -495,6 +509,8 @@ export const guides: Guide[] = [
   /* ===== 6. Как научить рисовать ===== */
   {
     id: "teach-child-to-draw",
+    published: "2026-08-09",
+    updated: "2026-08-27",
     bookId: "how-to-draw-111-en",
     bookIdEs: "how-to-draw-111-es",
     slug: {
@@ -565,6 +581,8 @@ export const guides: Guide[] = [
   /* ===== 7. Двуязычные книги ===== */
   {
     id: "bilingual-books",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "where-going-max-bilingual",
     slug: {
       en: "bilingual-books-english-spanish-for-kids",
@@ -634,6 +652,8 @@ export const guides: Guide[] = [
   /* ===== 8. Подарок ===== */
   {
     id: "book-gifts",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "lucky-rocky-two-in-one-en",
     bookIdEs: "lucky-rocky-two-in-one-es",
     slug: {
@@ -704,6 +724,8 @@ export const guides: Guide[] = [
   /* ===== 9. Раскраска для взрослого ===== */
   {
     id: "easy-coloring-adults",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "take-a-break-animals-en",
     bookIdEs: "take-a-break-animals-es",
     slug: {
@@ -774,6 +796,8 @@ export const guides: Guide[] = [
   /* ===== 10. На что смотреть в раскраске ===== */
   {
     id: "what-to-look-for",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     bookId: "little-max-coloring-1-en",
     bookIdEs: "little-max-coloring-1-es",
     slug: {

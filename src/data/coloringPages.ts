@@ -45,6 +45,10 @@ export interface ColoringCopy {
 
 export interface ColoringPage {
   id: string;
+  /* Свои даты страницы. Пусто значит берем общие даты сайта.
+     Меняем здесь всякий раз, когда правим текст этой страницы. */
+  published?: string;
+  updated?: string;
   /** id книги, из которой взяты рисунки. Английское издание. */
   fromBookId: string;
   /** Испанское издание той же книги. */
@@ -67,6 +71,8 @@ const S = (id: string, en: string, es: string, ru: string): Sheet => ({
 const coloringPagesBase: ColoringPage[] = [
   {
     id: "toddler-animals",
+    published: "2026-08-09",
+    updated: "2026-08-25",
     fromBookId: "first-coloring-book-111-en",
     fromBookIdEs: "first-coloring-book-111-es",
     slug: {
@@ -220,6 +226,8 @@ const coloringPagesBase: ColoringPage[] = [
   /* ===== Пошаговое рисование, развороты из книги How to Draw 111 ===== */
   {
     id: "draw-animals-step-by-step",
+    published: "2026-08-27",
+    updated: "2026-08-27",
     fromBookId: "how-to-draw-111-en",
     fromBookIdEs: "how-to-draw-111-es",
     slug: {
@@ -383,6 +391,8 @@ const coloringPagesBase: ColoringPage[] = [
   /* ===== Take a Break: Cute Animals, простые листы с толстой линией ===== */
   {
     id: "easy-adult-animals",
+    published: "2026-08-10",
+    updated: "2026-08-25",
     fromBookId: "take-a-break-animals-en",
     fromBookIdEs: "take-a-break-animals-es",
     slug: {
@@ -527,6 +537,8 @@ const coloringPagesBase: ColoringPage[] = [
   /* ===== Take a Break: Ocean, простые морские листы ===== */
   {
     id: "ocean-easy",
+    published: "2026-08-10",
+    updated: "2026-08-25",
     fromBookId: "take-a-break-ocean-en",
     fromBookIdEs: "take-a-break-ocean-es",
     slug: {
@@ -669,6 +681,8 @@ const coloringPagesBase: ColoringPage[] = [
   /* ===== Take a Break: Food and Snacks, простые листы с едой ===== */
   {
     id: "food-easy",
+    published: "2026-08-11",
+    updated: "2026-08-25",
     fromBookId: "take-a-break-food-en",
     fromBookIdEs: "take-a-break-food-es",
     slug: {

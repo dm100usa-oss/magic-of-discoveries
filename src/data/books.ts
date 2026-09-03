@@ -162,6 +162,10 @@ export const wikidataUrl = (bookId: string): string | undefined =>
     что там внутри на самом деле. */
 export type BookVideo = {
   src: string;
+  /** Когда ролик появился на сайте. Пусто значит день запуска сайта.
+      Раньше сюда шла дата последней правки текстов, и получалось,
+      что ролик загружен в день, когда мы правили подписи. */
+  published?: string;
   poster: string;
   seconds: number;
   /** Ширина и высота ролика, нужны браузеру, чтобы не дергать верстку. */
@@ -176,6 +180,7 @@ export type BookVideo = {
 
 const VIDEOS: Record<string, BookVideo> = {
   "first-coloring-book-111-es": {
+    published: "2026-08-11",
     src: "/video/first-coloring-111-es.mp4",
     poster: "/video/first-coloring-111-es-poster.jpg",
     seconds: 19,
@@ -219,6 +224,7 @@ const VIDEOS: Record<string, BookVideo> = {
     ],
   },
   "first-coloring-book-111-en": {
+    published: "2026-08-11",
     src: "/video/first-coloring-111.mp4",
     poster: "/video/first-coloring-111-poster.jpg",
     seconds: 46,
@@ -266,6 +272,7 @@ const VIDEOS: Record<string, BookVideo> = {
     ],
   },
   "how-to-draw-111-en": {
+    published: "2026-08-27",
     src: "/video/how-to-draw-111.mp4",
     poster: "/video/how-to-draw-111-poster.jpg",
     seconds: 33,

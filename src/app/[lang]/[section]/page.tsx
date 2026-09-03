@@ -796,7 +796,7 @@ export default async function SectionPage({
           <div className="teach">
             <p className="teach-p">{w.showcase}</p>
             <div className="wordshelf">
-              {["cat", "car", "icecream"].map((name) => (
+              {["cat", "car", "apple"].map((name) => (
                 <img
                   key={name}
                   className="wordshelf__pic"

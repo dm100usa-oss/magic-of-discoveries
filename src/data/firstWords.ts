@@ -385,7 +385,7 @@ export const wordsPages: WordsPage[] = [
   {
     id: "animals",
     theme: "animals",
-    pictures: ["cat", "lion", "panda"],
+    pictures: ["cat", "dog", "lion"],
     slug: {
       en: "animal-first-words",
       es: "primeras-palabras-animales",
@@ -397,7 +397,7 @@ export const wordsPages: WordsPage[] = [
         lead: "114 animals across our three coloring books, each on its own page with a big, simple drawing and its name underneath.",
         definition:
           "Animal first words are the names of animals a small child already meets at home, at the park and in picture books: cat, dog, cow, bear, lion. On a coloring page each animal gets a full page to itself, drawn with thick outlines, with its name printed below in hollow letters that can be colored too.",
-        showcase: "A cat, a lion and a panda, exactly as they appear inside the books.",
+        showcase: "A cat, a dog and a lion, exactly as they appear inside the books.",
         wordsTitle: "Every animal, book by book",
         wordsLead:
           "Pick an animal. Color it together. Say its name. Make the sound if you know it. Sometimes “meow” is all the conversation you need.",
@@ -426,7 +426,7 @@ export const wordsPages: WordsPage[] = [
         lead: "114 animales repartidos en nuestros tres libros para colorear, cada uno en su propia página con un dibujo grande y su nombre debajo.",
         definition:
           "Las primeras palabras de animales son los nombres que un niño pequeño ya encuentra en casa, en el parque y en los cuentos: gato, perro, vaca, oso, león. Cada animal ocupa una hoja entera, dibujado con líneas gruesas, y lleva su nombre impreso debajo en letras huecas que también se pueden colorear.",
-        showcase: "Un gato, un león y un panda, tal como aparecen dentro de los libros.",
+        showcase: "Un gato, un perro y un león, tal como aparecen dentro de los libros.",
         wordsTitle: "Todos los animales, libro por libro",
         wordsLead:
           "Elige un animal. Coloréalo con tu hijo. Di su nombre. Haz el sonido si lo sabes. A veces un «miau» es toda la conversación que hace falta.",
@@ -454,7 +454,7 @@ export const wordsPages: WordsPage[] = [
   {
     id: "food",
     theme: "food",
-    pictures: ["apple", "cake", "pizza"],
+    pictures: ["apple", "cake", "icecream"],
     slug: {
       en: "food-first-words",
       es: "primeras-palabras-comida",
@@ -466,7 +466,7 @@ export const wordsPages: WordsPage[] = [
         lead: "59 foods across the three books, from apples and bananas to bread, cheese and a slice of pizza.",
         definition:
           "Food first words are the names of things a child eats or watches being eaten: apple, banana, bread, cake. They are the easiest words to practice because they come up several times a day at the table, so the name and the object line up without anyone arranging a lesson.",
-        showcase: "An apple, a cake and a slice of pizza, exactly as they appear inside the books.",
+        showcase: "An apple, a cake and an ice cream, exactly as they appear inside the books.",
         wordsTitle: "Every food word, book by book",
         wordsLead:
           "Color an orange in the afternoon. Find a real one at dinner. Say the word again. That is the whole method.",
@@ -495,7 +495,7 @@ export const wordsPages: WordsPage[] = [
         lead: "59 alimentos en los tres libros, desde la manzana y el plátano hasta el pan, el queso y un trozo de pizza.",
         definition:
           "Las primeras palabras de comida son los nombres de lo que el niño come o ve comer: manzana, plátano, pan, torta. Son las más fáciles de practicar porque aparecen varias veces al día en la mesa, así que la palabra y la cosa se juntan solas.",
-        showcase: "Una manzana, una torta y un trozo de pizza, tal como aparecen dentro de los libros.",
+        showcase: "Una manzana, un pastel y un helado, tal como aparecen dentro de los libros.",
         wordsTitle: "Todas las palabras de comida, libro por libro",
         wordsLead:
           "Colorea una naranja por la tarde. Encuentra una de verdad en la cena. Repite la palabra. Ese es todo el método.",
@@ -868,7 +868,7 @@ export const wordsPages: WordsPage[] = [
   {
     id: "objects",
     theme: "objects",
-    pictures: ["drum", "present", "camera"],
+    pictures: ["drum", "camera", "trumpet"],
     slug: {
       en: "everyday-object-first-words",
       es: "primeras-palabras-objetos",
@@ -880,7 +880,7 @@ export const wordsPages: WordsPage[] = [
         lead: "39 things from playtime and everyday life: a drum, a camera, a present, a ball, an umbrella and more.",
         definition:
           "These are the names of objects a child meets in play and in family life: a drum, a camera, a beach ball, an umbrella. They are less predictable than food or clothes, which is exactly why children enjoy them: every page is a small surprise.",
-        showcase: "A drum, a present and a camera, exactly as they appear inside the books.",
+        showcase: "A drum, a camera and a trumpet, exactly as they appear inside the books.",
         wordsTitle: "Every object, book by book",
         wordsLead:
           "Some of these are in your house right now. Color the page, then go and find the real one.",
@@ -909,7 +909,7 @@ export const wordsPages: WordsPage[] = [
         lead: "39 cosas del juego y de la vida diaria: un tambor, una cámara, un regalo, una pelota, un paraguas y más.",
         definition:
           "Son los nombres de los objetos que el niño encuentra jugando y en la vida de familia: un tambor, una cámara, una pelota de playa, un paraguas. Son menos previsibles que la comida o la ropa, y por eso mismo gustan: cada página es una pequeña sorpresa.",
-        showcase: "Un tambor, un regalo y una cámara, tal como aparecen dentro de los libros.",
+        showcase: "Un tambor, una cámara y una trompeta, tal como aparecen dentro de los libros.",
         wordsTitle: "Todos los objetos, libro por libro",
         wordsLead:
           "Algunos están en tu casa ahora mismo. Colorea la página y luego id a buscar el de verdad.",
@@ -937,7 +937,7 @@ export const wordsPages: WordsPage[] = [
   {
     id: "fairy",
     theme: "fairy",
-    pictures: ["unicorn", "dragon", "dinosaur"],
+    pictures: ["unicorn", "dragon", "princess"],
     slug: {
       en: "fairy-tale-first-words",
       es: "primeras-palabras-cuentos",
@@ -949,7 +949,7 @@ export const wordsPages: WordsPage[] = [
         lead: "16 storybook characters and magical things: unicorn, dragon, mermaid, fairy, princess, dinosaur and more.",
         definition:
           "Fairy tale first words are the names of characters a child meets in stories before meeting them anywhere else: unicorn, dragon, mermaid, princess. A word attached to a story a child already loves takes hold faster than the name of something they never think about.",
-        showcase: "A unicorn, a dragon and a dinosaur, exactly as they appear inside the books.",
+        showcase: "A unicorn, a dragon and a princess, exactly as they appear inside the books.",
         wordsTitle: "Every storybook word, book by book",
         wordsLead:
           "Some are characters, some are magical objects. All of them belong in a good bedtime story.",
@@ -978,7 +978,7 @@ export const wordsPages: WordsPage[] = [
         lead: "16 personajes y objetos de cuento: unicornio, dragón, sirena, hada, princesa, dinosaurio y más.",
         definition:
           "Las primeras palabras de cuento son los nombres de personajes que el niño conoce antes en las historias que en ningún otro sitio: unicornio, dragón, sirena, princesa. Una palabra unida a una historia que ya le gusta se fija antes que el nombre de algo en lo que nunca piensa.",
-        showcase: "Un unicornio, un dragón y un dinosaurio, tal como aparecen dentro de los libros.",
+        showcase: "Un unicornio, un dragón y una princesa, tal como aparecen dentro de los libros.",
         wordsTitle: "Todas las palabras de cuento, libro por libro",
         wordsLead:
           "Unos son personajes y otros objetos mágicos. Todos caben en un buen cuento de antes de dormir.",

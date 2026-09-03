@@ -1049,6 +1049,10 @@ ul.award-list li {
   width: 100%; height: auto; border-radius: var(--radius-sm);
   border: 2px solid var(--pink-pale); background: #fff;
 }
+/* В разделе о первых словах все три рисунка в полосе одного размера:
+   они лежат на одинаковом квадратном поле, и подпись под рисунком
+   не должна прыгать от карточки к карточке. */
+.themes .theme__strip img { aspect-ratio: 1 / 1; object-fit: contain; }
 .theme__title {
   font-family: var(--font-display); font-weight: 800; font-size: var(--t-h3);
   color: var(--pink-deep); margin: 0 0 0.25rem;
@@ -1528,6 +1532,8 @@ ul.award-list li {
 .wordshelf__pic {
   width: 100%;
   height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   max-width: 320px;
   margin: 0 auto;
   display: block;

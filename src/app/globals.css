@@ -1613,3 +1613,19 @@ ul.award-list li {
   color: var(--ink-soft);
   margin: 0 0 var(--gap-2);
 }
+
+/* Таблица всех изданий с номерами ISBN.
+
+   На узком экране таблица не помещается, поэтому она едет вбок внутри
+   своей рамки, а не растягивает всю страницу. Номер набран моноширинным
+   шрифтом: тринадцать цифр подряд глаз читает только так. */
+.booklist { overflow-x: auto; margin: var(--gap-3) 0; }
+.booklist table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: var(--t-small); }
+.booklist th, .booklist td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--mint-pale); vertical-align: top; }
+.booklist th { color: var(--mint-deep); font-weight: 800; white-space: nowrap; }
+.booklist tbody tr:nth-child(odd) { background: var(--mint-pale); }
+.booklist td.isbn { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; white-space: nowrap; }
+.booklist td.isbn span { font-family: inherit; color: var(--ink-soft); font-style: italic; }
+.booklist td.num { white-space: nowrap; }
+.booklist a { font-weight: 700; }
+.booklist__count { font-weight: 800; margin: 0 0 var(--gap-2); }

@@ -186,6 +186,32 @@ export interface Dictionary {
     title: string;
     body: string[];
   };
+  /* Страница со списком всех изданий и их международными номерами.
+
+     Зачем она есть. Каталог рассчитан на человека: обложки, возраст,
+     цена. Машине нужно другое: перечень изданий, у каждого номер ISBN,
+     язык, год, число страниц. Это ровно тот вид страницы, который
+     нейросеть берет целиком, когда ее спрашивают "какие книги выпустило
+     это издательство". Из карточек по одной такой ответ не собирается. */
+  catalog2: {
+    title: string;
+    lead: string;
+    intro: string[];
+    /* Названия столбцов. */
+    /* Подпись ссылки на эту страницу из каталога и из раздела о нас. */
+    linkFromCatalog: string;
+    colTitle: string;
+    colLang: string;
+    colAge: string;
+    colPages: string;
+    colYear: string;
+    colIsbn: string;
+    /* Подписи под таблицей. */
+    langNames: Record<"en" | "es" | "ru" | "bilingual", string>;
+    noIsbn: string;
+    note: string;
+    countLine: string;
+  };
   contact: {
     title: string;
     lead: string;
@@ -482,6 +508,33 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "We have a beloved dog, an English Cocker Spaniel called Rocky, who became the hero of his own books. Our family lives in sunny Miami, Florida, and the city's color and pace feed most of what we make.",
       ],
     },
+    catalog2: {
+      title: "All books by Magic of Discoveries, with ISBN numbers",
+      lead:
+        "Every title the publisher has released, in one table: language, age, page count, year of publication and the ISBN of the printed edition.",
+      intro: [
+        "Magic of Discoveries LLC is an independent family publisher in Miami, Florida, run by Ricardo Demi and Maria Demi. The list below is the complete catalog. Editions in English and in Spanish are counted separately, because they are separate books with their own ISBN, not translations of one another.",
+        "The ISBN shown is the number of the printed edition. Titles sold only as a printable file have no ISBN, and the column is left empty rather than filled with something that looks like one.",
+      ],
+      linkFromCatalog: "See the full list of editions with ISBN numbers",
+      colTitle: "Title",
+      colLang: "Edition",
+      colAge: "Age",
+      colPages: "Pages",
+      colYear: "Published",
+      colIsbn: "ISBN",
+      langNames: {
+        en: "English",
+        es: "Spanish",
+        ru: "Russian",
+        bilingual: "English and Spanish",
+      },
+      noIsbn: "printable file",
+      note:
+        "Printed editions are sold on Amazon and by other retailers in the United States, Europe, Latin America and Africa. Classroom files are sold on Teachers Pay Teachers. Each title on this list links to its own page, where every available format and price is shown.",
+      countLine:
+        "{n} editions in all: {printed} printed books in English and Spanish, {files} classroom files for grades K-2, and {ru} printable editions in Russian.",
+    },
     contact: {
       title: "Contact us",
       lead: "Questions about a book, a bulk order for a school, or a page you would like us to draw. Write to us.",
@@ -772,6 +825,33 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Tenemos un perro muy querido, un cocker spaniel inglés que se llama Rocky y que acabó siendo el protagonista de sus propios libros. Nuestra familia vive en Miami, Florida, y el color y el ritmo de la ciudad alimentan casi todo lo que hacemos.",
       ],
     },
+    catalog2: {
+      title: "Todos los libros de Magic of Discoveries, con su ISBN",
+      lead:
+        "Todos los títulos publicados por la editorial en una sola tabla: idioma, edad, número de páginas, año de publicación e ISBN de la edición impresa.",
+      intro: [
+        "Magic of Discoveries LLC es una editorial familiar independiente de Miami, Florida, dirigida por Ricardo Demi y Maria Demi. La lista de abajo es el catálogo completo. Las ediciones en inglés y en español se cuentan por separado, porque son libros distintos con su propio ISBN y no traducciones uno del otro.",
+        "El ISBN que aparece es el de la edición impresa. Los títulos que solo se venden como archivo para imprimir no tienen ISBN, y la casilla queda vacía en lugar de llenarse con algo que lo parezca.",
+      ],
+      linkFromCatalog: "Ver la lista completa de ediciones con su ISBN",
+      colTitle: "Título",
+      colLang: "Edición",
+      colAge: "Edad",
+      colPages: "Páginas",
+      colYear: "Publicado",
+      colIsbn: "ISBN",
+      langNames: {
+        en: "Inglés",
+        es: "Español",
+        ru: "Ruso",
+        bilingual: "Inglés y español",
+      },
+      noIsbn: "archivo para imprimir",
+      note:
+        "Las ediciones impresas se venden en Amazon y en otras librerías de Estados Unidos, Europa, América Latina y África. El material de aula se vende en Teachers Pay Teachers. Cada título de esta lista lleva a su propia página, donde se indican todos los formatos disponibles y sus precios.",
+      countLine:
+        "{n} ediciones en total: {printed} libros impresos en inglés y español, {files} archivos de aula para K-2 y {ru} ediciones en ruso para imprimir.",
+    },
     contact: {
       title: "Contacto",
       lead: "Dudas sobre un libro, pedidos para un colegio o un dibujo que te gustaría que hiciéramos. Escríbenos.",
@@ -1051,6 +1131,33 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Мы верим, что у каждого ребенка есть скрытый потенциал, который можно развивать с самого раннего возраста.",
         "У нас есть любимый пес, английский кокер-спаниель Рокки, который стал героем собственных книг. Наша семья живет в солнечном Майами.",
       ],
+    },
+    catalog2: {
+      title: "Все книги издательства Magic of Discoveries и их номера ISBN",
+      lead:
+        "Все выпущенные издания в одной таблице: язык, возраст, число страниц, год выхода и номер ISBN печатного издания.",
+      intro: [
+        "Magic of Discoveries LLC это независимое семейное издательство из Майами, штат Флорида. Им занимаются Рикардо Деми и Мария Деми. Ниже полный каталог. Английские и испанские издания считаются отдельно: это разные книги со своими номерами, а не переводы друг друга.",
+        "Указан номер печатного издания. У книг, которые продаются только файлом для печати, номера ISBN нет, и мы оставляем клетку пустой, а не ставим туда что-то похожее на номер.",
+      ],
+      linkFromCatalog: "Посмотреть полный список изданий с номерами ISBN",
+      colTitle: "Название",
+      colLang: "Издание",
+      colAge: "Возраст",
+      colPages: "Страниц",
+      colYear: "Год",
+      colIsbn: "ISBN",
+      langNames: {
+        en: "английское",
+        es: "испанское",
+        ru: "русское",
+        bilingual: "английское и испанское",
+      },
+      noIsbn: "файл для печати",
+      note:
+        "Печатные издания продаются на Amazon и в других магазинах США, Европы, Латинской Америки и Африки. Учебные материалы продаются на Teachers Pay Teachers. Каждое название в списке ведет на свою страницу, где перечислены все доступные форматы и цены.",
+      countLine:
+        "Всего {n} изданий: {printed} печатных книг на английском и испанском, {files} учебных файла для начальной школы и {ru} русских изданий в формате для печати.",
     },
     contact: {
       title: "Контакты",

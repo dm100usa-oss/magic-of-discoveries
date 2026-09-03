@@ -7,6 +7,7 @@ export type Section =
   | "teachers"
   | "coloring"
   | "words"
+  | "catalog"
   | "about"
   | "contact";
 
@@ -17,6 +18,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     teachers: "teachers",
     coloring: "free-coloring-pages",
     words: "first-words",
+    catalog: "book-list",
     about: "about-us",
     contact: "contact",
   },
@@ -26,6 +28,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     teachers: "maestros",
     coloring: "dibujos-para-colorear-gratis",
     words: "primeras-palabras",
+    catalog: "catalogo-de-libros",
     about: "quienes-somos",
     contact: "contacto",
   },
@@ -35,6 +38,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     teachers: "uchitelyam",
     coloring: "raskraski-dlya-pechati",
     words: "pervye-slova",
+    catalog: "spisok-knig",
     about: "o-nas",
     contact: "kontakty",
   },

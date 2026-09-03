@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import {
+  books,
   booksForLang,
   ageOrder,
   cheapestFormat,
@@ -79,6 +80,8 @@ function headingFor(lang: UiLang, s: Section) {
       const w = wordsHub[lang];
       return { title: w?.title ?? t.nav.firstWords, lead: w?.lead };
     }
+    case "catalog":
+      return { title: t.catalog2.title, lead: t.catalog2.lead };
     case "about":
       return { title: t.about.title, lead: undefined };
     case "contact":
@@ -215,6 +218,14 @@ export default async function SectionPage({
               empty: t.catalog.empty,
             }}
           />
+          {/* Список всех изданий с номерами. Человеку он нужен редко,
+              машине постоянно, поэтому ссылка стоит внизу каталога,
+              а не в меню. */}
+          <p style={{ margin: "var(--gap-3) 0 0" }}>
+            <Link href={sectionPath(lang, "catalog")}>
+              {t.catalog2.linkFromCatalog}
+            </Link>
+          </p>
         </div>
       </>
     );
@@ -1000,6 +1011,177 @@ export default async function SectionPage({
     );
   }
 
+  /* ---------- Список всех изданий с номерами ISBN ---------- */
+  if (s === "catalog") {
+    const c = t.catalog2;
+    /* Здесь берем весь каталог, а не книги языка страницы.
+
+       В обычном каталоге англичанин видит английские издания, испанец
+       испанские, и это правильно: он выбирает, что купить. Но эта
+       страница отвечает на другой вопрос, "что вообще издало это
+       издательство", и ответ на него один для всех. Испанское издание
+       это отдельная книга со своим номером, и в списке изданий она
+       обязана стоять. */
+    const rows = books
+      .slice()
+      /* Сначала свежие. Человек ищет новинку, машина берет первые строки. */
+      .sort((a, b) => (b.published ?? "").localeCompare(a.published ?? ""));
+
+    /* Адрес страницы книги. У испанского издания английской страницы нет,
+       и наоборот, поэтому ведем туда, где страница у книги действительно
+       есть: сначала язык читателя, потом язык самого издания, потом
+       любой оставшийся. Без этого строки испанских книг на английской
+       странице оставались без ссылки. */
+    const rowHref = (b: (typeof rows)[number]) => {
+      const order: UiLang[] = [
+        lang,
+        ...(b.editionLang === "bilingual" ? ["en", "es"] : [b.editionLang]) as UiLang[],
+        "en",
+        "es",
+        "ru",
+      ];
+      for (const l of order) {
+        const slug = b.slug[l];
+        if (slug) return itemPath(l, "books", slug);
+      }
+      return null;
+    };
+
+    /* Название на языке читателя, если оно есть, иначе на языке самого
+       издания. Испанскую книгу на английской странице показываем под
+       ее настоящим испанским названием: под ним она и стоит в магазинах. */
+    const rowTitle = (b: (typeof rows)[number]) =>
+      b.copy[lang]?.title ??
+      b.copy[b.editionLang === "bilingual" ? "en" : (b.editionLang as UiLang)]?.title ??
+      b.copy.en?.title ??
+      b.id;
+
+    /* Числа для строки под заголовком.
+
+       На сайте везде сказано "27 книг", а в этом списке строк тридцать
+       девять, и без пояснения это выглядит как противоречие. Разница
+       честная: двадцать семь печатных книг, четыре файла для класса
+       без бумажного издания и восемь русских изданий, которые продаются
+       только файлом. Считаем прямо здесь, чтобы числа не разъезжались
+       с каталогом при добавлении книги. */
+    const ruCount = rows.filter((b) => b.editionLang === "ru").length;
+    const fileCount = rows.filter(
+      (b) => b.editionLang !== "ru" && b.formats.length === 0,
+    ).length;
+    const printedCount = rows.length - ruCount - fileCount;
+
+    /* Машинная часть: перечень изданий, у каждого свой номер.
+       Это и есть то, ради чего страница существует. Нейросеть, которую
+       спросили "что издает Magic of Discoveries", берет отсюда готовый
+       список, а не собирает его из двадцати семи отдельных карточек. */
+    const listSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        orgNode(),
+        {
+          "@type": "WebPage",
+          name: c.title,
+          description: c.lead,
+          inLanguage: lang,
+          url: `${SITE_URL}${sectionPath(lang, "catalog")}`,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          publisher: orgRef(),
+        },
+        {
+          "@type": "ItemList",
+          name: c.title,
+          numberOfItems: rows.length,
+          itemListElement: rows.map((b, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Book",
+              name: rowTitle(b),
+              url: `${SITE_URL}${rowHref(b)}`,
+              author: { "@type": "Person", name: AUTHORS[b.author].name },
+              publisher: orgRef(),
+              isbn: bookIsbn13(b),
+              numberOfPages: b.pages,
+              datePublished: b.published,
+              inLanguage:
+                b.editionLang === "bilingual" ? ["en", "es"] : b.editionLang,
+            },
+          })),
+        },
+      ],
+    };
+
+    const langName = (b: (typeof rows)[number]) =>
+      c.langNames[b.editionLang as keyof typeof c.langNames] ?? b.editionLang;
+
+    return (
+      <>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(listSchema) }}
+        />
+        <Crumbs />
+        <PageHead title={h.title} lead={h.lead} />
+        <div className="band band--cream">
+          <div className="wrap prose">
+            {c.intro.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+        </div>
+        <div className="wrap">
+          <p className="booklist__count">
+            {c.countLine
+              .replace("{n}", String(rows.length))
+              .replace("{printed}", String(printedCount))
+              .replace("{files}", String(fileCount))
+              .replace("{ru}", String(ruCount))}
+          </p>
+          <div className="booklist">
+            <table>
+              <thead>
+                <tr>
+                  <th>{c.colTitle}</th>
+                  <th>{c.colLang}</th>
+                  <th>{c.colAge}</th>
+                  <th>{c.colPages}</th>
+                  <th>{c.colYear}</th>
+                  <th>{c.colIsbn}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {rows.map((b) => {
+                  const isbn = bookIsbn13(b);
+                  return (
+                    <tr key={b.id}>
+                      <td>
+                        <Link href={rowHref(b) ?? "#"}>
+                          {rowTitle(b)}
+                        </Link>
+                      </td>
+                      <td>{langName(b)}</td>
+                      <td className="num">
+                        {b.ageShown ?? t.catalog.ages[b.age]}
+                      </td>
+                      <td className="num">{b.pages ?? ""}</td>
+                      <td className="num">{b.published?.slice(0, 4) ?? ""}</td>
+                      <td className="isbn">
+                        {isbn ?? <span>{c.noIsbn}</span>}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="lead" style={{ marginTop: "var(--gap-3)" }}>
+            {c.note}
+          </p>
+        </div>
+      </>
+    );
+  }
+
   /* ---------- О нас ---------- */
   if (s === "about") {
     /* Кто именно стоит за издательством. На странице это было написано
@@ -1062,6 +1244,11 @@ export default async function SectionPage({
               <a href={AUTHORS.maria.amazon} rel="nofollow noopener" target="_blank">
                 Maria Demi
               </a>
+            </p>
+            <p>
+              <Link href={sectionPath(lang, "catalog")}>
+                {t.catalog2.linkFromCatalog}
+              </Link>
             </p>
           </div>
         </div>

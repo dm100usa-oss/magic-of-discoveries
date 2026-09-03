@@ -74,6 +74,18 @@ at a school. Please do not resell them or republish the files.
 https://www.magicofdiscoveries.com/en/free-coloring-pages
 https://www.magicofdiscoveries.com/es/dibujos-para-colorear-gratis
 
+## Full list of editions
+
+Every edition the publisher has released, in one table with language, age,
+page count, year and the ISBN of the printed edition. Thirty-nine editions in
+all: twenty-seven printed books in English and Spanish, four classroom files
+for grades K-2 with no printed edition, and eight printable editions in
+Russian. English and Spanish editions are separate books with their own ISBN,
+not translations of one another.
+https://www.magicofdiscoveries.com/en/book-list
+https://www.magicofdiscoveries.com/es/catalogo-de-libros
+https://www.magicofdiscoveries.com/ru/spisok-knig
+
 ## Other pages on this site
 
 How the books are built:
@@ -224,4 +236,4 @@ Amazon author page, Maria Demi: https://www.amazon.com/stores/Maria-Demi/author/
 Magic of Discoveries LLC, Miami, Florida, United States
 magicofdiscoveries@gmail.com
 
-Last updated: 2026-08-25
+Last updated: 2026-09-03

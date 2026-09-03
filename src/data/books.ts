@@ -4058,8 +4058,8 @@ export const books: Book[] = [
     banners: [
       {
         file: "/art/take-a-break-animals-ru-lines.png",
-        w: 1941,
-        h: 1201,
+        w: 2400,
+        h: 1485,
         alt: {
           ru: "Три страницы из книги: клубника, обезьянка под пальмой и олень у ручья, нарисованные толстой линией",
         },
@@ -4149,8 +4149,8 @@ export const books: Book[] = [
     banners: [
       {
         file: "/art/take-a-break-ocean-ru-lines.png",
-        w: 1941,
-        h: 1201,
+        w: 2400,
+        h: 1485,
         alt: {
           ru: "Три страницы из книги: подводная лодка среди водорослей, ракушки со звездой и рыбка с большими плавниками",
         },
@@ -4239,8 +4239,8 @@ export const books: Book[] = [
     banners: [
       {
         file: "/art/take-a-break-food-ru-lines.png",
-        w: 1941,
-        h: 1201,
+        w: 2400,
+        h: 1485,
         alt: {
           ru: "Три страницы из книги: хот-дог, печенье разной формы и арбуз с отрезанным ломтем",
         },

@@ -6,6 +6,7 @@ import {
   bookById,
   booksForLang,
   amazonUrl,
+  amazonReviewsUrl,
   bookIsbn13,
   wikidataUrl,
   bookVideo,
@@ -43,6 +44,7 @@ import {
   wordsSteps,
   wordPictureUrl,
   pageWords,
+  pagePictures,
   wordOf,
   wordBookName,
   wordBookId,
@@ -239,7 +241,7 @@ export async function generateMetadata({
         title: copy.title,
         description: copy.definition,
         type: "article",
-        images: [{ url: wordPictureUrl(page.pictures[0], lang, page) }],
+        images: [{ url: wordPictureUrl(pagePictures(page, lang)[0], lang, page) }],
       },
     };
   }
@@ -369,7 +371,11 @@ export default async function ItemPage({
     if (!page || !copy) notFound();
     const f = t.free;
     const bookId =
-      lang === "es" && page.fromBookIdEs ? page.fromBookIdEs : page.fromBookId;
+      lang === "es" && page.fromBookIdEs
+        ? page.fromBookIdEs
+        : lang === "ru" && page.fromBookIdRu
+          ? page.fromBookIdRu
+          : page.fromBookId;
     const pick = bookById(bookId);
     const pickCopy = pick?.copy[lang];
     const pickSlug = pick?.slug[lang];
@@ -554,10 +560,13 @@ export default async function ItemPage({
                         (
                           pick.formats.find((x) => x.kind !== "kindle") ??
                           pick.formats[0]
-                        ).asin
+                        )?.asin ??
+                        pick.enEditionAsin ??
+                        ""
                       }
                       labelReviews={t.book.ratingReviews}
                       labelReviewsOne={t.book.ratingReviewsOne}
+                      labelReviewsFew={t.book.ratingReviewsFew}
                       labelSource={t.book.ratingSource}
                       ariaLabel={t.book.ratingAria}
                     />
@@ -888,10 +897,13 @@ export default async function ItemPage({
                         (
                           pick.formats.find((f) => f.kind !== "kindle") ??
                           pick.formats[0]
-                        ).asin
+                        )?.asin ??
+                        pick.enEditionAsin ??
+                        ""
                       }
                       labelReviews={t.book.ratingReviews}
                       labelReviewsOne={t.book.ratingReviewsOne}
+                      labelReviewsFew={t.book.ratingReviewsFew}
                       labelSource={t.book.ratingSource}
                       ariaLabel={t.book.ratingAria}
                     />
@@ -948,7 +960,7 @@ export default async function ItemPage({
     const others = wordsPagesForLang(lang).filter((x) => x.id !== page.id);
     /* Слова темы, разложенные по книгам. Человеку так понятно, какую
        книгу покупать, а машине достается полный состав каждой. */
-    const byBook = pageWords(page);
+    const byBook = pageWords(page, lang);
     const list = byBook.flatMap((b) => b.words.map((x) => wordOf(x, lang)));
     const hubTitle = dictionaries[lang].nav.firstWords;
 
@@ -1001,7 +1013,7 @@ export default async function ItemPage({
           <div className="teach">
             <p className="teach-p">{wc.showcase}</p>
             <div className="wordshelf">
-              {page.pictures.map((name) => (
+              {pagePictures(page, lang).map((name) => (
                 <img
                   key={name}
                   className="wordshelf__pic"
@@ -1169,6 +1181,10 @@ export default async function ItemPage({
     book.formats.find((f) => f.kind !== "kindle") ?? book.formats[0];
   const video = bookVideo(book.id);
   const bookRevs = reviewsForBook(book.id, lang);
+  /* Код английского издания на Amazon: по нему строится ссылка на
+     первоисточник отзывов на странице русского издания. */
+  const enAsin =
+    book.enEditionAsin ?? pair?.formats.find((f) => f.kind !== "kindle")?.asin;
   /* Возраст, который видит человек: с Amazon, если он задан,
      иначе группа каталога. */
   /* Вводный текст состоит из коротких абзацев. В описание страницы
@@ -1182,7 +1198,7 @@ export default async function ItemPage({
     : book.age === "teens-adults"
       ? t.catalog.ages[book.age]
       : book.age;
-  const topicGroups = topicsForBook(book.id);
+  const topicGroups = topicsForBook(book.id, lang);
   const topicList = allTopics(topicGroups, lang);
   const editorial = editorialForBook(book.id);
   const bookAwards = awardsForBook(book.id);
@@ -1399,12 +1415,13 @@ export default async function ItemPage({
                   </span>
                 </p>
               ) : null}
-              {book.rating && paper ? (
+              {book.rating && (paper || book.enEditionAsin) ? (
                 <RatingLink
                   rating={book.rating}
-                  asin={paper.asin}
+                  asin={paper ? paper.asin : book.enEditionAsin!}
                   labelReviews={t.book.ratingReviews}
                   labelReviewsOne={t.book.ratingReviewsOne}
+                      labelReviewsFew={t.book.ratingReviewsFew}
                   labelSource={t.book.ratingSource}
                   ariaLabel={t.book.ratingAria}
                 />
@@ -1452,7 +1469,9 @@ export default async function ItemPage({
                     ? t.book.langBoth
                     : book.editionLang === "es"
                       ? t.book.langEs
-                      : t.book.langEn}
+                      : book.editionLang === "ru"
+                        ? t.book.langRu
+                        : t.book.langEn}
                 </span>
               </li>
               <li>
@@ -1664,7 +1683,28 @@ export default async function ItemPage({
                   </div>
                 ))}
               </div>
-              <p className="reviews__source">{t.book.reviewsSource}</p>
+              {/* Русские издания своих отзывов пока не собрали. Книга та же,
+                  поэтому показываем отзывы английского издания, прямо об этом
+                  пишем и даем ссылку на первоисточник. */}
+              {book.editionLang === "ru" ? (
+                <p className="reviews__source">
+                  {t.book.reviewsOtherEdition}
+                  {enAsin ? (
+                    <>
+                      {" "}
+                      <a
+                        href={amazonReviewsUrl(enAsin)}
+                        rel="noopener nofollow"
+                        target="_blank"
+                      >
+                        {t.book.reviewsOtherEditionLink}
+                      </a>
+                    </>
+                  ) : null}
+                </p>
+              ) : (
+                <p className="reviews__source">{t.book.reviewsSource}</p>
+              )}
             </>
           ) : null}
 

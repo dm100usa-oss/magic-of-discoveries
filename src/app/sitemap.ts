@@ -6,8 +6,7 @@ import { articlesForLang } from "@/data/teacherArticles";
 import { wordsPagesForLang } from "@/data/firstWords";
 import { activeLangs } from "@/data/dictionaries";
 import { SITE_URL, SITE_UPDATED } from "@/lib/site";
-import { sectionPath, itemPath, homePath, sectionSlugs } from "@/lib/routes";
-import type { Section } from "@/lib/routes";
+import { sectionPath, itemPath, homePath, sectionsForLang } from "@/lib/routes";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const out: MetadataRoute.Sitemap = [];
@@ -16,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(SITE_UPDATED);
   for (const lang of activeLangs) {
     out.push({ url: SITE_URL + homePath(lang), lastModified, priority: 1 });
-    for (const s of Object.keys(sectionSlugs[lang]) as Section[]) {
+    for (const s of sectionsForLang(lang)) {
       out.push({ url: SITE_URL + sectionPath(lang, s), lastModified, priority: 0.8 });
     }
     for (const b of booksForLang(lang)) {

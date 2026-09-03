@@ -18,6 +18,7 @@ export function RatingLink({
   asin,
   labelReviews,
   labelReviewsOne,
+  labelReviewsFew,
   labelSource,
   ariaLabel,
 }: {
@@ -25,9 +26,22 @@ export function RatingLink({
   asin: string;
   labelReviews: string;
   labelReviewsOne: string;
+  /** Форма слова для двух, трех и четырех. Нужна русскому языку:
+      одна оценка, три оценки, пять оценок. Пусто значит язык
+      обходится двумя формами. */
+  labelReviewsFew?: string;
   labelSource: string;
   ariaLabel: string;
 }) {
+  const n = rating.count;
+  const last = n % 10;
+  const teen = n % 100 >= 11 && n % 100 <= 14;
+  const label =
+    n === 1
+      ? labelReviewsOne
+      : labelReviewsFew && !teen && last >= 2 && last <= 4
+        ? labelReviewsFew
+        : labelReviews;
   return (
     <a
       className="rating"
@@ -40,7 +54,7 @@ export function RatingLink({
       <span className="rating__mid">
         <Stars value={rating.value} />
         <span className="rating__count">
-          {rating.count} {rating.count === 1 ? labelReviewsOne : labelReviews}
+          {rating.count} {label}
         </span>
       </span>
       <span className="rating__source">{labelSource}</span>

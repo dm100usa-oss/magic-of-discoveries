@@ -53,7 +53,7 @@ const howToDraw111: TopicGroup[] = [
   },
   {
     id: "fantasy",
-    title: { en: "Fairy tale", es: "Personajes de cuentos", ru: "Сказочные" },
+    title: { en: "Fairy tale", es: "Personajes de cuentos", ru: "Сказочные герои и предметы" },
     items: {
       en: [
         "Mermaid", "Unicorn", "Dragon", "Crown", "Dwarf", "Griffin", "Troll", "Fairy",
@@ -149,6 +149,14 @@ const firstColoring111: TopicGroup[] = [
         "Perro", "Ardilla", "Pato", "Ciervo", "Ratón", "Abeja", "Libélula", "Caracol",
         "Mariposa",
       ],
+      ru: [
+        "Лев", "Слон", "Зебра", "Попугай", "Крокодил", "Обезьяна", "Кенгуру",
+        "Носорог", "Фламинго", "Лемур", "Колибри", "Жираф", "Коала", "Лягушка",
+        "Альпака", "Кролик", "Сова", "Ёж", "Коза", "Летучая мышь", "Енот", "Медведь",
+        "Лиса", "Курица", "Хамелеон", "Корова", "Бобр", "Орёл", "Хомяк", "Кошка",
+        "Собака", "Белка", "Утка", "Олень", "Мышь", "Пчела", "Стрекоза", "Улитка",
+        "Бабочка",
+      ]
     },
   },
   {
@@ -165,6 +173,10 @@ const firstColoring111: TopicGroup[] = [
         "Pez ángel", "Hipocampo", "Foca", "Pez payaso", "Molusco", "Ajolote", "Pez globo",
         "Camarón", "Raya",
       ],
+      ru: ["Акула", "Дельфин", "Кит", "Краб", "Осьминог", "Медуза", "Морская черепаха",
+        "Рыба-ангел", "Морской конёк", "Тюлень", "Рыба-клоун", "Моллюск", "Аксолотль",
+        "Рыба-шар", "Креветка", "Скат",
+      ]
     },
   },
   {
@@ -179,6 +191,9 @@ const firstColoring111: TopicGroup[] = [
         "Sirena", "Unicornio", "Dragón", "Corona", "Gnomo", "Grifo", "Trole", "Hada",
         "Caldera mágica", "Sombrero de mago", "Poción mágica",
       ],
+      ru: ["Русалка", "Единорог", "Дракон", "Корона", "Гном", "Грифон", "Тролль", "Фея",
+        "Волшебный котел", "Шляпа волшебника", "Волшебное зелье",
+      ]
     },
   },
   {
@@ -193,6 +208,9 @@ const firstColoring111: TopicGroup[] = [
         "Máquina", "Helicóptero", "Avión", "Globo", "Nave", "Submarino",
         "Cohete", "Scooter",
       ],
+      ru: ["Машина", "Вертолет", "Самолет", "Воздушный шар", "Корабль", "Подводная лодка",
+        "Ракета", "Скутер",
+      ]
     },
   },
   {
@@ -207,6 +225,9 @@ const firstColoring111: TopicGroup[] = [
         "Monopatín", "Cometa", "Bádminton", "Fútbol americano", "Cámara", "Tambor",
         "Pelota de playa",
       ],
+      ru: ["Скейтборд", "Воздушный змей", "Бадминтон", "Американский футбол", "Камера",
+        "Барабан", "Пляжный мяч",
+      ]
     },
   },
   {
@@ -217,6 +238,8 @@ const firstColoring111: TopicGroup[] = [
       es: [
         "Gafas", "Sombrilla de playa", "Sombrero", "Globo", "Regalo", "Gamepads",
       ],
+      ru: ["Очки", "Пляжный зонт", "Шляпа", "Глобус", "Подарок", "Геймпад",
+      ]
     },
   },
   {
@@ -231,6 +254,9 @@ const firstColoring111: TopicGroup[] = [
         "Hoja de arce", "Rosa", "Seta", "Trébol", "Girasol", "Chichón", "Cacto", "Muguete",
         "Loto", "Tulipán",
       ],
+      ru: ["Кленовый лист", "Роза", "Гриб", "Клевер", "Подсолнух", "Шишка", "Кактус",
+        "Ландыш", "Лотос", "Тюльпан",
+      ]
     },
   },
   {
@@ -245,6 +271,9 @@ const firstColoring111: TopicGroup[] = [
         "Torta", "Helado", "Sandía", "Zanahoria", "Brócoli", "Naranja", "Guinda",
         "Aguacate", "Fresa", "Pera", "Piña", "Limón", "Calabaza", "Buñuelo",
       ],
+      ru: ["Торт", "Мороженое", "Арбуз", "Морковь", "Брокколи", "Апельсин", "Вишня",
+        "Авокадо", "Клубника", "Груша", "Ананас", "Лимон", "Тыква", "Пончик",
+      ]
     },
   },
 ];
@@ -257,10 +286,13 @@ const TOPICS: Record<string, TopicGroup[]> = {
   "first-coloring-book-111": firstColoring111,
 };
 
-/** Состав книги. Английское и испанское издание одной книги имеют
-    одинаковый состав, поэтому язык издания в ключе не участвует. */
-export function topicsForBook(bookId: string): TopicGroup[] {
-  return TOPICS[bookId.replace(/-(en|es)$/, "")] ?? [];
+/** Состав книги. Издания одной книги на разных языках имеют одинаковый
+    состав, поэтому язык издания в ключе не участвует. Группы, у которых
+    нет списка на нужном языке, не показываем: лучше пусто, чем
+    английские слова на русской странице. */
+export function topicsForBook(bookId: string, lang: UiLang = "en"): TopicGroup[] {
+  const groups = TOPICS[bookId.replace(/-(en|es|ru)$/, "")] ?? [];
+  return groups.filter((g) => Boolean(g.items[lang]?.length));
 }
 
 /** Все темы одной строкой, для машинной части страницы. */

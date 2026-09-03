@@ -42,6 +42,7 @@ import {
   wordsPagesForLang,
   wordsPageById,
   wordPictureUrl,
+  pagePictures,
   wordsBookIds,
 } from "@/data/firstWords";
 import { langAlternates, breadcrumbs } from "@/lib/schema";
@@ -157,7 +158,14 @@ export default async function SectionPage({
       id: b.id,
       href: itemPath(lang, "books", b.slug[lang]!),
       title: b.copy[lang]!.title,
-      flag: b.editionLang === "en" ? "\u{1F1FA}\u{1F1F8}" : b.editionLang === "es" ? "\u{1F1EA}\u{1F1F8}" : "\u{1F1FA}\u{1F1F8}\u{1F1EA}\u{1F1F8}",
+      flag:
+        b.editionLang === "en"
+          ? "\u{1F1FA}\u{1F1F8}"
+          : b.editionLang === "es"
+            ? "\u{1F1EA}\u{1F1F8}"
+            : b.editionLang === "ru"
+              ? "\u{1F1F7}\u{1F1FA}"
+              : "\u{1F1FA}\u{1F1F8}\u{1F1EA}\u{1F1F8}",
       ageLabel: t.catalog.ages[b.age],
       ages: bookAges(b),
       type: b.type,
@@ -849,7 +857,7 @@ export default async function SectionPage({
                     href={itemPath(lang, "words", pg.slug[lang]!)}
                   >
                     <div className="theme__strip">
-                      {pg.pictures.map((name) => (
+                      {pagePictures(pg, lang).map((name) => (
                         <img
                           key={name}
                           src={wordPictureUrl(name, lang, pg)}

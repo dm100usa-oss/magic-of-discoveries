@@ -203,7 +203,9 @@ export function Header({ lang }: { lang: UiLang }) {
     [homePath(lang), t.nav.home],
     [sectionPath(lang, "books"), t.nav.books],
     [sectionPath(lang, "method"), t.nav.method],
-    [sectionPath(lang, "teachers"), t.nav.teachers],
+    ...(lang === "ru"
+      ? []
+      : ([[sectionPath(lang, "teachers"), t.nav.teachers]] as [string, string][])),
     [sectionPath(lang, "coloring"), t.nav.coloringPages],
     [sectionPath(lang, "words"), t.nav.firstWords],
     [sectionPath(lang, "about"), t.nav.about],
@@ -278,7 +280,13 @@ export function PageHead({ title, lead }: { title: string; lead?: string }) {
 }
 
 const flagOf = (b: Book) =>
-  b.editionLang === "en" ? "🇺🇸" : b.editionLang === "es" ? "🇪🇸" : "🇺🇸🇪🇸";
+  b.editionLang === "en"
+    ? "🇺🇸"
+    : b.editionLang === "es"
+      ? "🇪🇸"
+      : b.editionLang === "ru"
+        ? "🇷🇺"
+        : "🇺🇸🇪🇸";
 
 export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
   const t = dictionaries[lang];

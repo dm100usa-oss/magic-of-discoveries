@@ -41,6 +41,14 @@ const BOOKS = [
   "directed-drawing-k2-es",
   "directed-drawing-k2-2-en",
   "directed-drawing-k2-2-es",
+  "first-coloring-book-111-ru",
+  "little-max-coloring-1-ru",
+  "little-max-coloring-2-ru",
+  "how-to-draw-111-ru",
+  "how-to-draw-everything-ru",
+  "take-a-break-animals-ru",
+  "take-a-break-ocean-ru",
+  "take-a-break-food-ru",
 ];
 
 const FORMATS = ["letter", "a4"];

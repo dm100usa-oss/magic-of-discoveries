@@ -63,13 +63,22 @@ export function RatingLink({
 }
 
 /** Компактный вариант для карточки в каталоге. */
-export function RatingMini({ rating }: { rating: AmazonRating }) {
+export function RatingMini({
+  rating,
+  note,
+}: {
+  rating: AmazonRating;
+  /* Короткая оговорка, чей это рейтинг. Нужна там, где издание свое, а
+     оценка взята у издания на другом языке. */
+  note?: string;
+}) {
   return (
     <span className="rating-mini">
       <Stars value={rating.value} />
       <span>
         {rating.value.toFixed(1)} ({rating.count})
       </span>
+      {note ? <span className="rating-mini__note">{note}</span> : null}
     </span>
   );
 }

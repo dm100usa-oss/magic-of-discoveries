@@ -178,6 +178,7 @@ export default async function SectionPage({
       type: b.type,
       price: cheapestFormat(b)?.price ?? (hasPdf(b.id) ? PDF_PRICE_LABEL : undefined),
       rating: b.rating,
+      ratingNote: t.book.ratingNote,
       cover: b.cover,
     }));
 

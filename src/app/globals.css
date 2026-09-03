@@ -697,6 +697,8 @@ ul.inside li::marker { color: var(--pink-hot); }
   font-size: var(--t-micro); color: var(--ink-2); font-weight: 700;
   margin-top: 0.3rem;
 }
+/* Оговорка, чей это рейтинг. Тише самих звезд: она уточняет, а не спорит. */
+.rating-mini__note { font-weight: 500; color: var(--ink-soft); }
 
 /* Обложки книг: показываем в настоящих пропорциях, квадратные не режем */
 .book__cover .inner img { display: block; width: 100%; height: auto; }

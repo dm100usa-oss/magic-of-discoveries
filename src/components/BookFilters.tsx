@@ -16,6 +16,8 @@ export interface CardItem {
   type: string;
   price?: string;
   rating?: { value: number; count: number };
+  /* Чей это рейтинг, если он взят у издания на другом языке. */
+  ratingNote?: string;
   cover?: string;
 }
 
@@ -98,7 +100,9 @@ export default function BookFilters({ items, ages, types, labels }: Props) {
                   {i.title}
                 </p>
                 <p className="card__meta">{i.ageLabel}</p>
-                {i.rating ? <RatingMini rating={i.rating} /> : null}
+                {i.rating ? (
+                  <RatingMini rating={i.rating} note={i.ratingNote} />
+                ) : null}
                 {i.price ? <p className="card__price">{i.price}</p> : null}
               </div>
             </Link>

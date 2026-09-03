@@ -325,7 +325,9 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
           {copy.title}
         </p>
         <p className="card__meta">{t.catalog.ages[book.age]}</p>
-        {book.rating ? <RatingMini rating={book.rating} /> : null}
+        {book.rating ? (
+          <RatingMini rating={book.rating} note={t.book.ratingNote} />
+        ) : null}
         {price ? <p className="card__price">{price}</p> : null}
       </div>
     </Link>

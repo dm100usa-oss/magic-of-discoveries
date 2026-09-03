@@ -128,6 +128,9 @@ export interface Dictionary {
     /** Форма для двух, трех и четырех. Нужна русскому языку. */
     ratingReviewsFew?: string;
     ratingSource: string;
+    /* Та же оговорка, но в две буквы: под звездами на карточке каталога.
+       Пусто значит оговорка не нужна. */
+    ratingNote?: string;
     ratingAria: string;
   };
   method: {
@@ -1030,7 +1033,12 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       ratingReviews: "оценок",
       ratingReviewsOne: "оценка",
       ratingReviewsFew: "оценки",
-      ratingSource: "Читать отзывы на Amazon",
+      /* У русских изданий своей карточки на Amazon нет: они продаются
+         файлом для печати. Звезды и число отзывов взяты у английского
+         издания той же книги, и подпись должна говорить об этом прямо,
+         иначе покупатель думает, что оценивали именно то, что он берет. */
+      ratingSource: "Оценка английского издания этой книги на Amazon",
+      ratingNote: "англ. издание",
       ratingAria: "Читать отзывы покупателей на Amazon",
     },
     method: {

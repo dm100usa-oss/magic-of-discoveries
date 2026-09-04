@@ -8,11 +8,9 @@ import { bookById, type UiLang } from "@/data/books";
    Теперь деньги принимаются здесь, через Stripe, а файл выдается по
    ссылке, которая подписана и живет ограниченное время.
 
-   Сами файлы лежат в папке knigi и в открытый доступ не попадают.
-   Перед сборкой сайта скрипт scripts/prepare-pdfs.mjs раскладывает их
-   в public/dl под именами, которые невозможно угадать: имя папки
-   считается из тайного слова DOWNLOAD_SECRET. Прямой ссылки на них
-   нигде нет, в карту сайта они не попадают, роботам закрыты.
+   Сами файлы лежат в закрытой кладовке Vercel Blob. Публичного адреса
+   у них нет вообще: забрать файл может только сам сайт, и только после
+   того, как проверит оплату. В хранилище кода книг больше нет.
 --------------------------------------------------------------------------- */
 
 /** Цена одной книги в центах. Едина для всех изданий. */
@@ -110,14 +108,6 @@ function secret(): string {
   return value;
 }
 
-/** Имя папки, в которой лежит файл. Угадать нельзя. */
-export function assetFolder(id: PdfBookId, format: PdfFormat): string {
-  return createHmac("sha256", secret())
-    .update(`asset:${id}:${format}`)
-    .digest("hex")
-    .slice(0, 32);
-}
-
 /** Имя файла, которое покупатель увидит у себя в загрузках. */
 export function assetFileName(id: PdfBookId, format: PdfFormat): string {
   const book = bookById(id);
@@ -127,9 +117,15 @@ export function assetFileName(id: PdfBookId, format: PdfFormat): string {
   return `${base}-${suffix}.pdf`;
 }
 
-/** Адрес файла внутри сайта. Наружу не показывается. */
-export function assetPath(id: PdfBookId, format: PdfFormat): string {
-  return `/dl/${assetFolder(id, format)}/${assetFileName(id, format)}`;
+/* Папка этого сайта внутри общей кладовки. Кладовка одна на два сайта,
+   и каждый берет только из своей папки. */
+const STORE_FOLDER = "magic-of-discoveries/";
+
+/** Единственное место, которое знает, где лежит купленный файл.
+    Наружу этот адрес не показывается: по нему без разрешения сайта
+    ничего не отдается. */
+export function blobPath(id: PdfBookId, format: PdfFormat): string {
+  return STORE_FOLDER + assetFileName(id, format);
 }
 
 /* ---------------------------------------------------------------------------

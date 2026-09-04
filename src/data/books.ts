@@ -591,9 +591,9 @@ export const books: Book[] = [
     bannerLead: {
       file: "/art/little-max-coloring-1-header.jpg",
       w: 1940,
-      h: 600,
+      h: 1200,
       alt: {
-        en: "First Coloring Book for Toddlers by Little Max, cover with the mouse in a sailor shirt, beside a stack of colored pencils",
+        en: "First Coloring Book for Toddlers by Little Max, the cover shown with a fairy, a rabbit, a rooster and a hen around it",
       },
     },
     artwork: [
@@ -602,7 +602,7 @@ export const books: Book[] = [
         w: 600,
         h: 600,
         alt: {
-          en: "Simple: a snail drawn with a few thick lines, one object on the page",
+          en: "Simple: a fox, a bear, a hedgehog, a rabbit, a deer, a squirrel and a raccoon, each drawn with a few thick lines",
         },
       },
       {
@@ -610,7 +610,7 @@ export const books: Book[] = [
         w: 600,
         h: 600,
         alt: {
-          en: "Big: a raccoon filling the page, partly colored in with pencil by a small child",
+          en: "Big: a crab, a dolphin, a turtle, an octopus, a seahorse and a starfish, each one filling the page",
         },
       },
       {
@@ -618,7 +618,7 @@ export const books: Book[] = [
         w: 600,
         h: 600,
         alt: {
-          en: "Cute: a stacking ring toy, one of the everyday things a toddler already knows",
+          en: "Adorable: a rabbit, a snail, a sailboat, a sun, a rooster, a cake and a rocket, everyday things a toddler already knows",
         },
       },
     ],
@@ -628,7 +628,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          en: "The book open at a dog and a bunny, one drawing per page with the word underneath, 8.5 by 11 inches",
+          en: "The book open at a princess and a unicorn, one drawing per page with the word underneath, 8.5 by 11 inches",
         },
       },
       {
@@ -636,15 +636,15 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          en: "Ten of the 111 drawings: sneakers, moon, mushroom, candy, caterpillar, tomato, fox, squirrel, strawberry and a baby goose",
+          en: "Nine of the 111 drawings: lion, ice cream, dolphin, fairy, fox, squirrel, deer, helicopter and mouse",
         },
       },
       {
         file: "/art/little-max-coloring-1-gift.jpg",
         w: 1940,
-        h: 600,
+        h: 1200,
         alt: {
-          en: "The perfect gift for beginner artists, a cupcake drawing, party flags and colored pencils",
+          en: "A wonderful gift for little artists, Little Max holding a wrapped present beside a mouse holding the book",
         },
       },
     ],
@@ -698,9 +698,9 @@ export const books: Book[] = [
     bannerLead: {
       file: "/art/little-max-coloring-1-es-header.jpg",
       w: 1940,
-      h: 600,
+      h: 1200,
       alt: {
-        es: "El Primer Libro de Colorear para Bebés de Pequeño Max, portada con el ratón con camiseta de marinero, junto a unos lápices de colores",
+        es: "El Primer Libro de Colorear para Bebés de Pequeño Max, la portada rodeada de un hada, un conejo, un gallo y una gallina",
       },
     },
     artwork: [
@@ -709,7 +709,7 @@ export const books: Book[] = [
         w: 600,
         h: 600,
         alt: {
-          es: "Simples: un caracol dibujado con unas pocas líneas gruesas, un solo objeto en la página",
+          es: "Simples: un zorro, un oso, un erizo, un conejo, un ciervo, una ardilla y un mapache, cada uno con unas pocas líneas gruesas",
         },
       },
       {
@@ -717,7 +717,7 @@ export const books: Book[] = [
         w: 600,
         h: 600,
         alt: {
-          es: "Grandes: un mapache que llena la página, coloreado en parte a lápiz por un niño pequeño",
+          es: "Grandes: un cangrejo, un delfín, una tortuga, un pulpo, un caballito de mar y una estrella de mar, cada uno llena la página",
         },
       },
       {
@@ -725,7 +725,7 @@ export const books: Book[] = [
         w: 600,
         h: 600,
         alt: {
-          es: "Adorables: una pirámide de anillas, una de las cosas cotidianas que el niño ya conoce",
+          es: "Adorables: un conejo, un caracol, un velero, un sol, un gallo, un pastel y un cohete, cosas cotidianas que el niño ya conoce",
         },
       },
     ],
@@ -735,7 +735,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          es: "El libro abierto por un perro y una liebre, un dibujo por página con la palabra debajo, 21.6 x 28 cm",
+          es: "El libro abierto por una princesa y un unicornio, un dibujo por página con la palabra debajo, 21.6 x 28 cm",
         },
       },
       {
@@ -743,15 +743,15 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          es: "Diez de los 111 dibujos: zapatillas, luna, hongo, caramelos, oruga, tomate, zorro, ardilla, fresa y un ganso",
+          es: "Nueve de los 111 dibujos: león, helado, delfín, hada, zorro, ardilla, ciervo, helicóptero y ratón",
         },
       },
       {
         file: "/art/little-max-coloring-1-es-gift.jpg",
         w: 1940,
-        h: 600,
+        h: 1200,
         alt: {
-          es: "Un maravilloso regalo para artistas novatos, una magdalena, banderines de fiesta y lápices de colores",
+          es: "Un maravilloso regalo para pequeños artistas, Pequeño Max con un regalo junto a una ratoncita que sostiene el libro",
         },
       },
     ],

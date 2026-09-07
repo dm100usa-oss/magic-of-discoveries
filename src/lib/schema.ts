@@ -4,6 +4,7 @@ import {
   ADDRESS,
   ORG_ID,
   RICARDO_ID,
+  MARIA_ID,
   AUTHORS,
   authorSameAs,
   METHOD_REFERENCE_URL,
@@ -66,3 +67,36 @@ export const ricardoNode = (lang: UiLang) => ({
   sameAs: [...authorSameAs("ricardo"), METHOD_REFERENCE_URL],
   worksFor: orgRef(),
 });
+
+/** Автор книги полным описанием, с постоянным опознавателем.
+
+    Раньше на каждой странице книги имя автора стояло просто строкой,
+    и машина видела не одного человека с каталогом из тридцати восьми
+    книг, а тридцать восемь разных людей с одинаковым именем. Теперь
+    везде один и тот же опознаватель, а рядом с ним проверяемые адреса:
+    авторские страницы на Amazon, Goodreads и ThriftBooks. */
+export const authorNode = (who: "ricardo" | "maria", lang: UiLang) =>
+  who === "ricardo"
+    ? ricardoNode(lang)
+    : {
+        "@type": "Person",
+        "@id": MARIA_ID,
+        name: AUTHORS.maria.name,
+        url: `${SITE_URL}/${lang}/${sectionSlugs[lang].about}`,
+        sameAs: authorSameAs("maria"),
+        worksFor: orgRef(),
+      };
+
+export const authorRef = (who: "ricardo" | "maria") => ({
+  "@id": who === "ricardo" ? RICARDO_ID : MARIA_ID,
+});
+
+/** Постоянный опознаватель книги как произведения.
+
+    Книга и страница о книге это разные вещи. Пока у книги своего
+    опознавателя нет, машина считает произведением сам адрес страницы,
+    и связать издания между собой ей нечем. */
+export const bookId = (id: string) => `${SITE_URL}/#book-${id}`;
+
+/** Постоянный опознаватель самой страницы. */
+export const pageId = (path: string) => `${SITE_URL}${path}#webpage`;

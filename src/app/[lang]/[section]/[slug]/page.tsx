@@ -74,7 +74,17 @@ import {
   itemPath,
   sectionPath,
 } from "@/lib/routes";
-import { langAlternates, breadcrumbs, orgNode, orgRef, ricardoNode } from "@/lib/schema";
+import {
+  langAlternates,
+  breadcrumbs,
+  orgNode,
+  orgRef,
+  ricardoNode,
+  authorNode,
+  authorRef,
+  bookId,
+  pageId,
+} from "@/lib/schema";
 import { hasPdf, pdfPriceLabel, pdfPriceCents } from "@/lib/pdfShop";
 
 /* Дата словами, на языке страницы. В коде остается машинная запись,
@@ -1215,10 +1225,31 @@ export default async function ItemPage({
     "@graph": [
         /* Издательство целиком. Дальше по странице на него только ссылка. */
         orgNode(),
+        /* Автор целиком, с постоянным опознавателем. Дальше по странице
+           на него тоже только ссылка. */
+        authorNode(book.author, lang),
+        /* Сама страница, отдельно от книги. Страница это адрес, по
+           которому лежит рассказ о книге; книга это произведение,
+           которое существует и на бумаге, и на других сайтах. Пока они
+           слиты в один объект, машине нечем связать между собой издания
+           одной книги. */
+        {
+          "@type": "WebPage",
+          "@id": pageId(itemPath(lang, "books", slug)),
+          url: `${SITE_URL}${itemPath(lang, "books", slug)}`,
+          name: copy.title,
+          inLanguage: lang,
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          datePublished: pagePublished(),
+          dateModified: pageUpdated(),
+          mainEntity: { "@id": bookId(book.id) },
+          publisher: orgRef(),
+        },
       {
         "@type": "Book",
+        "@id": bookId(book.id),
         name: copy.title,
-        author: { "@type": "Person", name: author.name },
+        author: authorRef(book.author),
         publisher: orgRef(),
         inLanguage:
           book.editionLang === "bilingual" ? ["en", "es"] : book.editionLang,
@@ -1293,28 +1324,35 @@ export default async function ItemPage({
         image: book.cover ? `${SITE_URL}${book.cover}` : undefined,
         typicalAgeRange:
           book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age),
-        /* Где книгу можно купить. Если бумажного издания нет, машина
-           должна видеть хотя бы нашу цену за файл, иначе книга уходит
-           в поиск и в ответы нейросетей вовсе без цены. */
-        offers: book.formats.length
-          ? book.formats.map((f) => ({
-              "@type": "Offer",
-              price: f.price.replace("$", ""),
-              priceCurrency: "USD",
-              availability: "https://schema.org/InStock",
-              url: amazonUrl(f.asin),
-            }))
-          : hasPdf(book.id)
+        /* Где книгу можно купить. Раньше при наличии бумажного издания
+           машина видела только цену Amazon, а наш файл для печати не
+           видела вовсе, хотя человеку он на странице показан. Теперь оба
+           предложения стоят рядом. Цена файла берется из того же места,
+           откуда сайт берет ее для оплаты, поэтому разойтись они не могут. */
+        offers: (() => {
+          const paperOffers = book.formats.map((f) => ({
+            "@type": "Offer",
+            price: f.price.replace("$", ""),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            url: amazonUrl(f.asin),
+          }));
+          const pdfOffer = hasPdf(book.id)
             ? [
                 {
                   "@type": "Offer",
                   price: (pdfPriceCents(book.id) / 100).toFixed(2),
                   priceCurrency: "USD",
                   availability: "https://schema.org/InStock",
+                  itemCondition: "https://schema.org/NewCondition",
                   url: `${SITE_URL}${itemPath(lang, "books", slug)}`,
+                  seller: orgRef(),
                 },
               ]
-            : undefined,
+            : [];
+          const all = [...paperOffers, ...pdfOffer];
+          return all.length ? all : undefined;
+        })(),
       },
       {
         "@type": "FAQPage",

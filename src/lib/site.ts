@@ -90,6 +90,7 @@ export const AUTHORS = {
     name: "Ricardo Demi",
     amazon: "https://www.amazon.com/stores/Ricardo-Demi/author/B0D3CQP21H",
     goodreads: "https://www.goodreads.com/author/show/49458093.Ricardo_Demi",
+    thriftbooks: "https://www.thriftbooks.com/a/ricardo-demi/11319271/",
   },
   maria: {
     name: "Maria Demi",
@@ -100,9 +101,11 @@ export const AUTHORS = {
 /** Все проверяемые адреса автора одной строкой. */
 export const authorSameAs = (who: "ricardo" | "maria") => {
   const a = AUTHORS[who];
-  return [a.amazon, "goodreads" in a ? a.goodreads : undefined].filter(
-    Boolean,
-  ) as string[];
+  return [
+    a.amazon,
+    "goodreads" in a ? a.goodreads : undefined,
+    "thriftbooks" in a ? a.thriftbooks : undefined,
+  ].filter(Boolean) as string[];
 };
 
 export const path = (lang: UiLang, ...parts: string[]) =>

@@ -335,18 +335,43 @@ const faqPaperOrDigital = {
   },
 };
 
+/* Один и тот же вопрос, но ответ у книг разный, и объединять их нельзя.
+
+   В раскрасках "Сделай перерыв" рисунок печатается на одной стороне
+   листа, оборот пустой, и маркеру просто нечего испортить.
+
+   В раскрасках для малышей рисунки идут с двух сторон листа. Обещать
+   там чистый оборот значит обманывать: родитель это увидит с первой
+   страницы. Поэтому ответ честный и с решением: маркер проходит
+   насквозь, а мелки и карандаши нет. */
 const faqBleed = {
   en: {
     q: "Will markers bleed through the page?",
-    a: "Each drawing sits on its own page, so a marker that bleeds only affects the back of that sheet. Slip a spare sheet of paper underneath if you use alcohol markers.",
+    a: "Each drawing sits on its own page and the back of the sheet is blank, so a marker that bleeds has nothing to spoil. Slip a spare sheet of paper underneath if you use alcohol markers.",
   },
   es: {
     q: "¿Los marcadores traspasan la página?",
-    a: "Cada dibujo está en su propia página, así que si un marcador traspasa solo afecta al reverso de esa hoja. Coloca una hoja de papel debajo si usas marcadores con alcohol.",
+    a: "Cada dibujo está en su propia página y el reverso de la hoja está en blanco, así que un marcador que traspase no estropea nada. Coloca una hoja de papel debajo si usas marcadores con alcohol.",
   },
   ru: {
     q: "Не протекут ли фломастеры на следующий рисунок?",
-    a: "Каждый рисунок находится на отдельной странице, поэтому фломастер может испачкать только оборот этого листа. Если раскрашиваете спиртовыми маркерами, подложите запасной лист.",
+    a: "Каждый рисунок напечатан на отдельном листе, оборот пустой, поэтому фломастеру нечего испортить. Если раскрашиваете спиртовыми маркерами, подложите запасной лист.",
+  },
+};
+
+/* Тот же вопрос для раскрасок малышей, где рисунки с двух сторон листа. */
+const faqBleedToddler = {
+  en: {
+    q: "Will markers bleed through the page?",
+    a: "They can. The paper is standard book paper and there is a drawing on both sides of each sheet, so marker ink that soaks through will show on the drawing behind it. Crayons and colored pencils usually do not soak through, and at this age thick crayons work better anyway.",
+  },
+  es: {
+    q: "¿Los rotuladores traspasan la página?",
+    a: "Pueden hacerlo. El papel es papel de libro corriente y hay un dibujo a cada lado de la hoja, así que la tinta que traspasa se ve en el dibujo del otro lado. Las ceras y los lápices de colores no suelen traspasar el papel, y a esta edad las ceras gruesas funcionan mejor.",
+  },
+  ru: {
+    q: "Не протекут ли фломастеры на следующий рисунок?",
+    a: "Могут. Бумага обычная книжная, а рисунки напечатаны с двух сторон листа, поэтому чернила фломастера, прошедшие насквозь, будут видны на соседнем рисунке. Мелки и цветные карандаши обычно не проходят через бумагу, и в этом возрасте толстые мелки удобнее.",
   },
 };
 
@@ -440,9 +465,9 @@ export const books: Book[] = [
         lead:
           "111 big, simple pictures, hand drawn with thick lines, no small detail, one drawing per page. Animals, fairy-tale characters, flowers, foods and everyday objects keep every page new. The word under each picture can be colored too, so first words and letters come along with the coloring.",
         inside: [
-          "111 drawings, all hand drawn by professional illustrators",
-          "Thick outlines and large shapes, so your child stays inside the lines",
-          "One drawing per page, so a marker cannot show through onto the next one",
+          "111 drawings, all hand-drawn",
+          "Thick outlines and large shapes, so a child who is still learning to aim sees a clear result",
+          "One large drawing on every page, so nothing competes for a child's attention",
           "The word under each picture can be colored too, which turns coloring into first reading",
           "Every picture sits in the center of the page, comfortable for a left or a right handed child",
           "Animals, sea creatures, fairy-tale characters, vehicles, flowers and food",
@@ -458,10 +483,10 @@ export const books: Book[] = [
           },
           {
             q: "How thick is the paper?",
-            a: "It is standard book paper, printed by Amazon, and a few parents have wished for something heavier. The book is built around that: each drawing sits on its own page with a blank back, so a marker that soaks through marks an empty sheet rather than a second picture. A spare sheet underneath solves it completely.",
+            a: "It is standard book paper, printed by Amazon, and a few parents have wished for something heavier. There is a drawing on both sides of each sheet, so marker ink that soaks through will show on the drawing behind it. Crayons and colored pencils do not do this, and they are the better choice at this age anyway.",
           },
           faqPaperOrDigital.en,
-          faqBleed.en,
+          faqBleedToddler.en,
         ],
       },
     },
@@ -537,9 +562,9 @@ export const books: Book[] = [
         lead:
           "111 dibujos simples y grandes, dibujados a mano con líneas gruesas, sin detalles pequeños y con un dibujo por página. Animales, personajes de cuento, flores, comidas y objetos cotidianos hacen que cada página sea nueva. La palabra debajo de cada dibujo también se puede colorear, y así llegan las primeras palabras y letras.",
         inside: [
-          "111 dibujos, todos hechos a mano por ilustradores profesionales",
+          "111 dibujos, todos hechos a mano",
           "Líneas gruesas y formas grandes, para que el niño no se salga del contorno",
-          "Un dibujo por página, para que el rotulador no traspase al siguiente",
+          "Un dibujo grande en cada página, para que nada distraiga al niño",
           "La palabra debajo de cada dibujo también se puede colorear, y así colorear se convierte en primera lectura",
           "Cada dibujo está en el centro de la página, cómodo tanto para zurdos como para diestros",
           "Animales, animales marinos, personajes de cuentos, vehículos, flores y comida",
@@ -554,7 +579,7 @@ export const books: Book[] = [
             a: "No. Los dibujos se hicieron a propósito muy simples para los más pequeños. Un bebé de un año rayará por encima de la figura y uno de tres empezará a quedarse dentro. El mismo libro acompaña los tres años.",
           },
           faqPaperOrDigital.es,
-          faqBleed.es,
+          faqBleedToddler.es,
         ],
       },
     },
@@ -663,7 +688,7 @@ export const books: Book[] = [
             a: "The drawing style and the difficulty are the same. This edition is built around the character Little Max and connects to the Little Max bedtime stories. Families who want both usually buy the lion-cover book first and this one second.",
           },
           faqPaperOrDigital.en,
-          faqBleed.en,
+          faqBleedToddler.en,
         ],
       },
     },
@@ -770,7 +795,7 @@ export const books: Book[] = [
             a: "El estilo y la dificultad son los mismos. Esta edición gira en torno al personaje Pequeño Max y enlaza con sus cuentos para dormir. Las familias que quieren los dos suelen empezar por el de la portada del león.",
           },
           faqPaperOrDigital.es,
-          faqBleed.es,
+          faqBleedToddler.es,
         ],
       },
     },
@@ -878,7 +903,7 @@ export const books: Book[] = [
             a: "No. The drawings are different. The difficulty deliberately stays the same, because at this age children want repetition of the format, not a harder challenge.",
           },
           faqPaperOrDigital.en,
-          faqBleed.en,
+          faqBleedToddler.en,
         ],
       },
     },
@@ -982,7 +1007,7 @@ export const books: Book[] = [
             a: "No. Los dibujos son distintos. La dificultad se mantiene a propósito, porque a esta edad los niños quieren repetir el formato, no un reto mayor.",
           },
           faqPaperOrDigital.es,
-          faqBleed.es,
+          faqBleedToddler.es,
         ],
       },
     },
@@ -3580,7 +3605,7 @@ export const books: Book[] = [
         inside: [
           "111 рисунков, все нарисованы от руки",
           "Толстый контур и крупные формы, чтобы малышу было легче попадать внутрь контура",
-          "Один рисунок на странице, оборот листа чистый",
+          "Один крупный рисунок на каждой странице, ничто не отвлекает ребенка",
           "Под каждым рисунком - его название полыми буквами, его тоже можно раскрасить",
           "Рисунок расположен в центре страницы - удобно и правше, и левше",
           "Животные, морские жители, сказочные герои, транспорт, цветы и еда",
@@ -3679,7 +3704,7 @@ export const books: Book[] = [
           "Толстый контур и большие простые формы",
           "Под каждым рисунком - его название полыми буквами, его тоже можно раскрасить",
           "Домашние и лесные животные, насекомые, растения, овощи и фрукты, еда, игрушки, одежда и вещи из дома",
-          "Оборот листа чистый, поэтому фломастер не портит следующий рисунок",
+          "Один крупный рисунок на каждой странице",
           "В начале книги есть страница, где ребенок пишет свое имя",
           "114 страниц, лист 21.6 x 27.9 см",
         ],
@@ -3791,7 +3816,7 @@ export const books: Book[] = [
           "Толстый контур и большие простые формы",
           "Под каждым рисунком - его название полыми буквами, его тоже можно раскрасить",
           "Звери зоопарка и моря, растения, фрукты и сладости, спорт, музыка, одежда и дорожные вещи",
-          "Оборот листа чистый, поэтому фломастер не портит следующий рисунок",
+          "Один крупный рисунок на каждой странице",
           "В начале книги есть страница, где ребенок пишет свое имя",
           "114 страниц, лист 21.6 x 27.9 см",
         ],

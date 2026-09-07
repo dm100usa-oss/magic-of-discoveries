@@ -1230,16 +1230,35 @@ export default async function ItemPage({
         about: topicList.length
           ? topicList.map((name) => ({ "@type": "Thing", name }))
           : undefined,
+        /* Полное описание книги одним куском. То же самое, что человек
+           видит в свернутом блоке на странице. Нейросеть берет его
+           готовым, не разбирая верстку. */
+        abstract: copy.about?.length ? copy.about.join(" ") : undefined,
         /* Рецензия стороннего издания с ссылкой на первоисточник.
-           Оценку не ставим: чужие оценки в разметке Google запрещает. */
+           Оценку не ставим: чужие оценки в разметке Google запрещает.
+
+           Имя рецензента раньше стояло одно на все книги, и у каждой
+           книги, кроме одной, в разметку уходило чужое имя. Теперь оно
+           берется из самой рецензии. Запись вида "Имя, Издание" делится
+           на человека и издание, запись из одного названия это издание
+           без автора. */
         subjectOf: editorial
-          ? {
-              "@type": "Review",
-              reviewBody: editorial.text[lang] ?? editorial.text.en,
-              author: { "@type": "Person", name: "Pikasho Deka" },
-              publisher: { "@type": "Organization", name: "Readers' Favorite" },
-              url: editorial.url,
-            }
+          ? (() => {
+              const [first, ...rest] = editorial.who.split(",");
+              const outlet = rest.join(",").trim();
+              return {
+                "@type": "Review",
+                reviewBody: editorial.text[lang] ?? editorial.text.en,
+                author: outlet
+                  ? { "@type": "Person", name: first.trim() }
+                  : { "@type": "Organization", name: first.trim() },
+                publisher: {
+                  "@type": "Organization",
+                  name: outlet || first.trim(),
+                },
+                url: editorial.url,
+              };
+            })()
           : undefined,
         datePublished: book.published,
         /* Внешние адреса, по которым машина опознает эту книгу.
@@ -1621,6 +1640,32 @@ export default async function ItemPage({
                 </div>
               </details>
             </>
+          ) : null}
+
+          {/* Два больших текста. На экране свернуты, чтобы не оттеснять
+              картинки: первый экран это обложка и рисунки. В коде страницы
+              они лежат всегда, поэтому поисковики и нейросети читают их
+              целиком и в свернутом виде. Если бы текст подгружался по
+              нажатию, машины бы его не увидели вовсе. */}
+          {copy.about?.length || copy.story?.length ? (
+            <div className="faq">
+              {copy.about?.length ? (
+                <details>
+                  <summary>{t.book.aboutTitle}</summary>
+                  {copy.about.map((para) => (
+                    <p key={para}>{para}</p>
+                  ))}
+                </details>
+              ) : null}
+              {copy.story?.length ? (
+                <details>
+                  <summary>{t.book.storyTitle}</summary>
+                  {copy.story.map((para) => (
+                    <p key={para}>{para}</p>
+                  ))}
+                </details>
+              ) : null}
+            </div>
           ) : null}
 
           <h2 className="section">{t.book.forWhom}</h2>

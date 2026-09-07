@@ -88,6 +88,12 @@ export interface Dictionary {
     inside: string;
     artwork: string;
     forWhom: string;
+    /** Заголовок свернутого блока с полным описанием книги.
+        Текст лежит в коде страницы всегда, поэтому поисковики и
+        нейросети читают его и в свернутом виде. */
+    aboutTitle: string;
+    /** Заголовок свернутого блока с рассказом автора о работе над книгой. */
+    storyTitle: string;
     faq: string;
     buyPaperback: string;
     buyHardcover: string;
@@ -371,6 +377,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       inside: "What is inside",
       artwork: "Pictures from the book",
       forWhom: "Who it is for",
+      aboutTitle: "The full description of this book",
+      storyTitle: "How this book was made, by the author",
       faq: "Questions parents ask",
       buyPaperback: "Buy the paperback on Amazon",
       buyHardcover: "Buy the hardcover on Amazon",
@@ -687,6 +695,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       inside: "Qué contiene",
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
+      aboutTitle: "Descripción completa de este libro",
+      storyTitle: "Cómo se hizo este libro, por el autor",
       faq: "Preguntas de los padres",
       buyPaperback: "Comprar en tapa blanda en Amazon",
       buyHardcover: "Comprar en tapa dura en Amazon",
@@ -996,6 +1006,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       inside: "Что внутри",
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",
+      aboutTitle: "Полное описание книги",
+      storyTitle: "Как создавалась эта книга, рассказ автора",
       faq: "Вопросы родителей",
       buyPaperback: "Купить в мягкой обложке на Amazon",
       buyHardcover: "Купить в твердой обложке на Amazon",

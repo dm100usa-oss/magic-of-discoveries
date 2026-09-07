@@ -31,7 +31,7 @@ export const SITE_PUBLISHED = "2026-08-09";
 
     Теперь у страницы может быть своя дата, записанная рядом с ее
     текстом. Правим страницу, меняем ее дату, соседние стоят на месте. */
-export const SITE_UPDATED = "2026-09-03";
+export const SITE_UPDATED = "2026-09-07";
 
 /** Дата правки страницы: своя, если она есть, иначе общая. */
 export const pageUpdated = (own?: string) => own ?? SITE_UPDATED;

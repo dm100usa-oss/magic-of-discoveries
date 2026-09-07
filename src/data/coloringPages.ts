@@ -150,7 +150,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickTitle: "The book these pages come from",
         pickPoints: [
           "111 hand drawn pictures with thick lines",
-          "One drawing per page, blank on the back",
+          "One drawing per page, nothing small in the corners",
           "The name under each picture can be colored too, so new words come with it",
           "8.5 x 11 inches, room for a whole hand",
           "114 pages, made for ages 1 to 3",
@@ -196,7 +196,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickTitle: "El libro del que salen estas páginas",
         pickPoints: [
           "111 dibujos hechos a mano con trazos gruesos",
-          "Un dibujo por página, reverso en blanco",
+          "Un dibujo por página, sin detalles pequeños en las esquinas",
           "El nombre bajo cada dibujo también se colorea, y con él llegan palabras nuevas",
           "8.5 x 11 pulgadas, espacio para la mano entera",
           "114 páginas, para niños de 1 a 3 años",
@@ -871,7 +871,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       pickTitle: "Книга, из которой эти страницы",
       pickPoints: [
         "111 рисунков, нарисованных от руки толстой линией",
-        "Один рисунок на странице, оборот чистый",
+        "Один рисунок на странице, ничего мелкого по углам",
         "Название под каждым рисунком тоже можно раскрасить, а вместе с ним ребенок знакомится со словами",
         "Лист 21.6 x 27.9 см, достаточно места даже для всей ладони",
         "114 страниц, для детей от 1 до 3 лет",

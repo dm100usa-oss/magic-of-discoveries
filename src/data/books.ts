@@ -36,6 +36,16 @@ export interface BookCopy {
   inside: string[];
   /** Кому подходит. */
   forWhom: string;
+  /** Полное описание книги, разбитое на абзацы. Один связный текст,
+      в котором за каждым словом стоит проверяемый факт: номера, размеры,
+      даты, где книга продается. Нейросеть цитирует такой кусок целиком,
+      если он лежит на странице одним блоком. На экране свернут, чтобы
+      не оттеснять картинки. */
+  about?: string[];
+  /** Рассказ автора о работе над книгой. Единственное место, где сказано,
+      что рисунки сделал сам автор. Личный опыт поисковики и нейросети
+      ценят отдельно: его нельзя ни у кого списать. */
+  story?: string[];
   /** Вопросы, которые родители реально задают. Уходят в разметку FAQ. */
   faq: { q: string; a: string }[];
 }
@@ -476,17 +486,75 @@ export const books: Book[] = [
         ],
         forWhom:
           "Ages 1, 2 and 3. Good for a first coloring book, for preschool and daycare, and as a gift when you do not know the child well.",
+        about: [
+          "First Coloring Book for Toddlers Ages 1-3 (ISBN 9781963328271) is a first coloring book and first words book for children ages one to three, created by Ricardo Demi and published by Magic of Discoveries LLC on April 22, 2024. It can be used as a toddler's very first coloring book, as a first words book, or for both activities together on the same page.",
+          "The book has 114 pages, measures 8.5 x 11 inches, and contains 111 different pictures, all drawn by hand, with no picture repeated anywhere in the book. Under each picture is its name, printed in large outline letters that can be colored too. The book pairs 111 pictures to color with 111 matching first words.",
+          "Each page features one large subject with no busy background. The picture fills roughly 70 to 82 percent of the page width and height, the main outlines measure 2.4 to 4.8 mm, and the subject sits in the center of the page, making the layout equally comfortable for left-handed and right-handed children. Each page is designed for the very first attempts at coloring, when a child is still learning to control a crayon and cannot yet stay inside the lines. A large shape and thick outline make each stroke clearly visible even when the movement is imprecise, while the absence of small details does not require a level of precision the child may not have yet.",
+          "While coloring, a child practices controlling a crayon or pencil, looks at familiar objects, hears their names, and sees the matching printed words. A parent can name the objects, colors, and shapes on the page and use each picture as a starting point for conversation.",
+          "The pictures are grouped into eight themes: 39 land animals, 16 sea animals, 11 fairy-tale characters, 8 vehicles, 7 sports and games, 6 everyday objects, 10 flowers and plants, and 14 foods. From the first page to the last, the same principle holds: one large simple picture and one matching word, so the book remains a first coloring book and first words book for ages 1 to 3 throughout.",
+          "The book can be checked before buying: twenty real pages from the book are on this site to print for free, and a video filmed by a buyer shows an actual paperback copy and its interior pages. The book received a five-star review from the independent book-review site Readers' Favorite, is available through Amazon in 14 countries, and has its own entry in Wikidata, Q137217801.",
+        ],
+        story: [
+          "I have two children, and when they were little, I learned from experience what a first coloring book should be like. Adults may enjoy beautiful pictures with lots of detail, but a toddler who has just picked up a crayon does not need all of that yet. It is much easier to start with a large, clear picture, thick lines, and simple shapes.",
+          "That is exactly the kind of coloring book I wanted to create. Each page has just one large picture, without a busy background or lots of small details. I chose things children can recognize and name: animals, cars, food, flowers, everyday objects, and fairy-tale characters. I also wanted the book to have plenty of pictures, so a child could choose something different each time. That is how the book came to include 111 different pictures, with no repeats.",
+          "There is a reason for the words under the pictures. When a young child sees a cat, an apple, or a car, parents naturally tell them what it is. I wanted to bring that same experience into the book. I put the name of each picture underneath and made the letters large and outlined so they could be colored too. The result was 111 pictures and 111 first words.",
+          "Some of the pictures had to be reworked along the way. Sometimes there were too many details, sometimes a shape was too complicated, and sometimes the picture simply needed to be larger. Gradually, the basic idea for the whole book took shape: one large, simple picture, a thick, easy-to-see outline, and one word underneath. That same principle stays consistent from the first page to the last.",
+          "For me, it was important to create more than just another children's coloring book. I wanted to make a book that would truly be easy for a toddler to start with. In many ways, I made the kind of book I would have wanted to give my own children at that age.",
+        ],
         faq: [
           {
-            q: "Is this too hard for a 1 year old?",
-            a: "No. The drawings were made deliberately simple for the youngest end of the range. A one year old will scribble across the shape, a three year old will start staying inside it. The same book works through all three years.",
+            q: "Is it too early to give this coloring book to a one-year-old?",
+            a: "No. The pictures are designed for even the youngest children: they are large and simple, with thick outlines and just one subject on each page. At age one, a child will usually hold a crayon in their fist and scribble across the picture rather than try to color neatly inside it. That is a normal stage. As children get closer to age three, many begin to have better control of their hand movements and stay inside the outlines more often.",
+          },
+          {
+            q: "Is this coloring book right for a two-year-old?",
+            a: "Yes. Age two is right in the middle of the range this book was designed for. At this age, a child may already try to color a picture but may not yet be able to stay inside the outlines. Large, simple pictures and thick lines work well for these early attempts, and the pages have no busy backgrounds or lots of small details.",
+          },
+          {
+            q: "Is this coloring book right for a three-year-old?",
+            a: "Yes, although age three is the upper end of the recommended range. A child who can already color confidently inside the outlines may find the book too simple. If they are just starting to color, it can still be a good fit. The book contains 111 different pictures across a variety of themes, giving the child plenty to choose from.",
+          },
+          {
+            q: "When will this coloring book become too simple for my child?",
+            a: "When your child can confidently color inside the outlines and large, simple pictures no longer feel challenging. At that point, you can move on to pictures with more details or try step-by-step drawing, where the child learns to create a picture themselves. Age is less important here than how confidently your child can control a crayon or pencil.",
+          },
+          {
+            q: "What is best for this book: crayons, colored pencils, or markers?",
+            a: "Thick crayons are usually easiest for a child's first attempts at coloring. They are easier for small hands to hold and leave a clear mark without much pressure. Colored pencils require a more precise grip, which usually develops later. Markers produce bright colors, but the ink can bleed through the paper.",
+          },
+          {
+            q: "Will markers bleed through the paper?",
+            a: "They can. The book is printed on regular book paper, with a drawing on both sides of each sheet. Marker ink that soaks through the paper may therefore affect the drawing on the other side. Crayons and colored pencils usually do not soak through the paper. If your child prefers markers, you can print pages from the printable file on heavier paper instead.",
           },
           {
             q: "How thick is the paper?",
-            a: "It is standard book paper, printed by Amazon, and a few parents have wished for something heavier. There is a drawing on both sides of each sheet, so marker ink that soaks through will show on the drawing behind it. Crayons and colored pencils do not do this, and they are the better choice at this age anyway.",
+            a: "It is standard book paper, printed by Amazon, and a few parents have wished for something heavier. Crayons and colored pencils suit it well. If you want thicker paper, the printable file lets you choose your own.",
+          },
+          {
+            q: "Can I see pages from the book for free before I buy it?",
+            a: "Yes. Twenty actual pages from the book are on this site to print for free, with no registration required. These are not specially created samples; they are the same pictures included in the book. This lets you see the size of the pictures, the thickness of the outlines, and whether the level is right for your child before you buy. There is also a video filmed by a buyer showing the actual paperback and its inside pages.",
           },
           faqPaperOrDigital.en,
-          faqBleedToddler.en,
+          {
+            q: "Does this book help introduce children to their first English words?",
+            a: "Yes, but it is not designed to teach reading. Each picture has its English name underneath it, for a total of 111 words. A child sees a familiar object, hears an adult say its name, and sees the written word at the same time. The book does not teach a child to read, but it introduces first English words and printed letters as part of coloring.",
+          },
+          {
+            q: "Can a child color and learn English words at the same time?",
+            a: "Yes. That is how the book is designed. The word under each picture is printed in large outline letters that can also be colored. A child can color the picture and the letters underneath while an adult says the name of the object.",
+          },
+          {
+            q: "Can this book be used in preschool or daycare?",
+            a: "Yes. The large, simple pictures and familiar objects work well for activities with young children. The pictures can be used for more than coloring. An adult can ask children to name the object, its color, or its shape, and use the English word under the picture to introduce a new word. The paperback works well for individual activities, while the printable file can be used when several children need the same page.",
+          },
+          {
+            q: "Is this a good gift for a child ages 1-3?",
+            a: "Yes, if the child is just starting to color or is still developing their coloring skills. The book contains 111 different pictures across eight themes, including animals, vehicles, nature, familiar objects, and food. If a three-year-old can already color more detailed pictures confidently, the book may be too simple for them.",
+          },
+          {
+            q: "Is this book available in Spanish?",
+            a: "Yes. There is a separate Spanish edition with the same 111 pictures and Spanish words underneath, ISBN 9781963328202. It is a Spanish-language edition, not a bilingual book.",
+          },
         ],
       },
     },

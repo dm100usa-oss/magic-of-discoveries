@@ -333,12 +333,11 @@ export default async function SectionPage({
                     {/* Покупка у нас. Стоит второй, когда набор есть и
                         на площадке, и первой, когда он только у нас. */}
                     {(() => {
-                      const own = card.bookId
-                        ? ownBookHref(card.bookId, lang)
-                        : null;
-                      return own && card.siteCta ? (
+                      const bookId = card.bookId;
+                      const own = bookId ? ownBookHref(bookId, lang) : null;
+                      return own && bookId && card.siteCta ? (
                         <Link className="btn btn--sky" href={own}>
-                          {card.siteCta} · {pdfPriceLabel(card.bookId)}
+                          {card.siteCta} · {pdfPriceLabel(bookId)}
                         </Link>
                       ) : null;
                     })()}
@@ -536,12 +535,11 @@ export default async function SectionPage({
                     {/* Покупка у нас. Стоит второй, когда набор есть и
                         на площадке, и первой, когда он только у нас. */}
                     {(() => {
-                      const own = card.bookId
-                        ? ownBookHref(card.bookId, lang)
-                        : null;
-                      return own && card.siteCta ? (
+                      const bookId = card.bookId;
+                      const own = bookId ? ownBookHref(bookId, lang) : null;
+                      return own && bookId && card.siteCta ? (
                         <Link className="btn btn--sky" href={own}>
-                          {card.siteCta} · {pdfPriceLabel(card.bookId)}
+                          {card.siteCta} · {pdfPriceLabel(bookId)}
                         </Link>
                       ) : null;
                     })()}

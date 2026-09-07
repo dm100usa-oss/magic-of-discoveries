@@ -82,7 +82,7 @@ import {
   ricardoNode,
   authorNode,
   authorRef,
-  bookId,
+  bookId as bookId2,
   pageId,
 } from "@/lib/schema";
 import { hasPdf, pdfPriceLabel, pdfPriceCents } from "@/lib/pdfShop";
@@ -394,11 +394,34 @@ export default async function ItemPage({
     const total = sheetCount(page, lang);
     const groups = groupsForLang(page, lang);
 
+    /* Для страницы одного объекта: состав темы, к которой относится
+       рисунок, и сколько рисунков в книге всего. Числа берутся из
+       состава книги, а не переписываются в текст руками, поэтому
+       разойтись с книгой они не могут. */
+    const themeGroups = pick ? topicsForBook(pick.id, lang) : [];
+    const theme = page.themeId
+      ? themeGroups.find((g) => g.id === page.themeId)
+      : undefined;
+    const themeItems = theme ? (theme.items[lang] ?? theme.items.en ?? []) : [];
+    const bookTotal = allTopics(themeGroups, lang).length;
+    /* Имя единственного рисунка страницы, чтобы отметить его в списке темы. */
+    const soleSheet = page.single ? groups[0]?.sheets[0] : undefined;
+    const soleName = soleSheet
+      ? (soleSheet.name[lang] ?? soleSheet.name.en ?? "")
+      : "";
+    const fill = (text: string) =>
+      text
+        .replace("{total}", String(bookTotal || total))
+        .replace("{n}", String(page.single ? themeItems.length : total));
+
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
         /* Издательство целиком. Дальше по странице на него только ссылка. */
         orgNode(),
+        /* Автор целиком, тем же опознавателем, что и на страницах книг:
+           один человек на весь сайт, а не однофамильцы. */
+        ...(pick ? [authorNode(pick.author, lang)] : []),
         {
           "@type": "Article",
           headline: copy.title,
@@ -415,19 +438,51 @@ export default async function ItemPage({
             .map((sh) => `${SITE_URL}${previewUrl(sh.id, lang)}`),
         },
         /* Права на каждый лист. Google показывает такие картинки
-           со значком "лицензируемое" и ставит ссылку на владельца. */
+           со значком "лицензируемое" и ставит ссылку на владельца.
+
+           Сюда же добавлена связь с книгой: этот рисунок часть вот
+           этого произведения. Без нее нейросеть, показывая наш лист,
+           не может назвать книгу, из которой он взят, и цепочка от
+           бесплатного к покупке обрывается. */
         ...groups.flatMap((g) =>
           g.sheets.map((sh) => ({
             "@type": "ImageObject",
             contentUrl: `${SITE_URL}${previewUrl(sh.id, lang)}`,
             name: f.sheetTitle.replace("{name}", sh.name[lang] ?? sh.name.en!),
-            creator: { "@type": "Person", name: AUTHORS.ricardo.name },
+            creator: pick ? authorRef(pick.author) : undefined,
             copyrightNotice: `© ${new Date().getFullYear()} ${PUBLISHER}`,
             creditText: PUBLISHER,
             license: `${SITE_URL}${itemPath(lang, "coloring", slug)}`,
             acquireLicensePage: `${SITE_URL}${sectionPath(lang, "contact")}`,
+            isPartOf: pick ? { "@id": bookId2(pick.id) } : undefined,
           })),
         ),
+        /* Сама книга. Полное описание живет на ее странице, здесь
+           короткая запись с тем же опознавателем: машина понимает,
+           что это одна и та же книга, а не однофамилица. */
+        ...(pick && pickCopy && pickSlug
+          ? [
+              {
+                "@type": "Book",
+                "@id": bookId2(pick.id),
+                name: pickCopy.title,
+                author: authorRef(pick.author),
+                publisher: orgRef(),
+                isbn: bookIsbn13(pick),
+                numberOfPages: pick.pages,
+                typicalAgeRange:
+                  pick.ageShown ??
+                  (pick.age === "teens-adults" ? "13-" : pick.age),
+                url: `${SITE_URL}${itemPath(lang, "books", pickSlug)}`,
+                /* Полный состав книги. По нему нейросеть отвечает
+                   тому, кто спросил про конкретное животное. */
+                about: allTopics(themeGroups, lang).map((name) => ({
+                  "@type": "Thing",
+                  name,
+                })),
+              },
+            ]
+          : []),
         {
           "@type": "FAQPage",
           mainEntity: copy.faq.map((q) => ({
@@ -526,13 +581,65 @@ export default async function ItemPage({
           </section>
         ))}
 
+        {/* Честный разбор: кому этот лист подходит, а кому уже нет.
+            Стоит до блока книги: человек сначала понимает, его ли это
+            уровень, и только потом видит книгу. Нейросеть берет отсюда
+            основание для рекомендации. */}
+        {copy.fitTitle && copy.fitYes?.length && copy.fitNo?.length ? (
+          <section className="wrap">
+            <h2 className="section">{copy.fitTitle}</h2>
+            <div className="sheets-intro">
+              <div className="prose">
+                <ul className="inside">
+                  {copy.fitYes.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="howto">
+                <p className="howto__title">{f.fitNoTitle}</p>
+                <ul>
+                  {copy.fitNo.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/* Состав темы, к которой относится рисунок. Человек видит, что
+            взял один лист из целой темы, и что тема это часть книги. */}
+        {copy.themeTitle && themeItems.length ? (
+          <section className="wrap">
+            <h2 className="section">{fill(copy.themeTitle)}</h2>
+            {copy.themeLead ? <p className="lead">{fill(copy.themeLead)}</p> : null}
+            <div className="topics-all__body">
+            <p>
+              {themeItems.map((item, i) => (
+                <span key={item}>
+                  {i > 0 ? ", " : ""}
+                  {item === soleName && copy.themeFreeMark ? (
+                    <strong>
+                      {item} ({copy.themeFreeMark})
+                    </strong>
+                  ) : (
+                    item
+                  )}
+                </span>
+              ))}
+            </p>
+            </div>
+          </section>
+        ) : null}
+
         {/* Решение: книга, из которой взяты рисунки */}
         {pick && pickCopy && pickSlug ? (
           <div className="band band--cream">
             <div className="wrap">
               <h2 className="section">{copy.pickTitle}</h2>
               <p className="lead">
-                {copy.pickLead.replace("{n}", String(total))}
+                {fill(copy.pickLead)}
               </p>
               <div className="pick">
                 <Link
@@ -1242,12 +1349,12 @@ export default async function ItemPage({
           isPartOf: { "@id": `${SITE_URL}/#website` },
           datePublished: pagePublished(),
           dateModified: pageUpdated(),
-          mainEntity: { "@id": bookId(book.id) },
+          mainEntity: { "@id": bookId2(book.id) },
           publisher: orgRef(),
         },
       {
         "@type": "Book",
-        "@id": bookId(book.id),
+        "@id": bookId2(book.id),
         name: copy.title,
         author: authorRef(book.author),
         publisher: orgRef(),

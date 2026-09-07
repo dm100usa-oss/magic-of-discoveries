@@ -174,6 +174,9 @@ export interface Dictionary {
     lead: string;
     comingSoon: string;
     howToTitle: string;
+    /** Заголовок правой колонки в разборе "кому подходит":
+        случаи, когда лист уже не подойдет. */
+    fitNoTitle: string;
     sheetTitle: string;
     sheetAlt: string;
     printLetter: string;
@@ -492,6 +495,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       comingSoon:
         "The first pages are being prepared. If you want one particular animal or theme, write to us and we will put it up.",
       howToTitle: "Printing them",
+      fitNoTitle: "Probably too simple if",
       sheetTitle: "{name} coloring page",
       sheetAlt: "Free printable {name} coloring page for toddlers, thick outlines, one animal per page",
       printLetter: "Print · US Letter",
@@ -811,6 +815,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       comingSoon:
         "Estamos preparando las primeras páginas. Si quieres un animal o un tema concreto, escríbenos y lo publicamos.",
       howToTitle: "Cómo imprimirlas",
+      fitNoTitle: "Seguramente le quedará corto si",
       sheetTitle: "Dibujo de {name} para colorear",
       sheetAlt: "Dibujo de {name} para colorear gratis para imprimir, contornos gruesos, un animal por página, con el nombre en español",
       printLetter: "Imprimir · Carta",
@@ -1125,6 +1130,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       lead: "Выберите лист, распечатайте, раскрасьте.",
       comingSoon: "Первые листы готовятся.",
       howToTitle: "Как печатать",
+      fitNoTitle: "Скорее всего, уже просто, если",
       sheetTitle: "Раскраска {name}",
       sheetAlt: "Бесплатная раскраска {name} для печати, толстый контур, одно животное на листе",
       printLetter: "Печать · Letter",

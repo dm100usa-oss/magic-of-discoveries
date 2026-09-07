@@ -1,10 +1,28 @@
 // Бесплатные раскраски для печати.
-// Страница = тема. Внутри набор рисунков, у каждого свой заголовок и своя кнопка.
-// Внизу страницы одна книга, из которой взяты рисунки. Это и есть решение.
 //
-// Почему тема, а не отдельная страница на каждый рисунок: сотня почти пустых
-// страниц выглядит как штамповка и в поиск не идет. Страница темы полезна сама
-// по себе и при этом находится по названию каждого животного внутри нее.
+// Два вида страниц.
+//
+// Тема. Внутри набор рисунков, у каждого свой заголовок и своя кнопка.
+// Внизу одна книга, из которой взяты рисунки.
+//
+// Один объект. Ровно один лист, и вся страница про него: лев, единорог,
+// машина. Такая страница отвечает на запрос, который человек набирает
+// целиком, слово в слово, и потому находится там, где страница темы
+// не находится.
+//
+// Раньше здесь было записано, что отдельных страниц на каждый рисунок
+// делать не надо: сотня почти пустых страниц выглядит как штамповка.
+// Это остается верным для пустых страниц. Страница одного объекта пустой
+// не является: на ней проверяемые цифры книги, честный разбор кому
+// подходит и кому нет, полный состав темы, к которой относится рисунок,
+// и переход к книге. Таких страниц будет около полутора десятков, а не
+// сотня, и каждая делается под конкретный живой запрос.
+//
+// Почему это работает именно у нас. Библиотеки бесплатных раскрасок
+// держат по восемьдесят листов на тему и выигрывают объемом, но у них
+// на странице нет ни одной цифры и ни слова о том, какому ребенку лист
+// подходит. Наш ход не объем, а проверяемость: настоящая страница
+// изданной книги, толщина контура, доля листа, возраст, номер ISBN.
 
 import type { UiLang } from "./books";
 
@@ -40,6 +58,20 @@ export interface ColoringCopy {
   pickLead: string;
   pickTitle: string;
   pickPoints: string[];
+  /** Только для страницы одного объекта.
+      Честный разбор: кому этот лист подходит, а кому уже нет. Ровно то,
+      из чего нейросеть строит осмысленную рекомендацию вместо "подойдет
+      всем". У библиотек бесплатных раскрасок такого блока нет ни у кого. */
+  fitTitle?: string;
+  fitYes?: string[];
+  fitNo?: string[];
+  /** Заголовок и подводка блока с полным составом темы, к которой
+      относится этот рисунок. Числа подставляются: {n} сколько в теме,
+      {total} сколько в книге. */
+  themeTitle?: string;
+  themeLead?: string;
+  /** Пометка у бесплатного рисунка внутри списка темы. */
+  themeFreeMark?: string;
   faq: { q: string; a: string }[];
 }
 
@@ -59,6 +91,13 @@ export interface ColoringPage {
   /** Лист это разворот из двух страниц: слева шаги, справа практика.
       Превью широкое, поэтому сетка и веер показываются крупнее. */
   spread?: boolean;
+  /** Страница про один объект. Внутри ровно один лист, и вся страница
+      написана под запрос про него. */
+  single?: boolean;
+  /** Для страницы одного объекта: к какой теме книги относится рисунок.
+      Полный состав темы берется из bookTopics, здесь только ссылка на
+      него. Один факт живет в одном месте. */
+  themeId?: string;
   copy: Partial<Record<UiLang, ColoringCopy>>;
   groups: SheetGroup[];
 }
@@ -69,6 +108,249 @@ const S = (id: string, en: string, es: string, ru: string): Sheet => ({
 });
 
 const coloringPagesBase: ColoringPage[] = [
+  /* --------------------------------------------------------------
+     Страница одного объекта. Образец, по которому дальше делаются
+     остальные: собака, кошка, машина, единорог и так далее.
+
+     Целимся не в запрос "раскраска лев", там стоят библиотеки с
+     восемьюдесятью листами и чужими персонажами. Целимся в запрос
+     родителя малыша: простой лев, толстый контур, для двух лет.
+     Такой страницы у библиотек нет ни одной.
+     -------------------------------------------------------------- */
+  {
+    id: "lion-toddler",
+    published: "2026-09-07",
+    updated: "2026-09-07",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "lion-coloring-page-for-toddlers",
+      es: "dibujo-de-leon-para-colorear-ninos-pequenos",
+      ru: "raskraska-lev-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "The page", es: "La lámina", ru: "Лист" },
+        sheets: [S("lion", "Lion", "León", "Лев")],
+      },
+    ],
+    copy: {
+      en: {
+        title:
+          "Lion coloring page for toddlers ages 1-3. Free to print, big picture, thick outline",
+        lead:
+          "One large lion, a thick outline, and the word underneath that can be colored too. A real page from a printed book, free to print in US Letter or A4.",
+        body: [
+          "This lion is drawn for a child who has just picked up a crayon. The outline measures 2.4 to 4.8 mm, about as thick as the crayon itself, so a stroke that lands slightly outside still reads as part of the lion. The picture fills roughly 70 to 82 percent of the page, and it sits in the center, which works the same for a left-handed and a right-handed child.",
+          "There is nothing else on the sheet. No border, no scenery, no small details in the corners. A toddler holds attention for a few minutes, and a page with several things on it usually ends before it starts because there is nowhere obvious to begin.",
+          "Under the lion is the word LION in large outline letters. A child can color the letters as well, and hear the word while doing it. That is how first words arrive at this age: with an object in front of the child, not as a lesson.",
+          "This is not a drawing made for a website. It is page one of a printed book, 8.5 by 11 inches, ISBN 9781963328271, and you can check everything on this page against the book itself.",
+        ],
+        howTo: [
+          "Two file sizes: US Letter and A4. Pick whichever your printer takes",
+          "Thick crayons work best for the youngest hands",
+          "For markers, slip a spare sheet underneath",
+          "Print it twice and color one together",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYes: [
+          "The child is between one and three, or older and just starting to color",
+          "The crayon still goes outside the outline more often than inside",
+          "Detailed pages get abandoned after a minute",
+          "You want the child to name what is on the page, not just fill it",
+        ],
+        fitNo: [
+          "The child already colors confidently inside simple outlines",
+          "They ask for scenes with several things happening",
+          "They want to draw the picture themselves rather than fill one in",
+        ],
+        themeTitle: "The lion is one of {n} land animals in the book",
+        themeLead:
+          "Only the lion is free here. The rest of the land animals are in the book, which holds {total} drawings in all, each with its word underneath.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "This page is one of {total}. Same size, same outline weight, same one word underneath, from the first page to the last.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [
+          "111 hand drawn pictures, none of them repeated",
+          "One large subject per page, nothing small in the corners",
+          "The word under each picture can be colored too, so first words come with it",
+          "8.5 x 11 inches, 114 pages, for ages 1 to 3",
+          "Five stars from Readers' Favorite, an independent book review site",
+        ],
+        faq: [
+          {
+            q: "Is this really free?",
+            a: "Yes. No account, no email, no payment. Print as many copies as you want, at home or at a school.",
+          },
+          {
+            q: "Can I use it in my classroom or daycare?",
+            a: "Yes, print it and hand it out freely. Please do not resell it or republish the file on another site.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same, only the sheet size differs.",
+          },
+          {
+            q: "What should my child color it with?",
+            a: "Thick crayons are easiest for the youngest hands: they leave a clear mark without much pressure. Colored pencils need a more precise grip, which comes later. Markers give bright color but can soak through ordinary paper, so slip a spare sheet underneath.",
+          },
+          {
+            q: "My child scribbles over the whole lion. Is that a problem?",
+            a: "No, that is what this age looks like. At one and two a child makes a mark on purpose and repeats the movement to watch it happen, and the target is the sheet rather than the picture on it. Staying inside the outline comes later, and a thick outline is what makes the difference visible when it does.",
+          },
+          {
+            q: "Are there more free pages?",
+            a: "Yes. Twenty more real pages from the same book are free to print on this site, and the book itself holds 111.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "Dibujo de león para colorear para niños de 1 a 3 años. Gratis para imprimir, dibujo grande y contorno grueso",
+        lead:
+          "Un solo león grande, un contorno grueso y la palabra debajo, que también se puede colorear. Es una página real de un libro impreso, gratis para imprimir en A4 o Carta.",
+        body: [
+          "Este león está dibujado para un niño que acaba de coger una cera. El contorno mide entre 2,4 y 4,8 mm, más o menos el grosor de la propia cera, así que un trazo que se salga un poco sigue leyéndose como parte del león. El dibujo ocupa entre el 70 y el 82 % de la página y está centrado, algo que funciona igual para un niño diestro y para uno zurdo.",
+          "En la hoja no hay nada más. Ni marco, ni paisaje, ni detalles pequeños en las esquinas. Un niño de esta edad aguanta unos pocos minutos, y una página con varias cosas a la vez suele terminar antes de empezar, porque no hay un sitio claro por donde comenzar.",
+          "Debajo del león está la palabra LEÓN en letras grandes de contorno. El niño puede colorear también las letras y oír la palabra mientras lo hace. Así llegan las primeras palabras a esta edad: con el objeto delante, no como una lección.",
+          "No es un dibujo hecho para una web. Es una página de un libro impreso, de 21,6 por 27,9 cm, ISBN 9781963328271, y todo lo que dice esta página se puede comprobar en el propio libro.",
+        ],
+        howTo: [
+          "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
+          "Las ceras gruesas funcionan mejor en las manos más pequeñas",
+          "Si usas rotuladores, pon una hoja debajo",
+          "Imprímelo dos veces y coloread uno juntos",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYes: [
+          "El niño tiene entre uno y tres años, o es mayor y empieza ahora a colorear",
+          "La cera todavía se sale del contorno más veces de las que se queda dentro",
+          "Las láminas con muchos detalles se abandonan al minuto",
+          "Quieres que el niño nombre lo que ve, no solo que rellene",
+        ],
+        fitNo: [
+          "El niño ya colorea con seguridad dentro de contornos sencillos",
+          "Pide escenas con varias cosas ocurriendo a la vez",
+          "Prefiere dibujar él mismo antes que rellenar un dibujo hecho",
+        ],
+        themeTitle: "El león es uno de los {n} animales terrestres del libro",
+        themeLead:
+          "Aquí solo el león es gratuito. Los demás animales terrestres están en el libro, que reúne {total} dibujos en total, cada uno con su palabra debajo.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "Esta lámina es una de {total}. El mismo tamaño, el mismo grosor de contorno y la misma palabra debajo, de la primera página a la última.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [
+          "111 dibujos hechos a mano, ninguno repetido",
+          "Un solo objeto grande por página, sin detalles pequeños en las esquinas",
+          "La palabra bajo cada dibujo también se colorea, y con ella llegan las primeras palabras",
+          "21,6 x 27,9 cm, 114 páginas, para niños de 1 a 3 años",
+          "Cinco estrellas de Readers' Favorite, un sitio independiente de reseñas",
+        ],
+        faq: [
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo, sin pago. Imprime las copias que quieras, en casa o en una escuela.",
+          },
+          {
+            q: "¿Puedo usarla en mi clase o en la guardería?",
+            a: "Sí, imprímela y repártela libremente. Por favor, no la revendas ni publiques el archivo en otra web.",
+          },
+          {
+            q: "¿Qué archivo imprimo, Carta o A4?",
+            a: "En España y en Latinoamérica, elige A4. En Estados Unidos y Canadá, elige Carta. El dibujo es el mismo, solo cambia el tamaño de la hoja.",
+          },
+          {
+            q: "¿Con qué conviene colorearlo?",
+            a: "Las ceras gruesas son lo más cómodo para las manos más pequeñas: dejan un trazo visible sin apretar. Los lápices de colores piden un agarre más preciso, que llega más adelante. Los rotuladores dan colores intensos, pero pueden traspasar el papel corriente, así que conviene poner una hoja debajo.",
+          },
+          {
+            q: "Mi hijo garabatea sobre todo el león. ¿Es un problema?",
+            a: "No, así es esta edad. Al año y a los dos años el niño hace una marca a propósito y repite el movimiento para verla aparecer, y su objetivo es la hoja más que el dibujo que hay en ella. Quedarse dentro del contorno llega después, y un contorno grueso es lo que hace visible la diferencia cuando llega.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas?",
+            a: "Sí. En esta web hay veinte páginas reales más del mismo libro, gratis para imprimir, y el libro completo reúne 111.",
+          },
+        ],
+      },
+      ru: {
+        title:
+          "Раскраска лев для малышей 1-3 лет. Распечатать бесплатно, крупный рисунок, толстый контур",
+        lead:
+          "Один крупный лев, толстый контур и слово под рисунком, которое тоже можно раскрасить. Настоящая страница из изданной книги, бесплатно для печати в двух размерах листа.",
+        body: [
+          "Этот лев нарисован для ребенка, который только взял в руки мелок. Толщина контура 2,4-4,8 мм, примерно как сам мелок, поэтому штрих, ушедший немного за линию, все равно читается как часть льва. Рисунок занимает примерно 70-82 % листа и стоит по центру, что одинаково удобно правше и левше.",
+          "На листе больше ничего нет. Ни рамки, ни пейзажа, ни мелких деталей по углам. Малыш удерживает внимание несколько минут, и страница, на которой сразу несколько предметов, обычно заканчивается, не начавшись: непонятно, с чего начать.",
+          "Под львом написано слово LION крупными полыми буквами. Ребенок может раскрасить и буквы, а взрослый в это время назовет слово вслух. Так первые слова и приходят в этом возрасте: когда предмет перед глазами, а не в виде урока.",
+          "Это не картинка, нарисованная для сайта. Это страница изданной книги формата 21,6 на 27,9 см, ISBN 9781963328271, и все, что написано на этой странице, можно проверить по самой книге.",
+        ],
+        howTo: [
+          "Два размера файла: Letter и A4. Выбирайте тот, который подходит вашему принтеру",
+          "Малышам удобнее толстые восковые мелки",
+          "Если раскрашиваете фломастерами, подложите запасной лист",
+          "Напечатайте два экземпляра и раскрасьте один вместе",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYes: [
+          "Ребенку от одного до трех лет, или он старше и только начинает раскрашивать",
+          "Мелок пока чаще уходит за контур, чем остается внутри",
+          "Рисунки с мелкими деталями забрасываются через минуту",
+          "Вам хочется, чтобы ребенок называл нарисованное, а не только закрашивал",
+        ],
+        fitNo: [
+          "Ребенок уже уверенно раскрашивает внутри простого контура",
+          "Он просит картинки, где происходит сразу несколько вещей",
+          "Ему интереснее рисовать самому, чем закрашивать готовое",
+        ],
+        themeTitle: "Лев это один из {n} наземных животных книги",
+        themeLead:
+          "Здесь бесплатен только лев. Остальные наземные животные есть в книге, а всего в ней {total} рисунков, и под каждым написано его слово.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "Этот лист один из {total}. Тот же размер, та же толщина контура, то же одно слово под рисунком, от первой страницы до последней.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [
+          "111 рисунков от руки, ни один не повторяется",
+          "Один крупный предмет на странице, ничего мелкого по углам",
+          "Слово под каждым рисунком тоже можно раскрасить, вместе с ним приходят первые слова",
+          "21,6 x 27,9 см, 114 страниц, для детей от 1 до 3 лет",
+          "Пять звезд от Readers' Favorite, независимого сайта книжных рецензий",
+        ],
+        faq: [
+          {
+            q: "Это правда бесплатно?",
+            a: "Да. Без регистрации, без почты, без оплаты. Печатайте столько копий, сколько нужно, дома или в детском саду.",
+          },
+          {
+            q: "Можно использовать в детском саду или в группе?",
+            a: "Да, печатайте и раздавайте свободно. Просим только не перепродавать лист и не выкладывать файл на других сайтах.",
+          },
+          {
+            q: "Какой файл печатать, Letter или A4?",
+            a: "В США и Канаде выбирайте Letter, в Европе и Латинской Америке A4. Рисунок одинаковый, отличается только размер листа.",
+          },
+          {
+            q: "Чем лучше раскрашивать?",
+            a: "Для самых маленьких удобнее толстые восковые мелки: они оставляют заметный след без сильного нажима. Цветные карандаши требуют более точного хвата, он появляется позже. Фломастеры дают яркий цвет, но могут пройти сквозь обычную бумагу, поэтому подложите запасной лист.",
+          },
+          {
+            q: "Ребенок черкает поверх всего льва. Это плохо?",
+            a: "Нет, так и выглядит этот возраст. В год и в два ребенок делает след намеренно и повторяет движение, чтобы посмотреть, как он появляется, и целью для него служит лист, а не рисунок на нем. Попадать внутрь контура он начнет позже, и толстый контур как раз делает эту перемену заметной.",
+          },
+          {
+            q: "Есть еще бесплатные листы?",
+            a: "Да. На сайте бесплатно доступны еще двадцать настоящих страниц из этой же книги, а всего в книге 111 рисунков.",
+          },
+        ],
+      },
+    },
+  },
   {
     id: "toddler-animals",
     published: "2026-08-09",

@@ -199,7 +199,6 @@ export const guides: Guide[] = [
         checklist: [
           "Contornos gruesos, lo bastante anchos para que un crayón tembloroso caiga dentro",
           "Un objeto claro por página para los más pequeños, varios cuando mejora el control",
-          "Impresión a una sola cara, para que un marcador que traspase solo afecte al reverso de esa hoja",
           "Objetos cotidianos que el niño pueda nombrar",
           "Página grande, 8.5 x 11 pulgadas, para que quepan las manos pequeñas",
         ],
@@ -266,12 +265,11 @@ export const guides: Guide[] = [
           "A esta edad la mano todavía está aprendiendo por dónde va el crayón. El niño barre en lugar de rellenar. Es normal, y decide todo lo demás sobre el libro que conviene comprar.",
           "Un contorno fino castiga ese barrido. El color cae fuera, la página le parece mal al niño y el interés baja. Un contorno grueso lo perdona. El color cae más o menos dentro, el dibujo sigue leyéndose como un gato, y el niño siente que le salió.",
           "Lo segundo que importa es cuánto hay en la página. Un objeto grande basta. Una página con una escena entera suele perder al niño pequeño, porque no hay un punto claro por donde empezar.",
-          "Lo tercero es el reverso de la hoja. Los pequeños agarran marcadores. Si el libro está impreso por las dos caras, un marcador arruina dos dibujos. La impresión a una sola cara le cuesta más páginas al editor y le ahorra una discusión al padre.",
+          "Lo tercero es el material de color. Los pequeños agarran marcadores, y la tinta de un marcador atraviesa el papel de libro corriente. A esta edad los crayones gruesos funcionan mejor: marcan sin apretar y no traspasan la hoja.",
         ],
         checklist: [
           "Contornos gruesos",
           "Un objeto grande por página",
-          "Impresión a una sola cara, reverso en blanco",
           "Temas familiares: animales, comida, juguetes, clima, plantas",
           "8.5 x 11 pulgadas, espacio para la mano entera",
         ],
@@ -344,7 +342,6 @@ export const guides: Guide[] = [
           "Líneas claras, todavía cómodamente gruesas",
           "Varios elementos por página, no una sola figura",
           "Muchos temas, para que el niño encuentre su favorito",
-          "Impresión a una sola cara",
           "Una página que se termina de una sentada",
         ],
         pick: "Un conjunto más amplio de temas con el mismo grosor de línea indulgente, para el niño que ya superó un objeto por página.",
@@ -774,7 +771,6 @@ export const guides: Guide[] = [
         checklist: [
           "Contornos marcados, formas abiertas",
           "Una página que puedes terminar de una sentada",
-          "Impresión a una sola cara, pensada para marcadores",
           "Sin detalle fino que exija rotuladores especiales",
           "Página grande, cómoda para trabajar",
         ],
@@ -832,7 +828,7 @@ export const guides: Guide[] = [
           },
           {
             q: "Does paper thickness matter?",
-            a: "Less than people expect, if the printing is single-sided. With single-sided pages, a marker that soaks through only marks a blank back.",
+            a: "Less than people expect, if the child colors with crayons or colored pencils. Marker ink is what soaks through ordinary book paper, and at this age thick crayons work better anyway.",
           },
         ],
       },
@@ -849,7 +845,6 @@ export const guides: Guide[] = [
         ],
         checklist: [
           "Grosor de línea: de marcador, no de lápiz",
-          "Impresión a una sola cara, reverso en blanco",
           "Un objeto por página para los más pequeños",
           "8.5 x 11 pulgadas",
           "Bastantes temas distintos para encontrar un favorito",
@@ -862,7 +857,7 @@ export const guides: Guide[] = [
           },
           {
             q: "¿Importa el grosor del papel?",
-            a: "Menos de lo que se cree, si la impresión es a una sola cara. Con páginas a una cara, un marcador que cala solo mancha un reverso en blanco.",
+            a: "Menos de lo que se cree, si el niño colorea con ceras o lápices de colores. Lo que atraviesa el papel de libro corriente es la tinta de los rotuladores, y a esta edad las ceras gruesas funcionan mejor.",
           },
         ],
       },

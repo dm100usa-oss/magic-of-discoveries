@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Book, UiLang } from "@/data/books";
 import { cheapestFormat } from "@/data/books";
-import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
+import { hasPdf, pdfPriceLabel } from "@/lib/pdfShop";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
 import { RatingMini } from "@/components/Rating";
 import { SITE_NAME, SOCIAL, METHOD_REFERENCE_URL, toddlerSiteUrl } from "@/lib/site";
@@ -307,7 +307,7 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
      и без этого запасного варианта карточка стояла бы в каталоге
      вовсе без цены, рядом с книгами, у которых цена есть. */
   const price =
-    cheapestFormat(book)?.price ?? (hasPdf(book.id) ? PDF_PRICE_LABEL : undefined);
+    cheapestFormat(book)?.price ?? (hasPdf(book.id) ? pdfPriceLabel(book.id) : undefined);
   return (
     <Link className="card" href={itemPath(lang, "books", slug)}>
       <div className="card__frame">

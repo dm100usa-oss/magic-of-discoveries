@@ -75,7 +75,7 @@ import {
   sectionPath,
 } from "@/lib/routes";
 import { langAlternates, breadcrumbs, orgNode, orgRef, ricardoNode } from "@/lib/schema";
-import { hasPdf, PDF_PRICE_LABEL, PDF_PRICE_CENTS } from "@/lib/pdfShop";
+import { hasPdf, pdfPriceLabel, pdfPriceCents } from "@/lib/pdfShop";
 
 /* Дата словами, на языке страницы. В коде остается машинная запись,
    человеку показываем привычную. */
@@ -309,7 +309,7 @@ function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
 /* Покупка печатного PDF прямо здесь.
 
    Кнопка одна, и цена на ней одна: два размера листа это не два товара,
-   а один и тот же файл под разную бумагу. Показывать две кнопки по 4.99
+   а один и тот же файл под разную бумагу. Показывать две кнопки с ценой
    рядом означало бы намекать, что платить надо дважды.
 
    Размер выбирается после нажатия. Подсказка о том, кому какой лист
@@ -325,7 +325,7 @@ function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
   return (
     <details className="buy-pdf">
       <summary className="btn btn--sky">
-        {t.buyPdf} · {PDF_PRICE_LABEL}
+        {t.buyPdf} · {pdfPriceLabel(book.id)}
       </summary>
       <div className="buy-pdf__pick">
         <p className="buy-pdf__lead">{t.pdfPickSize}</p>
@@ -1289,7 +1289,7 @@ export default async function ItemPage({
             ? [
                 {
                   "@type": "Offer",
-                  price: (PDF_PRICE_CENTS / 100).toFixed(2),
+                  price: (pdfPriceCents(book.id) / 100).toFixed(2),
                   priceCurrency: "USD",
                   availability: "https://schema.org/InStock",
                   url: `${SITE_URL}${itemPath(lang, "books", slug)}`,

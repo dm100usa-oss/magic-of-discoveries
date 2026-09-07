@@ -189,13 +189,13 @@ const VIDEOS: Record<string, BookVideo> = {
     description: {
       es:
         "Un recorrido sin cortes por la edición en español de El Primer Libro de Colorear para Bebés " +
-        "de 1 a 3 Años. Se ve la portada y después una página tras otra: un dibujo grande por hoja, " +
-        "impreso por una sola cara, con la palabra en español debajo en letras huecas, entre ellos " +
+        "de 1 a 3 Años. Se ve la portada y después una página tras otra: un dibujo grande en cada " +
+        "página, con la palabra en español debajo en letras huecas, entre ellos " +
         "el loro, el tulipán, la torta, el bádminton, las gafas, el grifo, el trol, el cangrejo, el pulpo, " +
         "el perro, la ardilla, el zorro y la gallina. Diecinueve segundos, sin sonido.",
       en:
         "An unedited flip through of the Spanish edition of this book. The clip shows the cover and then " +
-        "page after page: one large drawing per sheet, printed on one side, with the Spanish word for it " +
+        "page after page: one large drawing on every page, with the Spanish word for it " +
         "in outline letters underneath. Nineteen seconds, no sound.",
     },
     chapters: [
@@ -203,15 +203,8 @@ const VIDEOS: Record<string, BookVideo> = {
       {
         at: 2,
         text: {
-          es: "Página tras página: un dibujo grande por hoja, con la palabra debajo",
-          en: "Page after page: one large drawing per sheet, with the word underneath",
-        },
-      },
-      {
-        at: 6,
-        text: {
-          es: "El reverso de la hoja, en blanco",
-          en: "The back of the sheet, blank",
+          es: "Página tras página: un dibujo grande en cada página, con la palabra debajo",
+          en: "Page after page: one large drawing on every page, with the word underneath",
         },
       },
       {
@@ -234,13 +227,13 @@ const VIDEOS: Record<string, BookVideo> = {
       en:
         "An unedited flip through of the paperback edition of First Coloring Book for Toddlers Ages 1-3, " +
         "filmed on a table. The clip shows the front cover, the back cover, the title page, and page after " +
-        "page of the book: one large drawing per sheet, printed on one side, with the word for it in outline " +
+        "page of the book: one large drawing on every page, with the word for it in outline " +
         "letters underneath, among them broccoli, a lotus, a sunflower, a beach hat, a kite and a helicopter. " +
         "It ends on the page at the front where a child writes their name. Forty six seconds, no sound.",
       es:
         "Un recorrido sin cortes por la edición en rústica de El Primer Libro de Colorear para Bebés de 1 a 3 Años, " +
         "filmado sobre una mesa. Se ven la portada, la contraportada, la portadilla y una página tras otra: " +
-        "un dibujo grande por hoja, impreso por una sola cara, con la palabra debajo en letras huecas, " +
+        "un dibujo grande en cada página, con la palabra debajo en letras huecas, " +
         "entre ellos el brócoli, un loto, un girasol, un sombrero de playa, una cometa y un helicóptero. " +
         "Termina en la página del principio donde el niño escribe su nombre. Cuarenta y seis segundos, sin sonido.",
     },
@@ -257,8 +250,8 @@ const VIDEOS: Record<string, BookVideo> = {
       {
         at: 16,
         text: {
-          en: "Page after page: one large drawing per sheet, with the word underneath",
-          es: "Página tras página: un dibujo grande por hoja, con la palabra debajo",
+          en: "Page after page: one large drawing on every page, with the word underneath",
+          es: "Página tras página: un dibujo grande en cada página, con la palabra debajo",
         },
       },
       {
@@ -658,7 +651,7 @@ export const books: Book[] = [
         inside: [
           "111 large drawings with thick, forgiving outlines",
           "Little Max appears through the book, so coloring becomes a small story",
-          "One drawing per page, single-sided printing",
+          "One drawing on every page",
           "Cozy everyday subjects: animals, food, toys, weather, plants",
           "8.5 x 11 inches",
         ],
@@ -765,7 +758,7 @@ export const books: Book[] = [
         inside: [
           "111 dibujos grandes con contornos gruesos y tolerantes",
           "Pequeño Max aparece a lo largo del libro y colorear se vuelve un pequeño relato",
-          "Un dibujo por página, impresión por una sola cara",
+          "Un dibujo en cada página",
           "Temas cotidianos y acogedores: animales, comida, juguetes, plantas",
           "21.6 x 27.9 cm",
         ],
@@ -874,7 +867,7 @@ export const books: Book[] = [
         inside: [
           "111 new drawings, none repeated from the first volume",
           "Same thick outlines and large shapes, no step up in difficulty",
-          "One drawing per page, single-sided printing",
+          "One drawing on every page",
           "8.5 x 11 inches",
         ],
         forWhom:
@@ -979,7 +972,7 @@ export const books: Book[] = [
         inside: [
           "111 dibujos nuevos, ninguno repetido del primer volumen",
           "Las mismas líneas gruesas y formas grandes, sin subir la dificultad",
-          "Un dibujo por página, impresión por una sola cara",
+          "Un dibujo en cada página",
           "21.6 x 27.9 cm",
         ],
         forWhom: "De 1 a 3 años, sobre todo como segundo libro después del primero de Pequeño Max.",

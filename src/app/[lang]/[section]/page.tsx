@@ -40,7 +40,7 @@ import {
   authorSameAs,
 } from "@/lib/site";
 import { sectionFromSlug, sectionSlugs, sectionPath, itemPath, type Section } from "@/lib/routes";
-import { hasPdf, PDF_PRICE_LABEL } from "@/lib/pdfShop";
+import { hasPdf, pdfPriceLabel } from "@/lib/pdfShop";
 import {
   wordsHub,
   wordsSteps,
@@ -176,7 +176,7 @@ export default async function SectionPage({
       ageLabel: t.catalog.ages[b.age],
       ages: bookAges(b),
       type: b.type,
-      price: cheapestFormat(b)?.price ?? (hasPdf(b.id) ? PDF_PRICE_LABEL : undefined),
+      price: cheapestFormat(b)?.price ?? (hasPdf(b.id) ? pdfPriceLabel(b.id) : undefined),
       rating: b.rating,
       ratingNote: t.book.ratingNote,
       cover: b.cover,
@@ -338,7 +338,7 @@ export default async function SectionPage({
                         : null;
                       return own && card.siteCta ? (
                         <Link className="btn btn--sky" href={own}>
-                          {card.siteCta} · {PDF_PRICE_LABEL}
+                          {card.siteCta} · {pdfPriceLabel(card.bookId)}
                         </Link>
                       ) : null;
                     })()}
@@ -541,7 +541,7 @@ export default async function SectionPage({
                         : null;
                       return own && card.siteCta ? (
                         <Link className="btn btn--sky" href={own}>
-                          {card.siteCta} · {PDF_PRICE_LABEL}
+                          {card.siteCta} · {pdfPriceLabel(card.bookId)}
                         </Link>
                       ) : null;
                     })()}

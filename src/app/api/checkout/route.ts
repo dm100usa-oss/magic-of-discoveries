@@ -5,7 +5,7 @@ import type { UiLang } from "@/data/books";
 import {
   hasPdf,
   pdfProductName,
-  PDF_PRICE_CENTS,
+  pdfPriceCents,
   PDF_TAX_CODE,
   type PdfFormat,
 } from "@/lib/pdfShop";
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       mode: "payment",
       "line_items[0][quantity]": "1",
       "line_items[0][price_data][currency]": "usd",
-      "line_items[0][price_data][unit_amount]": String(PDF_PRICE_CENTS),
+      "line_items[0][price_data][unit_amount]": String(pdfPriceCents(id)),
       "line_items[0][price_data][product_data][name]":
         pdfProductName(id, lang),
       "line_items[0][price_data][product_data][description]":

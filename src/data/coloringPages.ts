@@ -1634,6 +1634,659 @@ const coloringPagesBase: ColoringPage[] = [
     },
   },
 
+  /* --------------------------------------------------------------
+     Жираф. Единственный лист, где мелкие участки разбросаны по
+     всему рисунку.
+     -------------------------------------------------------------- */
+  {
+    id: "giraffe-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "giraffe-coloring-page-for-toddlers",
+      es: "dibujo-de-jirafa-para-colorear-ninos-pequenos",
+      ru: "raskraska-zhiraf-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("giraffe", "Giraffe", "Jirafa", "Жираф")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска жираф для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с жирафом для малышей: один жираф без фона, толстый контур и слово «ЖИРАФ» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "Жираф покрыт пятнами, и их довольно много. Это единственная из десяти бесплатных раскрасок, где небольшие участки расположены по всему рисунку, а не собраны в одном месте.",
+          "Раскрашивать каждое пятно отдельно необязательно. Ребенок, который только начинает, может закрасить жирафа целиком одним цветом, не обращая внимания на пятна. Позже этот же лист можно распечатать снова и попробовать раскрасить пятна отдельно.",
+          "Шея и ноги у жирафа узкие, поэтому они требуют более точных движений, чем крупные области на слоне или медведе. Это делает жирафа хорошим следующим шагом после самых простых раскрасок.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а жираф занимает примерно 70-82 % страницы и расположен по центру. Вокруг нет фона, деревьев, рамки и других предметов.",
+          "Под рисунком крупными контурными буквами написано слово «ЖИРАФ». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для крупных областей удобны толстые восковые мелки",
+          "Пятна необязательно раскрашивать по отдельности",
+          "Для отдельных пятен можно использовать цветные карандаши",
+          "При использовании фломастеров подложите дополнительный лист бумаги",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенок уже пробовал раскрашивать простые крупные картинки",
+          "Ему нравится использовать несколько цветов в одном рисунке",
+          "Он начинает интересоваться небольшими отдельными участками",
+          "Вы хотите рисунок, который позже можно распечатать снова и раскрасить более подробно",
+        ],
+        fitNoTitle: "Раскраска может быть пока слишком сложной, если:",
+        fitNo: [
+          "Ребенок впервые берет мелок и раскрашивает только широкими движениями",
+          "Ему пока трудно раскрашивать узкие участки",
+          "Ему проще работать с одной большой открытой областью. В таком случае можно сначала попробовать бесплатную раскраску со слоном или медведем, а к жирафу вернуться позже",
+        ],
+        themeTitle: "Жираф - один из {n} животных книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Жираф входит в тему животных: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге есть как совсем простые крупные картинки для первых попыток, так и рисунки с большим количеством отдельных участков. На каждой странице один рисунок и слово под ним, которое тоже можно раскрасить. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с жирафом бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Нужно ли раскрашивать пятна отдельно?",
+            a: "Нет. Жирафа можно закрасить целиком, не выделяя каждое пятно. Позже этот же лист можно распечатать снова и попробовать раскрасить пятна другим цветом.",
+          },
+          {
+            q: "Подойдет ли раскраска с жирафом ребенку 2 лет?",
+            a: "Да. Если ребенок только начинает, необязательно раскрашивать каждое пятно отдельно. Жирафа можно закрасить целиком, а к пятнам и узким участкам вернуться позже.",
+          },
+          {
+            q: "Почему жираф немного сложнее слона или медведя?",
+            a: "У жирафа много отдельных пятен, а шея и ноги довольно узкие. Слон и медведь состоят в основном из более крупных открытых областей, поэтому с них проще начинать.",
+          },
+          {
+            q: "Есть ли более простые бесплатные раскраски?",
+            a: "Да. Среди десяти бесплатных страниц есть рисунки с крупными открытыми областями. Например, можно начать со слона или медведя.",
+          },
+        ],
+      },
+      en: {
+        title: "Giraffe coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big giraffe coloring page for toddlers: one giraffe with no background, a thick outline, and the word GIRAFFE underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The giraffe is covered in spots, and there are quite a few of them. It is the only one of the ten free pages where the small areas are spread across the whole drawing instead of sitting in one place.",
+          "There is no need to color each spot on its own. A child who is just starting can fill the giraffe with one color and pay no attention to the spots. Later the same page can be printed again and the spots colored separately.",
+          "The neck and the legs are narrow, so they call for steadier movements than the large areas on the elephant or the bear. That makes the giraffe a good next step after the simplest pages.",
+          "The main outline measures 2.4 to 4.8 mm, and the giraffe fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no trees, no frame and nothing else around it.",
+          "Under the picture is the word GIRAFFE in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons work well on the large areas",
+          "The spots do not have to be colored one by one",
+          "Colored pencils are handy for the individual spots",
+          "If you use markers, slip a spare sheet underneath",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child has already tried simple, large pictures",
+          "They like using several colors in one picture",
+          "They are beginning to take an interest in small separate areas",
+          "You want a page you can print again later and color in more detail",
+        ],
+        fitNoTitle: "The page may be too hard for now if:",
+        fitNo: [
+          "Your child is holding a crayon for the first time and only makes wide strokes",
+          "Narrow areas are still difficult for them",
+          "One large open area is easier for them. In that case start with the free elephant or bear page and come back to the giraffe later",
+        ],
+        themeTitle: "The giraffe is one of {n} animals in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The giraffe belongs to the animal theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The book holds both very simple large pictures for first attempts and drawings with more separate areas. Every page has one picture and a word underneath that can be colored too. 114 pages, 8.5 x 11 inches. The pictures are drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this giraffe coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Do the spots have to be colored separately?",
+            a: "No. The giraffe can be filled in without picking out each spot. Later the same page can be printed again and the spots given another color.",
+          },
+          {
+            q: "Is this giraffe page right for a two year old?",
+            a: "Yes. If your child is just starting, there is no need to color each spot on its own. They can fill the giraffe in and leave the spots and the narrow areas for later.",
+          },
+          {
+            q: "Why is the giraffe a little harder than the elephant or the bear?",
+            a: "The giraffe has many separate spots, and the neck and the legs are fairly narrow. The elephant and the bear are made mostly of larger open areas, which makes them easier to start with.",
+          },
+          {
+            q: "Are there easier free coloring pages?",
+            a: "Yes. Among the ten free pages there are drawings with large open areas. The elephant or the bear is a good place to start.",
+          },
+        ],
+      },
+      es: {
+        title: "Jirafa para colorear para niños de 1 a 3 años - imprimir gratis",
+        lead:
+          "Una jirafa grande para colorear, pensada para los más pequeños: una sola jirafa sin fondo, contorno grueso y la palabra JIRAFA debajo, que también se puede colorear. Esta lámina pertenece a un libro publicado y se puede imprimir gratis en A4 o Carta, sin registro.",
+        body: [
+          "La jirafa está cubierta de manchas, y son bastantes. Es la única de las diez láminas gratuitas en la que las zonas pequeñas están repartidas por todo el dibujo en lugar de concentrarse en una sola parte.",
+          "No hace falta colorear cada mancha por separado. Un niño que empieza puede pintar la jirafa entera de un solo color sin prestar atención a las manchas. Más adelante se puede imprimir la misma lámina otra vez y probar a colorear las manchas por separado.",
+          "El cuello y las patas son estrechos, por lo que requieren movimientos algo más precisos que las zonas grandes del elefante o del oso. Por eso la jirafa puede ser un buen paso después de los dibujos más sencillos.",
+          "El contorno principal mide entre 2,4 y 4,8 mm. La jirafa ocupa aproximadamente entre el 70 % y el 82 % de la página y está centrada. Alrededor no hay fondo, árboles, marco ni otros objetos.",
+          "Debajo del dibujo aparece la palabra JIRAFA en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para las zonas grandes van bien las ceras gruesas",
+          "No hace falta colorear las manchas por separado",
+          "Para las manchas se pueden utilizar lápices de colores",
+          "Si se usan rotuladores, conviene poner una hoja de papel debajo",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Esta lámina encaja si:",
+        fitYes: [
+          "Tu hijo ya ha probado dibujos sencillos y grandes",
+          "Le gusta utilizar varios colores en un mismo dibujo",
+          "Empieza a fijarse en zonas pequeñas por separado",
+          "Buscas una lámina que pueda volver a colorear más adelante con mayor detalle",
+        ],
+        fitNoTitle: "La lámina puede resultar todavía difícil si:",
+        fitNo: [
+          "Tu hijo coge la cera por primera vez y solo hace trazos amplios",
+          "Todavía le cuesta colorear zonas estrechas",
+          "Se maneja mejor con una sola zona grande y abierta. En ese caso, puede empezar por la lámina gratuita del elefante o del oso y volver a la jirafa más adelante",
+        ],
+        themeTitle: "La jirafa es uno de los {n} animales del libro",
+        themeLead:
+          "Esta lámina gratuita pertenece a El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. La jirafa forma parte del tema de los animales: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "En el libro hay dibujos muy sencillos y grandes para los primeros intentos y otros con más zonas separadas. Cada página tiene un dibujo y una palabra debajo que también se puede colorear. Tiene 114 páginas y un formato de 21,6 x 27,9 cm. Los dibujos están hechos a mano y ninguno se repite. El libro ha recibido cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis esta jirafa para colorear?",
+            a: "Sí. Se puede imprimir sin registro, sin correo electrónico y sin pagar. Hay dos tamaños disponibles: A4 y Carta.",
+          },
+          {
+            q: "¿Hay que colorear las manchas por separado?",
+            a: "No. Se puede colorear la jirafa entera sin diferenciar cada mancha. Más adelante se puede imprimir la misma lámina otra vez y probar a colorear las manchas de otro color.",
+          },
+          {
+            q: "¿Le viene bien esta jirafa a un niño de dos años?",
+            a: "Sí. Si está empezando, no hace falta colorear cada mancha por separado. Puede pintar la jirafa entera y dejar las manchas y las zonas estrechas para más adelante.",
+          },
+          {
+            q: "¿Por qué la jirafa es un poco más difícil que el elefante o el oso?",
+            a: "La jirafa tiene muchas manchas separadas, y el cuello y las patas son bastante estrechos. El elefante y el oso tienen zonas más grandes y abiertas, por lo que resultan más sencillos para empezar.",
+          },
+          {
+            q: "¿Hay láminas gratuitas más sencillas?",
+            a: "Sí. Entre las diez páginas gratuitas hay dibujos con zonas grandes y abiertas. El elefante o el oso son un buen punto de partida.",
+          },
+        ],
+      },
+    },
+  },
+
+  /* --------------------------------------------------------------
+     Медведь. Все части круглые, ни одного узкого места.
+     -------------------------------------------------------------- */
+  {
+    id: "bear-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "bear-coloring-page-for-toddlers",
+      es: "dibujo-de-oso-para-colorear-ninos-pequenos",
+      ru: "raskraska-medved-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("bear", "Bear", "Oso", "Медведь")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска медведь для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с медведем для малышей: один медведь без фона, толстый контур и слово «МЕДВЕДЬ» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "Медведь состоит из крупных округлых частей: круглая голова, круглые уши, широкое туловище и большие лапы. Мелких и узких участков почти нет, поэтому крупные части удобно раскрашивать широкими движениями.",
+          "Медведь сидит лицом вперед, а левая и правая стороны рисунка почти симметричны. Его можно закрасить целиком одним цветом или выбрать отдельные цвета для ушей и лап.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а медведь занимает примерно 70-82 % страницы и расположен по центру. Вокруг нет фона, леса, рамки и других предметов.",
+          "Под рисунком крупными контурными буквами написано слово «МЕДВЕДЬ». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для первых попыток удобны толстые восковые мелки",
+          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
+          "Можно распечатать несколько экземпляров и попробовать разные цвета",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенок впервые берет в руки мелки или карандаши",
+          "Это одна из его первых раскрасок",
+          "Он пока раскрашивает широкими движениями",
+          "Ему проще крупные округлые области, чем небольшие и узкие участки",
+        ],
+        fitNoTitle: "Раскраска может быть слишком простой, если:",
+        fitNo: [
+          "Ребенок уже уверенно раскрашивает небольшие участки внутри контура",
+          "Он сам просит картинки с большим количеством деталей",
+          "Ему интереснее раскрашивать рисунки с несколькими небольшими областями",
+          "Он предпочитает рисовать самостоятельно",
+        ],
+        themeTitle: "Медведь - один из {n} животных книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Медведь входит в тему животных: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге сохраняется тот же принцип: один крупный рисунок на странице, толстый контур и слово крупными контурными буквами под картинкой. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с медведем бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с медведем ребенку 2 лет?",
+            a: "Да, особенно если ребенок только начинает раскрашивать. У медведя крупные округлые части и почти нет небольших и узких участков. Его можно закрасить целиком одним цветом.",
+          },
+          {
+            q: "Почему медведь подходит для первых раскрасок?",
+            a: "Большую часть рисунка занимают крупные округлые области. На странице нет фона и множества мелких деталей, поэтому ребенку не приходится работать сразу с большим количеством небольших участков.",
+          },
+          {
+            q: "Чем лучше раскрашивать?",
+            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки. При использовании фломастеров лучше подложить дополнительный лист бумаги.",
+          },
+          {
+            q: "Есть ли еще бесплатные раскраски для малышей?",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги. Всего в книге 111 разных рисунков.",
+          },
+        ],
+      },
+      en: {
+        title: "Bear coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big bear coloring page for toddlers: one bear with no background, a thick outline, and the word BEAR underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The bear is made of large rounded parts: a round head, round ears, a wide body and big paws. There is almost nothing small or narrow, so the large parts take wide strokes comfortably.",
+          "The bear is sitting and facing forward, and the left and the right side are nearly the same. It can be filled with one color, or the ears and the paws can take colors of their own.",
+          "The main outline measures 2.4 to 4.8 mm, and the bear fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no forest, no frame and nothing else around it.",
+          "Under the picture is the word BEAR in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons are easiest for first attempts",
+          "If your child uses markers, slip a spare sheet underneath",
+          "Print a few copies and try different colors",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child is picking up crayons or pencils for the first time",
+          "This is one of their first coloring pages",
+          "They still color with wide strokes",
+          "Large rounded areas are easier for them than small, narrow ones",
+        ],
+        fitNoTitle: "The page may be too simple if:",
+        fitNo: [
+          "Your child already colors small areas confidently inside the line",
+          "They ask for pictures with more detail",
+          "They would rather color drawings made of several small areas",
+          "They would rather draw a picture themselves",
+        ],
+        themeTitle: "The bear is one of {n} animals in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The bear belongs to the animal theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The same principle runs through the book: one large picture per page, a thick outline, and the word underneath in large outline letters. 114 pages, 8.5 x 11 inches. Every picture is drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this bear coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this bear page right for a two year old?",
+            a: "Yes, especially if your child is just starting to color. The bear is made of large rounded parts with almost nothing small or narrow, and it can be filled with a single color.",
+          },
+          {
+            q: "Why does the bear suit first coloring pages?",
+            a: "Most of the drawing is large rounded areas. There is no background and no crowd of small details, so a child does not have to deal with many little areas at once.",
+          },
+          {
+            q: "What is best for coloring it?",
+            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements. With markers, slip a spare sheet underneath.",
+          },
+          {
+            q: "Are there more free coloring pages for toddlers?",
+            a: "Yes. Ten real pages from the same book are free to print on this site. The book itself holds 111 different pictures.",
+          },
+        ],
+      },
+      es: {
+        title: "Oso para colorear para niños de 1 a 3 años - imprimir gratis",
+        lead:
+          "Un oso grande para colorear, pensado para los más pequeños: un solo oso sin fondo, contorno grueso y la palabra OSO debajo, que también se puede colorear. Esta lámina pertenece a un libro publicado y se puede imprimir gratis en A4 o Carta, sin registro.",
+        body: [
+          "El oso está formado por partes grandes y redondeadas: la cabeza redonda, las orejas redondas, un cuerpo ancho y unas patas grandes. Casi no hay zonas pequeñas ni estrechas, por lo que las partes grandes se pueden colorear con trazos amplios.",
+          "El oso está sentado de frente, y el lado izquierdo y el derecho son casi simétricos. Se puede pintar entero de un solo color o utilizar colores distintos para las orejas y las patas.",
+          "El contorno principal mide entre 2,4 y 4,8 mm. El oso ocupa aproximadamente entre el 70 % y el 82 % de la página y está centrado. Alrededor no hay fondo, bosque, marco ni otros objetos.",
+          "Debajo del dibujo aparece la palabra OSO en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para los primeros intentos van mejor las ceras gruesas",
+          "Si el niño usa rotuladores, pon una hoja de papel debajo",
+          "Puedes imprimir varias copias y probar colores distintos",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Esta lámina encaja si:",
+        fitYes: [
+          "Tu hijo coge las ceras o los lápices por primera vez",
+          "Es una de sus primeras láminas para colorear",
+          "Todavía colorea con trazos amplios",
+          "Las zonas grandes y redondeadas le resultan más fáciles que las partes pequeñas y estrechas",
+        ],
+        fitNoTitle: "La lámina puede quedarse corta si:",
+        fitNo: [
+          "Ya colorea con seguridad zonas pequeñas dentro del contorno",
+          "Pide dibujos con más detalles",
+          "Prefiere dibujos con varias zonas pequeñas separadas",
+          "Prefiere dibujar él mismo",
+        ],
+        themeTitle: "El oso es uno de los {n} animales del libro",
+        themeLead:
+          "Esta lámina gratuita pertenece a El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. El oso forma parte del tema de los animales: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "El libro sigue el mismo principio: un dibujo grande por página, contorno grueso y una palabra debajo en letras grandes de contorno que también se puede colorear. Tiene 114 páginas y un formato de 21,6 x 27,9 cm. Todos los dibujos están hechos a mano y ninguno se repite. El libro ha recibido cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis este oso para colorear?",
+            a: "Sí. Se puede imprimir sin registro, sin correo electrónico y sin pagar. Hay dos tamaños disponibles: A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien este oso a un niño de dos años?",
+            a: "Sí, sobre todo si está empezando a colorear. El oso tiene partes grandes y redondeadas y casi no hay zonas pequeñas ni estrechas. Se puede pintar entero de un solo color.",
+          },
+          {
+            q: "¿Por qué el oso es adecuado para empezar a colorear?",
+            a: "La mayor parte del dibujo está formada por zonas grandes y redondeadas. No hay fondo ni muchos detalles pequeños, por lo que el niño no tiene que trabajar con muchas zonas pequeñas a la vez.",
+          },
+          {
+            q: "¿Con qué conviene colorearlo?",
+            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos. Si se usan rotuladores, conviene poner una hoja de papel debajo.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas para los más pequeños?",
+            a: "Sí. En esta web hay diez páginas del mismo libro que se pueden imprimir gratis. El libro completo reúne 111 dibujos distintos.",
+          },
+        ],
+      },
+    },
+  },
+
+  /* --------------------------------------------------------------
+     Лиса. Несколько крупных частей, которые сами просятся в разные
+     цвета.
+     -------------------------------------------------------------- */
+  {
+    id: "fox-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "fox-coloring-page-for-toddlers",
+      es: "dibujo-de-zorro-para-colorear-ninos-pequenos",
+      ru: "raskraska-lisa-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("fox", "Fox", "Zorro", "Лиса")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска лиса для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с лисой для малышей: одна лиса без фона, толстый контур и слово «ЛИСА» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "У лисы несколько крупных частей, которые удобно раскрашивать разными цветами: туловище, большой пушистый хвост и отделенный линией кончик хвоста. Мордочка тоже отделена линией, поэтому ее можно выделить другим цветом.",
+          "Такой рисунок подойдет ребенку, который уже пробует использовать несколько цветов, но пока предпочитает крупные области без множества мелких деталей. Отдельных частей здесь немного, и все они достаточно крупные.",
+          "При этом лису можно раскрасить целиком одним цветом, отдельные части необязательно выделять. Позже этот же лист можно распечатать снова и попробовать другое сочетание цветов.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а лиса занимает примерно 70-82 % страницы и расположена по центру. Вокруг нет фона, леса, рамки и других предметов.",
+          "Под рисунком крупными контурными буквами написано слово «ЛИСА». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для первых попыток удобны толстые восковые мелки",
+          "Отдельные части необязательно раскрашивать разными цветами",
+          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
+          "Можно распечатать два экземпляра и попробовать разные сочетания цветов",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенку 1-3 года или он старше, но только начинает раскрашивать",
+          "Он пока часто выходит за контур",
+          "Он начинает использовать несколько цветов в одном рисунке",
+          "Ему проще несколько крупных областей, чем множество мелких деталей",
+        ],
+        fitNoTitle: "Раскраска может быть слишком простой, если:",
+        fitNo: [
+          "Ребенок уже уверенно раскрашивает небольшие участки внутри контура",
+          "Он просит более подробные рисунки с большим количеством деталей",
+          "Ему интереснее раскрашивать сложные картинки с фоном и несколькими объектами",
+          "Он предпочитает рисовать самостоятельно",
+        ],
+        themeTitle: "Лиса - один из {n} животных книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Лиса входит в тему животных: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге сохраняется тот же принцип: один крупный рисунок на странице, толстый контур и слово крупными контурными буквами под картинкой. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с лисой бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с лисой ребенку 2 лет?",
+            a: "Да. В рисунке немного отдельных частей, и все они достаточно крупные. Если ребенок только начинает, лису можно закрасить целиком одним цветом.",
+          },
+          {
+            q: "Обязательно ли раскрашивать кончик хвоста другим цветом?",
+            a: "Нет. Это только один из вариантов. Лису можно раскрасить целиком одним цветом или использовать разные цвета для туловища, хвоста, его кончика и мордочки.",
+          },
+          {
+            q: "Почему эта раскраска подходит для нескольких цветов?",
+            a: "Туловище, хвост, кончик хвоста и мордочка разделены линиями на несколько крупных областей. Их можно раскрасить разными цветами, не работая с множеством мелких деталей.",
+          },
+          {
+            q: "Есть ли еще бесплатные раскраски для малышей?",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги. Всего в книге 111 разных рисунков.",
+          },
+        ],
+      },
+      en: {
+        title: "Fox coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big fox coloring page for toddlers: one fox with no background, a thick outline, and the word FOX underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The fox has several large parts that take colors of their own: the body, the big bushy tail, and the tip of the tail, which is marked off by a line. The muzzle is outlined as well, so it can be given another color.",
+          "That suits a child who is starting to use more than one color but still does better with large areas and few small details. There are only a handful of separate parts here, and all of them are big.",
+          "The fox can also be filled with a single color, there is no need to pick out the parts. Later the same page can be printed again and tried with a different combination.",
+          "The main outline measures 2.4 to 4.8 mm, and the fox fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no forest, no frame and nothing else around it.",
+          "Under the picture is the word FOX in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons are easiest for first attempts",
+          "The separate parts do not have to be different colors",
+          "If your child uses markers, slip a spare sheet underneath",
+          "Print two copies and try different color combinations",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child is 1 to 3, or older and just starting to color",
+          "They still go outside the line often",
+          "They are beginning to use several colors in one picture",
+          "A few large areas are easier for them than a lot of small detail",
+        ],
+        fitNoTitle: "The page may be too simple if:",
+        fitNo: [
+          "Your child already colors small areas confidently inside the line",
+          "They ask for more detailed drawings",
+          "They would rather color busier pictures with a background and several objects",
+          "They would rather draw a picture themselves",
+        ],
+        themeTitle: "The fox is one of {n} animals in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The fox belongs to the animal theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The same principle runs through the book: one large picture per page, a thick outline, and the word underneath in large outline letters. 114 pages, 8.5 x 11 inches. Every picture is drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this fox coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this fox page right for a two year old?",
+            a: "Yes. There are only a few separate parts and all of them are large. If your child is just starting, the fox can be filled with a single color.",
+          },
+          {
+            q: "Does the tip of the tail have to be a different color?",
+            a: "No. That is only one option. The fox can be filled with one color, or the body, the tail, its tip and the muzzle can each take their own.",
+          },
+          {
+            q: "Why does this page work well for several colors?",
+            a: "The body, the tail, the tip of the tail and the muzzle are marked off by lines into a few large areas. They can each take a different color without any small detail to work around.",
+          },
+          {
+            q: "Are there more free coloring pages for toddlers?",
+            a: "Yes. Ten real pages from the same book are free to print on this site. The book itself holds 111 different pictures.",
+          },
+        ],
+      },
+      es: {
+        title: "Zorro para colorear para niños de 1 a 3 años - imprimir gratis",
+        lead:
+          "Un zorro grande para colorear, pensado para los más pequeños: un solo zorro sin fondo, contorno grueso y la palabra ZORRO debajo, que también se puede colorear. Esta lámina pertenece a un libro publicado y se puede imprimir gratis en A4 o Carta, sin registro.",
+        body: [
+          "El zorro tiene varias partes grandes que se pueden colorear con colores distintos: el cuerpo, la cola grande y esponjosa y la punta de la cola, separada por una línea. El hocico también está delimitado, por lo que se puede colorear de otro tono.",
+          "Esta distribución resulta adecuada para un niño que ya empieza a utilizar varios colores, pero todavía se maneja mejor con zonas grandes y pocos detalles pequeños. Hay pocas partes separadas y todas son bastante grandes.",
+          "También se puede pintar el zorro entero de un solo color: no es necesario diferenciar cada parte. Más adelante se puede imprimir la misma lámina otra vez y probar otra combinación de colores.",
+          "El contorno principal mide entre 2,4 y 4,8 mm. El zorro ocupa aproximadamente entre el 70 % y el 82 % de la página y está centrado. Alrededor no hay fondo, bosque, marco ni otros objetos.",
+          "Debajo del dibujo aparece la palabra ZORRO en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para los primeros intentos van bien las ceras gruesas",
+          "No hace falta colorear cada parte de un color distinto",
+          "Si el niño usa rotuladores, pon una hoja de papel debajo",
+          "Puedes imprimir dos copias y probar distintas combinaciones de colores",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Esta lámina encaja si:",
+        fitYes: [
+          "Tu hijo tiene entre 1 y 3 años, o es mayor y empieza ahora a colorear",
+          "Todavía se sale del contorno a menudo",
+          "Empieza a utilizar varios colores en un mismo dibujo",
+          "Se maneja mejor con unas pocas zonas grandes que con muchos detalles pequeños",
+        ],
+        fitNoTitle: "La lámina puede quedarse corta si:",
+        fitNo: [
+          "Ya colorea con seguridad zonas pequeñas dentro del contorno",
+          "Pide dibujos más detallados",
+          "Prefiere dibujos más complejos, con fondo y varios objetos",
+          "Prefiere dibujar él mismo",
+        ],
+        themeTitle: "El zorro es uno de los {n} animales del libro",
+        themeLead:
+          "Esta lámina gratuita pertenece a El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. El zorro forma parte del tema de los animales: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "El libro sigue el mismo principio: un dibujo grande por página, contorno grueso y una palabra debajo en letras grandes de contorno que también se puede colorear. Tiene 114 páginas y un formato de 21,6 x 27,9 cm. Todos los dibujos están hechos a mano y ninguno se repite. El libro ha recibido cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis este zorro para colorear?",
+            a: "Sí. Se puede imprimir sin registro, sin correo electrónico y sin pagar. Hay dos tamaños disponibles: A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien este zorro a un niño de dos años?",
+            a: "Sí. El dibujo tiene pocas partes separadas y todas son bastante grandes. Si está empezando, puede pintar el zorro entero de un solo color.",
+          },
+          {
+            q: "¿Hay que pintar la punta de la cola de otro color?",
+            a: "No. Es solo una posibilidad. Se puede pintar el zorro entero de un solo color o utilizar colores distintos para el cuerpo, la cola, la punta y el hocico.",
+          },
+          {
+            q: "¿Por qué esta lámina permite utilizar varios colores fácilmente?",
+            a: "El cuerpo, la cola, la punta de la cola y el hocico están separados por líneas y forman varias zonas grandes. Se pueden utilizar distintos colores sin tener que trabajar con muchos detalles pequeños.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas para los más pequeños?",
+            a: "Sí. En esta web hay diez páginas del mismo libro que se pueden imprimir gratis. El libro completo reúne 111 dibujos distintos.",
+          },
+        ],
+      },
+    },
+  },
+
   {
     id: "toddler-animals",
     published: "2026-08-09",

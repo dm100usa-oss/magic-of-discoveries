@@ -361,12 +361,29 @@ const coloringPagesBase: ColoringPage[] = [
       en: "free-coloring-pages-for-toddlers-1-3",
       es: "dibujos-para-colorear-gratis-ninos-1-3-anos",
     },
-    /* Десять листов, а не двадцать. Выбраны по спросу: именно вокруг
-       этих животных крупные библиотеки раскрасок держат отдельные
-       разделы, значит по ним идет постоянный поиск. Носорог, крокодил,
+    /* Ровно десять листов, и это те десять, которые люди ищут чаще
+       всего. Кошка, собака, бабочка и единорог дают самый большой
+       поиск во всей теме, поэтому они стоят первыми. Дальше идут лев,
+       слон и жираф, вокруг которых у всех библиотек раскрасок есть
+       отдельные разделы, и лесная тройка медведь, лиса, заяц.
+       Зебра, обезьяна, сова, лягушка, а до них носорог, крокодил,
        кенгуру, коала, енот, еж, коза, попугай, фламинго и колибри
-       спроса почти не дают и из бесплатного набора убраны. */
+       спроса почти не дают и в бесплатный набор не входят. */
     groups: [
+      {
+        id: "pets",
+        title: {
+          en: "Cats, dogs and other favorites",
+          es: "Gatos, perros y otros favoritos",
+          ru: "Кошки, собаки и другие любимцы",
+        },
+        sheets: [
+          S("cat", "Cat", "Gato", "Кошка"),
+          S("dog", "Dog", "Perro", "Собака"),
+          S("bunny", "Bunny", "Conejo", "Заяц"),
+          S("butterfly", "Butterfly", "Mariposa", "Бабочка"),
+        ],
+      },
       {
         id: "wild",
         title: {
@@ -378,23 +395,19 @@ const coloringPagesBase: ColoringPage[] = [
           S("lion", "Lion", "León", "Лев"),
           S("elephant", "Elephant", "Elefante", "Слон"),
           S("giraffe", "Giraffe", "Jirafa", "Жираф"),
-          S("zebra", "Zebra", "Cebra", "Зебра"),
-          S("monkey", "Monkey", "Mono", "Обезьяна"),
         ],
       },
       {
         id: "forest",
         title: {
-          en: "Forest animals",
-          es: "Animales del bosque",
-          ru: "Животные леса",
+          en: "Forest and fairy tale",
+          es: "Bosque y cuento de hadas",
+          ru: "Лес и сказка",
         },
         sheets: [
           S("bear", "Bear", "Oso", "Медведь"),
           S("fox", "Fox", "Zorro", "Лиса"),
-          S("bunny", "Bunny", "Conejo", "Заяц"),
-          S("owl", "Owl", "Búho", "Сова"),
-          S("frog", "Frog", "Rana", "Лягушка"),
+          S("unicorn", "Unicorn", "Unicornio", "Единорог"),
         ],
       },
     ],
@@ -1383,6 +1396,7 @@ const RU_SHEETS = new Set([
   "lion", "elephant", "zebra", "parrot", "crocodile", "monkey", "kangaroo",
   "rhino", "flamingo", "hummingbird", "giraffe", "koala", "frog", "bunny",
   "owl", "hedgehog", "goat", "raccoon", "bear", "fox",
+  "cat", "dog", "butterfly", "unicorn", "dragon",
 ]);
 
 /** Имя файла листа на этом языке. Испанские рисунки лежат с суффиксом -es,

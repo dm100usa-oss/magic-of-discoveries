@@ -73,6 +73,11 @@ export interface Book {
   published?: string;
   size: string;
   formats: BookFormat[];
+  /** Номер книги, записанный вручную, тринадцатью цифрами.
+      Нужен только там, где книги нет на Amazon и вывести номер
+      из кода магазина невозможно: у русских изданий. У остальных
+      книг поле пустое, номер считается из кода Amazon. */
+  isbn?: string;
   /** Прямая ссылка на карточку PDF в старом магазине. Пусто = цифровой версии нет. */
   pdfUrl?: string;
   /** Файл обложки в /public/covers/. Пусто = показываем название на цветном фоне. */
@@ -131,8 +136,15 @@ export function isbn13(code: string): string | undefined {
   return core + String((10 - (sum % 10)) % 10);
 }
 
-/** ISBN печатного издания книги. */
+/** ISBN печатного издания книги.
+
+    У книг, которые продаются на Amazon, десятизначный код Amazon это и есть
+    номер книги, и считать его отдельно не нужно. У русских изданий кода
+    Amazon нет: Amazon не печатает по-русски. Но номер у них есть, свой
+    и зарегистрированный, он напечатан на титульном листе. Он лежит
+    в поле isbn и записан целиком, тринадцатью цифрами. */
 export function bookIsbn13(book: Book): string | undefined {
+  if (book.isbn) return book.isbn;
   const paper = book.formats.find((f) => f.kind !== "kindle");
   return paper ? isbn13(paper.asin) : undefined;
 }
@@ -3598,6 +3610,7 @@ export const books: Book[] = [
     cover: "/covers/first-coloring-book-111-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328363",
     enEditionAsin: "1963328272",
     rating: { value: 5.0, count: 19 },
     showcaseLead: {
@@ -3711,6 +3724,7 @@ export const books: Book[] = [
     cover: "/covers/little-max-coloring-1-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328653",
     enEditionAsin: "1963328566",
     rating: { value: 4.6, count: 3 },
     showcaseLead: {
@@ -3807,6 +3821,7 @@ export const books: Book[] = [
     cover: "/covers/little-max-coloring-2-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328486",
     enEditionAsin: "1963328450",
     rating: { value: 5.0, count: 1 },
     showcaseLead: {
@@ -3917,6 +3932,7 @@ export const books: Book[] = [
     cover: "/covers/how-to-draw-111-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328233",
     enEditionAsin: "1963328140",
     rating: { value: 4.9, count: 36 },
     showcaseLead: {
@@ -4027,6 +4043,7 @@ export const books: Book[] = [
     cover: "/covers/how-to-draw-everything-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328783",
     enEditionAsin: "1963328728",
     rating: { value: 5.0, count: 1 },
     showcaseLead: {
@@ -4135,6 +4152,7 @@ export const books: Book[] = [
     cover: "/covers/take-a-break-animals-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328196",
     enEditionAsin: "1963328167",
     rating: { value: 5.0, count: 26 },
     showcaseLead: {
@@ -4226,6 +4244,7 @@ export const books: Book[] = [
     cover: "/covers/take-a-break-ocean-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328226",
     enEditionAsin: "1963328299",
     rating: { value: 5.0, count: 7 },
     showcaseLead: {
@@ -4317,6 +4336,7 @@ export const books: Book[] = [
     cover: "/covers/take-a-break-food-ru.jpg",
     coverSize: { w: 900, h: 1165 },
     formats: [],
+    isbn: "9781963328356",
     enEditionAsin: "1963328329",
     showcaseLead: {
       ru: "Четыре вещи, которые стоит увидеть до покупки: какой толщины линия, сколько на рисунке свободного места, как напечатаны страницы и какие темы внутри.",

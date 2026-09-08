@@ -663,18 +663,60 @@ ul.inside li::marker { color: var(--pink-hot); }
 
 /* ==================== ПОДВАЛ ==================== */
 
+/* Подвал. Три колонки: кто мы, разделы сайта, соседние сайты и соцсети.
+   Раньше это были четыре строки по центру одна под другой, и подвал
+   выглядел недоделанным. Текст выровнен по левому краю колонки, ширина
+   колонок постоянная, копирайт отделен тонкой линией. */
 .footer {
-  background: var(--mint); color: #0c3f3b; margin-top: var(--gap-5);
-  padding: var(--gap-3) 1rem; text-align: center; font-size: var(--t-small);
+  background: var(--mint); color: #0c3f3b; margin-top: var(--gap-4);
+  padding: var(--band-y) clamp(1rem, 4vw, 2rem) var(--gap-3);
+  text-align: left; font-size: var(--t-small);
 }
 .footer a { color: #0c3f3b; font-weight: 800; }
 .footer p { margin: 0 0 0.4rem; }
-/* Строка о том, кто мы и для кого сайт. Стоит на каждой странице.
-   Уже основного текста и чуть приглушена: это опора, а не главное.
-   Селектор с тегом: правило .footer p выше сильнее и обнуляло боковые
-   поля, из-за чего строка прижималась к левому краю вместо центра. */
+
+.footer__inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: grid; gap: var(--gap-3) var(--gap-4); grid-template-columns: 1fr;
+}
+@media (min-width: 860px) {
+  .footer__inner {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.3fr);
+  }
+}
+
+.footer__name {
+  font-family: var(--font-display); font-size: var(--t-h3);
+  line-height: 1.15; margin: 0 0 0.6rem;
+}
+/* Текст о издательстве занимает всю ширину своей колонки и выключен по
+   формату, как основной текст на страницах. */
 .footer p.footer__about {
-  max-width: 74ch; margin: 0 auto 1rem; opacity: 0.82; line-height: 1.55;
+  margin: 0; opacity: 0.82; line-height: 1.55;
+  text-align: justify; hyphens: auto;
+}
+
+.footer__title {
+  font-size: var(--t-micro); font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.05em; opacity: 0.7; margin: 0 0 0.55rem;
+}
+.footer__title--gap { margin-top: var(--gap-2); }
+
+.footer__col ul {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; gap: 0.4rem; line-height: 1.35;
+}
+.footer__social { grid-auto-flow: column; grid-auto-columns: max-content; gap: 0.9rem; }
+
+.footer__legal {
+  max-width: var(--maxw); margin: var(--gap-3) auto 0;
+  padding-top: var(--gap-2);
+  border-top: 1px solid rgba(12, 63, 59, 0.22);
+  opacity: 0.8;
+}
+
+@media (max-width: 520px) {
+  .footer__social { grid-auto-flow: row; grid-auto-columns: auto; gap: 0.4rem; }
 }
 
 /* Подпись автора и даты под заголовком статьи. Мельче основного текста

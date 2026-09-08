@@ -255,6 +255,8 @@ export interface Dictionary {
     sitesTitle: string;
     methodSite: string;
     toddlerSite: string;
+    /* Заголовок колонки со ссылками на разделы сайта в подвале. */
+    sections: string;
   };
 }
 
@@ -579,6 +581,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       sitesTitle: "More from the publisher",
       methodSite: "The ECL method and the FSCBAC standard",
       toddlerSite: "First coloring books, ages 1 to 3",
+      sections: "Sections",
       about:
         "Magic of Discoveries is an independent family publisher run by Ricardo and Maria Demi in Miami, making books in English and Spanish for children, parents and teachers: simple coloring books with thick outlines for toddlers, short bedtime stories, step by step drawing, classroom materials for K-2, and easy coloring for teenagers and adults. Every illustration is drawn by hand, and the books are built so a child can manage on their own, finish what they started, and want to come back to it again. On this site you can pick a book by age and by kind, find the editions on Amazon, and download free printable pages.",
     },
@@ -905,6 +908,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       sitesTitle: "Más de la editorial",
       methodSite: "El método ECL y el estándar FSCBAC",
       toddlerSite: "Primeros libros para colorear, de 1 a 3 años",
+      sections: "Secciones",
       about:
         "Magic of Discoveries es una editorial familiar independiente de Ricardo y Maria Demi, en Miami, que publica libros en inglés y en español para niños, padres y maestros: libros para colorear de trazo grueso para los más pequeños, cuentos cortos para dormir, dibujo paso a paso, material de aula para K-2 y libros de colorear fáciles para adolescentes y adultos. Todas las ilustraciones están dibujadas a mano, y los libros están hechos para que un niño pueda hacerlo solo, terminar lo que empezó y querer volver a ello. En este sitio puedes elegir un libro por edad y por tipo, encontrar las ediciones en Amazon y descargar gratis páginas para imprimir.",
     },
@@ -1226,6 +1230,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       sitesTitle: "Другие наши сайты",
       methodSite: "Метод ECL и стандарт FSCBAC",
       toddlerSite: "Первые раскраски, от 1 до 3 лет",
+      sections: "Разделы",
       about:
         "Magic of Discoveries это независимое семейное издательство Рикардо и Марии Деми из Майами, создающее книги на английском, испанском и русском языках для детей, родителей и учителей: простые раскраски с толстыми контурами для малышей, короткие сказки на ночь, пошаговое рисование и учебные материалы для K-2, а также легкие раскраски для подростков и взрослых. Все иллюстрации нарисованы от руки, а задания и книги устроены так, чтобы ребенок мог справиться самостоятельно, довести начатое до конца и захотеть вернуться к нему снова. На сайте можно подобрать книгу по возрасту и типу, найти издания на Amazon и бесплатно скачать страницы для печати.",
     },

@@ -256,24 +256,72 @@ export function Header({ lang }: { lang: UiLang }) {
 
 export function Footer({ lang }: { lang: UiLang }) {
   const t = dictionaries[lang];
+  /* Те же разделы, что и в верхнем меню. Один список в двух местах
+     собирается из одного и того же перечня, поэтому они не могут
+     разойтись. */
+  const items: [string, string][] = [
+    [homePath(lang), t.nav.home],
+    [sectionPath(lang, "books"), t.nav.books],
+    [sectionPath(lang, "method"), t.nav.method],
+    ...(lang === "ru"
+      ? []
+      : ([[sectionPath(lang, "teachers"), t.nav.teachers]] as [string, string][])),
+    [sectionPath(lang, "coloring"), t.nav.coloringPages],
+    [sectionPath(lang, "words"), t.nav.firstWords],
+    [sectionPath(lang, "about"), t.nav.about],
+    [sectionPath(lang, "contact"), t.nav.contact],
+  ];
+  const social: [string, string][] = [
+    ["Instagram", SOCIAL.instagram],
+    ["TikTok", SOCIAL.tiktok],
+    ["Pinterest", SOCIAL.pinterest],
+    ["YouTube", SOCIAL.youtube],
+  ];
   return (
     <footer className="footer">
-      <p className="footer__about">{t.footer.about}</p>
-      {/* Два соседних сайта того же издательства. Раньше ссылки на них
-          стояли только внутри разметки и на отдельных страницах, то есть
-          человек их почти не видел, а машина видела их редко. Теперь они
-          на каждой странице. */}
-      <p className="footer__sites" style={{ margin: "0 0 8px" }}>
-        {t.footer.sitesTitle}:{" "}
-        <a href={METHOD_REFERENCE_URL}>{t.footer.methodSite}</a>
-        {" · "}
-        <a href={toddlerSiteUrl(lang)}>{t.footer.toddlerSite}</a>
-      </p>
-      <p style={{ margin: "0 0 8px" }}>
-        <a href={SOCIAL.instagram}>Instagram</a> · <a href={SOCIAL.tiktok}>TikTok</a> ·{" "}
-        <a href={SOCIAL.pinterest}>Pinterest</a> · <a href={SOCIAL.youtube}>YouTube</a>
-      </p>
-      <p style={{ margin: 0 }}>
+      <div className="footer__inner">
+        <div className="footer__brand">
+          <p className="footer__name">{SITE_NAME}</p>
+          <p className="footer__about">{t.footer.about}</p>
+        </div>
+
+        <nav className="footer__col" aria-label={t.footer.sections}>
+          <p className="footer__title">{t.footer.sections}</p>
+          <ul>
+            {items.map(([href, label]) => (
+              <li key={href}>
+                <Link href={href}>{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="footer__col">
+          {/* Два соседних сайта того же издательства. Для человека это
+              короткий путь к разбору, для машины постоянное подтверждение,
+              что три сайта принадлежат одному издательству. */}
+          <p className="footer__title">{t.footer.sitesTitle}</p>
+          <ul>
+            <li>
+              <a href={METHOD_REFERENCE_URL}>{t.footer.methodSite}</a>
+            </li>
+            <li>
+              <a href={toddlerSiteUrl(lang)}>{t.footer.toddlerSite}</a>
+            </li>
+          </ul>
+
+          <p className="footer__title footer__title--gap">{t.footer.follow}</p>
+          <ul className="footer__social">
+            {social.map(([name, url]) => (
+              <li key={name}>
+                <a href={url}>{name}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <p className="footer__legal">
         © 2024-{new Date().getFullYear()} {SITE_NAME}. {t.footer.rights}
       </p>
     </footer>

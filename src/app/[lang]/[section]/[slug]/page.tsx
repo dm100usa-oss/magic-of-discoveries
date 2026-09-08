@@ -2086,35 +2086,41 @@ export default async function ItemPage({
               <dt>{t.book.publisher}</dt>
               <dd>{PUBLISHER}</dd>
             </dl>
+
+            {/* Три служебные строки раньше висели под панелью по
+                отдельности, каждая своей длины, и выглядели как обрывки.
+                Теперь они внутри той же панели, за тонкой линией: это
+                продолжение данных о книге, а не отдельные абзацы. */}
+            <div className="specs__more">
+              <p className="method-line">
+                {t.method.bookMethod}:{" "}
+                <Link href={sectionPath(lang, "method")}>{t.method.title}</Link>
+              </p>
+
+              <p className="retail-line">
+                {t.method.bookRetail}:{" "}
+                {retailers
+                  .filter((r) => r.name !== "Amazon")
+                  .map((r, i) => (
+                    <span key={r.name}>
+                      {i > 0 ? " · " : ""}
+                      <a href={r.url} rel="nofollow noopener" target="_blank">
+                        {r.name}
+                      </a>
+                    </span>
+                  ))}
+              </p>
+
+              {pair && pairLang && pair.slug[pairLang] ? (
+                <p>
+                  {t.book.alsoIn}{" "}
+                  <Link href={itemPath(pairLang, "books", pair.slug[pairLang]!)}>
+                    {pairLang === "es" ? "Español" : "English"}
+                  </Link>
+                </p>
+              ) : null}
+            </div>
           </div>
-
-          <p className="method-line">
-            {t.method.bookMethod}:{" "}
-            <Link href={sectionPath(lang, "method")}>{t.method.title}</Link>
-          </p>
-
-          <p className="retail-line">
-            {t.method.bookRetail}:{" "}
-            {retailers
-              .filter((r) => r.name !== "Amazon")
-              .map((r, i) => (
-                <span key={r.name}>
-                  {i > 0 ? " · " : ""}
-                  <a href={r.url} rel="nofollow noopener" target="_blank">
-                    {r.name}
-                  </a>
-                </span>
-              ))}
-          </p>
-
-          {pair && pairLang && pair.slug[pairLang] ? (
-            <p>
-              {t.book.alsoIn}{" "}
-              <Link href={itemPath(pairLang, "books", pair.slug[pairLang]!)}>
-                {pairLang === "es" ? "Español" : "English"}
-              </Link>
-            </p>
-          ) : null}
 
           <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
             {t.book.faq}

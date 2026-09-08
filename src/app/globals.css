@@ -437,6 +437,7 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
   background: #fff; border-radius: var(--radius); padding: clamp(0.7rem, 1.6vw, 1.1rem);
   border: var(--edge);
   box-shadow: var(--shadow-raise); height: 100%;
+  display: flex; flex-direction: column;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 .card:hover .card__frame { transform: translateY(-4px); box-shadow: var(--shadow-raise-hover); }
@@ -456,7 +457,10 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
   margin: 0.7rem 0 0.25rem; line-height: 1.32;
 }
 .card__meta { color: var(--ink-2); font-size: var(--t-micro); margin: 0; }
-.card__price { font-weight: 800; color: var(--mint-deep); margin: 0.3rem 0 0; font-size: var(--t-small); }
+/* Цена прижата к низу карточки: у книги, где строка с оценкой
+   перенеслась на две строки, цена иначе уезжает ниже соседних,
+   и ряд карточек выглядит собранным на глаз. */
+.card__price { font-weight: 800; color: var(--mint-deep); margin: 0.3rem 0 0; margin-top: auto; padding-top: 0.3rem; font-size: var(--t-small); }
 .flag { margin-right: 0.35rem; }
 
 /* ==================== СТРАНИЦА КНИГИ ==================== */
@@ -666,8 +670,10 @@ ul.inside li::marker { color: var(--pink-hot); }
 .footer a { color: #0c3f3b; font-weight: 800; }
 .footer p { margin: 0 0 0.4rem; }
 /* Строка о том, кто мы и для кого сайт. Стоит на каждой странице.
-   Уже основного текста и чуть приглушена: это опора, а не главное. */
-.footer__about {
+   Уже основного текста и чуть приглушена: это опора, а не главное.
+   Селектор с тегом: правило .footer p выше сильнее и обнуляло боковые
+   поля, из-за чего строка прижималась к левому краю вместо центра. */
+.footer p.footer__about {
   max-width: 74ch; margin: 0 auto 1rem; opacity: 0.82; line-height: 1.55;
 }
 
@@ -838,6 +844,11 @@ ul.inside li::marker { color: var(--pink-hot); }
   gap: var(--gap-2) var(--gap-3);
   margin: var(--gap-2) 0 var(--gap-2);
 }
+/* Там, где у издания нет цены рядом (русское издание продается файлом),
+   оценка остается в строке одна и сжимается до своей ширины: маленькая
+   коробочка посреди пустого места, а подпись про английское издание
+   ломается на три строки. Растягиваем ее на всю ширину колонки. */
+.top-trust > .rating:only-child { flex: 1 1 100%; margin-bottom: 0; }
 .top-price {
   display: flex;
   align-items: baseline;
@@ -1146,6 +1157,22 @@ ul.award-list li {
 /* Строки про метод и магазины на странице книги */
 .method-line, .retail-line { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 0.5rem; }
 
+/* Продолжение панели с данными книги: метод, другие магазины, издание
+   на другом языке. Отделено тонкой линией, строки идут одна под другой
+   с одинаковым шагом, а не вразнобой под панелью. */
+.specs__more {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(12, 63, 59, 0.15);
+  display: grid;
+  gap: 0.35rem;
+}
+.specs__more p {
+  margin: 0;
+  font-size: var(--t-small);
+  color: var(--mint-deep);
+}
+
 /* ------------------------------------------------------------------ */
 /*  Бесплатные раскраски                                               */
 /* ------------------------------------------------------------------ */
@@ -1350,6 +1377,14 @@ ul.award-list li {
   .book { align-items: stretch; }
   .book__cover { align-self: start; }
   .book > :last-child {
+    display: flex;
+    flex-direction: column;
+  }
+  /* Свободную высоту забирает список пунктов и раздает ее между своими
+     строками. Если отдать ее всему столбцу, она собирается в две
+     большие дыры: одна над оценкой, другая над характеристиками. */
+  .book > :last-child .quick-facts--intro {
+    flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -395,8 +395,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       artwork: "Pictures from the book",
       forWhom: "Who the book is for",
       fitTitle: "Is this book right for your child?",
-      fitYes: "Probably yes, if:",
-      fitNo: "Another book may suit better, if:",
+      fitYes: "This book is a good fit if:",
+      fitNo: "The book may be too simple if:",
       drawingsTitle: "What the drawings look like",
       drawingsAll: "See all {n} drawings",
       aboutTitle: "The full description of this book",
@@ -416,14 +416,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "The PDF is yours to keep and print at home as often as you like. The download link opens right after checkout and also arrives by email.",
       alsoIn: "Also available in",
       related: "You may also like",
-      guideSiteTitle: "Not sure this is the right level for your child?",
+      guideSiteTitle: "How to choose a first coloring book",
       guideSiteText:
-        "We run a separate reference site about first coloring books for ages 1 to 3. " +
-        "It explains the four stages of first drawing, what a page should look like at each " +
-        "one, and what is normal at the table at one, two and three years old. It has a free " +
-        "picker that names the stage your child is at now, ten pages you can print today, and " +
-        "it says plainly when a first coloring book is already too simple. This book is used " +
-        "there as a worked example, not as the answer to every case.",
+        "On a separate reference site we go through the stages of a child's first drawing " +
+        "and show which coloring pages suit a one, two and three year old. It also has a " +
+        "free picker and more pages to print.",
       guideSiteCta: "Open the guide to first coloring books",
       wordsTitle: "111 pictures, 111 first words",
       wordsText:
@@ -721,8 +718,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es el libro",
       fitTitle: "¿Es este libro adecuado para tu hijo?",
-      fitYes: "Probablemente sí, si:",
-      fitNo: "Otro libro puede venir mejor, si:",
+      fitYes: "Este libro encaja si:",
+      fitNo: "El libro puede quedarse corto si:",
       drawingsTitle: "Cómo son los dibujos",
       drawingsAll: "Ver los {n} dibujos",
       aboutTitle: "Descripción completa de este libro",
@@ -742,15 +739,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "El PDF es suyo: puede imprimirlo en casa cuantas veces quiera. El enlace de descarga se abre justo después del pago y también llega por correo.",
       alsoIn: "También disponible en",
       related: "También te puede gustar",
-      guideSiteTitle: "¿No está seguro de que este sea el nivel adecuado?",
+      guideSiteTitle: "Cómo elegir el primer libro para colorear",
       guideSiteText:
-        "Tenemos un sitio de consulta aparte sobre los primeros libros para colorear de 1 a 3 " +
-        "años. Explica las cuatro etapas del primer dibujo, cómo debe ser una página en cada " +
-        "una y qué es normal en la mesa al año, a los dos y a los tres. Incluye una " +
-        "herramienta gratuita que indica en qué etapa está su hijo ahora, diez hojas que puede " +
-        "imprimir hoy mismo, y dice con claridad cuándo un primer libro para colorear ya " +
-        "resulta demasiado sencillo. Este libro se usa allí como ejemplo, no como respuesta " +
-        "para todos los casos.",
+        "En un sitio de consulta aparte explicamos con detalle las etapas de los primeros " +
+        "dibujos y mostramos qué láminas convienen a un niño de uno, dos y tres años. " +
+        "Allí también hay un selector gratuito y más hojas para imprimir.",
       guideSiteCta: "Abrir la guía sobre primeros libros para colorear",
       wordsTitle: "111 dibujos, 111 primeras palabras",
       wordsText:
@@ -1040,8 +1033,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит книга",
       fitTitle: "Подойдет ли книга вашему ребенку",
-      fitYes: "Скорее да, если:",
-      fitNo: "Лучше выбрать другую книгу, если:",
+      fitYes: "Книга подходит, если:",
+      fitNo: "Книга может быть слишком простой, если:",
       drawingsTitle: "Какие рисунки в книге",
       drawingsAll: "Смотреть все {n} рисунков",
       aboutTitle: "Полное описание книги",
@@ -1061,14 +1054,11 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "PDF остается у вас, печатайте дома сколько угодно раз. Ссылка на скачивание открывается сразу после оплаты и приходит на почту.",
       alsoIn: "Также есть на",
       related: "Может понравиться",
-      guideSiteTitle: "Не уверены, что это подходит вашему ребенку?",
+      guideSiteTitle: "Как выбрать первую раскраску",
       guideSiteText:
-        "У нас есть отдельный справочный сайт о первых раскрасках для детей от года до трех. " +
-        "Там разобраны четыре этапа первого рисования, показано, какой должна быть страница " +
-        "на каждом из них и что считать нормальным в год, два и три. Есть бесплатный " +
-        "подборщик, который определяет текущий этап ребенка, десять листов для печати и " +
-        "прямой ответ на вопрос, когда первая раскраска ребенку уже слишком проста. " +
-        "Эта книга приведена там как один из примеров, а не как универсальное решение.",
+        "В отдельном справочнике мы подробно разобрали этапы первых занятий рисованием " +
+        "и показали, какие раскраски подходят детям в год, два и три. Там же есть " +
+        "бесплатный подборщик и дополнительные страницы для печати.",
       guideSiteCta: "Открыть справочник о первых раскрасках",
       wordsTitle: "111 рисунков, 111 первых слов",
       wordsText:

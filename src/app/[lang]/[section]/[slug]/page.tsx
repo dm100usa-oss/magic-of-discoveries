@@ -1335,6 +1335,10 @@ export default async function ItemPage({
      рисунки, а снятые страницы вместе со словом контурными буквами:
      по ним сразу видно, что слово тоже раскрашивается. Показываем
      только там, где у книги есть такие страницы. */
+  /* Книга показана целиком: наверху рисунки, полный состав и связное
+     описание. Значит нижние блоки с тем же содержанием не нужны. */
+  const hasFullBook = Boolean(copy.about?.length) && topicGroups.some((g) => g.firstDrawing);
+
   const featuredPages = topicGroups.some((g) => g.firstDrawing)
     ? bookPages.map((n) => {
         let name = "";
@@ -1821,7 +1825,12 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          {copy.inside.length > (copy.intro?.length ? 0 : 3) ? (
+          {/* Список "Что внутри" и разбор по темам показываем не всегда.
+              У первой раскраски выше на странице уже стоят рисунки, полный
+              состав из ста одиннадцати названий и связное описание книги:
+              эти два блока повторяли бы то, что человек только что прочитал.
+              У остальных книг ничего этого нет, и там блоки остаются. */}
+          {!hasFullBook && copy.inside.length > (copy.intro?.length ? 0 : 3) ? (
             <>
               <h2 className="section">{t.book.inside}</h2>
               <ul className="inside">
@@ -1834,7 +1843,7 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          {topicGroups.length ? (
+          {!hasFullBook && topicGroups.length ? (
             <>
               <h2 className="section">{t.book.topicsTitle}</h2>
               <p>{t.book.topicsLead}</p>
@@ -1879,29 +1888,32 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          {/* Два больших текста. На экране свернуты, чтобы не оттеснять
-              картинки: первый экран это обложка и рисунки. В коде страницы
-              они лежат всегда, поэтому поисковики и нейросети читают их
-              целиком и в свернутом виде. Если бы текст подгружался по
-              нажатию, машины бы его не увидели вовсе. */}
-          {copy.about?.length || copy.story?.length ? (
+          {/* Полное описание книги стоит открытым разделом, как и разбор
+              "подойдет ли книга". Свернутым его почти никто не открывал,
+              а это главный связный текст страницы: именно из него берут
+              факты поисковики и нейросети.
+
+              Рассказ автора остается свернутым: он про то, как делалась
+              книга, и человеку, который выбирает, нужен не в первую
+              очередь. В коде страницы он лежит всегда, поэтому машины
+              читают его и в свернутом виде. */}
+          {copy.about?.length ? (
+            <>
+              <h2 className="section">{t.book.aboutTitle}</h2>
+              {copy.about.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </>
+          ) : null}
+
+          {copy.story?.length ? (
             <div className="faq">
-              {copy.about?.length ? (
-                <details>
-                  <summary>{t.book.aboutTitle}</summary>
-                  {copy.about.map((para) => (
-                    <p key={para}>{para}</p>
-                  ))}
-                </details>
-              ) : null}
-              {copy.story?.length ? (
-                <details>
-                  <summary>{t.book.storyTitle}</summary>
-                  {copy.story.map((para) => (
-                    <p key={para}>{para}</p>
-                  ))}
-                </details>
-              ) : null}
+              <details>
+                <summary>{t.book.storyTitle}</summary>
+                {copy.story.map((para) => (
+                  <p key={para}>{para}</p>
+                ))}
+              </details>
             </div>
           ) : null}
 

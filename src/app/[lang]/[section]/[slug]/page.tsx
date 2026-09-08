@@ -96,7 +96,13 @@ function fmtDate(iso: string, lang: string): string {
   );
 }
 import { reviewsForBook, editorialForBook } from "@/lib/reviews";
-import { topicsForBook, allTopics, TOPIC_PREVIEW } from "@/data/bookTopics";
+import {
+  topicsForBook,
+  allTopics,
+  drawingFile,
+  TOPIC_PREVIEW,
+} from "@/data/bookTopics";
+import BookDrawings from "@/components/BookDrawings";
 
 export function generateStaticParams() {
   const out: { lang: string; section: string; slug: string }[] = [];
@@ -1313,6 +1319,28 @@ export default async function ItemPage({
       : book.age;
   const topicGroups = topicsForBook(book.id, lang);
   const topicList = allTopics(topicGroups, lang);
+
+  /* Восемнадцать рисунков для показа наверху. Берем из каждой темы
+     столько, сколько она занимает в книге, но не меньше одного:
+     человек должен сразу увидеть, что книга не только про животных.
+     Внутри темы берем первые, они же самые узнаваемые. */
+  const featuredDrawings = (() => {
+    const withNums = topicGroups.filter((g) => g.firstDrawing);
+    if (!withNums.length) return [] as { n: number; name: string }[];
+    const total = withNums.reduce(
+      (sum, g) => sum + (g.items[lang] ?? g.items.en ?? []).length,
+      0,
+    );
+    const out: { n: number; name: string }[] = [];
+    for (const g of withNums) {
+      const items = g.items[lang] ?? g.items.en ?? [];
+      const take = Math.max(1, Math.round((items.length / total) * 18));
+      for (let i = 0; i < take && i < items.length; i++) {
+        out.push({ n: g.firstDrawing! + i, name: items[i] });
+      }
+    }
+    return out.slice(0, 18);
+  })();
   const editorial = editorialForBook(book.id);
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
@@ -1693,6 +1721,27 @@ export default async function ItemPage({
             </div>
           ) : null}
 
+          {/* Восемнадцать рисунков из книги, по два-три из каждой темы.
+              Стоят сразу после трех картинок: человек пришел посмотреть,
+              что внутри, а не читать про это. Все сто одиннадцать лежат
+              ниже, в разделе состава книги. */}
+          {featuredDrawings.length ? (
+            <ul className="thumbs thumbs--preview">
+              {featuredDrawings.map((d) => (
+                <li key={d.n}>
+                  <img
+                    src={drawingFile(d.n)}
+                    alt={d.name}
+                    width={420}
+                    height={420}
+                    loading="lazy"
+                  />
+                  <span>{d.name}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+
           {/* Блок покупки стоит после баннеров: сначала человек видит,
               что внутри книги, и только потом принимает решение. */}
           <div className="buy-block">
@@ -1771,19 +1820,11 @@ export default async function ItemPage({
                   );
                 })}
               </ul>
-              <details className="topics-all">
-                <summary>
-                  {t.book.topicsAll.replace("{n}", String(topicList.length))}
-                </summary>
-                <div className="topics-all__body">
-                  {topicGroups.map((g) => (
-                    <p key={g.id}>
-                      <strong>{g.title[lang] ?? g.title.en}. </strong>
-                      {(g.items[lang] ?? g.items.en ?? []).join(", ")}
-                    </p>
-                  ))}
-                </div>
-              </details>
+              <BookDrawings
+                groups={topicGroups}
+                lang={lang}
+                label={t.book.topicsAll.replace("{n}", String(topicList.length))}
+              />
             </>
           ) : null}
 

@@ -8,6 +8,10 @@ import type { UiLang } from "@/data/books";
 
 export interface TopicGroup {
   id: string;
+  /** Номер первого рисунка группы в книге. Рисунки идут подряд, поэтому
+      по нему и порядку внутри группы находится файл каждой картинки.
+      Заполняется только у книг, картинки которых лежат в /public/drawings. */
+  firstDrawing?: number;
   /** Название группы. */
   title: Partial<Record<UiLang, string>>;
   /** Все темы группы по порядку, как в книге. */
@@ -131,6 +135,7 @@ const howToDraw111: TopicGroup[] = [
 const firstColoring111: TopicGroup[] = [
   {
     id: "land",
+    firstDrawing: 1,
     title: { en: "Land animals", es: "Animales terrestres", ru: "Животные суши" },
     items: {
       en: [
@@ -152,8 +157,8 @@ const firstColoring111: TopicGroup[] = [
       ru: [
         "Лев", "Слон", "Зебра", "Попугай", "Крокодил", "Обезьяна", "Кенгуру",
         "Носорог", "Фламинго", "Лемур", "Колибри", "Жираф", "Коала", "Лягушка",
-        "Альпака", "Кролик", "Сова", "Ёж", "Коза", "Летучая мышь", "Енот", "Медведь",
-        "Лиса", "Курица", "Хамелеон", "Корова", "Бобр", "Орёл", "Хомяк", "Кошка",
+        "Альпака", "Кролик", "Сова", "Еж", "Коза", "Летучая мышь", "Енот", "Медведь",
+        "Лиса", "Курица", "Хамелеон", "Корова", "Бобр", "Орел", "Хомяк", "Кошка",
         "Собака", "Белка", "Утка", "Олень", "Мышь", "Пчела", "Стрекоза", "Улитка",
         "Бабочка",
       ]
@@ -161,6 +166,7 @@ const firstColoring111: TopicGroup[] = [
   },
   {
     id: "water",
+    firstDrawing: 40,
     title: { en: "Water animals", es: "Animales acuáticos", ru: "Водные животные" },
     items: {
       en: [
@@ -174,13 +180,14 @@ const firstColoring111: TopicGroup[] = [
         "Camarón", "Raya",
       ],
       ru: ["Акула", "Дельфин", "Кит", "Краб", "Осьминог", "Медуза", "Морская черепаха",
-        "Рыба-ангел", "Морской конёк", "Тюлень", "Рыба-клоун", "Моллюск", "Аксолотль",
+        "Рыба-ангел", "Морской конек", "Тюлень", "Рыба-клоун", "Моллюск", "Аксолотль",
         "Рыба-шар", "Креветка", "Скат",
       ]
     },
   },
   {
     id: "fantasy",
+    firstDrawing: 56,
     title: { en: "Fairy tale", es: "Personajes de cuentos", ru: "Сказочные" },
     items: {
       en: [
@@ -198,6 +205,7 @@ const firstColoring111: TopicGroup[] = [
   },
   {
     id: "vehicles",
+    firstDrawing: 67,
     title: { en: "Vehicles", es: "Vehículos", ru: "Транспорт" },
     items: {
       en: [
@@ -215,6 +223,7 @@ const firstColoring111: TopicGroup[] = [
   },
   {
     id: "sports",
+    firstDrawing: 75,
     title: { en: "Sports and hobbies", es: "Deportes y aficiones", ru: "Спорт и хобби" },
     items: {
       en: [
@@ -232,6 +241,7 @@ const firstColoring111: TopicGroup[] = [
   },
   {
     id: "things",
+    firstDrawing: 82,
     title: { en: "Everyday things", es: "Cosas", ru: "Вещи" },
     items: {
       en: ["Sunglasses", "Beach umbrella", "Beach hat", "Globe", "Present", "Gamepad"],
@@ -244,6 +254,7 @@ const firstColoring111: TopicGroup[] = [
   },
   {
     id: "nature",
+    firstDrawing: 88,
     title: { en: "Nature", es: "Naturaleza", ru: "Природа" },
     items: {
       en: [
@@ -261,6 +272,7 @@ const firstColoring111: TopicGroup[] = [
   },
   {
     id: "food",
+    firstDrawing: 98,
     title: { en: "Food", es: "Comida", ru: "Еда" },
     items: {
       en: [
@@ -279,6 +291,11 @@ const firstColoring111: TopicGroup[] = [
 ];
 
 /** Сколько примеров из группы показываем человеку на экране. */
+/** Файл рисунка по его номеру в книге. Рисунки лежат в /public/drawings
+    под номерами из трех цифр. */
+export const drawingFile = (n: number) =>
+  `/drawings/${String(n).padStart(3, "0")}.webp`;
+
 export const TOPIC_PREVIEW = 4;
 
 const TOPICS: Record<string, TopicGroup[]> = {

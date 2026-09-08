@@ -868,6 +868,59 @@ ul.inside li::marker { color: var(--pink-hot); }
 .topics-all__body p { margin: 0 0 0.6rem; }
 .topics-all__body strong { color: var(--ink); }
 
+/* Сетки рисунков книги.
+
+   Восемнадцать рисунков наверху и все сто одиннадцать в свернутом
+   блоке ниже. Число столбцов задано прямо, а не подбирается шириной:
+   восемнадцать делится на два, три и шесть, поэтому последний ряд
+   никогда не остается рваным, и на телефоне показывается ровно
+   столько же рисунков, сколько на компьютере. */
+.thumbs {
+  list-style: none;
+  margin: var(--gap-3) 0 var(--gap-4);
+  padding: 0;
+  display: grid;
+  gap: var(--gap-2);
+}
+.thumbs li {
+  background: var(--paper);
+  border: var(--edge);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.5rem 0.7rem;
+  text-align: center;
+}
+.thumbs img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
+.thumbs span {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: var(--t-small);
+  font-weight: 700;
+  color: var(--ink-soft);
+  line-height: 1.25;
+}
+
+.thumbs--preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 560px) {
+  .thumbs--preview { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .thumbs--preview { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* Внутри свернутого блока рисунки мельче: там их сто одиннадцать,
+   и это опись состава, а не витрина. Подписи под ними не дублируем,
+   названия уже стоят строкой над сеткой. */
+.thumbs--small {
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  margin: 0.4rem 0 var(--gap-3);
+}
+.thumbs--small li { padding: 0.3rem; }
+
 /* Блок покупки. Стоит после баннеров, во всю ширину страницы,
    поэтому кнопки ограничиваем по ширине, иначе они выглядят тяжело. */
 .buy-block {

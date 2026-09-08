@@ -270,7 +270,7 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
 
     publisherTitle: "About the publisher",
     publisher: [
-      "Magic of Discoveries LLC, Miami, Florida. Twenty-seven published children's titles in English and Spanish.",
+      "Magic of Discoveries LLC, Miami, Florida. Thirty-nine published editions in English, Spanish and Russian, including twenty-seven printed children's titles in English and Spanish.",
       "Other books from the publisher have been recognized by the Children's Book International Awards in 2025 and the Literary Titan Book Awards in 2024, including two Gold Awards.",
     ],
 

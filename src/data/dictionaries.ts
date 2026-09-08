@@ -282,7 +282,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
 
       whatTitle: "What this site is",
       what:
-        "Magic of Discoveries is an independent family publisher in Miami, Florida, run by Ricardo and Maria Demi. This site is the catalog of our 27 published children's books in English and Spanish: coloring books, step by step drawing books and bedtime stories for ages 1 to 8, plus easy coloring for teenagers and adults. It also holds free printable pages for parents to use at home and no prep directed drawing materials for K-2 teachers, childcare and homeschool families.",
+        "Magic of Discoveries is an independent family publisher in Miami, Florida, run by Ricardo and Maria Demi: coloring books, step by step drawing books and bedtime stories for ages 1 to 8, plus easy coloring for teenagers and adults. There are 39 editions in three languages: 27 printed books in English and Spanish sold on Amazon, 8 Russian editions sold here as printable files, and 4 no prep directed drawing sets for K-2 sold on Teachers Pay Teachers. This page lists the English editions; the Spanish and Russian ones are on their own versions of the site. It also holds free printable pages for parents to use at home and materials for K-2 teachers, childcare and homeschool families.",
 
       whyTitle: "What makes these books different",
       why: [
@@ -299,7 +299,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       faq: [
         {
           q: "What is Magic of Discoveries?",
-          a: "Magic of Discoveries is an independent children's book publisher based in Miami, Florida, run by Ricardo and Maria Demi. It publishes coloring books, step by step drawing books and bedtime stories for children ages 1 to 8 in English and Spanish, easy coloring books for teenagers and adults, and directed drawing materials for K-2 classrooms. Twenty-seven titles are published.",
+          a: "Magic of Discoveries is an independent children's book publisher based in Miami, Florida, run by Ricardo and Maria Demi. It publishes coloring books, step by step drawing books and bedtime stories for children ages 1 to 8 in English and Spanish, easy coloring books for teenagers and adults, and directed drawing materials for K-2 classrooms. Thirty-nine editions are published in three languages: 27 printed books in English and Spanish, 8 Russian editions available as printable files, and 4 classroom sets for grades K-2.",
         },
         {
           q: "Who are these books for?",
@@ -319,7 +319,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         },
         {
           q: "Where can the books be bought?",
-          a: "Printed books are sold on Amazon in the United States and internationally, and each book page here links to its listing. Classroom files for grades K-2 are sold on Teachers Pay Teachers. Nothing is sold on this site directly.",
+          a: "Printed books are sold on Amazon in the United States and internationally, and each book page here links to its listing. Classroom files for grades K-2 are sold on Teachers Pay Teachers. Printable PDF files are sold on this site directly, and the download link opens right after checkout.",
         },
       ],
       reviewsTitle: "Parents are loving it",
@@ -601,7 +601,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
 
       whatTitle: "Qué es este sitio",
       what:
-        "Magic of Discoveries es una editorial familiar independiente de Miami, Florida, llevada por Ricardo y Maria Demi. Este sitio es el catálogo de nuestros 27 libros infantiles publicados en inglés y en español: libros para colorear, libros de dibujo paso a paso y cuentos para dormir para niños de 1 a 8 años, además de libros de colorear fáciles para adolescentes y adultos. También reúne dibujos gratuitos para imprimir en casa y material de dibujo dirigido sin preparación para maestros de K-2, guarderías y familias que educan en casa.",
+        "Magic of Discoveries es una editorial familiar independiente de Miami, Florida, llevada por Ricardo y Maria Demi: libros para colorear, libros de dibujo paso a paso y cuentos para dormir para niños de 1 a 8 años, además de libros de colorear fáciles para adolescentes y adultos. Hay 39 ediciones en tres idiomas: 27 libros impresos en inglés y en español que se venden en Amazon, 8 ediciones en ruso que se venden aquí como archivos para imprimir, y 4 cuadernos de dibujo dirigido para K-2 que se venden en Teachers Pay Teachers. Esta página muestra las ediciones en español; las de inglés y ruso están en sus propias versiones del sitio. También reúne dibujos gratuitos para imprimir en casa y material para maestros de K-2, guarderías y familias que educan en casa.",
 
       whyTitle: "En qué se diferencian estos libros",
       why: [
@@ -618,7 +618,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       faq: [
         {
           q: "¿Qué es Magic of Discoveries?",
-          a: "Magic of Discoveries es una editorial infantil independiente con sede en Miami, Florida, llevada por Ricardo y Maria Demi. Publica libros para colorear, libros de dibujo paso a paso y cuentos para dormir para niños de 1 a 8 años en inglés y en español, libros de colorear fáciles para adolescentes y adultos, y material de dibujo dirigido para aulas de K-2. Hay veintisiete títulos publicados.",
+          a: "Magic of Discoveries es una editorial infantil independiente con sede en Miami, Florida, llevada por Ricardo y Maria Demi. Publica libros para colorear, libros de dibujo paso a paso y cuentos para dormir para niños de 1 a 8 años en inglés y en español, libros de colorear fáciles para adolescentes y adultos, y material de dibujo dirigido para aulas de K-2. Hay treinta y nueve ediciones publicadas en tres idiomas: 27 libros impresos en inglés y en español, 8 ediciones en ruso disponibles como archivos para imprimir, y 4 cuadernos para el aula de K-2.",
         },
         {
           q: "¿Para quién son estos libros?",
@@ -638,7 +638,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         },
         {
           q: "¿Dónde se compran los libros?",
-          a: "Los libros impresos se venden en Amazon, en Estados Unidos y en otros países, y cada ficha de libro enlaza con su página de venta. Los archivos para el aula de K-2 se venden en Teachers Pay Teachers. En este sitio no se vende nada directamente.",
+          a: "Los libros impresos se venden en Amazon, en Estados Unidos y en otros países, y cada ficha de libro enlaza con su página de venta. Los archivos para el aula de K-2 se venden en Teachers Pay Teachers. Los archivos PDF para imprimir se venden en este sitio directamente, y el enlace de descarga se abre justo después del pago.",
         },
       ],
       reviewsTitle: "Lo que dicen los padres",
@@ -921,7 +921,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
 
       whatTitle: "Что это за сайт",
       what:
-        "Magic of Discoveries - независимое семейное издательство из Майами, Флорида. На сайте - каталог изданных детских книг, бесплатные листы для печати и раздел первых слов. На русском языке вышли восемь книг: раскраски для малышей, книги по пошаговому рисованию и простые раскраски для взрослых. Они продаются в формате PDF для печати.",
+        "Magic of Discoveries - независимое семейное издательство из Майами, Флорида. Всего вышло 39 изданий на трех языках: 27 печатных книг на английском и испанском продаются на Amazon, 8 русских изданий продаются здесь файлом для печати, 4 набора для начальной школы - на Teachers Pay Teachers. На этой странице показаны русские издания: раскраски для малышей, книги по пошаговому рисованию и простые раскраски для взрослых. Английские и испанские книги - на своих версиях сайта. Здесь же бесплатные листы для печати и раздел первых слов.",
       whyTitle: "Чем отличаются эти книги",
       why: [
         "Все рисунки нарисованы вручную. Ничего на этом сайте не сделано нейросетью.",
@@ -934,7 +934,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       faq: [
         {
           q: "Что такое Magic of Discoveries?",
-          a: "Magic of Discoveries - независимое семейное издательство из Майами, Флорида. Им занимаются Рикардо и Мария Деми. Издательство выпускает раскраски, книги по пошаговому рисованию и сказки на ночь для детей от 1 до 8 лет, простые раскраски для подростков и взрослых, а также учебные материалы для начальной школы.",
+          a: "Magic of Discoveries - независимое семейное издательство из Майами, Флорида. Им занимаются Рикардо и Мария Деми. Издательство выпускает раскраски, книги по пошаговому рисованию и сказки на ночь для детей от 1 до 8 лет, простые раскраски для подростков и взрослых, а также учебные материалы для начальной школы. Всего издано 39 изданий на трех языках: 27 печатных книг на английском и испанском, 8 русских изданий в виде файлов для печати и 4 набора для начальной школы.",
         },
         {
           q: "Какие книги есть на русском языке?",

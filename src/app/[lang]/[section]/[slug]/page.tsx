@@ -342,7 +342,17 @@ function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
   return (
     <details className="buy-pdf">
       <summary className="btn btn--sky">
-        {t.buyPdf} · {pdfPriceLabel(book.id)}
+        <span className="buy-pdf__label">
+          {t.buyPdf} · {pdfPriceLabel(book.id)}
+        </span>
+        {/* Вторая строка: сколько рисунков в файле. Выше на странице
+            показаны восемнадцать страниц книги, и без этой строки
+            человек решает, что платит именно за них. */}
+        {book.drawings ? (
+          <span className="buy-pdf__whole">
+            {t.pdfWhole.replace("{n}", String(book.drawings))}
+          </span>
+        ) : null}
       </summary>
       <div className="buy-pdf__pick">
         <p className="buy-pdf__lead">{t.pdfPickSize}</p>
@@ -1572,11 +1582,11 @@ export default async function ItemPage({
                 повторял одно и то же четырьмя способами, поэтому там,
                 где написан текст, показываем только его. */}
             {copy.intro?.length ? (
-              copy.intro.map((part) => (
-                <p className="why-text" key={part.slice(0, 24)}>
-                  {part}
-                </p>
-              ))
+              <ul className="quick-facts quick-facts--intro">
+                {copy.intro.map((line) => (
+                  <li key={line.slice(0, 24)}>{line}</li>
+                ))}
+              </ul>
             ) : (
               <>
                 <p className="subtitle">{copy.subtitle}</p>
@@ -1676,17 +1686,15 @@ export default async function ItemPage({
         {/* Ниже страница раскрывается на всю ширину: широкие баннеры
             рисовались широкими, в узкой колонке они теряют силу. */}
         <div className="book-body">
-          {/* Порядок здесь такой: приглашение распечатать бесплатные
-              страницы, сразу под ним сами рисунки, затем полный состав
-              книги и только потом кнопки. Человек пришел посмотреть, что
-              внутри, и решение принимает после того, как увидел. Баннеры
-              идут ниже.
+          {/* Порядок здесь такой: сначала рисунки из книги, затем полный
+             состав и только потом кнопки. Человек пришел посмотреть, что
+             внутри, и решение принимает после того, как увидел. Баннеры
+             идут ниже.
 
-              Где приглашения нет, на его месте остается прежняя фраза
-              о том, как сделаны рисунки. */}
-          {copy.freeNote ? (
-            <p className="showcase__lead">{copy.freeNote}</p>
-          ) : (book.showcaseLead?.[lang] ?? book.showcaseLead?.en) ? (
+             У книг, где рядом с обложкой стоит список главного, вводная
+             фраза не нужна: все сказано выше. У остальных она остается. */}
+          {(book.showcaseLead?.[lang] ?? book.showcaseLead?.en) &&
+          !copy.intro?.length ? (
             <p className="showcase__lead">
               {book.showcaseLead[lang] ?? book.showcaseLead.en}
             </p>
@@ -1719,6 +1727,37 @@ export default async function ItemPage({
               <div className="buy-block">
                 <BuyButtons book={book} lang={lang} />
               </div>
+
+              {/* Разбор, кому книга подходит, стоит сразу под кнопками.
+                  Человек увидел рисунки и цену, и здесь у него ровно один
+                  вопрос: моему ребенку это подойдет или уже нет. Раньше
+                  ответ лежал ниже баннеров, и до него доходили не все. */}
+          {copy.fitYes?.length || copy.fitNo?.length ? (
+            <>
+              <h2 className="section">{t.book.fitTitle}</h2>
+              {copy.fitLead ? <p>{copy.fitLead}</p> : null}
+              {copy.fitYes?.length ? (
+                <>
+                  <h3>{t.book.fitYes}</h3>
+                  <ul>
+                    {copy.fitYes.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+              {copy.fitNo?.length ? (
+                <>
+                  <h3>{t.book.fitNo}</h3>
+                  <ul>
+                    {copy.fitNo.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+            </>
+          ) : null}
             </>
           ) : null}
 
@@ -1894,32 +1933,6 @@ export default async function ItemPage({
           <h2 className="section">{t.book.forWhom}</h2>
           <p>{copy.forWhom}</p>
 
-          {copy.fitYes?.length || copy.fitNo?.length ? (
-            <>
-              <h2 className="section">{t.book.fitTitle}</h2>
-              {copy.fitLead ? <p>{copy.fitLead}</p> : null}
-              {copy.fitYes?.length ? (
-                <>
-                  <h3>{t.book.fitYes}</h3>
-                  <ul>
-                    {copy.fitYes.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-              {copy.fitNo?.length ? (
-                <>
-                  <h3>{t.book.fitNo}</h3>
-                  <ul>
-                    {copy.fitNo.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-            </>
-          ) : null}
 
           {freePage && freeSheets.length ? (
             <>

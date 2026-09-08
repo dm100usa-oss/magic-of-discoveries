@@ -493,6 +493,17 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
   text-align: center;
 }
 .buy-pdf > summary::-webkit-details-marker { display: none; }
+/* Кнопка файла в две строки: действие с ценой и под ним состав файла.
+   Вторая строка тише первой, но стоит на самой кнопке, а не под ней:
+   иначе она читается как примечание ко всему блоку покупки. */
+.buy-pdf__label { display: block; }
+.buy-pdf__whole {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: var(--t-small);
+  font-weight: 500;
+  opacity: 0.9;
+}
 .buy-pdf__pick {
   display: grid;
   gap: 0.75rem;
@@ -1003,6 +1014,11 @@ ul.inside li::marker { color: var(--pink-hot); }
   border-radius: 50%;
   background: var(--pink-hot);
 }
+
+/* У первой раскраски рядом с обложкой не три коротких факта, а четыре
+   пункта подлиннее: там и темы книги, и бесплатные страницы. Чтобы они
+   не слипались, интервал между ними больше. */
+.quick-facts--intro li { margin-bottom: 0.8rem; }
 
 .theme-banner {
   width: 100%; height: auto; border-radius: var(--radius);

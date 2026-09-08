@@ -494,11 +494,11 @@ export const books: Book[] = [
     copy: {
       en: {
         intro: [
-          "111 big, simple, hand-drawn pictures with thick outlines and no small details, one per page. Animals, sea creatures, fairy-tale characters, vehicles, flowers, and food: there is something new on every page. The animals and fairy-tale characters are drawn to look friendly and cheerful.",
-          "Under each picture is its name in large outline letters that can be colored too. This way your child can become familiar with their first words while they color.",
+          "111 big, simple, hand-drawn pictures with thick outlines and no small details, one per page",
+          "Themes: animals, sea creatures, fairy-tale characters, vehicles, plants, food and more. The animals and fairy-tale characters are drawn to look friendly and cheerful",
+          "Under each picture is its name, so your child meets new words while coloring",
+          "Ten pages can be printed for free and tried before you buy: no registration, email address or phone number",
         ],
-        freeNote:
-          "Print a few pages from the book for free and let your child color them. See which pictures your child likes and how they do with them. No registration, email address, or phone number required.",
         title: "First Coloring Book for Toddlers Ages 1-3",
         subtitle: "A first coloring book for toddlers ages 1-3",
         lead:
@@ -655,11 +655,11 @@ export const books: Book[] = [
     copy: {
       es: {
         intro: [
-          "111 dibujos grandes y sencillos, hechos a mano, con contornos gruesos y sin pequeños detalles, uno por página. Animales terrestres, animales acuáticos, personajes de cuentos, vehículos, flores y comida: en cada página hay algo nuevo. Los animales y los personajes de cuentos tienen un aspecto simpático y amigable.",
-          "Debajo de cada dibujo aparece su nombre en letras grandes de contorno, que también se pueden colorear. Así, mientras colorea, tu hijo empieza a familiarizarse con sus primeras palabras.",
+          "111 dibujos grandes y sencillos, hechos a mano, con contornos gruesos y sin pequeños detalles, uno por página",
+          "Temas: animales terrestres, animales acuáticos, personajes de cuentos, vehículos, plantas, comida y más. Los animales y los personajes de cuentos tienen un aspecto simpático y amigable",
+          "Debajo de cada dibujo aparece su nombre, para que el niño conozca palabras nuevas mientras colorea",
+          "Diez páginas se pueden imprimir gratis y probar antes de comprar: sin registro, correo electrónico ni número de teléfono",
         ],
-        freeNote:
-          "Imprime gratis algunas páginas del libro y deja que tu hijo las coloree. Así podrás ver qué dibujos le gustan y cómo se desenvuelve con ellos. Sin registro, correo electrónico ni número de teléfono.",
         title: "El Primer Libro de Colorear para Bebés de 1 a 3 Años",
         subtitle: "El primer libro para colorear para niños de 1 a 3 años",
         lead:
@@ -3703,11 +3703,11 @@ export const books: Book[] = [
     copy: {
       ru: {
         intro: [
-          "111 простых крупных рисунков, нарисованных от руки, с толстым контуром и без мелких деталей, по одному на странице. Животные, морские обитатели, сказочные герои, транспорт, цветы и еда: на каждой странице что-то новое. Животные и сказочные герои нарисованы добрыми и дружелюбными.",
-          "Под каждым рисунком написано его название крупными контурными буквами, которые тоже можно раскрасить. Так во время раскрашивания ребенок заодно знакомится с первыми словами.",
+          "111 простых крупных рисунков, нарисованных от руки, с толстым контуром и без мелких деталей, по одному на странице",
+          "Темы: животные, морские обитатели, сказочные герои, транспорт, растения, еда и другие. Звери и сказочные герои нарисованы добрыми и дружелюбными",
+          "Под каждым рисунком написано его название, чтобы во время раскрашивания ребенок знакомился с новыми словами",
+          "Десять страниц можно распечатать бесплатно и посмотреть до покупки: без регистрации, электронной почты и номера телефона",
         ],
-        freeNote:
-          "Распечатайте несколько страниц из книги бесплатно и предложите ребенку их раскрасить. Посмотрите, какие рисунки ему понравятся и как у него получится. Без регистрации, электронной почты и номера телефона.",
         title: "Первая книга-раскраска для малышей от 1 до 3 лет",
         subtitle: "111 крупных рисунков с толстым контуром, по одному на странице",
         lead:

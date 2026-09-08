@@ -107,6 +107,10 @@ export interface Dictionary {
     buyHardcover: string;
     buyKindle: string;
     buyPdf: string;
+    /** Вторая строка на кнопке файла: сколько рисунков внутри.
+        Без нее человек думает, что платит за те восемнадцать,
+        что показаны выше на странице. */
+    pdfWhole: string;
     /* Две кнопки покупки: американский лист и европейский.
        Под каждой одна строка о том, кому этот размер подходит.
        Решает покупатель, подсказка только помогает не ошибиться. */
@@ -400,6 +404,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Buy the hardcover on Amazon",
       buyKindle: "Read on Kindle",
       buyPdf: "Download the printable PDF",
+      pdfWhole: "The whole book: all {n} pictures",
       buyPdfLetter: "Letter, 8.5 x 11 in",
       buyPdfA4: "A4",
       pdfPickSize: "Choose your paper size:",
@@ -724,6 +729,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Comprar en tapa dura en Amazon",
       buyKindle: "Leer en Kindle",
       buyPdf: "Descargar el PDF para imprimir",
+      pdfWhole: "El libro entero: los {n} dibujos",
       buyPdfLetter: "Carta, 8.5 x 11 pulgadas",
       buyPdfA4: "A4",
       pdfPickSize: "Elija el tamaño de papel:",
@@ -1041,6 +1047,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       buyHardcover: "Купить в твердой обложке на Amazon",
       buyKindle: "Читать на Kindle",
       buyPdf: "Скачать PDF для печати",
+      pdfWhole: "Вся книга: все {n} рисунков",
       buyPdfLetter: "Letter, 8.5 на 11 дюймов",
       buyPdfA4: "A4",
       pdfPickSize: "Выберите размер листа:",

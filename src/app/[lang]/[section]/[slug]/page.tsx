@@ -641,6 +641,9 @@ export default async function ItemPage({
             <h2 className="section">{copy.fitTitle}</h2>
             <div className="sheets-intro">
               <div className="prose">
+                {copy.fitYesTitle ? (
+                  <p className="howto__title">{copy.fitYesTitle}</p>
+                ) : null}
                 <ul className="inside">
                   {copy.fitYes.map((line) => (
                     <li key={line}>{line}</li>
@@ -648,7 +651,7 @@ export default async function ItemPage({
                 </ul>
               </div>
               <div className="howto">
-                <p className="howto__title">{f.fitNoTitle}</p>
+                <p className="howto__title">{copy.fitNoTitle ?? f.fitNoTitle}</p>
                 <ul>
                   {copy.fitNo.map((line) => (
                     <li key={line}>{line}</li>
@@ -715,11 +718,13 @@ export default async function ItemPage({
                       {pickCopy.title}
                     </Link>
                   </p>
-                  <ul className="inside">
-                    {copy.pickPoints.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
+                  {copy.pickPoints.length ? (
+                    <ul className="inside">
+                      {copy.pickPoints.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                   <BuyButtons book={pick} lang={lang} />
                   {pick.rating ? (
                     <RatingLink

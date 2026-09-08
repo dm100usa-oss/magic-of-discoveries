@@ -62,8 +62,17 @@ export interface ColoringCopy {
       Честный разбор: кому этот лист подходит, а кому уже нет. Ровно то,
       из чего нейросеть строит осмысленную рекомендацию вместо "подойдет
       всем". У библиотек бесплатных раскрасок такого блока нет ни у кого. */
+  /** Заголовок блока. Вопрос, а не утверждение: родитель так и
+      спрашивает, и по такому заголовку страницу берут блок быстрого
+      ответа Google и нейросети. */
   fitTitle?: string;
+  /** Подпись над первым списком. Пусто = списка без подписи. */
+  fitYesTitle?: string;
   fitYes?: string[];
+  /** Заголовок второго списка. У большинства листов это "может быть
+      слишком простым", но у более подробных рисунков наоборот
+      "может быть слишком сложным". Пусто = общий из словаря. */
+  fitNoTitle?: string;
   fitNo?: string[];
   /** Заголовок и подводка блока с полным составом темы, к которой
       относится этот рисунок. Числа подставляются: {n} сколько в теме,
@@ -156,7 +165,8 @@ const coloringPagesBase: ColoringPage[] = [
           "For markers, slip a spare sheet underneath",
           "Print it twice and color one together",
         ],
-        fitTitle: "This page is a good fit if:",
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
         fitYes: [
           "The child is between one and three, or older and just starting to color",
           "The crayon still goes outside the outline more often than inside",
@@ -226,7 +236,8 @@ const coloringPagesBase: ColoringPage[] = [
           "Si usas rotuladores, pon una hoja debajo",
           "Imprímelo dos veces y coloread uno juntos",
         ],
-        fitTitle: "Esta lámina encaja si:",
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
         fitYes: [
           "El niño tiene entre uno y tres años, o es mayor y empieza ahora a colorear",
           "La cera todavía se sale del contorno más veces de las que se queda dentro",
@@ -296,7 +307,8 @@ const coloringPagesBase: ColoringPage[] = [
           "Если раскрашиваете фломастерами, подложите запасной лист",
           "Напечатайте два экземпляра и раскрасьте один вместе",
         ],
-        fitTitle: "Этот лист подходит, если:",
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Лист подходит, если:",
         fitYes: [
           "Ребенку от одного до трех лет, или он старше и только начинает раскрашивать",
           "Мелок пока чаще уходит за контур, чем остается внутри",
@@ -351,6 +363,632 @@ const coloringPagesBase: ColoringPage[] = [
       },
     },
   },
+  /* --------------------------------------------------------------
+     Единорог. Самый крупный запрос среди сказочных героев.
+     -------------------------------------------------------------- */
+  {
+    id: "unicorn-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "fantasy",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "unicorn-coloring-page-for-toddlers",
+      es: "dibujo-de-unicornio-para-colorear-ninos-pequenos",
+      ru: "raskraska-edinorog-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("unicorn", "Unicorn", "Unicornio", "Единорог")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска единорог для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с единорогом для малышей: один рисунок без фона, толстый контур и слово «ЕДИНОРОГ» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "У единорога несколько крупных областей: туловище, голова, грива и хвост. Гриву и хвост удобно раскрашивать широкими движениями и делать разными цветами. Мелких деталей немного. Даже полоски на роге необязательно раскрашивать отдельно: ребенок, который только начинает, может закрасить весь рог одним цветом.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а рисунок занимает примерно 70-82 % страницы и расположен по центру. Вокруг нет фона, рамки и других предметов, поэтому все внимание остается на одном крупном единороге.",
+          "Под рисунком крупными контурными буквами написано слово «ЕДИНОРОГ». Буквы тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для первых попыток удобны толстые восковые мелки",
+          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
+          "Можно распечатать несколько экземпляров и попробовать раскрасить единорога разными цветами",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенку 1-3 года или он старше, но только начинает раскрашивать",
+          "Он пока часто выходит за контур",
+          "Ему проще один крупный рисунок, чем страница с множеством мелких деталей",
+          "Ему нравится раскрашивать отдельные крупные части разными цветами",
+        ],
+        fitNoTitle: "Раскраска может быть слишком простой, если:",
+        fitNo: [
+          "Ребенок уже уверенно раскрашивает небольшие участки внутри контура",
+          "Он сам просит более сложные картинки с большим количеством деталей",
+          "Ему интереснее рисовать самостоятельно, чем раскрашивать готовый рисунок",
+        ],
+        themeTitle: "Единорог - один из {n} сказочных героев книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Единорог входит в тему сказочных героев: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге сохраняется тот же принцип: один крупный рисунок на странице, толстый контур и слово крупными контурными буквами под картинкой. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с единорогом бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с единорогом ребенку 2 лет?",
+            a: "Если ребенок только начинает раскрашивать, этот рисунок удобен крупными областями и небольшим количеством мелких деталей. Необязательно стараться точно оставаться внутри каждой линии: этот навык появляется постепенно.",
+          },
+          {
+            q: "Нужно ли отдельно раскрашивать полоски на роге?",
+            a: "Нет. Рог можно закрасить целиком одним цветом. Позже этот же лист можно распечатать снова и попробовать раскрасить отдельные части.",
+          },
+          {
+            q: "Чем лучше раскрашивать?",
+            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки. При использовании фломастеров лучше подложить дополнительный лист бумаги.",
+          },
+          {
+            q: "Есть ли еще бесплатные раскраски для малышей?",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги. Всего в книге 111 разных рисунков.",
+          },
+        ],
+      },
+      en: {
+        title: "Unicorn coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big unicorn coloring page for toddlers: one picture with no background, a thick outline, and the word UNICORN underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The unicorn is built from a few large areas: the body, the head, the mane and the tail. The mane and the tail take wide strokes and can each have their own color. There is little fine detail. Even the stripes on the horn do not have to be colored one by one, a child who is just starting can fill the whole horn with a single color.",
+          "The main outline measures 2.4 to 4.8 mm, and the picture fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no frame and nothing else around it, so all the attention stays on one large unicorn.",
+          "Under the picture is the word UNICORN in large outline letters. The letters can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons are easiest for first attempts",
+          "If your child uses markers, slip a spare sheet underneath",
+          "Print a few copies and try the unicorn in different colors",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child is 1 to 3, or older and just starting to color",
+          "They still go outside the line often",
+          "One big picture is easier for them than a page full of small detail",
+          "They like giving each large part its own color",
+        ],
+        fitNoTitle: "The page may be too simple if:",
+        fitNo: [
+          "Your child already colors small areas confidently inside the line",
+          "They ask for busier pictures with more detail",
+          "They would rather draw a picture themselves than fill in a finished one",
+        ],
+        themeTitle: "The unicorn is one of {n} fairy tale characters in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The unicorn belongs to the fairy tale theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The same principle runs through the book: one large picture per page, a thick outline, and the word underneath in large outline letters. 114 pages, 8.5 x 11 inches. Every picture is drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this unicorn coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this unicorn page right for a two year old?",
+            a: "If your child is just starting to color, the large areas and the small amount of detail make it comfortable. Staying neatly inside every line is not expected yet, that comes gradually.",
+          },
+          {
+            q: "Do the stripes on the horn have to be colored separately?",
+            a: "No. The horn can be filled with one color. Later the same page can be printed again and the parts colored separately.",
+          },
+          {
+            q: "What is best for coloring it?",
+            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements. With markers, slip a spare sheet underneath.",
+          },
+          {
+            q: "Are there more free coloring pages for toddlers?",
+            a: "Yes. Ten real pages from the same book are free to print on this site. The book itself holds 111 different pictures.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujo de unicornio para colorear, de 1 a 3 años, gratis para imprimir",
+        lead:
+          "Un unicornio grande para colorear, pensado para los más pequeños: un solo dibujo sin fondo, contorno grueso y la palabra UNICORNIO debajo, que también se puede colorear. Es una página real de un libro impreso. Se imprime gratis en A4 o Carta, sin registro.",
+        body: [
+          "El unicornio se compone de unas pocas zonas grandes: el cuerpo, la cabeza, la crin y la cola. La crin y la cola se colorean con trazos amplios y cada una puede llevar su propio color. Hay pocos detalles pequeños. Ni siquiera hace falta colorear una a una las rayas del cuerno: un niño que empieza puede pintar el cuerno entero de un solo color.",
+          "El contorno principal mide entre 2,4 y 4,8 mm, y el dibujo ocupa entre el 70 % y el 82 % de la página y está centrado. Alrededor no hay fondo, ni marco, ni otros objetos, así que toda la atención se queda en un solo unicornio grande.",
+          "Debajo del dibujo está la palabra UNICORNIO en letras grandes de contorno. Las letras también se pueden colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para los primeros intentos van mejor las ceras gruesas",
+          "Si el niño usa rotuladores, pon una hoja debajo",
+          "Imprime varias copias y prueba el unicornio con colores distintos",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
+        fitYes: [
+          "Tu hijo tiene entre 1 y 3 años, o es mayor y empieza ahora a colorear",
+          "Todavía se sale del contorno a menudo",
+          "Un dibujo grande le resulta más fácil que una página llena de detalles",
+          "Le gusta dar a cada parte grande su propio color",
+        ],
+        fitNoTitle: "La lámina puede quedarse corta si:",
+        fitNo: [
+          "Ya colorea con seguridad zonas pequeñas dentro del contorno",
+          "Pide dibujos más difíciles y con más detalle",
+          "Prefiere dibujar él mismo antes que colorear un dibujo ya hecho",
+        ],
+        themeTitle: "El unicornio es uno de los {n} personajes de cuentos del libro",
+        themeLead:
+          "Esta lámina gratuita sale de El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. El unicornio pertenece al tema de los personajes de cuentos: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "En el libro se mantiene el mismo principio: un dibujo grande por página, contorno grueso y la palabra debajo en letras grandes de contorno. 114 páginas, 21,6 x 27,9 cm. Todos los dibujos están hechos a mano y ninguno se repite. El libro tiene cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis este unicornio para colorear?",
+            a: "Sí. Sin registro, sin correo y sin pago. Hay dos tamaños, A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien este unicornio a un niño de dos años?",
+            a: "Si está empezando a colorear, las zonas grandes y la poca cantidad de detalle lo hacen cómodo. Todavía no se espera que se quede dentro de cada línea, eso llega poco a poco.",
+          },
+          {
+            q: "¿Hay que colorear las rayas del cuerno por separado?",
+            a: "No. El cuerno se puede pintar entero de un color. Más adelante se puede imprimir la misma lámina otra vez y colorear las partes por separado.",
+          },
+          {
+            q: "¿Con qué conviene colorearlo?",
+            a: "Para las manos más pequeñas lo más cómodo son las ceras gruesas. Los lápices de colores piden un movimiento más firme. Con rotuladores, pon una hoja debajo.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas para los más pequeños?",
+            a: "Sí. En esta web hay diez páginas reales del mismo libro, gratis para imprimir. El libro completo reúne 111 dibujos distintos.",
+          },
+        ],
+      },
+    },
+  },
+
+  /* --------------------------------------------------------------
+     Русалка. Два уровня сложности на одном листе: хвост целиком
+     или чешуя по отдельности.
+     -------------------------------------------------------------- */
+  {
+    id: "mermaid-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "fantasy",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "mermaid-coloring-page-for-toddlers",
+      es: "dibujo-de-sirena-para-colorear-ninos-pequenos",
+      ru: "raskraska-rusalka-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("mermaid", "Mermaid", "Sirena", "Русалка")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска русалка для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с русалкой для малышей: одна русалка без сложного фона, толстый контур и слово «РУСАЛКА» под рисунком, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "Большую часть рисунка занимают крупные области: длинные волосы и хвост. Их ребенок может раскрашивать широкими движениями. На хвосте есть небольшие элементы чешуи, поэтому один и тот же рисунок можно использовать на двух уровнях сложности.",
+          "Ребенок, который только начинает, может просто закрасить хвост целиком, не стараясь раскрашивать каждый элемент чешуи отдельно. Позже этот же лист можно распечатать снова и попробовать работать с небольшими деталями.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а русалка занимает примерно 70-82 % страницы и расположена по центру. На листе нет моря, рыб, растений, рамки и других фоновых элементов, только одна крупная русалка.",
+          "Под рисунком крупными контурными буквами написано слово «РУСАЛКА». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для крупных областей удобны толстые восковые мелки",
+          "Элементы чешуи необязательно раскрашивать отдельно",
+          "Если используете фломастеры, подложите дополнительный лист бумаги",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенок только начинает раскрашивать и ему удобнее большие открытые области",
+          "Он пока часто выходит за контур",
+          "Он уже начинает интересоваться небольшими деталями",
+          "Вы хотите рисунок, который позже можно распечатать снова и раскрасить более подробно",
+        ],
+        fitNoTitle: "Раскраска может быть слишком простой, если:",
+        fitNo: [
+          "Ребенок легко справляется с небольшими участками",
+          "Он просит более сложные картинки с большим количеством деталей",
+          "Ему интереснее целые сцены с фоном и несколькими персонажами",
+          "Он предпочитает рисовать самостоятельно",
+        ],
+        themeTitle: "Русалка - один из {n} сказочных героев книги",
+        themeLead:
+          "Эта бесплатная русалка взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Русалка входит в тему сказочных героев: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге на каждой странице находится один крупный рисунок с хорошо заметным контуром и слово под ним, которое тоже можно раскрасить. Всего 114 страниц, формат 21,6 x 27,9 см. Все 111 рисунков нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с русалкой бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с русалкой ребенку 2 лет?",
+            a: "Если ребенок только учится раскрашивать, здесь есть большие области, прежде всего волосы и хвост. Небольшие элементы чешуи необязательно раскрашивать отдельно.",
+          },
+          {
+            q: "Нужно ли раскрашивать каждую деталь чешуи отдельно?",
+            a: "Нет. Начинающий ребенок может закрасить хвост целиком. Позже тот же рисунок можно распечатать снова и попробовать раскрасить небольшие элементы отдельно.",
+          },
+          {
+            q: "Какой размер выбрать, Letter или A4?",
+            a: "Letter обычно используется в США и Канаде, A4 в большинстве других стран. Сам рисунок в обоих вариантах одинаковый.",
+          },
+          {
+            q: "Есть ли другие бесплатные раскраски для малышей?",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги. Всего в книге 111 разных рисунков.",
+          },
+        ],
+      },
+      en: {
+        title: "Mermaid coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big mermaid coloring page for toddlers: one mermaid with no busy background, a thick outline, and the word MERMAID underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "Most of the picture is taken up by two large areas, the long hair and the tail. A child can fill them with wide strokes. The tail carries small scale markings, so the same page works at two levels of difficulty.",
+          "A child who is just starting can simply color the tail as one shape, without trying to fill each scale. Later the same page can be printed again and the small parts colored separately.",
+          "The main outline measures 2.4 to 4.8 mm, and the mermaid fills roughly 70 to 82 percent of the page and sits in the center. There is no sea, no fish, no plants and no frame around her, only one large mermaid.",
+          "Under the picture is the word MERMAID in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons work well on the large areas",
+          "The scales do not have to be colored separately",
+          "If you use markers, slip a spare sheet underneath",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child is just starting to color and does better with large open areas",
+          "They still go outside the line often",
+          "They are beginning to take an interest in smaller parts",
+          "You want a page you can print again later and color in more detail",
+        ],
+        fitNoTitle: "The page may be too simple if:",
+        fitNo: [
+          "Your child handles small areas easily",
+          "They ask for busier pictures with more detail",
+          "They would rather color whole scenes with a background and several characters",
+          "They would rather draw a picture themselves",
+        ],
+        themeTitle: "The mermaid is one of {n} fairy tale characters in the book",
+        themeLead:
+          "This free mermaid comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The mermaid belongs to the fairy tale theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "Every page of the book holds one large picture with a clearly visible outline and a word underneath that can be colored too. 114 pages, 8.5 x 11 inches. All 111 pictures are drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this mermaid coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this mermaid page right for a two year old?",
+            a: "If your child is learning to color, there are large areas here, above all the hair and the tail. The small scale markings do not have to be colored separately.",
+          },
+          {
+            q: "Does every scale have to be colored on its own?",
+            a: "No. A beginner can color the tail as one shape. Later the same picture can be printed again and the small parts colored separately.",
+          },
+          {
+            q: "Which size should I choose, Letter or A4?",
+            a: "Letter is the usual size in the United States and Canada, A4 in most other countries. The drawing itself is the same in both.",
+          },
+          {
+            q: "Are there more free coloring pages for toddlers?",
+            a: "Yes. Ten real pages from the same book are free to print on this site. The book itself holds 111 different pictures.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujo de sirena para colorear, de 1 a 3 años, gratis para imprimir",
+        lead:
+          "Una sirena grande para colorear, pensada para los más pequeños: una sola sirena sin fondo recargado, contorno grueso y la palabra SIRENA debajo, que también se puede colorear. Es una página real de un libro impreso. Se imprime gratis en A4 o Carta, sin registro.",
+        body: [
+          "La mayor parte del dibujo la ocupan dos zonas grandes, el pelo largo y la cola. El niño puede rellenarlas con trazos amplios. En la cola hay pequeñas escamas, así que la misma lámina sirve en dos niveles de dificultad.",
+          "Un niño que empieza puede colorear la cola entera sin intentar rellenar cada escama. Más adelante se puede imprimir la misma lámina otra vez y trabajar las partes pequeñas por separado.",
+          "El contorno principal mide entre 2,4 y 4,8 mm, y la sirena ocupa entre el 70 % y el 82 % de la página y está centrada. No hay mar, ni peces, ni plantas, ni marco alrededor, solo una sirena grande.",
+          "Debajo del dibujo está la palabra SIRENA en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para las zonas grandes van bien las ceras gruesas",
+          "Las escamas no hace falta colorearlas por separado",
+          "Si usas rotuladores, pon una hoja debajo",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
+        fitYes: [
+          "Tu hijo empieza a colorear y se maneja mejor con zonas grandes y abiertas",
+          "Todavía se sale del contorno a menudo",
+          "Ya empieza a fijarse en las partes pequeñas",
+          "Quieres una lámina que puedas imprimir otra vez más adelante y colorear con más detalle",
+        ],
+        fitNoTitle: "La lámina puede quedarse corta si:",
+        fitNo: [
+          "Tu hijo se maneja con soltura en zonas pequeñas",
+          "Pide dibujos más difíciles y con más detalle",
+          "Prefiere escenas enteras con fondo y varios personajes",
+          "Prefiere dibujar él mismo",
+        ],
+        themeTitle: "La sirena es uno de los {n} personajes de cuentos del libro",
+        themeLead:
+          "Esta sirena gratuita sale de El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. La sirena pertenece al tema de los personajes de cuentos: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "Cada página del libro tiene un dibujo grande de contorno bien visible y una palabra debajo que también se colorea. 114 páginas, 21,6 x 27,9 cm. Los 111 dibujos están hechos a mano y ninguno se repite. El libro tiene cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis esta sirena para colorear?",
+            a: "Sí. Sin registro, sin correo y sin pago. Hay dos tamaños, A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien esta sirena a un niño de dos años?",
+            a: "Si está aprendiendo a colorear, aquí hay zonas grandes, sobre todo el pelo y la cola. Las escamas pequeñas no hace falta colorearlas por separado.",
+          },
+          {
+            q: "¿Hay que colorear cada escama por separado?",
+            a: "No. Quien empieza puede colorear la cola entera. Más adelante se puede imprimir el mismo dibujo otra vez y trabajar las partes pequeñas por separado.",
+          },
+          {
+            q: "¿Qué tamaño elijo, A4 o Carta?",
+            a: "Carta es lo habitual en Estados Unidos y Canadá, A4 en la mayoría de los demás países. El dibujo es el mismo en los dos.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas para los más pequeños?",
+            a: "Sí. En esta web hay diez páginas reales del mismo libro, gratis para imprimir. El libro completo reúne 111 dibujos distintos.",
+          },
+        ],
+      },
+    },
+  },
+
+  /* --------------------------------------------------------------
+     Фея. Единственный из бесплатных листов, который мы честно
+     называем шагом вперед, а не первым листом.
+     -------------------------------------------------------------- */
+  {
+    id: "fairy-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "fantasy",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "fairy-coloring-page-for-toddlers",
+      es: "dibujo-de-hada-para-colorear-ninos-pequenos",
+      ru: "raskraska-feya-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("fairy", "Fairy", "Hada", "Фея")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска фея для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Бесплатная раскраска с феей для малышей: одна крупная фея без фона, толстый контур и слово «ФЕЯ» под рисунком, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "У феи есть крупные области, которые удобно раскрашивать широкими движениями, но есть и более узкие части. Поэтому этот рисунок немного сложнее льва или единорога и лучше подходит ребенку, который уже пробовал раскрашивать самые простые картинки.",
+          "Необязательно аккуратно раскрашивать каждую часть отдельно. Если небольшие участки пока сложны, их можно закрасить вместе. Позже эту же страницу можно распечатать снова и попробовать использовать разные цвета для отдельных частей.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а фея занимает примерно 70-82 % страницы и расположена по центру. Фона, рамки и окружающих предметов нет, поэтому рисунок остается понятным и не перегруженным.",
+          "Под ним крупными контурными буквами написано слово «ФЕЯ». Буквы тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для крупных областей удобны толстые восковые мелки",
+          "Небольшие участки необязательно раскрашивать отдельно",
+          "При использовании фломастеров подложите дополнительный лист бумаги",
+          "Если рисунок пока оказался сложным, его можно распечатать снова позже",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенок уже пробовал раскрашивать простые крупные картинки",
+          "Он старается оставаться внутри контура хотя бы на больших участках",
+          "Ему нравится использовать несколько цветов в одном рисунке",
+          "Самые простые раскраски уже кажутся ему слишком легкими",
+        ],
+        fitNoTitle: "Раскраска может быть пока слишком сложной, если:",
+        fitNo: [
+          "Ребенок впервые берет мелок и раскрашивает только широкими движениями",
+          "Небольшие и узкие участки пока вызывают трудности",
+          "Ему проще работать с одним большим открытым контуром. В таком случае можно сначала попробовать бесплатную раскраску со львом или единорогом, а к фее вернуться позже",
+        ],
+        themeTitle: "Фея - один из {n} сказочных героев книги",
+        themeLead:
+          "Эта бесплатная фея взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Фея входит в тему сказочных героев: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге есть как совсем простые крупные картинки для первых попыток, так и рисунки с большим количеством отдельных участков. На каждой странице один рисунок и слово под ним, которое тоже можно раскрасить. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с феей бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с феей ребенку 2 лет?",
+            a: "Это зависит не только от возраста, но и от того, как ребенок раскрашивает сейчас. Если он только начинает и делает широкие движения, проще сначала выбрать льва или единорога. Если уже пытается оставаться внутри контура, можно попробовать фею.",
+          },
+          {
+            q: "Нужно ли раскрашивать небольшие части разными цветами?",
+            a: "Нет. Ребенок может раскрасить их так, как ему удобно. Позже этот же лист можно распечатать снова и попробовать раскрасить отдельные участки более точно.",
+          },
+          {
+            q: "Есть ли более простые бесплатные раскраски?",
+            a: "Да. Среди десяти бесплатных страниц есть более простые рисунки с крупными открытыми областями. Например, можно начать со льва или единорога.",
+          },
+        ],
+      },
+      en: {
+        title: "Fairy coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A free fairy coloring page for toddlers: one large fairy with no background, a thick outline, and the word FAIRY underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The fairy has large areas that take wide strokes, but it also has narrower parts. That makes this page a little harder than the lion or the unicorn, and better suited to a child who has already tried the simplest pictures.",
+          "There is no need to color every part neatly on its own. If the small areas are still hard, they can be filled together. Later the same page can be printed again and the separate parts given different colors.",
+          "The main outline measures 2.4 to 4.8 mm, and the fairy fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no frame and nothing around her, so the picture stays clear and uncluttered.",
+          "Under it is the word FAIRY in large outline letters. The letters can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons work well on the large areas",
+          "The small parts do not have to be colored separately",
+          "If you use markers, slip a spare sheet underneath",
+          "If the page turns out to be too hard for now, print it again later",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child has already tried simple, large pictures",
+          "They try to stay inside the line, at least on the bigger areas",
+          "They like using several colors in one picture",
+          "The simplest pages already feel too easy to them",
+        ],
+        fitNoTitle: "The page may be too hard for now if:",
+        fitNo: [
+          "Your child is holding a crayon for the first time and only makes wide strokes",
+          "Small, narrow areas still cause trouble",
+          "One large open shape is easier for them. In that case start with the free lion or unicorn page and come back to the fairy later",
+        ],
+        themeTitle: "The fairy is one of {n} fairy tale characters in the book",
+        themeLead:
+          "This free fairy comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The fairy belongs to the fairy tale theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The book holds both very simple large pictures for first attempts and drawings with more separate areas. Every page has one picture and a word underneath that can be colored too. 114 pages, 8.5 x 11 inches. The pictures are drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this fairy coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this fairy page right for a two year old?",
+            a: "It depends less on age than on how your child colors right now. If they are just starting and only make wide strokes, the lion or the unicorn is an easier place to begin. If they already try to stay inside the line, the fairy is worth a try.",
+          },
+          {
+            q: "Do the small parts have to be different colors?",
+            a: "No. Your child can color them however they like. Later the same page can be printed again and the separate areas colored more precisely.",
+          },
+          {
+            q: "Are there easier free coloring pages?",
+            a: "Yes. Among the ten free pages there are simpler drawings with large open areas. The lion or the unicorn is a good place to start.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujo de hada para colorear, de 1 a 3 años, gratis para imprimir",
+        lead:
+          "Una lámina gratuita de un hada para los más pequeños: un hada grande sin fondo, contorno grueso y la palabra HADA debajo, que también se puede colorear. Es una página real de un libro impreso. Se imprime gratis en A4 o Carta, sin registro.",
+        body: [
+          "El hada tiene zonas grandes que se rellenan con trazos amplios, pero también partes más estrechas. Por eso esta lámina es algo más difícil que el león o el unicornio y le viene mejor a un niño que ya ha probado los dibujos más sencillos.",
+          "No hace falta colorear cada parte por separado con cuidado. Si las zonas pequeñas todavía cuestan, se pueden pintar juntas. Más adelante se puede imprimir la misma página otra vez y dar colores distintos a cada parte.",
+          "El contorno principal mide entre 2,4 y 4,8 mm, y el hada ocupa entre el 70 % y el 82 % de la página y está centrada. No hay fondo, ni marco, ni objetos alrededor, así que el dibujo se mantiene claro y sin recargar.",
+          "Debajo está la palabra HADA en letras grandes de contorno. Las letras también se pueden colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para las zonas grandes van bien las ceras gruesas",
+          "Las partes pequeñas no hace falta colorearlas por separado",
+          "Si usas rotuladores, pon una hoja debajo",
+          "Si por ahora resulta difícil, imprímela otra vez más adelante",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
+        fitYes: [
+          "Tu hijo ya ha probado dibujos sencillos y grandes",
+          "Intenta quedarse dentro del contorno, al menos en las zonas grandes",
+          "Le gusta usar varios colores en un mismo dibujo",
+          "Las láminas más sencillas ya le parecen demasiado fáciles",
+        ],
+        fitNoTitle: "La lámina puede resultar todavía difícil si:",
+        fitNo: [
+          "Tu hijo coge la cera por primera vez y solo hace trazos amplios",
+          "Las zonas pequeñas y estrechas todavía le cuestan",
+          "Se maneja mejor con una sola forma grande y abierta. En ese caso empieza por la lámina gratuita del león o del unicornio y vuelve al hada más adelante",
+        ],
+        themeTitle: "El hada es uno de los {n} personajes de cuentos del libro",
+        themeLead:
+          "Esta hada gratuita sale de El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. El hada pertenece al tema de los personajes de cuentos: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "En el libro hay tanto dibujos muy sencillos y grandes para los primeros intentos como otros con más zonas separadas. Cada página tiene un dibujo y una palabra debajo que también se colorea. 114 páginas, 21,6 x 27,9 cm. Los dibujos están hechos a mano y ninguno se repite. El libro tiene cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis esta hada para colorear?",
+            a: "Sí. Sin registro, sin correo y sin pago. Hay dos tamaños, A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien esta hada a un niño de dos años?",
+            a: "Depende menos de la edad que de cómo colorea ahora mismo. Si está empezando y solo hace trazos amplios, es más fácil empezar por el león o el unicornio. Si ya intenta quedarse dentro del contorno, se puede probar el hada.",
+          },
+          {
+            q: "¿Hay que colorear las partes pequeñas de colores distintos?",
+            a: "No. El niño puede colorearlas como le resulte cómodo. Más adelante se puede imprimir la misma lámina otra vez y colorear cada zona con más precisión.",
+          },
+          {
+            q: "¿Hay láminas gratuitas más sencillas?",
+            a: "Sí. Entre las diez páginas gratuitas hay dibujos más sencillos con zonas grandes y abiertas. El león o el unicornio son un buen punto de partida.",
+          },
+        ],
+      },
+    },
+  },
+
   {
     id: "toddler-animals",
     published: "2026-08-09",

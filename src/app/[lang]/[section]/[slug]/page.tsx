@@ -1567,21 +1567,31 @@ export default async function ItemPage({
           </div>
 
           <div>
-            <p className="subtitle">{copy.subtitle}</p>
-
-            {/* Три факта перечислением, сразу за ними объяснение.
-                Человек читает сверху вниз и все понимает до баннеров. */}
-            <ul className="quick-facts">
-              {copy.inside.slice(0, 3).map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-
-            {whyParts.map((part) => (
-              <p className="why-text" key={part.slice(0, 24)}>
-                {part}
-              </p>
-            ))}
+            {/* Либо связный текст рядом с обложкой, либо старый разбор
+                на подзаголовок, три факта списком и абзац. Второй способ
+                повторял одно и то же четырьмя способами, поэтому там,
+                где написан текст, показываем только его. */}
+            {copy.intro?.length ? (
+              copy.intro.map((part) => (
+                <p className="why-text" key={part.slice(0, 24)}>
+                  {part}
+                </p>
+              ))
+            ) : (
+              <>
+                <p className="subtitle">{copy.subtitle}</p>
+                <ul className="quick-facts">
+                  {copy.inside.slice(0, 3).map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+                {whyParts.map((part) => (
+                  <p className="why-text" key={part.slice(0, 24)}>
+                    {part}
+                  </p>
+                ))}
+              </>
+            )}
 
             {/* Сначала то, ради чего человек листает: цена, оценка,
                 награда. На телефоне это первое, что видно под обложкой. */}
@@ -1666,11 +1676,17 @@ export default async function ItemPage({
         {/* Ниже страница раскрывается на всю ширину: широкие баннеры
             рисовались широкими, в узкой колонке они теряют силу. */}
         <div className="book-body">
-          {/* Порядок здесь такой: сначала фраза о том, как сделаны рисунки,
-              сразу под ней сами рисунки, затем полный состав книги и только
-              потом кнопки. Человек пришел посмотреть, что внутри, и решение
-              принимает после того, как увидел. Баннеры идут ниже. */}
-          {(book.showcaseLead?.[lang] ?? book.showcaseLead?.en) ? (
+          {/* Порядок здесь такой: приглашение распечатать бесплатные
+              страницы, сразу под ним сами рисунки, затем полный состав
+              книги и только потом кнопки. Человек пришел посмотреть, что
+              внутри, и решение принимает после того, как увидел. Баннеры
+              идут ниже.
+
+              Где приглашения нет, на его месте остается прежняя фраза
+              о том, как сделаны рисунки. */}
+          {copy.freeNote ? (
+            <p className="showcase__lead">{copy.freeNote}</p>
+          ) : (book.showcaseLead?.[lang] ?? book.showcaseLead?.en) ? (
             <p className="showcase__lead">
               {book.showcaseLead[lang] ?? book.showcaseLead.en}
             </p>
@@ -1791,13 +1807,15 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          {copy.inside.length > 3 ? (
+          {copy.inside.length > (copy.intro?.length ? 0 : 3) ? (
             <>
               <h2 className="section">{t.book.inside}</h2>
               <ul className="inside">
-                {copy.inside.slice(3).map((line) => (
-                  <li key={line}>{line}</li>
-                ))}
+                {copy.inside
+                  .slice(copy.intro?.length ? 0 : 3)
+                  .map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
               </ul>
             </>
           ) : null}

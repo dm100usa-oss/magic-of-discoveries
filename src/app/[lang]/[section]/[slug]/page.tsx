@@ -1728,36 +1728,11 @@ export default async function ItemPage({
                 <BuyButtons book={book} lang={lang} />
               </div>
 
-              {/* Разбор, кому книга подходит, стоит сразу под кнопками.
-                  Человек увидел рисунки и цену, и здесь у него ровно один
-                  вопрос: моему ребенку это подойдет или уже нет. Раньше
-                  ответ лежал ниже баннеров, и до него доходили не все. */}
-          {copy.fitYes?.length || copy.fitNo?.length ? (
-            <>
-              <h2 className="section">{t.book.fitTitle}</h2>
-              {copy.fitLead ? <p>{copy.fitLead}</p> : null}
-              {copy.fitYes?.length ? (
-                <>
-                  <h3>{t.book.fitYes}</h3>
-                  <ul>
-                    {copy.fitYes.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-              {copy.fitNo?.length ? (
-                <>
-                  <h3>{t.book.fitNo}</h3>
-                  <ul>
-                    {copy.fitNo.map((x) => (
-                      <li key={x}>{x}</li>
-                    ))}
-                  </ul>
-                </>
-              ) : null}
-            </>
-          ) : null}
+              {/* Одна фраза о том, кому книга, сразу под кнопками.
+                  Развернутый разбор на два списка стоит ниже: здесь
+                  человеку нужен быстрый ответ, а не пятнадцать пунктов. */}
+              <h2 className="section">{t.book.forWhom}</h2>
+              <p>{copy.forWhom}</p>
             </>
           ) : null}
 
@@ -1930,8 +1905,32 @@ export default async function ItemPage({
             </div>
           ) : null}
 
-          <h2 className="section">{t.book.forWhom}</h2>
-          <p>{copy.forWhom}</p>
+          {copy.fitYes?.length || copy.fitNo?.length ? (
+            <>
+              <h2 className="section">{t.book.fitTitle}</h2>
+              {copy.fitLead ? <p>{copy.fitLead}</p> : null}
+              {copy.fitYes?.length ? (
+                <>
+                  <h3>{t.book.fitYes}</h3>
+                  <ul>
+                    {copy.fitYes.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+              {copy.fitNo?.length ? (
+                <>
+                  <h3>{t.book.fitNo}</h3>
+                  <ul>
+                    {copy.fitNo.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+            </>
+          ) : null}
 
 
           {freePage && freeSheets.length ? (

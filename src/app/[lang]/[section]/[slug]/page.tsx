@@ -533,7 +533,7 @@ export default async function ItemPage({
             картинку вниз. */}
         {groups.map((group) => (
           <section className="wrap" key={group.id}>
-            {page.single ? null : (
+            {page.single || !(group.title[lang] ?? group.title.en) ? null : (
               <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
             )}
             <div className={page.spread ? "sheets sheets--spread" : "sheets"}>
@@ -2035,6 +2035,12 @@ export default async function ItemPage({
               {editorial.text[lang] ?? editorial.text.en}
               <span className="editorial__who">
                 {editorial.who}
+                {/* Рецензия написана по-английски. Там, где мы показываем
+                    ее перевод, об этом сказано прямо, как и у отзывов
+                    покупателей. */}
+                {lang !== "en" && editorial.text[lang] && t.home.reviewTranslated
+                  ? ` · ${t.home.reviewTranslated}`
+                  : null}
                 {editorial.url ? (
                   <>
                     {" · "}

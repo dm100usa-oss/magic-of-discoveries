@@ -734,6 +734,7 @@ const editorial: Record<string, EditorialReview> = {
     text: {
       en: "Each picture is thoughtfully placed in the center of the page, and features bold and curved outlines, helping little ones color within the boundaries.",
       es: "Cada dibujo está colocado con cuidado en el centro de la página, con contornos gruesos y redondeados que ayudan a los pequeños a colorear dentro de los bordes.",
+      ru: "Каждый рисунок продуманно расположен в центре страницы, у него толстый и округлый контур, который помогает малышам не выходить за края.",
     },
     who: "Maalin Ogaja, Readers' Favorite",
     url: "https://readersfavorite.com/book-review/first-coloring-book-for-toddlers-ages-1-3",
@@ -751,5 +752,8 @@ const editorial: Record<string, EditorialReview> = {
 };
 
 export function editorialForBook(bookId: string): EditorialReview | undefined {
-  return editorial[bookId.replace(/-(en|es)$/, "")];
+  /* Русское издание раньше сюда не попадало: из ключа снимались только
+     английский и испанский суффиксы, и на русской странице рецензии
+     не было ни в тексте, ни в разметке. */
+  return editorial[bookId.replace(/-(en|es|ru)$/, "")];
 }

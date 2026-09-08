@@ -525,9 +525,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "of first drawing, a free picker that names the stage your child is at now, and ten " +
         "pages sorted by how simple they are.",
       toddlerCta: "First coloring books, ages 1 to 3",
-      bookSheetsTitle: "A few pages from inside",
+      bookSheetsTitle: "Free pages to try before you buy",
       bookSheetsLead:
-        "These are real pages from the book. You can print {n} of them free and see the line weight for yourself before you buy.",
+        "These are real pages from the book. Print {n} of them free, hand one to your child, and see whether they enjoy it and can color it comfortably.",
       bookSheetsCta: "Print {n} pages free",
       rights:
         "Drawings by Ricardo Demi, published by Magic of Discoveries LLC. Print as many copies as you like for home, school or daycare. Please do not resell them, republish the files, or use them in a book or product of your own.",
@@ -848,9 +848,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "cuatro etapas del primer dibujo, una herramienta gratuita que indica en qué etapa " +
         "está su hijo ahora y diez hojas ordenadas por sencillez.",
       toddlerCta: "Primeros libros para colorear, de 1 a 3 años",
-      bookSheetsTitle: "Algunas páginas de dentro",
+      bookSheetsTitle: "Páginas gratis para probar antes de comprar",
       bookSheetsLead:
-        "Son páginas reales del libro. Puedes imprimir {n} gratis y comprobar tú mismo el grosor de la línea antes de comprar.",
+        "Son páginas reales del libro. Imprime {n} gratis, dáselas a tu hijo y mira si le gustan y si le resulta cómodo colorearlas.",
       bookSheetsCta: "Imprimir {n} láminas gratis",
       rights:
         "Dibujos de Ricardo Demi, editados por Magic of Discoveries LLC. Imprime las copias que quieras para casa, la escuela o la guardería. Por favor no las revendas, no publiques los archivos ni las uses en un libro o producto propio.",
@@ -1062,7 +1062,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       guideSiteCta: "Открыть справочник о первых раскрасках",
       wordsTitle: "111 рисунков, 111 первых слов",
       wordsText:
-        "Под каждым рисунком в этой книге написано название предмета полыми буквами, которые ребенок может раскрасить. В разделе о первых словах страницы показаны крупно, а все слова книги собраны по темам.",
+        "Под каждым рисунком в этой книге написано название предмета контурными буквами, которые ребенок может раскрасить. В разделе о первых словах страницы показаны крупно, а все слова книги собраны по темам.",
       wordsCta: "Посмотреть, как устроены первые слова",
       detailsTitle: "О книге",
       drawings: "Рисунков",
@@ -1167,9 +1167,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "этапа первого рисования, бесплатный подборщик, который определяет текущий этап " +
         "ребенка, и десять листов, разобранных по сложности.",
       toddlerCta: "Первые раскраски, от года до трех",
-      bookSheetsTitle: "Несколько страниц изнутри",
+      bookSheetsTitle: "Бесплатные страницы перед покупкой книги",
       bookSheetsLead:
-        "Это настоящие страницы книги. {n} можно распечатать бесплатно и своими глазами оценить толщину линии до покупки.",
+        "Это настоящие страницы книги. {n} можно распечатать бесплатно, дать ребенку и посмотреть, понравится ли ему и удобно ли ему раскрашивать.",
       bookSheetsCta: "Распечатать {n} листов бесплатно",
       rights:
         "Рисунки Рикардо Деми, издательство Magic of Discoveries LLC. Печатайте сколько угодно для дома, школы и детского сада. Пожалуйста, не перепродавайте их, не выкладывайте файлы у себя и не используйте в своей книге или товаре.",

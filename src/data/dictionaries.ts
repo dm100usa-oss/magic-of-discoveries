@@ -529,7 +529,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Every title the publisher has released, in one table: language, age, page count, year of publication and the ISBN of the printed edition.",
       intro: [
         "Magic of Discoveries LLC is an independent family publisher in Miami, Florida, run by Ricardo Demi and Maria Demi. The list below is the complete catalog. Editions in English, Spanish and Russian are counted separately, because each is a separate book with its own registered ISBN, not a translation of another.",
-        "The ISBN shown belongs to that edition. Russian editions are not printed by Amazon and are sold here as printable files, but each carries its own registered ISBN, printed on the title page. Only the K-2 classroom sets have no ISBN, and the column is left empty rather than filled with something that looks like one.",
+        "The ISBN shown belongs to that edition. Russian editions are published as printable files and each carries its own registered ISBN, printed on the title page. Only the K-2 classroom sets have no ISBN, and the column is left empty rather than filled with something that looks like one.",
       ],
       linkFromCatalog: "See the full list of editions with ISBN numbers",
       colTitle: "Title",
@@ -849,7 +849,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Todos los títulos publicados por la editorial en una sola tabla: idioma, edad, número de páginas, año de publicación e ISBN de la edición impresa.",
       intro: [
         "Magic of Discoveries LLC es una editorial familiar independiente de Miami, Florida, dirigida por Ricardo Demi y Maria Demi. La lista de abajo es el catálogo completo. Las ediciones en inglés, en español y en ruso se cuentan por separado, porque cada una es un libro distinto con su propio ISBN registrado y no una traducción de otro.",
-        "El ISBN que aparece pertenece a esa edición. Las ediciones en ruso no las imprime Amazon y se venden aquí como archivo para imprimir, pero cada una lleva su propio ISBN registrado, impreso en la portada interior. Solo los cuadernos para el aula de K-2 no tienen ISBN, y la casilla queda vacía en lugar de llenarse con algo que lo parezca.",
+        "El ISBN que aparece pertenece a esa edición. Las ediciones en ruso se publican como archivo para imprimir y cada una lleva su propio ISBN registrado, impreso en la portada interior. Solo los cuadernos para el aula de K-2 no tienen ISBN, y la casilla queda vacía en lugar de llenarse con algo que lo parezca.",
       ],
       linkFromCatalog: "Ver la lista completa de ediciones con su ISBN",
       colTitle: "Título",
@@ -1164,7 +1164,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Все выпущенные издания в одной таблице: язык, возраст, число страниц, год выхода и номер ISBN печатного издания.",
       intro: [
         "Magic of Discoveries LLC это независимое семейное издательство из Майами, штат Флорида. Им занимаются Рикардо Деми и Мария Деми. Ниже полный каталог. Английские, испанские и русские издания считаются отдельно: у каждого свой зарегистрированный номер ISBN, и это разные книги, а не переводы друг друга.",
-        "Указан номер самого издания. Русские книги Amazon не печатает, они продаются здесь файлом для печати, но у каждой есть свой зарегистрированный номер, он стоит на титульном листе. Номера нет только у наборов для начальной школы, и там мы оставляем клетку пустой, а не ставим туда что-то похожее на номер.",
+        "Указан номер самого издания. Русские книги выходят в виде файлов для печати, у каждой свой зарегистрированный номер, он стоит на титульном листе. Номера нет только у наборов для начальной школы, и там мы оставляем клетку пустой, а не ставим туда что-то похожее на номер.",
       ],
       linkFromCatalog: "Посмотреть полный список изданий с номерами ISBN",
       colTitle: "Название",

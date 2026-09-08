@@ -22,6 +22,7 @@ import {
   allSheets,
   groupsForLang,
   coloringPageForBook,
+  singlePageForSheet,
 } from "@/data/coloringPages";
 import {
   guidesForLang,
@@ -571,10 +572,25 @@ export default async function ItemPage({
                     </a>
                     <figcaption>
                       <h3>
-                        {(copy.sheetTitle ?? f.sheetTitle).replace(
-                          "{name}",
-                          name,
-                        )}
+                        {(() => {
+                          const label = (copy.sheetTitle ?? f.sheetTitle).replace(
+                            "{name}",
+                            name,
+                          );
+                          /* Название ведет на отдельную страницу этого
+                             листа там, где она есть. Кнопки печати ниже
+                             остаются прямым действием. */
+                          const own = page.single
+                            ? undefined
+                            : singlePageForSheet(sh.id, lang);
+                          return own ? (
+                            <Link href={itemPath(lang, "coloring", own)}>
+                              {label}
+                            </Link>
+                          ) : (
+                            label
+                          );
+                        })()}
                       </h3>
                       <p className="sheet__links">
                         <a

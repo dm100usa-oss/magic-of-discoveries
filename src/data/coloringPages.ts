@@ -391,7 +391,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Hand drawn for a child's first coloring book. One animal per page, thick outlines, and the word underneath can be colored too.",
         body: [
-          "At two, most children sweep the crayon rather than fill. Thick lines forgive that. The color lands roughly inside, the picture still looks like a lion, and the child feels it worked. That is the difference between a page a toddler finishes and a page they abandon.",
+          "At two, most children sweep the crayon rather than fill. Thick lines forgive that. The color lands roughly inside, the picture is still recognizable, and the child feels it worked. That is the difference between a page a toddler finishes and a page they abandon.",
           "These ten sheets are real pages from our printed book, not filler drawn for a website. Each one was drawn by hand for children aged one to three: one animal, centered, nothing small in the corners, plenty of open space to fill.",
           "The name under each animal is an outline as well, so a child can color the letters and hear the word while they do it. Coloring like this is one of the simplest ways to work on fine motor control at this age, and it costs nothing but a sheet of paper.",
           "Print as many as you like. Take them to a restaurant, a waiting room, a long car ride. There is no account to make and nothing to pay for.",
@@ -437,7 +437,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Dibujados a mano para el primer libro para colorear de un niño. Un animal por página, contornos gruesos, y la palabra de abajo también se puede colorear.",
         body: [
-          "A los dos años, la mayoría de los niños barre con el crayón en lugar de rellenar. Los trazos gruesos perdonan eso. El color cae más o menos dentro, el dibujo sigue pareciendo un león, y el niño siente que le salió. Ahí está la diferencia entre una página que se termina y una que se abandona.",
+          "A los dos años, la mayoría de los niños barre con el crayón en lugar de rellenar. Los trazos gruesos perdonan eso. El color cae más o menos dentro, el dibujo se sigue reconociendo, y el niño siente que le salió. Ahí está la diferencia entre una página que se termina y una que se abandona.",
           "Estas diez láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
           "El nombre debajo de cada animal también es un contorno, así que el niño puede colorear las letras y oír la palabra mientras lo hace. Con dos o tres años las primeras palabras entran así, sin lección y sin esfuerzo. Colorear de esta manera es una de las formas más sencillas de trabajar la motricidad fina a esta edad, y no cuesta más que una hoja de papel.",
           "Imprime las que quieras. Llévalas a un restaurante, a una sala de espera, a un viaje largo en coche. No hay que registrarse ni pagar nada.",
@@ -1112,7 +1112,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       lead:
         "Они нарисованы от руки для первой книги-раскраски. Одно животное на странице, толстый контур, а слово под рисунком тоже можно раскрасить.",
       body: [
-        "В два года ребенок скорее водит карандашом по рисунку, чем аккуратно закрашивает. Толстая линия это прощает. Цвет ложится примерно внутрь, рисунок все равно остается похож на льва, и ребенок чувствует, что у него получилось. В этом и разница между листом, который доводят до конца, и листом, который бросают.",
+        "В два года ребенок скорее водит карандашом по рисунку, чем аккуратно закрашивает. Толстая линия это прощает. Цвет ложится примерно внутрь, рисунок все равно остается узнаваемым, и ребенок чувствует, что у него получилось. В этом и разница между листом, который доводят до конца, и листом, который бросают.",
         "Эти десять листов - настоящие страницы напечатанной книги, а не картинки, дорисованные специально для сайта. Каждый рисунок создан от руки для детей от года до трех: одно животное по центру, никаких мелких деталей по углам, много свободного места для цвета.",
         "Название под каждым животным тоже набрано контурными буквами, поэтому ребенок может раскрашивать и буквы, а взрослый - называть слово вслух. Ничего готовить не нужно.",
         "Печатайте сколько угодно. Возьмите с собой в кафе, в поликлинику или в долгую дорогу. Регистрироваться и платить не нужно.",
@@ -1387,6 +1387,20 @@ export const printableUrl = (id: string, size: "letter" | "a4", lang: UiLang) =>
 
 export const previewUrl = (id: string, lang: UiLang) =>
   `/printables/${sheetFile(id, lang)}.png`;
+
+/** Отдельная страница этого листа, если она есть.
+    Название под картинкой на общей странице ведет сюда, а кнопки печати
+    остаются прямым действием: кто пришел просто распечатать, лишнего
+    перехода не получает. */
+export function singlePageForSheet(
+  sheetId: string,
+  lang: UiLang,
+): string | undefined {
+  const page = coloringPages.find(
+    (p) => p.single && p.groups.some((g) => g.sheets.some((sh) => sh.id === sheetId)),
+  );
+  return page?.slug[lang];
+}
 
 /** Листы этой темы, доступные на этом языке. */
 export function groupsForLang(p: ColoringPage, lang: UiLang): SheetGroup[] {

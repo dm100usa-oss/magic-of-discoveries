@@ -523,25 +523,19 @@ export default async function ItemPage({
         />
         <PageHead title={copy.title} lead={copy.lead} />
 
-        <div className="wrap sheets-intro">
-          <div className="prose">
-            {copy.body.map((para) => (
-              <p key={para.slice(0, 24)}>{para}</p>
-            ))}
-          </div>
-          <div className="howto">
-            <p className="howto__title">{f.howToTitle}</p>
-            <ul>
-              {copy.howTo.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        {/* Человек пришел за листом, а не за объяснением. Поэтому сначала
+            сам рисунок и кнопки печати, и только под ними разбор, почему
+            он нарисован именно так. Коробка "как печатать" остается рядом
+            с кнопками: это инструкция к действию, а не объяснение метода.
 
+            На странице одного объекта заголовок группы не показываем:
+            лист там ровно один, и строка "Лист" только отодвигает
+            картинку вниз. */}
         {groups.map((group) => (
           <section className="wrap" key={group.id}>
-            <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
+            {page.single ? null : (
+              <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
+            )}
             <div className={page.spread ? "sheets sheets--spread" : "sheets"}>
               {group.sheets.map((sh) => {
                 const name = sh.name[lang] ?? sh.name.en!;
@@ -597,6 +591,22 @@ export default async function ItemPage({
             </div>
           </section>
         ))}
+
+        <div className="wrap sheets-intro">
+          <div className="prose">
+            {copy.body.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+          </div>
+          <div className="howto">
+            <p className="howto__title">{f.howToTitle}</p>
+            <ul>
+              {copy.howTo.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
         {/* Честный разбор: кому этот лист подходит, а кому уже нет.
             Стоит до блока книги: человек сначала понимает, его ли это

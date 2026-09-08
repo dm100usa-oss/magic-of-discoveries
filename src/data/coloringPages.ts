@@ -156,7 +156,7 @@ const coloringPagesBase: ColoringPage[] = [
           "For markers, slip a spare sheet underneath",
           "Print it twice and color one together",
         ],
-        fitTitle: "Is this page right for your child?",
+        fitTitle: "This page is a good fit if:",
         fitYes: [
           "The child is between one and three, or older and just starting to color",
           "The crayon still goes outside the outline more often than inside",
@@ -205,7 +205,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "Are there more free pages?",
-            a: "Yes. Twenty more real pages from the same book are free to print on this site, and the book itself holds 111.",
+            a: "Yes. Ten real pages from the same book are free to print on this site, and the book itself holds 111.",
           },
         ],
       },
@@ -226,7 +226,7 @@ const coloringPagesBase: ColoringPage[] = [
           "Si usas rotuladores, pon una hoja debajo",
           "Imprímelo dos veces y coloread uno juntos",
         ],
-        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitTitle: "Esta lámina encaja si:",
         fitYes: [
           "El niño tiene entre uno y tres años, o es mayor y empieza ahora a colorear",
           "La cera todavía se sale del contorno más veces de las que se queda dentro",
@@ -275,7 +275,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "¿Hay más láminas gratuitas?",
-            a: "Sí. En esta web hay veinte páginas reales más del mismo libro, gratis para imprimir, y el libro completo reúne 111.",
+            a: "Sí. En esta web hay diez páginas reales del mismo libro, gratis para imprimir, y el libro completo reúne 111.",
           },
         ],
       },
@@ -296,7 +296,7 @@ const coloringPagesBase: ColoringPage[] = [
           "Если раскрашиваете фломастерами, подложите запасной лист",
           "Напечатайте два экземпляра и раскрасьте один вместе",
         ],
-        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitTitle: "Этот лист подходит, если:",
         fitYes: [
           "Ребенку от одного до трех лет, или он старше и только начинает раскрашивать",
           "Мелок пока чаще уходит за контур, чем остается внутри",
@@ -345,7 +345,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "Есть еще бесплатные листы?",
-            a: "Да. На сайте бесплатно доступны еще двадцать настоящих страниц из этой же книги, а всего в книге 111 рисунков.",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги, а всего в книге 111 рисунков.",
           },
         ],
       },
@@ -361,6 +361,11 @@ const coloringPagesBase: ColoringPage[] = [
       en: "free-coloring-pages-for-toddlers-1-3",
       es: "dibujos-para-colorear-gratis-ninos-1-3-anos",
     },
+    /* Десять листов, а не двадцать. Выбраны по спросу: именно вокруг
+       этих животных крупные библиотеки раскрасок держат отдельные
+       разделы, значит по ним идет постоянный поиск. Носорог, крокодил,
+       кенгуру, коала, енот, еж, коза, попугай, фламинго и колибри
+       спроса почти не дают и из бесплатного набора убраны. */
     groups: [
       {
         id: "wild",
@@ -374,50 +379,34 @@ const coloringPagesBase: ColoringPage[] = [
           S("elephant", "Elephant", "Elefante", "Слон"),
           S("giraffe", "Giraffe", "Jirafa", "Жираф"),
           S("zebra", "Zebra", "Cebra", "Зебра"),
-          S("rhino", "Rhino", "Rinoceronte", "Носорог"),
           S("monkey", "Monkey", "Mono", "Обезьяна"),
-          S("crocodile", "Crocodile", "Cocodrilo", "Крокодил"),
-          S("kangaroo", "Kangaroo", "Canguro", "Кенгуру"),
         ],
       },
       {
         id: "forest",
         title: {
-          en: "Forest and farm animals",
-          es: "Animales del bosque y de la granja",
-          ru: "Лес и ферма",
+          en: "Forest animals",
+          es: "Animales del bosque",
+          ru: "Животные леса",
         },
         sheets: [
           S("bear", "Bear", "Oso", "Медведь"),
           S("fox", "Fox", "Zorro", "Лиса"),
           S("bunny", "Bunny", "Conejo", "Заяц"),
-          S("hedgehog", "Hedgehog", "Erizo", "Еж"),
-          S("raccoon", "Raccoon", "Mapache", "Енот"),
-          S("frog", "Frog", "Rana", "Лягушка"),
-          S("goat", "Goat", "Cabra", "Коза"),
-          S("koala", "Koala", "Koala", "Коала"),
-        ],
-      },
-      {
-        id: "birds",
-        title: { en: "Birds", es: "Pájaros", ru: "Птицы" },
-        sheets: [
           S("owl", "Owl", "Búho", "Сова"),
-          S("parrot", "Parrot", "Loro", "Попугай"),
-          S("flamingo", "Flamingo", "Flamenco", "Фламинго"),
-          S("hummingbird", "Hummingbird", "Colibrí", "Колибри"),
+          S("frog", "Frog", "Rana", "Лягушка"),
         ],
       },
     ],
     copy: {
       en: {
         title:
-          "20 free printable coloring pages for toddlers ages 1-3. Big pictures, thick lines, easy to color",
+          "10 free printable coloring pages for toddlers ages 1-3. Big pictures, thick lines, easy to color",
         lead:
           "Hand drawn for a child's first coloring book. One animal per page, thick outlines, and the word underneath can be colored too.",
         body: [
           "At two, most children sweep the crayon rather than fill. Thick lines forgive that. The color lands roughly inside, the picture still looks like a lion, and the child feels it worked. That is the difference between a page a toddler finishes and a page they abandon.",
-          "These twenty sheets are real pages from our printed book, not filler drawn for a website. Each one was drawn by hand for children aged one to three: one animal, centered, nothing small in the corners, plenty of open space to fill.",
+          "These ten sheets are real pages from our printed book, not filler drawn for a website. Each one was drawn by hand for children aged one to three: one animal, centered, nothing small in the corners, plenty of open space to fill.",
           "The name under each animal is an outline as well, so a child can color the letters and hear the word while they do it. Coloring like this is one of the simplest ways to work on fine motor control at this age, and it costs nothing but a sheet of paper.",
           "Print as many as you like. Take them to a restaurant, a waiting room, a long car ride. There is no account to make and nothing to pay for.",
         ],
@@ -428,7 +417,7 @@ const coloringPagesBase: ColoringPage[] = [
           "For markers, slip a spare sheet underneath",
           "Print the same animal twice and color one together",
         ],
-        pickLead: "If your child liked these twenty, there are 111 in the book they came from.",
+        pickLead: "If your child liked these ten, there are 111 in the book they came from.",
         pickTitle: "The book these pages come from",
         pickPoints: [
           "111 hand drawn pictures with thick lines",
@@ -458,12 +447,12 @@ const coloringPagesBase: ColoringPage[] = [
       },
       es: {
         title:
-          "20 dibujos para colorear gratis para imprimir, niños de 1 a 3 años. Dibujos grandes, trazos gruesos, fáciles de colorear",
+          "10 dibujos para colorear gratis para imprimir, niños de 1 a 3 años. Dibujos grandes, trazos gruesos, fáciles de colorear",
         lead:
           "Dibujados a mano para el primer libro para colorear de un niño. Un animal por página, contornos gruesos, y la palabra de abajo también se puede colorear.",
         body: [
           "A los dos años, la mayoría de los niños barre con el crayón en lugar de rellenar. Los trazos gruesos perdonan eso. El color cae más o menos dentro, el dibujo sigue pareciendo un león, y el niño siente que le salió. Ahí está la diferencia entre una página que se termina y una que se abandona.",
-          "Estas veinte láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
+          "Estas diez láminas son páginas reales de nuestro libro impreso, no relleno dibujado para una web. Cada una se dibujó a mano para niños de uno a tres años: un animal, centrado, nada pequeño en las esquinas, y mucho espacio abierto para rellenar.",
           "El nombre debajo de cada animal también es un contorno, así que el niño puede colorear las letras y oír la palabra mientras lo hace. Con dos o tres años las primeras palabras entran así, sin lección y sin esfuerzo. Colorear de esta manera es una de las formas más sencillas de trabajar la motricidad fina a esta edad, y no cuesta más que una hoja de papel.",
           "Imprime las que quieras. Llévalas a un restaurante, a una sala de espera, a un viaje largo en coche. No hay que registrarse ni pagar nada.",
         ],
@@ -474,7 +463,7 @@ const coloringPagesBase: ColoringPage[] = [
           "Si usas marcadores, pon una hoja debajo",
           "Imprime el mismo animal dos veces y coloreen uno juntos",
         ],
-        pickLead: "Si a tu hijo le gustaron estas veinte, en el libro del que salieron hay 111.",
+        pickLead: "Si a tu hijo le gustaron estas diez, en el libro del que salieron hay 111.",
         pickTitle: "El libro del que salen estas páginas",
         pickPoints: [
           "111 dibujos hechos a mano con trazos gruesos",
@@ -1133,12 +1122,12 @@ const RU_FREE: Record<string, RuColoringPage> = {
     fromBookIdRu: "first-coloring-book-111-ru",
     copy: {
       title:
-        "20 бесплатных раскрасок для малышей 1-3 лет. Крупные рисунки, толстая линия, легко раскрашивать.",
+        "10 бесплатных раскрасок для малышей 1-3 лет. Крупные рисунки, толстая линия, легко раскрашивать.",
       lead:
         "Они нарисованы от руки для первой книги-раскраски. Одно животное на странице, толстый контур, а слово под рисунком тоже можно раскрасить.",
       body: [
         "В два года ребенок скорее водит карандашом по рисунку, чем аккуратно закрашивает. Толстая линия это прощает. Цвет ложится примерно внутрь, рисунок все равно остается похож на льва, и ребенок чувствует, что у него получилось. В этом и разница между листом, который доводят до конца, и листом, который бросают.",
-        "Эти двадцать листов - настоящие страницы напечатанной книги, а не картинки, дорисованные специально для сайта. Каждый рисунок создан от руки для детей от года до трех: одно животное по центру, никаких мелких деталей по углам, много свободного места для цвета.",
+        "Эти десять листов - настоящие страницы напечатанной книги, а не картинки, дорисованные специально для сайта. Каждый рисунок создан от руки для детей от года до трех: одно животное по центру, никаких мелких деталей по углам, много свободного места для цвета.",
         "Название под каждым животным тоже набрано полыми буквами, поэтому ребенок может раскрашивать и буквы, а взрослый - называть слово вслух. Ничего готовить не нужно.",
         "Печатайте сколько угодно. Возьмите с собой в кафе, в поликлинику или в долгую дорогу. Регистрироваться и платить не нужно.",
       ],
@@ -1149,7 +1138,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Если раскрашиваете фломастерами, подложите запасной лист.",
         "Напечатайте одно животное дважды и раскрасьте один экземпляр вместе.",
       ],
-      pickLead: "Если эти двадцать понравились, в книге, из которой они взяты, их 111.",
+      pickLead: "Если эти десять понравились, в книге, из которой они взяты, их 111.",
       pickTitle: "Книга, из которой эти страницы",
       pickPoints: [
         "111 рисунков, нарисованных от руки толстой линией",
@@ -1374,7 +1363,16 @@ export function allSheets(p: ColoringPage, lang: UiLang): Sheet[] {
 
 /** Страница раскрасок, собранная из этой книги. */
 export function coloringPageForBook(bookId: string): ColoringPage | undefined {
-  return coloringPages.find((p) => p.fromBookId === bookId || p.fromBookIdEs === bookId);
+  /* Страницы одного объекта пропускаем: на них ровно один лист, и блок
+     на странице книги показывал бы одного льва и звал "распечатать 1
+     лист". Книге нужна страница темы, где лежат все бесплатные листы. */
+  return coloringPages.find(
+    (p) =>
+      !p.single &&
+      (p.fromBookId === bookId ||
+        p.fromBookIdEs === bookId ||
+        p.fromBookIdRu === bookId),
+  );
 }
 
 /* Листы, у которых есть русский вариант. Это страницы первой книги

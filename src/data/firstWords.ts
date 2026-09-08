@@ -262,7 +262,7 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
       "Every drawing on this page is a real page from one of our coloring books. Three books, 111 pictures and 111 words in each, one per page, in English or in Spanish.",
     freeTitle: "Try a few free first",
     freeLead:
-      "Twenty animal pages, the same big drawings with the word underneath, ready to print at home. See how your child takes to them before buying anything.",
+      "Ten animal pages, the same big drawings with the word underneath, ready to print at home. See how your child takes to them before buying anything.",
     freeCta: "Get the free pages",
     faqTitle: "Questions parents ask",
     faq: [
@@ -359,7 +359,7 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
       "Todos los dibujos que ves aquí aparecen realmente en nuestros libros para colorear. Son tres libros, 111 dibujos y 111 palabras en cada uno, una por página, con ediciones en español y en inglés.",
     freeTitle: "Prueba algunas páginas gratis",
     freeLead:
-      "Descarga 20 páginas de animales para imprimir en casa. Son los mismos dibujos grandes y sencillos, con una palabra debajo de cada imagen. Pruébalas con tu hijo antes de elegir el libro completo.",
+      "Descarga 10 páginas de animales para imprimir en casa. Son los mismos dibujos grandes y sencillos, con una palabra debajo de cada imagen. Pruébalas con tu hijo antes de elegir el libro completo.",
     freeCta: "Descargar páginas gratis",
     faqTitle: "Preguntas de los padres",
     faq: [
@@ -530,7 +530,7 @@ const wordsPagesBase: WordsPage[] = [
           },
           {
             q: "Can we try some animal pages for free?",
-            a: "Yes. Twenty animal pages from the books are free to print at home, with the same big drawings and words underneath.",
+            a: "Yes. Ten animal pages from the books are free to print at home, with the same big drawings and words underneath.",
           },
         ],
       },
@@ -559,7 +559,7 @@ const wordsPagesBase: WordsPage[] = [
           },
           {
             q: "¿Hay páginas de animales gratis?",
-            a: "Sí. Veinte páginas de animales de los libros se pueden imprimir gratis en casa, con los mismos dibujos grandes y la palabra debajo.",
+            a: "Sí. Diez páginas de animales de los libros se pueden imprimir gratis en casa, con los mismos dibujos grandes y la palabra debajo.",
           },
         ],
       },

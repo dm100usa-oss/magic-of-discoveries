@@ -88,6 +88,10 @@ export interface Dictionary {
     inside: string;
     artwork: string;
     forWhom: string;
+    /** Заголовок блока выбора и подписи двух его половин. */
+    fitTitle: string;
+    fitYes: string;
+    fitNo: string;
     /** Заголовок свернутого блока с полным описанием книги.
         Текст лежит в коде страницы всегда, поэтому поисковики и
         нейросети читают его и в свернутом виде. */
@@ -380,6 +384,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       inside: "What is inside",
       artwork: "Pictures from the book",
       forWhom: "Who it is for",
+      fitTitle: "Is this book right for your child?",
+      fitYes: "Probably yes, if:",
+      fitNo: "Another book may suit better, if:",
       aboutTitle: "The full description of this book",
       storyTitle: "How this book was made, by the author",
       faq: "Questions parents ask",
@@ -699,6 +706,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       inside: "Qué contiene",
       artwork: "Ilustraciones del libro",
       forWhom: "Para quién es",
+      fitTitle: "¿Es este libro adecuado para tu hijo?",
+      fitYes: "Probablemente sí, si:",
+      fitNo: "Otro libro puede venir mejor, si:",
       aboutTitle: "Descripción completa de este libro",
       storyTitle: "Cómo se hizo este libro, por el autor",
       faq: "Preguntas de los padres",
@@ -1011,6 +1021,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       inside: "Что внутри",
       artwork: "Иллюстрации из книги",
       forWhom: "Кому подходит",
+      fitTitle: "Подойдет ли книга вашему ребенку",
+      fitYes: "Скорее да, если:",
+      fitNo: "Лучше выбрать другую книгу, если:",
       aboutTitle: "Полное описание книги",
       storyTitle: "Как создавалась эта книга, рассказ автора",
       faq: "Вопросы родителей",

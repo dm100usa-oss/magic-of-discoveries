@@ -1816,6 +1816,33 @@ export default async function ItemPage({
           <h2 className="section">{t.book.forWhom}</h2>
           <p>{copy.forWhom}</p>
 
+          {copy.fitYes?.length || copy.fitNo?.length ? (
+            <>
+              <h2 className="section">{t.book.fitTitle}</h2>
+              {copy.fitLead ? <p>{copy.fitLead}</p> : null}
+              {copy.fitYes?.length ? (
+                <>
+                  <h3>{t.book.fitYes}</h3>
+                  <ul>
+                    {copy.fitYes.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+              {copy.fitNo?.length ? (
+                <>
+                  <h3>{t.book.fitNo}</h3>
+                  <ul>
+                    {copy.fitNo.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
+            </>
+          ) : null}
+
           {freePage && freeSheets.length ? (
             <>
               <h2 className="section">{t.free.bookSheetsTitle}</h2>

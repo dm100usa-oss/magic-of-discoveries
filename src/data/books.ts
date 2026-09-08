@@ -515,6 +515,23 @@ export const books: Book[] = [
         ],
         forWhom:
           "Ages 1, 2 and 3. Good for a first coloring book, for preschool and daycare, and as a gift when you do not know the child well.",
+        fitLead:
+          "Ages 1-3 are only a guide. What matters more is how your child draws and colors right now.",
+        fitYes: [
+          "Your child is picking up crayons or pencils for the first time",
+          "This is their first coloring book, or they are just getting started",
+          "They still go outside the lines often",
+          "Small details are hard for them",
+          "One big picture is easier for them than a busy page",
+          "You want coloring time to introduce the names of things and the words that go with them",
+        ],
+        fitNo: [
+          "Big, simple pictures no longer hold their attention and they ask for more challenging pages",
+          "They color confidently inside the lines and handle small areas well",
+          "They like pages with lots of detail, backgrounds, and several objects on the same page",
+          "Simple pictures are no challenge for them anymore",
+          "They would rather draw a picture themselves than fill in a finished one. In that case, they can move on to How to Draw 111 or How to Draw Everything",
+        ],
         about: [
           "First Coloring Book for Toddlers Ages 1-3 (ISBN 9781963328271) is a first coloring book and first words book for children ages one to three, created by Ricardo Demi and published by Magic of Discoveries LLC on April 22, 2024. It can be used as a toddler's very first coloring book, as a first words book, or for both activities together on the same page.",
           "The book has 114 pages, measures 8.5 x 11 inches, and contains 111 different pictures, all drawn by hand, with no picture repeated anywhere in the book. Under each picture is its name, printed in large outline letters that can be colored too. The book pairs 111 pictures to color with 111 matching first words.",

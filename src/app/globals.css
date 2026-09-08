@@ -358,6 +358,16 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .pagehead p { color: #fff; margin: 0.7rem auto 0; max-width: 46ch; font-size: var(--t-lead); }
 
+/* На компьютере и горизонтальном планшете заголовок и строка под ним
+   стояли в узкой колонке шириной в двадцать четыре знака, и длинный
+   заголовок разбивался на три строки посреди широкой полосы. Даем им
+   нормальную ширину: заголовок в две строки, строка под ним в две-три. */
+@media (min-width: 900px) {
+  .pagehead { padding-inline: clamp(1rem, 4vw, 2rem); }
+  .pagehead h1 { max-width: 40ch; }
+  .pagehead p { max-width: 70ch; }
+}
+
 /* На телефоне длинный заголовок раздувается на весь экран. Уменьшаем,
    чтобы первый экран показывал и заголовок, и начало текста. */
 @media (max-width: 560px) {
@@ -1290,12 +1300,12 @@ ul.award-list li {
    колонок он получался крошечным. Показываем его крупно и по центру:
    человек пришел именно за ним. */
 .sheets--single {
-  grid-template-columns: minmax(0, 26rem);
+  grid-template-columns: minmax(0, 35rem);
   justify-content: center;
 }
-@media (max-width: 1180px) { .sheets--single { grid-template-columns: minmax(0, 26rem); } }
-@media (max-width: 1000px) { .sheets--single { grid-template-columns: minmax(0, 26rem); } }
-@media (max-width: 720px) { .sheets--single { grid-template-columns: minmax(0, 26rem); } }
+@media (max-width: 1180px) { .sheets--single { grid-template-columns: minmax(0, 35rem); } }
+@media (max-width: 1000px) { .sheets--single { grid-template-columns: minmax(0, 32rem); } }
+@media (max-width: 720px) { .sheets--single { grid-template-columns: minmax(0, 28rem); } }
 @media (max-width: 420px) { .sheets--single { grid-template-columns: 1fr; } }
 /* Лист это плашка целиком, а не просто картинка с кнопками под ней.
    Родитель на телефоне тычет в сам разворот, и это должно работать. */

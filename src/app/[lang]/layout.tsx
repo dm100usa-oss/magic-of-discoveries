@@ -52,8 +52,18 @@ export default async function LangLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        {/* Шрифты. На русских страницах набор другой: у Baloo 2 и
+            Caveat Brush нет кириллицы вовсе, и браузер подставлял вместо
+            них системный шрифт. Заголовки на русском набираем Nunito
+            самого жирного начертания, он такой же округлый, а кириллица
+            у него полноценная. Рукописный Caveat Brush заменен на Caveat:
+            это тот же шрифт, но с кириллицей, нарисованной отдельно. */}
         <link
-          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Caveat+Brush&family=Nunito:wght@400;700;800&display=swap"
+          href={
+            l === "ru"
+              ? "https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Nunito:wght@400;700;800;900&display=swap"
+              : "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Caveat+Brush&family=Nunito:wght@400;700;800&display=swap"
+          }
           rel="stylesheet"
         />
         {/* Короткая выжимка о сайте для нейросетей: кто мы, что издаем,

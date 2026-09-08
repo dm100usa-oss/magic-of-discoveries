@@ -1299,12 +1299,19 @@ ul.award-list li {
 @media (max-width: 420px) { .sheets--single { grid-template-columns: 1fr; } }
 /* Лист это плашка целиком, а не просто картинка с кнопками под ней.
    Родитель на телефоне тычет в сам разворот, и это должно работать. */
+/* Карточка листа. Названия у зверей разной длины: одни ложатся в одну
+   строку, другие в две, и кнопки печати вставали на разной высоте, а ряд
+   выглядел рваным. Карточка теперь колонка, название занимает две строки
+   всегда, а кнопки прижаты к низу, поэтому по всему ряду они на одной
+   линии. */
 .sheet {
   margin: 0; background: #fff; border-radius: var(--radius);
   border: var(--edge); padding: 0.7rem;
   box-shadow: var(--shadow-raise);
+  display: flex; flex-direction: column;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
+.sheet figcaption { display: flex; flex-direction: column; flex: 1 1 auto; }
 .sheet:hover { transform: translateY(-4px); box-shadow: var(--shadow-raise-hover); }
 .sheet__link { display: block; border-radius: var(--radius-sm); }
 .sheet__link:active { transform: translateY(1px); }
@@ -1315,8 +1322,22 @@ ul.award-list li {
 .sheet h3 {
   font-family: var(--font-display); font-size: var(--t-h3); font-weight: 800;
   color: var(--ink); margin: 0.7rem 0 0.5rem;
+  min-height: calc(2 * var(--t-h3) * 1.2);
 }
-.sheet__links { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0; }
+/* Ссылка в названии не выбивается из ряда цветом: свою страницу пока
+   имеет не каждый лист, и разноцветные названия читались бы как ошибка.
+   Что это ссылка, показывает наведение. */
+.sheet h3 a { color: inherit; }
+.sheet h3 a:hover { color: var(--pink-deep); }
+/* Название ведет на отдельную страницу листа. Цвет тот же, что у
+   остальных названий: ряд не должен пестреть, пока страницы сделаны
+   не у всех. Подчеркивание при наведении показывает, что это ссылка. */
+.sheet h3 a { color: inherit; text-decoration: none; }
+.sheet h3 a:hover { color: var(--pink-deep); text-decoration: underline; }
+.sheet__links {
+  display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0;
+  margin-top: auto; align-items: flex-start;
+}
 .sheet__links .btn { font-size: var(--t-small); padding: 0.5rem 0.9rem; }
 
 /* Веер страниц на странице книги */

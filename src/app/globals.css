@@ -1249,11 +1249,18 @@ ul.award-list li {
 /* Вступление на странице темы */
 /* Вступление на странице темы. Столбец по центру страницы, чтобы совпасть
    с заголовком над ним. Иначе текст прижат влево, а справа пустота. */
+/* Объяснение под листами. Ширина та же, что у сетки листов и у всех
+   остальных блоков страницы, текст выключен по формату. Раньше здесь
+   стояла своя узкая колонка в 74 знака, и абзацы висели огрызком рядом
+   с широкой сеткой картинок. */
 .sheets-intro {
-  padding: var(--band-y) clamp(1rem, 4vw, 2rem) var(--gap-4);
-  max-width: 74ch; margin-inline: auto;
+  padding: var(--gap-4) clamp(1rem, 4vw, 2rem) var(--gap-4);
+  max-width: var(--maxw); margin-inline: auto;
 }
-.sheets-intro .prose p { font-size: var(--t-lead); max-width: none; }
+.sheets-intro .prose p {
+  font-size: var(--t-lead); max-width: none;
+  text-align: justify; text-justify: inter-word; hyphens: auto;
+}
 .howto {
   background: var(--mint-pale); border-radius: var(--radius);
   padding: var(--gap-2) var(--gap-3); margin-top: var(--gap-3);
@@ -1267,13 +1274,29 @@ ul.award-list li {
 .howto li::marker { color: var(--mint); }
 
 /* Сетка листов */
+/* Пять в ряд: бесплатных листов десять, и они ложатся двумя ровными
+   рядами. При четырех в ряду последний ряд оставался наполовину
+   пустым. */
 .sheets {
-  display: grid; gap: var(--gap-3); margin: var(--gap-2) 0 var(--band-y);
-  grid-template-columns: repeat(4, 1fr);
+  display: grid; gap: var(--gap-3); margin: var(--gap-2) 0 var(--gap-3);
+  grid-template-columns: repeat(5, 1fr);
 }
+@media (max-width: 1180px) { .sheets { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 1000px) { .sheets { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 720px) { .sheets { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 420px) { .sheets { grid-template-columns: 1fr; } }
+
+/* Страница одного объекта. Лист там ровно один, и в общей сетке из пяти
+   колонок он получался крошечным. Показываем его крупно и по центру:
+   человек пришел именно за ним. */
+.sheets--single {
+  grid-template-columns: minmax(0, 26rem);
+  justify-content: center;
+}
+@media (max-width: 1180px) { .sheets--single { grid-template-columns: minmax(0, 26rem); } }
+@media (max-width: 1000px) { .sheets--single { grid-template-columns: minmax(0, 26rem); } }
+@media (max-width: 720px) { .sheets--single { grid-template-columns: minmax(0, 26rem); } }
+@media (max-width: 420px) { .sheets--single { grid-template-columns: 1fr; } }
 /* Лист это плашка целиком, а не просто картинка с кнопками под ней.
    Родитель на телефоне тычет в сам разворот, и это должно работать. */
 .sheet {
@@ -1464,7 +1487,7 @@ ul.award-list li {
 /* Права на рисунки, под листами */
 .rights {
   font-size: var(--t-small); color: var(--ink-2);
-  max-width: 78ch; margin: 0 0 var(--gap-4);
+  max-width: none; margin: 0 0 var(--gap-4);
   padding-top: var(--gap-2); border-top: 2px solid var(--pink-pale);
 }
 

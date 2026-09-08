@@ -536,7 +536,15 @@ export default async function ItemPage({
             {page.single || !(group.title[lang] ?? group.title.en) ? null : (
               <h2 className="section">{group.title[lang] ?? group.title.en}</h2>
             )}
-            <div className={page.spread ? "sheets sheets--spread" : "sheets"}>
+            <div
+              className={
+                page.spread
+                  ? "sheets sheets--spread"
+                  : page.single
+                    ? "sheets sheets--single"
+                    : "sheets"
+              }
+            >
               {group.sheets.map((sh) => {
                 const name = sh.name[lang] ?? sh.name.en!;
                 return (

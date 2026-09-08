@@ -1669,14 +1669,49 @@ export default async function ItemPage({
         {/* Ниже страница раскрывается на всю ширину: широкие баннеры
             рисовались широкими, в узкой колонке они теряют силу. */}
         <div className="book-body">
+          {/* Порядок здесь такой: сначала фраза о том, как сделаны рисунки,
+              сразу под ней сами рисунки, затем полный состав книги и только
+              потом кнопки. Человек пришел посмотреть, что внутри, и решение
+              принимает после того, как увидел. Баннеры идут ниже. */}
+          {(book.showcaseLead?.[lang] ?? book.showcaseLead?.en) ? (
+            <p className="showcase__lead">
+              {book.showcaseLead[lang] ?? book.showcaseLead.en}
+            </p>
+          ) : null}
+
+          {featuredDrawings.length ? (
+            <>
+              <h2 className="section">{t.book.drawingsTitle}</h2>
+              <ul className="thumbs thumbs--preview">
+                {featuredDrawings.map((d) => (
+                  <li key={d.n}>
+                    <img
+                      src={drawingFile(d.n)}
+                      alt={d.name}
+                      width={420}
+                      height={420}
+                      loading="lazy"
+                    />
+                    <span>{d.name}</span>
+                  </li>
+                ))}
+              </ul>
+              <BookDrawings
+                groups={topicGroups}
+                lang={lang}
+                label={t.book.drawingsAll.replace(
+                  "{n}",
+                  String(topicList.length),
+                )}
+              />
+              <div className="buy-block">
+                <BuyButtons book={book} lang={lang} />
+              </div>
+            </>
+          ) : null}
+
           {book.bannerLead || book.artwork?.length || book.banners?.length ? (
             <div className="showcase">
-              {(book.showcaseLead?.[lang] ?? book.showcaseLead?.en) ? (
-                <p className="showcase__lead">
-                  {book.showcaseLead[lang] ?? book.showcaseLead.en}
-                </p>
-              ) : null}
-
               {book.bannerLead ? (
                 <img
                   className="theme-banner"
@@ -1719,27 +1754,6 @@ export default async function ItemPage({
                 />
               ))}
             </div>
-          ) : null}
-
-          {/* Восемнадцать рисунков из книги, по два-три из каждой темы.
-              Стоят сразу после трех картинок: человек пришел посмотреть,
-              что внутри, а не читать про это. Все сто одиннадцать лежат
-              ниже, в разделе состава книги. */}
-          {featuredDrawings.length ? (
-            <ul className="thumbs thumbs--preview">
-              {featuredDrawings.map((d) => (
-                <li key={d.n}>
-                  <img
-                    src={drawingFile(d.n)}
-                    alt={d.name}
-                    width={420}
-                    height={420}
-                    loading="lazy"
-                  />
-                  <span>{d.name}</span>
-                </li>
-              ))}
-            </ul>
           ) : null}
 
           {/* Блок покупки стоит после баннеров: сначала человек видит,
@@ -1820,11 +1834,20 @@ export default async function ItemPage({
                   );
                 })}
               </ul>
-              <BookDrawings
-                groups={topicGroups}
-                lang={lang}
-                label={t.book.topicsAll.replace("{n}", String(topicList.length))}
-              />
+              {/* Полный состав с картинками стоит выше, сразу под сеткой
+                  рисунков. Второй раз его здесь не показываем: список
+                  из ста одиннадцати названий дважды на одной странице
+                  ничего не добавляет ни человеку, ни поисковику. */}
+              {featuredDrawings.length ? null : (
+                <BookDrawings
+                  groups={topicGroups}
+                  lang={lang}
+                  label={t.book.topicsAll.replace(
+                    "{n}",
+                    String(topicList.length),
+                  )}
+                />
+              )}
             </>
           ) : null}
 

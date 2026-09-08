@@ -878,9 +878,14 @@ ul.inside li::marker { color: var(--pink-hot); }
 .thumbs {
   list-style: none;
   margin: var(--gap-3) 0 var(--gap-4);
-  padding: 0;
+  padding: var(--gap-2);
   display: grid;
   gap: var(--gap-2);
+  /* Подложка светло-кремовая, а сами листы белые. Раньше и то и другое
+     было белым, и рисунки сливались со страницей: не было видно, что
+     это отдельные листы книги. */
+  background: var(--cream);
+  border-radius: var(--radius);
 }
 .thumbs li {
   background: var(--paper);
@@ -888,6 +893,7 @@ ul.inside li::marker { color: var(--pink-hot); }
   border-radius: var(--radius-sm);
   padding: 0.6rem 0.5rem 0.7rem;
   text-align: center;
+  box-shadow: 0 2px 6px rgba(51, 32, 44, 0.12);
 }
 .thumbs img {
   width: 100%;

@@ -92,6 +92,10 @@ export interface Dictionary {
     fitTitle: string;
     fitYes: string;
     fitNo: string;
+    /** Заголовок над сеткой рисунков из книги. */
+    drawingsTitle: string;
+    /** Подпись свернутого блока со всеми рисунками книги. */
+    drawingsAll: string;
     /** Заголовок свернутого блока с полным описанием книги.
         Текст лежит в коде страницы всегда, поэтому поисковики и
         нейросети читают его и в свернутом виде. */
@@ -387,6 +391,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       fitTitle: "Is this book right for your child?",
       fitYes: "Probably yes, if:",
       fitNo: "Another book may suit better, if:",
+      drawingsTitle: "What the drawings look like",
+      drawingsAll: "See all {n} drawings",
       aboutTitle: "The full description of this book",
       storyTitle: "How this book was made, by the author",
       faq: "Questions parents ask",
@@ -709,6 +715,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       fitTitle: "¿Es este libro adecuado para tu hijo?",
       fitYes: "Probablemente sí, si:",
       fitNo: "Otro libro puede venir mejor, si:",
+      drawingsTitle: "Cómo son los dibujos",
+      drawingsAll: "Ver los {n} dibujos",
       aboutTitle: "Descripción completa de este libro",
       storyTitle: "Cómo se hizo este libro, por el autor",
       faq: "Preguntas de los padres",
@@ -1024,6 +1032,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       fitTitle: "Подойдет ли книга вашему ребенку",
       fitYes: "Скорее да, если:",
       fitNo: "Лучше выбрать другую книгу, если:",
+      drawingsTitle: "Какие рисунки в книге",
+      drawingsAll: "Смотреть все {n} рисунков",
       aboutTitle: "Полное описание книги",
       storyTitle: "Как создавалась эта книга, рассказ автора",
       faq: "Вопросы родителей",

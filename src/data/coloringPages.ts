@@ -267,7 +267,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "¿Con qué conviene colorearlo?",
-            a: "Las ceras gruesas son lo más cómodo para las manos más pequeñas: dejan un trazo visible sin apretar. Los lápices de colores piden un agarre más preciso, que llega más adelante. Los rotuladores dan colores intensos, pero pueden traspasar el papel corriente, así que conviene poner una hoja debajo.",
+            a: "Las ceras gruesas son lo más cómodo para las manos más pequeñas: dejan un trazo visible sin apretar. Los lápices de colores requieren un agarre más preciso, que llega más adelante. Los rotuladores dan colores intensos, pero pueden traspasar el papel corriente, así que conviene poner una hoja debajo.",
           },
           {
             q: "Mi hijo garabatea sobre todo el león. ¿Es un problema?",

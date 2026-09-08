@@ -676,10 +676,94 @@ export const books: Book[] = [
         ],
         forWhom:
           "Para niños de 1, 2 y 3 años. Sirve como primer libro para colorear, para preescolar y guardería, y como regalo cuando no conoces bien al niño.",
+        fitLead:
+          "Los tres años son solo una edad orientativa. Importa más cómo dibuja y colorea tu hijo ahora mismo.",
+        fitYes: [
+          "Tu hijo coge las ceras o los lápices por primera vez",
+          "Es su primer libro para colorear o apenas está empezando",
+          "Todavía se sale del contorno a menudo",
+          "Le cuestan los detalles pequeños",
+          "Le resulta más fácil un dibujo grande que una lámina complicada",
+          "Quieres que, mientras colorea, vaya conociendo los nombres de las cosas y las palabras escritas",
+        ],
+        fitNo: [
+          "Los dibujos grandes y sencillos ya no le llaman la atención y él mismo pide láminas más difíciles",
+          "Colorea con seguridad dentro del contorno y se maneja bien en espacios pequeños",
+          "Le gustan las láminas con muchos detalles, con fondo y con varias cosas en la misma página",
+          "Los dibujos simples ya no le suponen ningún reto",
+          "Prefiere dibujar él mismo antes que colorear un dibujo ya hecho. En ese caso puede pasar a «Cómo dibujar 111» o «Cómo dibujar todo»",
+        ],
+        about: [
+          "El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2, es un libro de Ricardo Demi publicado por Magic of Discoveries LLC el 29 de abril de 2024. Es a la vez un primer libro para colorear y un primer libro de palabras: se puede usar para colorear, para conocer las primeras palabras o para las dos cosas en la misma página.",
+          "El libro tiene 114 páginas de 21,6 por 27,9 cm y 111 dibujos distintos. Todos están hechos a mano y ninguno se repite. Debajo de cada dibujo está su nombre, escrito en letras grandes de contorno que también se pueden colorear. Son 111 dibujos y 111 primeras palabras. Al principio hay una página para poner el nombre del niño.",
+          "El tamaño de los dibujos y el grosor de las líneas no se eligieron al azar. El dibujo ocupa entre el 70 % y el 82 % del ancho y del alto de la página, y el contorno principal mide entre 2,4 y 4,8 mm, más o menos lo que mide la propia cera. En la hoja no hay fondo, ni marco, ni varios elementos entre los que el niño tenga que repartir la atención. Delante tiene un solo objeto grande y fácil de reconocer, centrado en la página, así que colorear resulta igual de cómodo con la mano derecha y con la izquierda.",
+          "Está pensado así para un niño que apenas está aprendiendo a usar las ceras. Todavía le cuesta controlar el movimiento de la mano y mantenerse dentro del contorno, y por eso los dibujos pequeños y detallados se le hacen cuesta arriba. Aquí tiene mucha superficie para colorear, bordes bien visibles y ningún detalle pequeño. Aunque el trazo se salga un poco, el dibujo se sigue reconociendo.",
+          "Los dibujos están repartidos en ocho temas: 39 animales terrestres, 16 animales acuáticos, 11 personajes de cuentos, 8 vehículos, 7 objetos de juego y deporte, 6 objetos de casa, 10 plantas y flores y 14 alimentos. De la primera página a la última se mantiene el mismo principio: un dibujo grande y sencillo y una palabra debajo.",
+          "La edición en español está disponible en dos formatos. El libro impreso lo envía Amazon y cuesta $6.99. El archivo para imprimir cuesta $3.99: el enlace llega justo después del pago, el archivo se queda contigo y las páginas que hagan falta se pueden imprimir tantas veces como quieras, en casa o en una copistería. Antes de comprar nada, en esta web hay diez páginas reales del libro para imprimir gratis.",
+        ],
+        story: [
+          "Tengo dos hijos y, cuando eran pequeños, aprendí por experiencia cómo tiene que ser un primer libro para colorear. A un adulto le pueden gustar los dibujos bonitos y llenos de detalles, pero un niño que acaba de coger una cera todavía no necesita nada de eso. Es mucho más fácil empezar por un dibujo grande y claro, con líneas gruesas y formas sencillas.",
+          "Ese es justo el libro que quise hacer. En cada página hay un solo dibujo grande, sin fondo cargado y sin detalles pequeños. Elegí cosas que un niño reconoce y puede nombrar: animales, coches, comida, flores, objetos de casa y personajes de cuentos. También quería que hubiera muchos dibujos, para que cada vez pudiera elegir algo distinto. Así llegaron a ser 111 dibujos diferentes, sin repetir ninguno.",
+          "Las palabras debajo de los dibujos tienen su razón de ser. Cuando un niño pequeño ve un gato, una manzana o un coche, los padres se lo nombran sin pensarlo. Quise llevar esa misma idea al libro. Puse el nombre de cada dibujo debajo, con letras grandes de contorno para que también se pudieran colorear. Salieron 111 dibujos y 111 primeras palabras.",
+          "Algunos dibujos hubo que rehacerlos por el camino. A veces tenían demasiados detalles, a veces la forma era complicada y a veces sencillamente había que hacerlos más grandes. Poco a poco quedó clara la idea del libro entero: un dibujo grande y sencillo, un contorno grueso y bien visible y una palabra debajo. Ese mismo principio se mantiene de la primera página a la última.",
+          "Para mí era importante no hacer simplemente un libro más. Quería un libro con el que a un niño pequeño le resultara fácil empezar. En buena medida hice el libro que me habría gustado darles a mis hijos a esa edad.",
+        ],
         faq: [
           {
-            q: "¿Es demasiado difícil para un bebé de 1 año?",
-            a: "No. Los dibujos se hicieron a propósito muy simples para los más pequeños. Un bebé de un año rayará por encima de la figura y uno de tres empezará a quedarse dentro. El mismo libro acompaña los tres años.",
+            q: "¿Es pronto para dar un libro para colorear a un niño de un año?",
+            a: "No, si ya muestra interés por las ceras. A esta edad no hay que esperar que coloree con cuidado dentro del contorno: las primeras sesiones son líneas y garabatos, y eso es lo normal. Por eso, para los primeros intentos van bien los dibujos grandes y sencillos, sin zonas pequeñas que exijan precisión.",
+          },
+          {
+            q: "¿Le viene bien a un niño de dos años?",
+            a: "Sí. Los dos años son justo la edad para la que está hecho este libro. Le viene especialmente bien al niño que ya intenta colorear, pero todavía se sale del contorno a menudo y le cuestan los detalles pequeños.",
+          },
+          {
+            q: "¿No se le quedará corto a un niño de tres años?",
+            a: "Depende de lo que sepa hacer, no solo de la edad. Si ya rellena con cuidado zonas pequeñas y casi no se sale, puede parecerle fácil. Si está empezando, los dibujos grandes de contorno grueso todavía le van bien.",
+          },
+          {
+            q: "¿Qué hago si mi hijo se sale del contorno a menudo?",
+            a: "No hay que pedirle precisión antes de tiempo. Precisamente para esta etapa están hechos los dibujos grandes y sin detalles pequeños. Primero el niño aprende a controlar el movimiento de la mano; la precisión llega después.",
+          },
+          {
+            q: "¿Cuándo se le va a quedar corto este libro?",
+            a: "Cuando se maneje con soltura en los dibujos grandes, sea capaz de rellenar zonas pequeñas y pida él mismo láminas más difíciles. Entonces se puede pasar a dibujos con más detalle o al dibujo paso a paso, donde el niño hace el dibujo él solo.",
+          },
+          {
+            q: "¿Con qué conviene colorear los primeros dibujos?",
+            a: "Para los primeros intentos, lo más cómodo son las ceras gruesas: un niño pequeño las agarra con toda la mano y dejan un trazo visible sin apretar. Los lápices de colores requieren un agarre más preciso, que llega más adelante. Los rotuladores dan un color intenso, pero conviene usarlos sobre papel más grueso.",
+          },
+          {
+            q: "¿En qué papel conviene imprimir el archivo?",
+            a: "Depende de con qué vaya a colorear. Para ceras y lápices de colores sirve el papel normal de impresora. Para rotuladores es mejor un papel más grueso, de unos 160 gramos, para que el color traspase menos.",
+          },
+          {
+            q: "¿Puedo imprimir la misma página varias veces?",
+            a: "Sí, si tienes el archivo. Si un dibujo le ha gustado especialmente, se puede volver a imprimir. Al cabo de un tiempo, el niño puede volver a colorear la misma lámina y ver cómo le sale esta vez.",
+          },
+          {
+            q: "¿Puedo imprimir el libro en una copistería?",
+            a: "Sí. El archivo se compra una vez y las páginas que hagan falta se pueden imprimir tantas veces como quiera tu familia. En una copistería puedes elegir un papel más grueso y, si quieres, encuadernar las hojas.",
+          },
+          {
+            q: "¿Para qué están las palabras debajo de los dibujos?",
+            a: "Para que el niño vea a la vez el objeto conocido y su nombre escrito. El adulto señala el dibujo y dice la palabra en voz alta, y el niño tiene delante las dos cosas juntas. El nombre está escrito en letras grandes de contorno, así que también se puede colorear.",
+          },
+          {
+            q: "¿Este libro enseña a leer?",
+            a: "No, y no está pensado para eso. No es una cartilla de lectura. Las palabras debajo de los dibujos sirven para que, mientras colorea, el niño vea letras impresas y los nombres de cosas que conoce.",
+          },
+          {
+            q: "¿Qué hay en el libro además de animales?",
+            a: "Animales acuáticos, personajes de cuentos, vehículos, objetos de juego y deporte, objetos de casa, plantas y alimentos: pera, sandía, zanahoria, rosquilla y más. En total hay ocho temas y 111 dibujos distintos.",
+          },
+          {
+            q: "¿Puedo ver páginas reales antes de comprar?",
+            a: "Sí. En esta web hay diez páginas reales de este libro, gratis y sin registro. No son muestras hechas aparte: son los mismos dibujos que están en el libro. Con ellas se puede ver de antemano el tamaño de los dibujos, el grosor del contorno y si el nivel le conviene a tu hijo. También hay un vídeo grabado por un comprador donde se puede ver cómo es el libro por dentro.",
+          },
+          {
+            q: "¿Sirve para una guardería o para trabajar con un grupo?",
+            a: "Sí. Para el trabajo en grupo, el archivo resulta especialmente cómodo: la misma página se puede imprimir para todos los niños. Además, los dibujos se pueden aprovechar para otras actividades: los niños pueden nombrar el objeto, su color y su forma.",
           },
           faqPaperOrDigital.es,
           faqBleedToddler.es,

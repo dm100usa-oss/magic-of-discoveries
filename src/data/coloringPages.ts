@@ -989,6 +989,651 @@ const coloringPagesBase: ColoringPage[] = [
     },
   },
 
+  /* --------------------------------------------------------------
+     Собака. Единственное из десяти животных, которое ребенок видит
+     в жизни, а не только в книжке.
+     -------------------------------------------------------------- */
+  {
+    id: "dog-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "dog-coloring-page-for-toddlers",
+      es: "dibujo-de-perro-para-colorear-ninos-pequenos",
+      ru: "raskraska-sobaka-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("dog", "Dog", "Perro", "Собака")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска собака для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с собакой для малышей: один рисунок без фона, толстый контур и слово «СОБАКА» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "Собака нарисована крупно и просто: большое туловище, голова с висячим ухом, хвост и четыре лапы. Мелких деталей почти нет, поэтому ребенок может закрасить всю собаку одним цветом или выбрать отдельные цвета для уха, лап и хвоста.",
+          "У этой раскраски есть еще одна особенность: собака это знакомое многим детям животное, которое они могут видеть дома или на прогулке. Ребенок может узнать на рисунке собаку, назвать ее и выбрать для нее цвет.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а рисунок занимает примерно 70-82 % страницы и расположен по центру. Вокруг нет фона, будки, поводка и других предметов, только одна крупная собака.",
+          "Под рисунком крупными контурными буквами написано слово «СОБАКА». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для первых попыток удобны толстые восковые мелки",
+          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
+          "Можно распечатать несколько экземпляров и раскрасить собаку разными цветами",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенку 1-3 года или он старше, но только начинает раскрашивать",
+          "Он пока часто выходит за контур",
+          "Ему проще один крупный рисунок, чем страница с множеством мелких деталей",
+          "Он узнает собак дома, на улице или в книгах и любит их рассматривать",
+        ],
+        fitNoTitle: "Раскраска может быть слишком простой, если:",
+        fitNo: [
+          "Ребенок уже уверенно раскрашивает небольшие участки внутри контура",
+          "Он просит более подробные рисунки с большим количеством деталей",
+          "Ему интереснее рисовать самостоятельно, чем раскрашивать готовый рисунок",
+        ],
+        themeTitle: "Собака - один из {n} животных книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Собака входит в тему животных: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге сохраняется тот же принцип: один крупный рисунок на странице, толстый контур и слово крупными контурными буквами под картинкой. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с собакой бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с собакой ребенку 2 лет?",
+            a: "Если ребенок только начинает раскрашивать, этот рисунок подходит благодаря крупным областям и небольшому количеству деталей. Необязательно точно оставаться внутри контура: этот навык развивается постепенно.",
+          },
+          {
+            q: "Какой породы собака на раскраске?",
+            a: "Собака нарисована обобщенно, без выраженных признаков конкретной породы.",
+          },
+          {
+            q: "Чем лучше раскрашивать?",
+            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки. При использовании фломастеров лучше подложить дополнительный лист бумаги.",
+          },
+          {
+            q: "Есть ли еще бесплатные раскраски для малышей?",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги. Всего в книге 111 разных рисунков.",
+          },
+        ],
+      },
+      en: {
+        title: "Dog coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big dog coloring page for toddlers: one picture with no background, a thick outline, and the word DOG underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The dog is drawn large and simple: a big body, a head with a floppy ear, a tail and four legs. There is almost no fine detail, so a child can fill the whole dog with one color or give the ear, the legs and the tail their own.",
+          "This page has one more thing going for it. A dog is an animal many children see in real life, at home or on a walk. A child often recognizes it, names it, and picks a color for it right away.",
+          "The main outline measures 2.4 to 4.8 mm, and the picture fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no kennel, no leash and nothing else around it, only one large dog.",
+          "Under the picture is the word DOG in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons are easiest for first attempts",
+          "If your child uses markers, slip a spare sheet underneath",
+          "Print a few copies and try the dog in different colors",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child is 1 to 3, or older and just starting to color",
+          "They still go outside the line often",
+          "One big picture is easier for them than a page full of small detail",
+          "They recognize dogs at home, on the street or in books and like looking at them",
+        ],
+        fitNoTitle: "The page may be too simple if:",
+        fitNo: [
+          "Your child already colors small areas confidently inside the line",
+          "They ask for more detailed drawings with fur, a collar and other extras",
+          "They would rather draw a picture themselves than fill in a finished one",
+        ],
+        themeTitle: "The dog is one of {n} animals in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The dog belongs to the animal theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The same principle runs through the book: one large picture per page, a thick outline, and the word underneath in large outline letters. 114 pages, 8.5 x 11 inches. Every picture is drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this dog coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this dog page right for a two year old?",
+            a: "If your child is just starting to color, the large areas and the small amount of detail make it a comfortable page. Staying exactly inside the line is not expected, that comes gradually.",
+          },
+          {
+            q: "What breed is the dog?",
+            a: "The dog is drawn in a general way, without the marks of any particular breed.",
+          },
+          {
+            q: "What is best for coloring it?",
+            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements. With markers, slip a spare sheet underneath.",
+          },
+          {
+            q: "Are there more free coloring pages for toddlers?",
+            a: "Yes. Ten real pages from the same book are free to print on this site. The book itself holds 111 different pictures.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujo de perro para colorear, de 1 a 3 años, gratis para imprimir",
+        lead:
+          "Un perro grande para colorear, pensado para los más pequeños: un solo dibujo sin fondo, contorno grueso y la palabra PERRO debajo, que también se puede colorear. Es una página real de un libro impreso. Se imprime gratis en A4 o Carta, sin registro.",
+        body: [
+          "El perro está dibujado grande y sencillo: un cuerpo amplio, la cabeza con una oreja caída, la cola y cuatro patas. Casi no hay detalles pequeños, así que el niño puede pintar el perro entero de un color o dar a la oreja, las patas y la cola el suyo propio.",
+          "Esta lámina tiene además algo que las demás no tienen. El perro es un animal que muchos niños ven en la vida real, en casa o en la calle. El niño suele reconocerlo, nombrarlo y elegirle un color enseguida.",
+          "El contorno principal mide entre 2,4 y 4,8 mm, y el dibujo ocupa entre el 70 % y el 82 % de la página y está centrado. Alrededor no hay fondo, ni caseta, ni correa, ni nada más: solo un perro grande.",
+          "Debajo del dibujo está la palabra PERRO en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para los primeros intentos van mejor las ceras gruesas",
+          "Si el niño usa rotuladores, pon una hoja debajo",
+          "Imprime varias copias y prueba el perro con colores distintos",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
+        fitYes: [
+          "Tu hijo tiene entre 1 y 3 años, o es mayor y empieza ahora a colorear",
+          "Todavía se sale del contorno a menudo",
+          "Un dibujo grande le resulta más fácil que una página llena de detalles",
+          "Reconoce a los perros en casa, en la calle o en los libros y le gusta mirarlos",
+        ],
+        fitNoTitle: "La lámina puede quedarse corta si:",
+        fitNo: [
+          "Ya colorea con seguridad zonas pequeñas dentro del contorno",
+          "Pide dibujos más detallados, con pelo, collar y otros añadidos",
+          "Prefiere dibujar él mismo antes que colorear un dibujo ya hecho",
+        ],
+        themeTitle: "El perro es uno de los {n} animales del libro",
+        themeLead:
+          "Esta lámina gratuita sale de El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. El perro pertenece al tema de los animales: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "En el libro se mantiene el mismo principio: un dibujo grande por página, contorno grueso y la palabra debajo en letras grandes de contorno. 114 páginas, 21,6 x 27,9 cm. Todos los dibujos están hechos a mano y ninguno se repite. El libro tiene cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis este perro para colorear?",
+            a: "Sí. Sin registro, sin correo y sin pago. Hay dos tamaños, A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien este perro a un niño de dos años?",
+            a: "Si está empezando a colorear, las zonas grandes y la poca cantidad de detalle lo hacen cómodo. No se espera que se quede justo dentro del contorno, eso llega poco a poco.",
+          },
+          {
+            q: "¿De qué raza es el perro?",
+            a: "El perro está dibujado de forma general, sin los rasgos de ninguna raza concreta.",
+          },
+          {
+            q: "¿Con qué conviene colorearlo?",
+            a: "Para las manos más pequeñas lo más cómodo son las ceras gruesas. Los lápices de colores piden un movimiento más firme. Con rotuladores, pon una hoja debajo.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas para los más pequeños?",
+            a: "Sí. En esta web hay diez páginas reales del mismo libro, gratis para imprimir. El libro completo reúne 111 dibujos distintos.",
+          },
+        ],
+      },
+    },
+  },
+
+  /* --------------------------------------------------------------
+     Бабочка. Крылья разбиты на отдельные полосы, рисунок
+     симметричный. Шаг вперед, а не первый лист.
+     -------------------------------------------------------------- */
+  {
+    id: "butterfly-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "butterfly-coloring-page-for-toddlers",
+      es: "dibujo-de-mariposa-para-colorear-ninos-pequenos",
+      ru: "raskraska-babochka-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("butterfly", "Butterfly", "Mariposa", "Бабочка")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска бабочка для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска с бабочкой для малышей: одна бабочка без фона, толстый контур и слово «БАБОЧКА» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "Крылья бабочки разделены на несколько отдельных областей. Поэтому здесь можно использовать больше цветов, чем в самых простых раскрасках с одной большой сплошной областью.",
+          "Раскрашивать каждую часть отдельно необязательно. Ребенок, который только начинает, может закрасить каждое крыло целиком. Позже этот же лист можно распечатать снова и попробовать использовать разные цвета для отдельных участков.",
+          "Бабочка симметрична: рисунок на левом и правом крыле повторяется. Поэтому крылья можно раскрашивать одинаково, повторяя цвета с одной стороны на другой, или специально выбирать для них разные сочетания.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а бабочка занимает примерно 70-82 % страницы и расположена по центру. Вокруг нет цветов, травы, рамки и других фоновых деталей.",
+          "Под рисунком крупными контурными буквами написано слово «БАБОЧКА». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для крупных областей удобны толстые восковые мелки",
+          "Отдельные участки на крыльях необязательно раскрашивать разными цветами",
+          "При использовании фломастеров подложите дополнительный лист бумаги",
+          "Можно распечатать два экземпляра и раскрасить крылья разными сочетаниями цветов",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенок уже пробовал раскрашивать простые крупные картинки",
+          "Ему нравится использовать несколько цветов в одном рисунке",
+          "Он начинает интересоваться отдельными небольшими участками",
+          "Самые простые раскраски с одной большой областью уже кажутся ему слишком легкими",
+        ],
+        fitNoTitle: "Раскраска может быть пока слишком сложной, если:",
+        fitNo: [
+          "Ребенок впервые берет мелок и раскрашивает только широкими движениями",
+          "Ему пока трудно работать с отдельными небольшими участками",
+          "Ему проще раскрашивать один большой открытый контур. В таком случае можно сначала попробовать бесплатную раскраску со слоном или львом, а к бабочке вернуться позже",
+        ],
+        themeTitle: "Бабочка - одна из {n} животных книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Бабочка входит в тему животных: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге есть как совсем простые крупные картинки для первых попыток, так и рисунки с большим количеством отдельных областей. На каждой странице один рисунок и слово под ним, которое тоже можно раскрасить. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску с бабочкой бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска с бабочкой ребенку 2 лет?",
+            a: "Это зависит от того, как ребенок раскрашивает сейчас. Если он только начинает, можно не обращать внимания на отдельные участки и закрасить каждое крыло целиком. Если ребенок уже старается работать с небольшими областями, их можно раскрашивать разными цветами.",
+          },
+          {
+            q: "Нужно ли раскрашивать отдельные части крыльев разными цветами?",
+            a: "Нет. Крыло можно закрасить одним цветом. Позже этот же лист можно распечатать снова и попробовать раскрасить отдельные участки по-разному.",
+          },
+          {
+            q: "Почему рисунок бабочки сложнее слона или льва?",
+            a: "У бабочки крылья разделены на большее количество отдельных областей. У слона и льва крупные сплошные участки, поэтому ими проще начинать.",
+          },
+          {
+            q: "Есть ли более простые бесплатные раскраски?",
+            a: "Да. Среди десяти бесплатных страниц есть рисунки с более крупными открытыми областями. Например, можно начать со слона или льва.",
+          },
+        ],
+      },
+      en: {
+        title: "Butterfly coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big butterfly coloring page for toddlers: one butterfly with no background, a thick outline, and the word BUTTERFLY underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The wings are divided into several separate areas. That leaves room for more colors than the simplest pages, where the whole picture is one solid shape.",
+          "There is no need to color each part on its own. A child who is just starting can fill each wing as one shape. Later the same page can be printed again and the separate areas given different colors.",
+          "The butterfly is symmetrical: the left wing and the right wing carry the same pattern. The wings can be colored to match, repeating the colors from one side on the other, or deliberately given different combinations.",
+          "The main outline measures 2.4 to 4.8 mm, and the butterfly fills roughly 70 to 82 percent of the page and sits in the center. There are no flowers, no grass, no frame and no other background around it.",
+          "Under the picture is the word BUTTERFLY in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons work well on the large areas",
+          "The separate areas on the wings do not have to be different colors",
+          "If you use markers, slip a spare sheet underneath",
+          "Print two copies and try the wings in different color combinations",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child has already tried simple, large pictures",
+          "They like using several colors in one picture",
+          "They are beginning to take an interest in smaller separate areas",
+          "The simplest pages with one big shape already feel too easy to them",
+        ],
+        fitNoTitle: "The page may be too hard for now if:",
+        fitNo: [
+          "Your child is holding a crayon for the first time and only makes wide strokes",
+          "Working in small separate areas is still difficult for them",
+          "One large open shape is easier for them. In that case start with the free elephant or lion page and come back to the butterfly later",
+        ],
+        themeTitle: "The butterfly is one of {n} animals in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The butterfly belongs to the animal theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The book holds both very simple large pictures for first attempts and drawings with more separate areas. Every page has one picture and a word underneath that can be colored too. 114 pages, 8.5 x 11 inches. The pictures are drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this butterfly coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this butterfly page right for a two year old?",
+            a: "It depends on how your child colors right now. If they are just starting, they can ignore the separate areas and fill each wing as one shape. If they are already working in smaller areas, those can each take their own color.",
+          },
+          {
+            q: "Do the parts of the wings have to be different colors?",
+            a: "No. A wing can be filled with one color. Later the same page can be printed again and the separate areas colored differently.",
+          },
+          {
+            q: "Why is the butterfly harder than the elephant or the lion?",
+            a: "The butterfly wings are divided into more separate areas. The elephant and the lion are large solid shapes, which makes them easier to start with.",
+          },
+          {
+            q: "Are there easier free coloring pages?",
+            a: "Yes. Among the ten free pages there are drawings with larger open areas. The elephant or the lion is a good place to start.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujo de mariposa para colorear, de 1 a 3 años, gratis para imprimir",
+        lead:
+          "Una mariposa grande para colorear, pensada para los más pequeños: una sola mariposa sin fondo, contorno grueso y la palabra MARIPOSA debajo, que también se puede colorear. Es una página real de un libro impreso. Se imprime gratis en A4 o Carta, sin registro.",
+        body: [
+          "Las alas están divididas en varias zonas separadas. Por eso aquí caben más colores que en las láminas más sencillas, donde todo el dibujo es una sola forma.",
+          "No hace falta colorear cada parte por separado. Un niño que empieza puede pintar cada ala entera. Más adelante se puede imprimir la misma lámina otra vez y dar colores distintos a cada zona.",
+          "La mariposa es simétrica: el ala izquierda y la derecha llevan el mismo dibujo. Se pueden colorear igual, repitiendo los colores de un lado en el otro, o elegir combinaciones distintas a propósito.",
+          "El contorno principal mide entre 2,4 y 4,8 mm, y la mariposa ocupa entre el 70 % y el 82 % de la página y está centrada. Alrededor no hay flores, ni hierba, ni marco, ni ningún otro fondo.",
+          "Debajo del dibujo está la palabra MARIPOSA en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para las zonas grandes van bien las ceras gruesas",
+          "Las zonas de las alas no tienen que ir de colores distintos",
+          "Si usas rotuladores, pon una hoja debajo",
+          "Imprime dos copias y prueba las alas con combinaciones de colores distintas",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
+        fitYes: [
+          "Tu hijo ya ha probado dibujos sencillos y grandes",
+          "Le gusta usar varios colores en un mismo dibujo",
+          "Empieza a fijarse en las zonas pequeñas por separado",
+          "Las láminas más sencillas, de una sola forma grande, ya le parecen demasiado fáciles",
+        ],
+        fitNoTitle: "La lámina puede resultar todavía difícil si:",
+        fitNo: [
+          "Tu hijo coge la cera por primera vez y solo hace trazos amplios",
+          "Trabajar en zonas pequeñas por separado todavía le cuesta",
+          "Se maneja mejor con una sola forma grande y abierta. En ese caso empieza por la lámina gratuita del elefante o del león y vuelve a la mariposa más adelante",
+        ],
+        themeTitle: "La mariposa es uno de los {n} animales del libro",
+        themeLead:
+          "Esta lámina gratuita sale de El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. La mariposa pertenece al tema de los animales: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "En el libro hay tanto dibujos muy sencillos y grandes para los primeros intentos como otros con más zonas separadas. Cada página tiene un dibujo y una palabra debajo que también se colorea. 114 páginas, 21,6 x 27,9 cm. Los dibujos están hechos a mano y ninguno se repite. El libro tiene cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis esta mariposa para colorear?",
+            a: "Sí. Sin registro, sin correo y sin pago. Hay dos tamaños, A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien esta mariposa a un niño de dos años?",
+            a: "Depende de cómo colorea ahora mismo. Si está empezando, puede olvidarse de las zonas y pintar cada ala entera. Si ya trabaja en zonas pequeñas, cada una puede llevar su color.",
+          },
+          {
+            q: "¿Hay que pintar las zonas de las alas de colores distintos?",
+            a: "No. Un ala se puede pintar de un solo color. Más adelante se puede imprimir la misma lámina otra vez y colorear las zonas de forma distinta.",
+          },
+          {
+            q: "¿Por qué la mariposa es más difícil que el elefante o el león?",
+            a: "Las alas de la mariposa están divididas en más zonas separadas. El elefante y el león son formas grandes y macizas, y por eso resultan más fáciles para empezar.",
+          },
+          {
+            q: "¿Hay láminas gratuitas más sencillas?",
+            a: "Sí. Entre las diez páginas gratuitas hay dibujos con zonas más grandes y abiertas. El elefante o el león son un buen punto de partida.",
+          },
+        ],
+      },
+    },
+  },
+
+  /* --------------------------------------------------------------
+     Слон. Самая большая сплошная площадь из десяти листов, самый
+     первый лист набора.
+     -------------------------------------------------------------- */
+  {
+    id: "elephant-toddler",
+    published: "2026-09-08",
+    updated: "2026-09-08",
+    single: true,
+    themeId: "land",
+    fromBookId: "first-coloring-book-111-en",
+    fromBookIdEs: "first-coloring-book-111-es",
+    fromBookIdRu: "first-coloring-book-111-ru",
+    slug: {
+      en: "elephant-coloring-page-for-toddlers",
+      es: "dibujo-de-elefante-para-colorear-ninos-pequenos",
+      ru: "raskraska-slon-dlya-malyshey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "", es: "", ru: "" },
+        sheets: [S("elephant", "Elephant", "Elefante", "Слон")],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Раскраска слон для малышей 1-3 лет - распечатать бесплатно",
+        lead:
+          "Крупная раскраска со слоном для малышей: один слон без фона, толстый контур и слово «СЛОН» под картинкой, которое тоже можно раскрасить. Это настоящая страница из изданной книги. Можно бесплатно распечатать на Letter или A4 без регистрации.",
+        body: [
+          "У слона самая большая сплошная область среди десяти бесплатных раскрасок. Большое туловище, круглое ухо и хобот занимают почти весь рисунок, поэтому здесь много места для широких движений мелком.",
+          "Мелких участков почти нет. Ребенку, который только начинает раскрашивать, не приходится работать с множеством небольших деталей. Можно закрасить слона целиком одним цветом или выбрать отдельный цвет для большого уха.",
+          "Основной контур имеет толщину 2,4-4,8 мм, а слон занимает примерно 70-82 % страницы и расположен по центру. Вокруг нет фона, травы, деревьев, рамки и других предметов, только один крупный слон.",
+          "Под рисунком крупными контурными буквами написано слово «СЛОН». Его тоже можно раскрасить, а взрослый может назвать изображение вслух и показать ребенку написанное слово.",
+        ],
+        howTo: [
+          "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
+          "Для большой открытой области особенно удобны толстые восковые мелки",
+          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
+          "Можно распечатать несколько экземпляров и попробовать разные цвета",
+        ],
+        fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
+        fitYesTitle: "Раскраска подходит, если:",
+        fitYes: [
+          "Ребенок впервые берет в руки мелки или карандаши",
+          "Это одна из его первых раскрасок",
+          "Он пока раскрашивает широкими движениями и часто выходит за контур",
+          "Ему проще большая сплошная область, чем множество небольших деталей",
+        ],
+        fitNoTitle: "Раскраска может быть слишком простой, если:",
+        fitNo: [
+          "Ребенок уже уверенно раскрашивает небольшие участки внутри контура",
+          "Он сам просит картинки с большим количеством деталей",
+          "Ему интереснее раскрашивать рисунки с несколькими отдельными областями",
+          "Он предпочитает рисовать самостоятельно",
+        ],
+        themeTitle: "Слон - один из {n} животных книги",
+        themeLead:
+          "Эта бесплатная раскраска взята из книги «Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3. Слон входит в тему животных: в книге их {n}, а всего в ней {total} разных рисунков.",
+        themeFreeMark: "бесплатно на этой странице",
+        pickLead:
+          "В книге сохраняется тот же принцип: один крупный рисунок на странице, толстый контур и слово крупными контурными буквами под картинкой. Всего 114 страниц, формат 21,6 x 27,9 см. Рисунки нарисованы от руки и не повторяются. Книга получила оценку пять звезд от Readers' Favorite.",
+        pickTitle: "Книга, из которой этот лист",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Можно ли распечатать раскраску со слоном бесплатно?",
+            a: "Да. Этот лист можно бесплатно распечатать без регистрации, электронной почты и оплаты. Доступны размеры Letter и A4.",
+          },
+          {
+            q: "Подойдет ли раскраска со слоном ребенку 1 года?",
+            a: "Если ребенок уже берет мелок и оставляет им следы на бумаге, можно попробовать. В этом возрасте не нужно ожидать, что он будет аккуратно раскрашивать внутри контура. Большая открытая область позволяет просто делать первые широкие движения поверх рисунка.",
+          },
+          {
+            q: "Подойдет ли раскраска со слоном ребенку 2 лет?",
+            a: "Да, особенно если ребенок только начинает раскрашивать. У слона большая сплошная область и почти нет мелких деталей, поэтому ему не приходится работать с множеством небольших участков.",
+          },
+          {
+            q: "С какой из десяти бесплатных раскрасок лучше начать?",
+            a: "Если ребенку проще большие открытые области, слон один из самых простых вариантов. Среди десяти бесплатных листов у него самая большая сплошная область.",
+          },
+          {
+            q: "Есть ли еще бесплатные раскраски для малышей?",
+            a: "Да. На сайте бесплатно доступны десять настоящих страниц из этой же книги. Всего в книге 111 разных рисунков.",
+          },
+        ],
+      },
+      en: {
+        title: "Elephant coloring page for toddlers ages 1-3, free to print",
+        lead:
+          "A big elephant coloring page for toddlers: one elephant with no background, a thick outline, and the word ELEPHANT underneath that can be colored too. It is a real page from a printed book. Free to print in US Letter or A4, with no sign-up.",
+        body: [
+          "The elephant has the largest solid area of all ten free pages. The big body, the round ear and the trunk take up almost the whole drawing, so there is plenty of room for wide strokes.",
+          "There is almost nothing small to work around. A child who is just starting to color does not have to deal with a lot of little parts. The elephant can be filled with one color, or the big ear can take a color of its own.",
+          "The main outline measures 2.4 to 4.8 mm, and the elephant fills roughly 70 to 82 percent of the page and sits in the center. There is no background, no grass, no trees and no frame around it, only one large elephant.",
+          "Under the picture is the word ELEPHANT in large outline letters. It can be colored too, and an adult can say the word out loud and point to it while the child colors.",
+        ],
+        howTo: [
+          "Choose Letter or A4, whichever your printer takes",
+          "Thick crayons are the easiest thing for one big open area",
+          "If your child uses markers, slip a spare sheet underneath",
+          "Print a few copies and try different colors",
+        ],
+        fitTitle: "Is this page right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "Your child is picking up crayons or pencils for the first time",
+          "This is one of their first coloring pages",
+          "They still color with wide strokes and often go outside the line",
+          "One large solid area is easier for them than a lot of small parts",
+        ],
+        fitNoTitle: "The page may be too simple if:",
+        fitNo: [
+          "Your child already colors small areas confidently inside the line",
+          "They ask for pictures with more detail",
+          "They would rather color drawings made of several separate areas",
+          "They would rather draw a picture themselves",
+        ],
+        themeTitle: "The elephant is one of {n} animals in the book",
+        themeLead:
+          "This free page comes from First Coloring Book for Toddlers Ages 1-3, ISBN 978-1-963328-27-1. The elephant belongs to the animal theme: the book has {n} of them, and {total} different pictures in all.",
+        themeFreeMark: "free on this page",
+        pickLead:
+          "The same principle runs through the book: one large picture per page, a thick outline, and the word underneath in large outline letters. 114 pages, 8.5 x 11 inches. Every picture is drawn by hand and none is repeated. The book has a five star review from Readers' Favorite.",
+        pickTitle: "The book this page comes from",
+        pickPoints: [],
+        faq: [
+          {
+            q: "Is this elephant coloring page really free to print?",
+            a: "Yes. No account, no email and no payment. Two sizes are available, Letter and A4.",
+          },
+          {
+            q: "Is this elephant page right for a one year old?",
+            a: "If your child already holds a crayon and leaves marks on paper, it is worth a try. At this age there is no need to expect neat coloring inside the line. One big open area lets them simply make their first wide strokes across the picture.",
+          },
+          {
+            q: "Is this elephant page right for a two year old?",
+            a: "Yes, especially if your child is just starting to color. The elephant is one large solid area with almost no small parts, so there is nothing fiddly to work around.",
+          },
+          {
+            q: "Which of the ten free pages should we start with?",
+            a: "If large open areas are easier for your child, the elephant is one of the simplest. It has the largest solid area of the ten free pages.",
+          },
+          {
+            q: "Are there more free coloring pages for toddlers?",
+            a: "Yes. Ten real pages from the same book are free to print on this site. The book itself holds 111 different pictures.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujo de elefante para colorear, de 1 a 3 años, gratis para imprimir",
+        lead:
+          "Un elefante grande para colorear, pensado para los más pequeños: un solo elefante sin fondo, contorno grueso y la palabra ELEFANTE debajo, que también se puede colorear. Es una página real de un libro impreso. Se imprime gratis en A4 o Carta, sin registro.",
+        body: [
+          "El elefante tiene la zona maciza más grande de las diez láminas gratuitas. El cuerpo, la oreja redonda y la trompa ocupan casi todo el dibujo, así que hay sitio de sobra para trazos amplios.",
+          "Casi no hay partes pequeñas que esquivar. Un niño que empieza a colorear no tiene que lidiar con un montón de detalles. Puede pintar el elefante entero de un color, o dar a la oreja grande un color propio.",
+          "El contorno principal mide entre 2,4 y 4,8 mm, y el elefante ocupa entre el 70 % y el 82 % de la página y está centrado. Alrededor no hay fondo, ni hierba, ni árboles, ni marco: solo un elefante grande.",
+          "Debajo del dibujo está la palabra ELEFANTE en letras grandes de contorno. También se puede colorear, y el adulto puede decir la palabra en voz alta y señalarla mientras el niño colorea.",
+        ],
+        howTo: [
+          "Elige A4 o Carta según el papel de tu impresora",
+          "Para una zona grande y abierta lo más cómodo son las ceras gruesas",
+          "Si el niño usa rotuladores, pon una hoja debajo",
+          "Imprime varias copias y prueba colores distintos",
+        ],
+        fitTitle: "¿Es esta lámina adecuada para tu hijo?",
+        fitYesTitle: "Encaja si:",
+        fitYes: [
+          "Tu hijo coge las ceras o los lápices por primera vez",
+          "Es una de sus primeras láminas para colorear",
+          "Todavía colorea con trazos amplios y se sale del contorno a menudo",
+          "Una zona grande y maciza le resulta más fácil que muchas partes pequeñas",
+        ],
+        fitNoTitle: "La lámina puede quedarse corta si:",
+        fitNo: [
+          "Ya colorea con seguridad zonas pequeñas dentro del contorno",
+          "Pide dibujos con más detalle",
+          "Prefiere dibujos formados por varias zonas separadas",
+          "Prefiere dibujar él mismo",
+        ],
+        themeTitle: "El elefante es uno de los {n} animales del libro",
+        themeLead:
+          "Esta lámina gratuita sale de El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2. El elefante pertenece al tema de los animales: en el libro hay {n}, y {total} dibujos distintos en total.",
+        themeFreeMark: "gratis en esta página",
+        pickLead:
+          "En el libro se mantiene el mismo principio: un dibujo grande por página, contorno grueso y la palabra debajo en letras grandes de contorno. 114 páginas, 21,6 x 27,9 cm. Todos los dibujos están hechos a mano y ninguno se repite. El libro tiene cinco estrellas de Readers' Favorite.",
+        pickTitle: "El libro del que sale esta página",
+        pickPoints: [],
+        faq: [
+          {
+            q: "¿De verdad se puede imprimir gratis este elefante para colorear?",
+            a: "Sí. Sin registro, sin correo y sin pago. Hay dos tamaños, A4 y Carta.",
+          },
+          {
+            q: "¿Le viene bien este elefante a un niño de un año?",
+            a: "Si ya coge la cera y deja marcas en el papel, se puede probar. A esta edad no hay que esperar que coloree con cuidado dentro del contorno. Una zona grande y abierta le permite hacer sus primeros trazos amplios sobre el dibujo.",
+          },
+          {
+            q: "¿Le viene bien este elefante a un niño de dos años?",
+            a: "Sí, sobre todo si está empezando a colorear. El elefante es una zona maciza grande y casi no tiene partes pequeñas, así que no hay nada difícil que esquivar.",
+          },
+          {
+            q: "¿Con cuál de las diez láminas gratuitas conviene empezar?",
+            a: "Si a tu hijo le resultan más fáciles las zonas grandes y abiertas, el elefante es de los más sencillos. Tiene la zona maciza más grande de las diez.",
+          },
+          {
+            q: "¿Hay más láminas gratuitas para los más pequeños?",
+            a: "Sí. En esta web hay diez páginas reales del mismo libro, gratis para imprimir. El libro completo reúne 111 dibujos distintos.",
+          },
+        ],
+      },
+    },
+  },
+
   {
     id: "toddler-animals",
     published: "2026-08-09",

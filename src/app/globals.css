@@ -890,7 +890,7 @@ ul.inside li::marker { color: var(--pink-hot); }
   .topics__examples { grid-column: 1 / -1; }
 }
 
-.topics-all { margin: 0 0 var(--gap-4); max-width: 78ch; }
+.topics-all { margin: 0 0 var(--gap-4); max-width: none; }
 .topics-all summary {
   cursor: pointer;
   font-weight: 700;
@@ -1309,11 +1309,28 @@ ul.award-list li {
 
 .book-body { padding-bottom: var(--band-y); }
 
-/* Списки и текст на всю ширину читались бы длинными строками.
-   Ограничиваем строку, но блоки с картинками оставляем во всю ширину. */
+/* Ширина текста на странице одна и та же везде и совпадает с шириной
+   баннеров и картинок. Раньше абзацы обрывались на 78ch, а списки,
+   баннеры и веер рисунков шли во всю ширину, и страница выглядела
+   собранной из кусков разной ширины: один блок широкий, следующий
+   узкий и прижат влево. */
 .book-body ul.inside,
 .book-body > p,
-.book-body .faq { max-width: 78ch; }
+.book-body .faq { max-width: none; }
+
+/* Основной текст выключается по формату, как в книге: строка
+   заполняется целиком, справа не остается рваного края. Переносы
+   включены, иначе на длинной строке появляются дыры между словами.
+   Заголовки не выключаем, у них короткая строка. */
+.book-body > p,
+.book-body > ul > li,
+.book-body .faq p,
+.book-body .faq li,
+.book-body .prose p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
 
 /* Характеристики на широком экране ложатся в две колонки,
    иначе короткие строки болтаются в пустоте. */
@@ -1325,6 +1342,18 @@ ul.award-list li {
 /* Обложка едет вместе с прокруткой, пока верхний блок на экране. */
 @media (min-width: 900px) {
   .book__cover { position: sticky; top: var(--gap-2); }
+
+  /* Текст справа от обложки занимает всю высоту столбца, а не жмется
+     узкой полосой вверху. Строки распределяются по свободной высоте,
+     поэтому нижний край текста приходит примерно туда же, где кончается
+     обложка. */
+  .book { align-items: stretch; }
+  .book__cover { align-self: start; }
+  .book > :last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 }
 
 /* ------------------------------------------------------------------ */

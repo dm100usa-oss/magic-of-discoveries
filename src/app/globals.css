@@ -910,22 +910,36 @@ ul.inside li::marker { color: var(--pink-hot); }
   line-height: 1.25;
 }
 
-.thumbs--preview { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* Верхние восемнадцать это страницы книги целиком, со словом
+   контурными буквами. Пропорция листа, а не квадрат, и подписи
+   текстом под ними нет: слово уже нарисовано на самой странице. */
+.thumbs--pages { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (min-width: 560px) {
-  .thumbs--preview { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .thumbs--pages { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (min-width: 900px) {
-  .thumbs--preview { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .thumbs--pages { grid-template-columns: repeat(6, minmax(0, 1fr)); }
 }
+.thumbs--pages img { aspect-ratio: 480 / 620; }
+.thumbs--pages li { padding: 0.5rem 0.4rem; }
 
 /* Внутри свернутого блока рисунки мельче: там их сто одиннадцать,
-   и это опись состава, а не витрина. Подписи под ними не дублируем,
-   названия уже стоят строкой над сеткой. */
+   и это опись состава, а не витрина. Подпись обычным шрифтом:
+   контурные буквы человек уже видел выше, на страницах книги,
+   а здесь важнее быстро найти нужного зверя. */
 .thumbs--small {
-  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
   margin: 0.4rem 0 var(--gap-3);
+  background: none;
+  padding: 0;
 }
-.thumbs--small li { padding: 0.3rem; }
+.thumbs--small li { padding: 0.35rem 0.3rem 0.45rem; }
+.thumbs--small span { font-size: var(--t-micro); font-weight: 600; }
+.topics-all__group {
+  font-size: var(--t-h3);
+  color: var(--ink-soft);
+  margin: var(--gap-3) 0 0;
+}
 
 /* Блок покупки. Стоит после баннеров, во всю ширину страницы,
    поэтому кнопки ограничиваем по ширине, иначе они выглядят тяжело. */

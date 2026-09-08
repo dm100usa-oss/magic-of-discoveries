@@ -99,7 +99,8 @@ import { reviewsForBook, editorialForBook } from "@/lib/reviews";
 import {
   topicsForBook,
   allTopics,
-  drawingFile,
+  pageFile,
+  bookPages,
   TOPIC_PREVIEW,
 } from "@/data/bookTopics";
 import BookDrawings from "@/components/BookDrawings";
@@ -1320,27 +1321,23 @@ export default async function ItemPage({
   const topicGroups = topicsForBook(book.id, lang);
   const topicList = allTopics(topicGroups, lang);
 
-  /* Восемнадцать рисунков для показа наверху. Берем из каждой темы
-     столько, сколько она занимает в книге, но не меньше одного:
-     человек должен сразу увидеть, что книга не только про животных.
-     Внутри темы берем первые, они же самые узнаваемые. */
-  const featuredDrawings = (() => {
-    const withNums = topicGroups.filter((g) => g.firstDrawing);
-    if (!withNums.length) return [] as { n: number; name: string }[];
-    const total = withNums.reduce(
-      (sum, g) => sum + (g.items[lang] ?? g.items.en ?? []).length,
-      0,
-    );
-    const out: { n: number; name: string }[] = [];
-    for (const g of withNums) {
-      const items = g.items[lang] ?? g.items.en ?? [];
-      const take = Math.max(1, Math.round((items.length / total) * 18));
-      for (let i = 0; i < take && i < items.length; i++) {
-        out.push({ n: g.firstDrawing! + i, name: items[i] });
-      }
-    }
-    return out.slice(0, 18);
-  })();
+  /* Восемнадцать страниц книги для показа наверху. Это не просто
+     рисунки, а снятые страницы вместе со словом контурными буквами:
+     по ним сразу видно, что слово тоже раскрашивается. Показываем
+     только там, где у книги есть такие страницы. */
+  const featuredPages = topicGroups.some((g) => g.firstDrawing)
+    ? bookPages.map((n) => {
+        let name = "";
+        for (const g of topicGroups) {
+          const items = g.items[lang] ?? g.items.en ?? [];
+          const first = g.firstDrawing;
+          if (first && n >= first && n < first + items.length) {
+            name = items[n - first];
+          }
+        }
+        return { n, name };
+      })
+    : [];
   const editorial = editorialForBook(book.id);
   const bookAwards = awardsForBook(book.id);
   const freePage = coloringPageForBook(book.id);
@@ -1679,20 +1676,19 @@ export default async function ItemPage({
             </p>
           ) : null}
 
-          {featuredDrawings.length ? (
+          {featuredPages.length ? (
             <>
               <h2 className="section">{t.book.drawingsTitle}</h2>
-              <ul className="thumbs thumbs--preview">
-                {featuredDrawings.map((d) => (
+              <ul className="thumbs thumbs--pages">
+                {featuredPages.map((d) => (
                   <li key={d.n}>
                     <img
-                      src={drawingFile(d.n)}
+                      src={pageFile(d.n, lang)}
                       alt={d.name}
-                      width={420}
-                      height={420}
+                      width={480}
+                      height={620}
                       loading="lazy"
                     />
-                    <span>{d.name}</span>
                   </li>
                 ))}
               </ul>
@@ -1838,7 +1834,7 @@ export default async function ItemPage({
                   рисунков. Второй раз его здесь не показываем: список
                   из ста одиннадцати названий дважды на одной странице
                   ничего не добавляет ни человеку, ни поисковику. */}
-              {featuredDrawings.length ? null : (
+              {featuredPages.length ? null : (
                 <BookDrawings
                   groups={topicGroups}
                   lang={lang}

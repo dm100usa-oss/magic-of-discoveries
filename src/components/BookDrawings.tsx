@@ -4,7 +4,7 @@ import { useState } from "react";
 import { drawingFile, type TopicGroup } from "@/data/bookTopics";
 import type { UiLang } from "@/data/books";
 
-/* Полный состав книги: названия всех рисунков и сами рисунки.
+/* Полный состав книги: все рисунки по темам, под каждым его название.
 
    Названия лежат в коде страницы всегда, и в свернутом виде тоже.
    Именно по ним страницу находит поиск и по ним нейросеть отвечает
@@ -16,8 +16,9 @@ import type { UiLang } from "@/data/books";
    страница открывается долго. Для поиска при этом ничего не меняется,
    он читает названия, а не картинки.
 
-   Один раз открыли, дальше картинки остаются: закрывать и открывать
-   можно сколько угодно, второй раз они не грузятся. */
+   Подпись здесь обычным шрифтом, а не контурными буквами из книги.
+   Наверху страницы человек уже увидел настоящие страницы со словом,
+   и здесь важнее другое: быстро найти нужного зверя. */
 
 export default function BookDrawings({
   groups,
@@ -44,10 +45,9 @@ export default function BookDrawings({
           const first = g.firstDrawing;
           return (
             <section key={g.id}>
-              <p>
-                <strong>{g.title[lang] ?? g.title.en}. </strong>
-                {items.join(", ")}
-              </p>
+              <h3 className="topics-all__group">
+                {g.title[lang] ?? g.title.en}
+              </h3>
               {first ? (
                 <ul className="thumbs thumbs--small">
                   {items.map((name, i) => (
@@ -61,10 +61,13 @@ export default function BookDrawings({
                           loading="lazy"
                         />
                       ) : null}
+                      <span>{name}</span>
                     </li>
                   ))}
                 </ul>
-              ) : null}
+              ) : (
+                <p>{items.join(", ")}</p>
+              )}
             </section>
           );
         })}

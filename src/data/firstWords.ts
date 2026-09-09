@@ -302,7 +302,7 @@ export const wordsHub: Partial<Record<UiLang, WordsHubCopy>> = {
     definition:
       "Los dibujos para colorear con primeras palabras combinan un objeto fácil de reconocer con su nombre impreso debajo. Mientras el niño colorea, el adulto puede nombrar el dibujo y señalar la palabra. Las letras son huecas, por lo que también se pueden colorear. Una imagen, una palabra y ningún fondo recargado que distraiga.",
     showcase:
-      "Tres páginas reales de nuestros libros: un dibujo grande y, debajo, su nombre en letras huecas para colorear.",
+      "Tres páginas reales de nuestros libros: un dibujo grande y, debajo, su nombre en letras grandes de contorno para colorear.",
     howTitle: "Cómo se usan",
     topicsTitle: "Primeras palabras por tema",
     topicsLead:
@@ -539,7 +539,7 @@ const wordsPagesBase: WordsPage[] = [
         subtitle: "Del «miau» al «rugido»",
         lead: "114 animales repartidos en nuestros tres libros para colorear, cada uno en su propia página con un dibujo grande y su nombre debajo.",
         definition:
-          "Las primeras palabras de animales son los nombres que un niño pequeño ya encuentra en casa, en el parque y en los cuentos: gato, perro, vaca, oso, león. Cada animal ocupa una hoja entera, dibujado con líneas gruesas, y lleva su nombre impreso debajo en letras huecas que también se pueden colorear.",
+          "Las primeras palabras de animales son los nombres que un niño pequeño ya encuentra en casa, en el parque y en los cuentos: gato, perro, vaca, oso, león. Cada animal ocupa una hoja entera, dibujado con líneas gruesas, y lleva su nombre impreso debajo en letras grandes de contorno que también se pueden colorear.",
         showcase: "Un gato, un perro y un león, tal como aparecen dentro de los libros.",
         wordsTitle: "Todos los animales, libro por libro",
         wordsLead:
@@ -1167,7 +1167,7 @@ const wordsPagesBase: WordsPage[] = [
         title: "Primeras palabras en inglés para niños",
         subtitle: "Los mismos dibujos, con la palabra en inglés",
         lead: "Cat. Dog. Apple. Cake. La edición inglesa lleva una palabra en inglés debajo de cada dibujo, 333 en los tres libros.",
-        definition: "Las primeras palabras en inglés son los sustantivos de cada día: cat, dog, apple, car. En nuestras ediciones inglesas cada uno de los 111 dibujos de cada libro lleva su nombre en inglés debajo, en letras huecas que también se colorean. Las ediciones españolas usan los mismos dibujos con nombres en español.",
+        definition: "Las primeras palabras en inglés son los sustantivos de cada día: cat, dog, apple, car. En nuestras ediciones inglesas cada uno de los 111 dibujos de cada libro lleva su nombre en inglés debajo, en letras grandes de contorno que también se colorean. Las ediciones españolas usan los mismos dibujos con nombres en español.",
         showcase: "Cat, Dog y Apple, tal como aparecen en las ediciones inglesas.",
         wordsTitle: "El mismo dibujo en inglés y en español",
         wordsLead: "Un libro imprime Cat. El otro imprime Gato. El mismo dibujo, la misma página, otra palabra. Útil en una casa de dos idiomas.",
@@ -1216,7 +1216,7 @@ const wordsPagesBase: WordsPage[] = [
         title: "Primeras palabras en español para niños",
         subtitle: "Los mismos dibujos, con la palabra en español",
         lead: "Gato. Perro. Manzana. Torta. La edición española lleva una palabra en español debajo de cada dibujo, 333 en los tres libros.",
-        definition: "Las primeras palabras en español son los sustantivos de cada día: gato, perro, manzana, coche. Nuestras ediciones españolas imprimen el nombre debajo de cada uno de los 111 dibujos de cada libro, en letras huecas que también se colorean. Las ediciones inglesas usan los mismos dibujos con nombres en inglés.",
+        definition: "Las primeras palabras en español son los sustantivos de cada día: gato, perro, manzana, coche. Nuestras ediciones españolas imprimen el nombre debajo de cada uno de los 111 dibujos de cada libro, en letras grandes de contorno que también se colorean. Las ediciones inglesas usan los mismos dibujos con nombres en inglés.",
         showcase: "Gato, Perro y Manzana, tal como aparecen en las ediciones españolas.",
         wordsTitle: "El mismo dibujo en español y en inglés",
         wordsLead: "Un libro imprime Gato. El otro imprime Cat. El mismo dibujo, la misma página, otra palabra.",

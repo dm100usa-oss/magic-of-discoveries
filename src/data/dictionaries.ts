@@ -747,7 +747,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       guideSiteCta: "Abrir la guía sobre primeros libros para colorear",
       wordsTitle: "111 dibujos, 111 primeras palabras",
       wordsText:
-        "Debajo de cada dibujo de este libro está impreso el nombre del objeto, en letras huecas que el niño puede colorear. La sección Primeras palabras muestra las páginas de cerca y enumera todas las palabras del libro por temas.",
+        "Debajo de cada dibujo de este libro está impreso el nombre del objeto, en letras grandes de contorno que el niño puede colorear. La sección Primeras palabras muestra las páginas de cerca y enumera todas las palabras del libro por temas.",
       wordsCta: "Ver cómo funcionan las primeras palabras",
       detailsTitle: "Ficha del libro",
       drawings: "Dibujos",

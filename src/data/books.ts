@@ -223,7 +223,7 @@ const VIDEOS: Record<string, BookVideo> = {
       es:
         "Un recorrido sin cortes por la edición en español de El Primer Libro de Colorear para Bebés " +
         "de 1 a 3 Años. Se ve la portada y después una página tras otra: un dibujo grande en cada " +
-        "página, con la palabra en español debajo en letras huecas, entre ellos " +
+        "página, con la palabra en español debajo en letras grandes de contorno, entre ellos " +
         "el loro, el tulipán, la torta, el bádminton, las gafas, el grifo, el trol, el cangrejo, el pulpo, " +
         "el perro, la ardilla, el zorro y la gallina. Diecinueve segundos, sin sonido.",
       en:
@@ -266,7 +266,7 @@ const VIDEOS: Record<string, BookVideo> = {
       es:
         "Un recorrido sin cortes por la edición en rústica de El Primer Libro de Colorear para Bebés de 1 a 3 Años, " +
         "filmado sobre una mesa. Se ven la portada, la contraportada, la portadilla y una página tras otra: " +
-        "un dibujo grande en cada página, con la palabra debajo en letras huecas, " +
+        "un dibujo grande en cada página, con la palabra debajo en letras grandes de contorno, " +
         "entre ellos el brócoli, un loto, un girasol, un sombrero de playa, una cometa y un helicóptero. " +
         "Termina en la página del principio donde el niño escribe su nombre. Cuarenta y seis segundos, sin sonido.",
     },

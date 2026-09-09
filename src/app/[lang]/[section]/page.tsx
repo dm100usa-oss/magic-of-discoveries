@@ -330,6 +330,13 @@ export default async function SectionPage({
                         {card.cta}
                       </a>
                     ) : null}
+                    {/* Бесплатный набор у нас. Стоит рядом с кнопкой
+                        площадки, чтобы учитель мог не уходить. */}
+                    {card.fileUrl && card.fileCta ? (
+                      <a className="btn btn--sky" href={card.fileUrl} download>
+                        {card.fileCta}
+                      </a>
+                    ) : null}
                     {/* Покупка у нас. Стоит второй, когда набор есть и
                         на площадке, и первой, когда он только у нас. */}
                     {(() => {
@@ -530,6 +537,13 @@ export default async function SectionPage({
                           : { rel: "nofollow sponsored noopener", target: "_blank" })}
                       >
                         {card.cta}
+                      </a>
+                    ) : null}
+                    {/* Бесплатный набор у нас. Стоит рядом с кнопкой
+                        площадки, чтобы учитель мог не уходить. */}
+                    {card.fileUrl && card.fileCta ? (
+                      <a className="btn btn--sky" href={card.fileUrl} download>
+                        {card.fileCta}
                       </a>
                     ) : null}
                     {/* Покупка у нас. Стоит второй, когда набор есть и

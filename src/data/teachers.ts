@@ -51,6 +51,11 @@ export interface TeachersCard {
   bookId?: string;
   /** Надпись на нашей кнопке. Цена подставляется сама. */
   siteCta?: string;
+  /* Тот же бесплатный набор, лежащий у нас. Учитель, пришедший за
+     пробником, может скачать его здесь и не уходить на площадку. */
+  fileUrl?: string;
+  /** Надпись на кнопке скачивания с сайта. */
+  fileCta?: string;
   cover: TeachersImage;
 }
 
@@ -336,6 +341,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "One activity from each theme, with nothing shortened and no watermarks. 10 pages, PDF.",
         cta: "Get the free sample",
         url: TPT.freeEn,
+        fileUrl: "/free/directed-drawing-k2-en-free-sample.pdf",
+        fileCta: "Download it here",
         cover: {
           src: "/teachers/cover-free-en.jpg",
           w: 700,
@@ -601,6 +608,8 @@ export const teachers: Partial<Record<UiLang, TeachersCopy>> = {
         text: "Una actividad de cada tema, sin recortes y sin marcas de agua. 10 páginas, PDF.",
         cta: "Descargar la muestra gratuita",
         url: TPT.freeEs,
+        fileUrl: "/free/directed-drawing-k2-es-free-sample.pdf",
+        fileCta: "Descargarla aquí",
         cover: {
           src: "/teachers/cover-free-es.jpg",
           w: 700,

@@ -1465,6 +1465,11 @@ export default async function ItemPage({
               const outlet = rest.join(",").trim();
               return {
                 "@type": "Review",
+                /* Без этой строки Google считал отзыв висящим в воздухе
+                   и отбрасывал его: в проверке страницы стояла критичная
+                   ошибка "отсутствует поле itemReviewed". Теперь отзыв
+                   прямо указывает на книгу, о которой он написан. */
+                itemReviewed: { "@id": bookId2(book.id) },
                 reviewBody: editorial.text[lang] ?? editorial.text.en,
                 author: outlet
                   ? { "@type": "Person", name: first.trim() }

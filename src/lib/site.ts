@@ -39,6 +39,20 @@ export const pageUpdated = (own?: string) => own ?? SITE_UPDATED;
 /** Дата появления страницы: своя, если она есть, иначе день запуска. */
 export const pagePublished = (own?: string) => own ?? SITE_PUBLISHED;
 
+/** Дата публикации ролика для разметки видео.
+
+    Google требует у видео полную дату со временем и часовым поясом.
+    Голая дата вида 2026-08-11 считается неполной, и в Search Console
+    появляется предупреждение, а само видео в видеопоиск не берется.
+    Дописываем время и пояс Майами: летом это -04:00, зимой -05:00. */
+export const videoUploaded = (own?: string) => {
+  const date = own ?? SITE_PUBLISHED;
+  if (date.includes("T")) return date;
+  const month = Number(date.slice(5, 7));
+  const offset = month >= 4 && month <= 10 ? "-04:00" : "-05:00";
+  return `${date}T09:00:00${offset}`;
+};
+
 /** Где находится издательство. Улицу не публикуем, только город. */
 export const ADDRESS = {
   "@type": "PostalAddress",

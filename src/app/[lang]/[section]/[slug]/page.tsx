@@ -64,6 +64,7 @@ import {
   SITE_PUBLISHED,
   SITE_UPDATED,
   pagePublished,
+  videoUploaded,
   pageUpdated,
   OG_IMAGE,
   METHOD_REFERENCE_URL,
@@ -1568,7 +1569,7 @@ export default async function ItemPage({
               contentUrl: `${SITE_URL}${video.src}`,
               /* Когда ролик появился на сайте, а не когда мы в последний
                  раз правили тексты. Прежняя дата была просто неверной. */
-              uploadDate: pagePublished(video.published),
+              uploadDate: videoUploaded(video.published),
               duration: `PT${video.seconds}S`,
               inLanguage: lang,
               isFamilyFriendly: true,

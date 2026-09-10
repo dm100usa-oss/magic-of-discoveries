@@ -39,6 +39,7 @@ import {
   articleUi,
 } from "@/data/teacherArticles";
 import { teachersForLang } from "@/data/teachers";
+import { tptListing, TPT_UI } from "@/data/tpt";
 import {
   wordsPagesForLang,
   wordsPageBySlug,
@@ -1541,7 +1542,36 @@ export default async function ItemPage({
                 },
               ]
             : [];
-          const all = [...paperOffers, ...pdfOffer];
+          /* Продажа на Teachers Pay Teachers.
+
+             Ссылки внизу страницы человек видит, а машина нет: для нее
+             список мест, где книгу можно купить, это вот этот перечень.
+             Без такой записи поисковик и ИИ не знают, что карточка на
+             площадке относится к этой же книге, и считают ее чужим
+             товаром. Продавец назван явно, чтобы предложение не
+             приписали издательству.
+
+             Цена не указана намеренно: ее задает площадка, и держать
+             здесь второе место, где ее надо помнить и обновлять, значит
+             однажды разойтись с правдой. */
+          const tpt = tptListing(book.id);
+          const tptOffer = tpt
+            ? [
+                {
+                  "@type": "Offer",
+                  priceCurrency: "USD",
+                  availability: "https://schema.org/InStock",
+                  itemCondition: "https://schema.org/NewCondition",
+                  url: tpt.url,
+                  seller: {
+                    "@type": "Organization",
+                    name: "Teachers Pay Teachers",
+                    url: "https://www.teacherspayteachers.com",
+                  },
+                },
+              ]
+            : [];
+          const all = [...paperOffers, ...pdfOffer, ...tptOffer];
           return all.length ? all : undefined;
         })(),
       },
@@ -2184,6 +2214,59 @@ export default async function ItemPage({
               </details>
             ))}
           </div>
+
+          {/* Та же тетрадь на Teachers Pay Teachers.
+
+              Стоит только у четырех тетрадей по рисованию: остальных
+              книг на площадке нет, и обещать их было бы обманом.
+
+              Стоит после вопросов, а не среди кнопок покупки, и это
+              намеренно. На своем сайте продавец получает почти всю
+              цену, на площадке восемьдесят процентов. Уводить туда
+              человека, который уже готов купить здесь, невыгодно.
+              Этот блок для другого: для учителя, который платит
+              школьными деньгами через площадку или держит там всю
+              свою библиотеку. Такой все равно не купил бы здесь.
+
+              Второй кнопкой идет набор из двух томов: если человек
+              дошел до площадки, ему стоит знать, что вместе дешевле. */}
+          {(() => {
+            const tpt = tptListing(book.id);
+            if (!tpt) return null;
+            return (
+              <>
+                <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
+                  {TPT_UI.title}
+                </h2>
+                <p>{TPT_UI.text}</p>
+                {/* Обе кнопки одной ширины. Сами по себе они тянутся по
+                    длине надписи, а надписи разной длины, и рядом это
+                    выглядит неряшливо. Сетка из двух равных колонок
+                    выравнивает их, а на узком экране переносит одну
+                    под другую. */}
+                <div
+                  style={{
+                    display: "grid",
+                    gap: "var(--gap-2)",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(17rem, 1fr))",
+                    maxWidth: "46rem",
+                    margin: "0 0 var(--gap-2)",
+                  }}
+                >
+                  <a className="btn btn--ghost" href={tpt.url} rel="noopener">
+                    {TPT_UI.cta}
+                  </a>
+                  <a
+                    className="btn btn--ghost"
+                    href={tpt.bundleUrl}
+                    rel="noopener"
+                  >
+                    {TPT_UI.bundleCta}
+                  </a>
+                </div>
+              </>
+            );
+          })()}
 
           {/* Справочный сайт о первых раскрасках.
 

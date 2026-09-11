@@ -109,16 +109,9 @@ export async function generateMetadata({
     Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}${sectionPath(l, s)}`]))
   );
   const description = h.lead ?? dictionaries[lang].about.body[0];
-  /* Русский раздел для учителей это рабочая копия для издателя, а не
-     страница для читателя: товары в нем английские. В меню его нет и в
-     карте сайта нет, здесь дополнительно закрываем его от индексации,
-     чтобы он не соперничал в поиске с рабочими английской и испанской
-     версиями. Открыть обратно это одна строка. */
-  const ruTeachersDraft = lang === "ru" && s === "teachers";
   return {
     title: h.title,
     description,
-    ...(ruTeachersDraft ? { robots: { index: false, follow: false } } : {}),
     alternates: { canonical: sectionPath(lang, s), languages },
     openGraph: {
       title: h.title,

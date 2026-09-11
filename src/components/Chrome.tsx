@@ -203,9 +203,7 @@ export function Header({ lang }: { lang: UiLang }) {
     [homePath(lang), t.nav.home],
     [sectionPath(lang, "books"), t.nav.books],
     [sectionPath(lang, "method"), t.nav.method],
-    ...(lang === "ru"
-      ? []
-      : ([[sectionPath(lang, "teachers"), t.nav.teachers]] as [string, string][])),
+    [sectionPath(lang, "teachers"), t.nav.teachers],
     [sectionPath(lang, "coloring"), t.nav.coloringPages],
     [sectionPath(lang, "words"), t.nav.firstWords],
     [sectionPath(lang, "about"), t.nav.about],
@@ -263,9 +261,7 @@ export function Footer({ lang }: { lang: UiLang }) {
     [homePath(lang), t.nav.home],
     [sectionPath(lang, "books"), t.nav.books],
     [sectionPath(lang, "method"), t.nav.method],
-    ...(lang === "ru"
-      ? []
-      : ([[sectionPath(lang, "teachers"), t.nav.teachers]] as [string, string][])),
+    [sectionPath(lang, "teachers"), t.nav.teachers],
     [sectionPath(lang, "coloring"), t.nav.coloringPages],
     [sectionPath(lang, "words"), t.nav.firstWords],
     [sectionPath(lang, "about"), t.nav.about],

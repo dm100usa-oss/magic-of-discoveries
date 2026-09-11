@@ -45,12 +45,11 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
 };
 
 /** Разделы, которые показываются на этом языке. Раздел для учителей
-    есть только на английском и испанском: он про американский класс K-2,
-    русскому родителю он не нужен, а пустая страница вредна. */
+    теперь есть и на русском: русскоязычные учителя и родители работают
+    в американских, израильских, немецких и канадских классах и ищут
+    такие материалы на своем языке. */
 export const sectionsForLang = (lang: UiLang): Section[] =>
-  (Object.keys(sectionSlugs[lang]) as Section[]).filter(
-    (s) => !(lang === "ru" && s === "teachers"),
-  );
+  Object.keys(sectionSlugs[lang]) as Section[];
 
 export function sectionFromSlug(lang: UiLang, slug: string): Section | undefined {
   const map = sectionSlugs[lang];

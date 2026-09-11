@@ -109,9 +109,16 @@ export async function generateMetadata({
     Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}${sectionPath(l, s)}`]))
   );
   const description = h.lead ?? dictionaries[lang].about.body[0];
+  /* Русский раздел для учителей это рабочая копия для издателя, а не
+     страница для читателя: товары в нем английские. В меню его нет и в
+     карте сайта нет, здесь дополнительно закрываем его от индексации,
+     чтобы он не соперничал в поиске с рабочими английской и испанской
+     версиями. Открыть обратно это одна строка. */
+  const ruTeachersDraft = lang === "ru" && s === "teachers";
   return {
     title: h.title,
     description,
+    ...(ruTeachersDraft ? { robots: { index: false, follow: false } } : {}),
     alternates: { canonical: sectionPath(lang, s), languages },
     openGraph: {
       title: h.title,
@@ -239,8 +246,8 @@ export default async function SectionPage({
     if (!c) notFound();
     const url = `${SITE_URL}${sectionPath(lang, s)}`;
 
-    /* Вопросы и ответы отдельной разметкой. Именно ее читают нейросети
-       и именно из нее берут готовый абзац в свой ответ. */
+    /* Вопросы отдельной разметкой: именно из нее нейросеть берет
+       готовый абзац, когда отвечает на вопрос учителя. */
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -279,8 +286,8 @@ export default async function SectionPage({
       ],
     };
 
-    const Fig = ({ img }: { img: TeachersImage }) => (
-      <figure className="tfig">
+    const Fig = ({ img, small }: { img: TeachersImage; small?: boolean }) => (
+      <figure className={`tfig${small ? " tfig--small" : ""}`}>
         <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" />
         {img.caption ? <figcaption>{img.caption}</figcaption> : null}
       </figure>
@@ -293,56 +300,122 @@ export default async function SectionPage({
         <Crumbs />
         <PageHead title={c.title} lead={c.lead} />
 
-        {/* Первый экран. Слева две кнопки, справа настоящий лист крупно.
-            Раньше здесь стояли четыре одинаковые обложки: выбрать из них
-            было нечего, а задание учитель так и не видел. */}
+        {/* Первый экран: слева объяснение и кнопки, справа обе обложки.
+            Заголовок, текст и книги должны быть видны сразу, без прокрутки. */}
         <section className="teach-block teach-block--top">
           <div className="teach teach--wide">
             <div className="thero">
               <div className="thero__text">
-                <p className="thero__note">{c.heroNote}</p>
+                <p className="thero__short">{c.heroShort}</p>
                 <p className="thero__btns">
-                  <a className="btn btn--sky" href="#free">
-                    {c.heroFreeCta}
-                  </a>
                   <a className="btn btn--pink" href="#buy">
                     {c.heroBuyCta}
                   </a>
+                  <a className="btn btn--sky" href="#free">
+                    {c.heroFreeCta}
+                  </a>
                 </p>
+                <p className="thero__note">{c.heroNote}</p>
               </div>
-              <Fig img={c.sample} />
+              <div className="thero__covers">
+                {c.heroCovers.map((cv) => (
+                  <figure className="tfig tfig--cover" key={cv.label}>
+                    <img
+                      src={cv.img.src}
+                      alt={cv.img.alt}
+                      width={cv.img.w}
+                      height={cv.img.h}
+                      loading="eager"
+                    />
+                    <figcaption>{cv.label}</figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Что на листе. Не методика, а перечень того, что напечатано. */}
-        <section className="band band--mint">
+        {/* Строка ссылок по странице. Учитель с готовой задачей идет
+            сразу в нужный блок, а поиск получает карту страницы. */}
+        <nav className="teach-block teach-block--nav" aria-label={c.title}>
           <div className="teach">
-            <h2 className="section">{c.anatomyTitle}</h2>
-            <ol className="ladder">
-              {c.steps.map((st) => (
-                <li className="ladder__step" key={st.n}>
-                  <p className="ladder__age">{st.n}</p>
-                  <p className="ladder__can">{st.title}</p>
-                  <p className="ladder__needs">{st.text}</p>
+            <ul className="tnav">
+              {c.nav.map((n) => (
+                <li key={n.href}>
+                  <a href={n.href}>{n.label}</a>
                 </li>
               ))}
-            </ol>
-            <p className="buy-note">{c.anatomyNote}</p>
+            </ul>
           </div>
-          <div className="teach teach--wide">
-            <div className="tpair tpair--pages">
-              <Fig img={c.sample2} />
-              <Fig img={c.useImage} />
+        </nav>
+
+        {/* Для каких занятий. Отвечает на вопрос, где пригодится покупка. */}
+        <section className="band band--mint" id="uses">
+          <div className="teach">
+            <h2 className="section">{c.usesTitle}</h2>
+            <div className="tneeds">
+              {c.uses.map((u) => (
+                <div className="tneed" key={u.title}>
+                  <h3>{u.title}</h3>
+                  <p>{u.text}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Бесплатные образцы. Только наши файлы, без площадки:
-            учитель, пришедший за пробником, не должен уходить с сайта. */}
+        {/* Что входит в два тома, до показа отдельного листа. */}
+        <section className="teach-block" id="volumes">
+          <div className="teach">
+            <h2 className="section">{c.volumesTitle}</h2>
+            <div className="tvols">
+              {c.volumes.map((v) => (
+                <div className="tvol" key={v.name}>
+                  <h3>{v.name}</h3>
+                  <ul>
+                    {v.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <p className="teach-p">{c.volumesNote}</p>
+          </div>
+        </section>
+
+        {/* Как устроен лист. Крупный настоящий лист слева, этапы справа,
+            ниже два примера поменьше: второй лист и работа с деталями. */}
+        <section className="band band--cream">
+          <div className="teach teach--wide">
+            <h2 className="section">{c.anatomyTitle}</h2>
+            <div className="tanat">
+              <Fig img={c.sample} />
+              <ol className="tsteps">
+                {c.steps.map((st) => (
+                  <li key={st.n}>
+                    <b>
+                      {st.n}. {st.title}
+                    </b>
+                    <span>{st.text}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <p className="buy-note">{c.anatomyNote}</p>
+            <div className="tpair">
+              <Fig img={c.sample2} small />
+              <Fig img={c.useImage} small />
+            </div>
+          </div>
+        </section>
+
+        {/* Бесплатные образцы. Только наши файлы: учитель, пришедший за
+            пробником, не должен уходить на чужую площадку. */}
         <section className="teach-block" id="free">
           <div className="teach">
             <h2 className="section">{c.freeTitle}</h2>
+            <p className="teach-p">{c.freeLead}</p>
             <div className="tcards">
               {c.freeCards.map((card) => (
                 <div className="tcard" key={card.title}>
@@ -364,15 +437,14 @@ export default async function SectionPage({
               ))}
             </div>
             <p className="buy-note">
-              {c.freeNote} {c.freeHonest}{" "}
-              <Link href={c.freeOther.url}>{c.freeOther.text}</Link>.
+              {c.freeNote} <Link href={c.freeOther.url}>{c.freeOther.text}</Link>.
             </p>
           </div>
         </section>
 
-        {/* Выбор по теме. Главный блок: учитель приходит с темой урока,
-            а не с интересом к рисованию. Сумма подборок равна 111. */}
-        <section className="band band--cream">
+        {/* Подборки по теме. Главный блок для того, кто пришел с темой
+            урока. Сумма подборок равна 111, это проверено по книгам. */}
+        <section className="band band--sun" id="themes">
           <div className="teach">
             <h2 className="section">{c.themesTitle}</h2>
             <p className="teach-p">{c.themesLead}</p>
@@ -384,50 +456,45 @@ export default async function SectionPage({
                   </h3>
                   <p className="tgroup__where">{g.where}</p>
                   <p className="tgroup__ex">{g.examples}</p>
+                  <p className="tgroup__link">
+                    <a href={g.anchor}>{c.seeLabel}</a>
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Сезонные подборки. Собраны из тех же рисунков.
-            Зима названа честно: снеговика и пингвина в книгах нет. */}
-        <section className="teach-block">
+        {/* Сезонные подборки из тех же рисунков. Зима названа честно:
+            снеговика и пингвина в книгах нет. */}
+        <section className="teach-block" id="seasons">
           <div className="teach">
             <h2 className="section">{c.seasonTitle}</h2>
             <p className="teach-p">{c.seasonLead}</p>
-            {c.seasons.map((s2) => (
-              <p className="tcat-row" key={s2.name}>
-                <b>{s2.name}:</b> {s2.items}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        {/* Где берут. Подписи к материалам, а не советы по преподаванию. */}
-        <section className="band band--pink">
-          <div className="teach">
-            <h2 className="section">{c.useTitle}</h2>
-            <div className="tneeds">
-              {c.uses.map((u) => (
-                <div className="tneed" key={u.title}>
-                  <h3>{u.title}</h3>
-                  <p>{u.text}</p>
+            <div className="tgroups tgroups--two">
+              {c.seasons.map((se) => (
+                <div className="tgroup" key={se.name}>
+                  <h3>{se.name}</h3>
+                  <p className="tgroup__ex">{se.items}</p>
+                  <p className="tgroup__link">
+                    <a href="#vol1">{c.seeLabel}</a>
+                  </p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Все 111 названий с номерами страниц, свернуто по томам.
-            Свернутый текст поиск читает, а покупку он не отодвигает. */}
-        <section className="teach-block">
+        {/* Полный указатель: все 111 названий с номерами страниц,
+            свернуто по томам. Свернутый текст поиск читает, а покупку
+            он не отодвигает на несколько экранов вниз. */}
+        <section className="band band--cream">
           <div className="teach">
             <h2 className="section">{c.catalogTitle}</h2>
             <p className="teach-p">{c.catalogLead}</p>
             <div className="faq">
               {c.catalog.map((v) => (
-                <details key={v.vol}>
+                <details key={v.vol} id={v.anchor}>
                   <summary>{v.vol}</summary>
                   {v.groups.map((g) => (
                     <p className="tcat-row" key={`${v.vol}-${g.name}`}>
@@ -440,14 +507,47 @@ export default async function SectionPage({
           </div>
         </section>
 
-        {/* Покупка. Комплект первым. Наша кнопка идет раньше площадки
-            везде, где товар есть у нас: с площадки мы получаем меньше. */}
-        <section className="band band--mint" id="buy">
+        {/* Другое языковое издание, перед покупкой: язык выбирают до
+            товара. Переключателя нет намеренно, вместо него ссылка на
+            вторую версию сайта со своими карточками покупки. */}
+        <section className="teach-block" id="other">
           <div className="teach">
+            <h2 className="section">{c.otherTitle}</h2>
+            <p className="teach-p">{c.otherText}</p>
+            <div className="tpair tpair--langs">
+              {c.otherPair.map((p2) => (
+                <figure className="tfig tfig--small" key={p2.label}>
+                  <img
+                    src={p2.img.src}
+                    alt={p2.img.alt}
+                    width={p2.img.w}
+                    height={p2.img.h}
+                    loading="lazy"
+                  />
+                  <figcaption>{p2.label}</figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="teach-cta">
+              <a className="btn btn--sky" href={c.otherFreeUrl} download>
+                {c.otherFreeCta}
+              </a>{" "}
+              <Link className="btn btn--pink" href={c.otherPageUrl}>
+                {c.otherPageCta}
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* Покупка. Три карточки в один ряд, комплект первым и выделен.
+            Наша кнопка идет раньше площадки: с площадки мы получаем
+            заметно меньше с той же продажи. */}
+        <section className="band band--mint" id="buy">
+          <div className="teach teach--wide">
             <h2 className="section">{c.buyTitle}</h2>
-            <div className="tcards">
+            <div className="tbuy">
               {c.buyCards.map((card) => (
-                <div className={`tcard${card.featured ? " tcard--featured" : ""}`} key={card.id}>
+                <div className={`tcard tcard--buy${card.featured ? " tcard--featured" : ""}`} key={card.id}>
                   <img
                     src={card.cover.src}
                     alt={card.cover.alt}
@@ -459,6 +559,7 @@ export default async function SectionPage({
                     <h3>{card.name}</h3>
                     <p className="tcard-meta">{card.meta}</p>
                     <p>{card.text}</p>
+                    {card.save ? <p className="tcard-save">{card.save}</p> : null}
                     {(() => {
                       const bookId = card.bookId;
                       const own = bookId ? ownBookHref(bookId, lang) : null;
@@ -476,7 +577,7 @@ export default async function SectionPage({
                     >
                       {card.tptCta}
                     </a>
-                    {/* Размер бумаги выбирают только у нас, на площадке этого нет. */}
+                    {/* Размер бумаги выбирают только у нас. */}
                     {card.paperNote ? <p className="buy-note">{card.paperNote}</p> : null}
                   </div>
                 </div>
@@ -485,22 +586,8 @@ export default async function SectionPage({
           </div>
         </section>
 
-        {/* Другой язык. Для учителя двуязычного класса это отдельный товар,
-            а не переключатель: иначе он вторую книгу просто не найдет. */}
-        <section className="teach-block">
-          <div className="teach">
-            <h2 className="section">{c.spanishTitle}</h2>
-            <p className="teach-p">{c.spanishText}</p>
-            <p className="teach-cta">
-              <a className="btn btn--sun" href={c.spanishUrl} rel="nofollow sponsored noopener" target="_blank">
-                {c.spanishCta}
-              </a>
-            </p>
-          </div>
-        </section>
-
         {/* Практические вопросы. Первые два открыты. */}
-        <section className="band band--cream">
+        <section className="teach-block">
           <div className="teach">
             <h2 className="section">{c.faqTitle}</h2>
             <div className="faq faq--two">
@@ -514,9 +601,9 @@ export default async function SectionPage({
           </div>
         </section>
 
-        {/* Автор одним абзацем, от первого лица. Ссылка на метод стоит
-            здесь и только здесь: это приглашение, а не доказательство. */}
-        <section className="teach-block">
+        {/* Автор одним абзацем. Ссылка на метод стоит здесь и только
+            здесь: это приглашение к разговору, а не доказательство. */}
+        <section className="band band--cream">
           <div className="teach">
             <h2 className="section">{c.authorTitle}</h2>
             <p className="teach-p">{c.author}</p>
@@ -526,52 +613,54 @@ export default async function SectionPage({
               </a>
             </p>
             <p className="buy-note">
-              <time dateTime={c.updated}>{c.updated}</time>
+              {c.updatedLabel} <time dateTime={c.updated}>{c.updated}</time>
             </p>
           </div>
         </section>
 
-        {/* Последний экран: чтобы не возвращаться наверх за кнопкой. */}
+        {/* Статьи раздела. Полезны, но не товар, поэтому компактно и в
+            самом низу: читать их для выбора и покупки не требуется. */}
+        {(() => {
+          const arts = articlesForLang(lang);
+          return arts.length ? (
+            <section className="teach-block">
+              <div className="teach">
+                <h2 className="section">{c.articlesTitle}</h2>
+                <ul className="guide-next guide-next--tight">
+                  {arts.map((a) =>
+                    a.copy[lang] && a.slug[lang] ? (
+                      <li key={a.id}>
+                        <Link href={itemPath(lang, "teachers", a.slug[lang]!)}>
+                          <b>{a.copy[lang]!.title}</b>
+                        </Link>
+                      </li>
+                    ) : null,
+                  )}
+                </ul>
+              </div>
+            </section>
+          ) : null;
+        })()}
+
+        {/* Последний экран: страница заканчивается понятным действием. */}
         <section className="band band--mint">
           <div className="teach">
             <h2 className="section">{c.finalTitle}</h2>
             <p className="teach-p">{c.finalLead}</p>
             <p className="teach-cta">
-              <a className="btn btn--sky" href="#free">
-                {c.heroFreeCta}
-              </a>{" "}
               <a className="btn btn--pink" href="#buy">
                 {c.heroBuyCta}
+              </a>{" "}
+              <a className="btn btn--sky" href="#free">
+                {c.heroFreeCta}
               </a>
             </p>
-
-            {/* Статьи раздела. Стоят в самом низу: они поддержка, не товар. */}
-            {(() => {
-              const arts = articlesForLang(lang);
-              const ui = articleUi[lang];
-              return arts.length && ui ? (
-                <>
-                  <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
-                    {ui.related}
-                  </h2>
-                  <ul className="guide-next">
-                    {arts.map((a) => (
-                      <li key={a.id}>
-                        <Link href={itemPath(lang, "teachers", a.slug[lang]!)}>
-                          <b>{a.copy[lang]!.title}</b>
-                          <span>{a.copy[lang]!.lead}</span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : null;
-            })()}
           </div>
         </section>
       </>
     );
   }
+
 
 
   /* ---------- Метод ---------- */

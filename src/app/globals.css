@@ -1908,59 +1908,88 @@ ul.award-list li {
 .booklist a { font-weight: 700; }
 .booklist__count { font-weight: 800; margin: 0 0 var(--gap-2); }
 
-/* ---- Карточки по задаче учителя и полный список рисунков ---- */
+/* ==================== РАЗДЕЛ ДЛЯ УЧИТЕЛЕЙ ==================== */
+/* Порядок блоков: что это, для чего, что внутри, как выглядит лист,
+   бесплатно, под тему, указатель, другой язык, покупка. */
 
-/* Карточки читают беглым взглядом, поэтому текст слева, не по ширине. */
+.band--sun { background: var(--sun-pale, #fff6de); }
+
+/* ---- Первый экран: слева текст и кнопки, справа обе обложки ---- */
+.thero { display: grid; gap: var(--gap-3); align-items: center; }
+@media (min-width: 900px) { .thero { grid-template-columns: 1.05fr 1fr; } }
+.thero__short { margin: 0 0 var(--gap-2); font-weight: 700; }
+.thero__btns { display: flex; flex-wrap: wrap; gap: var(--gap-2); margin: 0 0 var(--gap-2); }
+.thero__note { margin: 0; font-size: var(--t-small); color: var(--ink-2); }
+.thero__covers { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-2); }
+.tfig--cover img { width: 100%; height: auto; border-radius: var(--radius); }
+.tfig figcaption { margin-top: 0.4rem; font-size: var(--t-small); color: var(--ink-2); text-align: center; }
+.tfig--small img { width: 100%; height: auto; border-radius: var(--radius); }
+
+/* ---- Строка ссылок по странице ---- */
+.teach-block--nav { padding-top: 0; }
+.tnav { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin: 0; padding: 0; }
+.tnav a { font-size: var(--t-small); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* ---- Для каких занятий ---- */
 .tneeds { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
 @media (min-width: 760px) { .tneeds { grid-template-columns: 1fr 1fr; } }
-.tneed {
-  background: #fff;
-  border: var(--edge);
-  border-radius: var(--radius);
-  padding: var(--gap-2);
-}
+.tneed { background: #fff; border: var(--edge); border-radius: var(--radius); padding: var(--gap-2); }
 .tneed h3 { margin: 0 0 0.4rem; font-size: var(--t-h3); }
 .tneed p { margin: 0; color: var(--ink-2); text-align: left; }
 
-/* Список рисунков. Одна строка на тему, названия через запятую:
-   так его читает и человек глазами, и поиск. */
-.tcat { margin-top: var(--gap-3); }
-.tcat-vol { margin: 0 0 0.6rem; font-size: var(--t-h3); }
-.tcat-row { margin: 0 0 0.5rem; color: var(--ink-2); text-align: left; line-height: 1.6; }
-.tcat-row b { color: var(--ink); }
+/* ---- Что входит в два тома ---- */
+.tvols { display: grid; gap: var(--gap-2); margin: var(--gap-3) 0; }
+@media (min-width: 700px) { .tvols { grid-template-columns: 1fr 1fr; } }
+.tvol { background: #fff; border: var(--edge); border-radius: var(--radius); padding: var(--gap-2); }
+.tvol h3 { margin: 0 0 0.5rem; font-size: var(--t-h3); }
+.tvol ul { margin: 0; padding-left: 1.1rem; color: var(--ink-2); }
+.tvol li { margin-bottom: 0.25rem; }
 
-/* ---- Первый экран раздела для учителей ---- */
+/* ---- Устройство листа: крупный лист и четыре этапа рядом ---- */
+.tanat { display: grid; gap: var(--gap-3); align-items: start; margin-top: var(--gap-3); }
+@media (min-width: 900px) { .tanat { grid-template-columns: 1fr 1fr; } }
+.tsteps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--gap-2); }
+.tsteps li { background: #fff; border: var(--edge); border-radius: var(--radius); padding: var(--gap-2); }
+.tsteps b { display: block; margin-bottom: 0.2rem; }
+.tsteps span { color: var(--ink-2); }
+.tpair { display: grid; gap: var(--gap-3); margin-top: var(--gap-3); }
+@media (min-width: 700px) { .tpair { grid-template-columns: 1fr 1fr; } }
+/* Два листа на разных языках стоят рядом и одинакового размера:
+   различие должно быть видно глазом, а не только в тексте. */
+.tpair--langs { align-items: start; }
 
-/* Настоящий лист рядом с кнопками. Обложка говорит, что это товар,
-   а лист говорит, что именно получит учитель. */
-.thero { display: grid; gap: var(--gap-3); align-items: center; }
-@media (min-width: 900px) { .thero { grid-template-columns: 1fr 1fr; } }
-.thero__note { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 var(--gap-2); }
-.thero__btns { display: flex; flex-wrap: wrap; gap: var(--gap-2); margin: 0; }
-.thero .tfig { margin: 0; }
-
-/* ---- Подборки по теме ---- */
+/* ---- Подборки по темам и сезонам ---- */
 .tgroups { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
 @media (min-width: 700px) { .tgroups { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 1100px) { .tgroups { grid-template-columns: 1fr 1fr 1fr; } }
-.tgroup {
-  background: #fff;
-  border: var(--edge);
-  border-radius: var(--radius);
-  padding: var(--gap-2);
-}
+.tgroups--two { grid-template-columns: 1fr; }
+@media (min-width: 700px) { .tgroups--two { grid-template-columns: 1fr 1fr; } }
+.tgroup { background: #fff; border: var(--edge); border-radius: var(--radius); padding: var(--gap-2); }
 .tgroup h3 { margin: 0 0 0.25rem; font-size: var(--t-h3); }
-/* Число рисунков в подборке: учитель считает его первым. */
+/* Число рисунков в подборке: учитель смотрит на него первым. */
 .tgroup__n {
   display: inline-block; margin-left: 0.35rem;
   background: var(--mint-pale); border-radius: 999px;
   padding: 0.05rem 0.5rem; font-size: var(--t-small);
 }
 .tgroup__where { margin: 0 0 0.4rem; font-size: var(--t-small); color: var(--ink-2); }
-.tgroup__ex { margin: 0; color: var(--ink-2); text-align: left; line-height: 1.55; }
+.tgroup__ex { margin: 0 0 0.5rem; color: var(--ink-2); text-align: left; line-height: 1.55; }
+.tgroup__link { margin: 0; font-size: var(--t-small); }
 
-/* ---- Карточки покупки ---- */
-/* Комплект выделен: это лучшее предложение, и он должен читаться первым. */
+/* ---- Полный указатель рисунков ---- */
+.tcat-row { margin: 0 0 0.5rem; color: var(--ink-2); text-align: left; line-height: 1.6; }
+.tcat-row b { color: var(--ink); }
+
+/* ---- Покупка: три карточки в один ряд, комплект выделен ---- */
+.tbuy { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
+@media (min-width: 1000px) { .tbuy { grid-template-columns: 1fr 1fr 1fr; align-items: start; } }
+.tcard--buy { display: block; }
+.tcard--buy img { width: 100%; max-width: 260px; height: auto; margin-bottom: var(--gap-2); }
 .tcard--featured { outline: 2px solid var(--pink-hot); outline-offset: 4px; }
 .tcard-meta { margin: 0 0 0.4rem; font-weight: 700; color: var(--ink); }
-.tcard .btn { margin-right: 0.5rem; }
+.tcard-save { margin: 0 0 0.6rem; font-size: var(--t-small); color: var(--ink-2); }
+.tcard .btn { margin: 0 0.5rem 0.5rem 0; }
+
+/* ---- Статьи внизу: одна строка на статью ---- */
+.guide-next--tight { gap: 0.5rem; }
+.guide-next--tight a { padding: 0.6rem 0.9rem; }

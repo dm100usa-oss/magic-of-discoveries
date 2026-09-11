@@ -384,6 +384,17 @@ function PdfButtons({ book, lang }: { book: Book; lang: UiLang }) {
   );
 }
 
+/* Ссылка на нашу страницу книги. Копия такой же функции на главной
+   странице раздела: карточки покупки теперь стоят и в статьях, и там,
+   и обе должны вести на нашу покупку, а не только на площадку. */
+function ownBookHref(bookId: string, lang: UiLang): string | null {
+  const b = bookById(bookId);
+  if (!b) return null;
+  const at: UiLang = b.slug[lang] ? lang : "en";
+  const slug = b.slug[at];
+  return slug ? itemPath(at, "books", slug) : null;
+}
+
 export default async function ItemPage({
   params,
 }: {
@@ -907,9 +918,11 @@ export default async function ItemPage({
           <div className="teach">
             <h2 className="section">{c.ctaTitle}</h2>
             <p className="teach-p">{c.ctaLead}</p>
+            {/* Комплект и оба тома, те же карточки, что на главной
+                странице раздела. Наша кнопка идет раньше площадки. */}
             <div className="tcards">
-              {hub.cards.map((card) => (
-                <div className="tcard" key={card.title}>
+              {hub.buyCards.map((card) => (
+                <div className="tcard" key={card.id}>
                   <img
                     src={card.cover.src}
                     alt={card.cover.alt}
@@ -918,18 +931,26 @@ export default async function ItemPage({
                     loading="lazy"
                   />
                   <div>
-                    <h3>{card.title}</h3>
+                    <h3>{card.name}</h3>
+                    <p className="tcard-meta">{card.meta}</p>
                     <p>{card.text}</p>
-                    {card.url ? (
-                      <a
-                        className={`btn ${card.kind === "free" ? "btn--sky" : "btn--pink"}`}
-                        href={card.url}
-                        rel="nofollow sponsored noopener"
-                        target="_blank"
-                      >
-                        {card.cta}
-                      </a>
-                    ) : null}
+                    {(() => {
+                      const bookId = card.bookId;
+                      const own = bookId ? ownBookHref(bookId, lang) : null;
+                      return own && bookId && card.siteCta ? (
+                        <Link className="btn btn--pink" href={own}>
+                          {card.siteCta}
+                        </Link>
+                      ) : null;
+                    })()}
+                    <a
+                      className={`btn ${card.featured ? "btn--pink" : "btn--sky"}`}
+                      href={card.tptUrl}
+                      rel="nofollow sponsored noopener"
+                      target="_blank"
+                    >
+                      {card.tptCta}
+                    </a>
                   </div>
                 </div>
               ))}

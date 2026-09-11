@@ -1907,3 +1907,60 @@ ul.award-list li {
 .booklist td.num { white-space: nowrap; }
 .booklist a { font-weight: 700; }
 .booklist__count { font-weight: 800; margin: 0 0 var(--gap-2); }
+
+/* ---- Карточки по задаче учителя и полный список рисунков ---- */
+
+/* Карточки читают беглым взглядом, поэтому текст слева, не по ширине. */
+.tneeds { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
+@media (min-width: 760px) { .tneeds { grid-template-columns: 1fr 1fr; } }
+.tneed {
+  background: #fff;
+  border: var(--edge);
+  border-radius: var(--radius);
+  padding: var(--gap-2);
+}
+.tneed h3 { margin: 0 0 0.4rem; font-size: var(--t-h3); }
+.tneed p { margin: 0; color: var(--ink-2); text-align: left; }
+
+/* Список рисунков. Одна строка на тему, названия через запятую:
+   так его читает и человек глазами, и поиск. */
+.tcat { margin-top: var(--gap-3); }
+.tcat-vol { margin: 0 0 0.6rem; font-size: var(--t-h3); }
+.tcat-row { margin: 0 0 0.5rem; color: var(--ink-2); text-align: left; line-height: 1.6; }
+.tcat-row b { color: var(--ink); }
+
+/* ---- Первый экран раздела для учителей ---- */
+
+/* Настоящий лист рядом с кнопками. Обложка говорит, что это товар,
+   а лист говорит, что именно получит учитель. */
+.thero { display: grid; gap: var(--gap-3); align-items: center; }
+@media (min-width: 900px) { .thero { grid-template-columns: 1fr 1fr; } }
+.thero__note { font-size: var(--t-small); color: var(--ink-2); margin: 0 0 var(--gap-2); }
+.thero__btns { display: flex; flex-wrap: wrap; gap: var(--gap-2); margin: 0; }
+.thero .tfig { margin: 0; }
+
+/* ---- Подборки по теме ---- */
+.tgroups { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
+@media (min-width: 700px) { .tgroups { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1100px) { .tgroups { grid-template-columns: 1fr 1fr 1fr; } }
+.tgroup {
+  background: #fff;
+  border: var(--edge);
+  border-radius: var(--radius);
+  padding: var(--gap-2);
+}
+.tgroup h3 { margin: 0 0 0.25rem; font-size: var(--t-h3); }
+/* Число рисунков в подборке: учитель считает его первым. */
+.tgroup__n {
+  display: inline-block; margin-left: 0.35rem;
+  background: var(--mint-pale); border-radius: 999px;
+  padding: 0.05rem 0.5rem; font-size: var(--t-small);
+}
+.tgroup__where { margin: 0 0 0.4rem; font-size: var(--t-small); color: var(--ink-2); }
+.tgroup__ex { margin: 0; color: var(--ink-2); text-align: left; line-height: 1.55; }
+
+/* ---- Карточки покупки ---- */
+/* Комплект выделен: это лучшее предложение, и он должен читаться первым. */
+.tcard--featured { outline: 2px solid var(--pink-hot); outline-offset: 4px; }
+.tcard-meta { margin: 0 0 0.4rem; font-weight: 700; color: var(--ink); }
+.tcard .btn { margin-right: 0.5rem; }

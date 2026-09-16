@@ -377,6 +377,28 @@ export default async function SectionPage({
           </div>
         </section>
 
+        {/* Страницы из превью книги. Учитель видит лист для учителя,
+            оглавление и один рисунок на двух уровнях до покупки. На узком
+            экране ряд листается вбок, чтобы не занимать пять экранов. */}
+        <section className="band band--sun" id="inside">
+          <div className="teach teach--wide">
+            <h2 className="section">{c.insideTitle}</h2>
+            <p className="teach-p">{c.insideLead}</p>
+            {c.inside.map((v) => (
+              <div className="tinside" key={v.vol}>
+                <h3>{v.vol}</h3>
+                <div className="tinside__row">
+                  {v.pages.map((pg) => (
+                    <a className="tinside__page" href={pg.src} target="_blank" rel="noopener" key={pg.src}>
+                      <Fig img={pg} small />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Как устроен лист. Крупный настоящий лист слева, этапы справа,
             ниже два примера поменьше: второй лист и работа с деталями. */}
         <section className="band band--cream">
@@ -396,10 +418,28 @@ export default async function SectionPage({
               </ol>
             </div>
             <p className="buy-note">{c.anatomyNote}</p>
-            <div className="tpair">
-              <Fig img={c.sample2} small />
+            <div className="tlevel-extra">
               <Fig img={c.useImage} small />
             </div>
+          </div>
+        </section>
+
+        {/* Два уровня одного рисунка: два настоящих листа рядом, под каждым
+            его объяснение. Разница должна быть видна глазом. */}
+        <section className="teach-block" id="levels">
+          <div className="teach teach--wide">
+            <h2 className="section">{c.levelsTitle}</h2>
+            <p className="teach-p">{c.levelsLead}</p>
+            <div className="tpair tpair--pages">
+              {c.levels.map((lv) => (
+                <div className="tlevel" key={lv.name}>
+                  <Fig img={lv.img} small />
+                  <h3>{lv.name}</h3>
+                  <p>{lv.text}</p>
+                </div>
+              ))}
+            </div>
+            <p className="teach-p tlevels-note">{c.levelsNote}</p>
           </div>
         </section>
 

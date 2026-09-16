@@ -1958,6 +1958,31 @@ ul.award-list li {
    различие должно быть видно глазом, а не только в тексте. */
 .tpair--langs { align-items: start; }
 
+/* ---- Два уровня одного рисунка ---- */
+.tlevel h3 { margin: var(--gap-2) 0 0.3rem; font-size: var(--t-h3); }
+.tlevel p { margin: 0; color: var(--ink-2); text-align: left; }
+/* Картинка про собственные детали: одна, поуже, по центру. */
+.tlevel-extra { max-width: 480px; margin: var(--gap-3) auto 0; }
+
+/* ---- Страницы из книги: по ряду на том ---- */
+.tinside { margin-top: var(--gap-3); }
+.tinside h3 { margin: 0 0 var(--gap-2); font-size: var(--t-h3); }
+/* На узком экране ряд листается вбок, лист виден почти целиком. */
+.tinside__row {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 72%;
+  gap: var(--gap-2); overflow-x: auto; padding-bottom: 0.6rem;
+  scroll-snap-type: x mandatory;
+}
+.tinside__page { display: block; scroll-snap-align: start; text-decoration: none; }
+.tinside__page:focus-visible { outline: 2px solid var(--pink-hot); outline-offset: 3px; border-radius: var(--radius); }
+/* Отступ между пояснениями уровней и общей строкой под ними. */
+.tlevels-note { margin-top: var(--gap-3); }
+@media (min-width: 700px) { .tinside__row { grid-auto-columns: 38%; } }
+/* На широком экране все пять листов в один ряд, без прокрутки. */
+@media (min-width: 1000px) {
+  .tinside__row { grid-auto-flow: row; grid-template-columns: repeat(5, 1fr); overflow: visible; }
+}
+
 /* ---- Подборки по темам и сезонам ---- */
 .tgroups { display: grid; gap: var(--gap-2); margin-top: var(--gap-3); }
 @media (min-width: 700px) { .tgroups { grid-template-columns: 1fr 1fr; } }

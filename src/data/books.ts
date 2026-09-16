@@ -2247,7 +2247,12 @@ export const books: Book[] = [
      Испанские тома стоят в английском каталоге намеренно. Это тетради
      для американского класса, где учат испанские слова: страница для
      учителя написана по-английски, а задания и слова внутри испанские.
-     Испаноязычному родителю такая книга не адресована. */
+     Испаноязычному родителю такая книга не адресована.
+
+     С 16.09.2026 продается издание с двумя уровнями: каждый рисунок стоит
+     в книге дважды, первый уровень в четыре шага с серой заготовкой,
+     второй в пять-восемь шагов с пустым полем. Том 1 это 113 страниц,
+     том 2 это 115. */
   {
     id: "directed-drawing-k2-en",
     author: "ricardo",
@@ -2258,7 +2263,7 @@ export const books: Book[] = [
     pairId: "directed-drawing-k2-es",
     drawings: 55,
     ageShown: "5-8",
-    pages: 58,
+    pages: 113,
     size: "8.5 x 11 in",
     cover: "/covers/directed-drawing-k2-en.jpg",
     coverSize: { w: 900, h: 900 },
@@ -2267,15 +2272,15 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Directed Drawing Worksheets for Grades K-2: Draw, Trace, Write",
-        subtitle: "55 no-prep activities. Choose a page, print, and go.",
+        subtitle: "55 no-prep activities, each at two levels: 110 worksheets. Choose a page, print, and go.",
         lead:
-          "Four stages on one page. The student follows six numbered steps to build the drawing, traces the finished outline, draws it independently in the open box, then traces and writes the word on primary ruled lines.\n\nNothing to cut, glue, or prepare. Every activity is one black-and-white page that prints on a classroom copier.",
+          "Four stages on one page. The student follows the numbered steps to build the drawing, traces the finished outline, draws it independently in the open box, then traces and writes the word on primary ruled lines.\n\nEvery drawing comes at two levels. Level 1 has four steps and a light gray starting shape in the drawing box. Level 2 has five to eight steps and an empty box. Start the year with Level 1, or give each student the level that fits while the whole class draws the same picture.\n\nNothing to cut, glue, or prepare. Every worksheet is one black-and-white page that prints on a classroom copier.",
         inside: [
-          "55 full-page activities: animals, sea life, fantasy, vehicles, sports and hobbies, everyday things, nature, food",
-          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the word",
-          "A teacher page explaining how the activities work and an illustrated table of contents",
+          "55 drawings at two levels, 110 full-page worksheets: animals, sea life, fantasy, vehicles, sports and hobbies, everyday things, nature, food",
+          "Numbered steps (four at Level 1, five to eight at Level 2), a dotted outline to trace, an open box to draw in, and ruled lines for the word",
+          "A teacher page explaining how the two levels work and a two-page illustrated table of contents with page numbers for both levels",
           "Small themed pictures on every page for early finishers to color",
-          "58 pages, black and white, US Letter and A4 both included",
+          "113 pages, black and white, US Letter or A4 at your choice",
         ],
         forWhom:
           "Kindergarten, first and second grade, ages 5 to 8. For classroom teachers, art and sub folders, homeschool, morning work, centers, and early finishers.",
@@ -2286,7 +2291,7 @@ export const books: Book[] = [
           },
           {
             q: "Which paper size do I get?",
-            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+            a: "You choose US Letter or A4 at checkout, and the file is laid out for that size.",
           },
           {
             q: "Can I print copies for my whole class?",
@@ -2294,7 +2299,11 @@ export const books: Book[] = [
           },
           {
             q: "How is this different from Volume 2?",
-            a: "Same format and the same page layout, different subjects. Volume 1 opens with zoo and safari animals, Volume 2 with forest and farm animals and adds a bugs section.",
+            a: "Same format, the same two levels and the same page layout, different subjects. Volume 1 opens with zoo and safari animals, Volume 2 with forest and farm animals and adds a bugs section.",
+          },
+          {
+            q: "What is the difference between Level 1 and Level 2?",
+            a: "Level 1 shows the drawing in four steps and prints a light gray starting shape in the drawing box. Level 2 shows the same drawing in five to eight steps and leaves the box empty. Each worksheet is marked Level 1 or Level 2 in the top right corner.",
           },
           {
             q: "Do students need to read to use it?",
@@ -2314,7 +2323,7 @@ export const books: Book[] = [
     pairId: "directed-drawing-k2-en",
     drawings: 55,
     ageShown: "5-8",
-    pages: 58,
+    pages: 113,
     size: "8.5 x 11 in",
     cover: "/covers/directed-drawing-k2-es.jpg",
     coverSize: { w: 900, h: 900 },
@@ -2323,22 +2332,22 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Spanish Directed Drawing Worksheets for Grades K-2: Dibujo Dirigido",
-        subtitle: "55 no-prep activities. Every word is written in Spanish.",
+        subtitle: "55 no-prep activities, each at two levels: 110 worksheets. Every word is written in Spanish.",
         lead:
-          "The same four stages as our English set, with the vocabulary in Spanish. The student follows six numbered steps, traces the outline, draws independently, then traces and writes the Spanish word on primary ruled lines.\n\nBuilt for Spanish class, dual language and bilingual classrooms. The teacher page is in English so you can hand the set to any colleague; every student instruction and every word on the activity pages is in Spanish.",
+          "The same four stages as our English set, with the vocabulary in Spanish. The student follows the numbered steps, traces the outline, draws independently, then traces and writes the Spanish word on primary ruled lines. Every drawing comes at two levels: Level 1 has four steps and a light gray starting shape, Level 2 has five to eight steps and an empty drawing box.\n\nBuilt for Spanish class, dual language and bilingual classrooms. The teacher page is in English so you can hand the set to any colleague; every student instruction and every word on the activity pages is in Spanish.",
         inside: [
-          "55 full-page activities: animales, vida marina, fantasía, vehículos, deportes, objetos, naturaleza, comida",
-          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the Spanish word",
+          "55 drawings at two levels, 110 full-page worksheets: animales, vida marina, fantasía, vehículos, deportes, objetos, naturaleza, comida",
+          "Numbered steps (four at Level 1, five to eight at Level 2), a dotted outline to trace, an open box to draw in, and ruled lines for the Spanish word",
           "Student instructions in Spanish on every page",
-          "A teacher page in English and an illustrated table of contents",
-          "58 pages, black and white, US Letter and A4 both included",
+          "A teacher page in English and a two-page illustrated table of contents with page numbers for both levels",
+          "113 pages, black and white, US Letter or A4 at your choice",
         ],
         forWhom:
           "Spanish class, dual language and bilingual classrooms, kindergarten through second grade, ages 5 to 8. Also for Spanish-speaking families teaching writing at home.",
         faq: [
           {
             q: "Are the drawings the same as in the English set?",
-            a: "Yes. Same 55 drawings and the same page layout. Only the language of the words and instructions is different.",
+            a: "Yes. Same 55 drawings, the same two levels and the same page layout. Only the language of the words and instructions is different.",
           },
           {
             q: "Is this a bilingual resource?",
@@ -2350,7 +2359,7 @@ export const books: Book[] = [
           },
           {
             q: "Which paper size do I get?",
-            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+            a: "You choose US Letter or A4 at checkout, and the file is laid out for that size.",
           },
           {
             q: "Can I print copies for my whole class?",
@@ -2370,7 +2379,7 @@ export const books: Book[] = [
     pairId: "directed-drawing-k2-2-es",
     drawings: 56,
     ageShown: "5-8",
-    pages: 59,
+    pages: 115,
     size: "8.5 x 11 in",
     cover: "/covers/directed-drawing-k2-2-en.jpg",
     coverSize: { w: 900, h: 900 },
@@ -2379,15 +2388,15 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Directed Drawing Worksheets for Grades K-2, Volume 2: Draw, Trace, Write",
-        subtitle: "55 no-prep activities plus a bonus page. All new subjects.",
+        subtitle: "55 no-prep activities plus a bonus, each at two levels: 112 worksheets. All new subjects.",
         lead:
-          "A second full year of directed drawing in the same format: follow six numbered steps, trace the outline, draw it independently, then trace and write the word.\n\nEvery subject is new. Volume 2 starts with forest and farm animals and adds a bugs and little creatures section that the first set does not have.",
+          "A second full year of directed drawing in the same format: follow the numbered steps, trace the outline, draw it independently, then trace and write the word. Every drawing comes at two levels: Level 1 has four steps and a light gray starting shape, Level 2 has five to eight steps and an empty drawing box.\n\nEvery subject is new. Volume 2 starts with forest and farm animals and adds a bugs and little creatures section that the first set does not have.",
         inside: [
-          "56 full-page activities: animals, bugs and little creatures, sea life, fantasy, vehicles, sports and hobbies, things, nature, food",
-          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the word",
-          "A teacher page explaining how the activities work and an illustrated table of contents",
+          "56 drawings at two levels, 112 full-page worksheets: animals, bugs and little creatures, sea life, fantasy, vehicles, sports and hobbies, things, nature, food",
+          "Numbered steps (four at Level 1, five to eight at Level 2), a dotted outline to trace, an open box to draw in, and ruled lines for the word",
+          "A teacher page explaining how the two levels work and a two-page illustrated table of contents with page numbers for both levels",
           "Small themed pictures on every page for early finishers to color",
-          "59 pages, black and white, US Letter and A4 both included",
+          "115 pages, black and white, US Letter or A4 at your choice",
         ],
         forWhom:
           "Kindergarten, first and second grade, ages 5 to 8. For teachers who have finished Volume 1 and for anyone starting here.",
@@ -2398,7 +2407,7 @@ export const books: Book[] = [
           },
           {
             q: "Do I need Volume 1 first?",
-            a: "No. Each set stands on its own and the page format is identical.",
+            a: "No. Each set stands on its own, and the page format and the two levels are identical.",
           },
           {
             q: "Is this a printed book or a download?",
@@ -2406,7 +2415,7 @@ export const books: Book[] = [
           },
           {
             q: "Which paper size do I get?",
-            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+            a: "You choose US Letter or A4 at checkout, and the file is laid out for that size.",
           },
           {
             q: "Can I print copies for my whole class?",
@@ -2426,7 +2435,7 @@ export const books: Book[] = [
     pairId: "directed-drawing-k2-2-en",
     drawings: 56,
     ageShown: "5-8",
-    pages: 59,
+    pages: 115,
     size: "8.5 x 11 in",
     cover: "/covers/directed-drawing-k2-2-es.jpg",
     coverSize: { w: 900, h: 900 },
@@ -2435,15 +2444,15 @@ export const books: Book[] = [
     copy: {
       en: {
         title: "Spanish Directed Drawing Worksheets for Grades K-2, Volume 2: Dibujo Dirigido",
-        subtitle: "55 no-prep activities plus a bonus page, all in Spanish.",
+        subtitle: "55 no-prep activities plus a bonus, each at two levels: 112 worksheets, all in Spanish.",
         lead:
-          "A second set of Spanish vocabulary activities in the same four-stage format: follow the steps, trace, draw independently, then trace and write the Spanish word.\n\nAll 56 subjects are new, including a bugs and little creatures section that the first set does not have.",
+          "A second set of Spanish vocabulary activities in the same four-stage format: follow the steps, trace, draw independently, then trace and write the Spanish word. Every drawing comes at two levels: Level 1 has four steps and a light gray starting shape, Level 2 has five to eight steps and an empty drawing box.\n\nAll 56 subjects are new, including a bugs and little creatures section that the first set does not have.",
         inside: [
-          "56 full-page activities: animales, insectos, vida marina, fantasía, vehículos, deportes, objetos, naturaleza, comida",
-          "Six numbered steps, a dotted outline to trace, an open box to draw in, and ruled lines for the Spanish word",
+          "56 drawings at two levels, 112 full-page worksheets: animales, insectos, vida marina, fantasía, vehículos, deportes, objetos, naturaleza, comida",
+          "Numbered steps (four at Level 1, five to eight at Level 2), a dotted outline to trace, an open box to draw in, and ruled lines for the Spanish word",
           "Student instructions in Spanish on every page",
-          "A teacher page in English and an illustrated table of contents",
-          "59 pages, black and white, US Letter and A4 both included",
+          "A teacher page in English and a two-page illustrated table of contents with page numbers for both levels",
+          "115 pages, black and white, US Letter or A4 at your choice",
         ],
         forWhom:
           "Spanish class, dual language and bilingual classrooms, kindergarten through second grade, ages 5 to 8.",
@@ -2454,7 +2463,7 @@ export const books: Book[] = [
           },
           {
             q: "Are the drawings the same as in the English Volume 2?",
-            a: "Yes. Same 56 drawings and the same page layout. Only the language of the words and instructions is different.",
+            a: "Yes. Same 56 drawings, the same two levels and the same page layout. Only the language of the words and instructions is different.",
           },
           {
             q: "Is this a bilingual resource?",
@@ -2466,7 +2475,7 @@ export const books: Book[] = [
           },
           {
             q: "Which paper size do I get?",
-            a: "Both. You choose US Letter or A4 at checkout, and the file is laid out for that size.",
+            a: "You choose US Letter or A4 at checkout, and the file is laid out for that size.",
           },
         ],
       },

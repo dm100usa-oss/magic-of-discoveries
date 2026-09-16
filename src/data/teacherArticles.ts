@@ -7,8 +7,10 @@
 //   3. навыки и особые случаи (мелкая моторика, ESL, особое образование, дом).
 //
 // Правило то же, что и на главной странице раздела: ничего, чего нельзя
-// проверить, открыв книгу. Все числа взяты из готового PDF: 58 страниц,
-// 55 заданий, восемь тем, шесть шагов построения на листе.
+// проверить, открыв книгу. Все числа взяты из готового PDF издания
+// с двумя уровнями: в первом томе 55 рисунков, каждый дважды, итого
+// 110 листов на 113 страницах, восемь тем. На первом уровне четыре шага
+// построения и серая заготовка, на втором от пяти до восьми шагов.
 //
 // Каждая статья устроена одинаково: прямой ответ первым абзацем, затем
 // объяснение, затем короткий список, затем вопросы с ответами. Первый
@@ -75,7 +77,7 @@ export const teacherArticles: TeacherArticle[] = [
   {
     id: "draw-and-write",
     published: "2026-08-09",
-    updated: "2026-08-21",
+    updated: "2026-09-16",
     slug: {
       en: "directed-drawing-and-writing-k-2",
       es: "dibujo-dirigido-y-escritura-k-2",
@@ -115,7 +117,7 @@ export const teacherArticles: TeacherArticle[] = [
 
         listTitle: "What one page contains",
         list: [
-          "Six numbered steps that build the subject from circles, curves and straight lines",
+          "Four to eight numbered steps, depending on the level, that build the subject from circles, curves and straight lines",
           "A dashed outline of the finished subject to trace",
           "An open box to draw the subject independently and color it",
           "The matching word on primary ruled lines, traced once and written once",
@@ -137,7 +139,7 @@ export const teacherArticles: TeacherArticle[] = [
           },
           {
             q: "Do students need to be able to draw already?",
-            a: "No. Every subject is broken into circles, curves and straight lines across six steps, and the fourth stage still shows the finished outline to trace. A student who does not consider themselves good at drawing finishes with a drawing that looks like the model.",
+            a: "No. Every subject is broken into circles, curves and straight lines across four to eight steps, Level 1 even prints a light gray starting shape in the drawing box, and the fourth stage still shows the finished outline to trace. A student who does not consider themselves good at drawing finishes with a drawing that looks like the model.",
           },
           {
             q: "How long does one page take?",
@@ -183,7 +185,7 @@ export const teacherArticles: TeacherArticle[] = [
 
         listTitle: "Qué contiene una hoja",
         list: [
-          "Seis pasos numerados que construyen la figura con círculos, curvas y líneas rectas",
+          "De cuatro a ocho pasos numerados, según el nivel, que construyen la figura con círculos, curvas y líneas rectas",
           "El contorno punteado de la figura terminada para repasar",
           "Un recuadro libre para dibujar la figura por su cuenta y colorearla",
           "La palabra correspondiente sobre pauta de tres líneas, repasada una vez y escrita una vez",
@@ -205,7 +207,7 @@ export const teacherArticles: TeacherArticle[] = [
           },
           {
             q: "¿Hace falta que ya sepan dibujar?",
-            a: "No. Cada figura está descompuesta en círculos, curvas y líneas rectas a lo largo de seis pasos, y la cuarta etapa todavía muestra el contorno terminado para repasar. Un alumno que no se considera bueno dibujando termina con un dibujo parecido al modelo.",
+            a: "No. Cada figura está descompuesta en círculos, curvas y líneas rectas a lo largo de cuatro a ocho pasos, el nivel 1 incluso imprime una forma inicial en gris claro en el recuadro de dibujo, y la cuarta etapa todavía muestra el contorno terminado para repasar. Un alumno que no se considera bueno dibujando termina con un dibujo parecido al modelo.",
           },
           {
             q: "¿Cuánto dura una hoja?",
@@ -226,7 +228,7 @@ export const teacherArticles: TeacherArticle[] = [
   {
     id: "classroom-routines",
     published: "2026-08-09",
-    updated: "2026-08-21",
+    updated: "2026-09-16",
     slug: {
       en: "no-prep-directed-drawing-morning-work-early-finishers",
       es: "dibujo-dirigido-sin-preparacion-rutinas-de-clase",
@@ -299,13 +301,13 @@ export const teacherArticles: TeacherArticle[] = [
           },
           {
             q: "How many pages do I need for a year?",
-            a: "The full book holds 55 activities. Used once a week, that covers a school year with pages left over. Teachers who use them more often, as morning work several days a week, usually pair them with the themes they are already teaching.",
+            a: "The full book holds 55 drawings, each at two levels, so 110 worksheets. Used once a week, that covers a school year with pages left over. Teachers who use them more often, as morning work several days a week, usually pair them with the themes they are already teaching.",
           },
         ],
 
         ctaTitle: "Print one and see",
         ctaLead:
-          "The free sample is eight full activities, one from each theme. The full collection is 55 activities and a teacher page.",
+          "The free sample is eight full activities, one from each theme, each at both levels. The full book is 55 drawings at two levels, 110 worksheets, with a teacher page.",
       },
 
       es: {
@@ -374,13 +376,13 @@ export const teacherArticles: TeacherArticle[] = [
           },
           {
             q: "¿Cuántas hojas hacen falta para un curso?",
-            a: "El libro completo reúne 55 actividades. A razón de una por semana cubre el curso escolar y aún sobran páginas. Quien las usa más a menudo, varios días por semana, suele combinarlas con los temas que ya está trabajando.",
+            a: "El libro completo reúne 55 dibujos, cada uno en dos niveles, es decir 110 fichas. A razón de un dibujo por semana cubre el curso escolar y aún sobran páginas. Quien las usa más a menudo, varios días por semana, suele combinarlas con los temas que ya está trabajando.",
           },
         ],
 
         ctaTitle: "Imprima una y compruébelo",
         ctaLead:
-          "La muestra gratuita son ocho actividades completas, una de cada tema. La colección completa son 55 actividades y una página para el maestro.",
+          "La muestra gratuita son ocho actividades completas, una de cada tema, cada una en los dos niveles. El libro completo son 55 dibujos en dos niveles, 110 fichas, con una página para el maestro.",
       },
     },
   },
@@ -391,7 +393,7 @@ export const teacherArticles: TeacherArticle[] = [
   {
     id: "skills-and-special-cases",
     published: "2026-08-09",
-    updated: "2026-08-21",
+    updated: "2026-09-16",
     slug: {
       en: "directed-drawing-fine-motor-following-directions-esl",
       es: "dibujo-dirigido-motricidad-fina-instrucciones-esl",
@@ -423,7 +425,7 @@ export const teacherArticles: TeacherArticle[] = [
           {
             h: "Following directions",
             p: [
-              "Following directions is on almost every K-2 report card and is hard to practice on purpose. A six step sequence is a small, self-checking exercise in it: a student who skips step three sees it, because the drawing stops matching the model.",
+              "Following directions is on almost every K-2 report card and is hard to practice on purpose. A step by step sequence is a small, self-checking exercise in it: a student who skips step three sees it, because the drawing stops matching the model.",
               "The feedback comes from the page rather than from an adult, which is why the activity survives in a class of twenty.",
             ],
           },
@@ -467,11 +469,11 @@ export const teacherArticles: TeacherArticle[] = [
           },
           {
             q: "Is it good for practicing following directions?",
-            a: "Yes, and it is self-checking. A six step sequence shows the student immediately when a step has been skipped, because the drawing stops matching the model. The correction comes from the page rather than from an adult.",
+            a: "Yes, and it is self-checking. A step by step sequence shows the student immediately when a step has been skipped, because the drawing stops matching the model. The correction comes from the page rather than from an adult.",
           },
           {
             q: "Can I use this for homeschool?",
-            a: "Yes. Nothing about the format assumes a classroom. Children ages 5 to 8 work through a page alone once the routine is familiar, and the full book holds 55 activities, which is one a week for a full school year with pages left over.",
+            a: "Yes. Nothing about the format assumes a classroom. Children ages 5 to 8 work through a page alone once the routine is familiar, and the full book holds 55 drawings at two levels, which is one a week for a full school year with pages left over.",
           },
         ],
 
@@ -505,7 +507,7 @@ export const teacherArticles: TeacherArticle[] = [
           {
             h: "Seguir instrucciones",
             p: [
-              "Seguir instrucciones aparece en casi todos los boletines de K-2 y es difícil de practicar a propósito. Una secuencia de seis pasos es un ejercicio pequeño y que se corrige solo: el alumno que se salta el paso tres lo ve, porque el dibujo deja de parecerse al modelo.",
+              "Seguir instrucciones aparece en casi todos los boletines de K-2 y es difícil de practicar a propósito. Una secuencia paso a paso es un ejercicio pequeño y que se corrige solo: el alumno que se salta el paso tres lo ve, porque el dibujo deja de parecerse al modelo.",
               "La corrección viene de la hoja y no de un adulto, y por eso la actividad sobrevive en un aula de veinte.",
             ],
           },
@@ -549,11 +551,11 @@ export const teacherArticles: TeacherArticle[] = [
           },
           {
             q: "¿Sirve para practicar el seguir instrucciones?",
-            a: "Sí, y se corrige solo. Una secuencia de seis pasos le muestra al alumno enseguida que se ha saltado uno, porque el dibujo deja de parecerse al modelo. La corrección viene de la hoja y no del adulto.",
+            a: "Sí, y se corrige solo. Una secuencia paso a paso le muestra al alumno enseguida que se ha saltado uno, porque el dibujo deja de parecerse al modelo. La corrección viene de la hoja y no del adulto.",
           },
           {
             q: "¿Puedo usarlo para educar en casa?",
-            a: "Sí. El formato no da por supuesta un aula. Los niños de 5 a 8 años resuelven una hoja solos en cuanto conocen la rutina, y el libro completo reúne 55 actividades, una por semana durante todo el curso y aún sobran páginas.",
+            a: "Sí. El formato no da por supuesta un aula. Los niños de 5 a 8 años resuelven una hoja solos en cuanto conocen la rutina, y el libro completo reúne 55 dibujos en dos niveles, uno por semana durante todo el curso y aún sobran páginas.",
           },
         ],
 

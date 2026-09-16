@@ -28,8 +28,21 @@ import { bookById, type UiLang } from "@/data/books";
 const COLORING_PRICE_CENTS = 399;
 const DEFAULT_PRICE_CENTS = 499;
 
+/* Четыре тетради для учителей стоят 5.99, ровно как на Teachers Pay
+   Teachers. С 16.09.2026 в них два уровня каждого рисунка, и цена на
+   площадке поднята. Одна и та же тетрадь не должна стоить по-разному
+   у нас и там. */
+const TEACHER_PRICE_CENTS = 599;
+const teacherBooks = new Set<string>([
+  "directed-drawing-k2-en",
+  "directed-drawing-k2-es",
+  "directed-drawing-k2-2-en",
+  "directed-drawing-k2-2-es",
+]);
+
 /** Цена книги в центах. */
 export function pdfPriceCents(id: string): number {
+  if (teacherBooks.has(id)) return TEACHER_PRICE_CENTS;
   return bookById(id)?.type === "coloring"
     ? COLORING_PRICE_CENTS
     : DEFAULT_PRICE_CENTS;

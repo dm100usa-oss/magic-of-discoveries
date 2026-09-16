@@ -22,6 +22,8 @@ import {
 } from "@/data/method";
 import { teachersForLang, METHOD_URL } from "@/data/teachers";
 import type { TeachersImage } from "@/data/teachers";
+import { teacherProducts, teacherProductPath } from "@/data/teacherBooks";
+import TeacherBookRows from "@/components/TeacherBooks";
 import { articlesForLang, articleUi } from "@/data/teacherArticles";
 import { PageHead, BookCard } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
@@ -234,13 +236,16 @@ export default async function SectionPage({
   }
 
   /* ---------- Учителям ---------- */
+  /* Страница идет от общего к частному: что это и для кого, сразу книги,
+     потом три-четыре строки о том, кому и когда это нужно, бесплатные
+     задания, короткие вопросы. Подробности о каждой книге живут на ее
+     собственной странице. */
   if (s === "teachers") {
     const c = teachersForLang(lang);
     if (!c) notFound();
     const url = `${SITE_URL}${sectionPath(lang, s)}`;
+    const first = lang === "es" ? "es" : "en";
 
-    /* Вопросы отдельной разметкой: именно из нее нейросеть берет
-       готовый абзац, когда отвечает на вопрос учителя. */
     const faqSchema = {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -251,37 +256,60 @@ export default async function SectionPage({
       })),
     };
 
-    /* Сама страница как учебный материал: возраст, язык, автор, издатель.
-       Строки про метод здесь нет: он не опора этой страницы. */
+    /* Страница как собрание учебных материалов, и в нем шесть книг
+       списком: поисковик видит, что именно здесь предлагается. */
     const pageSchema = {
       "@context": "https://schema.org",
       "@graph": [
         orgNode(),
         ricardoNode(lang),
         {
-          "@type": "LearningResource",
+          "@type": "CollectionPage",
           name: c.title,
           url,
           description: c.definition,
           inLanguage: dictionaries[lang].htmlLang,
-          educationalLevel: "Kindergarten, Grade 1, Grade 2",
-          typicalAgeRange: "5-8",
-          audience: [
-            { "@type": "EducationalAudience", educationalRole: "teacher" },
-            { "@type": "EducationalAudience", educationalRole: "parent" },
-            { "@type": "EducationalAudience", educationalRole: "homeschooler" },
-          ],
-          learningResourceType: "Printable worksheet",
-          author: { "@id": RICARDO_ID },
-          publisher: { "@id": ORG_ID },
           dateModified: c.updated,
+          about: {
+            "@type": "LearningResource",
+            name: c.title,
+            description: c.definition,
+            educationalLevel: "Kindergarten, Grade 1, Grade 2",
+            typicalAgeRange: "5-8",
+            timeRequired: "P1Y",
+            learningResourceType: "Worksheet",
+            teaches: [
+              "Handwriting",
+              "Vocabulary",
+              "Fine motor skills",
+              "Hand-eye coordination",
+              "Following step-by-step directions",
+              "Drawing",
+            ],
+            audience: [
+              { "@type": "EducationalAudience", educationalRole: "teacher" },
+              { "@type": "EducationalAudience", educationalRole: "parent" },
+              { "@type": "EducationalAudience", educationalRole: "homeschooler" },
+            ],
+            author: { "@id": RICARDO_ID },
+            publisher: { "@id": ORG_ID },
+          },
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: teacherProducts.map((p, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `${SITE_URL}${teacherProductPath(p)}`,
+              name: p.title,
+            })),
+          },
         },
       ],
     };
 
-    const Fig = ({ img, small }: { img: TeachersImage; small?: boolean }) => (
-      <figure className={`tfig${small ? " tfig--small" : ""}`}>
-        <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" />
+    const Fig = ({ img }: { img: TeachersImage }) => (
+      <figure className="tfig tfig--small">
+        <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="eager" />
         {img.caption ? <figcaption>{img.caption}</figcaption> : null}
       </figure>
     );
@@ -293,16 +321,16 @@ export default async function SectionPage({
         <Crumbs />
         <PageHead title={c.title} lead={c.lead} />
 
-        {/* Первый экран: слева объяснение и кнопки, справа обе обложки.
-            Заголовок, текст и книги должны быть видны сразу, без прокрутки. */}
+        {/* Первый экран: что это, сколько и две кнопки. Справа один и тот
+            же рисунок на двух уровнях: главное отличие видно сразу. */}
         <section className="teach-block teach-block--top">
           <div className="teach teach--wide">
             <div className="thero">
               <div className="thero__text">
-                <p className="thero__short">{c.heroShort}</p>
+                <p className="thero__short">{c.heroStats}</p>
                 <p className="thero__btns">
-                  <a className="btn btn--pink" href="#buy">
-                    {c.heroBuyCta}
+                  <a className="btn btn--pink" href="#books">
+                    {c.heroChooseCta}
                   </a>
                   <a className="btn btn--sky" href="#free">
                     {c.heroFreeCta}
@@ -311,315 +339,58 @@ export default async function SectionPage({
                 <p className="thero__note">{c.heroNote}</p>
               </div>
               <div className="thero__covers">
-                {c.heroCovers.map((cv) => (
-                  <figure className="tfig tfig--cover" key={cv.label}>
-                    <img
-                      src={cv.img.src}
-                      alt={cv.img.alt}
-                      width={cv.img.w}
-                      height={cv.img.h}
-                      loading="eager"
-                    />
-                    <figcaption>{cv.label}</figcaption>
-                  </figure>
+                {c.heroPair.map((img) => (
+                  <Fig img={img} key={img.src} />
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Строка ссылок по странице. Учитель с готовой задачей идет
-            сразу в нужный блок, а поиск получает карту страницы. */}
-        <nav className="teach-block teach-block--nav" aria-label={c.title}>
-          <div className="teach">
-            <ul className="tnav">
-              {c.nav.map((n) => (
-                <li key={n.href}>
-                  <a href={n.href}>{n.label}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
-
-        {/* Для каких занятий. Отвечает на вопрос, где пригодится покупка. */}
-        <section className="band band--mint" id="uses">
-          <div className="teach">
-            <h2 className="section">{c.usesTitle}</h2>
-            <div className="tneeds">
-              {c.uses.map((u) => (
-                <div className="tneed" key={u.title}>
-                  <h3>{u.title}</h3>
-                  <p>{u.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Что входит в два тома, до показа отдельного листа. */}
-        <section className="teach-block" id="volumes">
-          <div className="teach">
-            <h2 className="section">{c.volumesTitle}</h2>
-            <div className="tvols">
-              {c.volumes.map((v) => (
-                <div className="tvol" key={v.name}>
-                  <h3>{v.name}</h3>
-                  <ul>
-                    {v.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-            <p className="teach-p">{c.volumesNote}</p>
-          </div>
-        </section>
-
-        {/* Страницы из превью книги. Учитель видит лист для учителя,
-            оглавление и один рисунок на двух уровнях до покупки. На узком
-            экране ряд листается вбок, чтобы не занимать пять экранов. */}
-        <section className="band band--sun" id="inside">
+        {/* Книги: два ряда, в каждом том 1, том 2 и набор. */}
+        <section className="band band--mint" id="books">
           <div className="teach teach--wide">
-            <h2 className="section">{c.insideTitle}</h2>
-            <p className="teach-p">{c.insideLead}</p>
-            {c.inside.map((v) => (
-              <div className="tinside" key={v.vol}>
-                <h3>{v.vol}</h3>
-                <div className="tinside__row">
-                  {v.pages.map((pg) => (
-                    <a className="tinside__page" href={pg.src} target="_blank" rel="noopener" key={pg.src}>
-                      <Fig img={pg} small />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <h2 className="section">{c.booksTitle}</h2>
+            <p className="teach-p">{c.booksLead}</p>
+            <TeacherBookRows c={c} first={first} />
           </div>
         </section>
 
-        {/* Как устроен лист. Крупный настоящий лист слева, этапы справа,
-            ниже два примера поменьше: второй лист и работа с деталями. */}
-        <section className="band band--cream">
-          <div className="teach teach--wide">
-            <h2 className="section">{c.anatomyTitle}</h2>
-            <div className="tanat">
-              <Fig img={c.sample} />
-              <ol className="tsteps">
-                {c.steps.map((st) => (
-                  <li key={st.n}>
-                    <b>
-                      {st.n}. {st.title}
-                    </b>
-                    <span>{st.text}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <p className="buy-note">{c.anatomyNote}</p>
-            <div className="tlevel-extra">
-              <Fig img={c.useImage} small />
-            </div>
-          </div>
-        </section>
-
-        {/* Два уровня одного рисунка: два настоящих листа рядом, под каждым
-            его объяснение. Разница должна быть видна глазом. */}
-        <section className="teach-block" id="levels">
-          <div className="teach teach--wide">
-            <h2 className="section">{c.levelsTitle}</h2>
-            <p className="teach-p">{c.levelsLead}</p>
-            <div className="tpair tpair--pages">
-              {c.levels.map((lv) => (
-                <div className="tlevel" key={lv.name}>
-                  <Fig img={lv.img} small />
-                  <h3>{lv.name}</h3>
-                  <p>{lv.text}</p>
+        {/* Кому и когда: четыре короткие строки. */}
+        <section className="teach-block" id="about">
+          <div className="teach">
+            <h2 className="section">{c.aboutTitle}</h2>
+            <dl className="tabout">
+              {c.about.map((a) => (
+                <div className="tabout__row" key={a.label}>
+                  <dt>{a.label}</dt>
+                  <dd>{a.text}</dd>
                 </div>
               ))}
-            </div>
-            <p className="teach-p tlevels-note">{c.levelsNote}</p>
+            </dl>
           </div>
         </section>
 
-        {/* Бесплатные образцы. Только наши файлы: учитель, пришедший за
-            пробником, не должен уходить на чужую площадку. */}
-        <section className="teach-block" id="free">
-          <div className="teach">
+        {/* Бесплатные задания: четыре файла, кнопки одного размера. */}
+        <section className="band band--sun" id="free">
+          <div className="teach teach--wide">
             <h2 className="section">{c.freeTitle}</h2>
             <p className="teach-p">{c.freeLead}</p>
-            <div className="tcards">
-              {c.freeCards.map((card) => (
-                <div className="tcard" key={card.title}>
-                  <img
-                    src={card.cover.src}
-                    alt={card.cover.alt}
-                    width={card.cover.w}
-                    height={card.cover.h}
-                    loading="lazy"
-                  />
-                  <div>
-                    <h3>{card.title}</h3>
-                    <p>{card.text}</p>
-                    <a className="btn btn--sky" href={card.file} download>
-                      {card.cta}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <p className="buy-note">
-              {c.freeNote} <Link href={c.freeOther.url}>{c.freeOther.text}</Link>.
-            </p>
-          </div>
-        </section>
-
-        {/* Подборки по теме. Главный блок для того, кто пришел с темой
-            урока. Сумма подборок равна 111, это проверено по книгам. */}
-        <section className="band band--sun" id="themes">
-          <div className="teach">
-            <h2 className="section">{c.themesTitle}</h2>
-            <p className="teach-p">{c.themesLead}</p>
-            <div className="tgroups">
-              {c.themeGroups.map((g) => (
-                <div className="tgroup" key={g.name}>
-                  <h3>
-                    {g.name} <span className="tgroup__n">{g.count}</span>
-                  </h3>
-                  <p className="tgroup__where">{g.where}</p>
-                  <p className="tgroup__ex">{g.examples}</p>
-                  <p className="tgroup__link">
-                    <a href={g.anchor}>{c.seeLabel}</a>
-                  </p>
+            <div className="tfree">
+              {c.freeItems.map((f) => (
+                <div className="tfree__item" key={f.url}>
+                  <img src={f.cover.src} alt={f.cover.alt} width={f.cover.w} height={f.cover.h} loading="lazy" />
+                  <p>{f.label}</p>
+                  <a className="btn btn--sky" href={f.url} download>
+                    {c.freeCta}
+                  </a>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Сезонные подборки из тех же рисунков. Зима названа честно:
-            снеговика и пингвина в книгах нет. */}
-        <section className="teach-block" id="seasons">
-          <div className="teach">
-            <h2 className="section">{c.seasonTitle}</h2>
-            <p className="teach-p">{c.seasonLead}</p>
-            <div className="tgroups tgroups--two">
-              {c.seasons.map((se) => (
-                <div className="tgroup" key={se.name}>
-                  <h3>{se.name}</h3>
-                  <p className="tgroup__ex">{se.items}</p>
-                  <p className="tgroup__link">
-                    <a href="#vol1">{c.seeLabel}</a>
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Полный указатель: все 111 названий с номерами страниц,
-            свернуто по томам. Свернутый текст поиск читает, а покупку
-            он не отодвигает на несколько экранов вниз. */}
-        <section className="band band--cream">
-          <div className="teach">
-            <h2 className="section">{c.catalogTitle}</h2>
-            <p className="teach-p">{c.catalogLead}</p>
-            <div className="faq">
-              {c.catalog.map((v) => (
-                <details key={v.vol} id={v.anchor}>
-                  <summary>{v.vol}</summary>
-                  {v.groups.map((g) => (
-                    <p className="tcat-row" key={`${v.vol}-${g.name}`}>
-                      <b>{g.name}:</b> {g.items}
-                    </p>
-                  ))}
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Другое языковое издание, перед покупкой: язык выбирают до
-            товара. Переключателя нет намеренно, вместо него ссылка на
-            вторую версию сайта со своими карточками покупки. */}
-        <section className="teach-block" id="other">
-          <div className="teach">
-            <h2 className="section">{c.otherTitle}</h2>
-            <p className="teach-p">{c.otherText}</p>
-            <div className="tpair tpair--langs">
-              {c.otherPair.map((p2) => (
-                <figure className="tfig tfig--small" key={p2.label}>
-                  <img
-                    src={p2.img.src}
-                    alt={p2.img.alt}
-                    width={p2.img.w}
-                    height={p2.img.h}
-                    loading="lazy"
-                  />
-                  <figcaption>{p2.label}</figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="teach-cta">
-              <a className="btn btn--sky" href={c.otherFreeUrl} download>
-                {c.otherFreeCta}
-              </a>{" "}
-              <Link className="btn btn--pink" href={c.otherPageUrl}>
-                {c.otherPageCta}
-              </Link>
-            </p>
-          </div>
-        </section>
-
-        {/* Покупка. Три карточки в один ряд, комплект первым и выделен.
-            Наша кнопка идет раньше площадки: с площадки мы получаем
-            заметно меньше с той же продажи. */}
-        <section className="band band--mint" id="buy">
-          <div className="teach teach--wide">
-            <h2 className="section">{c.buyTitle}</h2>
-            <div className="tbuy">
-              {c.buyCards.map((card) => (
-                <div className={`tcard tcard--buy${card.featured ? " tcard--featured" : ""}`} key={card.id}>
-                  <img
-                    src={card.cover.src}
-                    alt={card.cover.alt}
-                    width={card.cover.w}
-                    height={card.cover.h}
-                    loading="lazy"
-                  />
-                  <div>
-                    <h3>{card.name}</h3>
-                    <p className="tcard-meta">{card.meta}</p>
-                    <p>{card.text}</p>
-                    {card.save ? <p className="tcard-save">{card.save}</p> : null}
-                    {(() => {
-                      const bookId = card.bookId;
-                      const own = bookId ? ownBookHref(bookId, lang) : null;
-                      return own && bookId && card.siteCta ? (
-                        <Link className="btn btn--pink" href={own}>
-                          {card.siteCta} · {pdfPriceLabel(bookId)}
-                        </Link>
-                      ) : null;
-                    })()}
-                    <a
-                      className={`btn ${card.featured ? "btn--pink" : "btn--sky"}`}
-                      href={card.tptUrl}
-                      rel="nofollow sponsored noopener"
-                      target="_blank"
-                    >
-                      {card.tptCta}
-                    </a>
-                    {/* Размер бумаги выбирают только у нас. */}
-                    {card.paperNote ? <p className="buy-note">{card.paperNote}</p> : null}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Практические вопросы. Первые два открыты. */}
+        {/* Короткие вопросы. Вопросы про конкретную книгу на ее странице. */}
         <section className="teach-block">
           <div className="teach">
             <h2 className="section">{c.faqTitle}</h2>
@@ -634,8 +405,7 @@ export default async function SectionPage({
           </div>
         </section>
 
-        {/* Автор одним абзацем. Ссылка на метод стоит здесь и только
-            здесь: это приглашение к разговору, а не доказательство. */}
+        {/* Автор одним абзацем и статьи. */}
         <section className="band band--cream">
           <div className="teach">
             <h2 className="section">{c.authorTitle}</h2>
@@ -645,56 +415,33 @@ export default async function SectionPage({
                 {c.authorLink}
               </a>
             </p>
+            {(() => {
+              const arts = articlesForLang(lang);
+              return arts.length ? (
+                <>
+                  <h3 className="block">{c.articlesTitle}</h3>
+                  <ul className="guide-next guide-next--tight">
+                    {arts.map((a) =>
+                      a.copy[lang] && a.slug[lang] ? (
+                        <li key={a.id}>
+                          <Link href={itemPath(lang, "teachers", a.slug[lang]!)}>
+                            <b>{a.copy[lang]!.title}</b>
+                          </Link>
+                        </li>
+                      ) : null,
+                    )}
+                  </ul>
+                </>
+              ) : null;
+            })()}
             <p className="buy-note">
               {c.updatedLabel} <time dateTime={c.updated}>{c.updated}</time>
-            </p>
-          </div>
-        </section>
-
-        {/* Статьи раздела. Полезны, но не товар, поэтому компактно и в
-            самом низу: читать их для выбора и покупки не требуется. */}
-        {(() => {
-          const arts = articlesForLang(lang);
-          return arts.length ? (
-            <section className="teach-block">
-              <div className="teach">
-                <h2 className="section">{c.articlesTitle}</h2>
-                <ul className="guide-next guide-next--tight">
-                  {arts.map((a) =>
-                    a.copy[lang] && a.slug[lang] ? (
-                      <li key={a.id}>
-                        <Link href={itemPath(lang, "teachers", a.slug[lang]!)}>
-                          <b>{a.copy[lang]!.title}</b>
-                        </Link>
-                      </li>
-                    ) : null,
-                  )}
-                </ul>
-              </div>
-            </section>
-          ) : null;
-        })()}
-
-        {/* Последний экран: страница заканчивается понятным действием. */}
-        <section className="band band--mint">
-          <div className="teach">
-            <h2 className="section">{c.finalTitle}</h2>
-            <p className="teach-p">{c.finalLead}</p>
-            <p className="teach-cta">
-              <a className="btn btn--pink" href="#buy">
-                {c.heroBuyCta}
-              </a>{" "}
-              <a className="btn btn--sky" href="#free">
-                {c.heroFreeCta}
-              </a>
             </p>
           </div>
         </section>
       </>
     );
   }
-
-
 
   /* ---------- Метод ---------- */
   if (s === "method") {

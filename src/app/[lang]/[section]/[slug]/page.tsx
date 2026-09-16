@@ -39,6 +39,15 @@ import {
   articleUi,
 } from "@/data/teacherArticles";
 import { teachersForLang } from "@/data/teachers";
+import {
+  teacherProductBySlug,
+  teacherProductById,
+  teacherBundles,
+  THEME_GROUPS,
+  SEASONS,
+  type TeacherProduct,
+} from "@/data/teacherBooks";
+import TeacherBookRows, { TeacherBookCard } from "@/components/TeacherBooks";
 import { tptListing, TPT_UI } from "@/data/tpt";
 import {
   wordsPagesForLang,
@@ -118,6 +127,13 @@ export function generateStaticParams() {
         slug: b.slug[lang]!,
       });
     }
+    /* Наборы тетрадей для учителей. Страницы только в английском
+       разделе книг, как и у самих томов. */
+    if (lang === "en") {
+      for (const p of teacherBundles) {
+        out.push({ lang, section: sectionSlugs.en.books, slug: p.slug });
+      }
+    }
     for (const p of pagesForLang(lang)) {
       out.push({
         lang,
@@ -166,6 +182,21 @@ export async function generateMetadata({
   const slug = decodeURIComponent(rawSlug);
 
   if (s === "books") {
+    /* Тетради для учителей: свое название и описание. */
+    const tp = lang === "en" ? teacherProductBySlug(slug) : undefined;
+    if (tp) {
+      return {
+        title: tp.title,
+        description: `${tp.stats}. ${tp.forWhom}`,
+        alternates: { canonical: itemPath("en", "books", slug) },
+        openGraph: {
+          title: tp.title,
+          description: tp.about[0],
+          type: "website",
+          images: [{ url: tp.cover.src, width: tp.cover.w, height: tp.cover.h }],
+        },
+      };
+    }
     const book = bookBySlug(lang, slug);
     const copy = book?.copy[lang];
     if (!book || !copy) return {};
@@ -918,43 +949,7 @@ export default async function ItemPage({
           <div className="teach">
             <h2 className="section">{c.ctaTitle}</h2>
             <p className="teach-p">{c.ctaLead}</p>
-            {/* Комплект и оба тома, те же карточки, что на главной
-                странице раздела. Наша кнопка идет раньше площадки. */}
-            <div className="tcards">
-              {hub.buyCards.map((card) => (
-                <div className="tcard" key={card.id}>
-                  <img
-                    src={card.cover.src}
-                    alt={card.cover.alt}
-                    width={card.cover.w}
-                    height={card.cover.h}
-                    loading="lazy"
-                  />
-                  <div>
-                    <h3>{card.name}</h3>
-                    <p className="tcard-meta">{card.meta}</p>
-                    <p>{card.text}</p>
-                    {(() => {
-                      const bookId = card.bookId;
-                      const own = bookId ? ownBookHref(bookId, lang) : null;
-                      return own && bookId && card.siteCta ? (
-                        <Link className="btn btn--pink" href={own}>
-                          {card.siteCta}
-                        </Link>
-                      ) : null;
-                    })()}
-                    <a
-                      className={`btn ${card.featured ? "btn--pink" : "btn--sky"}`}
-                      href={card.tptUrl}
-                      rel="nofollow sponsored noopener"
-                      target="_blank"
-                    >
-                      {card.tptCta}
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <TeacherBookRows c={hub} first={lang === "es" ? "es" : "en"} />
           </div>
         </section>
 
@@ -1336,6 +1331,10 @@ export default async function ItemPage({
 
   /* ---------- Страница книги ---------- */
   if (s !== "books") notFound();
+  const teacherProduct = lang === "en" ? teacherProductBySlug(slug) : undefined;
+  if (teacherProduct) {
+    return <TeacherBookView p={teacherProduct} slug={slug} />;
+  }
   const book = bookBySlug(lang, slug);
   const copy = book?.copy[lang];
   if (!book || !copy) notFound();
@@ -2351,6 +2350,317 @@ export default async function ItemPage({
           </section>
         ) : null}
       </div>
+    </>
+  );
+}
+
+/* ---------------------------------------------------------------------------
+   Страница тетради для учителей: том или набор.
+
+   Идет от общего к частному. Наверху обложка, для кого, состав, цена
+   и кнопки одного размера. Ниже описание, два уровня крупно, страницы
+   из книги крупно, что входит, все рисунки с номерами страниц, вопросы
+   и соседние книги.
+
+   Страница только английская: книги покупает американский учитель.
+--------------------------------------------------------------------------- */
+function TeacherBookView({ p, slug }: { p: TeacherProduct; slug: string }) {
+  const lang: UiLang = "en";
+  const t = dictionaries.en;
+  const hub = teachersForLang("en")!;
+  const book = p.bookId ? bookById(p.bookId) : undefined;
+  const path = itemPath("en", "books", slug);
+  const url = `${SITE_URL}${path}`;
+  const isBundle = p.kind === "bundle";
+  const related = p.related
+    .map((id) => teacherProductById(id))
+    .filter((x): x is TeacherProduct => Boolean(x));
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      orgNode(),
+      ricardoNode(lang),
+      {
+        "@type": ["Product", "LearningResource"],
+        "@id": `${url}#product`,
+        name: p.title,
+        url,
+        description: p.about.join(" "),
+        image: `${SITE_URL}${p.cover.src}`,
+        brand: { "@type": "Brand", name: "Magic of Discoveries" },
+        author: ricardoNode(lang),
+        publisher: orgRef(),
+        inLanguage: p.edition === "es" ? ["es", "en"] : "en",
+        educationalLevel: "Kindergarten, Grade 1, Grade 2",
+        typicalAgeRange: "5-8",
+        timeRequired: "P1Y",
+        learningResourceType: "Worksheet",
+        isAccessibleForFree: false,
+        teaches: [
+          p.edition === "es" ? "Spanish vocabulary" : "English vocabulary",
+          "Handwriting",
+          "Fine motor skills",
+          "Hand-eye coordination",
+          "Following step-by-step directions",
+          "Drawing",
+        ],
+        audience: [
+          { "@type": "EducationalAudience", educationalRole: "teacher" },
+          { "@type": "EducationalAudience", educationalRole: "homeschooler" },
+        ],
+        offers: [
+          ...(book
+            ? [
+                {
+                  "@type": "Offer",
+                  price: (p.priceCents / 100).toFixed(2),
+                  priceCurrency: "USD",
+                  availability: "https://schema.org/InStock",
+                  url,
+                  seller: orgRef(),
+                },
+              ]
+            : []),
+          {
+            "@type": "Offer",
+            price: (p.priceCents / 100).toFixed(2),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            url: p.tptUrl,
+            seller: { "@type": "Organization", name: "Teachers Pay Teachers" },
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: p.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      },
+      breadcrumbs(lang, [
+        { name: t.nav.teachers, path: sectionPath(lang, "teachers") },
+        { name: p.title, path },
+      ]),
+    ],
+  };
+
+  const Page = ({ img }: { img: TeacherProduct["levels"][number] }) => (
+    <a className="pbook__page" href={img.src} target="_blank" rel="noopener">
+      <figure className="tfig">
+        <img src={img.src} alt={img.alt} width={img.w} height={img.h} loading="lazy" />
+        <figcaption>{img.caption}</figcaption>
+      </figure>
+    </a>
+  );
+
+  const buyLine = isBundle ? null : (
+    <details className="buy-pdf">
+      <summary className="btn btn--pink">
+        <span className="buy-pdf__label">
+          Buy the PDF here · {p.price}
+        </span>
+      </summary>
+      <div className="buy-pdf__pick">
+        <p className="buy-pdf__lead">{t.book.pdfPickSize}</p>
+        {(["letter", "a4"] as const).map((format) => (
+          <form key={format} action="/api/checkout" method="post">
+            <input type="hidden" name="book" value={p.bookId} />
+            <input type="hidden" name="format" value={format} />
+            <input type="hidden" name="lang" value={lang} />
+            <input type="hidden" name="back" value={path} />
+            <button type="submit" className="btn buy-pdf__size">
+              <span className="buy-pdf__name">
+                {format === "letter" ? t.book.buyPdfLetter : t.book.buyPdfA4}
+              </span>
+              <span className="buy-pdf__hint">
+                {format === "letter" ? t.book.pdfLetterHint : t.book.pdfA4Hint}
+              </span>
+            </button>
+          </form>
+        ))}
+        <p className="buy-pdf__note">{t.book.pdfNote}</p>
+      </div>
+    </details>
+  );
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <PageHead title={p.title} />
+
+      {/* Верх: обложка, для кого, состав, цена, кнопки. */}
+      <section className="teach-block teach-block--top">
+        <div className="teach teach--wide">
+          <div className="pbook">
+            <div className="pbook__cover">
+              <img src={p.cover.src} alt={p.cover.alt} width={p.cover.w} height={p.cover.h} fetchPriority="high" />
+            </div>
+            <div className="pbook__main">
+              <p className="pbook__for">{p.forWhom}</p>
+              <p className="pbook__stats">{p.stats}</p>
+              <p className="pbook__price">
+                <b>{p.price}</b>
+                {p.fullPrice ? <s>{p.fullPrice}</s> : null}
+                {p.save ? <span>{p.save}</span> : null}
+              </p>
+              <div className="pbtns" id="buy">
+                {isBundle ? (
+                  <a className="btn btn--pink" href={p.tptUrl} target="_blank" rel="nofollow sponsored noopener">
+                    Buy the bundle on TPT · {p.price}
+                  </a>
+                ) : (
+                  buyLine
+                )}
+                <a className="btn btn--sky" href={p.preview} target="_blank" rel="noopener">
+                  Preview: view and print
+                </a>
+                {p.free.map((f) => (
+                  <a className="btn btn--ghost" href={f.url} download key={f.url}>
+                    Download {f.label}
+                  </a>
+                ))}
+                {isBundle ? null : (
+                  <a className="btn btn--ghost" href={p.tptUrl} target="_blank" rel="nofollow sponsored noopener">
+                    Also on Teachers Pay Teachers · {p.price}
+                  </a>
+                )}
+              </div>
+              <p className="buy-note">
+                Printable PDF, black and white. {isBundle ? "Two files, one per volume." : "US Letter or A4, your choice at checkout."} No physical book is shipped.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Что это за книга. */}
+      <section className="band band--mint">
+        <div className="teach">
+          <h2 className="section">{isBundle ? "About this bundle" : "About this book"}</h2>
+          {p.about.map((para) => (
+            <p className="teach-p" key={para.slice(0, 30)}>
+              {para}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      {/* Два уровня одного рисунка, крупно. */}
+      <section className="teach-block" id="levels">
+        <div className="teach teach--wide">
+          <h2 className="section">Two levels of the same drawing</h2>
+          <div className="pbook__pages">
+            {p.levels.map((img) => (
+              <Page img={img} key={img.src} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Страницы из книги, крупно. */}
+      <section className="band band--cream" id="inside">
+        <div className="teach teach--wide">
+          <h2 className="section">Look inside</h2>
+          <p className="teach-p">
+            The teacher page and the illustrated contents. Click a page to open it larger, or open the full preview to view and print it.
+          </p>
+          <div className="pbook__pages">
+            {p.inside.map((img) => (
+              <Page img={img} key={img.src} />
+            ))}
+          </div>
+          <p className="teach-cta">
+            <a className="btn btn--sky" href={p.preview} target="_blank" rel="noopener">
+              Open the full preview
+            </a>
+          </p>
+        </div>
+      </section>
+
+      {/* Что входит и все рисунки с номерами страниц. */}
+      <section className="teach-block" id="drawings">
+        <div className="teach">
+          <h2 className="section">What is included</h2>
+          <ul className="pbook__list">
+            {p.included.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+          <h2 className="section">Every drawing with its page numbers</h2>
+          <p className="teach-p">The first number is the Level 1 page, the second is the Level 2 page.</p>
+          {p.drawings.map((v) => (
+            <div className="pbook__vol" key={v.vol}>
+              {p.drawings.length > 1 ? <h3 className="block">{v.vol}</h3> : null}
+              {v.groups.map((g) => (
+                <p className="tcat-row" key={`${v.vol}-${g.name}`}>
+                  <b>{g.name}:</b> {g.items}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* У набора: подборки по темам и сезонам по обоим томам. */}
+      {isBundle ? (
+        <section className="band band--sun" id="themes">
+          <div className="teach teach--wide">
+            <h2 className="section">Drawings by theme and season</h2>
+            <div className="tgroups">
+              {THEME_GROUPS.map((g) => (
+                <div className="tgroup" key={g.name}>
+                  <h3>
+                    {g.name} <span className="tgroup__n">{g.count}</span>
+                  </h3>
+                  <p className="tgroup__where">{g.where}</p>
+                  <p className="tgroup__ex">{g.examples}</p>
+                </div>
+              ))}
+            </div>
+            <div className="tgroups tgroups--two">
+              {SEASONS.map((se) => (
+                <div className="tgroup" key={se.name}>
+                  <h3>{se.name}</h3>
+                  <p className="tgroup__ex">{se.items}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* Вопросы именно про эту книгу. */}
+      <section className="teach-block">
+        <div className="teach">
+          <h2 className="section">Questions about this {isBundle ? "bundle" : "book"}</h2>
+          <div className="faq faq--two">
+            {p.faq.map((f, i) => (
+              <details key={f.q} open={i < 2}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Соседние книги. */}
+      <section className="band band--mint">
+        <div className="teach teach--wide">
+          <h2 className="section">You may also like</h2>
+          <div className="tbooks__grid">
+            {related.map((r) => (
+              <TeacherBookCard key={r.id} p={r} c={hub} heading="h3" withEdition />
+            ))}
+          </div>
+          <p className="teach-p" style={{ marginTop: "var(--gap-3)" }}>
+            <Link href={sectionPath(lang, "teachers")}>All directed drawing books for K-2</Link>
+          </p>
+        </div>
+      </section>
     </>
   );
 }

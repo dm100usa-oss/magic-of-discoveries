@@ -3,6 +3,7 @@ import { booksForLang } from "@/data/books";
 import { pagesForLang } from "@/data/coloringPages";
 import { guidesForLang } from "@/data/method";
 import { articlesForLang } from "@/data/teacherArticles";
+import { teacherBundles } from "@/data/teacherBooks";
 import { wordsPagesForLang } from "@/data/firstWords";
 import { activeLangs } from "@/data/dictionaries";
 import { SITE_URL, SITE_UPDATED, pageUpdated } from "@/lib/site";
@@ -31,6 +32,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: site,
         priority: 0.9,
       });
+    }
+    /* Наборы тетрадей для учителей: страницы только в английском разделе. */
+    if (lang === "en") {
+      for (const b of teacherBundles) {
+        out.push({
+          url: SITE_URL + itemPath("en", "books", b.slug),
+          lastModified: new Date("2026-09-16"),
+          priority: 0.9,
+        });
+      }
     }
     for (const p of pagesForLang(lang)) {
       out.push({

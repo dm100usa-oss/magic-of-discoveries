@@ -13,7 +13,10 @@
    лежит в кладовке дважды.
 
    Уже загруженное второй раз не отправляется: сначала спрашиваем у
-   кладовки, что там есть.
+   кладовки, что там есть. Если файл с тем же именем в кладовке есть,
+   но другого размера, значит книга обновилась, и файл отправляется
+   заново поверх старого. Так 16.09.2026 заменялись тетради для
+   учителей на издание с двумя уровнями.
 
    Скрипт устроен так, чтобы никогда не ронять сборку. Если папки knigi
    уже нет или кладовка недоступна, он говорит об этом и завершается
@@ -90,7 +93,7 @@ async function main() {
   let already;
   try {
     const found = await list({ prefix: PREFIX, limit: 1000 });
-    already = new Set(found.blobs.map((b) => b.pathname));
+    already = new Map(found.blobs.map((b) => [b.pathname, b.size]));
   } catch (error) {
     console.warn(
       "\n  Не удалось заглянуть в кладовку, отправка пропущена.\n" +
@@ -101,6 +104,7 @@ async function main() {
 
   let sent = 0;
   let skipped = 0;
+  let replaced = 0;
   const missing = [];
   const failed = [];
 
@@ -113,10 +117,13 @@ async function main() {
       }
 
       const pathname = PREFIX + fileNameOf(id, format);
-      if (already.has(pathname)) {
+      const size = statSync(from).size;
+      const stored = already.get(pathname);
+      if (stored === size) {
         skipped += 1;
         continue;
       }
+      const isUpdate = stored !== undefined;
 
       try {
         await put(pathname, readFileSync(from), {
@@ -124,10 +131,11 @@ async function main() {
           contentType: "application/pdf",
           addRandomSuffix: false,
           allowOverwrite: true,
-          multipart: statSync(from).size > 8 * 1024 * 1024,
+          multipart: size > 8 * 1024 * 1024,
         });
         sent += 1;
-        console.log(`  отправлено: ${pathname}`);
+        if (isUpdate) replaced += 1;
+        console.log(`  ${isUpdate ? "заменено" : "отправлено"}: ${pathname}`);
       } catch (error) {
         failed.push(`${pathname}: ${error?.message ?? error}`);
       }
@@ -135,7 +143,7 @@ async function main() {
   }
 
   console.log(
-    `\n  Кладовка: отправлено ${sent}, уже было ${skipped}, ` +
+    `\n  Кладовка: отправлено ${sent} (из них заменено ${replaced}), уже было ${skipped}, ` +
       `всего должно быть ${BOOKS.length * FORMATS.length}.`
   );
   if (missing.length) {

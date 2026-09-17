@@ -237,12 +237,12 @@ export const guides: Guide[] = [
           "At this age the hand is still learning where the crayon goes. The child sweeps rather than fills. That is normal, and it decides everything about the book you should buy.",
           "A thin outline punishes that sweep. The color lands outside, the page looks wrong to the child, and interest drops. A thick outline forgives it. The color lands roughly inside, the picture still reads as a cat, and the child feels it worked.",
           "The second thing that matters is how much is on the page. One large object is enough. A page with a whole scene on it often loses a toddler, because there is nowhere obvious to start.",
-          "The third is what the child colors with. Almost every coloring book at this price prints a drawing on both sides of the sheet, ours included, because that is how a hundred pictures fit into a book a family can afford. Marker ink soaks through and spoils the picture behind. Crayons and colored pencils do not, and for a hand that is still learning they are the better tool anyway.",
+          "The third is what the child colors with. For a hand that is still learning, thick crayons and colored pencils are the better tool: they leave a clear mark with little pressure and are easy to hold.",
         ],
         checklist: [
           "Thick outlines",
           "One large object per page",
-          "Thick crayons rather than markers, since most books print on both sides of the sheet",
+          "Thick crayons for the first attempts",
           "Familiar subjects: animals, food, toys, weather, plants",
           "8.5 x 11 inches, room for a whole hand",
         ],
@@ -265,7 +265,7 @@ export const guides: Guide[] = [
           "A esta edad la mano todavía está aprendiendo por dónde va el crayón. El niño barre en lugar de rellenar. Es normal, y decide todo lo demás sobre el libro que conviene comprar.",
           "Un contorno fino castiga ese barrido. El color cae fuera, la página le parece mal al niño y el interés baja. Un contorno grueso lo perdona. El color cae más o menos dentro, el dibujo sigue leyéndose como un gato, y el niño siente que le salió.",
           "Lo segundo que importa es cuánto hay en la página. Un objeto grande basta. Una página con una escena entera suele perder al niño pequeño, porque no hay un punto claro por donde empezar.",
-          "Lo tercero es el material de color. Los pequeños agarran marcadores, y la tinta de un marcador atraviesa el papel de libro corriente. A esta edad los crayones gruesos funcionan mejor: marcan sin apretar y no traspasan la hoja.",
+          "Lo tercero es el material de color. A esta edad los crayones gruesos funcionan mejor: marcan sin apretar y son fáciles de sujetar.",
         ],
         checklist: [
           "Contornos gruesos",
@@ -314,7 +314,7 @@ export const guides: Guide[] = [
           "Clear lines, still comfortably thick",
           "Several elements per page, not a single shape",
           "Many themes, so the child can find a favorite",
-          "Pencils and crayons in mind, since most books print on both sides of the sheet",
+          "Works well with pencils and crayons",
           "A page finishable in one sitting",
         ],
         pick: "A wider set of themes at the same forgiving line weight, for the child who has outgrown one object per page.",
@@ -743,7 +743,6 @@ export const guides: Guide[] = [
         checklist: [
           "Bold outlines, open shapes",
           "A page you can finish in one sitting",
-          "Single-sided printing for markers",
           "No fine detail that needs special pens",
           "Large page, comfortable to work on",
         ],
@@ -804,41 +803,34 @@ export const guides: Guide[] = [
     copy: {
       en: {
         title: "What to look for in a coloring book",
-        lead: "Five things you can check before buying, none of which appear in the marketing copy.",
+        lead: "Four things you can check before buying, none of which appear in the marketing copy.",
         body: [
           "Coloring books all describe themselves the same way. Fun, creative, perfect for little ones. None of that helps you compare two books, so here is what actually differs between them.",
           "Line weight. This is the single biggest factor for anyone under four, and almost nobody states it. Look at the sample images. If the outline looks like a pencil stroke, it is too thin for a toddler. It should look drawn with a marker.",
-          "Printing. Single-sided or double-sided. Double-sided fits twice the drawings into the same page count, which is why nearly every coloring book does it, ours included, and it means marker ink that soaks through spoils the picture behind. If a listing does not say, assume double-sided and plan on crayons and colored pencils. Books meant for markers say so, and they are thinner for the money.",
           "Objects per page. One large object is a different book from a full scene, even if both are labeled for the same age. Count the elements in the sample.",
           "Page size. 8.5 x 11 inches is the comfortable size for a child's whole hand. Smaller travel formats are genuinely useful in a car and genuinely frustrating at a table.",
           "Subject range. A book of one theme is a gamble unless you already know the child loves it. A book with many themes lets the child show you what they like, and that tells you what to buy next.",
         ],
         checklist: [
           "Line weight: marker-thick, not pencil-thin",
-          "Whether the sheet is printed on one side or two, so you know what to color with",
           "One object per page for the youngest",
           "8.5 x 11 inches",
           "Enough different themes to find a favorite",
         ],
-        pick: "Every one of those five checks, in one book. That is the whole design brief.",
+        pick: "Every one of those four checks, in one book. That is the whole design brief.",
         faq: [
           {
             q: "How do I check line weight before buying?",
             a: "Open the sample images on the product page and look at the outline next to the text. If the outline is thinner than a printed letter, it is thin.",
           },
-          {
-            q: "Does paper thickness matter?",
-            a: "Less than people expect, if the child colors with crayons or colored pencils. Marker ink is what soaks through ordinary book paper, and at this age thick crayons work better anyway.",
-          },
         ],
       },
       es: {
         title: "En qué fijarse al comprar un libro para colorear",
-        lead: "Cinco cosas que puedes comprobar antes de comprar, y ninguna aparece en el texto de venta.",
+        lead: "Cuatro cosas que puedes comprobar antes de comprar, y ninguna aparece en el texto de venta.",
         body: [
           "Todos los libros para colorear se describen igual. Divertido, creativo, perfecto para los peques. Nada de eso te sirve para comparar dos libros, así que esto es lo que de verdad los diferencia.",
           "Grosor de línea. Es el factor más importante para cualquier niño menor de cuatro años, y casi nadie lo indica. Mira las imágenes de muestra. Si el contorno parece un trazo de lápiz, es demasiado fino para un niño pequeño. Debería parecer hecho con marcador.",
-          "Impresión. A una cara o a dos. La impresión a dos caras duplica los dibujos con el mismo número de páginas, por eso es común, y significa que un marcador arruina dos dibujos. Si la ficha no lo dice, da por hecho que es a dos caras.",
           "Objetos por página. Un objeto grande es un libro distinto de una escena completa, aunque los dos digan la misma edad. Cuenta los elementos en la muestra.",
           "Tamaño de página. 8.5 x 11 pulgadas es el tamaño cómodo para la mano entera de un niño. Los formatos pequeños de viaje son realmente útiles en el coche y realmente frustrantes en una mesa.",
           "Variedad de temas. Un libro de un solo tema es una apuesta salvo que ya sepas que al niño le encanta. Un libro con muchos temas deja que el niño te enseñe qué le gusta, y eso te dice qué comprar después.",
@@ -849,15 +841,11 @@ export const guides: Guide[] = [
           "8.5 x 11 pulgadas",
           "Bastantes temas distintos para encontrar un favorito",
         ],
-        pick: "Las cinco comprobaciones, en un solo libro. Ese fue todo el encargo de diseño.",
+        pick: "Las cuatro comprobaciones, en un solo libro. Ese fue todo el encargo de diseño.",
         faq: [
           {
             q: "¿Cómo compruebo el grosor de línea antes de comprar?",
             a: "Abre las imágenes de muestra en la ficha del producto y mira el contorno al lado del texto. Si el contorno es más fino que una letra impresa, es fino.",
-          },
-          {
-            q: "¿Importa el grosor del papel?",
-            a: "Menos de lo que se cree, si el niño colorea con ceras o lápices de colores. Lo que atraviesa el papel de libro corriente es la tinta de los rotuladores, y a esta edad las ceras gruesas funcionan mejor.",
           },
         ],
       },

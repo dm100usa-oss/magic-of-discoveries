@@ -194,7 +194,7 @@ const bookReviews: Record<string, { en: Review[]; es: Review[]; ru?: Review[] }>
     en: [
       {
         text:
-          "I bought this coloring book as a gift for a friend but ended up keeping it for myself! The drawings are simple but very cute. The illustrations are printed on one side of the page, which helps prevent colors from bleeding through.",
+          "I bought this coloring book as a gift for a friend but ended up keeping it for myself! The drawings are simple but very cute.",
         who: "Olga Gg, September 16, 2024, US",
         stars: 5,
       },
@@ -218,7 +218,7 @@ const bookReviews: Record<string, { en: Review[]; es: Review[]; ru?: Review[] }>
       },
       {
         text:
-          "The drawings are so cute and fun that you want to color them again and again. I especially liked that the pages are single-sided, it is really convenient.",
+          "The drawings are so cute and fun that you want to color them again and again.",
         who: "Regular customer, September 22, 2024, US",
         stars: 5,
       },
@@ -244,7 +244,7 @@ const bookReviews: Record<string, { en: Review[]; es: Review[]; ru?: Review[] }>
       },
       {
         text:
-          "El libro está lleno de ilustraciones variadas que entretienen a mis hijos durante horas. Las páginas son gruesas y resistentes, así que los colores no traspasan. Los dibujos son un desafío justo, sin llegar a frustrarlos.",
+          "El libro está lleno de ilustraciones variadas que entretienen a mis hijos durante horas. Las páginas son gruesas y resistentes. Los dibujos son un desafío justo, sin llegar a frustrarlos.",
         who: "Aleksei Reiman, 17 de septiembre de 2024, EE. UU.",
         stars: 5,
         translated: true,
@@ -253,7 +253,7 @@ const bookReviews: Record<string, { en: Review[]; es: Review[]; ru?: Review[] }>
     ru: [
       {
         text:
-          "Покупала эту раскраску в подарок подруге, а в итоге оставила себе. Рисунки простые, но очень милые. Печать только на одной стороне листа, поэтому цвет не проходит на следующую страницу.",
+          "Покупала эту раскраску в подарок подруге, а в итоге оставила себе. Рисунки простые, но очень милые.",
         who: "Olga Gg, 16 сентября 2024, США",
         stars: 5,
         translated: true,
@@ -312,7 +312,7 @@ const bookReviews: Record<string, { en: Review[]; es: Review[]; ru?: Review[] }>
     es: [
       {
         text:
-          "Los dibujos son grandes y bien delineados, lo que los hace fáciles de colorear. Me gustaron especialmente las ilustraciones con animales marinos. Cada dibujo está en una página separada, así que nada traspasa a la página siguiente.",
+          "Los dibujos son grandes y bien delineados, lo que los hace fáciles de colorear. Me gustaron especialmente las ilustraciones con animales marinos. Cada dibujo está en una página separada.",
         who: "Victor Borsci, 11 de octubre de 2024, EE. UU.",
         stars: 5,
       },

@@ -215,9 +215,13 @@ export async function generateMetadata({
         }),
       ),
     );
+    /* Название и описание для выдачи поиска. Если заданы отдельно,
+       берем их: они написаны словами, которыми ищут родители. Название
+       для выдачи уже полное, поэтому имя сайта к нему не добавляем,
+       иначе строка не помещается в выдачу. */
     return {
-      title: copy.title,
-      description: copy.subtitle,
+      title: copy.seoTitle ? { absolute: copy.seoTitle } : copy.title,
+      description: copy.seoDescription ?? copy.subtitle,
       alternates: { canonical: itemPath(lang, "books", slug), languages },
       openGraph: {
         title: copy.title,
@@ -739,6 +743,44 @@ export default async function ItemPage({
               <p className="lead">
                 {fill(copy.pickLead)}
               </p>
+              {/* Строка со ссылкой на книгу словами, которыми книгу ищут.
+                  Фраза берется из набора книги по очереди, чтобы разные
+                  страницы ссылались на книгу по-разному. */}
+              {(() => {
+                const phrases = pickCopy.linkPhrases ?? [];
+                const line = f.bookLinkLine;
+                if (!phrases.length || !line || !line.includes("{link}")) return null;
+                /* Общая страница набора ссылается общей фразой (первой в
+                   наборе). Страницы отдельных рисунков этой же книги
+                   получают остальные фразы по очереди, в порядке адресов,
+                   чтобы каждая фраза досталась примерно поровну страниц. */
+                const rest = phrases.slice(1);
+                const siblings = pagesForLang(lang)
+                  .filter((p) => {
+                    const id =
+                      lang === "es" && p.fromBookIdEs
+                        ? p.fromBookIdEs
+                        : lang === "ru" && p.fromBookIdRu
+                          ? p.fromBookIdRu
+                          : p.fromBookId;
+                    return p.single && id === bookId && p.slug[lang];
+                  })
+                  .map((p) => p.slug[lang]!)
+                  .sort();
+                const at = siblings.indexOf(slug);
+                const phrase =
+                  !page.single || !rest.length || at < 0
+                    ? phrases[0]
+                    : rest[at % rest.length];
+                const [before, after] = line.split("{link}");
+                return (
+                  <p>
+                    {before}
+                    <Link href={itemPath(lang, "books", pickSlug)}>{phrase}</Link>
+                    {after}
+                  </p>
+                );
+              })()}
               <div className="pick">
                 <Link
                   href={itemPath(lang, "books", pickSlug)}
@@ -1456,6 +1498,11 @@ export default async function ItemPage({
         "@type": "Book",
         "@id": bookId2(book.id),
         name: copy.title,
+        /* Другие названия книги и слова, которыми ее ищут. Машина
+           понимает, что запросы "для детей", "для малышей" и "для
+           мальчиков и девочек" ведут к одной и той же книге. */
+        alternateName: copy.altNames?.length ? copy.altNames : undefined,
+        keywords: copy.keywords?.length ? copy.keywords.join(", ") : undefined,
         author: authorRef(book.author),
         publisher: orgRef(),
         inLanguage:
@@ -1832,6 +1879,29 @@ export default async function ItemPage({
                   человеку нужен быстрый ответ, а не пятнадцать пунктов. */}
               <h2 className="section">{t.book.forWhom}</h2>
               <p>{copy.forWhom}</p>
+
+              {/* Разбор по возрастам. Под каждым возрастом свой текст:
+                  как ребенок этого возраста работает с книгой. Ссылка
+                  в конце ведет на подробную страницу справочника. */}
+              {copy.ageGuide ? (
+                <section className="age-guide">
+                  <h2 className="section">{copy.ageGuide.title}</h2>
+                  <p>{copy.ageGuide.lead}</p>
+                  {copy.ageGuide.items.map((item) => (
+                    <div key={item.title}>
+                      <h3 className="block">{item.title}</h3>
+                      {item.text.map((para) => (
+                        <p key={para.slice(0, 24)}>{para}</p>
+                      ))}
+                      {item.moreUrl && item.moreLabel ? (
+                        <p>
+                          <a href={item.moreUrl}>{item.moreLabel}</a>
+                        </p>
+                      ) : null}
+                    </div>
+                  ))}
+                </section>
+              ) : null}
             </>
           ) : null}
 

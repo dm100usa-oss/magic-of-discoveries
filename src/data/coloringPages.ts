@@ -207,7 +207,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "What should my child color it with?",
-            a: "Thick crayons are easiest for the youngest hands: they leave a clear mark without much pressure. Colored pencils need a more precise grip, which comes later. Markers give bright color but can soak through ordinary paper, so slip a spare sheet underneath.",
+            a: "Thick crayons are easiest for the youngest hands: they leave a clear mark without much pressure. Colored pencils need a more precise grip, which comes later. Markers give the brightest color.",
           },
           {
             q: "My child scribbles over the whole lion. Is that a problem?",
@@ -278,7 +278,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "¿Con qué conviene colorearlo?",
-            a: "Las ceras gruesas son lo más cómodo para las manos más pequeñas: dejan un trazo visible sin apretar. Los lápices de colores requieren un agarre más preciso, que llega más adelante. Los rotuladores dan colores intensos, pero pueden traspasar el papel corriente, así que conviene poner una hoja debajo.",
+            a: "Las ceras gruesas son lo más cómodo para las manos más pequeñas: dejan un trazo visible sin apretar. Los lápices de colores requieren un agarre más preciso, que llega más adelante. Los rotuladores dan los colores más intensos.",
           },
           {
             q: "Mi hijo garabatea sobre todo el león. ¿Es un problema?",
@@ -349,7 +349,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "Чем лучше раскрашивать?",
-            a: "Для самых маленьких удобнее толстые восковые мелки: они оставляют заметный след без сильного нажима. Цветные карандаши требуют более точного хвата, он появляется позже. Фломастеры дают яркий цвет, но могут пройти сквозь обычную бумагу, поэтому подложите запасной лист.",
+            a: "Для самых маленьких удобнее толстые восковые мелки: они оставляют заметный след без сильного нажима. Цветные карандаши требуют более точного хвата, он появляется позже. Фломастеры дают самый яркий цвет.",
           },
           {
             q: "Ребенок черкает поверх всего льва. Это плохо?",
@@ -2334,7 +2334,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
-          "Print single-sided on plain paper",
+          "Print on plain paper",
           "Thick crayons work best for the youngest hands",
           "For markers, slip a spare sheet underneath",
           "Print the same animal twice and color one together",
@@ -2380,7 +2380,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
-          "Imprime a una sola cara en papel normal",
+          "Imprime en papel normal",
           "Los crayones gruesos funcionan mejor en las manos más pequeñas",
           "Si usas marcadores, pon una hoja debajo",
           "Imprime el mismo animal dos veces y coloreen uno juntos",
@@ -2485,7 +2485,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Each animal is one file with two pages inside: the steps, then the practice sheet",
-          "Print both pages single-sided and lay them side by side, not back to back",
+          "Print both pages and lay them side by side",
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
           "A regular pencil first, so mistakes can be erased and the child keeps going",
           "Trace the dotted animal, then draw your own in the empty space",
@@ -2541,7 +2541,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Cada animal es un archivo con dos páginas dentro: los pasos y luego la hoja de práctica",
-          "Imprime las dos páginas a una sola cara y ponlas una junto a la otra, no por delante y por detrás",
+          "Imprime las dos páginas y ponlas una junto a la otra",
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
           "Primero un lápiz normal, así los errores se borran y el niño sigue adelante",
           "Repasa el animal punteado y después dibuja el tuyo en el espacio en blanco",
@@ -2638,12 +2638,12 @@ const coloringPagesBase: ColoringPage[] = [
         body: [
           "Most adult coloring pages you find for free are dense mandalas. They take an hour, they ask a lot of your eyes, and half of them get abandoned somewhere in the third ring. These are the opposite. One animal, drawn large, with room to fill and lines thick enough to stay inside without effort.",
           "That matters more than it sounds. A page you can finish is a page you come back to. These take about twenty minutes with a mug of tea, and at the end you have a whole picture rather than a corner of one.",
-          "All twelve are pages from our printed book, drawn by hand, not clipart pulled together for a website. Print them single-sided and any pen you like will do, including markers.",
+          "All twelve are pages from our printed book, drawn by hand, not clipart pulled together for a website. Print them on plain paper and color them with whatever you like.",
           "There is nothing to sign up for and nothing to pay. Print one, print all twelve, print the same one twice so two people can color it together.",
         ],
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
-          "Print single-sided on plain paper",
+          "Print on plain paper",
           "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
           "If you use markers, slip a spare sheet underneath",
           "Print the same page twice and color one with someone else",
@@ -2653,7 +2653,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickPoints: [
           "50 hand drawn designs: animals, flowers, landscapes and plants",
           "Large print: thick lines and open areas, comfortable when your eyes tire quickly",
-          "One design per page, printed on one side only, so markers do not spoil the next drawing",
+          "One design per page",
           "8.5 x 11 inches, the same size as these sheets",
           "Easy enough for a child to color beside you, which is why the cover says adults and kids",
         ],
@@ -2687,12 +2687,12 @@ const coloringPagesBase: ColoringPage[] = [
         body: [
           "Casi todos los dibujos gratis para adultos son mandalas muy cargados. Llevan una hora, exigen mucho a la vista, y la mitad se abandonan en el tercer anillo. Estos son lo contrario. Un animal, dibujado en grande, con espacio para rellenar y con trazos lo bastante gruesos para quedarse dentro sin esfuerzo.",
           "Eso importa más de lo que parece. Una página que se termina es una página a la que se vuelve. Estas llevan unos veinte minutos con una taza de té, y al final tienes un dibujo entero y no una esquina.",
-          "Las doce son páginas de nuestro libro impreso, dibujadas a mano, no imágenes de archivo reunidas para una web. Imprímelas a una sola cara y sirve cualquier lápiz o rotulador.",
+          "Las doce son páginas de nuestro libro impreso, dibujadas a mano, no imágenes de archivo reunidas para una web. Imprímelas en papel normal y colorea con lo que prefieras.",
           "No hay que registrarse ni pagar nada. Imprime una, imprime las doce, o imprime la misma dos veces para colorearla con alguien.",
         ],
         howTo: [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
-          "Imprime a una sola cara en papel normal",
+          "Imprime en papel normal",
           "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
           "Si usas rotuladores, pon una hoja debajo",
           "Imprime la misma página dos veces y coloréala con alguien",
@@ -2702,7 +2702,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickPoints: [
           "50 dibujos hechos a mano: animales, flores, paisajes y plantas",
           "Letra grande: trazos gruesos y zonas amplias, cómodo cuando la vista se cansa pronto",
-          "Un dibujo por página, impreso a una sola cara, para que los rotuladores no estropeen el siguiente",
+          "Un dibujo por página",
           "21.6 x 27.9 cm, el mismo tamaño que estas hojas",
           "Bastante fácil para que un niño coloree a tu lado, y por eso la portada dice adultos y niños",
         ],
@@ -2787,7 +2787,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
-          "Print single-sided on plain paper",
+          "Print on plain paper",
           "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
           "If you use markers, slip a spare sheet underneath",
           "Blues and greens go a long way here, so keep a few shades of each within reach",
@@ -2797,7 +2797,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickPoints: [
           "50 hand drawn ocean designs: sea animals, fish, shells, boats, beaches and a mermaid",
           "Large print: thick lines and wide open areas, comfortable when your eyes tire quickly",
-          "One design per page, printed on one side only, so markers do not spoil the next drawing",
+          "One design per page",
           "8.5 x 11 inches, the same size as these sheets",
           "Easy enough for a child to color beside you, which is why the cover says adults and kids",
         ],
@@ -2836,7 +2836,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
-          "Imprime a una sola cara en papel normal",
+          "Imprime en papel normal",
           "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
           "Si usas rotuladores, pon una hoja debajo",
           "Aquí los azules y los verdes se usan mucho, así que ten varios tonos de cada uno a mano",
@@ -2846,7 +2846,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickPoints: [
           "50 diseños marinos dibujados a mano: animales del mar, peces, conchas, barcos, playas y una sirena",
           "Letra grande: líneas gruesas y zonas amplias, cómodo cuando la vista se cansa pronto",
-          "Un diseño por página, impreso a una sola cara, para que los rotuladores no estropeen el siguiente",
+          "Un diseño por página",
           "21.6 x 27.9 cm, el mismo tamaño que estas hojas",
           "Bastante fácil para que un niño coloree a tu lado, y por eso la portada dice adultos y niños",
         ],
@@ -2930,7 +2930,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
-          "Print single-sided on plain paper",
+          "Print on plain paper",
           "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
           "If you use markers, slip a spare sheet underneath",
           "Warm colors do most of the work here, so keep your reds, oranges and yellows within reach",
@@ -2940,7 +2940,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickPoints: [
           "50 hand drawn designs: foods, drinks, desserts, fruit and much more",
           "Large print: thick lines and open shapes, comfortable when your eyes tire quickly",
-          "One design per page, printed on one side only, so markers do not spoil the next drawing",
+          "One design per page",
           "8.5 x 11 inches, the same size as these sheets",
           "Easy enough for a child to color beside you, which is why the cover says adults and kids",
         ],
@@ -2979,7 +2979,7 @@ const coloringPagesBase: ColoringPage[] = [
         ],
         howTo: [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
-          "Imprime a una sola cara en papel normal",
+          "Imprime en papel normal",
           "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
           "Si usas rotuladores, pon una hoja debajo",
           "Aquí mandan los colores cálidos, así que ten a mano los rojos, los naranjas y los amarillos",
@@ -2989,7 +2989,7 @@ const coloringPagesBase: ColoringPage[] = [
         pickPoints: [
           "50 diseños dibujados a mano: alimentos, bebidas, postres, fruta y mucho más",
           "Letra grande: líneas gruesas y formas amplias, cómodo cuando la vista se cansa pronto",
-          "Un diseño por página, impreso a una sola cara, para que los rotuladores no estropeen el siguiente",
+          "Un diseño por página",
           "21.6 x 27.9 cm, el mismo tamaño que estas hojas",
           "Bastante fácil para que un niño coloree a tu lado, y por eso la portada dice adultos y niños",
         ],
@@ -3055,7 +3055,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       ],
       howTo: [
         "Два размера файла: Letter и A4. Выбирайте тот, который подходит вашему принтеру.",
-        "Печатайте на одной стороне обычной бумаги.",
+        "Печатайте на обычной бумаге.",
         "Малышам удобнее толстые восковые карандаши.",
         "Если раскрашиваете фломастерами, подложите запасной лист.",
         "Напечатайте одно животное дважды и раскрасьте один экземпляр вместе.",
@@ -3105,7 +3105,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       ],
       howTo: [
         "Два размера файла: Letter и A4.",
-        "Печатайте на одной стороне обычной бумаги.",
+        "Печатайте на обычной бумаге.",
         "Простой карандаш и ластик удобнее фломастера: ошибку можно исправить.",
         "Напечатайте лист дважды, чтобы осталось место для второй попытки.",
         "Не торопите: один рисунок за один раз - нормальный темп.",
@@ -3146,12 +3146,12 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Толстая линия и крупные формы. Лист, который можно закончить за один присест, без мелких узоров и штриховки.",
       body: [
         "Во многих раскрасках для взрослых очень много мелких деталей, и один лист приходится раскрашивать несколько дней, если его вообще удается закончить. Здесь наоборот: крупная фигура, большие участки для цвета и понятный результат за один сеанс.",
-        "Эти двенадцать листов - настоящие страницы книги серии «Сделай перерыв». Один рисунок на лист, оборот чистый.",
+        "Эти двенадцать листов - настоящие страницы книги серии «Сделай перерыв». Один рисунок на лист.",
         "Печатайте сколько угодно - дома, в классе или в комнате отдыха. Ни регистрации, ни оплаты.",
       ],
       howTo: [
         "Два размера файла: Letter и A4",
-        "Печатайте на одной стороне обычной бумаги",
+        "Печатайте на обычной бумаге",
         "Подойдут цветные карандаши, фломастеры и гелевые ручки",
         "Под фломастеры подкладывайте запасной лист",
         "Плотная бумага держит цвет лучше обычной",
@@ -3161,7 +3161,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       pickPoints: [
         "50 рисунков, нарисованных от руки",
         "Толстая линия и много свободного места внутри фигуры",
-        "Один рисунок на странице, оборот чистый",
+        "Один рисунок на странице",
         "Лист 21.6 на 27.9 см",
         "102 страницы, для взрослых и детей",
       ],
@@ -3192,12 +3192,12 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Морские животные, рыбки, ракушки и пляж. Толстая линия, крупные формы, лист можно закончить за один присест.",
       body: [
         "Самая спокойная тема серии: плавные формы, много открытого пространства и почти нет мелких деталей. Хорошо подходит для вечера, когда разбираться с мелким узором уже не хочется.",
-        "Эти десять листов - настоящие страницы книги «Сделай перерыв: Красота океана». Один рисунок на лист, оборот чистый.",
+        "Эти десять листов - настоящие страницы книги «Сделай перерыв: Красота океана». Один рисунок на лист.",
         "Печатайте сколько угодно. Ни регистрации, ни оплаты.",
       ],
       howTo: [
         "Два размера файла: Letter и A4",
-        "Печатайте на одной стороне обычной бумаги",
+        "Печатайте на обычной бумаге",
         "Синие и зеленые оттенки тут пригодятся больше всего",
         "Под фломастеры подкладывайте запасной лист",
         "Плотная бумага держит цвет лучше обычной",
@@ -3207,7 +3207,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       pickPoints: [
         "50 рисунков, нарисованных от руки",
         "Морские животные, рыбки, ракушки и пляжи",
-        "Один рисунок на странице, оборот чистый",
+        "Один рисунок на странице",
         "Лист 21.6 на 27.9 см",
         "102 страницы, для взрослых и детей",
       ],
@@ -3234,12 +3234,12 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Кофе и пирожные, фрукты, пицца и десерты. Толстая линия, крупные формы, готовый лист за один присест.",
       body: [
         "Самая простая тема серии: почти не приходится думать, какой цвет выбрать. Клубника красная, банан желтый, кофе коричневый - поэтому раскрашивание идет быстро.",
-        "Эти девять листов - настоящие страницы книги «Сделай перерыв: Вкусные истории». Один рисунок на лист, оборот чистый.",
+        "Эти девять листов - настоящие страницы книги «Сделай перерыв: Вкусные истории». Один рисунок на лист.",
         "Печатайте сколько угодно. Ни регистрации, ни оплаты.",
       ],
       howTo: [
         "Два размера файла: Letter и A4",
-        "Печатайте на одной стороне обычной бумаги",
+        "Печатайте на обычной бумаге",
         "Подойдут цветные карандаши, фломастеры и гелевые ручки",
         "Под фломастеры подкладывайте запасной лист",
         "Плотная бумага держит цвет лучше обычной",
@@ -3249,7 +3249,7 @@ const RU_FREE: Record<string, RuColoringPage> = {
       pickPoints: [
         "50 рисунков, нарисованных от руки",
         "Продукты, напитки, десерты и фрукты",
-        "Один рисунок на странице, оборот чистый",
+        "Один рисунок на странице",
         "Лист 21.6 на 27.9 см",
         "102 страницы, для взрослых и детей",
       ],

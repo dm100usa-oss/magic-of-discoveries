@@ -66,6 +66,40 @@ export interface BookCopy {
   story?: string[];
   /** Вопросы, которые родители реально задают. Уходят в разметку FAQ. */
   faq: { q: string; a: string }[];
+  /** Название страницы в выдаче поиска. Пишется словами, которыми
+      родители ищут книгу, а не названием с обложки. На самой странице
+      заголовок остается названием книги. Пусто = берется title. */
+  seoTitle?: string;
+  /** Описание страницы в выдаче поиска, одно-два предложения.
+      Пусто = берется subtitle. */
+  seoDescription?: string;
+  /** Разбор по возрастам: один раздел и по подразделу на каждый возраст.
+      Родитель ищет не "раскраска от 1 до 3 лет", а "раскраска для
+      ребенка 2 лет", поэтому у каждого возраста свой заголовок и свой
+      текст о том, как ребенок этого возраста работает с книгой.
+      В конце подраздела ссылка на подробную возрастную страницу
+      справочника о первых раскрасках. */
+  ageGuide?: {
+    title: string;
+    lead: string;
+    items: {
+      title: string;
+      text: string[];
+      moreLabel?: string;
+      moreUrl?: string;
+    }[];
+  };
+  /** Слова, которыми другие страницы сайта ссылаются на эту книгу.
+      Страницы бесплатных листов берут их по очереди, чтобы ссылки
+      на книгу были разными и естественными, а не одной фразой везде. */
+  linkPhrases?: string[];
+  /** Другие названия этой же книги, которыми ее ищут родители:
+      "для детей", "для малышей", "для мальчиков и девочек". На странице
+      не показываются, уходят в разметку для поисковиков и нейросетей,
+      чтобы машина понимала: все эти запросы про одну книгу. */
+  altNames?: string[];
+  /** Слова, по которым книгу ищут. Уходят в разметку книги. */
+  keywords?: string[];
 }
 
 export interface Book {
@@ -368,46 +402,6 @@ const faqPaperOrDigital = {
   },
 };
 
-/* Один и тот же вопрос, но ответ у книг разный, и объединять их нельзя.
-
-   В раскрасках "Сделай перерыв" рисунок печатается на одной стороне
-   листа, оборот пустой, и маркеру просто нечего испортить.
-
-   В раскрасках для малышей рисунки идут с двух сторон листа. Обещать
-   там чистый оборот значит обманывать: родитель это увидит с первой
-   страницы. Поэтому ответ честный и с решением: маркер проходит
-   насквозь, а мелки и карандаши нет. */
-const faqBleed = {
-  en: {
-    q: "Will markers bleed through the page?",
-    a: "Each drawing sits on its own page and the back of the sheet is blank, so a marker that bleeds has nothing to spoil. Slip a spare sheet of paper underneath if you use alcohol markers.",
-  },
-  es: {
-    q: "¿Los marcadores traspasan la página?",
-    a: "Cada dibujo está en su propia página y el reverso de la hoja está en blanco, así que un marcador que traspase no estropea nada. Coloca una hoja de papel debajo si usas marcadores con alcohol.",
-  },
-  ru: {
-    q: "Не протекут ли фломастеры на следующий рисунок?",
-    a: "Каждый рисунок напечатан на отдельном листе, оборот пустой, поэтому фломастеру нечего испортить. Если раскрашиваете спиртовыми маркерами, подложите запасной лист.",
-  },
-};
-
-/* Тот же вопрос для раскрасок малышей, где рисунки с двух сторон листа. */
-const faqBleedToddler = {
-  en: {
-    q: "Will markers bleed through the page?",
-    a: "They can. The paper is standard book paper and there is a drawing on both sides of each sheet, so marker ink that soaks through will show on the drawing behind it. Crayons and colored pencils usually do not soak through, and at this age thick crayons work better anyway.",
-  },
-  es: {
-    q: "¿Los rotuladores traspasan la página?",
-    a: "Pueden hacerlo. El papel es papel de libro corriente y hay un dibujo a cada lado de la hoja, así que la tinta que traspasa se ve en el dibujo del otro lado. Las ceras y los lápices de colores no suelen traspasar el papel, y a esta edad las ceras gruesas funcionan mejor.",
-  },
-  ru: {
-    q: "Не протекут ли фломастеры на следующий рисунок?",
-    a: "Могут. Бумага обычная книжная, а рисунки напечатаны с двух сторон листа, поэтому чернила фломастера, прошедшие насквозь, будут видны на соседнем рисунке. Мелки и цветные карандаши обычно не проходят через бумагу, и в этом возрасте толстые мелки удобнее.",
-  },
-};
-
 /* Русские издания выходят только файлом для печати. Бумажной книги с
    доставкой на русском нет, и об этом надо сказать прямо на странице,
    а не оставлять человека догадываться. */
@@ -494,6 +488,7 @@ export const books: Book[] = [
     copy: {
       en: {
         intro: [
+          "A toddler coloring book for 1, 2 and 3 year olds, made for the very first crayon",
           "111 big, simple, hand-drawn pictures with thick outlines and no small details, one per page",
           "Themes: animals, sea creatures, fairy-tale characters, vehicles, plants, food and more. The animals and fairy-tale characters are drawn to look friendly and cheerful",
           "Under each picture is its name, so your child meets new words while coloring",
@@ -539,6 +534,8 @@ export const books: Book[] = [
           "While coloring, a child practices controlling a crayon or pencil, looks at familiar objects, hears their names, and sees the matching printed words. A parent can name the objects, colors, and shapes on the page and use each picture as a starting point for conversation.",
           "The pictures are grouped into eight themes: 39 land animals, 16 sea animals, 11 fairy-tale characters, 8 vehicles, 7 sports and games, 6 everyday objects, 10 flowers and plants, and 14 foods. From the first page to the last, the same principle holds: one large simple picture and one matching word, so the book remains a first coloring book and first words book for ages 1 to 3 throughout.",
           "The book can be checked before buying: ten real pages from the book are on this site to print for free, and a video filmed by a buyer shows an actual paperback copy and its interior pages. The book received a five-star review from the independent book-review site Readers' Favorite, is available through Amazon in 14 countries, and has its own entry in Wikidata, Q137217801.",
+          "In the United Kingdom, Ireland and Australia, where the book is sold through the local Amazon stores, parents usually look for it as a colouring book for toddlers. It is the same edition, with the same 111 pictures and the same English words under them.",
+          "Parents look for this book under many names: my first coloring book, a toddler coloring book, a coloring book for kids ages 1 to 3, a baby's first coloring book, an easy preschool coloring book for boys and girls. All of them describe the same book: 111 big, simple pictures for a child who is just starting to color.",
         ],
         story: [
           "I have two children, and when they were little, I learned from experience what a first coloring book should be like. Adults may enjoy beautiful pictures with lots of detail, but a toddler who has just picked up a crayon does not need all of that yet. It is much easier to start with a large, clear picture, thick lines, and simple shapes.",
@@ -547,18 +544,108 @@ export const books: Book[] = [
           "Some of the pictures had to be reworked along the way. Sometimes there were too many details, sometimes a shape was too complicated, and sometimes the picture simply needed to be larger. Gradually, the basic idea for the whole book took shape: one large, simple picture, a thick, easy-to-see outline, and one word underneath. That same principle stays consistent from the first page to the last.",
           "For me, it was important to create more than just another children's coloring book. I wanted to make a book that would truly be easy for a toddler to start with. In many ways, I made the kind of book I would have wanted to give my own children at that age.",
         ],
+        seoTitle: "Toddler Coloring Book for 1, 2 and 3 Year Olds | 111 Pictures",
+        seoDescription:
+          "My first coloring book for 1, 2 and 3 year olds: 111 big, simple pictures with thick outlines, one per page, each with a first word to color. Paperback or printable PDF, and 10 pages free to try.",
+        ageGuide: {
+          title: "A coloring book for 1, 2 and 3 year olds",
+          lead:
+            "One book covers all three years because the pages stay simple while the child changes. A child does very different things with the same page at one, two and three, and at each age the book gives them something real.",
+          items: [
+            {
+              title: "Coloring book for a 1 year old",
+              text: [
+                "At one, a child holds the crayon in a fist and moves the whole arm, so every mark comes out long and sweeping. The large shape and the outline, 2.4 to 4.8 mm thick, stay visible under those marks, and the child sees a result from the very first stroke. Nobody expects coloring inside the lines yet: marks across the picture and off the edge of the page are simply what this age looks like.",
+                "A session lasts a minute or two. Name the animal or object out loud, let the child pick the crayon, and stop when they get up from the table. Thick crayons work best. Because every page has one familiar subject, the book also works as a first picture book to look through together.",
+              ],
+              moreLabel: "More about coloring pages for 1 year olds",
+              moreUrl: "https://www.toddlercoloringbook.com/en/choose-a-first-coloring-book/coloring-pages-for-1-year-olds",
+            },
+            {
+              title: "Coloring book for a 2 year old",
+              text: [
+                "Two is the middle of the range this book was made for. Many children now hold the crayon in their fingers, their marks turn into rounded lines and loops, and more and more often those marks land on the drawing itself. Going past the thick outline is still normal: the outline works as a clear landmark, not a strict border.",
+                "At two, a child recognizes most of the 111 subjects and can name them with an adult. This is where the word under each picture starts to matter: point to the drawing, say the word, and let the child color the outline letters too. Sessions grow to around five minutes, and coming back to a favorite page again and again is part of the fun.",
+              ],
+              moreLabel: "More about coloring pages for 2 year olds",
+              moreUrl: "https://www.toddlercoloringbook.com/en/choose-a-first-coloring-book/coloring-pages-for-2-year-olds",
+            },
+            {
+              title: "Coloring book for a 3 year old",
+              text: [
+                "At three, a child usually picks a color on purpose, can copy a circle or a straight line, and puts most of the color on the drawing. The book still suits a three year old who is only beginning to color neatly, and now variety matters too: the pages move between animals, sea creatures, vehicles, food, flowers and fairy-tale characters, so two pages in a row rarely feel alike.",
+                "The words under the pictures become something to trace and talk about, and the open space around each drawing leaves room for a sun or a flower the child wants to add. When a page gets filled in correctly and pushed aside without interest, the child is ready for more detailed pictures or for step-by-step drawing.",
+              ],
+              moreLabel: "More about coloring pages for 3 year olds",
+              moreUrl: "https://www.toddlercoloringbook.com/en/choose-a-first-coloring-book/coloring-pages-for-3-year-olds",
+            },
+          ],
+        },
+        altNames: [
+          "Toddler Coloring Book Ages 1-3",
+          "Coloring Book for Kids Ages 1-3",
+          "Coloring Book for 1, 2 and 3 Year Olds",
+          "Baby's First Coloring Book",
+          "First Words Coloring Book for Toddlers",
+          "My First Coloring Book for Toddlers Ages 1-3",
+        ],
+        keywords: [
+          "my first coloring book",
+          "my first coloring book for toddlers",
+          "my first coloring book ages 1-3",
+          "toddler coloring book",
+          "coloring book for kids ages 1-3",
+          "coloring book for 1 year olds",
+          "coloring book for 2 year olds",
+          "coloring book for 3 year olds",
+          "first coloring book",
+          "baby coloring book",
+          "easy coloring book for toddlers",
+          "preschool coloring book",
+          "coloring book for boys and girls",
+          "first words coloring book",
+        ],
+        linkPhrases: [
+          "coloring book for toddlers ages 1, 2 and 3",
+          "coloring book for 1 year olds",
+          "coloring book for 2 year olds",
+          "coloring book for 3 year olds",
+          "toddler coloring book",
+          "coloring book for kids ages 1-3",
+          "easy coloring book for toddlers",
+        ],
         faq: [
           {
-            q: "Is it too early to give this coloring book to a one-year-old?",
-            a: "No. The pictures are designed for even the youngest children: they are large and simple, with thick outlines and just one subject on each page. At age one, a child will usually hold a crayon in their fist and scribble across the picture rather than try to color neatly inside it. That is a normal stage. As children get closer to age three, many begin to have better control of their hand movements and stay inside the outlines more often.",
+            q: "Is this a good coloring book for a 1 year old?",
+            a: "Yes. The pictures are designed for even the youngest children: they are large and simple, with thick outlines and just one subject on each page. At age one, a child will usually hold a crayon in their fist and scribble across the picture rather than try to color neatly inside it. That is a normal stage. As children get closer to age three, many begin to have better control of their hand movements and stay inside the outlines more often.",
           },
           {
-            q: "Is this coloring book right for a two-year-old?",
+            q: "Is this a good coloring book for 2 year olds?",
             a: "Yes. Age two is right in the middle of the range this book was designed for. At this age, a child may already try to color a picture but may not yet be able to stay inside the outlines. Large, simple pictures and thick lines work well for these early attempts, and the pages have no busy backgrounds or lots of small details.",
           },
           {
-            q: "Is this coloring book right for a three-year-old?",
+            q: "Is this a good coloring book for 3 year olds?",
             a: "Yes, although age three is the upper end of the recommended range. A child who can already color confidently inside the outlines may find the book too simple. If they are just starting to color, it can still be a good fit. The book contains 111 different pictures across a variety of themes, giving the child plenty to choose from.",
+          },
+          {
+            q: "Is this coloring book for boys or for girls?",
+            a: "Both. The 111 pictures cover animals, sea creatures, vehicles, food, flowers and fairy-tale characters, from a mermaid and a unicorn to a rocket and a submarine, so every child finds favorites. Nothing in the book is meant only for boys or only for girls.",
+          },
+          {
+            q: "Can a baby use this coloring book? How young is too young?",
+            a: "The book is made for children from about one year old, when a child can hold a thick crayon in a fist and make marks on purpose. Before that, a baby is not ready for coloring yet. At any age, it works best when you color together.",
+          },
+          {
+            q: "Is this a good preschool coloring book?",
+            a: "Yes, for the youngest preschoolers, usually ages two and three. The pictures are large and simple and the subjects are familiar, so a child can name them while coloring. Children of four and older who already color confidently inside the lines may want more detailed pages.",
+          },
+          {
+            q: "Is this an easy coloring book for a child who has never colored before?",
+            a: "Yes, that is exactly who it was made for. Each page has one big picture with a thick outline and no small details, so even the very first marks give a visible result.",
+          },
+          {
+            q: "Is this a good \"my first coloring book\" for a toddler?",
+            a: "Yes. It was made as a child's very first coloring book: one big picture per page, thick outlines, no small details and a familiar subject every time. There is a page at the front where the child's name goes, so the book really becomes their own first coloring book.",
           },
           {
             q: "When will this coloring book become too simple for my child?",
@@ -566,11 +653,7 @@ export const books: Book[] = [
           },
           {
             q: "What is best for this book: crayons, colored pencils, or markers?",
-            a: "Thick crayons are usually easiest for a child's first attempts at coloring. They are easier for small hands to hold and leave a clear mark without much pressure. Colored pencils require a more precise grip, which usually develops later. Markers produce bright colors, but the ink can bleed through the paper.",
-          },
-          {
-            q: "Will markers bleed through the paper?",
-            a: "They can. The book is printed on regular book paper, with a drawing on both sides of each sheet. Marker ink that soaks through the paper may therefore affect the drawing on the other side. Crayons and colored pencils usually do not soak through the paper. If your child prefers markers, you can print pages from the printable file on heavier paper instead.",
+            a: "Thick crayons are usually easiest for a child's first attempts at coloring. They are easier for small hands to hold and leave a clear mark without much pressure. Colored pencils require a more precise grip, which usually develops later. Markers give the brightest colors.",
           },
           {
             q: "How thick is the paper?",
@@ -672,6 +755,7 @@ export const books: Book[] = [
     copy: {
       es: {
         intro: [
+          "Un libro para colorear para niños de 1, 2 y 3 años, pensado para las primeras ceras",
           "111 dibujos grandes y sencillos, hechos a mano, con contornos gruesos y sin pequeños detalles, uno por página",
           "Temas: animales terrestres, animales acuáticos, personajes de cuentos, vehículos, plantas, comida y más. Los animales y los personajes de cuentos tienen un aspecto simpático y amigable",
           "Debajo de cada dibujo aparece su nombre, para que el niño conozca palabras nuevas mientras colorea",
@@ -717,6 +801,8 @@ export const books: Book[] = [
           "Está pensado así para un niño que apenas está aprendiendo a usar las ceras. Todavía le cuesta controlar el movimiento de la mano y mantenerse dentro del contorno, y por eso los dibujos pequeños y detallados se le hacen cuesta arriba. Aquí tiene mucha superficie para colorear, bordes bien visibles y ningún detalle pequeño. Aunque el trazo se salga un poco, el dibujo se sigue reconociendo.",
           "Los dibujos están repartidos en ocho temas: 39 animales terrestres, 16 animales acuáticos, 11 personajes de cuentos, 8 vehículos, 7 objetos de juego y deporte, 6 objetos de casa, 10 plantas y flores y 14 alimentos. De la primera página a la última se mantiene el mismo principio: un dibujo grande y sencillo y una palabra debajo.",
           "La edición en español está disponible en dos formatos. El libro impreso lo envía Amazon y cuesta $6.99. El archivo para imprimir cuesta $3.99: el enlace llega justo después del pago, el archivo se queda contigo y las páginas que hagan falta se pueden imprimir tantas veces como quieras, en casa o en una copistería. Antes de comprar nada, en esta web hay diez páginas reales del libro para imprimir gratis.",
+          "El libro tiene su propia ficha en Wikidata, la base de conocimiento internacional, con el número Q137261547, y se vende en Amazon en 14 países.",
+          "Las familias buscan este libro con nombres distintos: mi primer libro para colorear, libro para colorear para niños de 1 a 3 años, libro de colorear para bebés, libro de colorear infantil, cuaderno para colorear para niños pequeños o libro con dibujos para pintar para niñas y niños de preescolar. Todos describen el mismo libro: 111 dibujos grandes y sencillos para un niño que empieza a colorear.",
         ],
         story: [
           "Tengo dos hijos y, cuando eran pequeños, aprendí por experiencia cómo tiene que ser un primer libro para colorear. A un adulto le pueden gustar los dibujos bonitos y llenos de detalles, pero un niño que acaba de coger una cera todavía no necesita nada de eso. Es mucho más fácil empezar por un dibujo grande y claro, con líneas gruesas y formas sencillas.",
@@ -725,18 +811,108 @@ export const books: Book[] = [
           "Algunos dibujos hubo que rehacerlos por el camino. A veces tenían demasiados detalles, a veces la forma era complicada y a veces sencillamente había que hacerlos más grandes. Poco a poco quedó clara la idea del libro entero: un dibujo grande y sencillo, un contorno grueso y bien visible y una palabra debajo. Ese mismo principio se mantiene de la primera página a la última.",
           "Para mí era importante no hacer simplemente un libro más. Quería un libro con el que a un niño pequeño le resultara fácil empezar. En buena medida hice el libro que me habría gustado darles a mis hijos a esa edad.",
         ],
+        seoTitle: "Libro para Colorear para Niños de 1, 2 y 3 Años | 111 Dibujos",
+        seoDescription:
+          "Mi primer libro para colorear para niños de 1, 2 y 3 años: 111 dibujos grandes y sencillos, con contornos gruesos y una palabra para colorear debajo de cada dibujo. Libro impreso o PDF, y 10 páginas gratis para probar.",
+        ageGuide: {
+          title: "Libro para colorear para niños de 1, 2 y 3 años",
+          lead:
+            "Un mismo libro sirve para los tres años porque las páginas siguen siendo sencillas mientras el niño cambia. Con la misma página, un niño de un año, uno de dos y uno de tres hacen cosas muy distintas, y a cada edad el libro le aporta algo concreto.",
+          items: [
+            {
+              title: "Libro para colorear para niños de 1 año",
+              text: [
+                "Al año, el niño agarra la cera con toda la mano y mueve el brazo entero, así que cada trazo sale largo y amplio. La forma grande y el contorno de 2,4 a 4,8 mm se siguen viendo debajo de esos trazos, y el niño ve un resultado desde la primera raya. A esta edad nadie espera que coloree dentro del contorno: las rayas que cruzan el dibujo y se salen de la hoja son lo normal.",
+                "Una sesión dura uno o dos minutos. Di en voz alta el nombre del animal o del objeto, deja que el niño elija la cera y termina cuando se levante de la mesa. Las ceras gruesas son las más cómodas. Como en cada página hay un solo dibujo conocido, el libro sirve también como primer libro de imágenes para mirarlo juntos.",
+              ],
+              moreLabel: "Más sobre dibujos para colorear para niños de 1 año",
+              moreUrl: "https://www.toddlercoloringbook.com/es/elegir-el-primer-libro-para-colorear/dibujos-para-colorear-para-ninos-de-1-ano",
+            },
+            {
+              title: "Libro para colorear para niños de 2 años",
+              text: [
+                "Los dos años son el centro de la edad para la que se hizo el libro. Muchos niños ya sujetan la cera con los dedos, los trazos se vuelven curvas y círculos, y cada vez más a menudo caen sobre el propio dibujo. Salirse del contorno grueso sigue siendo normal: el contorno funciona como una referencia bien visible, no como un límite estricto.",
+                "A los dos años el niño reconoce la mayoría de los 111 dibujos y puede nombrarlos con un adulto. Aquí la palabra debajo de cada dibujo empieza a servir de verdad: señala el dibujo, di la palabra y deja que el niño coloree también las letras. Las sesiones llegan a unos cinco minutos, y volver una y otra vez a su página favorita forma parte del juego.",
+              ],
+              moreLabel: "Más sobre dibujos para colorear para niños de 2 años",
+              moreUrl: "https://www.toddlercoloringbook.com/es/elegir-el-primer-libro-para-colorear/dibujos-para-colorear-para-ninos-de-2-anos",
+            },
+            {
+              title: "Libro para colorear para niños de 3 años",
+              text: [
+                "A los tres años el niño suele elegir el color a propósito, puede copiar un círculo o una línea recta y pone la mayor parte del color sobre el dibujo. El libro sigue siendo adecuado para un niño de tres años que apenas empieza a colorear con cuidado, y ahora también importa la variedad: las páginas pasan de animales a animales marinos, vehículos, comida, flores y personajes de cuento, así que dos páginas seguidas casi nunca se parecen.",
+                "Las palabras debajo de los dibujos se convierten en algo para repasar y comentar, y el espacio libre alrededor de cada dibujo deja sitio para el sol o la flor que el niño quiera añadir. Cuando rellena una página correctamente y la aparta sin interés, está listo para dibujos con más detalle o para el dibujo paso a paso.",
+              ],
+              moreLabel: "Más sobre dibujos para colorear para niños de 3 años",
+              moreUrl: "https://www.toddlercoloringbook.com/es/elegir-el-primer-libro-para-colorear/dibujos-para-colorear-para-ninos-de-3-anos",
+            },
+          ],
+        },
+        altNames: [
+          "Libro para Colorear para Niños de 1, 2 y 3 Años",
+          "Libro de Colorear para Bebés",
+          "Libro para Pintar para Niñas y Niños de 1 a 3 Años",
+          "Cuaderno para Colorear para Niños Pequeños",
+          "Libro de Colorear Infantil con Primeras Palabras",
+          "Mi Primer Libro para Colorear de 1 a 3 Años",
+        ],
+        keywords: [
+          "mi primer libro para colorear",
+          "mi primer libro de colorear",
+          "mi primer libro para colorear 1 año",
+          "libro para colorear para niños",
+          "libro de colorear para bebés",
+          "libro para colorear para niños de 1 año",
+          "libro para colorear para niños de 2 años",
+          "libro para colorear para niños de 3 años",
+          "libro para pintar para niños",
+          "cuaderno para colorear",
+          "libro de colorear infantil",
+          "libro para colorear preescolar",
+          "dibujos para colorear para niñas y niños",
+          "primeras palabras",
+        ],
+        linkPhrases: [
+          "libro para colorear para niños de 1, 2 y 3 años",
+          "libro para colorear para niños de 1 año",
+          "libro para colorear para niños de 2 años",
+          "libro para colorear para niños de 3 años",
+          "cuaderno para colorear para niños pequeños",
+          "libro de colorear para bebés",
+          "libro para pintar para niñas y niños",
+        ],
         faq: [
           {
-            q: "¿Es pronto para dar un libro para colorear a un niño de un año?",
-            a: "No, si ya muestra interés por las ceras. A esta edad no hay que esperar que coloree con cuidado dentro del contorno: las primeras sesiones son líneas y garabatos, y eso es lo normal. Por eso, para los primeros intentos van bien los dibujos grandes y sencillos, sin zonas pequeñas que exijan precisión.",
+            q: "¿Es adecuado este libro para colorear para niños de 1 año?",
+            a: "Sí, si ya muestra interés por las ceras. A esta edad no hay que esperar que coloree con cuidado dentro del contorno: las primeras sesiones son líneas y garabatos, y eso es lo normal. Por eso, para los primeros intentos van bien los dibujos grandes y sencillos, sin zonas pequeñas que exijan precisión.",
           },
           {
-            q: "¿Le viene bien a un niño de dos años?",
+            q: "¿Es adecuado este libro para colorear para niños de 2 años?",
             a: "Sí. Los dos años son justo la edad para la que está hecho este libro. Le viene especialmente bien al niño que ya intenta colorear, pero todavía se sale del contorno a menudo y le cuestan los detalles pequeños.",
           },
           {
-            q: "¿No se le quedará corto a un niño de tres años?",
+            q: "¿Es adecuado este libro para colorear para niños de 3 años?",
             a: "Depende de lo que sepa hacer, no solo de la edad. Si ya rellena con cuidado zonas pequeñas y casi no se sale, puede parecerle fácil. Si está empezando, los dibujos grandes de contorno grueso todavía le van bien.",
+          },
+          {
+            q: "¿Es un libro para colorear para niñas o para niños?",
+            a: "Para los dos. Los 111 dibujos incluyen animales, animales marinos, vehículos, comida, flores y personajes de cuento, desde una sirena y un unicornio hasta un cohete y un submarino, así que cada niño encuentra sus favoritos. Nada en el libro está pensado solo para niñas o solo para niños.",
+          },
+          {
+            q: "¿Sirve como libro de colorear para bebés? ¿Desde qué edad?",
+            a: "El libro está pensado para niños a partir de un año, cuando ya pueden agarrar una cera gruesa con la mano y dejar marcas a propósito. Antes de esa edad, un bebé todavía no está listo para colorear. A cualquier edad, lo mejor es colorear junto al niño.",
+          },
+          {
+            q: "¿Es un buen libro para colorear para preescolar?",
+            a: "Sí, para los más pequeños de preescolar, normalmente de dos y tres años. Los dibujos son grandes y sencillos y los temas son conocidos, así que el niño puede nombrarlos mientras colorea. Un niño de cuatro años o más que ya colorea con seguridad dentro del contorno puede preferir láminas con más detalle.",
+          },
+          {
+            q: "¿Es un libro para pintar fácil para un niño que nunca ha coloreado?",
+            a: "Sí, precisamente para él se hizo. Cada página tiene un solo dibujo grande con contorno grueso y sin detalles pequeños, así que hasta los primeros trazos dan un resultado visible.",
+          },
+          {
+            q: "¿Sirve como «mi primer libro para colorear» para un niño pequeño?",
+            a: "Sí. Se hizo como el primer libro para colorear de un niño: un dibujo grande por página, contornos gruesos, sin detalles pequeños y siempre un tema conocido. Al principio hay una página para escribir el nombre del niño, así que el libro se convierte de verdad en su primer libro para colorear.",
           },
           {
             q: "¿Qué hago si mi hijo se sale del contorno a menudo?",
@@ -748,11 +924,11 @@ export const books: Book[] = [
           },
           {
             q: "¿Con qué conviene colorear los primeros dibujos?",
-            a: "Para los primeros intentos, lo más cómodo son las ceras gruesas: un niño pequeño las agarra con toda la mano y dejan un trazo visible sin apretar. Los lápices de colores requieren un agarre más preciso, que llega más adelante. Los rotuladores dan un color intenso, pero conviene usarlos sobre papel más grueso.",
+            a: "Para los primeros intentos, lo más cómodo son las ceras gruesas: un niño pequeño las agarra con toda la mano y dejan un trazo visible sin apretar. Los lápices de colores requieren un agarre más preciso, que llega más adelante. Los rotuladores dan el color más intenso.",
           },
           {
             q: "¿En qué papel conviene imprimir el archivo?",
-            a: "Depende de con qué vaya a colorear. Para ceras y lápices de colores sirve el papel normal de impresora. Para rotuladores es mejor un papel más grueso, de unos 160 gramos, para que el color traspase menos.",
+            a: "Depende de con qué vaya a colorear. Para ceras y lápices de colores sirve el papel normal de impresora. Si prefiere un papel más grueso, sirve uno de unos 160 gramos.",
           },
           {
             q: "¿Puedo imprimir la misma página varias veces?",
@@ -783,7 +959,6 @@ export const books: Book[] = [
             a: "Sí. Para el trabajo en grupo, el archivo resulta especialmente cómodo: la misma página se puede imprimir para todos los niños. Además, los dibujos se pueden aprovechar para otras actividades: los niños pueden nombrar el objeto, su color y su forma.",
           },
           faqPaperOrDigital.es,
-          faqBleedToddler.es,
         ],
       },
     },
@@ -892,7 +1067,6 @@ export const books: Book[] = [
             a: "The drawing style and the difficulty are the same. This edition is built around the character Little Max and connects to the Little Max bedtime stories. Families who want both usually buy the lion-cover book first and this one second.",
           },
           faqPaperOrDigital.en,
-          faqBleedToddler.en,
         ],
       },
     },
@@ -999,7 +1173,6 @@ export const books: Book[] = [
             a: "El estilo y la dificultad son los mismos. Esta edición gira en torno al personaje Pequeño Max y enlaza con sus cuentos para dormir. Las familias que quieren los dos suelen empezar por el de la portada del león.",
           },
           faqPaperOrDigital.es,
-          faqBleedToddler.es,
         ],
       },
     },
@@ -1107,7 +1280,6 @@ export const books: Book[] = [
             a: "No. The drawings are different. The difficulty deliberately stays the same, because at this age children want repetition of the format, not a harder challenge.",
           },
           faqPaperOrDigital.en,
-          faqBleedToddler.en,
         ],
       },
     },
@@ -1211,7 +1383,6 @@ export const books: Book[] = [
             a: "No. Los dibujos son distintos. La dificultad se mantiene a propósito, porque a esta edad los niños quieren repetir el formato, no un reto mayor.",
           },
           faqPaperOrDigital.es,
-          faqBleedToddler.es,
         ],
       },
     },
@@ -3206,7 +3377,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1201,
         alt: {
-          en: "The book open at a duck among reeds, showing the 8.5 by 11 inch page and designs printed on one side only",
+          en: "The book open at a duck among reeds, showing the 8.5 by 11 inch page",
         },
       },
       {
@@ -3236,7 +3407,7 @@ export const books: Book[] = [
         inside: [
           "50 hand-drawn designs: animals, flowers, landscapes and plants",
           "Large print: thick lines and open areas, comfortable for anyone whose eyes tire quickly",
-          "One design per page, printed single-sided, so markers do not spoil the next drawing",
+          "One design per page",
           "8.5 x 11 inches",
         ],
         forWhom:
@@ -3250,7 +3421,6 @@ export const books: Book[] = [
             q: "Can children color in it too?",
             a: "Yes. The shapes are large and the lines are thick, so children color these pages without help. The subjects are cute animals and plants rather than anything aimed only at grown-ups.",
           },
-          faqBleed.en,
         ],
       },
     },
@@ -3298,7 +3468,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1201,
         alt: {
-          es: "El libro abierto por un patito entre juncos, con la página de 21,6 por 27,9 cm y los dibujos impresos por una sola cara",
+          es: "El libro abierto por un patito entre juncos, con la página de 21,6 por 27,9 cm",
         },
       },
       {
@@ -3328,7 +3498,7 @@ export const books: Book[] = [
         inside: [
           "50 diseños dibujados a mano: animales, flores, paisajes y plantas",
           "Impresión grande: líneas gruesas y zonas amplias, cómodas para quien se cansa la vista",
-          "Un diseño por página, impreso por una sola cara, para que los marcadores no estropeen el dibujo siguiente",
+          "Un diseño por página",
           "21.6 x 27.9 cm",
         ],
         forWhom:
@@ -3342,7 +3512,6 @@ export const books: Book[] = [
             q: "¿Pueden colorearlo también los niños?",
             a: "Sí. Las formas son grandes y las líneas gruesas, así que los niños colorean estas páginas sin ayuda. Los temas son animales tiernos y plantas, nada pensado solo para adultos.",
           },
-          faqBleed.es,
         ],
       },
     },
@@ -3398,7 +3567,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          en: "The book open at a beach umbrella and a ball, showing the 8.5 by 11 inch page and designs printed on one side only",
+          en: "The book open at a beach umbrella and a ball, showing the 8.5 by 11 inch page",
         },
       },
       {
@@ -3420,7 +3589,7 @@ export const books: Book[] = [
         inside: [
           "50 hand-drawn ocean designs: sea animals, fish, shells, boats, beaches and a mermaid",
           "Large print: thick lines and wide open areas, comfortable for anyone whose eyes tire quickly",
-          "One design per page, printed single-sided, so markers do not spoil the next drawing",
+          "One design per page",
           "8.5 x 11 inches",
         ],
         forWhom:
@@ -3438,7 +3607,6 @@ export const books: Book[] = [
             q: "How is this different from the Cute Animals book in the series?",
             a: "Same format, same line weight, different subjects. Cute Animals is land animals, flowers and plants. Ocean is sea life, shells, boats and beaches. Many readers own both.",
           },
-          faqBleed.en,
         ],
       },
     },
@@ -3494,7 +3662,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          es: "El libro abierto en una sombrilla de playa y una pelota, con la página de 21,59 por 27,94 cm y los dibujos impresos por una sola cara",
+          es: "El libro abierto en una sombrilla de playa y una pelota, con la página de 21,59 por 27,94 cm",
         },
       },
       {
@@ -3516,7 +3684,7 @@ export const books: Book[] = [
         inside: [
           "50 diseños marinos dibujados a mano: animales del mar, peces, conchas, barcos, playas y una sirena",
           "Letra grande: líneas gruesas y zonas amplias, cómodo cuando la vista se cansa pronto",
-          "Un diseño por página, impreso por una sola cara, para que los rotuladores no estropeen el siguiente",
+          "Un diseño por página",
           "21.6 x 27.9 cm",
         ],
         forWhom:
@@ -3534,7 +3702,6 @@ export const books: Book[] = [
             q: "¿En qué se diferencia del libro de Animales Adorables de la misma serie?",
             a: "Mismo formato, mismo grosor de línea, temas distintos. Animales Adorables trae animales de tierra, flores y plantas. Belleza del Océano trae vida marina, conchas, barcos y playas. Mucha gente tiene los dos.",
           },
-          faqBleed.es,
         ],
       },
     },
@@ -3581,7 +3748,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          en: "The book open at a stack of pancakes with strawberries, showing the 8.5 by 11 inch page and designs printed on one side only",
+          en: "The book open at a stack of pancakes with strawberries, showing the 8.5 by 11 inch page",
         },
       },
       {
@@ -3613,7 +3780,7 @@ export const books: Book[] = [
           "All illustrations are hand-drawn",
           "Simple drawings, easy to color for adults, teens, beginning artists and seniors",
           "A perfect size, 8.5 x 11 inches",
-          "One illustration per page, printed on one side to prevent bleed-through",
+          "One illustration per page",
         ],
         forWhom:
           "Adults, teens, beginning artists and seniors. A perfect gift for any occasion.",
@@ -3622,7 +3789,6 @@ export const books: Book[] = [
             q: "Which Take a Break book should I start with?",
             a: "Food is the easiest to pick up, because you rarely have to think about what color anything should be. Animals has the most variety, and Ocean is the calmest.",
           },
-          faqBleed.en,
         ],
       },
     },
@@ -3669,7 +3835,7 @@ export const books: Book[] = [
         w: 1940,
         h: 1200,
         alt: {
-          es: "El libro abierto por unas tortitas con fresas, con la página de 21,6 por 27,9 cm y los dibujos impresos por una sola cara",
+          es: "El libro abierto por unas tortitas con fresas, con la página de 21,6 por 27,9 cm",
         },
       },
       {
@@ -3701,7 +3867,7 @@ export const books: Book[] = [
           "Todas las ilustraciones están dibujadas a mano",
           "Dibujos sencillos, fáciles de colorear para adultos, adolescentes, artistas principiantes y personas mayores",
           "Un tamaño ideal, 21,6 x 27,9 cm",
-          "Una ilustración por página, impresa por una sola cara para evitar que traspase",
+          "Una ilustración por página",
         ],
         forWhom:
           "Adultos, adolescentes, artistas principiantes y personas mayores. El regalo perfecto para cualquier ocasión.",
@@ -3710,7 +3876,6 @@ export const books: Book[] = [
             q: "¿Por cuál de los Tómate un Descanso empiezo?",
             a: "Historias Deliciosas es el más fácil de empezar, porque casi nunca hay que pensar de qué color va algo. Animales tiene más variedad y Océano es el más tranquilo.",
           },
-          faqBleed.es,
         ],
       },
     },
@@ -3813,6 +3978,7 @@ export const books: Book[] = [
     copy: {
       ru: {
         intro: [
+          "Раскраска для малышей 1, 2 и 3 лет, сделанная для самых первых мелков",
           "111 простых крупных рисунков, нарисованных от руки, с толстым контуром и без мелких деталей, по одному на странице",
           "Темы: животные, морские обитатели, сказочные герои, транспорт, растения, еда и другие. Звери и сказочные герои нарисованы добрыми и дружелюбными",
           "Под каждым рисунком написано его название, чтобы во время раскрашивания ребенок знакомился с новыми словами",
@@ -3858,19 +4024,111 @@ export const books: Book[] = [
           "Такой формат рассчитан на ребенка, который только учится управлять мелком. Ему пока трудно точно направлять руку и оставаться внутри контура, поэтому мелкие и подробные раскраски могут оказаться слишком сложными. Здесь у ребенка большая площадь для раскрашивания, хорошо заметные границы и минимум деталей. Даже если штрих немного выходит за контур, рисунок все равно выглядит узнаваемым.",
           "Рисунки разделены на восемь тем: 39 животных, 16 морских обитателей, 11 сказочных героев, 8 видов транспорта, 7 предметов для игр и спорта, 6 бытовых предметов, 10 растений и 14 продуктов. От первой страницы до последней сохраняется один принцип: один крупный простой рисунок и одно слово под ним.",
           "Русское издание выпускается в виде файла для печати и стоит 3,99 доллара. Ссылка приходит сразу после оплаты, файл остается у вас, а нужные страницы можно печатать столько раз, сколько потребуется, дома или в копировальном центре.",
+          "Эту книгу ищут под разными названиями: моя первая раскраска, раскраска для малышей, раскраска для детей от 1 до 3 лет, книжка-раскраска для самых маленьких, разукрашки для малышей, раскраска для мальчиков и девочек. Все это одна и та же книга: 111 крупных простых рисунков для ребенка, который только начинает раскрашивать. Десять листов из нее можно распечатать бесплатно и проверить до покупки.",
+        ],
+        seoTitle: "Раскраска для малышей 1, 2 и 3 лет: книга на 111 картинок",
+        seoDescription:
+          "Моя первая раскраска для малышей 1, 2 и 3 лет: 111 крупных картинок с толстым контуром, по одной на странице, и слово под каждой. Книга в PDF для печати на листах A4 или Letter, 10 листов можно распечатать бесплатно.",
+        ageGuide: {
+          title: "Раскраска для детей 1, 2 и 3 лет",
+          lead:
+            "Одна книга подходит на все три года, потому что страницы остаются простыми, а ребенок меняется. С одной и той же страницей ребенок в год, в два и в три года делает совсем разное, и в каждом возрасте книга дает ему свое.",
+          items: [
+            {
+              title: "Раскраска для ребенка 1 года",
+              text: [
+                "В год ребенок держит мелок в кулаке и двигает всей рукой, поэтому каждый штрих получается длинным и размашистым. Крупная форма и контур толщиной от 2,4 до 4,8 мм остаются заметными под такими штрихами, и ребенок видит результат с первой же линии. В этом возрасте никто не ждет раскрашивания внутри контура: линии поперек рисунка и за краем листа - это нормально.",
+                "Занятие длится минуту-две. Назовите вслух животное или предмет, дайте ребенку самому выбрать мелок и заканчивайте, когда он встает из-за стола. Удобнее всего толстые восковые мелки. А раз на каждой странице один знакомый предмет, книгу можно просто листать вместе, как первую книжку с картинками.",
+              ],
+              moreLabel: "Подробнее о раскрасках для ребенка 1 года",
+              moreUrl: "https://www.toddlercoloringbook.com/ru/vybrat-pervuyu-raskrasku/raskraski-dlya-rebenka-1-god",
+            },
+            {
+              title: "Раскраска для ребенка 2 лет",
+              text: [
+                "Два года - это середина возраста, на который рассчитана книга. Многие дети уже держат мелок пальцами, штрихи становятся округлыми, появляются петли, и все чаще они попадают на сам рисунок. Выходить за толстый контур по-прежнему нормально: контур служит хорошо заметным ориентиром, а не строгой границей.",
+                "В два года ребенок узнает большинство из 111 рисунков и может называть их вместе со взрослым. Здесь начинает работать слово под рисунком: покажите на картинку, произнесите слово и дайте ребенку раскрасить и буквы. Занятие растягивается примерно до пяти минут, а возвращаться к любимой странице снова и снова - часть игры.",
+              ],
+              moreLabel: "Подробнее о раскрасках для ребенка 2 лет",
+              moreUrl: "https://www.toddlercoloringbook.com/ru/vybrat-pervuyu-raskrasku/raskraski-dlya-rebenka-2-goda",
+            },
+            {
+              title: "Раскраска для ребенка 3 лет",
+              text: [
+                "В три года ребенок обычно выбирает цвет намеренно, может повторить круг или прямую линию, и большая часть цвета ложится на рисунок. Книга по-прежнему подходит трехлетнему, который только начинает раскрашивать аккуратно, а теперь становится важным и разнообразие: страницы переходят от животных к морским обитателям, транспорту, еде, цветам и сказочным героям, и две страницы подряд почти не похожи друг на друга.",
+                "Слова под рисунками становятся тем, что можно обвести и обсудить, а свободное место вокруг рисунка оставляет простор для солнца или цветка, которые ребенок захочет дорисовать. Когда ребенок правильно закрашивает страницу и откладывает ее без интереса, пора переходить к более подробным раскраскам или к пошаговому рисованию.",
+              ],
+              moreLabel: "Подробнее о раскрасках для ребенка 3 лет",
+              moreUrl: "https://www.toddlercoloringbook.com/ru/vybrat-pervuyu-raskrasku/raskraski-dlya-rebenka-3-goda",
+            },
+          ],
+        },
+        altNames: [
+          "Раскраска для малышей 1, 2 и 3 лет",
+          "Раскраска для детей от 1 до 3 лет",
+          "Книжка-раскраска для самых маленьких",
+          "Раскраска для мальчиков и девочек 1-3 лет",
+          "Раскраска с первыми словами для малышей",
+          "Моя первая раскраска для малышей 1-3 лет",
+        ],
+        keywords: [
+          "моя первая раскраска",
+          "моя первая раскраска для малышей",
+          "моя первая книжка-раскраска",
+          "раскраска для малышей",
+          "раскраска для детей 1-3 лет",
+          "раскраска для ребенка 1 года",
+          "раскраска для детей 2 лет",
+          "раскраска для детей 3 лет",
+          "раскраска для самых маленьких",
+          "книжка-раскраска",
+          "простые раскраски для малышей",
+          "раскраска для мальчиков и девочек",
+          "первая раскраска",
+          "разукрашки для малышей",
+        ],
+        linkPhrases: [
+          "раскраска для малышей 1, 2 и 3 лет",
+          "раскраска для ребенка 1 года",
+          "раскраска для детей 2 лет",
+          "раскраска для детей 3 лет",
+          "первая раскраска для малышей",
+          "раскраска для детей 1-3 лет",
+          "книжка-раскраска для самых маленьких",
+          "моя первая раскраска для малышей",
         ],
         faq: [
           {
-            q: "Не рано ли давать раскраску ребенку в год?",
-            a: "Нет, если ребенок уже тянется к мелкам. В этом возрасте не нужно ждать аккуратного раскрашивания внутри контура: первые занятия состоят из линий и штрихов, и это нормально. Поэтому для первых попыток подходят крупные простые рисунки без мелких участков, требующих точных движений.",
+            q: "Подойдет ли эта раскраска ребенку 1 года?",
+            a: "Да, если ребенок уже тянется к мелкам. В этом возрасте не нужно ждать аккуратного раскрашивания внутри контура: первые занятия состоят из линий и штрихов, и это нормально. Поэтому для первых попыток подходят крупные простые рисунки без мелких участков, требующих точных движений.",
           },
           {
-            q: "Подойдет ли раскраска двухлетнему ребенку?",
+            q: "Подойдет ли эта раскраска для детей 2 лет?",
             a: "Да. Два года это как раз возраст, на который рассчитана эта книга. Особенно хорошо она подходит детям, которые уже пытаются раскрашивать, но пока часто выходят за контур и плохо справляются с мелкими деталями.",
           },
           {
-            q: "Не будет ли книга слишком простой для трехлетнего ребенка?",
+            q: "Подойдет ли эта раскраска для детей 3 лет?",
             a: "Это зависит от навыков, а не только от возраста. Если ребенок уже аккуратно закрашивает небольшие участки и почти не выходит за контур, книга может показаться ему простой. Если он только начинает, крупные рисунки с толстым контуром ему еще подойдут.",
+          },
+          {
+            q: "Эта раскраска для девочек или для мальчиков?",
+            a: "Для всех. Среди 111 рисунков есть животные, морские обитатели, транспорт, еда, цветы и сказочные герои, от русалки и единорога до ракеты и подводной лодки, поэтому каждый ребенок найдет любимые картинки. В книге нет ничего, что подходило бы только девочкам или только мальчикам.",
+          },
+          {
+            q: "С какого возраста можно давать раскраску малышу?",
+            a: "Книга рассчитана на детей примерно с года, когда ребенок уже может держать толстый мелок в кулаке и нарочно оставлять следы на бумаге. Раньше этого возраста малыш к раскрашиванию еще не готов. В любом возрасте лучше раскрашивать вместе с ребенком.",
+          },
+          {
+            q: "Подойдет ли книжка-раскраска для дошкольников?",
+            a: "Да, для самых младших дошкольников, обычно двух и трех лет. Рисунки крупные и простые, предметы знакомые, и ребенок может называть их, пока раскрашивает. Детям от четырех лет, которые уже уверенно раскрашивают внутри контура, могут быть интереснее более подробные картинки.",
+          },
+          {
+            q: "Подойдет ли простая раскраска ребенку, который никогда не раскрашивал?",
+            a: "Да, именно для такого ребенка она и сделана. На каждой странице один крупный рисунок с толстым контуром и без мелких деталей, поэтому даже первые штрихи дают заметный результат.",
+          },
+          {
+            q: "Подойдет ли книга как «моя первая раскраска» для малыша?",
+            a: "Да. Она и сделана как самая первая раскраска ребенка: один крупный рисунок на странице, толстый контур, никаких мелких деталей и всегда знакомый предмет. В начале книги есть страница для имени ребенка, так что книга действительно становится его первой собственной раскраской.",
           },
           {
             q: "Что делать, если ребенок совсем не попадает в контур?",
@@ -3882,11 +4140,11 @@ export const books: Book[] = [
           },
           {
             q: "Чем лучше раскрашивать первые картинки?",
-            a: "Для первых попыток удобнее всего толстые восковые мелки: маленькому ребенку проще держать их всей рукой, и они оставляют заметный след без сильного нажима. Цветные карандаши требуют более точного захвата, который появляется позже. Фломастеры дают яркий цвет, но для них лучше использовать более плотную бумагу.",
+            a: "Для первых попыток удобнее всего толстые восковые мелки: маленькому ребенку проще держать их всей рукой, и они оставляют заметный след без сильного нажима. Цветные карандаши требуют более точного захвата, который появляется позже. Фломастеры дают самый яркий цвет.",
           },
           {
             q: "На какой бумаге печатать?",
-            a: "Это зависит от того, чем ребенок будет раскрашивать. Для мелков и цветных карандашей подойдет обычная бумага для принтера. Для фломастеров лучше взять более плотную бумагу, примерно 160 грамм, чтобы цвет меньше проступал на оборотную сторону.",
+            a: "Это зависит от того, чем ребенок будет раскрашивать. Для мелков и цветных карандашей подойдет обычная бумага для принтера. Если хочется бумагу поплотнее, подойдет лист примерно 160 грамм.",
           },
           {
             q: "Можно ли распечатать одну страницу несколько раз?",
@@ -4392,7 +4650,7 @@ export const books: Book[] = [
         w: 1941,
         h: 1201,
         alt: {
-          ru: "Книга раскрыта на утенке среди камышей, лист 21,6 x 28 см, рисунки только на одной стороне листа",
+          ru: "Книга раскрыта на утенке среди камышей, лист 21,6 x 28 см",
         },
       },
       {
@@ -4422,7 +4680,7 @@ export const books: Book[] = [
         inside: [
           "50 рисунков, все нарисованы от руки",
           "Толстая линия и много свободного места внутри фигуры",
-          "Один рисунок на странице, оборот чистый",
+          "Один рисунок на странице",
           "Крупный лист 21.6 x 27.9 см",
           "Подходит и новичку, и тому, кто раскрашивает давно",
         ],
@@ -4433,7 +4691,6 @@ export const books: Book[] = [
             q: "С какой из трех книг серии начать?",
             a: "«Вкусные истории» - самая простая: почти не приходится думать, какого цвета должен быть предмет. В «Милых животных» больше разнообразия, а «Красота океана» - самая спокойная.",
           },
-          faqBleed.ru,
           faqPdfEditionRu,
           faqPaperSizeRu,
         ],
@@ -4484,7 +4741,7 @@ export const books: Book[] = [
         w: 1941,
         h: 1201,
         alt: {
-          ru: "Книга раскрыта на пляжном зонте с мячом и очками, лист 21,6 x 28 см, рисунки только на одной стороне листа",
+          ru: "Книга раскрыта на пляжном зонте с мячом и очками, лист 21,6 x 28 см",
         },
       },
       {
@@ -4515,7 +4772,7 @@ export const books: Book[] = [
           "50 рисунков, все нарисованы от руки",
           "Морские животные, рыбки, ракушки и пляжи",
           "Толстая линия и много свободного места внутри фигуры",
-          "Один рисунок на странице, оборот чистый",
+          "Один рисунок на странице",
           "Крупный лист 21.6 x 27.9 см",
         ],
         forWhom:
@@ -4525,7 +4782,6 @@ export const books: Book[] = [
             q: "Чем эта книга отличается от других в серии?",
             a: "Темой и настроением. Здесь только море: рыбы, медузы, черепахи, ракушки и пляжи. Формы крупнее и спокойнее, чем в книге про животных.",
           },
-          faqBleed.ru,
           faqPdfEditionRu,
           faqPaperSizeRu,
         ],
@@ -4575,7 +4831,7 @@ export const books: Book[] = [
         w: 1941,
         h: 1201,
         alt: {
-          ru: "Книга раскрыта на стопке блинов с клубникой, лист 21,6 x 28 см, рисунки только на одной стороне листа",
+          ru: "Книга раскрыта на стопке блинов с клубникой, лист 21,6 x 28 см",
         },
       },
       {
@@ -4606,7 +4862,7 @@ export const books: Book[] = [
           "50 рисунков, все нарисованы от руки",
           "Продукты, напитки, десерты и фрукты",
           "Толстая линия и много свободного места внутри фигуры",
-          "Один рисунок на странице, оборот чистый",
+          "Один рисунок на странице",
           "Крупный лист 21.6 x 27.9 см",
         ],
         forWhom:
@@ -4616,7 +4872,6 @@ export const books: Book[] = [
             q: "Это книга для взрослых или для детей?",
             a: "И для тех, и для других. Линия толстая, рисунки крупные, поэтому раскрашивать ее может и школьник, и взрослый, который давно не брал в руки карандаш.",
           },
-          faqBleed.ru,
           faqPdfEditionRu,
           faqPaperSizeRu,
         ],

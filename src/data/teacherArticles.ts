@@ -68,6 +68,14 @@ export const articleUi: Partial<
     published: "Publicado",
     updated: "Actualizado",
   },
+  ru: {
+    faq: "Частые вопросы",
+    related: "Читать дальше",
+    back: "Вернуться в раздел для учителей",
+    by: "Автор",
+    published: "Опубликовано",
+    updated: "Обновлено",
+  },
 };
 
 export const teacherArticles: TeacherArticle[] = [
@@ -882,6 +890,332 @@ export const teacherArticles: TeacherArticle[] = [
         ctaTitle: "Empiece el curso con esto",
         ctaLead:
           "Una actividad gratuita de cada tema, o la colección completa para todo el año. Las dos en Teachers Pay Teachers.",
+      },
+    },
+  },
+  /* ================================================================
+     6. Пошаговое рисование как готовая рутина на учебный год.
+     Кластер directed drawing: no-prep, morning work, early finishers.
+     ================================================================ */
+  {
+    id: "directed-drawing-routine",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    slug: {
+      en: "directed-drawing-for-elementary-students",
+      es: "dibujo-guiado-para-primaria",
+      ru: "poshagovoe-risovanie-v-nachalnoy-shkole",
+    },
+    related: ["fifteen-minute-routine", "classroom-routines"],
+    copy: {
+      en: {
+        title: "Directed drawing for elementary students: a no-prep routine for the whole year",
+        lead:
+          "One directed drawing activity is easy. Making it a routine is the hard part. What changes when a year of practice already sits inside one book.",
+        answer:
+          "Directed drawing is an activity in which students build a picture by following a sequence of drawing steps. It becomes a routine rather than a one-time lesson when the steps, the tracing practice and the space to draw independently are all in one place, so the teacher does not have to find, print and collect a new worksheet every week. At three activities a week, 111 drawings cover a 37-week school year.",
+        body: [
+          {
+            h: "Using it once is easy. Making it a routine is the challenge.",
+            p: [
+              "Adding one directed drawing activity to an elementary classroom is not complicated. Find a picture, show the steps, hand out paper, let students draw. The challenge begins when you want to do it regularly: another activity next week, and another after that, plus copies, paper, a place for finished work, and something students can follow without the teacher beside them every minute.",
+              "When we created How to Draw 111 we approached the problem differently: what if each student had an entire year of drawing practice already organized inside one book? That idea shaped the format. The book contains 111 different drawings across 231 pages, and almost every drawing gets a complete two-page spread with everything needed to finish the activity.",
+            ],
+          },
+          {
+            h: "What one activity includes",
+            p: [
+              "Every activity follows the same routine. The student follows the drawing steps and sees how the picture develops from simple shapes. Then they trace the finished picture along a dotted outline. Then they draw it independently in the blank space beside it. Then they color the result.",
+              "For students the routine becomes familiar: look, trace, draw independently, color. For teachers that consistency matters too. Once students understand how one activity works, they do not need a new set of directions every time they open the book.",
+            ],
+          },
+          {
+            h: "A small design choice that makes the steps easier to follow",
+            p: [
+              "In many directed drawing activities students have to compare two nearly identical pictures to work out what was added. We wanted to remove that extra step: previously drawn lines turn gray while the new lines stay black, so the next action is visible at once.",
+              "It is a small detail, but it follows a larger rule we kept while developing all 111 activities: a drawing instruction should make the next action visually obvious. Attention should go into drawing, not into searching for the difference between Step 4 and Step 5.",
+            ],
+          },
+          {
+            h: "111 drawings cover a school year",
+            p: [
+              "The math is simple: three drawings a week across 37 school weeks is 111 activities. At two a week the same collection covers the year with a margin, which means a teacher can choose rather than having to use every page.",
+              "There is no fixed schedule either. Drawings can be selected by student interest, classroom theme, season, available time, or simply left to the students to choose.",
+            ],
+          },
+          {
+            h: "No loose drawing worksheets to manage",
+            p: [
+              "Printables are useful, but regular printing creates its own routine: find, download, print, copy, distribute, collect, organize. An individual book changes that to: get your book, open the activity, draw, close it, put it away.",
+              "There is no page to lose and no work to sort between students. Months of a child's artwork stay together in the order it was made, and by the end of the year the book is no longer identical to the one the student received in September.",
+            ],
+          },
+          {
+            h: "Where it fits in the school day",
+            p: [
+              "A drawing activity does not always need a full art period. A self-contained 15 to 20 minute activity fits morning work, early finishers, independent work time, art centers, elementary art lessons and homeschool sessions.",
+              "The drawing instructions are visual, so students see the sequence instead of reading paragraphs. That makes the activity less dependent on reading level, which is practical for beginning readers and for classrooms where students have different levels of English proficiency.",
+            ],
+          },
+          {
+            h: "Tracing and independent drawing are not the same activity",
+            p: [
+              "Tracing gives students a completed shape to follow. Independent drawing removes that guide: now the student decides where a line begins, how large a shape should be, and where it belongs in relation to the rest of the picture.",
+              "That is why the blank space is not decoration. It is the next part of the activity, and it is the reason 111 drawings take 231 pages: we chose practice space over squeezing more small tutorials onto each page.",
+            ],
+          },
+        ],
+        listTitle: "What teachers do not have to prepare",
+        list: [
+          "The drawing sequence: it is already on the page",
+          "Tracing practice: the dotted picture is printed beside it",
+          "Separate drawing paper: the space is inside the book",
+          "A place for finished work: it stays in the student's own book",
+          "Supplies: the book and a pencil, plus coloring materials when useful",
+        ],
+        faq: [
+          {
+            q: "What is directed drawing for elementary students?",
+            a: "Directed drawing is an activity in which students create a picture by following a sequence of drawing steps. A clear sequence breaks a finished image into smaller actions so students do not have to figure out the entire drawing at once.",
+          },
+          {
+            q: "What are good no-prep drawing activities for elementary students?",
+            a: "A useful no-prep activity contains the instructions and practice space students need without the teacher creating extra materials. In How to Draw 111 each activity includes visual steps, a dotted picture to trace and space for independent drawing on the same spread.",
+          },
+          {
+            q: "Can directed drawing be used for morning work?",
+            a: "Yes. A self-contained activity works as morning work once students understand the routine and can follow the visual sequence independently. One drawing fits into about 15 to 20 minutes, with coloring continued later if needed.",
+          },
+          {
+            q: "Is directed drawing a good early-finisher activity?",
+            a: "It works well because students can begin a defined activity and produce a finished result without waiting for another assignment. Keeping the instructions and drawing space together also removes the need to hand out an additional worksheet.",
+          },
+          {
+            q: "How many directed drawing activities are enough for a school year?",
+            a: "At three activities per week across a 37-week school year the total is 111. At two per week the same 111 drawings cover the year with a margin, so teachers can select activities rather than completing every one.",
+          },
+          {
+            q: "Can beginning readers use directed drawing activities?",
+            a: "Visual directed drawing requires very little reading. When each new line or shape is clearly shown, students follow the sequence by looking at the pictures rather than reading written directions.",
+          },
+          {
+            q: "What is the difference between tracing and independent drawing?",
+            a: "Tracing provides an existing line to follow. Independent drawing requires the student to decide where the line begins, how it is shaped and where it belongs. Using both in sequence creates a progression from guided practice to an independent attempt.",
+          },
+          {
+            q: "Why use a drawing book instead of printable worksheets?",
+            a: "A book keeps the instructions, the practice and the finished work together, and it removes the repeated cycle of printing and organizing new worksheets. At the end of the year the student has one book containing months of their own artwork.",
+          },
+        ],
+        ctaTitle: "One student, one book, 111 activities",
+        ctaLead:
+          "Every illustration was drawn by hand by our illustrator, without the use of artificial intelligence. The English edition was a finalist in the Educational category of the Children's Book International Awards 2025.",
+      },
+      es: {
+        title: "Dibujo guiado para primaria: una rutina sin preparación para todo el año escolar",
+        lead:
+          "Usar una actividad de dibujo guiado una vez es fácil. Convertirla en rutina es el desafío. Qué cambia cuando un año de práctica ya está dentro de un solo libro.",
+        answer:
+          "El dibujo guiado, o directed drawing, es una actividad en la que los alumnos crean una imagen siguiendo una secuencia de pasos. Se convierte en rutina, y no en una actividad aislada, cuando los pasos, el repaso punteado y el espacio para dibujar están en el mismo lugar, de modo que el maestro no tiene que buscar, imprimir y recoger una hoja nueva cada semana. Con tres actividades por semana, 111 dibujos cubren 37 semanas de clase.",
+        body: [
+          {
+            h: "Usarlo una vez es fácil; convertirlo en rutina, no",
+            p: [
+              "Incluir una actividad de directed drawing en una clase de primaria no es complicado: buscar un dibujo, mostrar los pasos, dar papel y dejar que los alumnos dibujen. El problema aparece cuando se quiere hacer de forma regular: hace falta otra actividad la semana siguiente, y otra después, además de copias, papel, un lugar para los trabajos y algo que los alumnos puedan seguir sin el maestro al lado.",
+              "Al crear Cómo dibujar. 111 dibujos paso a paso planteamos el problema de otra manera: ¿y si cada alumno tuviera dentro de un solo libro actividades suficientes para todo el año? El libro contiene 111 dibujos diferentes en 231 páginas y casi cada dibujo tiene una página doble con todo lo necesario.",
+            ],
+          },
+          {
+            h: "Qué incluye una actividad",
+            p: [
+              "Cada actividad sigue la misma rutina. El alumno sigue los pasos y ve cómo la imagen se construye a partir de formas sencillas. Después repasa el dibujo terminado por las líneas punteadas. Después lo dibuja por su cuenta en el espacio en blanco que está al lado. Y al final lo colorea.",
+              "Para el alumno la rutina se vuelve familiar: mirar, repasar, dibujar por su cuenta, colorear. Para el maestro esa consistencia también cuenta: una vez entendida una actividad, no hacen falta instrucciones nuevas cada vez que se abre el libro.",
+            ],
+          },
+          {
+            h: "Una pequeña decisión de diseño que facilita seguir los pasos",
+            p: [
+              "En muchas actividades de dibujo paso a paso el alumno tiene que comparar dos imágenes casi iguales para descubrir qué se añadió. Nosotros quisimos eliminar esa dificultad: las líneas anteriores pasan a gris y las nuevas permanecen en negro, de modo que el siguiente paso se ve enseguida.",
+              "Es un detalle pequeño, pero nace de una regla que seguimos en las 111 actividades: una buena instrucción debe hacer evidente el siguiente paso. La atención del alumno debe estar en dibujar, no en buscar la diferencia entre el paso 4 y el 5.",
+            ],
+          },
+          {
+            h: "111 dibujos cubren un año escolar",
+            p: [
+              "El cálculo es sencillo: tres dibujos por semana durante 37 semanas son 111 actividades. Con dos por semana la misma colección cubre el año con margen, lo que permite al maestro elegir en lugar de tener que usar todas las páginas.",
+              "Tampoco hace falta un orden fijo: los dibujos pueden elegirse según los intereses de los alumnos, el tema de la clase, la época del año o el tiempo disponible.",
+            ],
+          },
+          {
+            h: "Sin montones de hojas que organizar",
+            p: [
+              "Las hojas imprimibles son útiles, pero su uso regular crea otra rutina: buscar, descargar, imprimir, repartir, recoger y organizar. Un libro individual la convierte en: tomar el libro, abrir la actividad, dibujar, cerrarlo y guardarlo.",
+              "No hay páginas que se pierdan ni trabajos que separar entre alumnos. Meses de dibujos permanecen juntos y en orden, y al final del año el libro ya no es igual al ejemplar que el alumno recibió en septiembre.",
+            ],
+          },
+          {
+            h: "Dónde encaja en la jornada escolar",
+            p: [
+              "Una actividad de dibujo no siempre necesita una clase completa de arte. Una actividad independiente de 15 a 20 minutos sirve como morning work, para quienes terminan temprano, en trabajo independiente, en centros de arte, en clases de arte de primaria y en homeschool.",
+              "Las instrucciones son visuales, así que el alumno observa la secuencia en lugar de leer párrafos. Esto es especialmente práctico con lectores principiantes y en salones donde los alumnos tienen distintos niveles de dominio del inglés.",
+            ],
+          },
+          {
+            h: "Repasar y dibujar por cuenta propia no son lo mismo",
+            p: [
+              "Al repasar, la línea ya existe. Al dibujar por su cuenta, esa guía desaparece y el alumno decide dónde empieza la línea, qué tamaño tendrá la forma y dónde se coloca respecto al resto del dibujo.",
+              "Por eso el espacio en blanco no es un adorno: es la siguiente parte del ejercicio, y es la razón por la que 111 dibujos ocupan 231 páginas. Preferimos dejar espacio para practicar antes que amontonar tutoriales pequeños.",
+            ],
+          },
+        ],
+        listTitle: "Lo que el maestro no tiene que preparar",
+        list: [
+          "La secuencia de dibujo: ya está en la página",
+          "El ejercicio de repaso: el contorno punteado está impreso al lado",
+          "Hojas de dibujo aparte: el espacio está dentro del libro",
+          "Un lugar para los trabajos: quedan en el libro del alumno",
+          "Materiales: el libro y un lápiz, más lápices de colores si se colorea",
+        ],
+        faq: [
+          {
+            q: "¿Qué es el dibujo guiado o directed drawing en primaria?",
+            a: "Es una actividad en la que los alumnos crean una imagen siguiendo una secuencia de pasos. Una buena secuencia divide un dibujo terminado en acciones más pequeñas para que el niño no tenga que resolver toda la imagen de una vez.",
+          },
+          {
+            q: "¿Cuáles son buenas actividades de dibujo sin preparación para primaria?",
+            a: "Una buena actividad sin preparación incluye las instrucciones y el espacio de práctica sin exigir al maestro crear materiales adicionales. En Cómo dibujar. 111 dibujos paso a paso cada actividad reúne la secuencia visual, un dibujo punteado para repasar y espacio para dibujar por cuenta propia.",
+          },
+          {
+            q: "¿Se puede usar el dibujo guiado como trabajo de la mañana?",
+            a: "Sí. Funciona como morning work cuando los alumnos ya conocen la rutina y pueden seguir la secuencia visual de manera independiente. Un dibujo se realiza en unos 15 a 20 minutos y el coloreado puede continuarse después.",
+          },
+          {
+            q: "¿Funciona como actividad para quienes terminan temprano?",
+            a: "Sí, porque el alumno puede comenzar una tarea concreta por su cuenta y terminar un dibujo sin esperar a que el maestro prepare otra hoja. Las instrucciones, el repaso y el espacio para dibujar están juntos.",
+          },
+          {
+            q: "¿Cuántas actividades se necesitan para un año escolar?",
+            a: "Con tres actividades por semana durante 37 semanas se necesitan 111. Con dos por semana, los mismos 111 dibujos cubren el año con margen, de modo que el maestro puede seleccionar en lugar de completarlos todos.",
+          },
+          {
+            q: "¿Los lectores principiantes pueden usar estas actividades?",
+            a: "Sí, cuando las instrucciones son visuales. Si cada nueva línea o forma se muestra claramente, el alumno sigue la secuencia observando las imágenes sin leer instrucciones escritas extensas.",
+          },
+          {
+            q: "¿Cuál es la diferencia entre repasar y dibujar de manera independiente?",
+            a: "Al repasar, el alumno sigue una línea que ya existe. Al dibujar por su cuenta debe decidir dónde empieza, qué forma tendrá y dónde colocarla. Usar ambas en secuencia lleva de la práctica guiada al intento independiente.",
+          },
+          {
+            q: "¿Por qué usar un libro en lugar de hojas imprimibles?",
+            a: "Un libro mantiene juntas las instrucciones, la práctica y los trabajos terminados, y evita imprimir y organizar hojas nuevas cada semana. Al final del año el alumno tiene un solo libro con meses de sus propios dibujos.",
+          },
+        ],
+        ctaTitle: "Un alumno, un libro, 111 actividades",
+        ctaLead:
+          "Todos los dibujos fueron creados a mano por nuestro ilustrador, sin utilizar inteligencia artificial. La edición en inglés fue finalista en la categoría educativa de los Children's Book International Awards 2025.",
+      },
+      ru: {
+        title: "Пошаговое рисование в начальной школе: готовые занятия на весь учебный год",
+        lead:
+          "Провести одно занятие несложно. Сложнее сделать их регулярными. Что меняется, когда практика на весь год уже лежит внутри одной книги.",
+        answer:
+          "Пошаговое рисование это занятие, в котором ребенок создает изображение, последовательно выполняя несколько простых этапов. Оно превращается в регулярную практику, а не в разовый урок, когда шаги, обводка и место для самостоятельного рисунка находятся в одном месте и учителю не нужно каждую неделю искать, печатать и собирать новые листы. При трех занятиях в неделю 111 рисунков закрывают 37 учебных недель.",
+        body: [
+          {
+            h: "Одно занятие провести легко, сделать их регулярными труднее",
+            p: [
+              "Найти один рисунок для класса обычно не проблема: подобрать пример, показать последовательность, раздать бумагу. Сложность начинается, когда хочется заниматься регулярно. На следующую неделю нужен новый рисунок, потом еще один, плюс распечатки, бумага, место для готовых работ и такое задание, которое ребенок выполнит без учителя рядом.",
+              "Когда мы создавали книгу «Как нарисовать. 111 рисунков шаг за шагом», мы посмотрели на задачу иначе: что, если у каждого ребенка в одной книге уже будет достаточно заданий на весь учебный год? В книге 111 разных рисунков на 231 странице, и практически каждому отведен полный разворот со всем необходимым.",
+            ],
+          },
+          {
+            h: "Как устроено одно занятие",
+            p: [
+              "Ребенок смотрит последовательность и видит, как изображение строится из простых форм. Затем обводит готовый рисунок по пунктиру. Затем рисует его самостоятельно на свободном месте рядом. И при желании раскрашивает.",
+              "Получается постоянная схема: посмотреть, обвести, нарисовать самостоятельно, раскрасить. Поняв один раз, как устроено задание, ребенку не приходится разбираться в новой инструкции на каждой странице, а учителю не нужно объяснять заново перед каждым рисунком.",
+            ],
+          },
+          {
+            h: "Маленькая деталь, которая помогает понять следующий шаг",
+            p: [
+              "Во многих пошаговых инструкциях ребенку приходится сравнивать две почти одинаковые картинки, чтобы найти новую линию. Мы убрали эту лишнюю задачу: уже нарисованные линии становятся серыми, а новые остаются черными, поэтому следующее действие видно сразу.",
+              "За этой деталью стоит правило, которым мы руководствовались во всех 111 заданиях: хорошая инструкция должна делать следующее действие очевидным. Внимание ребенка должно уходить на рисунок, а не на поиск различий между четвертым и пятым шагом.",
+            ],
+          },
+          {
+            h: "111 рисунков действительно хватает на учебный год",
+            p: [
+              "Арифметика простая: три рисунка в неделю на 37 учебных недель это 111 занятий. При двух в неделю той же книги хватает на год с запасом, и оставшиеся задания дают учителю выбор, а не обязанность пройти все.",
+              "Двигаться строго по порядку не нужно. Рисунки можно подбирать под тему занятия, время года, интересы детей или иногда позволять детям выбрать самим. Главное, что следующее занятие уже есть в книге.",
+            ],
+          },
+          {
+            h: "Без постоянной стопки распечаток",
+            p: [
+              "Рабочие листы удобны для отдельных занятий, но при регулярном использовании появляется свой рабочий процесс: найти, скачать, распечатать, раздать, собрать, рассортировать. Индивидуальная книга делает схему короче: взял книгу, открыл задание, нарисовал, закрыл, убрал.",
+              "Лист не потеряется после урока, работы разных учеников не перемешаются, а несколько месяцев рисунков одного ребенка останутся вместе и по порядку. К концу года это уже не та книга, которую ученик получил в сентябре.",
+            ],
+          },
+          {
+            h: "Где найти 15-20 минут в школьном дне",
+            p: [
+              "Не каждое занятие должно превращаться в полноценный урок рисования. Самостоятельное задание на 15-20 минут подходит для начала дня, для тех, кто закончил основную работу раньше, для самостоятельной работы, для творческого уголка, для урока рисования и для домашнего обучения.",
+              "Инструкция визуальная, читать ее не нужно, поэтому задание меньше зависит от уровня чтения. Это особенно удобно для младших классов и начинающих читателей.",
+            ],
+          },
+          {
+            h: "Обводка и самостоятельный рисунок это разные задания",
+            p: [
+              "При обводке линия уже существует, ребенку нужно пройти по ней карандашом. При самостоятельном рисунке готового контура нет, и приходится самому решать, где начать линию, насколько большой сделать форму и где расположить ее относительно остальных частей.",
+              "Поэтому свободное место рядом с обводкой это не пустая часть страницы, а следующий этап упражнения. И именно поэтому 111 рисунков занимают 231 страницу: мы выбрали место для практики вместо того, чтобы разместить больше мелких инструкций.",
+            ],
+          },
+        ],
+        listTitle: "Что учителю не нужно готовить",
+        list: [
+          "Последовательность рисования: она уже на странице",
+          "Обводку: пунктирный рисунок напечатан рядом",
+          "Отдельную бумагу: место для рисунка внутри книги",
+          "Место для готовых работ: они остаются в книге ученика",
+          "Материалы: книга и карандаш, цветные по желанию",
+        ],
+        faq: [
+          {
+            q: "Что такое пошаговое рисование для учеников начальной школы?",
+            a: "Это занятие, в котором ребенок создает изображение, последовательно выполняя несколько простых этапов. Вместо попытки сразу повторить сложную готовую картинку ученик добавляет отдельные формы и детали одну за другой.",
+          },
+          {
+            q: "Какие задания по рисованию подходят для занятий без подготовки?",
+            a: "Удобное готовое задание уже содержит инструкцию и место для практики. В книге «Как нарисовать. 111 рисунков шаг за шагом» на одном развороте находятся визуальная последовательность, пунктирный рисунок для обводки и место для самостоятельной попытки.",
+          },
+          {
+            q: "Можно ли использовать пошаговое рисование в начале учебного дня?",
+            a: "Да. Когда дети уже знают принцип работы, короткое пошаговое рисование подходит как спокойное самостоятельное занятие в начале дня. Один рисунок занимает примерно 15-20 минут, а раскрашивание при необходимости можно продолжить позже.",
+          },
+          {
+            q: "Чем занять ученика, который закончил основное задание раньше?",
+            a: "Ребенок может взять свою книгу, открыть следующее задание и начать работу без новой распечатки от учителя. Инструкция, обводка и место для собственного рисунка уже находятся на странице.",
+          },
+          {
+            q: "Сколько заданий по рисованию нужно на учебный год?",
+            a: "При трех занятиях в неделю на 37 учебных недель понадобится 111 заданий. При двух занятиях в неделю тех же 111 рисунков хватает на год с запасом, поэтому учитель может выбирать задания, а не проходить все подряд.",
+          },
+          {
+            q: "Могут ли начинающие читатели пользоваться такими заданиями?",
+            a: "Да, если инструкция построена визуально. Когда новая линия или форма хорошо видна на картинке, ребенку не требуется читать длинное текстовое объяснение перед каждым этапом.",
+          },
+          {
+            q: "Чем обводка отличается от самостоятельного рисования?",
+            a: "При обводке ребенок следует по уже существующей линии. При самостоятельном рисунке он сам определяет начало, направление и размер линии, а также ее положение относительно других частей изображения. Последовательность из двух этапов дает два разных вида практики.",
+          },
+          {
+            q: "Зачем индивидуальная книга вместо отдельных распечаток?",
+            a: "Книга хранит инструкцию, практику и законченные работы в одном месте. Учителю не приходится каждую неделю печатать и систематизировать новые листы, а в конце года у ребенка остается одна книга с несколькими месяцами его собственных рисунков.",
+          },
+        ],
+        ctaTitle: "Один ребенок, одна книга, 111 занятий",
+        ctaLead:
+          "Все иллюстрации созданы вручную нашим художником, без использования искусственного интеллекта. Английское издание книги стало финалистом Children's Book International Awards 2025 в образовательной категории.",
       },
     },
   },

@@ -342,7 +342,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .nav a {
   color: var(--pink-deep); text-transform: uppercase; letter-spacing: 0.13em;
-  font-size: var(--t-micro); font-weight: 800; white-space: nowrap;
+  /* Десять пунктов: шрифт чуть мельче обычного, чтобы длинные названия
+     разделов помещались в одну строку. */
+  font-size: calc(var(--t-micro) * 0.9); font-weight: 800; white-space: nowrap;
 }
 .nav a:hover { color: var(--ink); text-decoration: none; }
 

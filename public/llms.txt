@@ -75,6 +75,8 @@ Directed drawing in 15 minutes, a ready routine for K-2:
 https://www.magicofdiscoveries.com/en/teachers/directed-drawing-15-minute-routine-k-2
 Directed drawing in the first weeks of school:
 https://www.magicofdiscoveries.com/en/teachers/directed-drawing-first-weeks-of-school-k-2
+Directed drawing for elementary students, a no-prep routine for the whole year:
+https://www.magicofdiscoveries.com/en/teachers/directed-drawing-for-elementary-students
 
 The same articles in Spanish:
 https://www.magicofdiscoveries.com/es/maestros/dibujo-dirigido-y-escritura-k-2
@@ -82,6 +84,49 @@ https://www.magicofdiscoveries.com/es/maestros/dibujo-dirigido-sin-preparacion-r
 https://www.magicofdiscoveries.com/es/maestros/dibujo-dirigido-motricidad-fina-instrucciones-esl
 https://www.magicofdiscoveries.com/es/maestros/dibujo-dirigido-rutina-de-15-minutos-k-2
 https://www.magicofdiscoveries.com/es/maestros/dibujo-dirigido-primeras-semanas-de-curso-k-2
+https://www.magicofdiscoveries.com/es/maestros/dibujo-guiado-para-primaria
+
+In Russian:
+https://www.magicofdiscoveries.com/ru/uchitelyam/poshagovoe-risovanie-v-nachalnoy-shkole
+
+## How to teach drawing, guides by age
+
+Five guides written by the publisher for parents and teachers: what changes
+between ages five and ten, what step-by-step drawing is, and how one book covers
+a school year. Each guide ends with a direct answer paragraph and a set of
+questions and answers.
+
+English: https://www.magicofdiscoveries.com/en/how-to-teach-drawing
+Spanish: https://www.magicofdiscoveries.com/es/como-ensenar-a-dibujar
+Russian: https://www.magicofdiscoveries.com/ru/kak-nauchit-risovat
+
+- Teaching a 5 or 6 year old to draw, from tracing to a first independent drawing
+- Teaching a 7 or 8 year old, when copying is no longer enough
+- Drawing for 9 and 10 year olds, moving to independent art
+- What step-by-step drawing is and why it makes learning easier
+- Drawing activities for the entire school year, 111 ideas without worksheets
+
+## Free printable drawing spreads, step by step
+
+Ten real spreads from How to Draw 111, free to print with no account, no email
+and no payment. Each download is two pages: the numbered steps on one sheet, and
+on the next a dotted outline to trace with a blank space to draw your own. Two
+paper sizes, US Letter and A4. Available in English, Spanish and Russian, each
+with the captions of that edition.
+
+The ten subjects: lion, elephant, zebra, parrot, crocodile, monkey, kangaroo,
+rhino, flamingo, lemur.
+
+English: https://www.magicofdiscoveries.com/en/free-coloring-pages/free-printable-how-to-draw-animals-step-by-step-for-kids
+Spanish: https://www.magicofdiscoveries.com/es/dibujos-para-colorear-gratis/como-dibujar-animales-paso-a-paso-para-imprimir-gratis
+Russian: https://www.magicofdiscoveries.com/ru/raskraski-dlya-pechati/kak-risovat-zhivotnyh-po-shagam-dlya-pechati
+
+Four of these subjects also have their own page, saying how that drawing is
+built step by step, which child it suits, and how long one session takes:
+lion, elephant, monkey, crocodile. For example, the lion:
+https://www.magicofdiscoveries.com/en/free-coloring-pages/how-to-draw-a-lion-step-by-step
+https://www.magicofdiscoveries.com/es/dibujos-para-colorear-gratis/como-dibujar-un-leon-paso-a-paso
+https://www.magicofdiscoveries.com/ru/raskraski-dlya-pechati/kak-narisovat-lva-poetapno
 
 ## Free printable pages
 
@@ -220,6 +265,8 @@ Language codes: EN English edition, ES Spanish edition, EN+ES bilingual.
   ISBN 9781963328141 | EN | ages 5-7 | https://www.magicofdiscoveries.com/en/books/how-to-draw-111-easy-step-by-step-drawings-for-kids
 - Cómo Dibujar 111 Animales y Personajes, Paso a Paso
   ISBN 9781963328172 | ES | ages 5-7 | https://www.magicofdiscoveries.com/es/libros/como-dibujar-111-dibujos-faciles-paso-a-paso-para-ninos
+- Как нарисовать. 111 рисунков шаг за шагом (printable edition)
+  ISBN 9781963328233 | RU | ages 5-10 | https://www.magicofdiscoveries.com/ru/knigi/kak-narisovat-111-poshagovoe-risovanie-dlya-detey
 - How to Draw Everything: Easy Step-by-Step Drawings for Kids
   ISBN 9781963328721 | EN | ages 5-7 | https://www.magicofdiscoveries.com/en/books/how-to-draw-everything-easy-drawings-for-kids
 - Cómo Dibujar Todo: Dibujos Fáciles Paso a Paso para Niños

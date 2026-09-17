@@ -2408,15 +2408,15 @@ const coloringPagesBase: ColoringPage[] = [
     copy: {
       ru: {
         title:
-          "Как нарисовать льва поэтапно. Бесплатный разворот для печати, шаги, обводка и место для своего рисунка",
+          "Как нарисовать льва поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Лев, шаг за шагом",
         sheetAlt:
           "Бесплатный разворот для печати: Лев по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
         lead:
-          "Настоящий разворот из печатной книги. На левом листе лев собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
           "Рисунок начинается с круга, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. грива добавляется одним движением вокруг головы, и лев сразу становится узнаваемым.",
-          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего льва. Между этими двумя действиями и происходит все обучение.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
         howTo: [
@@ -2471,7 +2471,7 @@ const coloringPagesBase: ColoringPage[] = [
           "A real spread from the printed book. On the left page the lion is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
           "The drawing starts from a circle, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the mane is added in one pass around the head, and the lion becomes recognizable at once.",
-          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own lion. All the learning happens between those two actions.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
         howTo: [
@@ -2523,10 +2523,10 @@ const coloringPagesBase: ColoringPage[] = [
         sheetAlt:
           "Doble página gratis para imprimir: león paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
         lead:
-          "Una doble página real del libro impreso. En la hoja izquierda el león se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
           "El dibujo comienza con un círculo y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la melena se añade de una sola vez alrededor de la cabeza y el león se reconoce enseguida.",
-          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja su propio león. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
         howTo: [
@@ -2597,15 +2597,15 @@ const coloringPagesBase: ColoringPage[] = [
     copy: {
       ru: {
         title:
-          "Как нарисовать слона поэтапно. Бесплатный разворот для печати, шаги, обводка и место для своего рисунка",
+          "Как нарисовать слона поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Слон, шаг за шагом",
         sheetAlt:
           "Бесплатный разворот для печати: Слон по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
         lead:
-          "Настоящий разворот из печатной книги. На левом листе слон собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
           "Рисунок начинается с двух кругов, которые заходят друг на друга, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. хобот и уши появляются последними, поэтому ошибиться в пропорциях почти невозможно.",
-          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего слона. Между этими двумя действиями и происходит все обучение.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
         howTo: [
@@ -2660,7 +2660,7 @@ const coloringPagesBase: ColoringPage[] = [
           "A real spread from the printed book. On the left page the elephant is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
           "The drawing starts from two overlapping circles, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the trunk and ears come last, so the proportions are hard to get wrong.",
-          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own elephant. All the learning happens between those two actions.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
         howTo: [
@@ -2712,10 +2712,10 @@ const coloringPagesBase: ColoringPage[] = [
         sheetAlt:
           "Doble página gratis para imprimir: elefante paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
         lead:
-          "Una doble página real del libro impreso. En la hoja izquierda el elefante se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
           "El dibujo comienza con dos círculos superpuestos y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la trompa y las orejas llegan al final, así que es difícil equivocarse con las proporciones.",
-          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja su propio elefante. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
         howTo: [
@@ -2786,15 +2786,15 @@ const coloringPagesBase: ColoringPage[] = [
     copy: {
       ru: {
         title:
-          "Как нарисовать обезьяну поэтапно. Бесплатный разворот для печати, шаги, обводка и место для своего рисунка",
+          "Как нарисовать обезьяну поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Обезьяна, шаг за шагом",
         sheetAlt:
           "Бесплатный разворот для печати: Обезьяна по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
         lead:
-          "Настоящий разворот из печатной книги. На левом листе обезьяна собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
           "Рисунок начинается с круглой головы и вытянутого туловища, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. лапы и хвост рисуются отдельными шагами, а мордочка появляется в самом конце.",
-          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего обезьяну. Между этими двумя действиями и происходит все обучение.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
         howTo: [
@@ -2849,7 +2849,7 @@ const coloringPagesBase: ColoringPage[] = [
           "A real spread from the printed book. On the left page the monkey is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
           "The drawing starts from a round head and an oval body, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the paws and tail are separate steps, and the face arrives last.",
-          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own monkey. All the learning happens between those two actions.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
         howTo: [
@@ -2901,10 +2901,10 @@ const coloringPagesBase: ColoringPage[] = [
         sheetAlt:
           "Doble página gratis para imprimir: mono paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
         lead:
-          "Una doble página real del libro impreso. En la hoja izquierda el mono se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
           "El dibujo comienza con una cabeza redonda y un cuerpo ovalado y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. las patas y la cola son pasos aparte y la cara aparece al final.",
-          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja su propio mono. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
         howTo: [
@@ -2975,15 +2975,15 @@ const coloringPagesBase: ColoringPage[] = [
     copy: {
       ru: {
         title:
-          "Как нарисовать крокодила поэтапно. Бесплатный разворот для печати, шаги, обводка и место для своего рисунка",
+          "Как нарисовать крокодила поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Крокодил, шаг за шагом",
         sheetAlt:
           "Бесплатный разворот для печати: Крокодил по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
         lead:
-          "Настоящий разворот из печатной книги. На левом листе крокодил собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
           "Рисунок начинается с вытянутой формы, похожей на каплю, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. зубцы на спине добавляются одним шагом, и рисунок сразу перестает быть просто овалом.",
-          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего крокодила. Между этими двумя действиями и происходит все обучение.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
         howTo: [
@@ -3038,7 +3038,7 @@ const coloringPagesBase: ColoringPage[] = [
           "A real spread from the printed book. On the left page the crocodile is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
           "The drawing starts from one long drop-like shape, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the ridge on the back is one step, and the drawing stops being just an oval.",
-          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own crocodile. All the learning happens between those two actions.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
         howTo: [
@@ -3090,10 +3090,10 @@ const coloringPagesBase: ColoringPage[] = [
         sheetAlt:
           "Doble página gratis para imprimir: cocodrilo paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
         lead:
-          "Una doble página real del libro impreso. En la hoja izquierda el cocodrilo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
           "El dibujo comienza con una forma alargada parecida a una gota y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la cresta del lomo es un solo paso y el dibujo deja de ser solo un óvalo.",
-          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja su propio cocodrilo. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
         howTo: [
@@ -3148,11 +3148,9 @@ const coloringPagesBase: ColoringPage[] = [
     updated: "2026-08-27",
     fromBookId: "how-to-draw-111-en",
     fromBookIdEs: "how-to-draw-111-es",
-    fromBookIdRu: "how-to-draw-111-ru",
     slug: {
       en: "free-printable-how-to-draw-animals-step-by-step-for-kids",
       es: "como-dibujar-animales-paso-a-paso-para-imprimir-gratis",
-      ru: "poshagovoe-risovanie-dlya-detey-raspechatat-besplatno",
     },
     spread: true,
     groups: [
@@ -3303,58 +3301,6 @@ const coloringPagesBase: ColoringPage[] = [
           {
             q: "¿Para qué edad son?",
             a: "Aproximadamente de cuatro a ocho años, según el niño. Uno más pequeño puede repasar la línea punteada y quedarse ahí, que a esa edad ya es un logro.",
-          },
-        ],
-      },
-      ru: {
-        title:
-          "Пошаговое рисование для детей, распечатать бесплатно. Десять животных: шаги на одном листе, место для практики на втором",
-        sheetTitle: "Как нарисовать: {name}, шаг за шагом",
-        sheetAlt:
-          "Бесплатный разворот для печати: {name} по шагам на левом листе, а на правом пунктирный контур для обводки и широкое пустое место, чтобы нарисовать свой рисунок",
-        bookSheetsLead:
-          "Настоящие развороты из книги, по два листа каждый: на одном шаги, на другом практика. Десять можно распечатать бесплатно и попробовать метод за своим столом до покупки.",
-        lead:
-          "В каждой загрузке две страницы. На первой животное собирается форма за формой. На второй то же животное пунктиром для обводки и широкое пустое место, где ребенок рисует свое.",
-        body: [
-          "Когда ребенок говорит, что не умеет рисовать, он почти всегда имеет в виду, что не умеет нарисовать животное целиком и сразу. Этого не умеет никто. Зато он умеет повторить круг, потом овал, потом два уха. Шесть маленьких повторов спустя на листе сидит лев, и нарисовал его он сам. Ради этой минуты все и сделано.",
-          "Эти двадцать страниц взяты из нашей печатной книги и нарисованы вручную. Распечатайте оба листа одного животного и положите рядом, как они стоят в книге. Ребенок смотрит налево и рисует направо.",
-          "Сначала стоит обвести пунктир. Рука запоминает форму до того, как ребенку придется делать ее самому, и заодно это хорошая тренировка мелкой моторики. После этого пустое место уже не пугает: рука знает, куда идти.",
-          "Печатайте сколько нужно. Без регистрации, без почты, без оплаты.",
-        ],
-        howTo: [
-          "Каждое животное это файл из двух страниц: сначала шаги, потом лист для практики",
-          "Распечатайте обе страницы и положите рядом",
-          "Два размера файла: A4 и Letter. Выбирайте тот, что берет ваш принтер",
-          "Сначала простой карандаш: ошибку можно стереть и продолжить",
-          "Обведите пунктирное животное, а потом нарисуйте свое на пустом месте",
-        ],
-        pickLead:
-          "Отдельные листы теряются раньше, чем закончится месяц. В книге эти же страницы уже сшиты по порядку, и именно поэтому она становится памятью.",
-        pickTitle: "Книга, из которой взяты эти страницы",
-        pickPoints: [
-          "111 животных, сказочных героев, цветов, еды и подарков, разобранных на простые шаги",
-          "Два вида практики на каждый рисунок: пунктир для обводки и пустое место для своего рисунка",
-          "231 страница, поэтому отдельная бумага не нужна и ничего не теряется",
-          "Каждая попытка остается на своем месте и по порядку, и через годы книгу можно открыть и увидеть, как ребенок учился рисовать",
-          "Финалист Children's Book International Awards 2025 в образовательной категории",
-        ],
-        faq: [
-          {
-            q: "Почему на одно животное две страницы?",
-            a: "Потому что так устроена книга. На одной странице шаги, на соседней ребенок рисует. Распечатайте обе и положите рядом: на столе получится тот же разворот, что в книге.",
-          },
-          {
-            q: "Это правда бесплатно?",
-            a: "Да. Без регистрации, без почты, без оплаты. Печатайте столько копий, сколько нужно, дома или в школе.",
-          },
-          {
-            q: "Можно ли использовать их на занятиях или в библиотеке?",
-            a: "Да, печатайте и раздавайте свободно. Просим только не перепродавать файлы и не выкладывать их у себя.",
-          },
-          {
-            q: "Какой размер листа выбрать?",
-            a: "Letter это стандартный формат бумаги в США и Канаде, A4 в Европе и большинстве других стран. Содержание одинаковое, отличается только размер страницы.",
           },
         ],
       },

@@ -1350,10 +1350,6 @@ export const drawingArticles: DrawingArticle[] = [
             a: "Visual drawing instructions do not require students to read a paragraph before beginning. In our book, each new line is shown in black while previous lines are gray, allowing students to identify the next action visually.",
           },
           {
-            q: "What is directed drawing in elementary school?",
-            a: "Directed drawing is an activity in which students create a picture by following a sequence of drawing steps. In our book, each student can see that sequence directly on the page and work through it at their own pace.",
-          },
-          {
             q: "What is a good screen-free early-finisher activity?",
             a: "A self-contained step-by-step drawing works well for early finishers because the student can begin independently and complete a finished piece of artwork without needing a new worksheet. The instructions, tracing practice, and drawing space are all on the same spread.",
           },
@@ -1440,10 +1436,6 @@ export const drawingArticles: DrawingArticle[] = [
           {
             q: "¿Las actividades visuales sirven para alumnos con distintos niveles de lectura?",
             a: "Sí, porque el alumno no necesita leer un párrafo antes de comenzar. En nuestro libro, las líneas nuevas aparecen en negro y las anteriores en gris, de modo que el siguiente paso puede identificarse visualmente.",
-          },
-          {
-            q: "¿Qué es el directed drawing en las escuelas de Estados Unidos?",
-            a: "Es una actividad en la que los alumnos crean una imagen siguiendo una secuencia de pasos. En nuestro libro, cada alumno tiene esa secuencia directamente en la página y puede avanzar a su propio ritmo.",
           },
           {
             q: "¿Qué actividad sin pantallas puede hacer un alumno que termina temprano?",

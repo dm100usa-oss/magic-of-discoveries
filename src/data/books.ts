@@ -2068,6 +2068,16 @@ export const books: Book[] = [
         ],
         forWhom:
           "Ages 5 to 10, depending on the child: one starts at six, another only wants to at nine, and the book works for both. For children who say they cannot draw, for teachers who need a quiet independent activity, and for adults learning alongside them.",
+        fitLead:
+          "Ages 5 to 10 are a guide, not a rule. What matters more is how your child draws right now.",
+        fitYes: [
+          "Your child says they cannot draw and does not know where to start",
+          "They have outgrown coloring books and want to draw for themselves",
+          "They like following an example and seeing a result right away",
+          "Drawings keep getting lost on loose sheets and you want them kept together",
+          "You need activities that last a school year, at home, in a club or in class",
+          "Your child loves coloring and will want to color what they drew",
+        ],
         ageGuide: {
           title: "How to teach a child to draw: step-by-step drawing by age",
           lead:
@@ -2277,6 +2287,16 @@ export const books: Book[] = [
         ],
         forWhom:
           "De 5 a 10 años, según el niño: uno empieza a los seis y otro solo quiere a los nueve, y el libro sirve para los dos. Para quien dice que no sabe dibujar, para maestros que necesitan una actividad tranquila e independiente, y para adultos que aprenden junto a ellos.",
+        fitLead:
+          "De 5 a 10 años es una orientación, no una regla. Importa más cómo dibuja el niño ahora.",
+        fitYes: [
+          "El niño dice que no sabe dibujar y no sabe por dónde empezar",
+          "Ya dejó atrás los libros para colorear y quiere dibujar por su cuenta",
+          "Le gusta seguir un modelo y ver el resultado enseguida",
+          "Los dibujos se pierden en hojas sueltas y quiere conservarlos juntos",
+          "Busca actividades para todo el año escolar, en casa, en un taller o en clase",
+          "Al niño le encanta colorear y querrá colorear lo que ha dibujado",
+        ],
         ageGuide: {
           title: "Cómo enseñar a dibujar a un niño: dibujo paso a paso por edades",
           lead:
@@ -5297,6 +5317,16 @@ export const books: Book[] = [
         ],
         forWhom:
           "Детям от 5 до 10 лет. Подходит для занятий дома, в кружке и на уроке рисования, а также тем, кто уже перерос обычные раскраски.",
+        fitLead:
+          "Возраст от 5 до 10 лет служит ориентиром. Важнее смотреть на то, как ребенок сейчас рисует.",
+        fitYes: [
+          "Ребенок говорит, что не умеет рисовать, и не знает, с чего начать",
+          "Он уже перерос обычные раскраски и хочет рисовать сам",
+          "Ему нравится повторять за образцом и видеть результат сразу",
+          "Рисунки теряются на отдельных листах, и хочется, чтобы все осталось в одном месте",
+          "Нужны занятия на весь учебный год, дома, в кружке или в классе",
+          "Ребенок любит раскрашивать и захочет раскрасить то, что нарисовал",
+        ],
         ageGuide: {
           title: "Как научить ребенка рисовать: пошаговое рисование по возрастам",
           lead:

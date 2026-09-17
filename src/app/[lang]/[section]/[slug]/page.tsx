@@ -112,6 +112,7 @@ import {
   topicsForBook,
   allTopics,
   pageFile,
+  drawingFile,
   bookPages,
   TOPIC_PREVIEW,
 } from "@/data/bookTopics";
@@ -1491,6 +1492,15 @@ export default async function ItemPage({
      описание. Значит нижние блоки с тем же содержанием не нужны. */
   const hasFullBook = Boolean(copy.about?.length) && topicGroups.some((g) => g.firstDrawing);
 
+  /* Книга открывается одним крупным разворотом: человек сразу видит,
+     как устроена страница. Ниже идут рисунки из книги, и только потом
+     остальные баннеры. Разворот это первый баннер книги. */
+  const leadSpread =
+    hasFullBook && book.type !== "coloring" ? book.banners?.[0] : undefined;
+  const restBanners = leadSpread
+    ? book.banners?.filter((b) => b.file !== leadSpread.file)
+    : book.banners;
+
   const featuredPages = topicGroups.some((g) => g.firstDrawing)
     ? bookPages.map((n) => {
         let name = "";
@@ -1900,15 +1910,29 @@ export default async function ItemPage({
 
           {featuredPages.length ? (
             <>
+              {leadSpread ? (
+                <img
+                  className="theme-banner"
+                  src={leadSpread.file}
+                  alt={leadSpread.alt[lang] ?? leadSpread.alt.en ?? copy.title}
+                  width={leadSpread.w}
+                  height={leadSpread.h}
+                  fetchPriority="high"
+                />
+              ) : null}
               <h2 className="section">{t.book.drawingsTitle}</h2>
               <ul className="thumbs thumbs--pages">
                 {featuredPages.map((d) => (
                   <li key={d.n}>
                     <img
-                      src={pageFile(d.n, lang)}
+                      src={
+                        book.type === "coloring"
+                          ? pageFile(d.n, lang)
+                          : drawingFile(d.n)
+                      }
                       alt={d.name}
-                      width={480}
-                      height={620}
+                      width={book.type === "coloring" ? 480 : 420}
+                      height={book.type === "coloring" ? 620 : 420}
                       loading="lazy"
                     />
                   </li>
@@ -1984,7 +2008,7 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          {book.bannerLead || book.artwork?.length || book.banners?.length ? (
+          {book.bannerLead || book.artwork?.length || restBanners?.length ? (
             <div className="showcase">
               {book.bannerLead ? (
                 <img
@@ -2016,7 +2040,7 @@ export default async function ItemPage({
                 </div>
               ) : null}
 
-              {book.banners?.map((b) => (
+              {restBanners?.map((b) => (
                 <img
                   key={b.file}
                   className="theme-banner"

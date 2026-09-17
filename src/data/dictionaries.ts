@@ -194,6 +194,8 @@ export interface Dictionary {
     /** Строка со ссылкой на книгу, из которой взят лист.
         {link} заменяется ссылкой со словами из набора книги. */
     bookLinkLine?: string;
+    /** Заголовок над соседними листами внизу страницы одного рисунка. */
+    moreSheets?: string;
     sheetTitle: string;
     sheetAlt: string;
     printLetter: string;
@@ -519,6 +521,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "The first pages are being prepared. If you want one particular animal or theme, write to us and we will put it up.",
       howToTitle: "Printing them",
       fitNoTitle: "It may be too simple if:",
+      moreSheets: "More free coloring pages to print",
       bookLinkLine: "This page comes from our {link}, where every one of the 111 drawings is built the same way.",
       sheetTitle: "{name} coloring page",
       sheetAlt: "Free printable {name} coloring page for toddlers, thick outlines, one animal per page",
@@ -844,6 +847,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Estamos preparando las primeras páginas. Si quieres un animal o un tema concreto, escríbenos y lo publicamos.",
       howToTitle: "Cómo imprimirlas",
       fitNoTitle: "La lámina puede quedarse corta si:",
+      moreSheets: "Más dibujos para colorear gratis para imprimir",
       bookLinkLine: "Esta lámina es una página de nuestro {link}, donde los 111 dibujos están hechos de la misma manera.",
       sheetTitle: "Dibujo de {name} para colorear",
       sheetAlt: "Dibujo de {name} para colorear gratis para imprimir, contornos gruesos, un animal por página, con el nombre en español",
@@ -1165,6 +1169,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       comingSoon: "Первые листы готовятся.",
       howToTitle: "Как печатать",
       fitNoTitle: "Лист может быть слишком простым, если:",
+      moreSheets: "Еще бесплатные раскраски для печати",
       bookLinkLine: "Этот лист взят из нашей книги: {link}. Все 111 рисунков в ней сделаны так же.",
       sheetTitle: "Раскраска {name}",
       sheetAlt: "Бесплатная раскраска {name} для печати, толстый контур, одно животное на листе",

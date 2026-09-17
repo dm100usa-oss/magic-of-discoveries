@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { booksForLang } from "@/data/books";
-import { pagesForLang } from "@/data/coloringPages";
+import { pagesForLang, groupsForLang, previewUrl } from "@/data/coloringPages";
 import { guidesForLang } from "@/data/method";
 import { articlesForLang } from "@/data/teacherArticles";
 import { teacherBundles } from "@/data/teacherBooks";
@@ -44,10 +44,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }
     }
     for (const p of pagesForLang(lang)) {
+      /* Картинки листов перечислены рядом со своей страницей.
+
+         Раскраски ищут глазами, в разделе картинок, а не словами.
+         Пока картинки не названы в карте сайта, поисковик доходит
+         до них случайно и редко: он видит страницу, но не знает,
+         что главное на ней это сам рисунок. Здесь у каждой страницы
+         перечислены все ее листы на этом языке. */
       out.push({
         url: SITE_URL + itemPath(lang, "coloring", p.slug[lang]!),
         lastModified: on(p.updated),
         priority: 0.7,
+        images: groupsForLang(p, lang).flatMap((g) =>
+          g.sheets.map((sh) => SITE_URL + previewUrl(sh.id, lang)),
+        ),
       });
     }
     for (const g of guidesForLang(lang)) {

@@ -664,6 +664,55 @@ export default async function ItemPage({
           </section>
         ))}
 
+        {/* Следующие листы. Человек распечатал свой рисунок, и здесь,
+            сразу после кнопок, видит еще несколько: возвращаться к
+            общему списку не нужно. Поисковику эти ссылки показывают,
+            что страницы листов связаны между собой, а не висят
+            каждая сама по себе. Берем четыре следующих по списку,
+            по кругу, чтобы на разных страницах были разные. */}
+        {page.single && f.moreSheets
+          ? (() => {
+              const singles = pagesForLang(lang).filter((x) => x.single);
+              const at = singles.findIndex((x) => x.id === page.id);
+              const next = [1, 2, 3, 4]
+                .map((k) => singles[(at + k) % singles.length])
+                .filter((x) => x && x.id !== page.id);
+              if (!next.length) return null;
+              return (
+                <section className="wrap">
+                  <h2 className="section">{f.moreSheets}</h2>
+                  <div className="themes">
+                    {next.map((o) => {
+                      const sh = groupsForLang(o, lang)[0]?.sheets[0];
+                      if (!sh) return null;
+                      const oc = o.copy[lang]!;
+                      return (
+                        <Link
+                          className="theme"
+                          key={o.id}
+                          href={itemPath(lang, "coloring", o.slug[lang]!)}
+                        >
+                          <div className="theme__strip">
+                            <img
+                              src={previewUrl(sh.id, lang)}
+                              alt={oc.title}
+                              width={642}
+                              height={822}
+                              loading="lazy"
+                            />
+                          </div>
+                          <p className="theme__title">
+                            {sh.name[lang] ?? sh.name.en}
+                          </p>
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })()
+          : null}
+
         <div className="wrap sheets-intro">
           <div className="prose">
             {copy.body.map((para) => (

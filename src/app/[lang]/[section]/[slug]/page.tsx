@@ -1496,7 +1496,9 @@ export default async function ItemPage({
      как устроена страница. Ниже идут рисунки из книги, и только потом
      остальные баннеры. Разворот это первый баннер книги. */
   const leadSpread =
-    hasFullBook && book.type !== "coloring" ? book.banners?.[0] : undefined;
+    hasFullBook && book.type !== "coloring"
+      ? book.banners?.find((b) => b.file.includes("-spread"))
+      : undefined;
   const restBanners = leadSpread
     ? book.banners?.filter((b) => b.file !== leadSpread.file)
     : book.banners;

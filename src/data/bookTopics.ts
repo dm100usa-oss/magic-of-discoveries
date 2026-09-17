@@ -37,6 +37,13 @@ const howToDraw111: TopicGroup[] = [
         "Oso", "Zorro", "Gallina", "Vaca", "Castor", "Águila", "Hámster", "Gato", "Perro",
         "Ardilla", "Pato", "Ciervo", "Ratón", "Abeja", "Libélula", "Caracol", "Mariposa",
       ],
+      ru: [
+        "Лев", "Слон", "Зебра", "Попугай", "Крокодил", "Обезьяна", "Кенгуру",
+        "Носорог", "Фламинго", "Лемур", "Колибри", "Хамелеон", "Жираф", "Коала",
+        "Лягушка", "Альпака", "Зайчик", "Сова", "Ежик", "Козочка", "Летучая мышь", "Енот",
+        "Медведь", "Лиса", "Курица", "Корова", "Бобр", "Орел", "Хомяк", "Кот", "Собака",
+        "Белка", "Утка", "Олень", "Мышка", "Пчела", "Стрекоза", "Улитка", "Бабочка",
+      ],
     },
   },
   {
@@ -53,6 +60,11 @@ const howToDraw111: TopicGroup[] = [
         "Pez ángel", "Caballito de mar", "Foca", "Pez payaso", "Molusco", "Ajolote",
         "Pez globo", "Gamba", "Mantarraya",
       ],
+      ru: [
+        "Акула", "Дельфин", "Кит", "Краб", "Осьминог", "Медуза", "Морская черепаха",
+        "Рыба-ангел", "Морской конек", "Тюлень", "Рыба-клоун", "Ракушка", "Аксолотль",
+        "Рыба-еж", "Креветка", "Скат манта",
+      ],
     },
   },
   {
@@ -66,6 +78,10 @@ const howToDraw111: TopicGroup[] = [
       es: [
         "Sirena", "Unicornio", "Dragón", "Corona", "Gnomo", "Grifo", "Trol", "Hada",
         "Caldera mágica", "Sombrero de mago", "Poción mágica",
+      ],
+      ru: [
+        "Русалка", "Единорог", "Дракон", "Корона", "Гном", "Грифон", "Тролль", "Фея",
+        "Волшебный котел", "Шляпа волшебника", "Волшебное зелье",
       ],
     },
   },
@@ -81,6 +97,10 @@ const howToDraw111: TopicGroup[] = [
         "Coche", "Helicóptero", "Avión", "Globo aerostático", "Barco", "Submarino",
         "Cohete", "Patinete",
       ],
+      ru: [
+        "Машина", "Вертолет", "Самолет", "Воздушный шар", "Корабль", "Подводная лодка",
+        "Ракета", "Самокат",
+      ],
     },
   },
   {
@@ -89,6 +109,7 @@ const howToDraw111: TopicGroup[] = [
     items: {
       en: ["Skateboard", "Kite", "Badminton", "Football", "Camera", "Drum", "Beach ball"],
       es: ["Monopatín", "Cometa", "Bádminton", "Fútbol americano", "Cámara", "Tambor", "Pelota de playa"],
+      ru: ["Скейтборд", "Воздушный змей", "Бадминтон", "Мяч для футбола", "Фотоаппарат", "Барабан", "Пляжный мяч"],
     },
   },
   {
@@ -97,6 +118,7 @@ const howToDraw111: TopicGroup[] = [
     items: {
       en: ["Sunglasses", "Umbrella", "Beach hat", "Globe", "Present", "Gamepad"],
       es: ["Gafas de sol", "Sombrilla de playa", "Sombrero de playa", "Globo terráqueo", "Regalo", "Mando de videojuegos"],
+      ru: ["Солнечные очки", "Зонт", "Пляжная шляпа", "Глобус", "Подарок", "Игровой пульт"],
     },
   },
   {
@@ -111,6 +133,10 @@ const howToDraw111: TopicGroup[] = [
         "Hoja de arce", "Rosa", "Seta", "Trébol", "Girasol", "Piña de pino", "Cactus",
         "Lirio", "Loto", "Tulipán",
       ],
+      ru: [
+        "Кленовый лист", "Роза", "Мухомор", "Клевер", "Подсолнух", "Шишка", "Кактус",
+        "Лилия", "Лотос", "Тюльпан",
+      ],
     },
   },
   {
@@ -124,6 +150,10 @@ const howToDraw111: TopicGroup[] = [
       es: [
         "Tarta", "Helado", "Sandía", "Zanahoria", "Brócoli", "Naranja", "Cerezas",
         "Aguacate", "Fresa", "Pera", "Piña", "Limón", "Calabaza", "Dónut",
+      ],
+      ru: [
+        "Торт", "Мороженое", "Арбуз", "Морковь", "Брокколи", "Апельсин", "Вишня",
+        "Авокадо", "Клубника", "Груша", "Ананас", "Лимон", "Тыква", "Пончик",
       ],
     },
   },

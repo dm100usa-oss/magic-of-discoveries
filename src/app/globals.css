@@ -1378,15 +1378,15 @@ ul.award-list li {
 /* Веер из разворотов: без нахлеста и почти без поворота,
    иначе правая страница с местом для практики уходит под соседнюю. */
 .fan--spread {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 0.9rem; justify-items: center;
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem; justify-items: center;
 }
 .fan--spread img {
   width: 100%; min-width: 0; margin-left: 0;
-  transform: rotate(calc((var(--i) - 2.5) * 0.8deg));
+  transform: rotate(calc((var(--i) - 2.5) * 0.5deg));
 }
-@media (max-width: 900px) { .fan--spread { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 620px) {
+@media (max-width: 760px) { .fan--spread { grid-template-columns: 1fr; gap: 1rem; } }
+@media (max-width: 760px) {
   .fan--spread img { width: 100%; margin-left: 0; transform: none; }
 }
 

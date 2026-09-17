@@ -2045,10 +2045,17 @@ export const books: Book[] = [
     slug: { en: "how-to-draw-111-easy-step-by-step-drawings-for-kids" },
     copy: {
       en: {
+        intro: [
+          "111 drawings broken down into simple steps. At two or three drawings a week, there is enough to use throughout the school year",
+          "A full two-page spread for every drawing: follow the steps, trace the dotted outline, draw it yourself, and color it",
+          "Completely visual instructions, with no reading required, so even children who are not reading yet can follow along independently",
+          "A short fun fact with every drawing: lions, giraffes, whales, unicorns, cupcakes, sailboats, and much more",
+          "No loose worksheets to lose. Every drawing stays in the book, turning it into a keepsake of a child's early artwork",
+        ],
         title: "How to Draw 111 Animals and Characters, Step by Step",
-        subtitle: "Children draw it themselves, step by step, right in the book",
+        subtitle: "Step-by-step drawing for kids ages 5-10, with space to practice right in the book",
         lead:
-          "A guide made by professionals for children. Every drawing is broken down into six steps, usually, and not one step more: the child repeats them and gets there alone. Then traces the dotted outline, with enough room beside it to try twice.\n\nNothing gets lost or scattered across loose sheets. It all stays in one book, which can be signed and taken out years later to see how they started.",
+          "Almost every child says \"I can't draw\" at some point. Usually, they simply don't know where to begin.\n\nIn this book, the beginning is always simple: a circle, an oval, a few lines. New details are added one step at a time, while previous lines stay gray so the child can immediately see what to add next. A few steps later, those simple shapes have become a lion, a giraffe, a dragon, a rocket, or something else entirely, and the child drew it.",
         inside: [
           "Two full spreads for every drawing",
           "231 pages, no extra paper needed",
@@ -2061,18 +2068,117 @@ export const books: Book[] = [
         ],
         forWhom:
           "Ages 5 to 10, depending on the child: one starts at six, another only wants to at nine, and the book works for both. For children who say they cannot draw, for teachers who need a quiet independent activity, and for adults learning alongside them.",
+        ageGuide: {
+          title: "How to teach a child to draw: step-by-step drawing by age",
+          lead:
+            "The same book can grow with a child for several years. At first, children trace and copy the drawings. As their skills develop, they draw more confidently on their own. Eventually, the familiar steps become a foundation they can use in their own artwork.",
+          items: [
+            {
+              title: "Drawing for ages 5-6",
+              text: [
+                "Tracing can be especially helpful at this age. Children first follow the dotted outline, getting a feel for the shape and movement of the lines, and then try drawing the same picture on their own.",
+                "Large, familiar subjects such as a cat, dog, fish, or flower are a great place to begin. Because the instructions are completely visual, children do not need to be able to read to follow the steps.",
+              ],
+            },
+            {
+              title: "Drawing for ages 7-8",
+              text: [
+                "Children are more comfortable with a pencil and often want their drawing to look like the example. This is where the step-by-step method really helps: what looks complicated at first is built from a series of simple shapes.",
+                "When the drawing is finished, children can color it before moving on to the next one.",
+              ],
+            },
+            {
+              title: "Drawing for ages 9-10",
+              text: [
+                "At this age, the step-by-step examples can become a starting point for more independent drawing. Children can repeat a drawing, practice in the space provided, and gradually use familiar shapes and techniques in artwork of their own.",
+              ],
+            },
+            {
+              title: "For teachers, classrooms, and art programs",
+              text: [
+                "With 111 different drawings, the book can be used throughout the school year, for example two or three activities a week. There are no loose worksheets to print, collect, or organize. Each child can have their own book, with all of their artwork kept together in order.",
+                "It works well for short drawing lessons, morning work, early-finisher activities, independent art time, homeschool, and elementary art activities. The fun fact included with each drawing also gives teachers an easy way to extend the activity into a short conversation or learning moment.",
+              ],
+            },
+          ],
+        },
+        about: [
+          "How to Draw 111 was published by Magic of Discoveries LLC on April 23, 2024. The book has 231 pages, 111 different drawing subjects, and a large 8.5 x 11 inch format.",
+          "The English edition was a finalist in the Educational category of the Children's Book International Awards 2025 and has a 4.9 out of 5 rating from 36 customer reviews.",
+          "Every drawing gets a full two-page spread. On one page, the picture is broken down into simple steps, usually six. It begins with a basic shape, and each new step adds another detail. Earlier lines turn gray, making it easy for children to see exactly what they need to add next.",
+          "On the facing page, the same picture appears as a dotted outline for tracing, with blank space beside it for the child to draw it independently.",
+          "The 111 subjects include land animals, sea life, fairy-tale characters, vehicles, sports, everyday objects, nature, and food. Children can learn to draw a lion, elephant, zebra, giraffe, koala, fox, whale, dolphin, octopus, unicorn, mermaid, dragon, rocket, hot air balloon, cupcake, ice cream, and much more.",
+          "Each drawing also comes with a short fun fact, adding a little discovery and learning to every drawing session.",
+          "Every illustration was drawn by hand by our illustrator, with no artificial intelligence used. No separate sketchbook is needed because practice space is built right into the book.",
+          "And when the book is finished, the drawings do not disappear into a pile of loose paper. They stay together in the order they were created. Over time, a drawing workbook becomes something more: a keepsake filled with a child's early artwork that a family can hold on to for years.",
+          "The series also includes a shorter, simpler companion, How to Draw Everything, designed for children who are just getting started. How to Draw 111 offers the next step, with more subjects and more room to learn and practice.",
+        ],
+        seoTitle:
+          "How to Draw Book for Kids Ages 5-10 | 111 Step-by-Step Drawings",
+        seoDescription:
+          "Step-by-step drawing book for kids with 111 drawings, easy visual steps, tracing practice, and space to draw right in the book. No extra paper needed. 231 pages.",
+        altNames: [
+          "How to Draw Book for Kids Step by Step",
+          "Drawing Book for Kids Ages 5-10",
+          "Learn to Draw Animals for Kids",
+          "Step-by-Step Drawing Book with Practice Pages",
+          "Directed Drawing Book for Kids",
+        ],
+        keywords: [
+          "how to draw books for kids",
+          "step by step drawing book for kids",
+          "drawing book for kids ages 5-10",
+          "drawing book for kids ages 4-8",
+          "drawing book for kids ages 8-12",
+          "learn to draw animals for kids",
+          "how to draw animals step by step for kids",
+          "drawing practice book for kids",
+          "directed drawing for kids",
+          "how to draw a unicorn step by step",
+          "how to draw a lion step by step",
+          "art book for elementary classroom",
+          "drawing activities for kids",
+          "drawing book with practice pages",
+          "gift for kids who love to draw",
+        ],
+        linkPhrases: [
+          "step-by-step drawing book for kids",
+          "how to draw 111 animals and characters",
+          "drawing book with practice pages",
+          "learn to draw step by step",
+        ],
         faq: [
           {
-            q: "Does a child need help from an adult?",
-            a: "No, and that is deliberate. The steps are visual, so a child who cannot read yet can still follow them.",
+            q: "My child says they can't draw. Is this book really for beginners?",
+            a: "Yes. That is exactly what it was designed for. Each drawing begins with a simple shape, such as a circle or oval, and adds one detail at a time. Black lines show what to draw now, while gray lines show what is already in place.",
+          },
+          {
+            q: "Does an adult need to help?",
+            a: "Usually not. The drawing instructions are completely visual, with no reading required, so even children who are not reading yet can follow the steps independently.",
+          },
+          {
+            q: "What ages is the book for?",
+            a: "It is designed primarily for children ages 5 to 10. Every child develops at a different pace, so some may be ready earlier while others may enjoy the book when they are older.",
+          },
+          {
+            q: "Does my child need a separate sketchbook?",
+            a: "No. Practice space is built right into the book. Children can trace the picture and then draw it themselves, while all of their work stays together in one place.",
+          },
+          {
+            q: "Can children color the drawings too?",
+            a: "Yes. Children can color their drawings with colored pencils or markers, combining step-by-step drawing, tracing, independent practice, and coloring in one activity.",
+          },
+          {
+            q: "Can teachers use it in the classroom?",
+            a: "Yes. With 111 drawings, teachers can spread the activities throughout the school year. Each student can work in their own book, eliminating the need to continually print, collect, and organize loose drawing worksheets.",
+          },
+          {
+            q: "How long does one drawing take?",
+            a: "A typical drawing session takes about 15 to 20 minutes for the steps, tracing, and independent drawing. Coloring can extend the activity.",
           },
           {
             q: "How is this different from How to Draw Everything?",
-            a: "This is the larger book with 111 subjects and more detail per drawing. How to Draw Everything is a shorter, simpler and cheaper introduction to the same method.",
-          },
-          {
-            q: "Does the child need a separate sketchbook?",
-            a: "No, and that is deliberate. Each drawing has its own practice page inside the book, so the finished attempts stay together in order instead of ending up on loose sheets that get thrown out.",
+            a: "How to Draw Everything is shorter and simpler, designed as an introduction. How to Draw 111 offers 111 different subjects, more practice, and a more extensive step-by-step drawing experience.",
           },
         ],
       },
@@ -2148,10 +2254,17 @@ export const books: Book[] = [
     slug: { es: "como-dibujar-111-dibujos-faciles-paso-a-paso-para-ninos" },
     copy: {
       es: {
+        intro: [
+          "111 dibujos divididos en pasos sencillos. Con dos o tres dibujos por semana, hay actividades para usar durante todo el año escolar",
+          "Una página doble completa para cada dibujo: seguir los pasos, repasar el contorno punteado, dibujarlo solo y colorearlo",
+          "Instrucciones completamente visuales, sin necesidad de leer, así que incluso los niños que todavía no leen pueden seguir los pasos por su cuenta",
+          "Un dato curioso con cada dibujo: leones, jirafas, ballenas, unicornios, pastelitos, veleros y mucho más",
+          "Nada se pierde en hojas sueltas. Todos los dibujos quedan juntos en el libro, que con el tiempo se convierte en un recuerdo de sus primeros trabajos",
+        ],
         title: "Cómo Dibujar 111 Animales y Personajes, Paso a Paso",
-        subtitle: "El niño dibuja solo, paso a paso, en el propio libro",
+        subtitle: "Dibujo paso a paso para niños de 5 a 10 años, con espacio para practicar dentro del libro",
         lead:
-          "Una guía profesional de dibujo hecha para niños. Cada dibujo se divide normalmente en seis pasos, ni uno más: el niño los repite y llega al resultado por su cuenta. Después repasa la línea punteada, y al lado tiene tanto sitio que puede intentarlo dos veces.\n\nNada se pierde ni acaba en hojas sueltas. Todo se queda en un mismo libro, que se puede firmar y sacar años después para ver cómo empezó.",
+          "Casi todos los niños dicen alguna vez: «No sé dibujar». Muchas veces, simplemente no saben por dónde empezar.\n\nEn este libro, el comienzo siempre es sencillo: un círculo, un óvalo, unas cuantas líneas. Después se agregan nuevos detalles paso a paso, mientras las líneas anteriores quedan en gris para que el niño vea enseguida qué tiene que añadir. Unos pasos después, esas formas sencillas se han convertido en un león, una jirafa, un dragón, un cohete o cualquier otro dibujo, y lo hizo el niño.",
         inside: [
           "Dos páginas dobles por cada dibujo",
           "231 páginas, no hace falta papel aparte",
@@ -2164,18 +2277,116 @@ export const books: Book[] = [
         ],
         forWhom:
           "De 5 a 10 años, según el niño: uno empieza a los seis y otro solo quiere a los nueve, y el libro sirve para los dos. Para quien dice que no sabe dibujar, para maestros que necesitan una actividad tranquila e independiente, y para adultos que aprenden junto a ellos.",
+        ageGuide: {
+          title: "Cómo enseñar a dibujar a un niño: dibujo paso a paso por edades",
+          lead:
+            "El mismo libro puede acompañar al niño durante varios años. Al principio repasa y copia los dibujos. A medida que desarrolla sus habilidades, empieza a dibujar con más seguridad por su cuenta. Con el tiempo, los pasos que ya conoce se convierten en una base para crear sus propios dibujos.",
+          items: [
+            {
+              title: "Dibujo para niños de 5 a 6 años",
+              text: [
+                "A esta edad, repasar el contorno punteado puede ser especialmente útil. El niño primero sigue las líneas, se familiariza con la forma y el movimiento del lápiz y después intenta dibujar la misma figura por su cuenta.",
+                "Los dibujos grandes y conocidos, como un gato, un perro, un pez o una flor, son un buen punto de partida. Como las instrucciones son completamente visuales, no es necesario saber leer para seguir los pasos.",
+              ],
+            },
+            {
+              title: "Dibujo para niños de 7 a 8 años",
+              text: [
+                "El niño ya maneja el lápiz con más seguridad y suele querer que su dibujo se parezca al modelo. Aquí el método paso a paso resulta especialmente útil: un dibujo que al principio parece complicado se construye poco a poco a partir de formas sencillas.",
+                "Al terminar, el niño también puede colorearlo antes de pasar al siguiente.",
+              ],
+            },
+            {
+              title: "Dibujo para niños de 9 a 10 años",
+              text: [
+                "A esta edad, los ejemplos paso a paso pueden servir como punto de partida para dibujar de manera más independiente. El niño puede repetir un dibujo, practicar en el espacio disponible y empezar a utilizar las formas y técnicas que ya conoce en sus propias creaciones.",
+              ],
+            },
+            {
+              title: "Para maestros, escuelas y talleres de arte",
+              text: [
+                "Con 111 dibujos diferentes, el libro puede utilizarse durante todo el año escolar, por ejemplo con dos o tres actividades por semana. No hay hojas sueltas que imprimir, repartir, recoger u organizar. Cada niño puede tener su propio libro y conservar todos sus trabajos juntos y en orden.",
+                "Es práctico para actividades de la mañana, para quienes terminan temprano, para momentos de dibujo independiente, homeschool y clases de arte en primaria. Además, el dato curioso que acompaña cada dibujo ofrece al maestro una manera sencilla de ampliar la actividad con una breve conversación o aprendizaje adicional.",
+              ],
+            },
+          ],
+        },
+        about: [
+          "Cómo dibujar 111 fue publicado por Magic of Discoveries LLC el 23 de abril de 2024. Tiene 231 páginas, 111 dibujos diferentes y un formato grande de 21,6 x 27,9 cm (8.5 x 11 pulgadas).",
+          "La edición en inglés fue finalista en la categoría educativa de los Children's Book International Awards 2025 y tiene una calificación de 4,9 sobre 5 basada en 36 reseñas de compradores.",
+          "Cada dibujo ocupa una página doble completa. En una página, la imagen se construye paso a paso, normalmente en seis etapas sencillas. El dibujo comienza con una forma básica y en cada paso se agrega un nuevo detalle. Las líneas de los pasos anteriores quedan en gris, para que el niño vea fácilmente qué tiene que añadir a continuación.",
+          "En la página de al lado, el mismo dibujo aparece con un contorno punteado para repasarlo y, junto a él, hay espacio en blanco para que el niño lo dibuje por su cuenta.",
+          "Los 111 dibujos incluyen animales terrestres y marinos, personajes de cuentos, vehículos, deportes, objetos cotidianos, naturaleza y comida. Los niños pueden aprender a dibujar un león, un elefante, una cebra, una jirafa, un koala, un zorro, una ballena, un delfín, un pulpo, un unicornio, una sirena, un dragón, un cohete, un globo aerostático, un pastelito, un helado y mucho más.",
+          "Cada dibujo incluye además un breve dato curioso, de modo que cada sesión de dibujo también ofrece la oportunidad de aprender algo nuevo.",
+          "Todos los dibujos fueron creados a mano por nuestro ilustrador, sin utilizar inteligencia artificial. No hace falta un cuaderno de dibujo aparte: el espacio para practicar ya está dentro del libro.",
+          "Y cuando el libro se termina, los dibujos no desaparecen entre montones de hojas sueltas. Permanecen juntos y en el orden en que fueron creados. Con el tiempo, el libro deja de ser solamente un recurso para aprender a dibujar y se convierte también en un recuerdo lleno de los primeros trabajos del niño que la familia puede conservar durante muchos años.",
+          "La serie también incluye un libro más corto y sencillo, Cómo dibujar todo, pensado para quienes están comenzando. Cómo dibujar 111 ofrece el siguiente nivel, con más dibujos y más espacio para aprender y practicar.",
+        ],
+        seoTitle:
+          "Cómo dibujar para niños de 5 a 10 años | 111 dibujos paso a paso",
+        seoDescription:
+          "Libro para aprender a dibujar paso a paso: 111 dibujos con instrucciones visuales, contornos punteados y espacio para practicar dentro del libro. 231 páginas.",
+        altNames: [
+          "Libro para aprender a dibujar paso a paso",
+          "Libro de dibujo para niños de 5 a 10 años",
+          "Cómo dibujar animales para niños",
+          "Libro de dibujo con espacio para practicar",
+          "Dibujo dirigido para niños",
+        ],
+        keywords: [
+          "aprender a dibujar para niños paso a paso",
+          "libro de dibujo paso a paso para niños",
+          "cómo dibujar animales para niños",
+          "aprender a dibujar niños 5 años",
+          "aprender a dibujar niños 8 años",
+          "libro para aprender a dibujar",
+          "dibujo dirigido para niños",
+          "cómo dibujar un unicornio paso a paso",
+          "cómo dibujar un león paso a paso",
+          "cuaderno de dibujo para niños",
+          "actividades de dibujo para niños",
+          "dibujo para niños de primaria",
+          "libro de dibujo con espacio para practicar",
+          "regalo para niños que les gusta dibujar",
+        ],
+        linkPhrases: [
+          "libro de dibujo paso a paso para niños",
+          "cómo dibujar 111 dibujos",
+          "aprender a dibujar paso a paso",
+          "libro de dibujo con espacio para practicar",
+        ],
         faq: [
           {
-            q: "¿Necesita ayuda de un adulto?",
-            a: "No, y es intencionado. Los pasos son visuales, así que un niño que todavía no lee puede seguirlos igual.",
+            q: "Mi hijo dice que no sabe dibujar. ¿Este libro sirve para principiantes?",
+            a: "Sí. Está pensado precisamente para comenzar. Cada dibujo empieza con una forma sencilla, como un círculo o un óvalo, y después se agrega un detalle a la vez. Las líneas negras muestran qué hay que dibujar en ese paso y las grises muestran lo que ya está hecho.",
           },
           {
-            q: "¿En qué se diferencia de Cómo Dibujar Todo?",
-            a: "Este es el libro grande, con 111 temas y más detalle por dibujo. Cómo Dibujar Todo es una introducción más corta, más simple y más barata al mismo método.",
+            q: "¿Necesita la ayuda de un adulto?",
+            a: "Por lo general, no. Las instrucciones para dibujar son completamente visuales y no requieren lectura, así que incluso los niños que todavía no leen pueden seguir los pasos por su cuenta.",
           },
           {
-            q: "¿Hace falta un cuaderno aparte?",
-            a: "No, y es intencionado. Cada dibujo tiene dentro su propia página de práctica, así los intentos terminados se quedan juntos y en orden, en vez de acabar en hojas sueltas que se tiran.",
+            q: "¿Para qué edades es?",
+            a: "Está pensado principalmente para niños de 5 a 10 años. Cada niño desarrolla sus habilidades a su propio ritmo, por lo que algunos pueden comenzar antes y otros disfrutarlo cuando son un poco mayores.",
+          },
+          {
+            q: "¿Hace falta un cuaderno de dibujo aparte?",
+            a: "No. El espacio para practicar está dentro del mismo libro. El niño puede repasar el dibujo y después hacerlo por su cuenta, mientras todos sus trabajos permanecen juntos.",
+          },
+          {
+            q: "¿También se pueden colorear los dibujos?",
+            a: "Sí. Los niños pueden colorearlos con lápices de colores o marcadores. Así, una misma actividad combina dibujo paso a paso, repaso, práctica independiente y coloreado.",
+          },
+          {
+            q: "¿Se puede usar en el salón de clases?",
+            a: "Sí. Con 111 dibujos, los maestros pueden distribuir las actividades a lo largo de todo el año escolar. Cada alumno puede trabajar en su propio libro, sin necesidad de imprimir, recoger y organizar continuamente hojas sueltas.",
+          },
+          {
+            q: "¿Cuánto tiempo toma hacer un dibujo?",
+            a: "Una sesión suele tomar unos 15 a 20 minutos entre los pasos, el repaso y el dibujo independiente. Si el niño también lo colorea, la actividad puede durar más.",
+          },
+          {
+            q: "¿En qué se diferencia de Cómo dibujar todo?",
+            a: "Cómo dibujar todo es más corto y sencillo y está pensado como introducción. Cómo dibujar 111 incluye 111 dibujos diferentes, más práctica y un aprendizaje paso a paso más completo.",
           },
         ],
       },
@@ -5064,10 +5275,17 @@ export const books: Book[] = [
     slug: { ru: "kak-narisovat-111-poshagovoe-risovanie-dlya-detey" },
     copy: {
       ru: {
+        intro: [
+          "111 рисунков, разобранных на простые шаги. Если рисовать по два-три в неделю, книги хватит на весь учебный год",
+          "Целый разворот для каждого рисунка: посмотреть шаги, обвести по пунктиру, нарисовать самому и раскрасить",
+          "Все шаги показаны картинками, без текста, поэтому даже ребенок, который еще не читает, может заниматься самостоятельно",
+          "Рядом с каждым рисунком короткий интересный факт: лев, жираф, кит, единорог, кекс, парусник и многое другое",
+          "Никаких отдельных листов. Все работы остаются в одной книге, которая со временем превращается в альбом первых рисунков ребенка",
+        ],
         title: "Как нарисовать. 111 рисунков шаг за шагом",
-        subtitle: "Пошаговое рисование для детей от 5 лет",
+        subtitle: "Пошаговое рисование для детей 5-10 лет, с местом для практики прямо в книге",
         lead:
-          "Каждый рисунок разобран на простые шаги, которые ребенок может повторить сам. Рядом - страница с пунктиром для обводки и чистое место, чтобы попробовать нарисовать самостоятельно. 111 тем: животные, водные обитатели, сказочные герои, транспорт, цветы и еда. Продолжение первой книги-раскраски: те же герои, только теперь ребенок учится их рисовать.",
+          "Почти каждый ребенок когда-нибудь говорит: «Я не умею рисовать». Чаще всего он просто не знает, с чего начать.\n\nВ этой книге начало всегда простое: круг, овал, несколько линий. Затем шаг за шагом добавляются новые детали, а предыдущие остаются серыми, чтобы ребенок сразу видел, что нужно нарисовать дальше. Через несколько шагов простые формы превращаются в льва, жирафа, дракона, ракету или другой рисунок, и ребенок сделал его сам.",
         inside: [
           "111 рисунков, каждый разобран по шагам",
           "Страница с пунктиром, по которому ребенок обводит рисунок",
@@ -5079,10 +5297,117 @@ export const books: Book[] = [
         ],
         forWhom:
           "Детям от 5 до 10 лет. Подходит для занятий дома, в кружке и на уроке рисования, а также тем, кто уже перерос обычные раскраски.",
+        ageGuide: {
+          title: "Как научить ребенка рисовать: пошаговое рисование по возрастам",
+          lead:
+            "Одна и та же книга может сопровождать ребенка несколько лет. Сначала он обводит рисунки и повторяет их по образцу. Потом все увереннее рисует самостоятельно. А со временем использует знакомые шаги как основу для собственных рисунков.",
+          items: [
+            {
+              title: "Рисование для детей 5-6 лет",
+              text: [
+                "В этом возрасте особенно помогает обводка по пунктиру. Ребенок сначала проводит карандашом по готовому контуру, чувствует форму и движение линии, а затем пробует нарисовать тот же рисунок самостоятельно.",
+                "Начать можно с крупных и знакомых объектов: кота, собаки, рыбки или цветка. Простая последовательность картинок позволяет заниматься даже детям, которые еще не умеют читать.",
+              ],
+            },
+            {
+              title: "Рисование для детей 7-8 лет",
+              text: [
+                "Ребенок уже увереннее держит карандаш и хочет получить рисунок, похожий на образец. Здесь особенно хорошо работает пошаговый принцип книги: сложный рисунок постепенно складывается из простых форм.",
+                "После этого готовую работу можно раскрасить и перейти к следующему рисунку.",
+              ],
+            },
+            {
+              title: "Рисование для детей 9-10 лет",
+              text: [
+                "В этом возрасте пошаговые схемы становятся хорошей основой для более самостоятельного рисования. Ребенок может повторять рисунок, тренироваться на свободном месте и постепенно использовать знакомые формы и приемы уже в собственных работах.",
+              ],
+            },
+            {
+              title: "Для учителей, школ и художественных кружков",
+              text: [
+                "111 рисунков позволяют использовать книгу в течение всего учебного года, например по два-три задания в неделю. Не нужно распечатывать и раздавать отдельные рабочие листы: у каждого ребенка своя книга, и все его работы остаются в ней по порядку.",
+                "Книгу удобно использовать для коротких занятий по рисованию, самостоятельной работы, творческих заданий и занятий в начальной школе. А короткий интересный факт рядом с рисунком дает дополнительную тему для разговора с детьми.",
+              ],
+            },
+          ],
+        },
+        about: [
+          "Книга «Как нарисовать. 111 рисунков шаг за шагом» вышла в издательстве Magic of Discoveries LLC 23 апреля 2024 года. В ней 231 страница и 111 разных рисунков. Формат страницы 21,6 x 27,9 см (8.5 x 11 дюймов).",
+          "Английское издание стало финалистом Children's Book International Awards 2025 в образовательной категории и имеет оценку 4,9 из 5 по 36 отзывам покупателей.",
+          "Каждому рисунку отведен целый разворот. На одной странице показано, как создать его шаг за шагом, обычно за шесть простых этапов. Первый шаг это простая форма. Затем на каждом следующем этапе добавляется новая деталь, а предыдущие линии становятся серыми. Поэтому ребенок сразу видит, что именно нужно добавить.",
+          "На соседней странице тот же рисунок дан пунктиром для обводки, а рядом оставлено свободное место, чтобы ребенок нарисовал его самостоятельно.",
+          "В книге собраны животные суши и моря, сказочные герои, транспорт, спорт, предметы, природа и еда. Среди 111 рисунков лев, слон, зебра, жираф, коала, лиса, кит, дельфин, осьминог, единорог, русалка, дракон, ракета, воздушный шар, кекс, мороженое и многое другое.",
+          "Рядом с каждым рисунком есть короткий интересный факт. Поэтому ребенок не только рисует, но и узнает что-то новое.",
+          "Все рисунки созданы вручную нашим художником, без использования искусственного интеллекта. Отдельный альбом не нужен: место для практики уже есть внутри книги.",
+          "Русское издание выпускается в виде файла для печати. Ссылка приходит сразу после оплаты, файл остается у вас, и любую страницу можно распечатать столько раз, сколько потребуется: дома, в школе или в копировальном центре. Есть два размера листа, Letter и A4.",
+          "И самое важное: детские работы не теряются среди отдельных листов. Они остаются вместе, в том порядке, в котором ребенок их рисовал. Со временем книга становится не только пособием по рисованию, но и личным альбомом его первых работ, который можно сохранить на долгие годы.",
+          "В серии есть и более короткая простая книга, «Как нарисовать все на свете», она рассчитана на самое начало. «111 рисунков шаг за шагом» это большая книга с более подробной практикой и множеством тем.",
+        ],
+        seoTitle:
+          "Как нарисовать. 111 рисунков шаг за шагом для детей 5-10 лет",
+        seoDescription:
+          "Пошаговое рисование для детей: 111 рисунков с простыми этапами, обводкой по пунктиру и местом для самостоятельного рисования прямо в книге. 231 страница, файл для печати.",
+        altNames: [
+          "книга по пошаговому рисованию для детей",
+          "уроки рисования для детей 5-10 лет",
+          "рисуем по шагам",
+          "как научить ребенка рисовать",
+          "книга с заданиями по рисованию",
+        ],
+        keywords: [
+          "как научить ребенка рисовать поэтапно",
+          "пошаговое рисование для детей",
+          "уроки рисования для детей 5 лет",
+          "уроки рисования для детей 7 лет",
+          "как нарисовать животных поэтапно для детей",
+          "книга как научиться рисовать для детей",
+          "рисование по шагам для дошкольников",
+          "как нарисовать единорога поэтапно",
+          "как нарисовать льва поэтапно",
+          "альбом для рисования с заданиями",
+          "занятия рисованием дома",
+          "рисование по шагам распечатать",
+          "книга по рисованию для детей распечатать",
+          "пошаговое рисование pdf",
+        ],
+        linkPhrases: [
+          "пошаговое рисование для детей",
+          "как нарисовать 111 рисунков",
+          "книга по рисованию для детей 5-10 лет",
+          "уроки рисования шаг за шагом",
+        ],
         faq: [
           {
-            q: "Ребенок совсем не умеет рисовать, справится?",
-            a: "Да, книга сделана именно для этого. Первый шаг - простая фигура вроде круга или овала, затем к ней добавляется по одной детали. Черная линия показывает текущий шаг, серая - то, что уже нарисовано, поэтому ребенок не теряет место.",
+            q: "Ребенок совсем не умеет рисовать. Он справится?",
+            a: "Да. Книга как раз создана для начинающих. Первый шаг это простая форма, например круг или овал, а дальше по одной добавляются новые детали. Черные линии показывают, что нужно нарисовать сейчас, а серые то, что уже было нарисовано.",
+          },
+          {
+            q: "Нужна ли помощь взрослого?",
+            a: "Обычно нет. Все шаги показаны картинками, без текстовых инструкций, поэтому даже ребенок, который еще не умеет читать, может следовать им самостоятельно.",
+          },
+          {
+            q: "С какого возраста подходит книга?",
+            a: "Примерно с пяти лет. Дети развиваются по-разному, поэтому одному ребенку книга подойдет в пять, другому в семь или восемь. Основной возраст 5-10 лет.",
+          },
+          {
+            q: "Нужен ли отдельный альбом?",
+            a: "Нет. Для практики предусмотрено место прямо в книге. Ребенок обводит рисунок, затем рисует его самостоятельно, а все работы остаются вместе.",
+          },
+          {
+            q: "Можно ли раскрашивать рисунки?",
+            a: "Да. Рисунки можно раскрашивать карандашами или фломастерами. Так одно занятие объединяет пошаговое рисование, обводку, самостоятельную практику и раскрашивание.",
+          },
+          {
+            q: "Подходит ли книга для занятий в школе?",
+            a: "Да. 111 рисунков позволяют распределить занятия на весь учебный год. У каждого ребенка может быть собственная книга, поэтому учителю не нужно постоянно распечатывать, собирать и хранить отдельные рабочие листы.",
+          },
+          {
+            q: "Сколько времени занимает один рисунок?",
+            a: "Обычно около 15-20 минут на пошаговое рисование, обводку и самостоятельную попытку. Если ребенок захочет раскрасить работу, занятие продлится дольше.",
+          },
+          {
+            q: "Чем эта книга отличается от «Как нарисовать все на свете»?",
+            a: "«Как нарисовать все на свете» короче и проще и рассчитана на самое начало. В этой книге 111 разных рисунков, больше практики и более подробное пошаговое обучение.",
           },
           faqPdfEditionRu,
           faqPaperSizeRu,

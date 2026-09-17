@@ -25,6 +25,7 @@ import type { TeachersImage } from "@/data/teachers";
 import { teacherProducts, teacherProductPath } from "@/data/teacherBooks";
 import TeacherBookRows from "@/components/TeacherBooks";
 import { articlesForLang, articleUi } from "@/data/teacherArticles";
+import { drawingArticlesForLang, drawingHub } from "@/data/drawingArticles";
 import { PageHead, BookCard } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
 import {
@@ -77,6 +78,10 @@ function headingFor(lang: UiLang, s: Section) {
     case "teachers": {
       const tt = teachersForLang(lang);
       return { title: tt?.title ?? t.nav.teachers, lead: tt?.lead };
+    }
+    case "learn": {
+      const d = drawingHub[lang];
+      return { title: d?.title ?? t.nav.learn, lead: d?.lead };
     }
     case "coloring":
       return { title: t.free.title, lead: t.free.lead };
@@ -249,6 +254,31 @@ export default async function SectionPage({
      потом три-четыре строки о том, кому и когда это нужно, бесплатные
      задания, короткие вопросы. Подробности о каждой книге живут на ее
      собственной странице. */
+  /* ---------- Раздел "Как научить рисовать": список статей ---------- */
+  if (s === "learn") {
+    const d = drawingHub[lang];
+    const list = drawingArticlesForLang(lang);
+    if (!d || !list.length) notFound();
+    return (
+      <>
+        <Crumbs />
+        <PageHead title={d.title} lead={d.lead} />
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          <ul className="guide-next">
+            {list.map((a) => (
+              <li key={a.id}>
+                <Link href={itemPath(lang, "learn", a.slug[lang]!)}>
+                  <b>{a.copy[lang]!.title}</b>
+                  <span>{a.copy[lang]!.lead}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
+    );
+  }
+
   if (s === "teachers") {
     const c = teachersForLang(lang);
     if (!c) notFound();

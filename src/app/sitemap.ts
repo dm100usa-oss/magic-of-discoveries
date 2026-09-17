@@ -3,6 +3,7 @@ import { booksForLang } from "@/data/books";
 import { pagesForLang, groupsForLang, previewUrl } from "@/data/coloringPages";
 import { guidesForLang } from "@/data/method";
 import { articlesForLang } from "@/data/teacherArticles";
+import { drawingArticlesForLang } from "@/data/drawingArticles";
 import { teacherBundles } from "@/data/teacherBooks";
 import { wordsPagesForLang } from "@/data/firstWords";
 import { activeLangs } from "@/data/dictionaries";
@@ -70,6 +71,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const a of articlesForLang(lang)) {
       out.push({
         url: SITE_URL + itemPath(lang, "teachers", a.slug[lang]!),
+        lastModified: new Date(a.updated),
+        priority: 0.85,
+      });
+    }
+    for (const a of drawingArticlesForLang(lang)) {
+      out.push({
+        url: SITE_URL + itemPath(lang, "learn", a.slug[lang]!),
         lastModified: new Date(a.updated),
         priority: 0.85,
       });

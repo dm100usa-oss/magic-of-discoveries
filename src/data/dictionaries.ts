@@ -8,6 +8,7 @@ export interface Dictionary {
     books: string;
     method: string;
     teachers: string;
+    learn: string;
     coloringPages: string;
     firstWords: string;
     /** Раздел простых раскрасок для взрослых. */
@@ -276,6 +277,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       books: "Books",
       method: "The method",
       teachers: "For teachers",
+      learn: "How to teach drawing",
       coloringPages: "Free coloring pages",
       firstWords: "First words",
       adults: "For adults",
@@ -602,6 +604,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       books: "Libros",
       method: "El método",
       teachers: "Para maestros",
+      learn: "Cómo enseñar a dibujar",
       coloringPages: "Dibujos gratis",
       firstWords: "Primeras palabras",
       adults: "Para adultos",
@@ -928,6 +931,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       books: "Книги",
       method: "Метод",
       teachers: "Учителям",
+      learn: "Как научить рисовать",
       coloringPages: "Бесплатные раскраски",
       firstWords: "Первые слова",
       adults: "Для взрослых",

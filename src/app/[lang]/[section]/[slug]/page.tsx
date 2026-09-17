@@ -38,6 +38,12 @@ import {
   relatedArticles,
   articleUi,
 } from "@/data/teacherArticles";
+import {
+  drawingArticlesForLang,
+  drawingArticleBySlug,
+  drawingArticleUi,
+  relatedDrawingArticles,
+} from "@/data/drawingArticles";
 import { teachersForLang } from "@/data/teachers";
 import {
   teacherProductBySlug,
@@ -156,6 +162,13 @@ export function generateStaticParams() {
         slug: a.slug[lang]!,
       });
     }
+    for (const a of drawingArticlesForLang(lang)) {
+      out.push({
+        lang,
+        section: sectionSlugs[lang].learn,
+        slug: a.slug[lang]!,
+      });
+    }
     for (const w of wordsPagesForLang(lang)) {
       out.push({
         lang,
@@ -262,6 +275,24 @@ export async function generateMetadata({
     };
   }
 
+  if (s === "learn") {
+    const art = drawingArticleBySlug(lang, slug);
+    const c = art?.copy[lang];
+    if (!art || !c) return {};
+    const languages = langAlternates(
+      Object.fromEntries(
+        activeLangs
+          .filter((l) => art.slug[l])
+          .map((l) => [l, `${SITE_URL}${itemPath(l, "learn", art.slug[l]!)}`]),
+      ),
+    );
+    return {
+      title: c.title,
+      description: c.answer.slice(0, 300),
+      alternates: { canonical: itemPath(lang, "learn", slug), languages },
+    };
+  }
+
   if (s === "teachers") {
     const art = articleBySlug(lang, slug);
     const c = art?.copy[lang];
@@ -335,6 +366,19 @@ export async function generateMetadata({
     };
   }
   return {};
+}
+
+
+/* Две ссылки в конце статьи раздела "Как научить рисовать": книга,
+   о которой идет речь, и бесплатные развороты из нее. Адреса берем
+   из данных, чтобы они не разошлись при смене slug. */
+function drawBookPath(lang: UiLang) {
+  const b = bookById(`how-to-draw-111-${lang}`);
+  return b?.slug[lang] ? itemPath(lang, "books", b.slug[lang]!) : sectionPath(lang, "books");
+}
+function drawFreePath(lang: UiLang) {
+  const p = pagesForLang(lang).find((x) => x.id === "draw-animals-step-by-step");
+  return p?.slug[lang] ? itemPath(lang, "coloring", p.slug[lang]!) : sectionPath(lang, "coloring");
 }
 
 function BuyButtons({ book, lang }: { book: Book; lang: UiLang }) {
@@ -909,6 +953,176 @@ export default async function ItemPage({
 
   /* ---------- Страница-руководство раздела Метод ---------- */
   /* ---------- Статья раздела для учителей ---------- */
+  if (s === "learn") {
+    const art = drawingArticleBySlug(lang, slug);
+    const c = art?.copy[lang];
+        const ui = drawingArticleUi[lang];
+    if (!art || !c || !ui) notFound();
+    const related = relatedDrawingArticles(art, lang);
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        /* Издательство целиком. Дальше по странице на него только ссылка. */
+        orgNode(),
+        {
+          "@type": "Article",
+          headline: c.title,
+          description: c.lead,
+          /* Прямой ответ первым абзацем. Его нейросеть берет целиком. */
+          abstract: c.answer,
+          inLanguage: lang,
+          /* Автор статьи это человек с именем, а не компания. Поисковик
+             и нейросеть заметно больше доверяют тексту с живым автором,
+             которого можно проверить по внешней ссылке. */
+          author: ricardoNode(lang),
+          publisher: orgRef(),
+          /* Свои даты у каждой статьи, а не одна общая на весь сайт. */
+          datePublished: art.published,
+          dateModified: art.updated,
+          mainEntityOfPage: `${SITE_URL}${itemPath(lang, "learn", slug)}`,
+          about: { "@type": "Thing", name: "Directed drawing" },
+          audience: [
+            { "@type": "EducationalAudience", educationalRole: "teacher" },
+            { "@type": "EducationalAudience", educationalRole: "parent" },
+            { "@type": "EducationalAudience", educationalRole: "homeschooler" },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: c.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+        breadcrumbs(lang, [
+          { name: t.nav.learn, path: sectionPath(lang, "learn") },
+          { name: c.title, path: itemPath(lang, "learn", slug) },
+        ]),
+      ],
+    };
+
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+        <PageHead title={c.title} lead={c.lead} />
+
+        {/* Подпись автора и даты. Видны человеку, а не только машине:
+            читатель должен знать, кто написал и когда, до того как начнет
+            доверять тексту. Имя ведет на страницу об издательстве. */}
+        <section className="teach-block">
+          <div className="teach">
+            <p className="byline">
+              {ui.by}{" "}
+              <Link href={sectionPath(lang, "about")}>Ricardo Demi</Link>
+              {" · "}
+              {ui.published}{" "}
+              <time dateTime={art.published}>{fmtDate(art.published, lang)}</time>
+              {art.updated !== art.published ? (
+                <>
+                  {" · "}
+                  {ui.updated}{" "}
+                  <time dateTime={art.updated}>{fmtDate(art.updated, lang)}</time>
+                </>
+              ) : null}
+            </p>
+          </div>
+        </section>
+
+        {/* Прямой ответ. Первый абзац страницы. */}
+        <section className="teach-block">
+          <div className="teach">
+            <p className="teach-def">{c.answer}</p>
+          </div>
+        </section>
+
+        {c.body.map((part, i) => (
+          <section
+            key={part.h}
+            className={i % 2 === 0 ? "band band--cream" : "teach-block"}
+          >
+            <div className="teach">
+              <h2 className="section">{part.h}</h2>
+              {part.p.map((para) => (
+                <p className="teach-p" key={para.slice(0, 24)}>
+                  {para}
+                </p>
+              ))}
+            </div>
+          </section>
+        ))}
+
+        {/* Короткий список. Его нейросети тоже цитируют охотно. */}
+        <section className="band band--mint">
+          <div className="teach">
+            <h2 className="section">{c.listTitle}</h2>
+            <ul className="teach-list">
+              {c.list.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="teach-block">
+          <div className="teach">
+            <h2 className="section">{ui.faq}</h2>
+            <div className="faq faq--two">
+              {c.faq.map((f, i) => (
+                <details key={f.q} open={i < 2}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Те же две книги, что и на главной странице раздела. */}
+        <section className="band band--mint">
+          <div className="teach">
+            <h2 className="section">{c.ctaTitle}</h2>
+            <p className="teach-p">{c.ctaLead}</p>
+            <p className="teach-p">
+              <Link className="btn btn--pink" href={drawBookPath(lang)}>
+                {t.nav.books}
+              </Link>{" "}
+              <Link className="btn btn--mint" href={drawFreePath(lang)}>
+                {t.free.title}
+              </Link>
+            </p>
+          </div>
+        </section>
+
+        {/* Соседние статьи и возврат в раздел: три страницы должны
+            выглядеть одной темой, а не тремя отдельными листами. */}
+        <section className="teach-block">
+          <div className="teach">
+            {related.length ? (
+              <>
+                <h2 className="section">{ui.related}</h2>
+                <ul className="guide-next">
+                  {related.map((a) => (
+                    <li key={a.id}>
+                      <Link href={itemPath(lang, "learn", a.slug[lang]!)}>
+                        <b>{a.copy[lang]!.title}</b>
+                        <span>{a.copy[lang]!.lead}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
+            <p className="teach-p" style={{ marginTop: "var(--gap-3)" }}>
+              <Link href={sectionPath(lang, "learn")}>{ui.back}</Link>
+            </p>
+          </div>
+        </section>
+      </>
+    );
+  }
+
   if (s === "teachers") {
     const art = articleBySlug(lang, slug);
     const c = art?.copy[lang];
@@ -1521,7 +1735,9 @@ export default async function ItemPage({
   const freeSlug = freePage?.slug[lang];
   const freeSheets =
     freePage && freeSlug
-      ? allSheets(freePage, lang).slice(0, freePage.spread ? 6 : 10)
+      /* Развороты широкие: на экране их показываем два, во всю ширину,
+         один под другим. Остальные человек видит на странице листов. */
+      ? allSheets(freePage, lang).slice(0, freePage.spread ? 2 : 10)
       : [];
   // Сколько страниц реально можно распечатать. Разворот это две страницы.
   const freeSheetPages =

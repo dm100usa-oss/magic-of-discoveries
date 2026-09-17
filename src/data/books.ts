@@ -355,22 +355,30 @@ const VIDEOS: Record<string, BookVideo> = {
         "la portadilla, una doble página donde un unicornio se dibuja en seis pasos numerados con una hoja " +
         "punteada para calcar al lado, una hoja de práctica vacía con un dibujo por hoja, y el índice con " +
         "los 111 temas. Treinta y tres segundos, sin sonido.",
+      ru:
+        "Разворот книги без монтажа, снято на столе рядом с фломастерами. В кадре обложка в руке, "
+        + "задняя сторона, титульная страница, полный разворот, где единорог рисуется за шесть "
+        + "пронумерованных шагов, рядом страница с пунктиром для обводки, пустая страница практики "
+        + "с одним рисунком на листе и содержание со всеми 111 темами. Тридцать три секунды, без звука. "
+        + "Снято английское издание, устройство страниц у всех изданий одинаковое.",
     },
     chapters: [
-      { at: 0, text: { en: "The front cover, held in a hand", es: "La portada, en la mano" } },
+      { at: 0, text: { en: "The front cover, held in a hand", es: "La portada, en la mano", ru: "Обложка в руке" } },
       {
         at: 3,
         text: {
           en: "The back cover and what the book promises",
           es: "La contraportada y lo que promete el libro",
+          ru: "Задняя сторона обложки и что обещает книга",
         },
       },
-      { at: 9, text: { en: "The title page", es: "La portadilla" } },
+      { at: 9, text: { en: "The title page", es: "La portadilla", ru: "Титульная страница" } },
       {
         at: 11,
         text: {
           en: "A unicorn drawn in six numbered steps, with a dotted tracing page beside it",
           es: "Un unicornio dibujado en seis pasos numerados, con una hoja punteada para calcar al lado",
+          ru: "Единорог за шесть пронумерованных шагов, рядом страница с пунктиром для обводки",
         },
       },
       {
@@ -378,11 +386,144 @@ const VIDEOS: Record<string, BookVideo> = {
         text: {
           en: "An empty practice page, one drawing per sheet",
           es: "Una hoja de práctica vacía, un dibujo por hoja",
+          ru: "Пустая страница практики, один рисунок на листе",
         },
       },
       {
         at: 24,
-        text: { en: "The index of all 111 subjects", es: "El índice de los 111 temas" },
+        text: {
+          en: "The index of all 111 subjects",
+          es: "El índice de los 111 temas",
+          ru: "Содержание со всеми 111 темами",
+        },
+      },
+    ],
+  },
+  "how-to-draw-111-es": {
+    published: "2026-08-27",
+    src: "/video/how-to-draw-111.mp4",
+    poster: "/video/how-to-draw-111-poster.jpg",
+    seconds: 33,
+    w: 608,
+    h: 1080,
+    description: {
+      en:
+        "An unedited flip through of the paperback edition of How to Draw 111 Amazing and Cute, " +
+        "filmed on a table with markers beside it. The clip shows the front cover held in a hand, " +
+        "the back cover, the title page, a full spread where a unicorn is drawn in six numbered steps " +
+        "with a dotted tracing page beside it, an empty practice page with one drawing per sheet, " +
+        "and the index listing all 111 subjects. Thirty three seconds, no sound.",
+      es:
+        "Un recorrido sin cortes por la edición en rústica de Cómo dibujar 111 Sorprendentes y Adorables, " +
+        "filmado sobre una mesa junto a los marcadores. Se ven la portada en la mano, la contraportada, " +
+        "la portadilla, una doble página donde un unicornio se dibuja en seis pasos numerados con una hoja " +
+        "punteada para calcar al lado, una hoja de práctica vacía con un dibujo por hoja, y el índice con " +
+        "los 111 temas. Treinta y tres segundos, sin sonido.",
+      ru:
+        "Разворот книги без монтажа, снято на столе рядом с фломастерами. В кадре обложка в руке, "
+        + "задняя сторона, титульная страница, полный разворот, где единорог рисуется за шесть "
+        + "пронумерованных шагов, рядом страница с пунктиром для обводки, пустая страница практики "
+        + "с одним рисунком на листе и содержание со всеми 111 темами. Тридцать три секунды, без звука. "
+        + "Снято английское издание, устройство страниц у всех изданий одинаковое.",
+    },
+    chapters: [
+      { at: 0, text: { en: "The front cover, held in a hand", es: "La portada, en la mano", ru: "Обложка в руке" } },
+      {
+        at: 3,
+        text: {
+          en: "The back cover and what the book promises",
+          es: "La contraportada y lo que promete el libro",
+          ru: "Задняя сторона обложки и что обещает книга",
+        },
+      },
+      { at: 9, text: { en: "The title page", es: "La portadilla", ru: "Титульная страница" } },
+      {
+        at: 11,
+        text: {
+          en: "A unicorn drawn in six numbered steps, with a dotted tracing page beside it",
+          es: "Un unicornio dibujado en seis pasos numerados, con una hoja punteada para calcar al lado",
+          ru: "Единорог за шесть пронумерованных шагов, рядом страница с пунктиром для обводки",
+        },
+      },
+      {
+        at: 18,
+        text: {
+          en: "An empty practice page, one drawing per sheet",
+          es: "Una hoja de práctica vacía, un dibujo por hoja",
+          ru: "Пустая страница практики, один рисунок на листе",
+        },
+      },
+      {
+        at: 24,
+        text: {
+          en: "The index of all 111 subjects",
+          es: "El índice de los 111 temas",
+          ru: "Содержание со всеми 111 темами",
+        },
+      },
+    ],
+  },
+  "how-to-draw-111-ru": {
+    published: "2026-08-27",
+    src: "/video/how-to-draw-111.mp4",
+    poster: "/video/how-to-draw-111-poster.jpg",
+    seconds: 33,
+    w: 608,
+    h: 1080,
+    description: {
+      en:
+        "An unedited flip through of the paperback edition of How to Draw 111 Amazing and Cute, " +
+        "filmed on a table with markers beside it. The clip shows the front cover held in a hand, " +
+        "the back cover, the title page, a full spread where a unicorn is drawn in six numbered steps " +
+        "with a dotted tracing page beside it, an empty practice page with one drawing per sheet, " +
+        "and the index listing all 111 subjects. Thirty three seconds, no sound.",
+      es:
+        "Un recorrido sin cortes por la edición en rústica de Cómo dibujar 111 Sorprendentes y Adorables, " +
+        "filmado sobre una mesa junto a los marcadores. Se ven la portada en la mano, la contraportada, " +
+        "la portadilla, una doble página donde un unicornio se dibuja en seis pasos numerados con una hoja " +
+        "punteada para calcar al lado, una hoja de práctica vacía con un dibujo por hoja, y el índice con " +
+        "los 111 temas. Treinta y tres segundos, sin sonido.",
+      ru:
+        "Разворот книги без монтажа, снято на столе рядом с фломастерами. В кадре обложка в руке, "
+        + "задняя сторона, титульная страница, полный разворот, где единорог рисуется за шесть "
+        + "пронумерованных шагов, рядом страница с пунктиром для обводки, пустая страница практики "
+        + "с одним рисунком на листе и содержание со всеми 111 темами. Тридцать три секунды, без звука. "
+        + "Снято английское издание, устройство страниц у всех изданий одинаковое.",
+    },
+    chapters: [
+      { at: 0, text: { en: "The front cover, held in a hand", es: "La portada, en la mano", ru: "Обложка в руке" } },
+      {
+        at: 3,
+        text: {
+          en: "The back cover and what the book promises",
+          es: "La contraportada y lo que promete el libro",
+          ru: "Задняя сторона обложки и что обещает книга",
+        },
+      },
+      { at: 9, text: { en: "The title page", es: "La portadilla", ru: "Титульная страница" } },
+      {
+        at: 11,
+        text: {
+          en: "A unicorn drawn in six numbered steps, with a dotted tracing page beside it",
+          es: "Un unicornio dibujado en seis pasos numerados, con una hoja punteada para calcar al lado",
+          ru: "Единорог за шесть пронумерованных шагов, рядом страница с пунктиром для обводки",
+        },
+      },
+      {
+        at: 18,
+        text: {
+          en: "An empty practice page, one drawing per sheet",
+          es: "Una hoja de práctica vacía, un dibujo por hoja",
+          ru: "Пустая страница практики, один рисунок на листе",
+        },
+      },
+      {
+        at: 24,
+        text: {
+          en: "The index of all 111 subjects",
+          es: "El índice de los 111 temas",
+          ru: "Содержание со всеми 111 темами",
+        },
       },
     ],
   },

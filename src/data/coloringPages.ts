@@ -2385,6 +2385,573 @@ const coloringPagesBase: ColoringPage[] = [
   },
 
   {
+    id: "draw-unicorn-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    spread: true,
+    fromBookId: "how-to-draw-111-en",
+    fromBookIdEs: "how-to-draw-111-es",
+    fromBookIdRu: "how-to-draw-111-ru",
+    slug: {
+      en: "how-to-draw-a-unicorn-step-by-step",
+      es: "como-dibujar-un-unicornio-paso-a-paso",
+      ru: "kak-narisovat-edinoroga-poetapno",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "The spread", es: "La doble página", ru: "Разворот" },
+        sheets: [S("draw-unicorn", "Unicorn", "Unicornio", "Единорог")],
+      },
+    ],
+    copy: {
+      ru: {
+        title:
+          "Как нарисовать единорога поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Единорог, шаг за шагом",
+        sheetAlt:
+          "Бесплатный разворот для печати: Единорог по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
+        lead:
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+        body: [
+          "Рисунок начинается с небольшого овала-мордочки и крупного овала туловища, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. грива и рог добавляются на четвертом шаге, и лошадка превращается в единорога.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
+          "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Файл состоит из двух страниц: шаги и лист практики",
+          "Распечатайте обе и положите рядом, как в книге",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 10 лет",
+          "Он говорит, что не умеет рисовать, и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно занятие на 15-20 минут без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот разворот",
+        pickLead:
+          "Отдельные листы теряются. В книге такие развороты уже сшиты по порядку, и в конце получается альбом работ ребенка.",
+        pickPoints: [
+          "111 сюжетов: животные, морские обитатели, сказочные герои, транспорт, природа и еда",
+          "На каждый сюжет полный разворот: шаги, обводка, место для своего рисунка",
+          "231 страница, отдельный альбом не нужен",
+          "Финалист Children's Book International Awards 2025 в образовательной категории",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать единорога ребенку 5 лет?",
+            a: "Начните с небольшого овала-мордочки и крупного овала туловища и добавляйте по одной детали за шаг. На этом листе шесть шагов, и на каждом видно только то, что нужно дорисовать сейчас. Сначала полезно обвести готовый контур по пунктиру, а потом нарисовать своего рядом.",
+          },
+          {
+            q: "Сколько шагов в этом рисунке?",
+            a: "Шесть. Первый это простая форма, дальше на каждом шаге добавляется одна деталь, а предыдущие линии становятся серыми.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте столько копий, сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Почему в файле две страницы?",
+            a: "Так устроена книга: на одной странице шаги, на соседней ребенок рисует. Распечатайте обе и положите рядом, получится тот же разворот, что в книге.",
+          },
+        ],
+      },
+      en: {
+        title:
+          "How to draw a unicorn step by step. Free printable spread with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: Unicorn, step by step",
+        sheetAlt:
+          "Free printable unicorn drawing spread: numbered steps on the left page, a dotted outline to trace on the right, and a blank space to draw your own",
+        lead:
+          "A real spread from the printed book. On the left page the unicorn is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
+        body: [
+          "The drawing starts from a small oval muzzle and a large oval body, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the mane and the horn arrive at step four, and the pony becomes a unicorn.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
+          "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "Each file has two pages: the steps and the practice sheet",
+          "Print both and lay them side by side, as in the book",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and ten",
+          "They say they cannot draw and do not know where to start",
+          "They like tracing first and then trying it alone",
+          "You want a 15 to 20 minute activity with no preparation",
+        ],
+        pickTitle: "The book this spread comes from",
+        pickLead:
+          "Loose sheets get lost. In the book these spreads are already bound in order, and by the end it is an album of the child's own work.",
+        pickPoints: [
+          "111 subjects: animals, sea life, fairy-tale characters, vehicles, nature, and food",
+          "A full spread for each one: steps, tracing, and space to draw",
+          "231 pages, so no separate sketchbook is needed",
+          "Finalist in the Educational category, Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "How do you draw a unicorn for a 5-year-old?",
+            a: "Start from a small oval muzzle and a large oval body and add one detail per step. This sheet uses six steps, and each one shows only what to add now. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "How many steps does this drawing take?",
+            a: "Six. The first is a simple shape, each following step adds one detail, and the earlier lines turn gray.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Why are there two pages in the file?",
+            a: "That is how the book works: one page shows the steps, the next is where the child draws. Print both and place them side by side to get the same spread as in the book.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "Cómo dibujar un unicornio paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Unicornio, paso a paso",
+        sheetAlt:
+          "Doble página gratis para imprimir: unicornio paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
+        lead:
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+        body: [
+          "El dibujo comienza con un óvalo pequeño para el hocico y otro grande para el cuerpo y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la melena y el cuerno llegan en el cuarto paso y el caballito se convierte en unicornio.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Cada archivo tiene dos páginas: los pasos y la hoja de práctica",
+          "Imprima las dos y colóquelas una junto a la otra, como en el libro",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y diez años",
+          "Dice que no sabe dibujar y no sabe por dónde empezar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad de 15 a 20 minutos sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta doble página",
+        pickLead:
+          "Las hojas sueltas se pierden. En el libro estas dobles páginas ya están encuadernadas en orden y al final se convierten en un álbum de los trabajos del niño.",
+        pickPoints: [
+          "111 temas: animales, vida marina, personajes de cuentos, vehículos, naturaleza y comida",
+          "Una doble página completa para cada uno: pasos, repaso y espacio para dibujar",
+          "231 páginas, así no hace falta un cuaderno aparte",
+          "Finalista en la categoría Educativa de los Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar un león para un niño de 5 años?",
+            a: "Empiece con un óvalo pequeño para el hocico y otro grande para el cuerpo y agregue un detalle por paso. Esta lámina usa seis pasos y en cada uno se ve solo lo que hay que añadir. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿Cuántos pasos tiene este dibujo?",
+            a: "Seis. El primero es una forma sencilla, cada paso siguiente agrega un detalle y las líneas anteriores pasan a gris.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Por qué el archivo tiene dos páginas?",
+            a: "Así funciona el libro: una página muestra los pasos y la de al lado es donde dibuja el niño. Imprima las dos y colóquelas juntas para tener la misma doble página.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "draw-dragon-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    spread: true,
+    fromBookId: "how-to-draw-111-en",
+    fromBookIdEs: "how-to-draw-111-es",
+    fromBookIdRu: "how-to-draw-111-ru",
+    slug: {
+      en: "how-to-draw-a-dragon-step-by-step",
+      es: "como-dibujar-un-dragon-paso-a-paso",
+      ru: "kak-narisovat-drakona-poetapno",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "The spread", es: "La doble página", ru: "Разворот" },
+        sheets: [S("draw-dragon", "Dragon", "Dragón", "Дракон")],
+      },
+    ],
+    copy: {
+      ru: {
+        title:
+          "Как нарисовать дракона поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Дракон, шаг за шагом",
+        sheetAlt:
+          "Бесплатный разворот для печати: Дракон по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
+        lead:
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+        body: [
+          "Рисунок начинается с вытянутой головы, похожей на облачко, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. крыло рисуется одним шагом, рога другим, и дракон получается даже у того, кто впервые взял карандаш.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
+          "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Файл состоит из двух страниц: шаги и лист практики",
+          "Распечатайте обе и положите рядом, как в книге",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 10 лет",
+          "Он говорит, что не умеет рисовать, и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно занятие на 15-20 минут без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот разворот",
+        pickLead:
+          "Отдельные листы теряются. В книге такие развороты уже сшиты по порядку, и в конце получается альбом работ ребенка.",
+        pickPoints: [
+          "111 сюжетов: животные, морские обитатели, сказочные герои, транспорт, природа и еда",
+          "На каждый сюжет полный разворот: шаги, обводка, место для своего рисунка",
+          "231 страница, отдельный альбом не нужен",
+          "Финалист Children's Book International Awards 2025 в образовательной категории",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать дракона ребенку 5 лет?",
+            a: "Начните с вытянутой головы, похожей на облачко и добавляйте по одной детали за шаг. На этом листе шесть шагов, и на каждом видно только то, что нужно дорисовать сейчас. Сначала полезно обвести готовый контур по пунктиру, а потом нарисовать своего рядом.",
+          },
+          {
+            q: "Сколько шагов в этом рисунке?",
+            a: "Шесть. Первый это простая форма, дальше на каждом шаге добавляется одна деталь, а предыдущие линии становятся серыми.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте столько копий, сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Почему в файле две страницы?",
+            a: "Так устроена книга: на одной странице шаги, на соседней ребенок рисует. Распечатайте обе и положите рядом, получится тот же разворот, что в книге.",
+          },
+        ],
+      },
+      en: {
+        title:
+          "How to draw a dragon step by step. Free printable spread with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: Dragon, step by step",
+        sheetAlt:
+          "Free printable dragon drawing spread: numbered steps on the left page, a dotted outline to trace on the right, and a blank space to draw your own",
+        lead:
+          "A real spread from the printed book. On the left page the dragon is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
+        body: [
+          "The drawing starts from a long cloud-like head, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the wing is one step and the horns another, so the dragon works even for a first-timer.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
+          "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "Each file has two pages: the steps and the practice sheet",
+          "Print both and lay them side by side, as in the book",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and ten",
+          "They say they cannot draw and do not know where to start",
+          "They like tracing first and then trying it alone",
+          "You want a 15 to 20 minute activity with no preparation",
+        ],
+        pickTitle: "The book this spread comes from",
+        pickLead:
+          "Loose sheets get lost. In the book these spreads are already bound in order, and by the end it is an album of the child's own work.",
+        pickPoints: [
+          "111 subjects: animals, sea life, fairy-tale characters, vehicles, nature, and food",
+          "A full spread for each one: steps, tracing, and space to draw",
+          "231 pages, so no separate sketchbook is needed",
+          "Finalist in the Educational category, Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "How do you draw a dragon for a 5-year-old?",
+            a: "Start from a long cloud-like head and add one detail per step. This sheet uses six steps, and each one shows only what to add now. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "How many steps does this drawing take?",
+            a: "Six. The first is a simple shape, each following step adds one detail, and the earlier lines turn gray.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Why are there two pages in the file?",
+            a: "That is how the book works: one page shows the steps, the next is where the child draws. Print both and place them side by side to get the same spread as in the book.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "Cómo dibujar un dragón paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Dragón, paso a paso",
+        sheetAlt:
+          "Doble página gratis para imprimir: dragón paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
+        lead:
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+        body: [
+          "El dibujo comienza con una cabeza alargada parecida a una nube y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. el ala es un paso y los cuernos otro, así que el dragón sale incluso a quien dibuja por primera vez.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Cada archivo tiene dos páginas: los pasos y la hoja de práctica",
+          "Imprima las dos y colóquelas una junto a la otra, como en el libro",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y diez años",
+          "Dice que no sabe dibujar y no sabe por dónde empezar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad de 15 a 20 minutos sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta doble página",
+        pickLead:
+          "Las hojas sueltas se pierden. En el libro estas dobles páginas ya están encuadernadas en orden y al final se convierten en un álbum de los trabajos del niño.",
+        pickPoints: [
+          "111 temas: animales, vida marina, personajes de cuentos, vehículos, naturaleza y comida",
+          "Una doble página completa para cada uno: pasos, repaso y espacio para dibujar",
+          "231 páginas, así no hace falta un cuaderno aparte",
+          "Finalista en la categoría Educativa de los Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar un león para un niño de 5 años?",
+            a: "Empiece con una cabeza alargada parecida a una nube y agregue un detalle por paso. Esta lámina usa seis pasos y en cada uno se ve solo lo que hay que añadir. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿Cuántos pasos tiene este dibujo?",
+            a: "Seis. El primero es una forma sencilla, cada paso siguiente agrega un detalle y las líneas anteriores pasan a gris.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Por qué el archivo tiene dos páginas?",
+            a: "Así funciona el libro: una página muestra los pasos y la de al lado es donde dibuja el niño. Imprima las dos y colóquelas juntas para tener la misma doble página.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "draw-dolphin-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    spread: true,
+    fromBookId: "how-to-draw-111-en",
+    fromBookIdEs: "how-to-draw-111-es",
+    fromBookIdRu: "how-to-draw-111-ru",
+    slug: {
+      en: "how-to-draw-a-dolphin-step-by-step",
+      es: "como-dibujar-un-delfin-paso-a-paso",
+      ru: "kak-narisovat-delfina-poetapno",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: { en: "The spread", es: "La doble página", ru: "Разворот" },
+        sheets: [S("draw-dolphin", "Dolphin", "Delfín", "Дельфин")],
+      },
+    ],
+    copy: {
+      ru: {
+        title:
+          "Как нарисовать дельфина поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Дельфин, шаг за шагом",
+        sheetAlt:
+          "Бесплатный разворот для печати: Дельфин по шагам на левом листе, справа пунктирный контур для обводки и пустое место для своего рисунка",
+        lead:
+          "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
+        body: [
+          "Рисунок начинается с одной изогнутой капли, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. плавник, хвост и улыбка добавляются по одному, и дельфин узнается уже на третьем шаге.",
+          "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
+          "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Файл состоит из двух страниц: шаги и лист практики",
+          "Распечатайте обе и положите рядом, как в книге",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 10 лет",
+          "Он говорит, что не умеет рисовать, и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно занятие на 15-20 минут без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот разворот",
+        pickLead:
+          "Отдельные листы теряются. В книге такие развороты уже сшиты по порядку, и в конце получается альбом работ ребенка.",
+        pickPoints: [
+          "111 сюжетов: животные, морские обитатели, сказочные герои, транспорт, природа и еда",
+          "На каждый сюжет полный разворот: шаги, обводка, место для своего рисунка",
+          "231 страница, отдельный альбом не нужен",
+          "Финалист Children's Book International Awards 2025 в образовательной категории",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать дельфина ребенку 5 лет?",
+            a: "Начните с одной изогнутой капли и добавляйте по одной детали за шаг. На этом листе шесть шагов, и на каждом видно только то, что нужно дорисовать сейчас. Сначала полезно обвести готовый контур по пунктиру, а потом нарисовать своего рядом.",
+          },
+          {
+            q: "Сколько шагов в этом рисунке?",
+            a: "Шесть. Первый это простая форма, дальше на каждом шаге добавляется одна деталь, а предыдущие линии становятся серыми.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте столько копий, сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Почему в файле две страницы?",
+            a: "Так устроена книга: на одной странице шаги, на соседней ребенок рисует. Распечатайте обе и положите рядом, получится тот же разворот, что в книге.",
+          },
+        ],
+      },
+      en: {
+        title:
+          "How to draw a dolphin step by step. Free printable spread with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: Dolphin, step by step",
+        sheetAlt:
+          "Free printable dolphin drawing spread: numbered steps on the left page, a dotted outline to trace on the right, and a blank space to draw your own",
+        lead:
+          "A real spread from the printed book. On the left page the dolphin is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
+        body: [
+          "The drawing starts from one curved drop shape, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the fin, the tail and the smile come one at a time, and the dolphin is recognizable by step three.",
+          "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
+          "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "Each file has two pages: the steps and the practice sheet",
+          "Print both and lay them side by side, as in the book",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and ten",
+          "They say they cannot draw and do not know where to start",
+          "They like tracing first and then trying it alone",
+          "You want a 15 to 20 minute activity with no preparation",
+        ],
+        pickTitle: "The book this spread comes from",
+        pickLead:
+          "Loose sheets get lost. In the book these spreads are already bound in order, and by the end it is an album of the child's own work.",
+        pickPoints: [
+          "111 subjects: animals, sea life, fairy-tale characters, vehicles, nature, and food",
+          "A full spread for each one: steps, tracing, and space to draw",
+          "231 pages, so no separate sketchbook is needed",
+          "Finalist in the Educational category, Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "How do you draw a dolphin for a 5-year-old?",
+            a: "Start from one curved drop shape and add one detail per step. This sheet uses six steps, and each one shows only what to add now. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "How many steps does this drawing take?",
+            a: "Six. The first is a simple shape, each following step adds one detail, and the earlier lines turn gray.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Why are there two pages in the file?",
+            a: "That is how the book works: one page shows the steps, the next is where the child draws. Print both and place them side by side to get the same spread as in the book.",
+          },
+        ],
+      },
+      es: {
+        title:
+          "Cómo dibujar un delfín paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Delfín, paso a paso",
+        sheetAlt:
+          "Doble página gratis para imprimir: delfín paso a paso en la hoja izquierda y, en la derecha, el contorno punteado para repasar y un espacio en blanco para dibujar el propio",
+        lead:
+          "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
+        body: [
+          "El dibujo comienza con una sola forma curva parecida a una gota y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la aleta, la cola y la sonrisa llegan de una en una y el delfín se reconoce ya en el tercer paso.",
+          "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
+          "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Cada archivo tiene dos páginas: los pasos y la hoja de práctica",
+          "Imprima las dos y colóquelas una junto a la otra, como en el libro",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y diez años",
+          "Dice que no sabe dibujar y no sabe por dónde empezar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad de 15 a 20 minutos sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta doble página",
+        pickLead:
+          "Las hojas sueltas se pierden. En el libro estas dobles páginas ya están encuadernadas en orden y al final se convierten en un álbum de los trabajos del niño.",
+        pickPoints: [
+          "111 temas: animales, vida marina, personajes de cuentos, vehículos, naturaleza y comida",
+          "Una doble página completa para cada uno: pasos, repaso y espacio para dibujar",
+          "231 páginas, así no hace falta un cuaderno aparte",
+          "Finalista en la categoría Educativa de los Children's Book International Awards 2025",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar un león para un niño de 5 años?",
+            a: "Empiece con una sola forma curva parecida a una gota y agregue un detalle por paso. Esta lámina usa seis pasos y en cada uno se ve solo lo que hay que añadir. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿Cuántos pasos tiene este dibujo?",
+            a: "Seis. El primero es una forma sencilla, cada paso siguiente agrega un detalle y las líneas anteriores pasan a gris.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Por qué el archivo tiene dos páginas?",
+            a: "Así funciona el libro: una página muestra los pasos y la de al lado es donde dibuja el niño. Imprima las dos y colóquelas juntas para tener la misma doble página.",
+          },
+        ],
+      },
+    },
+  },
+  {
     id: "draw-lion-single",
     published: "2026-09-17",
     updated: "2026-09-17",
@@ -3188,6 +3755,19 @@ const coloringPagesBase: ColoringPage[] = [
         sheets: [
           S("draw-parrot", "Parrot", "Loro", "Попугай"),
           S("draw-flamingo", "Flamingo", "Flamenco", "Фламинго"),
+        ],
+      },
+      {
+        id: "fantasy-sea",
+        title: {
+          en: "Fairy tale and the sea",
+          es: "Cuentos y el mar",
+          ru: "Сказка и море",
+        },
+        sheets: [
+          S("draw-unicorn", "Unicorn", "Unicornio", "Единорог"),
+          S("draw-dragon", "Dragon", "Dragón", "Дракон"),
+          S("draw-dolphin", "Dolphin", "Delfín", "Дельфин"),
         ],
       },
     ],
@@ -4026,6 +4606,7 @@ const RU_SHEETS = new Set([
      издания книги, подписи на них русские. */
   "draw-lion", "draw-elephant", "draw-zebra", "draw-parrot", "draw-crocodile",
   "draw-monkey", "draw-kangaroo", "draw-rhino", "draw-flamingo", "draw-lemur",
+  "draw-unicorn", "draw-dragon", "draw-dolphin",
 ]);
 
 /** Имя файла листа на этом языке. Испанские рисунки лежат с суффиксом -es,

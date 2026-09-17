@@ -55,6 +55,7 @@ import {
 } from "@/data/firstWords";
 import { langAlternates, breadcrumbs, orgNode, orgRef, ricardoNode } from "@/lib/schema";
 import { bookIsbn13, bookAges } from "@/data/books";
+import { adultsHub } from "@/data/adultsHub";
 
 const TYPES: BookType[] = ["coloring", "drawing", "bedtime", "bilingual"];
 
@@ -85,6 +86,10 @@ function headingFor(lang: UiLang, s: Section) {
     }
     case "catalog":
       return { title: t.catalog2.title, lead: t.catalog2.lead };
+    case "adults": {
+      const a = adultsHub[lang];
+      return { title: a?.title ?? t.catalog.title, lead: a?.lead };
+    }
     case "about":
       return { title: t.about.title, lead: undefined };
     case "contact":
@@ -110,13 +115,17 @@ export async function generateMetadata({
   const languages = langAlternates(
     Object.fromEntries(activeLangs.map((l) => [l, `${SITE_URL}${sectionPath(l, s)}`]))
   );
-  const description = h.lead ?? dictionaries[lang].about.body[0];
+  /* У раздела взрослых раскрасок название и описание для выдачи
+     написаны словами покупателя, а заголовок на самой странице остается
+     обычным. Для остальных разделов все как было. */
+  const hub = s === "adults" ? adultsHub[lang] : undefined;
+  const description = hub?.seoDescription ?? h.lead ?? dictionaries[lang].about.body[0];
   return {
-    title: h.title,
+    title: hub?.seoTitle ? { absolute: hub.seoTitle } : h.title,
     description,
     alternates: { canonical: sectionPath(lang, s), languages },
     openGraph: {
-      title: h.title,
+      title: hub?.seoTitle ?? h.title,
       description,
       type: "website",
       url: `${SITE_URL}${sectionPath(lang, s)}`,
@@ -853,6 +862,108 @@ export default async function SectionPage({
               {t.free.toddlerCta}
             </a>
           </p>
+        </div>
+      </>
+    );
+  }
+
+  /* ---------- Простые раскраски для взрослых ----------
+
+     Три книги серии стояли внутри детского каталога, и сайт со стороны
+     выглядел только детским. Здесь у линейки свой адрес, свой заголовок
+     и свои поисковые слова, а книги получают ссылки с одной страницы. */
+  if (s === "adults") {
+    const c = adultsHub[lang];
+    if (!c) notFound();
+    const url = `${SITE_URL}${sectionPath(lang, s)}`;
+    const series = booksForLang(lang).filter((b) => b.series === "take-a-break");
+
+    const pageSchema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        orgNode(),
+        {
+          "@type": "CollectionPage",
+          name: c.title,
+          url,
+          description: c.seoDescription,
+          inLanguage: lang,
+          keywords: c.keywords.join(", "),
+          isPartOf: orgRef(),
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: series.length,
+            itemListElement: series.map((b, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: {
+                "@type": "Book",
+                name: b.copy[lang]!.title,
+                url: `${SITE_URL}${itemPath(lang, "books", b.slug[lang]!)}`,
+                isbn: bookIsbn13(b),
+                author: { "@type": "Person", name: AUTHORS[b.author].name },
+              },
+            })),
+          },
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: c.faq.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+      ],
+    };
+
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }} />
+        <Crumbs />
+        <PageHead title={h.title} lead={h.lead} />
+        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+          {c.intro.map((para) => (
+            <p key={para.slice(0, 24)}>{para}</p>
+          ))}
+
+          <h2 className="section">{c.booksTitle}</h2>
+          <div className="grid" style={{ paddingBottom: "var(--gap-5)" }}>
+            {series.map((b) => (
+              <Link className="card" key={b.id} href={itemPath(lang, "books", b.slug[lang]!)}>
+                <div className="card__frame">
+                  <div className="card__cover">
+                    <img src={b.cover} alt={b.copy[lang]!.title} loading="lazy" width={900} height={1160} />
+                  </div>
+                  <p className="card__title">{b.copy[lang]!.title}</p>
+                  <p className="card__meta">{b.ageShown}</p>
+                  {(() => {
+                    const price =
+                      cheapestFormat(b)?.price ??
+                      (hasPdf(b.id) ? pdfPriceLabel(b.id) : undefined);
+                    return price ? <p className="card__price">{price}</p> : null;
+                  })()}
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <h2 className="section">{c.whatTitle}</h2>
+          <ul className="howto__list">
+            {c.what.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
+
+          <h2 className="section">{t.book.faq}</h2>
+          <div className="faq">
+            {c.faq.map((f) => (
+              <details key={f.q}>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </>
     );

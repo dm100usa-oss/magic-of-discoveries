@@ -206,6 +206,7 @@ export function Header({ lang }: { lang: UiLang }) {
     [sectionPath(lang, "teachers"), t.nav.teachers],
     [sectionPath(lang, "coloring"), t.nav.coloringPages],
     [sectionPath(lang, "words"), t.nav.firstWords],
+    [sectionPath(lang, "adults"), t.nav.adults],
     [sectionPath(lang, "about"), t.nav.about],
     [sectionPath(lang, "contact"), t.nav.contact],
   ];

@@ -8,6 +8,7 @@ export type Section =
   | "coloring"
   | "words"
   | "catalog"
+  | "adults"
   | "about"
   | "contact";
 
@@ -19,6 +20,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     coloring: "free-coloring-pages",
     words: "first-words",
     catalog: "book-list",
+    adults: "easy-coloring-books-for-adults",
     about: "about-us",
     contact: "contact",
   },
@@ -29,6 +31,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     coloring: "dibujos-para-colorear-gratis",
     words: "primeras-palabras",
     catalog: "catalogo-de-libros",
+    adults: "libros-para-colorear-faciles-para-adultos",
     about: "quienes-somos",
     contact: "contacto",
   },
@@ -39,6 +42,7 @@ export const sectionSlugs: Record<UiLang, Record<Section, string>> = {
     coloring: "raskraski-dlya-pechati",
     words: "pervye-slova",
     catalog: "spisok-knig",
+    adults: "prostye-raskraski-dlya-vzroslyh",
     about: "o-nas",
     contact: "kontakty",
   },

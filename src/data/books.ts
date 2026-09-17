@@ -104,6 +104,10 @@ export interface BookCopy {
 
 export interface Book {
   id: string;
+  /** Миниатюры рисунков из книги: показываются сразу под обложкой.
+      Для книг без слов под рисунками картинки одни на все языки,
+      поэтому здесь просто список файлов с названием на трех языках. */
+  thumbs?: { file: string; alt: Partial<Record<UiLang, string>> }[];
   author: "ricardo" | "maria";
   editionLang: EditionLang;
   age: AgeGroup;
@@ -521,11 +525,7 @@ export const books: Book[] = [
           "You want coloring time to introduce the names of things and the words that go with them",
         ],
         fitNo: [
-          "Big, simple pictures no longer hold their attention and they ask for more challenging pages",
-          "They color confidently inside the lines and handle small areas well",
-          "They like pages with lots of detail, backgrounds, and several objects on the same page",
-          "Simple pictures are no challenge for them anymore",
-          "They would rather draw a picture themselves than fill in a finished one. In that case, they can move on to How to Draw 111 or How to Draw Everything",
+          "The child is older than nine. For that age we have How to Draw 111 and How to Draw Everything",
         ],
         about: [
           "First Coloring Book for Toddlers Ages 1-3 (ISBN 9781963328271) is a first coloring book and first words book for children ages one to three, created by Ricardo Demi and published by Magic of Discoveries LLC on April 22, 2024. It can be used as a toddler's very first coloring book, as a first words book, or for both activities together on the same page.",
@@ -788,11 +788,7 @@ export const books: Book[] = [
           "Quieres que, mientras colorea, vaya conociendo los nombres de las cosas y las palabras escritas",
         ],
         fitNo: [
-          "Los dibujos grandes y sencillos ya no le llaman la atención y él mismo pide láminas más difíciles",
-          "Colorea con seguridad dentro del contorno y se maneja bien en espacios pequeños",
-          "Le gustan las láminas con muchos detalles, con fondo y con varias cosas en la misma página",
-          "Los dibujos simples ya no le suponen ningún reto",
-          "Prefiere dibujar él mismo antes que colorear un dibujo ya hecho. En ese caso puede pasar a «Cómo dibujar 111» o «Cómo dibujar todo»",
+          "El niño tiene más de nueve años. Para esa edad tenemos «Cómo dibujar 111» y «Cómo dibujar todo»",
         ],
         about: [
           "El Primer Libro de Colorear para Bebés de 1 a 3 Años, ISBN 978-1-963328-20-2, es un libro de Ricardo Demi publicado por Magic of Discoveries LLC el 29 de abril de 2024. Es a la vez un primer libro para colorear y un primer libro de palabras: se puede usar para colorear, para conocer las primeras palabras o para las dos cosas en la misma página.",
@@ -3342,13 +3338,33 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-animals-es",
-    ageShown: "10-18",
+    ageShown: "10+",
     pages: 102,
     published: "2024-08-10",
     drawings: 50,
     size: "8.5 x 11 in",
     cover: "/covers/take-a-break-animals-en.jpg",
     coverSize: { w: 900, h: 1162 },
+    thumbs: [
+      { file: "/pages/take-a-break-animals/01.webp", alt: { en: "Frog", es: "Rana", ru: "Лягушка" } },
+      { file: "/pages/take-a-break-animals/02.webp", alt: { en: "Parrot", es: "Loro", ru: "Попугай" } },
+      { file: "/pages/take-a-break-animals/03.webp", alt: { en: "Kangaroo", es: "Canguro", ru: "Кенгуру" } },
+      { file: "/pages/take-a-break-animals/04.webp", alt: { en: "Rhino", es: "Rinoceronte", ru: "Носорог" } },
+      { file: "/pages/take-a-break-animals/05.webp", alt: { en: "Flamingo", es: "Flamenco", ru: "Фламинго" } },
+      { file: "/pages/take-a-break-animals/06.webp", alt: { en: "Lemur", es: "Lémur", ru: "Лемур" } },
+      { file: "/pages/take-a-break-animals/07.webp", alt: { en: "Hummingbird", es: "Colibrí", ru: "Колибри" } },
+      { file: "/pages/take-a-break-animals/08.webp", alt: { en: "Giraffe", es: "Jirafa", ru: "Жираф" } },
+      { file: "/pages/take-a-break-animals/09.webp", alt: { en: "Koala", es: "Koala", ru: "Коала" } },
+      { file: "/pages/take-a-break-animals/10.webp", alt: { en: "Lily of the valley", es: "Muguete", ru: "Ландыш" } },
+      { file: "/pages/take-a-break-animals/11.webp", alt: { en: "Bunny", es: "Conejo", ru: "Кролик" } },
+      { file: "/pages/take-a-break-animals/12.webp", alt: { en: "Monkey", es: "Mono", ru: "Обезьянка" } },
+      { file: "/pages/take-a-break-animals/13.webp", alt: { en: "Owl", es: "Búho", ru: "Сова" } },
+      { file: "/pages/take-a-break-animals/14.webp", alt: { en: "Lotus", es: "Loto", ru: "Лотос" } },
+      { file: "/pages/take-a-break-animals/15.webp", alt: { en: "Goat", es: "Cabra", ru: "Козочка" } },
+      { file: "/pages/take-a-break-animals/16.webp", alt: { en: "Acorns", es: "Bellotas", ru: "Желуди" } },
+      { file: "/pages/take-a-break-animals/17.webp", alt: { en: "Alpaca", es: "Alpaca", ru: "Альпака" } },
+      { file: "/pages/take-a-break-animals/18.webp", alt: { en: "Beaver", es: "Castor", ru: "Бобр" } },
+    ],
     formats: [{ kind: "paperback", asin: "1963328167", price: "$8.99" }],
     pdfUrl: WIX + "english-3",
     rating: { value: 5.0, count: 26 },
@@ -3360,7 +3376,7 @@ export const books: Book[] = [
       w: 1940,
       h: 1201,
       alt: {
-        en: "Take a Break: Cute Animals, an easy large print coloring book for adults and kids, cover with a sleeping leopard and colored pencils",
+        en: "Take a Break: Cute Animals, an easy, large-print coloring book for adults and kids, cover with a sleeping leopard and colored pencils",
       },
     },
     banners: [
@@ -3411,7 +3427,41 @@ export const books: Book[] = [
           "8.5 x 11 inches",
         ],
         forWhom:
-          "Adults, teenagers, children coloring alongside a grown-up, beginners and older colorists. Two things come up again and again from readers: they color a page in the evening to let go of a hard workday, and they buy it as a gift and then keep it for themselves.",
+          "Adults, teenagers, children coloring alongside a grown-up, beginners and older colorists. Two things come up again and again from readers: they color a page in the evening to unwind after a long day, and they buy it as a gift and then keep it for themselves. It also suits older adults and group activities in libraries, adult day programs and senior living communities.",
+        seoTitle:
+          "Bold and Easy Coloring Book for Adults | 50 Cute Animals",
+        seoDescription:
+          "An easy coloring book for adults and teens: 50 hand-drawn cute animals, flowers and landscapes in large print with thick lines. One page is finished in a single sitting.",
+        about: [
+          "Take a Break: Cute Animals is an easy, large-print coloring book for adults, teenagers and anyone who colors alongside them. It was published by Magic of Discoveries LLC on August 10, 2024, has 102 pages and 50 different drawings, and measures 8.5 by 11 inches.",
+          "Every drawing is hand-drawn, with no artificial intelligence used at any stage. One subject sits on each page with a thick outline and wide open areas inside it, so a page can be colored with pencils, gel pens or markers and finished in one sitting.",
+          "The subjects are friendly animals, birds, flowers, plants and simple landscapes: a frog on a lily pad, a parrot, a giraffe, a koala, an alpaca, a beaver, lilies of the valley and more. Nothing in the book is aimed at one age only, which is why the cover says adults and kids.",
+          "This is the first of three books in the Take a Break series. The other two keep the same format and line weight and change the subjects: Take a Break: Ocean is sea life and quiet beaches, and Take a Break: Food and Snacks is food, drinks and desserts.",
+        ],
+        altNames: [
+          "Bold and Easy Coloring Book for Adults",
+          "Cute Animals Coloring Book for Adults and Teens",
+          "Large Print Animal Coloring Book",
+          "Simple Coloring Book for Beginners",
+          "Cozy Animal Coloring Book",
+        ],
+        keywords: [
+          "coloring books for seniors large print",
+          "coloring book for elderly",
+          "activities for seniors",
+          "large print activity book for senior living communities",
+          "bold and easy coloring book",
+          "easy coloring book for adults",
+          "cute animal coloring book for adults",
+          "large print coloring book",
+          "simple coloring book for beginners",
+          "cozy coloring book",
+          "stress relief coloring book easy",
+          "coloring book for teens",
+          "thick line coloring book",
+          "hand drawn coloring book",
+          "coloring book gift",
+        ],
         faq: [
           {
             q: "Is this too easy if I already color a lot?",
@@ -3420,6 +3470,50 @@ export const books: Book[] = [
           {
             q: "Can children color in it too?",
             a: "Yes. The shapes are large and the lines are thick, so children color these pages without help. The subjects are cute animals and plants rather than anything aimed only at grown-ups.",
+          },
+                  {
+            q: "What does bold and easy mean?",
+            a: "It means thick outlines and large open areas instead of fine pattern work. Every shape is big enough to fill in without a fine-tipped pen, and there are no tiny details that require you to look closely.",
+          },
+          {
+            q: "How long does one page take?",
+            a: "About twenty to thirty minutes at an unhurried pace. That is the point of the book: you start and finish the same drawing in one sitting instead of leaving it half done.",
+          },
+          {
+            q: "What can I color with?",
+            a: "Colored pencils, gel pens, crayons and markers all work. The thick outline gives every tool a clear edge to stop at, so the drawing still looks right even with a broad tip.",
+          },
+          {
+            q: "Are the drawings made with AI?",
+            a: "No. All 50 drawings are drawn by hand by our own illustrator, which is why the lines are clean and the shapes stay consistent from page to page.",
+          },
+          {
+            q: "Is it comfortable if my eyes tire quickly?",
+            a: "Yes, that is what large print is for here. The subject fills most of the page, the outlines are thick, and there are no small repeating patterns to follow.",
+          },
+          {
+            q: "Is this a good gift?",
+            a: "It makes an easy gift. The subjects suit anyone from a teenager to a grandparent, and a beginner can finish the first page the same evening.",
+          },
+          {
+            q: "What is in the book besides animals?",
+            a: "Flowers, plants and simple landscapes come between the animals: lotus flowers, lilies of the valley, acorns, a palm tree, mountains and water. They give the eye a change of pace without changing the level.",
+          },
+          {
+            q: "How is this different from the other two Take a Break books?",
+            a: "Same format and same line weight, different subjects. Cute Animals is animals, flowers and landscapes, Take a Break: Ocean is sea life, shells and beaches, and Take a Break: Food and Snacks is food, drinks and desserts.",
+          },
+          {
+            q: "Can an adult and a child color the same book together?",
+            a: "Yes, and many families do. The shapes are large enough for a school-age child to handle alone, so two people can take a page each from the same book.",
+          },
+                  {
+            q: "Is this a good coloring book for seniors?",
+            a: "Yes. The drawings are large, the outlines are thick, and there is one subject per page with no small details, so there is no need to look closely or work with tiny details. A page can be finished in one short sitting.",
+          },
+          {
+            q: "Can a senior living community, library, or adult day program use it?",
+            a: "Yes. The paperback works well for individual use, and the printable PDF lets a group use the same drawing, so an activity leader can give everyone the same page.",
           },
         ],
       },
@@ -3433,13 +3527,33 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-animals-en",
-    ageShown: "10-18",
+    ageShown: "10+",
     pages: 102,
     published: "2024-08-15",
     drawings: 50,
     size: "21.6 x 27.9 cm",
     cover: "/covers/take-a-break-animals-es.jpg",
     coverSize: { w: 900, h: 1164 },
+    thumbs: [
+      { file: "/pages/take-a-break-animals/01.webp", alt: { en: "Frog", es: "Rana", ru: "Лягушка" } },
+      { file: "/pages/take-a-break-animals/02.webp", alt: { en: "Parrot", es: "Loro", ru: "Попугай" } },
+      { file: "/pages/take-a-break-animals/03.webp", alt: { en: "Kangaroo", es: "Canguro", ru: "Кенгуру" } },
+      { file: "/pages/take-a-break-animals/04.webp", alt: { en: "Rhino", es: "Rinoceronte", ru: "Носорог" } },
+      { file: "/pages/take-a-break-animals/05.webp", alt: { en: "Flamingo", es: "Flamenco", ru: "Фламинго" } },
+      { file: "/pages/take-a-break-animals/06.webp", alt: { en: "Lemur", es: "Lémur", ru: "Лемур" } },
+      { file: "/pages/take-a-break-animals/07.webp", alt: { en: "Hummingbird", es: "Colibrí", ru: "Колибри" } },
+      { file: "/pages/take-a-break-animals/08.webp", alt: { en: "Giraffe", es: "Jirafa", ru: "Жираф" } },
+      { file: "/pages/take-a-break-animals/09.webp", alt: { en: "Koala", es: "Koala", ru: "Коала" } },
+      { file: "/pages/take-a-break-animals/10.webp", alt: { en: "Lily of the valley", es: "Muguete", ru: "Ландыш" } },
+      { file: "/pages/take-a-break-animals/11.webp", alt: { en: "Bunny", es: "Conejo", ru: "Кролик" } },
+      { file: "/pages/take-a-break-animals/12.webp", alt: { en: "Monkey", es: "Mono", ru: "Обезьянка" } },
+      { file: "/pages/take-a-break-animals/13.webp", alt: { en: "Owl", es: "Búho", ru: "Сова" } },
+      { file: "/pages/take-a-break-animals/14.webp", alt: { en: "Lotus", es: "Loto", ru: "Лотос" } },
+      { file: "/pages/take-a-break-animals/15.webp", alt: { en: "Goat", es: "Cabra", ru: "Козочка" } },
+      { file: "/pages/take-a-break-animals/16.webp", alt: { en: "Acorns", es: "Bellotas", ru: "Желуди" } },
+      { file: "/pages/take-a-break-animals/17.webp", alt: { en: "Alpaca", es: "Alpaca", ru: "Альпака" } },
+      { file: "/pages/take-a-break-animals/18.webp", alt: { en: "Beaver", es: "Castor", ru: "Бобр" } },
+    ],
     formats: [{ kind: "paperback", asin: "1963328264", price: "$8.99" }],
     pdfUrl: WIX + "spanish-2",
     rating: { value: 5.0, count: 11 },
@@ -3492,9 +3606,9 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Tómate un Descanso: Animales Adorables. Libro de Colorear Fácil para Adultos y Niños",
-        subtitle: "50 diseños de línea gruesa, dibujados a mano. Sin detalle diminuto y una página se termina de una sentada.",
+        subtitle: "50 diseños de línea gruesa, dibujados a mano. Sin detalle diminuto y una página se termina en una sola sesión.",
         lead:
-          "Un libro de colorear fácil para adultos, una categoría más pequeña de lo que debería. La mayoría de los libros para adultos son mandalas densos que exigen una hora por página y acaban cansando. Aquí hay 50 dibujos amplios y de línea gruesa que se terminan de una sentada con una taza de té. La línea es tan gruesa que un niño puede colorear la misma página a tu lado, y por eso la portada dice adultos y niños.",
+          "Un libro de colorear fácil para adultos, una categoría más pequeña de lo que debería. Muchos libros para adultos están llenos de patrones detallados y mandalas que exigen una hora por página y acaban cansando. Aquí hay 50 dibujos amplios y de línea gruesa que se terminan en una sola sesión con una taza de té. La línea es tan gruesa que un niño puede colorear la misma página a tu lado, y por eso la portada dice adultos y niños.",
         inside: [
           "50 diseños dibujados a mano: animales, flores, paisajes y plantas",
           "Impresión grande: líneas gruesas y zonas amplias, cómodas para quien se cansa la vista",
@@ -3502,7 +3616,40 @@ export const books: Book[] = [
           "21.6 x 27.9 cm",
         ],
         forWhom:
-          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y personas mayores. Dos cosas se repiten en los comentarios de los lectores: colorean una página por la noche para soltar la tensión del día de trabajo, y lo compran como regalo y acaban quedándoselo.",
+          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y personas mayores. Dos cosas se repiten en los comentarios de los lectores: colorean una página por la noche para soltar la tensión del día de trabajo, y lo compran como regalo y acaban quedándoselo. También es adecuado para personas mayores y para actividades de grupo en bibliotecas, centros de día y residencias para mayores.",
+        seoTitle:
+          "Libro de Colorear Fácil para Adultos | 50 Animales Adorables",
+        seoDescription:
+          "Libro para colorear fácil para adultos y adolescentes: 50 animales, flores y paisajes dibujados a mano, con trazos gruesos y formas grandes. Una página se termina en una sola sesión.",
+        about: [
+          "Tómate un Descanso: Animales Adorables es un libro para colorear fácil, de trazo grueso, para adultos, adolescentes y quien colorea junto a ellos. Lo publica Magic of Discoveries LLC, tiene 102 páginas y 50 dibujos distintos, en un formato de 21,6 por 27,9 cm.",
+          "Todos los dibujos están hechos a mano, sin usar inteligencia artificial en ninguna fase. En cada página hay un solo motivo con contorno grueso y zonas amplias, así que se puede colorear con lápices, bolígrafos de gel o marcadores y terminarlo en una sola sesión.",
+          "Los temas son animales simpáticos, aves, flores, plantas y paisajes sencillos: una rana sobre un nenúfar, un loro, una jirafa, un koala, una alpaca, un castor o unos muguetes. Nada en el libro está pensado para una sola edad, y por eso la portada dice adultos y niños.",
+          "Es el primero de los tres libros de la serie Tómate un Descanso. Los otros dos mantienen el mismo formato y el mismo grosor de línea y cambian los temas: Tómate un Descanso: Belleza del Océano trata de vida marina y playas tranquilas, y Tómate un Descanso: Historias Deliciosas trata de comida, bebidas y postres.",
+        ],
+        altNames: [
+          "Libro de Colorear Fácil para Adultos",
+          "Libro para Colorear de Animales para Adultos y Adolescentes",
+          "Libro para Colorear de Trazos Gruesos",
+          "Libro para Colorear Sencillo para Principiantes",
+          "Libro para Colorear Antiestrés Fácil",
+        ],
+        keywords: [
+          "libro para colorear para personas mayores",
+          "actividades para personas mayores",
+          "libro para colorear con dibujos grandes para residencias",
+          "libro de colorear facil para adultos",
+          "libro para colorear trazos gruesos",
+          "libro para colorear de animales para adultos",
+          "libro de colorear antiestres lineas gruesas",
+          "libro para colorear con dibujos grandes",
+          "libro para colorear para principiantes",
+          "libro para colorear relajante",
+          "libro para colorear para adolescentes",
+          "dibujos tiernos de animales para colorear",
+          "dibujado a mano",
+          "regalo para colorear",
+        ],
         faq: [
           {
             q: "¿Es demasiado fácil si ya coloreo mucho?",
@@ -3511,6 +3658,50 @@ export const books: Book[] = [
           {
             q: "¿Pueden colorearlo también los niños?",
             a: "Sí. Las formas son grandes y las líneas gruesas, así que los niños colorean estas páginas sin ayuda. Los temas son animales tiernos y plantas, nada pensado solo para adultos.",
+          },
+                  {
+            q: "¿Qué significa trazo grueso y dibujo sencillo?",
+            a: "Significa contornos gruesos y zonas amplias en lugar de patrones diminutos. Cada forma es lo bastante grande para rellenarla sin punta fina y sin forzar la vista.",
+          },
+          {
+            q: "¿Cuánto se tarda en una página?",
+            a: "Entre veinte y treinta minutos sin prisa. Esa es la idea del libro: empezar y terminar el mismo dibujo en una sola sesión, en vez de dejarlo a medias.",
+          },
+          {
+            q: "¿Con qué se puede colorear?",
+            a: "Con lápices de colores, bolígrafos de gel, crayones o marcadores. El contorno grueso da un borde claro a cualquier punta, así que el dibujo se ve bien incluso con trazo ancho.",
+          },
+          {
+            q: "¿Los dibujos están hechos con inteligencia artificial?",
+            a: "No. Los 50 dibujos están hechos a mano por nuestro propio ilustrador, y por eso las líneas son limpias y el estilo se mantiene igual de la primera página a la última.",
+          },
+          {
+            q: "¿Es cómodo si me canso rápido de la vista?",
+            a: "Sí. El dibujo ocupa casi toda la página, los contornos son gruesos y no hay patrones pequeños que seguir.",
+          },
+          {
+            q: "¿Sirve como regalo?",
+            a: "Sí. Los temas son adecuados tanto para adolescentes como para adultos mayores, y un principiante puede terminar la primera página esa misma tarde.",
+          },
+          {
+            q: "¿Qué hay en el libro además de animales?",
+            a: "Entre los animales aparecen flores, plantas y paisajes sencillos: lotos, muguetes, bellotas, una palmera, montañas y agua. Cambian el ritmo sin cambiar el nivel.",
+          },
+          {
+            q: "¿En qué se diferencia de los otros dos libros de la serie?",
+            a: "Mismo formato y mismo grosor de línea, temas distintos. Animales Adorables trae animales, flores y paisajes; Tómate un Descanso: Belleza del Océano trae vida marina, conchas y playas; y Tómate un Descanso: Historias Deliciosas trae comida, bebidas y postres.",
+          },
+          {
+            q: "¿Pueden colorear juntos un adulto y un niño?",
+            a: "Sí, y es algo que hacen muchas familias. Las formas son lo bastante grandes para que un niño en edad escolar pueda colorear una página por su cuenta, así que cada uno puede colorear una página del mismo libro.",
+          },
+                  {
+            q: "¿Es un buen libro para colorear para personas mayores?",
+            a: "Sí. Los dibujos son grandes, los contornos son gruesos y hay un solo motivo por página, sin detalles pequeños. No hace falta acercarse mucho a la página ni trabajar con detalles diminutos, y una página se puede terminar en poco tiempo.",
+          },
+          {
+            q: "¿Pueden usarlo residencias para mayores, bibliotecas o centros de día?",
+            a: "Sí. El libro en papel funciona bien para uso individual, y el archivo imprimible permite usar el mismo dibujo con todo el grupo, de modo que quien dirige la actividad entrega la misma página a todos.",
           },
         ],
       },
@@ -3524,13 +3715,33 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-ocean-es",
-    ageShown: "10-18",
+    ageShown: "10+",
     pages: 102,
     published: "2024-08-10",
     drawings: 50,
     size: "8.5 x 11 in",
     cover: "/covers/take-a-break-ocean-en.jpg",
     coverSize: { w: 900, h: 1168 },
+    thumbs: [
+      { file: "/pages/take-a-break-ocean/01.webp", alt: { en: "Coral reef", es: "Arrecife de coral", ru: "Кораллы" } },
+      { file: "/pages/take-a-break-ocean/02.webp", alt: { en: "Hammerhead shark", es: "Tiburón martillo", ru: "Акула-молот" } },
+      { file: "/pages/take-a-break-ocean/03.webp", alt: { en: "Orca", es: "Orca", ru: "Косатка" } },
+      { file: "/pages/take-a-break-ocean/04.webp", alt: { en: "Swordfish", es: "Pez espada", ru: "Меч-рыба" } },
+      { file: "/pages/take-a-break-ocean/05.webp", alt: { en: "Fish bowl", es: "Pecera", ru: "Аквариум" } },
+      { file: "/pages/take-a-break-ocean/06.webp", alt: { en: "Penguin", es: "Pingüino", ru: "Пингвин" } },
+      { file: "/pages/take-a-break-ocean/07.webp", alt: { en: "Sailing ship", es: "Velero", ru: "Парусник" } },
+      { file: "/pages/take-a-break-ocean/08.webp", alt: { en: "Hermit crab", es: "Cangrejo ermitaño", ru: "Рак-отшельник" } },
+      { file: "/pages/take-a-break-ocean/09.webp", alt: { en: "Diver", es: "Buceador", ru: "Дайвер" } },
+      { file: "/pages/take-a-break-ocean/10.webp", alt: { en: "Squid", es: "Calamar", ru: "Кальмар" } },
+      { file: "/pages/take-a-break-ocean/11.webp", alt: { en: "School of fish", es: "Banco de peces", ru: "Косяк рыб" } },
+      { file: "/pages/take-a-break-ocean/12.webp", alt: { en: "Jellyfish", es: "Medusas", ru: "Медузы" } },
+      { file: "/pages/take-a-break-ocean/13.webp", alt: { en: "Treasure chest", es: "Cofre del tesoro", ru: "Сундук с сокровищами" } },
+      { file: "/pages/take-a-break-ocean/14.webp", alt: { en: "Submarine", es: "Submarino", ru: "Подводная лодка" } },
+      { file: "/pages/take-a-break-ocean/15.webp", alt: { en: "Angelfish", es: "Pez ángel", ru: "Рыба-ангел" } },
+      { file: "/pages/take-a-break-ocean/16.webp", alt: { en: "Shark", es: "Tiburón", ru: "Акула" } },
+      { file: "/pages/take-a-break-ocean/17.webp", alt: { en: "Dolphin", es: "Delfín", ru: "Дельфин" } },
+      { file: "/pages/take-a-break-ocean/18.webp", alt: { en: "Whale", es: "Ballena", ru: "Кит" } },
+    ],
     formats: [{ kind: "paperback", asin: "1963328299", price: "$7.99" }],
     pdfUrl: WIX + "english-1",
     rating: { value: 5.0, count: 7 },
@@ -3542,7 +3753,7 @@ export const books: Book[] = [
       w: 1940,
       h: 1200,
       alt: {
-        en: "Take a Break: Ocean, an easy large print coloring book for adults and kids, cover with a sea otter floating on its back among shells and starfish",
+        en: "Take a Break: Ocean, an easy, large-print coloring book for adults and kids, cover with a sea otter floating on its back among shells and starfish",
       },
     },
     banners: [
@@ -3593,7 +3804,41 @@ export const books: Book[] = [
           "8.5 x 11 inches",
         ],
         forWhom:
-          "Adults, teenagers, children coloring alongside a grown-up, beginners and anyone who wants something calm at the end of the day. It is also an easy gift: the subjects are gentle and nothing in the book is aimed at one age only.",
+          "Adults, teenagers, children coloring alongside a grown-up, beginners and anyone who wants something calm at the end of the day. It is also an easy gift: the subjects are gentle and nothing in the book is aimed at one age only. It also suits older adults and group activities in libraries, adult day programs and senior living communities.",
+        seoTitle:
+          "Easy Ocean Coloring Book for Adults | 50 Bold Sea Drawings",
+        seoDescription:
+          "A calm, easy coloring book for adults and teens: 50 hand-drawn ocean drawings in large print with thick lines. Sea animals, shells, boats and beaches, one page per sitting.",
+        about: [
+          "Take a Break: Ocean is an easy, large-print coloring book for adults and teenagers, published by Magic of Discoveries LLC. It has 102 pages and 50 different drawings on 8.5 x 11-inch pages.",
+          "All 50 drawings are made by hand, with no artificial intelligence involved. Ocean subjects suit this format particularly well: water, sand and sky are large open areas, so a page stays relaxing to color with pencils, gel pens or markers.",
+          "Inside are sea animals and scenes: a coral reef, a hammerhead shark, an orca, a swordfish, a penguin on the ice, a hermit crab, a diver, a squid, a school of fish, jellyfish, a treasure chest, a submarine, a dolphin and a whale, along with shells, boats and beaches.",
+          "It is one of three books in the Take a Break series, which share the same format and line weight: Take a Break: Cute Animals covers animals, flowers and landscapes, and Take a Break: Food and Snacks covers food, drinks and desserts.",
+        ],
+        altNames: [
+          "Ocean Coloring Book for Adults",
+          "Bold and Easy Sea Coloring Book",
+          "Large Print Ocean Coloring Book",
+          "Under the Sea Coloring Book for Adults and Teens",
+          "Simple Beach Coloring Book",
+        ],
+        keywords: [
+          "coloring books for seniors large print",
+          "coloring book for elderly",
+          "activities for seniors",
+          "large print activity book for senior living communities",
+          "ocean coloring book for adults",
+          "easy coloring book for adults",
+          "sea life coloring book",
+          "bold and easy coloring book",
+          "large print coloring book",
+          "beach coloring book",
+          "relaxing coloring book",
+          "coloring book for teens",
+          "thick line coloring book",
+          "hand drawn coloring book",
+          "summer gift coloring book",
+        ],
         faq: [
           {
             q: "Is this too easy if I already color a lot?",
@@ -3601,11 +3846,59 @@ export const books: Book[] = [
           },
           {
             q: "Can a child use this book too?",
-            a: "Yes. The shapes are large and the lines are thick, so a school-age child colors these pages without help. Families often work through the same book together.",
+            a: "Yes. The shapes are large and the lines are thick, so a school-age child colors these pages without help. It also works well for a family coloring together.",
           },
           {
             q: "How is this different from the Cute Animals book in the series?",
-            a: "Same format, same line weight, different subjects. Cute Animals is land animals, flowers and plants. Ocean is sea life, shells, boats and beaches. Many readers own both.",
+            a: "Same format, same line weight, different subjects. Cute Animals is land animals, flowers and plants. Ocean is sea life, shells, boats and beaches. The two books can be used side by side.",
+          },
+                  {
+            q: "What does bold and easy mean?",
+            a: "It means thick outlines and large open areas instead of fine pattern work. Every shape is big enough to fill in without a fine-tipped pen, and there are no tiny details that require you to look closely.",
+          },
+          {
+            q: "How long does one page take?",
+            a: "About twenty to thirty minutes at an unhurried pace. That is the point of the book: you start and finish the same drawing in one sitting instead of leaving it half done.",
+          },
+          {
+            q: "What can I color with?",
+            a: "Colored pencils, gel pens, crayons and markers all work. The thick outline gives every tool a clear edge to stop at, so the drawing still looks right even with a broad tip.",
+          },
+          {
+            q: "Are the drawings made with AI?",
+            a: "No. All 50 drawings are drawn by hand by our own illustrator, which is why the lines are clean and the shapes stay consistent from page to page.",
+          },
+          {
+            q: "Is it comfortable if my eyes tire quickly?",
+            a: "Yes, that is what large print is for here. The subject fills most of the page, the outlines are thick, and there are no small repeating patterns to follow.",
+          },
+          {
+            q: "Is this a good gift?",
+            a: "It makes an easy gift. The subjects suit anyone from a teenager to a grandparent, and a beginner can finish the first page the same evening.",
+          },
+          {
+            q: "Which book in the series is the calmest?",
+            a: "This one. Water, sand and sky take up most of each page, so there are fewer separate elements to decide about than in the other two books.",
+          },
+          {
+            q: "What sea creatures are in the book?",
+            a: "Sharks, an orca, a dolphin, a whale, jellyfish, a squid, a hermit crab, a penguin, a school of fish and reef fish, along with a coral reef, shells, a diver, boats, a submarine and a treasure chest.",
+          },
+          {
+            q: "Is there a mermaid or anything for younger colorists?",
+            a: "Yes. Alongside the sea animals there are gentle scenes such as a mermaid, a fish bowl and a sailing ship, so a child can color one of these pages while an adult colors another.",
+          },
+          {
+            q: "Does it work as a holiday or summer gift?",
+            a: "Yes. The subjects are seaside ones, they suit any age, and the first drawing can be finished the evening the gift is opened.",
+          },
+                  {
+            q: "Is this a good coloring book for seniors?",
+            a: "Yes. The drawings are large, the outlines are thick, and there is one subject per page with no small details, so there is no need to look closely or work with tiny details. A page can be finished in one short sitting.",
+          },
+          {
+            q: "Can a senior living community, library, or adult day program use it?",
+            a: "Yes. The paperback works well for individual use, and the printable PDF lets a group use the same drawing, so an activity leader can give everyone the same page.",
           },
         ],
       },
@@ -3619,13 +3912,33 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-ocean-en",
-    ageShown: "10-18",
+    ageShown: "10+",
     pages: 102,
     published: "2024-08-14",
     drawings: 50,
     size: "21.6 x 27.9 cm",
     cover: "/covers/take-a-break-ocean-es.jpg",
     coverSize: { w: 900, h: 1164 },
+    thumbs: [
+      { file: "/pages/take-a-break-ocean/01.webp", alt: { en: "Coral reef", es: "Arrecife de coral", ru: "Кораллы" } },
+      { file: "/pages/take-a-break-ocean/02.webp", alt: { en: "Hammerhead shark", es: "Tiburón martillo", ru: "Акула-молот" } },
+      { file: "/pages/take-a-break-ocean/03.webp", alt: { en: "Orca", es: "Orca", ru: "Косатка" } },
+      { file: "/pages/take-a-break-ocean/04.webp", alt: { en: "Swordfish", es: "Pez espada", ru: "Меч-рыба" } },
+      { file: "/pages/take-a-break-ocean/05.webp", alt: { en: "Fish bowl", es: "Pecera", ru: "Аквариум" } },
+      { file: "/pages/take-a-break-ocean/06.webp", alt: { en: "Penguin", es: "Pingüino", ru: "Пингвин" } },
+      { file: "/pages/take-a-break-ocean/07.webp", alt: { en: "Sailing ship", es: "Velero", ru: "Парусник" } },
+      { file: "/pages/take-a-break-ocean/08.webp", alt: { en: "Hermit crab", es: "Cangrejo ermitaño", ru: "Рак-отшельник" } },
+      { file: "/pages/take-a-break-ocean/09.webp", alt: { en: "Diver", es: "Buceador", ru: "Дайвер" } },
+      { file: "/pages/take-a-break-ocean/10.webp", alt: { en: "Squid", es: "Calamar", ru: "Кальмар" } },
+      { file: "/pages/take-a-break-ocean/11.webp", alt: { en: "School of fish", es: "Banco de peces", ru: "Косяк рыб" } },
+      { file: "/pages/take-a-break-ocean/12.webp", alt: { en: "Jellyfish", es: "Medusas", ru: "Медузы" } },
+      { file: "/pages/take-a-break-ocean/13.webp", alt: { en: "Treasure chest", es: "Cofre del tesoro", ru: "Сундук с сокровищами" } },
+      { file: "/pages/take-a-break-ocean/14.webp", alt: { en: "Submarine", es: "Submarino", ru: "Подводная лодка" } },
+      { file: "/pages/take-a-break-ocean/15.webp", alt: { en: "Angelfish", es: "Pez ángel", ru: "Рыба-ангел" } },
+      { file: "/pages/take-a-break-ocean/16.webp", alt: { en: "Shark", es: "Tiburón", ru: "Акула" } },
+      { file: "/pages/take-a-break-ocean/17.webp", alt: { en: "Dolphin", es: "Delfín", ru: "Дельфин" } },
+      { file: "/pages/take-a-break-ocean/18.webp", alt: { en: "Whale", es: "Ballena", ru: "Кит" } },
+    ],
     formats: [{ kind: "paperback", asin: "1963328396", price: "$7.99" }],
     pdfUrl: WIX + "spanish-1",
     rating: { value: 5.0, count: 6 },
@@ -3637,7 +3950,7 @@ export const books: Book[] = [
       w: 1940,
       h: 1200,
       alt: {
-        es: "Tómate un Descanso: Belleza del Océano, libro de colorear fácil de letra grande para adultos y niños, portada con una nutria marina flotando entre conchas y estrellas de mar",
+        es: "Tómate un Descanso: Belleza del Océano, libro de colorear fácil de dibujos grandes para adultos y niños, portada con una nutria marina flotando entre conchas y estrellas de mar",
       },
     },
     banners: [
@@ -3678,7 +3991,7 @@ export const books: Book[] = [
     copy: {
       es: {
         title: "Tómate un Descanso: Belleza del Océano. Libro de Colorear Fácil",
-        subtitle: "50 dibujos marinos de letra grande. Trazo grueso, agua abierta, una página terminada de una sentada.",
+        subtitle: "50 dibujos marinos de dibujos grandes. Trazo grueso, agua abierta, una página terminada en una sola sesión.",
         lead:
           "Animales marinos, peces, conchas y playas tranquilas, dibujados con el mismo trazo grueso y fácil que el resto de la serie. Los temas del mar encajan muy bien en este formato: el agua, la arena y el cielo son zonas amplias y no hay nada diminuto que forzar la vista. El trazo es lo bastante grueso para que un niño coloree la misma página a tu lado, y por eso la portada dice adultos y niños.",
         inside: [
@@ -3688,7 +4001,40 @@ export const books: Book[] = [
           "21.6 x 27.9 cm",
         ],
         forWhom:
-          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y cualquiera que quiera algo tranquilo al final del día. También es un regalo fácil: los temas son amables y nada en el libro apunta a una sola edad.",
+          "Adultos, adolescentes, niños que colorean junto a un adulto, principiantes y cualquiera que quiera algo tranquilo al final del día. También es un regalo fácil: los temas son amables y nada en el libro apunta a una sola edad. También es adecuado para personas mayores y para actividades de grupo en bibliotecas, centros de día y residencias para mayores.",
+        seoTitle:
+          "Libro de Colorear del Océano Fácil | 50 Dibujos de Trazo Grueso",
+        seoDescription:
+          "Libro para colorear fácil y relajante para adultos y adolescentes: 50 dibujos marinos hechos a mano, con trazo grueso y zonas amplias. Animales del mar, conchas, barcos y playas.",
+        about: [
+          "Tómate un Descanso: Belleza del Océano es un libro para colorear fácil, de trazo grueso, para adultos y adolescentes, publicado por Magic of Discoveries LLC. Tiene 102 páginas y 50 dibujos distintos en un formato de 21,6 por 27,9 cm.",
+          "Los 50 dibujos están hechos a mano, sin inteligencia artificial. Los temas marinos encajan especialmente bien en este formato: el agua, la arena y el cielo son zonas amplias, así que la página sigue siendo relajante con lápices, bolígrafos de gel o marcadores.",
+          "Dentro hay animales y escenas del mar: un arrecife de coral, un tiburón martillo, una orca, un pez espada, un pingüino sobre el hielo, un cangrejo ermitaño, un buceador, un calamar, un banco de peces, medusas, un cofre del tesoro, un submarino, un delfín y una ballena, además de conchas, barcos y playas.",
+          "Es uno de los tres libros de la serie Tómate un Descanso, que comparten formato y grosor de línea: Animales Adorables trae animales, flores y paisajes, y Tómate un Descanso: Historias Deliciosas trae comida, bebidas y postres.",
+        ],
+        altNames: [
+          "Libro de Colorear del Océano para Adultos",
+          "Libro para Colorear Fácil del Mar",
+          "Libro para Colorear de Trazos Gruesos",
+          "Libro para Colorear de Playa para Adultos y Adolescentes",
+          "Libro para Colorear Relajante",
+        ],
+        keywords: [
+          "libro para colorear para personas mayores",
+          "actividades para personas mayores",
+          "libro para colorear con dibujos grandes para residencias",
+          "libro para colorear del oceano para adultos",
+          "libro de colorear facil para adultos",
+          "dibujos del mar para colorear",
+          "libro para colorear trazos gruesos",
+          "libro para colorear con dibujos grandes",
+          "libro para colorear relajante",
+          "libro para colorear de playa",
+          "libro para colorear para adolescentes",
+          "animales marinos para colorear",
+          "dibujado a mano",
+          "regalo de verano",
+        ],
         faq: [
           {
             q: "¿Es demasiado fácil si ya coloreo mucho?",
@@ -3696,11 +4042,59 @@ export const books: Book[] = [
           },
           {
             q: "¿Puede usarlo también un niño?",
-            a: "Sí. Las formas son grandes y las líneas gruesas, así que un niño en edad escolar colorea estas páginas sin ayuda. Muchas familias van coloreando el mismo libro juntas.",
+            a: "Sí. Las formas son grandes y las líneas gruesas, así que un niño en edad escolar colorea estas páginas sin ayuda. También es una buena opción para que adultos y niños coloreen juntos.",
           },
           {
             q: "¿En qué se diferencia del libro de Animales Adorables de la misma serie?",
             a: "Mismo formato, mismo grosor de línea, temas distintos. Animales Adorables trae animales de tierra, flores y plantas. Belleza del Océano trae vida marina, conchas, barcos y playas. Mucha gente tiene los dos.",
+          },
+                  {
+            q: "¿Qué significa trazo grueso y dibujo sencillo?",
+            a: "Significa contornos gruesos y zonas amplias en lugar de patrones diminutos. Cada forma es lo bastante grande para rellenarla sin punta fina y sin forzar la vista.",
+          },
+          {
+            q: "¿Cuánto se tarda en una página?",
+            a: "Entre veinte y treinta minutos sin prisa. Esa es la idea del libro: empezar y terminar el mismo dibujo en una sola sesión, en vez de dejarlo a medias.",
+          },
+          {
+            q: "¿Con qué se puede colorear?",
+            a: "Con lápices de colores, bolígrafos de gel, crayones o marcadores. El contorno grueso da un borde claro a cualquier punta, así que el dibujo se ve bien incluso con trazo ancho.",
+          },
+          {
+            q: "¿Los dibujos están hechos con inteligencia artificial?",
+            a: "No. Los 50 dibujos están hechos a mano por nuestro propio ilustrador, y por eso las líneas son limpias y el estilo se mantiene igual de la primera página a la última.",
+          },
+          {
+            q: "¿Es cómodo si me canso rápido de la vista?",
+            a: "Sí. El dibujo ocupa casi toda la página, los contornos son gruesos y no hay patrones pequeños que seguir.",
+          },
+          {
+            q: "¿Sirve como regalo?",
+            a: "Sí. Los temas son adecuados tanto para adolescentes como para adultos mayores, y un principiante puede terminar la primera página esa misma tarde.",
+          },
+          {
+            q: "¿Cuál es el libro más tranquilo de la serie?",
+            a: "Este. El agua, la arena y el cielo ocupan la mayor parte de cada página, así que hay menos elementos sueltos sobre los que decidir que en los otros dos libros.",
+          },
+          {
+            q: "¿Qué animales marinos aparecen?",
+            a: "Tiburones, una orca, un delfín, una ballena, medusas, un calamar, un cangrejo ermitaño, un pingüino, un banco de peces y peces de arrecife, además de un arrecife de coral, conchas, un buceador, barcos, un submarino y un cofre del tesoro.",
+          },
+          {
+            q: "¿Hay alguna sirena o algo para los más jóvenes?",
+            a: "Sí. Junto a los animales marinos hay escenas amables como una sirena, una pecera o un velero, así que un niño puede colorear una de estas páginas mientras el adulto colorea otra.",
+          },
+          {
+            q: "¿Funciona como regalo de vacaciones o de verano?",
+            a: "Sí. Los temas son de mar, sirven para cualquier edad y quien lo recibe puede terminar el primer dibujo esa misma tarde.",
+          },
+                  {
+            q: "¿Es un buen libro para colorear para personas mayores?",
+            a: "Sí. Los dibujos son grandes, los contornos son gruesos y hay un solo motivo por página, sin detalles pequeños. No hace falta acercarse mucho a la página ni trabajar con detalles diminutos, y una página se puede terminar en poco tiempo.",
+          },
+          {
+            q: "¿Pueden usarlo residencias para mayores, bibliotecas o centros de día?",
+            a: "Sí. El libro en papel funciona bien para uso individual, y el archivo imprimible permite usar el mismo dibujo con todo el grupo, de modo que quien dirige la actividad entrega la misma página a todos.",
           },
         ],
       },
@@ -3714,13 +4108,33 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-food-es",
-    ageShown: "10-18",
+    ageShown: "10+",
     pages: 102,
     published: "2024-08-10",
     drawings: 50,
     size: "8.5 x 11 in",
     cover: "/covers/take-a-break-food-en.jpg",
     coverSize: { w: 900, h: 1162 },
+    thumbs: [
+      { file: "/pages/take-a-break-food/01.webp", alt: { en: "Carrot", es: "Zanahoria", ru: "Морковь" } },
+      { file: "/pages/take-a-break-food/02.webp", alt: { en: "Lemon", es: "Limón", ru: "Лимон" } },
+      { file: "/pages/take-a-break-food/03.webp", alt: { en: "Pumpkin", es: "Calabaza", ru: "Тыква" } },
+      { file: "/pages/take-a-break-food/04.webp", alt: { en: "Watermelon", es: "Sandía", ru: "Арбуз" } },
+      { file: "/pages/take-a-break-food/05.webp", alt: { en: "Burger", es: "Hamburguesa", ru: "Бургер" } },
+      { file: "/pages/take-a-break-food/06.webp", alt: { en: "Lemonade", es: "Limonada", ru: "Лимонад" } },
+      { file: "/pages/take-a-break-food/07.webp", alt: { en: "Ice cream bar", es: "Helado de palo", ru: "Мороженое на палочке" } },
+      { file: "/pages/take-a-break-food/08.webp", alt: { en: "Pizza", es: "Pizza", ru: "Пицца" } },
+      { file: "/pages/take-a-break-food/09.webp", alt: { en: "Birthday cake", es: "Tarta de cumpleaños", ru: "Праздничный торт" } },
+      { file: "/pages/take-a-break-food/10.webp", alt: { en: "Ice cream cone", es: "Cucurucho de helado", ru: "Рожок мороженого" } },
+      { file: "/pages/take-a-break-food/11.webp", alt: { en: "Onion and garlic", es: "Cebolla y ajo", ru: "Лук и чеснок" } },
+      { file: "/pages/take-a-break-food/12.webp", alt: { en: "Broccoli", es: "Brócoli", ru: "Брокколи" } },
+      { file: "/pages/take-a-break-food/13.webp", alt: { en: "Cabbage", es: "Repollo", ru: "Капуста" } },
+      { file: "/pages/take-a-break-food/14.webp", alt: { en: "Peppers", es: "Pimientos", ru: "Перец" } },
+      { file: "/pages/take-a-break-food/15.webp", alt: { en: "Tomatoes", es: "Tomates", ru: "Помидоры" } },
+      { file: "/pages/take-a-break-food/16.webp", alt: { en: "Grapes", es: "Uvas", ru: "Виноград" } },
+      { file: "/pages/take-a-break-food/17.webp", alt: { en: "Cheese", es: "Queso", ru: "Сыр" } },
+      { file: "/pages/take-a-break-food/18.webp", alt: { en: "Corn", es: "Maíz", ru: "Кукуруза" } },
+    ],
     formats: [{ kind: "paperback", asin: "1963328329", price: "$7.99" }],
     pdfUrl: WIX + "english-2",
     showcaseLead: {
@@ -3731,7 +4145,7 @@ export const books: Book[] = [
       w: 1940,
       h: 1200,
       alt: {
-        en: "Take a Break: Food and Snacks, an easy large print coloring book for adults and kids, cover with a cup of coffee and a cupcake",
+        en: "Take a Break: Food and Snacks, an easy, large-print coloring book for adults and kids, cover with a cup of coffee and a cupcake",
       },
     },
     banners: [
@@ -3783,11 +4197,93 @@ export const books: Book[] = [
           "One illustration per page",
         ],
         forWhom:
-          "Adults, teens, beginning artists and seniors. A perfect gift for any occasion.",
+          "Adults, teens, beginners, and seniors. An easy gift for many occasions. It also suits older adults and group activities in libraries, adult day programs and senior living communities.",
+        seoTitle:
+          "Easy Food Coloring Book for Adults | 50 Bold Drawings",
+        seoDescription:
+          "An easy coloring book for adults and teens: 50 hand-drawn food, drink and dessert drawings in large print with thick lines. The simplest book in the series to pick up.",
+        about: [
+          "Take a Break: Food and Snacks is an easy, large-print coloring book for adults, teenagers and beginners, published by Magic of Discoveries LLC. It has 102 pages and 50 different drawings on 8.5 x 11-inch pages.",
+          "Every drawing is made by hand, with no artificial intelligence used. Each page holds one subject drawn with a thick outline and large open areas, so a page can be finished in one sitting with pencils, gel pens or markers.",
+          "Inside are fruit and vegetables, baking and desserts, drinks and everyday meals: a carrot, a lemon, a pumpkin, watermelon, a burger, lemonade, pizza, a birthday cake, ice cream, onions and garlic, broccoli, cabbage, peppers, tomatoes, grapes, cheese and corn.",
+          "It is one of three books in the Take a Break series, which share the same format and line weight: Take a Break: Cute Animals covers animals, flowers and landscapes, and Take a Break: Ocean covers sea life and beaches.",
+        ],
+        altNames: [
+          "Food Coloring Book for Adults",
+          "Bold and Easy Food and Dessert Coloring Book",
+          "Large Print Food Coloring Book",
+          "Simple Coloring Book for Beginners",
+          "Kitchen Coloring Book for Adults and Teens",
+        ],
+        keywords: [
+          "coloring books for seniors large print",
+          "coloring book for elderly",
+          "activities for seniors",
+          "large print activity book for senior living communities",
+          "food coloring book for adults",
+          "easy coloring book for adults",
+          "dessert coloring book",
+          "bold and easy coloring book",
+          "large print coloring book",
+          "simple coloring book for beginners",
+          "coloring book for teens",
+          "thick line coloring book",
+          "hand drawn coloring book",
+          "coloring book gift",
+          "cute food coloring pages",
+        ],
         faq: [
           {
             q: "Which Take a Break book should I start with?",
             a: "Food is the easiest to pick up, because you rarely have to think about what color anything should be. Animals has the most variety, and Ocean is the calmest.",
+          },
+                  {
+            q: "What does bold and easy mean?",
+            a: "It means thick outlines and large open areas instead of fine pattern work. Every shape is big enough to fill in without a fine-tipped pen, and there are no tiny details that require you to look closely.",
+          },
+          {
+            q: "How long does one page take?",
+            a: "About twenty to thirty minutes at an unhurried pace. That is the point of the book: you start and finish the same drawing in one sitting instead of leaving it half done.",
+          },
+          {
+            q: "What can I color with?",
+            a: "Colored pencils, gel pens, crayons and markers all work. The thick outline gives every tool a clear edge to stop at, so the drawing still looks right even with a broad tip.",
+          },
+          {
+            q: "Are the drawings made with AI?",
+            a: "No. All 50 drawings are drawn by hand by our own illustrator, which is why the lines are clean and the shapes stay consistent from page to page.",
+          },
+          {
+            q: "Is it comfortable if my eyes tire quickly?",
+            a: "Yes, that is what large print is for here. The subject fills most of the page, the outlines are thick, and there are no small repeating patterns to follow.",
+          },
+          {
+            q: "Is this a good gift?",
+            a: "It makes an easy gift. The subjects suit anyone from a teenager to a grandparent, and a beginner can finish the first page the same evening.",
+          },
+          {
+            q: "Which book in the series is the easiest to start with?",
+            a: "This one. You rarely have to decide what color anything should be, so the first page takes almost no thinking: a lemon is yellow, a carrot is orange, and you are coloring within a minute.",
+          },
+          {
+            q: "What food is in the book?",
+            a: "Fruit and vegetables, baking and desserts, drinks and everyday meals: watermelon, grapes, corn, peppers, tomatoes, broccoli, a burger, pizza, a birthday cake, ice cream, lemonade and cheese among them.",
+          },
+          {
+            q: "Is it a good book for a beginner who has never colored before?",
+            a: "Yes, it is the one we suggest first. The subjects are familiar, the shapes are simple, and a finished page looks good even if the color goes slightly over the line.",
+          },
+          {
+            q: "Does it work as a kitchen or housewarming gift?",
+            a: "Yes. Each drawing stands on its own, so a finished page can be cut out and pinned up in a kitchen.",
+          },
+                  {
+            q: "Is this a good coloring book for seniors?",
+            a: "Yes. The drawings are large, the outlines are thick, and there is one subject per page with no small details, so there is no need to look closely or work with tiny details. A page can be finished in one short sitting.",
+          },
+          {
+            q: "Can a senior living community, library, or adult day program use it?",
+            a: "Yes. The paperback works well for individual use, and the printable PDF lets a group use the same drawing, so an activity leader can give everyone the same page.",
           },
         ],
       },
@@ -3801,13 +4297,33 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-food-en",
-    ageShown: "10-18",
+    ageShown: "10+",
     pages: 102,
     published: "2024-08-14",
     drawings: 50,
     size: "21.6 x 27.9 cm",
     cover: "/covers/take-a-break-food-es.jpg",
     coverSize: { w: 900, h: 1164 },
+    thumbs: [
+      { file: "/pages/take-a-break-food/01.webp", alt: { en: "Carrot", es: "Zanahoria", ru: "Морковь" } },
+      { file: "/pages/take-a-break-food/02.webp", alt: { en: "Lemon", es: "Limón", ru: "Лимон" } },
+      { file: "/pages/take-a-break-food/03.webp", alt: { en: "Pumpkin", es: "Calabaza", ru: "Тыква" } },
+      { file: "/pages/take-a-break-food/04.webp", alt: { en: "Watermelon", es: "Sandía", ru: "Арбуз" } },
+      { file: "/pages/take-a-break-food/05.webp", alt: { en: "Burger", es: "Hamburguesa", ru: "Бургер" } },
+      { file: "/pages/take-a-break-food/06.webp", alt: { en: "Lemonade", es: "Limonada", ru: "Лимонад" } },
+      { file: "/pages/take-a-break-food/07.webp", alt: { en: "Ice cream bar", es: "Helado de palo", ru: "Мороженое на палочке" } },
+      { file: "/pages/take-a-break-food/08.webp", alt: { en: "Pizza", es: "Pizza", ru: "Пицца" } },
+      { file: "/pages/take-a-break-food/09.webp", alt: { en: "Birthday cake", es: "Tarta de cumpleaños", ru: "Праздничный торт" } },
+      { file: "/pages/take-a-break-food/10.webp", alt: { en: "Ice cream cone", es: "Cucurucho de helado", ru: "Рожок мороженого" } },
+      { file: "/pages/take-a-break-food/11.webp", alt: { en: "Onion and garlic", es: "Cebolla y ajo", ru: "Лук и чеснок" } },
+      { file: "/pages/take-a-break-food/12.webp", alt: { en: "Broccoli", es: "Brócoli", ru: "Брокколи" } },
+      { file: "/pages/take-a-break-food/13.webp", alt: { en: "Cabbage", es: "Repollo", ru: "Капуста" } },
+      { file: "/pages/take-a-break-food/14.webp", alt: { en: "Peppers", es: "Pimientos", ru: "Перец" } },
+      { file: "/pages/take-a-break-food/15.webp", alt: { en: "Tomatoes", es: "Tomates", ru: "Помидоры" } },
+      { file: "/pages/take-a-break-food/16.webp", alt: { en: "Grapes", es: "Uvas", ru: "Виноград" } },
+      { file: "/pages/take-a-break-food/17.webp", alt: { en: "Cheese", es: "Queso", ru: "Сыр" } },
+      { file: "/pages/take-a-break-food/18.webp", alt: { en: "Corn", es: "Maíz", ru: "Кукуруза" } },
+    ],
     formats: [{ kind: "paperback", asin: "1963328426", price: "$7.99" }],
     pdfUrl: WIX + "spanish-3",
     showcaseLead: {
@@ -3861,7 +4377,7 @@ export const books: Book[] = [
         title: "Tómate un Descanso: Historias Deliciosas. Libro de Colorear Fácil",
         subtitle: "¡Tómate un pequeño descanso!",
         lead:
-          "Maravillosas ilustraciones que son fáciles y divertidas de colorear. Ponte cómodo y regálate un poco de tiempo para la creatividad.\n\nCafé, pasteles, fruta, pizza y postres, dibujados con línea gruesa para que una página se termine de una sentada.",
+          "Maravillosas ilustraciones que son fáciles y divertidas de colorear. Ponte cómodo y regálate un poco de tiempo para la creatividad.\n\nCafé, pasteles, fruta, pizza y postres, dibujados con línea gruesa para que una página se termine en una sola sesión.",
         inside: [
           "50 diseños únicos, grandes y de línea gruesa: alimentos, bebidas, postres, fruta y mucho más",
           "Todas las ilustraciones están dibujadas a mano",
@@ -3870,11 +4386,92 @@ export const books: Book[] = [
           "Una ilustración por página",
         ],
         forWhom:
-          "Adultos, adolescentes, artistas principiantes y personas mayores. El regalo perfecto para cualquier ocasión.",
+          "Adultos, adolescentes, artistas principiantes y personas mayores. El regalo perfecto para cualquier ocasión. También es adecuado para personas mayores y para actividades de grupo en bibliotecas, centros de día y residencias para mayores.",
+        seoTitle:
+          "Libro de Colorear de Comida Fácil | 50 Dibujos Grandes",
+        seoDescription:
+          "Libro para colorear fácil para adultos y adolescentes: 50 dibujos de comida, bebidas y postres hechos a mano, con trazo grueso. El más sencillo de la serie para empezar.",
+        about: [
+          "Tómate un Descanso: Historias Deliciosas es un libro para colorear fácil, de trazo grueso, para adultos, adolescentes y principiantes, publicado por Magic of Discoveries LLC. Tiene 102 páginas y 50 dibujos distintos en un formato de 21,6 por 27,9 cm.",
+          "Cada dibujo está hecho a mano, sin inteligencia artificial. En cada página hay un solo motivo con contorno grueso y zonas amplias, de modo que la página se termina en una sola sesión con lápices, bolígrafos de gel o marcadores.",
+          "Dentro hay fruta y verdura, repostería y postres, bebidas y platos de todos los días: una zanahoria, un limón, una calabaza, sandía, una hamburguesa, limonada, pizza, una tarta de cumpleaños, helado, cebolla y ajo, brócoli, repollo, pimientos, tomates, uvas, queso y maíz.",
+          "Es uno de los tres libros de la serie Tómate un Descanso, que comparten formato y grosor de línea: Animales Adorables trae animales, flores y paisajes, y Tómate un Descanso: Belleza del Océano trae vida marina y playas.",
+        ],
+        altNames: [
+          "Libro de Colorear de Comida para Adultos",
+          "Libro para Colorear Fácil de Postres",
+          "Libro para Colorear de Trazos Gruesos",
+          "Libro para Colorear Sencillo para Principiantes",
+          "Libro para Colorear de Cocina para Adultos y Adolescentes",
+        ],
+        keywords: [
+          "libro para colorear para personas mayores",
+          "actividades para personas mayores",
+          "libro para colorear con dibujos grandes para residencias",
+          "libro para colorear de comida para adultos",
+          "libro de colorear facil para adultos",
+          "dibujos de postres para colorear",
+          "libro para colorear trazos gruesos",
+          "libro para colorear con dibujos grandes",
+          "libro para colorear para principiantes",
+          "libro para colorear para adolescentes",
+          "dibujos de comida tiernos para colorear",
+          "dibujado a mano",
+          "regalo para colorear",
+          "libro para pintar para relajarse",
+        ],
         faq: [
           {
             q: "¿Por cuál de los Tómate un Descanso empiezo?",
             a: "Historias Deliciosas es el más fácil de empezar, porque casi nunca hay que pensar de qué color va algo. Animales tiene más variedad y Océano es el más tranquilo.",
+          },
+                  {
+            q: "¿Qué significa trazo grueso y dibujo sencillo?",
+            a: "Significa contornos gruesos y zonas amplias en lugar de patrones diminutos. Cada forma es lo bastante grande para rellenarla sin punta fina y sin forzar la vista.",
+          },
+          {
+            q: "¿Cuánto se tarda en una página?",
+            a: "Entre veinte y treinta minutos sin prisa. Esa es la idea del libro: empezar y terminar el mismo dibujo en una sola sesión, en vez de dejarlo a medias.",
+          },
+          {
+            q: "¿Con qué se puede colorear?",
+            a: "Con lápices de colores, bolígrafos de gel, crayones o marcadores. El contorno grueso da un borde claro a cualquier punta, así que el dibujo se ve bien incluso con trazo ancho.",
+          },
+          {
+            q: "¿Los dibujos están hechos con inteligencia artificial?",
+            a: "No. Los 50 dibujos están hechos a mano por nuestro propio ilustrador, y por eso las líneas son limpias y el estilo se mantiene igual de la primera página a la última.",
+          },
+          {
+            q: "¿Es cómodo si me canso rápido de la vista?",
+            a: "Sí. El dibujo ocupa casi toda la página, los contornos son gruesos y no hay patrones pequeños que seguir.",
+          },
+          {
+            q: "¿Sirve como regalo?",
+            a: "Sí. Los temas son adecuados tanto para adolescentes como para adultos mayores, y un principiante puede terminar la primera página esa misma tarde.",
+          },
+          {
+            q: "¿Con qué libro de la serie conviene empezar?",
+            a: "Con este. Casi nunca hay que decidir de qué color va cada cosa, así que la primera página no exige pensar: un limón es amarillo, una zanahoria naranja, y en un minuto ya se está coloreando.",
+          },
+          {
+            q: "¿Qué comida aparece en el libro?",
+            a: "Fruta y verdura, repostería y postres, bebidas y platos de diario: sandía, uvas, maíz, pimientos, tomates, brócoli, una hamburguesa, pizza, una tarta de cumpleaños, helado, limonada y queso, entre otros.",
+          },
+          {
+            q: "¿Va bien para alguien que nunca ha coloreado?",
+            a: "Sí, es el que recomendamos primero. Los temas son conocidos, las formas simples, y la página terminada queda bien aunque el color se salga un poco del contorno.",
+          },
+          {
+            q: "¿Sirve como regalo de cocina o de inauguración de casa?",
+            a: "Sí. Cada dibujo funciona por sí solo, así que una página terminada se puede recortar y colgar en la cocina.",
+          },
+                  {
+            q: "¿Es un buen libro para colorear para personas mayores?",
+            a: "Sí. Los dibujos son grandes, los contornos son gruesos y hay un solo motivo por página, sin detalles pequeños. No hace falta acercarse mucho a la página ni trabajar con detalles diminutos, y una página se puede terminar en poco tiempo.",
+          },
+          {
+            q: "¿Pueden usarlo residencias para mayores, bibliotecas o centros de día?",
+            a: "Sí. El libro en papel funciona bien para uso individual, y el archivo imprimible permite usar el mismo dibujo con todo el grupo, de modo que quien dirige la actividad entrega la misma página a todos.",
           },
         ],
       },
@@ -4011,11 +4608,7 @@ export const books: Book[] = [
           "Вы хотите во время раскрашивания знакомить ребенка с названиями предметов и написанными словами",
         ],
         fitNo: [
-          "Ребенку стали неинтересны крупные простые рисунки и он сам выбирает более сложные картинки",
-          "Он уверенно раскрашивает внутри контура и хорошо справляется с небольшими участками",
-          "Ему нравятся рисунки с множеством мелких деталей, фоном и несколькими предметами на странице",
-          "Простые изображения уже не представляют для него сложности",
-          "Ребенку интереснее самостоятельно рисовать, чем раскрашивать готовые картинки. В этом случае можно перейти к книгам «Как нарисовать 111» или «Как нарисовать все на свете»",
+          "Ребенку больше девяти лет. Для этого возраста у нас есть «Как нарисовать 111» и «Как нарисовать все на свете»",
         ],
         about: [
           "«Первая книга-раскраска для малышей от 1 до 3 лет», ISBN 978-1-963328-36-3, книга Рикардо Деми, издательство Magic of Discoveries LLC. Это одновременно первая раскраска и книга для знакомства с первыми словами: ее можно использовать для раскрашивания, для знакомства со словами или совмещать одно с другим.",
@@ -4615,12 +5208,32 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-animals-en",
-    ageShown: "10-18",
+    ageShown: "10+",
     drawings: 50,
     pages: 102,
     size: "21.6 x 27.9 см",
     cover: "/covers/take-a-break-animals-ru.jpg",
     coverSize: { w: 900, h: 1165 },
+    thumbs: [
+      { file: "/pages/take-a-break-animals/01.webp", alt: { en: "Frog", es: "Rana", ru: "Лягушка" } },
+      { file: "/pages/take-a-break-animals/02.webp", alt: { en: "Parrot", es: "Loro", ru: "Попугай" } },
+      { file: "/pages/take-a-break-animals/03.webp", alt: { en: "Kangaroo", es: "Canguro", ru: "Кенгуру" } },
+      { file: "/pages/take-a-break-animals/04.webp", alt: { en: "Rhino", es: "Rinoceronte", ru: "Носорог" } },
+      { file: "/pages/take-a-break-animals/05.webp", alt: { en: "Flamingo", es: "Flamenco", ru: "Фламинго" } },
+      { file: "/pages/take-a-break-animals/06.webp", alt: { en: "Lemur", es: "Lémur", ru: "Лемур" } },
+      { file: "/pages/take-a-break-animals/07.webp", alt: { en: "Hummingbird", es: "Colibrí", ru: "Колибри" } },
+      { file: "/pages/take-a-break-animals/08.webp", alt: { en: "Giraffe", es: "Jirafa", ru: "Жираф" } },
+      { file: "/pages/take-a-break-animals/09.webp", alt: { en: "Koala", es: "Koala", ru: "Коала" } },
+      { file: "/pages/take-a-break-animals/10.webp", alt: { en: "Lily of the valley", es: "Muguete", ru: "Ландыш" } },
+      { file: "/pages/take-a-break-animals/11.webp", alt: { en: "Bunny", es: "Conejo", ru: "Кролик" } },
+      { file: "/pages/take-a-break-animals/12.webp", alt: { en: "Monkey", es: "Mono", ru: "Обезьянка" } },
+      { file: "/pages/take-a-break-animals/13.webp", alt: { en: "Owl", es: "Búho", ru: "Сова" } },
+      { file: "/pages/take-a-break-animals/14.webp", alt: { en: "Lotus", es: "Loto", ru: "Лотос" } },
+      { file: "/pages/take-a-break-animals/15.webp", alt: { en: "Goat", es: "Cabra", ru: "Козочка" } },
+      { file: "/pages/take-a-break-animals/16.webp", alt: { en: "Acorns", es: "Bellotas", ru: "Желуди" } },
+      { file: "/pages/take-a-break-animals/17.webp", alt: { en: "Alpaca", es: "Alpaca", ru: "Альпака" } },
+      { file: "/pages/take-a-break-animals/18.webp", alt: { en: "Beaver", es: "Castor", ru: "Бобр" } },
+    ],
     formats: [],
     isbn: "9781963328196",
     enEditionAsin: "1963328167",
@@ -4679,13 +5292,46 @@ export const books: Book[] = [
           "50 крупных рисунков, нарисованных толстой линией: звери, птицы, цветы и пейзажи. Страницу можно закончить за один присест, а мелких деталей, из-за которых раскраску часто бросают на середине, здесь нет.",
         inside: [
           "50 рисунков, все нарисованы от руки",
-          "Толстая линия и много свободного места внутри фигуры",
+          "Толстая линия и крупные свободные участки для раскрашивания",
           "Один рисунок на странице",
           "Крупный лист 21.6 x 27.9 см",
           "Подходит и новичку, и тому, кто раскрашивает давно",
         ],
         forWhom:
-          "Взрослым, подросткам, начинающим и пожилым людям. Простой и понятный подарок на любой случай.",
+          "Взрослым, подросткам, начинающим и пожилым людям. Простой и понятный подарок на любой случай. Книга подходит пожилым людям и для групповых занятий в библиотеках, центрах дневного пребывания и домах престарелых.",
+        seoTitle:
+          "Простая раскраска для взрослых: 50 милых животных",
+        seoDescription:
+          "Простая раскраска для взрослых и подростков: 50 нарисованных вручную животных, цветов и пейзажей, толстый контур и крупный лист. Одну страницу можно закончить за один вечер.",
+        about: [
+          "«Сделай перерыв: Милые животные» - простая раскраска с толстым контуром для взрослых, подростков и тех, кто раскрашивает вместе с ними. Издание выпускает Magic of Discoveries LLC, в книге 102 страницы и 50 разных рисунков, лист 21,6 на 27,9 см, ISBN 978-1-963328-19-6.",
+          "Все рисунки нарисованы вручную, без использования нейросетей на каком-либо этапе. На каждой странице один предмет с толстым контуром и большими свободными участками, поэтому страницу можно закрасить карандашами, гелевыми ручками или фломастерами и закончить за один раз.",
+          "Темы - добрые животные, птицы, цветы, растения и простые пейзажи: лягушка на кувшинке, попугай, жираф, коала, альпака, бобр, ландыши. В книге нет ничего, что подходило бы только одному возрасту, поэтому на обложке написано «для взрослых и детей».",
+          "Это первая из трех книг серии «Сделай перерыв». Две другие сделаны в том же формате и с той же толщиной линии, меняются только темы: «Красота океана» - это морские обитатели и спокойные пляжи, «Вкусные истории» - еда, напитки и десерты.",
+        ],
+        altNames: [
+          "Простая раскраска для взрослых",
+          "Раскраска с милыми животными для взрослых и подростков",
+          "Раскраска с толстым контуром",
+          "Легкая раскраска для начинающих",
+          "Раскраска антистресс простая",
+        ],
+        keywords: [
+          "раскраска для пожилых людей",
+          "занятия для пожилых",
+          "крупная раскраска для дома престарелых",
+          "простая раскраска для взрослых",
+          "раскраска антистресс с толстым контуром",
+          "раскраска милые животные",
+          "легкая раскраска для взрослых и подростков",
+          "раскраска крупные рисунки",
+          "раскраска для начинающих",
+          "раскраска для пожилых крупные линии",
+          "раскраска в подарок",
+          "нарисовано вручную",
+          "раскраска на один вечер",
+          "раскраска для печати pdf",
+        ],
         faq: [
           {
             q: "С какой из трех книг серии начать?",
@@ -4693,6 +5339,50 @@ export const books: Book[] = [
           },
           faqPdfEditionRu,
           faqPaperSizeRu,
+                  {
+            q: "Что значит толстый контур и простой рисунок?",
+            a: "Это значит крупные формы и широкие свободные участки вместо мелкого узора. Для раскрашивания не нужны тонкие карандаши или фломастеры, а мелкие детали не приходится рассматривать вблизи.",
+          },
+          {
+            q: "Сколько времени уходит на одну страницу?",
+            a: "Примерно двадцать-тридцать минут в спокойном темпе. В этом и смысл книги: рисунок начинают и заканчивают за один раз, а не бросают на середине.",
+          },
+          {
+            q: "Чем раскрашивать?",
+            a: "Цветными карандашами, гелевыми ручками, восковыми мелками или фломастерами. Толстый контур помогает не выходить за границы рисунка даже широким фломастером.",
+          },
+          {
+            q: "Рисунки сделаны нейросетью?",
+            a: "Нет. Все 50 рисунков нарисованы вручную нашим художником, поэтому линии чистые, а стиль одинаковый от первой страницы до последней.",
+          },
+          {
+            q: "Удобно ли, если быстро устают глаза?",
+            a: "Да, ради этого и сделан крупный формат. Рисунок занимает почти всю страницу, контур толстый, мелких повторяющихся узоров нет.",
+          },
+          {
+            q: "Подходит ли книга в подарок?",
+            a: "Да. Темы одинаково подходят и подростку, и пожилому человеку, а первую страницу можно закончить в тот же вечер.",
+          },
+          {
+            q: "Что есть в книге кроме животных?",
+            a: "Между животными идут цветы, растения и простые пейзажи: лотосы, ландыши, желуди, пальма, горы и вода. Они меняют ритм, но не уровень сложности.",
+          },
+          {
+            q: "Чем эта книга отличается от двух других в серии?",
+            a: "Формат и толщина линии те же, темы разные. «Милые животные» - это животные, цветы и пейзажи, «Красота океана» - морские обитатели, ракушки и пляжи, «Вкусные истории» - еда, напитки и десерты.",
+          },
+          {
+            q: "Можно ли раскрашивать вместе со школьником?",
+            a: "Да, так делают многие. Формы крупные, и ребенок школьного возраста справляется сам, поэтому из одной книги можно взять по странице каждому.",
+          },
+                  {
+            q: "Подойдет ли эта раскраска пожилому человеку?",
+            a: "Да. Рисунки крупные, контур толстый, на странице один предмет и никаких мелких деталей, поэтому не приходится всматриваться в мелкие детали, а одну страницу можно закончить за короткое время.",
+          },
+          {
+            q: "Можно ли использовать книгу в доме престарелых, библиотеке или центре дневного пребывания?",
+            a: "Да. Бумажная книга рассчитана на одного человека, а файл для печати позволяет распечатать один и тот же рисунок на всю группу, поэтому ведущий занятия раздает одинаковую страницу всем за столом.",
+          },
         ],
       },
     },
@@ -4706,12 +5396,32 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-ocean-en",
-    ageShown: "10-18",
+    ageShown: "10+",
     drawings: 50,
     pages: 102,
     size: "21.6 x 27.9 см",
     cover: "/covers/take-a-break-ocean-ru.jpg",
     coverSize: { w: 900, h: 1165 },
+    thumbs: [
+      { file: "/pages/take-a-break-ocean/01.webp", alt: { en: "Coral reef", es: "Arrecife de coral", ru: "Кораллы" } },
+      { file: "/pages/take-a-break-ocean/02.webp", alt: { en: "Hammerhead shark", es: "Tiburón martillo", ru: "Акула-молот" } },
+      { file: "/pages/take-a-break-ocean/03.webp", alt: { en: "Orca", es: "Orca", ru: "Косатка" } },
+      { file: "/pages/take-a-break-ocean/04.webp", alt: { en: "Swordfish", es: "Pez espada", ru: "Меч-рыба" } },
+      { file: "/pages/take-a-break-ocean/05.webp", alt: { en: "Fish bowl", es: "Pecera", ru: "Аквариум" } },
+      { file: "/pages/take-a-break-ocean/06.webp", alt: { en: "Penguin", es: "Pingüino", ru: "Пингвин" } },
+      { file: "/pages/take-a-break-ocean/07.webp", alt: { en: "Sailing ship", es: "Velero", ru: "Парусник" } },
+      { file: "/pages/take-a-break-ocean/08.webp", alt: { en: "Hermit crab", es: "Cangrejo ermitaño", ru: "Рак-отшельник" } },
+      { file: "/pages/take-a-break-ocean/09.webp", alt: { en: "Diver", es: "Buceador", ru: "Дайвер" } },
+      { file: "/pages/take-a-break-ocean/10.webp", alt: { en: "Squid", es: "Calamar", ru: "Кальмар" } },
+      { file: "/pages/take-a-break-ocean/11.webp", alt: { en: "School of fish", es: "Banco de peces", ru: "Косяк рыб" } },
+      { file: "/pages/take-a-break-ocean/12.webp", alt: { en: "Jellyfish", es: "Medusas", ru: "Медузы" } },
+      { file: "/pages/take-a-break-ocean/13.webp", alt: { en: "Treasure chest", es: "Cofre del tesoro", ru: "Сундук с сокровищами" } },
+      { file: "/pages/take-a-break-ocean/14.webp", alt: { en: "Submarine", es: "Submarino", ru: "Подводная лодка" } },
+      { file: "/pages/take-a-break-ocean/15.webp", alt: { en: "Angelfish", es: "Pez ángel", ru: "Рыба-ангел" } },
+      { file: "/pages/take-a-break-ocean/16.webp", alt: { en: "Shark", es: "Tiburón", ru: "Акула" } },
+      { file: "/pages/take-a-break-ocean/17.webp", alt: { en: "Dolphin", es: "Delfín", ru: "Дельфин" } },
+      { file: "/pages/take-a-break-ocean/18.webp", alt: { en: "Whale", es: "Ballena", ru: "Кит" } },
+    ],
     formats: [],
     isbn: "9781963328226",
     enEditionAsin: "1963328299",
@@ -4771,12 +5481,45 @@ export const books: Book[] = [
         inside: [
           "50 рисунков, все нарисованы от руки",
           "Морские животные, рыбки, ракушки и пляжи",
-          "Толстая линия и много свободного места внутри фигуры",
+          "Толстая линия и крупные свободные участки для раскрашивания",
           "Один рисунок на странице",
           "Крупный лист 21.6 x 27.9 см",
         ],
         forWhom:
-          "Взрослым, подросткам, начинающим и пожилым людям. Простой и понятный подарок на любой случай.",
+          "Взрослым, подросткам, начинающим и пожилым людям. Простой и понятный подарок на любой случай. Книга подходит пожилым людям и для групповых занятий в библиотеках, центрах дневного пребывания и домах престарелых.",
+        seoTitle:
+          "Раскраска океан для взрослых: 50 крупных рисунков",
+        seoDescription:
+          "Спокойная простая раскраска для взрослых и подростков: 50 морских рисунков вручную, толстый контур и широкие свободные участки. Морские животные, ракушки, корабли и пляжи.",
+        about: [
+          "«Сделай перерыв: Красота океана» - простая раскраска с толстым контуром для взрослых и подростков, издательство Magic of Discoveries LLC. В книге 102 страницы и 50 разных рисунков, лист 21,6 на 27,9 см.",
+          "Все 50 рисунков нарисованы вручную, без нейросетей. Морские сюжеты особенно хорошо подходят для такого формата. Вода, песок и небо образуют большие свободные участки, поэтому такие рисунки легко и спокойно раскрашивать карандашами, гелевыми ручками или фломастерами.",
+          "Внутри морские животные и сюжеты: коралловый риф, акула-молот, косатка, меч-рыба, пингвин на льдине, рак-отшельник, дайвер, кальмар, косяк рыб, медузы, сундук с сокровищами, подводная лодка, дельфин и кит, а также ракушки, корабли и пляжи.",
+          "Это одна из трех книг серии «Сделай перерыв» с одинаковым форматом и толщиной линии: «Милые животные» - это животные, цветы и пейзажи, «Вкусные истории» - еда, напитки и десерты.",
+        ],
+        altNames: [
+          "Раскраска океан для взрослых",
+          "Простая морская раскраска",
+          "Раскраска с толстым контуром",
+          "Раскраска про море для взрослых и подростков",
+          "Спокойная раскраска антистресс",
+        ],
+        keywords: [
+          "раскраска для пожилых людей",
+          "занятия для пожилых",
+          "крупная раскраска для дома престарелых",
+          "раскраска океан для взрослых",
+          "простая раскраска для взрослых",
+          "морские животные раскраска",
+          "раскраска антистресс с толстым контуром",
+          "раскраска крупные рисунки",
+          "раскраска для подростков",
+          "спокойная раскраска",
+          "раскраска пляж",
+          "нарисовано вручную",
+          "раскраска в подарок",
+          "раскраска для печати pdf",
+        ],
         faq: [
           {
             q: "Чем эта книга отличается от других в серии?",
@@ -4784,6 +5527,54 @@ export const books: Book[] = [
           },
           faqPdfEditionRu,
           faqPaperSizeRu,
+                  {
+            q: "Что значит толстый контур и простой рисунок?",
+            a: "Это значит крупные формы и широкие свободные участки вместо мелкого узора. Для раскрашивания не нужны тонкие карандаши или фломастеры, а мелкие детали не приходится рассматривать вблизи.",
+          },
+          {
+            q: "Сколько времени уходит на одну страницу?",
+            a: "Примерно двадцать-тридцать минут в спокойном темпе. В этом и смысл книги: рисунок начинают и заканчивают за один раз, а не бросают на середине.",
+          },
+          {
+            q: "Чем раскрашивать?",
+            a: "Цветными карандашами, гелевыми ручками, восковыми мелками или фломастерами. Толстый контур помогает не выходить за границы рисунка даже широким фломастером.",
+          },
+          {
+            q: "Рисунки сделаны нейросетью?",
+            a: "Нет. Все 50 рисунков нарисованы вручную нашим художником, поэтому линии чистые, а стиль одинаковый от первой страницы до последней.",
+          },
+          {
+            q: "Удобно ли, если быстро устают глаза?",
+            a: "Да, ради этого и сделан крупный формат. Рисунок занимает почти всю страницу, контур толстый, мелких повторяющихся узоров нет.",
+          },
+          {
+            q: "Подходит ли книга в подарок?",
+            a: "Да. Темы одинаково подходят и подростку, и пожилому человеку, а первую страницу можно закончить в тот же вечер.",
+          },
+          {
+            q: "Какая книга серии самая спокойная?",
+            a: "Эта. Вода, песок и небо занимают большую часть страницы, поэтому отдельных мелких элементов, о которых надо думать, здесь меньше, чем в двух других книгах.",
+          },
+          {
+            q: "Какие морские животные есть в книге?",
+            a: "Акулы, косатка, дельфин, кит, медузы, кальмар, рак-отшельник, пингвин, косяк рыб и рыбы рифа, а еще коралловый риф, ракушки, дайвер, корабли, подводная лодка и сундук с сокровищами.",
+          },
+          {
+            q: "Есть ли русалка и сюжеты для тех, кто помладше?",
+            a: "Да. Рядом с морскими животными есть добрые сюжеты вроде русалки, аквариума и парусника, поэтому ребенок может раскрасить одну из таких страниц, пока взрослый раскрашивает другую.",
+          },
+          {
+            q: "Подойдет ли книга как подарок к отпуску или к лету?",
+            a: "Да. Темы морские, подходят любому возрасту, и первый рисунок можно закончить в тот же вечер.",
+          },
+                  {
+            q: "Подойдет ли эта раскраска пожилому человеку?",
+            a: "Да. Рисунки крупные, контур толстый, на странице один предмет и никаких мелких деталей, поэтому не приходится всматриваться в мелкие детали, а одну страницу можно закончить за короткое время.",
+          },
+          {
+            q: "Можно ли использовать книгу в доме престарелых, библиотеке или центре дневного пребывания?",
+            a: "Да. Бумажная книга рассчитана на одного человека, а файл для печати позволяет распечатать один и тот же рисунок на всю группу, поэтому ведущий занятия раздает одинаковую страницу всем за столом.",
+          },
         ],
       },
     },
@@ -4797,12 +5588,32 @@ export const books: Book[] = [
     type: "coloring",
     series: "take-a-break",
     pairId: "take-a-break-food-en",
-    ageShown: "10-18",
+    ageShown: "10+",
     drawings: 50,
     pages: 102,
     size: "21.6 x 27.9 см",
     cover: "/covers/take-a-break-food-ru.jpg",
     coverSize: { w: 900, h: 1165 },
+    thumbs: [
+      { file: "/pages/take-a-break-food/01.webp", alt: { en: "Carrot", es: "Zanahoria", ru: "Морковь" } },
+      { file: "/pages/take-a-break-food/02.webp", alt: { en: "Lemon", es: "Limón", ru: "Лимон" } },
+      { file: "/pages/take-a-break-food/03.webp", alt: { en: "Pumpkin", es: "Calabaza", ru: "Тыква" } },
+      { file: "/pages/take-a-break-food/04.webp", alt: { en: "Watermelon", es: "Sandía", ru: "Арбуз" } },
+      { file: "/pages/take-a-break-food/05.webp", alt: { en: "Burger", es: "Hamburguesa", ru: "Бургер" } },
+      { file: "/pages/take-a-break-food/06.webp", alt: { en: "Lemonade", es: "Limonada", ru: "Лимонад" } },
+      { file: "/pages/take-a-break-food/07.webp", alt: { en: "Ice cream bar", es: "Helado de palo", ru: "Мороженое на палочке" } },
+      { file: "/pages/take-a-break-food/08.webp", alt: { en: "Pizza", es: "Pizza", ru: "Пицца" } },
+      { file: "/pages/take-a-break-food/09.webp", alt: { en: "Birthday cake", es: "Tarta de cumpleaños", ru: "Праздничный торт" } },
+      { file: "/pages/take-a-break-food/10.webp", alt: { en: "Ice cream cone", es: "Cucurucho de helado", ru: "Рожок мороженого" } },
+      { file: "/pages/take-a-break-food/11.webp", alt: { en: "Onion and garlic", es: "Cebolla y ajo", ru: "Лук и чеснок" } },
+      { file: "/pages/take-a-break-food/12.webp", alt: { en: "Broccoli", es: "Brócoli", ru: "Брокколи" } },
+      { file: "/pages/take-a-break-food/13.webp", alt: { en: "Cabbage", es: "Repollo", ru: "Капуста" } },
+      { file: "/pages/take-a-break-food/14.webp", alt: { en: "Peppers", es: "Pimientos", ru: "Перец" } },
+      { file: "/pages/take-a-break-food/15.webp", alt: { en: "Tomatoes", es: "Tomates", ru: "Помидоры" } },
+      { file: "/pages/take-a-break-food/16.webp", alt: { en: "Grapes", es: "Uvas", ru: "Виноград" } },
+      { file: "/pages/take-a-break-food/17.webp", alt: { en: "Cheese", es: "Queso", ru: "Сыр" } },
+      { file: "/pages/take-a-break-food/18.webp", alt: { en: "Corn", es: "Maíz", ru: "Кукуруза" } },
+    ],
     formats: [],
     isbn: "9781963328356",
     enEditionAsin: "1963328329",
@@ -4861,12 +5672,45 @@ export const books: Book[] = [
         inside: [
           "50 рисунков, все нарисованы от руки",
           "Продукты, напитки, десерты и фрукты",
-          "Толстая линия и много свободного места внутри фигуры",
+          "Толстая линия и крупные свободные участки для раскрашивания",
           "Один рисунок на странице",
           "Крупный лист 21.6 x 27.9 см",
         ],
         forWhom:
-          "Взрослым, подросткам, начинающим и пожилым людям. Простой и понятный подарок на любой случай.",
+          "Взрослым, подросткам, начинающим и пожилым людям. Простой и понятный подарок на любой случай. Книга подходит пожилым людям и для групповых занятий в библиотеках, центрах дневного пребывания и домах престарелых.",
+        seoTitle:
+          "Раскраска еда для взрослых: 50 простых крупных рисунков",
+        seoDescription:
+          "Простая раскраска для взрослых и подростков: 50 рисунков еды, напитков и десертов вручную, толстый контур. Самая легкая книга серии, чтобы начать.",
+        about: [
+          "«Сделай перерыв: Вкусные истории» - простая раскраска с толстым контуром для взрослых, подростков и начинающих, издательство Magic of Discoveries LLC. В книге 102 страницы и 50 разных рисунков, лист 21,6 на 27,9 см.",
+          "Каждый рисунок нарисован вручную, без нейросетей. На странице один предмет с толстым контуром и большими свободными участками, поэтому страницу можно закончить за один раз карандашами, гелевыми ручками или фломастерами.",
+          "Внутри фрукты и овощи, выпечка и десерты, напитки и обычная еда: морковь, лимон, тыква, арбуз, бургер, лимонад, пицца, праздничный торт, мороженое, лук и чеснок, брокколи, капуста, перец, помидоры, виноград, сыр и кукуруза.",
+          "Это одна из трех книг серии «Сделай перерыв» с одинаковым форматом и толщиной линии: «Милые животные» - это животные, цветы и пейзажи, «Красота океана» - морские обитатели и пляжи.",
+        ],
+        altNames: [
+          "Раскраска еда для взрослых",
+          "Простая раскраска с десертами",
+          "Раскраска с толстым контуром",
+          "Легкая раскраска для начинающих",
+          "Раскраска для кухни для взрослых и подростков",
+        ],
+        keywords: [
+          "раскраска для пожилых людей",
+          "занятия для пожилых",
+          "крупная раскраска для дома престарелых",
+          "раскраска еда для взрослых",
+          "простая раскраска для взрослых",
+          "раскраска десерты",
+          "раскраска антистресс с толстым контуром",
+          "раскраска крупные рисунки",
+          "раскраска для начинающих",
+          "раскраска для подростков",
+          "милые рисунки еды для раскрашивания",
+          "нарисовано вручную",
+          "раскраска в подарок",
+          "раскраска для печати pdf",
+        ],
         faq: [
           {
             q: "Это книга для взрослых или для детей?",
@@ -4874,6 +5718,54 @@ export const books: Book[] = [
           },
           faqPdfEditionRu,
           faqPaperSizeRu,
+                  {
+            q: "Что значит толстый контур и простой рисунок?",
+            a: "Это значит крупные формы и широкие свободные участки вместо мелкого узора. Для раскрашивания не нужны тонкие карандаши или фломастеры, а мелкие детали не приходится рассматривать вблизи.",
+          },
+          {
+            q: "Сколько времени уходит на одну страницу?",
+            a: "Примерно двадцать-тридцать минут в спокойном темпе. В этом и смысл книги: рисунок начинают и заканчивают за один раз, а не бросают на середине.",
+          },
+          {
+            q: "Чем раскрашивать?",
+            a: "Цветными карандашами, гелевыми ручками, восковыми мелками или фломастерами. Толстый контур помогает не выходить за границы рисунка даже широким фломастером.",
+          },
+          {
+            q: "Рисунки сделаны нейросетью?",
+            a: "Нет. Все 50 рисунков нарисованы вручную нашим художником, поэтому линии чистые, а стиль одинаковый от первой страницы до последней.",
+          },
+          {
+            q: "Удобно ли, если быстро устают глаза?",
+            a: "Да, ради этого и сделан крупный формат. Рисунок занимает почти всю страницу, контур толстый, мелких повторяющихся узоров нет.",
+          },
+          {
+            q: "Подходит ли книга в подарок?",
+            a: "Да. Темы одинаково подходят и подростку, и пожилому человеку, а первую страницу можно закончить в тот же вечер.",
+          },
+          {
+            q: "С какой книги серии лучше начать?",
+            a: "С этой. Почти не нужно решать, какого цвета предмет: лимон желтый, морковь оранжевая, поэтому первая страница начинается сразу, без раздумий.",
+          },
+          {
+            q: "Какая еда есть в книге?",
+            a: "Фрукты и овощи, выпечка и десерты, напитки и обычные блюда: арбуз, виноград, кукуруза, перец, помидоры, брокколи, бургер, пицца, праздничный торт, мороженое, лимонад и сыр.",
+          },
+          {
+            q: "Подойдет ли тому, кто никогда не раскрашивал?",
+            a: "Да, именно эту книгу мы советуем первой. Предметы знакомые, формы простые, и страница выглядит хорошо, даже если цвет немного вышел за контур.",
+          },
+          {
+            q: "Годится ли книга в подарок на кухню или на новоселье?",
+            a: "Да. Каждый рисунок самостоятельный, поэтому готовую страницу можно вырезать и повесить на кухне.",
+          },
+                  {
+            q: "Подойдет ли эта раскраска пожилому человеку?",
+            a: "Да. Рисунки крупные, контур толстый, на странице один предмет и никаких мелких деталей, поэтому не приходится всматриваться в мелкие детали, а одну страницу можно закончить за короткое время.",
+          },
+          {
+            q: "Можно ли использовать книгу в доме престарелых, библиотеке или центре дневного пребывания?",
+            a: "Да. Бумажная книга рассчитана на одного человека, а файл для печати позволяет распечатать один и тот же рисунок на всю группу, поэтому ведущий занятия раздает одинаковую страницу всем за столом.",
+          },
         ],
       },
     },

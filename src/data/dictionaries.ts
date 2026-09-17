@@ -10,6 +10,8 @@ export interface Dictionary {
     teachers: string;
     coloringPages: string;
     firstWords: string;
+    /** Раздел простых раскрасок для взрослых. */
+    adults: string;
     about: string;
     contact: string;
   };
@@ -274,6 +276,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       teachers: "For teachers",
       coloringPages: "Free coloring pages",
       firstWords: "First words",
+      adults: "For adults",
       about: "About us",
       contact: "Contact",
     },
@@ -584,7 +587,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       toddlerSite: "First coloring books, ages 1 to 3",
       sections: "Sections",
       about:
-        "Magic of Discoveries is an independent family publisher run by Ricardo and Maria Demi in Miami, making books in English and Spanish for children, parents and teachers: simple coloring books with thick outlines for toddlers, short bedtime stories, step by step drawing, classroom materials for K-2, and easy coloring for teenagers and adults. Every illustration is drawn by hand, and the books are built so a child can manage on their own, finish what they started, and want to come back to it again. On this site you can pick a book by age and by kind, find the editions on Amazon, and download free printable pages.",
+        "Magic of Discoveries is an independent family publisher run by Ricardo and Maria Demi in Miami, making books in English, Spanish and Russian for children, parents and teachers: simple coloring books with thick outlines for toddlers, short bedtime stories, step by step drawing, classroom materials for K-2, and easy coloring for teenagers and adults. Every illustration is drawn by hand, and the books are built so a child can manage on their own, finish what they started, and want to come back to it again. On this site you can pick a book by age and by kind, find the editions on Amazon, and download free printable pages.",
     },
   },
 
@@ -598,6 +601,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       teachers: "Para maestros",
       coloringPages: "Dibujos gratis",
       firstWords: "Primeras palabras",
+      adults: "Para adultos",
       about: "Quiénes somos",
       contact: "Contacto",
     },
@@ -908,7 +912,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       toddlerSite: "Primeros libros para colorear, de 1 a 3 años",
       sections: "Secciones",
       about:
-        "Magic of Discoveries es una editorial familiar independiente de Ricardo y Maria Demi, en Miami, que publica libros en inglés y en español para niños, padres y maestros: libros para colorear de trazo grueso para los más pequeños, cuentos cortos para dormir, dibujo paso a paso, material de aula para K-2 y libros de colorear fáciles para adolescentes y adultos. Todas las ilustraciones están dibujadas a mano, y los libros están hechos para que un niño pueda hacerlo solo, terminar lo que empezó y querer volver a ello. En este sitio puedes elegir un libro por edad y por tipo, encontrar las ediciones en Amazon y descargar gratis páginas para imprimir.",
+        "Magic of Discoveries es una editorial familiar independiente de Ricardo y Maria Demi, en Miami, que publica libros en inglés, en español y en ruso para niños, padres y maestros: libros para colorear de trazo grueso para los más pequeños, cuentos cortos para dormir, dibujo paso a paso, material de aula para K-2 y libros de colorear fáciles para adolescentes y adultos. Todas las ilustraciones están dibujadas a mano, y los libros están hechos para que un niño pueda hacerlo solo, terminar lo que empezó y querer volver a ello. En este sitio puedes elegir un libro por edad y por tipo, encontrar las ediciones en Amazon y descargar gratis páginas para imprimir.",
     },
   },
 
@@ -922,6 +926,7 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       teachers: "Учителям",
       coloringPages: "Бесплатные раскраски",
       firstWords: "Первые слова",
+      adults: "Для взрослых",
       about: "О нас",
       contact: "Контакты",
     },

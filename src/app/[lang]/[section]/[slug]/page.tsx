@@ -1581,8 +1581,11 @@ export default async function ItemPage({
           : "https://schema.org/EBook",
         description: copy.lead.replace(/\s+/g, " "),
         image: book.cover ? `${SITE_URL}${book.cover}` : undefined,
-        typicalAgeRange:
-          book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age),
+        /* Возраст для машин пишется через дефис: "10+" на странице,
+           "10-" в разметке, иначе поисковик не понимает запись. */
+        typicalAgeRange: (
+          book.ageShown ?? (book.age === "teens-adults" ? "13-" : book.age)
+        ).replace("+", "-"),
         /* Где книгу можно купить. Раньше при наличии бумажного издания
            машина видела только цену Amazon, а наш файл для печати не
            видела вовсе, хотя человеку он на странице показан. Теперь оба
@@ -1902,6 +1905,33 @@ export default async function ItemPage({
                   ))}
                 </section>
               ) : null}
+            </>
+          ) : null}
+
+          {/* Книги без списка тем показывают свои рисунки так же: сразу
+              под обложкой, чтобы человек за несколько секунд увидел, что
+              внутри. Картинки одни на все языки, подпись своя. */}
+          {!featuredPages.length && book.thumbs?.length ? (
+            <>
+              <h2 className="section">{t.book.drawingsTitle}</h2>
+              <ul className="thumbs thumbs--pages">
+                {book.thumbs.map((d) => (
+                  <li key={d.file}>
+                    <img
+                      src={d.file}
+                      alt={d.alt[lang] ?? d.alt.en ?? copy.title}
+                      width={480}
+                      height={615}
+                      loading="lazy"
+                    />
+                  </li>
+                ))}
+              </ul>
+              <div className="buy-block">
+                <BuyButtons book={book} lang={lang} />
+              </div>
+              <h2 className="section">{t.book.forWhom}</h2>
+              <p>{copy.forWhom}</p>
             </>
           ) : null}
 

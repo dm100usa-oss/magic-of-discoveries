@@ -1996,6 +1996,12 @@ export default async function ItemPage({
                   String(topicList.length),
                 )}
               />
+              {/* Кнопки покупки стоят дважды: сразу под рисунками из книги
+                  и еще раз под баннерами. Человек решает в разные моменты,
+                  и возвращаться наверх ему не нужно. */}
+              <div className="buy-block">
+                <BuyButtons book={book} lang={lang} />
+              </div>
               {showcase}
               <div className="buy-block">
                 <BuyButtons book={book} lang={lang} />

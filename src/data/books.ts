@@ -2034,6 +2034,22 @@ export const books: Book[] = [
     ],
     banners: [
       {
+        file: "/art/how-to-draw-111-spread.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          en: "The book open at the unicorn: six steps, a fun fact, a dotted outline to trace and space to draw your own",
+        },
+      },
+      {
+        file: "/art/how-to-draw-111-drawings.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          en: "111 cute drawings: cake, cauldron, owl, mushroom, pear, mermaid, sailboat, hat and giraffe",
+        },
+      },
+      {
         file: "/art/how-to-draw-111-gift.png",
         w: 1940,
         h: 601,
@@ -2253,11 +2269,27 @@ export const books: Book[] = [
     ],
     banners: [
       {
+        file: "/art/how-to-draw-111-es-spread.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          es: "El libro abierto en el unicornio: seis pasos, un dato curioso, el contorno punteado para repasar y espacio para dibujar",
+        },
+      },
+      {
+        file: "/art/how-to-draw-111-es-drawings.png",
+        w: 1941,
+        h: 1201,
+        alt: {
+          es: "111 dibujos lindos: tarta, caldero, lechuza, seta, pera, sirena, velero, sombrero y jirafa",
+        },
+      },
+      {
         file: "/art/how-to-draw-111-es-gift.png",
         w: 1941,
         h: 601,
         alt: {
-          es: "El regalo perfecto para artistas principiantes, un regalo y lápices de colores",
+          es: "El regalo perfecto para artistas principiantes, una caja de regalo y lápices de colores",
         },
       },
     ],

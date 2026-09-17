@@ -1492,9 +1492,8 @@ export default async function ItemPage({
      описание. Значит нижние блоки с тем же содержанием не нужны. */
   const hasFullBook = Boolean(copy.about?.length) && topicGroups.some((g) => g.firstDrawing);
 
-  /* Книга открывается одним крупным разворотом: человек сразу видит,
-     как устроена страница. Ниже идут рисунки из книги, и только потом
-     остальные баннеры. Разворот это первый баннер книги. */
+  /* Книга открывается настоящим разворотом из самой книги: человек сразу
+     видит, как устроена страница. Ниже идут рисунки и все баннеры. */
   const leadSpread =
     hasFullBook && book.type !== "coloring"
       ? book.banners?.find((b) => b.file.includes("-spread"))
@@ -1760,6 +1759,55 @@ export default async function ItemPage({
     ],
   };
 
+  /* Все баннеры одной группой. Порядок на странице: разворот, рисунки,
+     баннеры, и только потом кнопки и тексты. */
+  const showcase =
+    book.bannerLead || book.artwork?.length || restBanners?.length ? (
+            <div className="showcase">
+              {book.bannerLead ? (
+                <img
+                  className="theme-banner"
+                  src={book.bannerLead.file}
+                  alt={
+                    book.bannerLead.alt[lang] ??
+                    book.bannerLead.alt.en ??
+                    copy.title
+                  }
+                  width={book.bannerLead.w}
+                  height={book.bannerLead.h}
+                  fetchPriority="high"
+                />
+              ) : null}
+
+              {book.artwork?.length ? (
+                <div className="artwork">
+                  {book.artwork.map((a) => (
+                    <img
+                      key={a.file}
+                      src={a.file}
+                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
+                      width={a.w}
+                      height={a.h}
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              ) : null}
+
+              {restBanners?.map((b) => (
+                <img
+                  key={b.file}
+                  className="theme-banner"
+                  src={b.file}
+                  alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
+                  width={b.w}
+                  height={b.h}
+                  loading="lazy"
+                />
+              ))}
+            </div>
+          ) : null;
+
   return (
     <>
       <script
@@ -1948,6 +1996,7 @@ export default async function ItemPage({
                   String(topicList.length),
                 )}
               />
+              {showcase}
               <div className="buy-block">
                 <BuyButtons book={book} lang={lang} />
               </div>
@@ -2010,51 +2059,7 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          {book.bannerLead || book.artwork?.length || restBanners?.length ? (
-            <div className="showcase">
-              {book.bannerLead ? (
-                <img
-                  className="theme-banner"
-                  src={book.bannerLead.file}
-                  alt={
-                    book.bannerLead.alt[lang] ??
-                    book.bannerLead.alt.en ??
-                    copy.title
-                  }
-                  width={book.bannerLead.w}
-                  height={book.bannerLead.h}
-                  fetchPriority="high"
-                />
-              ) : null}
-
-              {book.artwork?.length ? (
-                <div className="artwork">
-                  {book.artwork.map((a) => (
-                    <img
-                      key={a.file}
-                      src={a.file}
-                      alt={a.alt[lang] ?? a.alt.en ?? copy.title}
-                      width={a.w}
-                      height={a.h}
-                      loading="lazy"
-                    />
-                  ))}
-                </div>
-              ) : null}
-
-              {restBanners?.map((b) => (
-                <img
-                  key={b.file}
-                  className="theme-banner"
-                  src={b.file}
-                  alt={b.alt[lang] ?? b.alt.en ?? b.alt.es ?? copy.title}
-                  width={b.w}
-                  height={b.h}
-                  loading="lazy"
-                />
-              ))}
-            </div>
-          ) : null}
+          {featuredPages.length ? null : showcase}
 
           {/* Блок покупки стоит после баннеров: сначала человек видит,
               что внутри книги, и только потом принимает решение. */}

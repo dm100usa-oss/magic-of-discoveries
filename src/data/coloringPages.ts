@@ -162,7 +162,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
           "Thick crayons work best for the youngest hands",
-          "For markers, slip a spare sheet underneath",
           "Print it twice and color one together",
         ],
         fitTitle: "Is this page right for your child?",
@@ -233,7 +232,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
           "Las ceras gruesas funcionan mejor en las manos más pequeñas",
-          "Si usas rotuladores, pon una hoja debajo",
           "Imprímelo dos veces y coloread uno juntos",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -304,7 +302,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Два размера файла: Letter и A4. Выбирайте тот, который подходит вашему принтеру",
           "Малышам удобнее толстые восковые мелки",
-          "Если раскрашиваете фломастерами, подложите запасной лист",
           "Напечатайте два экземпляра и раскрасьте один вместе",
         ],
         fitTitle: "Подойдет ли этот лист вашему ребенку?",
@@ -400,7 +397,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для первых попыток удобны толстые восковые мелки",
-          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
           "Можно распечатать несколько экземпляров и попробовать раскрасить единорога разными цветами",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -440,7 +436,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "Чем лучше раскрашивать?",
-            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки. При использовании фломастеров лучше подложить дополнительный лист бумаги.",
+            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки.",
           },
           {
             q: "Есть ли еще бесплатные раскраски для малышей?",
@@ -460,7 +456,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons are easiest for first attempts",
-          "If your child uses markers, slip a spare sheet underneath",
           "Print a few copies and try the unicorn in different colors",
         ],
         fitTitle: "Is this page right for your child?",
@@ -500,7 +495,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "What is best for coloring it?",
-            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements. With markers, slip a spare sheet underneath.",
+            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements.",
           },
           {
             q: "Are there more free coloring pages for toddlers?",
@@ -520,7 +515,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para los primeros intentos van mejor las ceras gruesas",
-          "Si el niño usa rotuladores, pon una hoja de papel debajo",
           "Puedes imprimir varias copias y colorear el unicornio de distintas maneras",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -560,7 +554,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "¿Con qué conviene colorearlo?",
-            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos. Si se usan rotuladores, conviene poner una hoja de papel debajo.",
+            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos.",
           },
           {
             q: "¿Hay más láminas gratuitas para los más pequeños?",
@@ -611,7 +605,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для крупных областей удобны толстые восковые мелки",
           "Элементы чешуи необязательно раскрашивать отдельно",
-          "Если используете фломастеры, подложите дополнительный лист бумаги",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
         fitYesTitle: "Раскраска подходит, если:",
@@ -673,7 +666,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons work well on the large areas",
           "The scales do not have to be colored separately",
-          "If you use markers, slip a spare sheet underneath",
         ],
         fitTitle: "Is this page right for your child?",
         fitYesTitle: "It is a good fit if:",
@@ -735,7 +727,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para las zonas grandes van bien las ceras gruesas",
           "No hace falta colorear las escamas por separado",
-          "Si se usan rotuladores, conviene poner una hoja de papel debajo",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
         fitYesTitle: "Esta lámina encaja si:",
@@ -826,7 +817,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для крупных областей удобны толстые восковые мелки",
           "Небольшие участки необязательно раскрашивать отдельно",
-          "При использовании фломастеров подложите дополнительный лист бумаги",
           "Если рисунок пока оказался сложным, его можно распечатать снова позже",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -884,7 +874,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons work well on the large areas",
           "The small parts do not have to be colored separately",
-          "If you use markers, slip a spare sheet underneath",
           "If the page turns out to be too hard for now, print it again later",
         ],
         fitTitle: "Is this page right for your child?",
@@ -942,7 +931,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para las zonas grandes van bien las ceras gruesas",
           "No hace falta colorear las partes pequeñas por separado",
-          "Si se usan rotuladores, conviene poner una hoja de papel debajo",
           "Si esta lámina todavía resulta difícil, se puede imprimir de nuevo más adelante",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -1028,7 +1016,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для первых попыток удобны толстые восковые мелки",
-          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
           "Можно распечатать несколько экземпляров и раскрасить собаку разными цветами",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -1068,7 +1055,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "Чем лучше раскрашивать?",
-            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки. При использовании фломастеров лучше подложить дополнительный лист бумаги.",
+            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки.",
           },
           {
             q: "Есть ли еще бесплатные раскраски для малышей?",
@@ -1089,7 +1076,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons are easiest for first attempts",
-          "If your child uses markers, slip a spare sheet underneath",
           "Print a few copies and try the dog in different colors",
         ],
         fitTitle: "Is this page right for your child?",
@@ -1129,7 +1115,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "What is best for coloring it?",
-            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements. With markers, slip a spare sheet underneath.",
+            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements.",
           },
           {
             q: "Are there more free coloring pages for toddlers?",
@@ -1150,7 +1136,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para los primeros intentos van mejor las ceras gruesas",
-          "Si el niño usa rotuladores, pon una hoja de papel debajo",
           "Puedes imprimir varias copias y colorear el perro de distintas maneras",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -1190,7 +1175,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "¿Con qué conviene colorearlo?",
-            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos. Si se usan rotuladores, conviene poner una hoja de papel debajo.",
+            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos.",
           },
           {
             q: "¿Hay más láminas gratuitas para los más pequeños?",
@@ -1242,7 +1227,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для крупных областей удобны толстые восковые мелки",
           "Отдельные участки на крыльях необязательно раскрашивать разными цветами",
-          "При использовании фломастеров подложите дополнительный лист бумаги",
           "Можно распечатать два экземпляра и раскрасить крылья разными сочетаниями цветов",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -1305,7 +1289,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons work well on the large areas",
           "The separate areas on the wings do not have to be different colors",
-          "If you use markers, slip a spare sheet underneath",
           "Print two copies and try the wings in different color combinations",
         ],
         fitTitle: "Is this page right for your child?",
@@ -1368,7 +1351,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para las zonas grandes van bien las ceras gruesas",
           "Las distintas zonas de las alas no tienen que llevar colores diferentes",
-          "Si se usan rotuladores, conviene poner una hoja de papel debajo",
           "Puedes imprimir dos copias y probar distintas combinaciones de colores",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -1458,7 +1440,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для большой открытой области особенно удобны толстые восковые мелки",
-          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
           "Можно распечатать несколько экземпляров и попробовать разные цвета",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -1520,7 +1501,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons are the easiest thing for one big open area",
-          "If your child uses markers, slip a spare sheet underneath",
           "Print a few copies and try different colors",
         ],
         fitTitle: "Is this page right for your child?",
@@ -1582,7 +1562,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para las zonas grandes y abiertas van especialmente bien las ceras gruesas",
-          "Si el niño usa rotuladores, pon una hoja de papel debajo",
           "Puedes imprimir varias copias y probar colores distintos",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -1676,7 +1655,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Для крупных областей удобны толстые восковые мелки",
           "Пятна необязательно раскрашивать по отдельности",
           "Для отдельных пятен можно использовать цветные карандаши",
-          "При использовании фломастеров подложите дополнительный лист бумаги",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
         fitYesTitle: "Раскраска подходит, если:",
@@ -1739,7 +1717,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Thick crayons work well on the large areas",
           "The spots do not have to be colored one by one",
           "Colored pencils are handy for the individual spots",
-          "If you use markers, slip a spare sheet underneath",
         ],
         fitTitle: "Is this page right for your child?",
         fitYesTitle: "It is a good fit if:",
@@ -1802,7 +1779,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Para las zonas grandes van bien las ceras gruesas",
           "No hace falta colorear las manchas por separado",
           "Para las manchas se pueden utilizar lápices de colores",
-          "Si se usan rotuladores, conviene poner una hoja de papel debajo",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
         fitYesTitle: "Esta lámina encaja si:",
@@ -1890,7 +1866,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для первых попыток удобны толстые восковые мелки",
-          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
           "Можно распечатать несколько экземпляров и попробовать разные цвета",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -1931,7 +1906,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "Чем лучше раскрашивать?",
-            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки. При использовании фломастеров лучше подложить дополнительный лист бумаги.",
+            a: "Для самых маленьких удобны толстые восковые мелки. Цветные карандаши требуют более точных движений руки.",
           },
           {
             q: "Есть ли еще бесплатные раскраски для малышей?",
@@ -1952,7 +1927,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons are easiest for first attempts",
-          "If your child uses markers, slip a spare sheet underneath",
           "Print a few copies and try different colors",
         ],
         fitTitle: "Is this page right for your child?",
@@ -1993,7 +1967,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "What is best for coloring it?",
-            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements. With markers, slip a spare sheet underneath.",
+            a: "Thick crayons are easiest for the youngest hands. Colored pencils call for steadier movements.",
           },
           {
             q: "Are there more free coloring pages for toddlers?",
@@ -2014,7 +1988,6 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para los primeros intentos van mejor las ceras gruesas",
-          "Si el niño usa rotuladores, pon una hoja de papel debajo",
           "Puedes imprimir varias copias y probar colores distintos",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -2055,7 +2028,7 @@ const coloringPagesBase: ColoringPage[] = [
           },
           {
             q: "¿Con qué conviene colorearlo?",
-            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos. Si se usan rotuladores, conviene poner una hoja de papel debajo.",
+            a: "Para las manos más pequeñas, lo más cómodo son las ceras gruesas. Los lápices de colores requieren movimientos más precisos.",
           },
           {
             q: "¿Hay más láminas gratuitas para los más pequeños?",
@@ -2107,7 +2080,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Выберите Letter или A4 в зависимости от бумаги вашего принтера",
           "Для первых попыток удобны толстые восковые мелки",
           "Отдельные части необязательно раскрашивать разными цветами",
-          "Если ребенок раскрашивает фломастерами, подложите дополнительный лист бумаги",
           "Можно распечатать два экземпляра и попробовать разные сочетания цветов",
         ],
         fitTitle: "Подойдет ли эта раскраска вашему ребенку?",
@@ -2171,7 +2143,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Choose Letter or A4, whichever your printer takes",
           "Thick crayons are easiest for first attempts",
           "The separate parts do not have to be different colors",
-          "If your child uses markers, slip a spare sheet underneath",
           "Print two copies and try different color combinations",
         ],
         fitTitle: "Is this page right for your child?",
@@ -2235,7 +2206,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Elige A4 o Carta según el papel de tu impresora",
           "Para los primeros intentos van bien las ceras gruesas",
           "No hace falta colorear cada parte de un color distinto",
-          "Si el niño usa rotuladores, pon una hoja de papel debajo",
           "Puedes imprimir dos copias y probar distintas combinaciones de colores",
         ],
         fitTitle: "¿Es esta lámina adecuada para tu hijo?",
@@ -2336,7 +2306,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
           "Print on plain paper",
           "Thick crayons work best for the youngest hands",
-          "For markers, slip a spare sheet underneath",
           "Print the same animal twice and color one together",
         ],
         pickLead: "If your child liked these ten, there are 111 in the book they came from.",
@@ -2382,7 +2351,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
           "Imprime en papel normal",
           "Los crayones gruesos funcionan mejor en las manos más pequeñas",
-          "Si usas marcadores, pon una hoja debajo",
           "Imprime el mismo animal dos veces y coloreen uno juntos",
         ],
         pickLead: "Si a tu hijo le gustaron estas diez, en el libro del que salieron hay 111.",
@@ -2644,8 +2612,7 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
           "Print on plain paper",
-          "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
-          "If you use markers, slip a spare sheet underneath",
+          "Plain copy paper works fine",
           "Print the same page twice and color one with someone else",
         ],
         pickLead: "If these twelve went quickly, there are 50 more in the book they came from.",
@@ -2694,7 +2661,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
           "Imprime en papel normal",
           "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
-          "Si usas rotuladores, pon una hoja debajo",
           "Imprime la misma página dos veces y coloréala con alguien",
         ],
         pickLead: "Si estas doce se te han hecho cortas, en el libro del que salieron hay 50.",
@@ -2788,8 +2754,7 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
           "Print on plain paper",
-          "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
-          "If you use markers, slip a spare sheet underneath",
+          "Plain copy paper works fine",
           "Blues and greens go a long way here, so keep a few shades of each within reach",
         ],
         pickLead: "If these ten went quickly, there are 50 more in the book they came from.",
@@ -2838,7 +2803,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
           "Imprime en papel normal",
           "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
-          "Si usas rotuladores, pon una hoja debajo",
           "Aquí los azules y los verdes se usan mucho, así que ten varios tonos de cada uno a mano",
         ],
         pickLead: "Si estas diez se te han hecho cortas, en el libro del que salieron hay 50.",
@@ -2931,8 +2895,7 @@ const coloringPagesBase: ColoringPage[] = [
         howTo: [
           "Two file sizes: US Letter and A4. Pick whichever your printer takes",
           "Print on plain paper",
-          "Plain copy paper is fine for pencils, slightly heavier paper is better for markers",
-          "If you use markers, slip a spare sheet underneath",
+          "Plain copy paper works fine",
           "Warm colors do most of the work here, so keep your reds, oranges and yellows within reach",
         ],
         pickLead: "If these went quickly, there are 50 more in the book they came from.",
@@ -2981,7 +2944,6 @@ const coloringPagesBase: ColoringPage[] = [
           "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
           "Imprime en papel normal",
           "El papel de copia va bien para lápices, y uno algo más grueso es mejor para rotuladores",
-          "Si usas rotuladores, pon una hoja debajo",
           "Aquí mandan los colores cálidos, así que ten a mano los rojos, los naranjas y los amarillos",
         ],
         pickLead: "Si estas se te han hecho cortas, en el libro del que salieron hay 50.",
@@ -3057,7 +3019,6 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Два размера файла: Letter и A4. Выбирайте тот, который подходит вашему принтеру.",
         "Печатайте на обычной бумаге.",
         "Малышам удобнее толстые восковые карандаши.",
-        "Если раскрашиваете фломастерами, подложите запасной лист.",
         "Напечатайте одно животное дважды и раскрасьте один экземпляр вместе.",
       ],
       pickLead: "Если эти десять понравились, в книге, из которой они взяты, их 111.",
@@ -3153,7 +3114,6 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Два размера файла: Letter и A4",
         "Печатайте на обычной бумаге",
         "Подойдут цветные карандаши, фломастеры и гелевые ручки",
-        "Под фломастеры подкладывайте запасной лист",
         "Плотная бумага держит цвет лучше обычной",
       ],
       pickLead: "Если эти двенадцать понравились, в книге, откуда они взяты, их 50.",
@@ -3199,7 +3159,6 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Два размера файла: Letter и A4",
         "Печатайте на обычной бумаге",
         "Синие и зеленые оттенки тут пригодятся больше всего",
-        "Под фломастеры подкладывайте запасной лист",
         "Плотная бумага держит цвет лучше обычной",
       ],
       pickLead: "Если эти десять понравились, в книге, откуда они взяты, их 50.",
@@ -3241,7 +3200,6 @@ const RU_FREE: Record<string, RuColoringPage> = {
         "Два размера файла: Letter и A4",
         "Печатайте на обычной бумаге",
         "Подойдут цветные карандаши, фломастеры и гелевые ручки",
-        "Под фломастеры подкладывайте запасной лист",
         "Плотная бумага держит цвет лучше обычной",
       ],
       pickLead: "Если эти девять понравились, в книге, откуда они взяты, их 50.",

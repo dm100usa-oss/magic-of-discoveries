@@ -40,6 +40,7 @@ import {
 } from "@/data/teacherArticles";
 import {
   drawingArticlesForLang,
+  drawingHub,
   drawingArticleBySlug,
   drawingArticleUi,
   relatedDrawingArticles,
@@ -2473,6 +2474,25 @@ export default async function ItemPage({
                   {t.free.bookSheetsCta.replace("{n}", String(freeSheetPages))}
                 </Link>
               </p>
+            </>
+          ) : null}
+
+          {/* Статьи по возрастам. Связь в обе стороны: статья ведет на книгу,
+              книга на статью. Для человека это ответ на вопрос "а моему
+              ребенку это подойдет", для поисковика связный раздел. */}
+          {book.type === "drawing" && drawingArticlesForLang(lang).length ? (
+            <>
+              <h2 className="section">{drawingHub[lang]?.title}</h2>
+              <ul className="guide-next">
+                {drawingArticlesForLang(lang).map((a) => (
+                  <li key={a.id}>
+                    <Link href={itemPath(lang, "learn", a.slug[lang]!)}>
+                      <b>{a.copy[lang]!.title}</b>
+                      <span>{a.copy[lang]!.lead}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </>
           ) : null}
 

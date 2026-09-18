@@ -105,6 +105,10 @@ export const AUTHORS = {
     amazon: "https://www.amazon.com/stores/Ricardo-Demi/author/B0D3CQP21H",
     goodreads: "https://www.goodreads.com/author/show/49458093.Ricardo_Demi",
     thriftbooks: "https://www.thriftbooks.com/a/ricardo-demi/11319271/",
+    /** Карточка в Wikidata и сайт с методикой: главные подтверждения,
+        что автор статей реальный человек. */
+    wikidata: "https://www.wikidata.org/wiki/Q137125272",
+    site: "https://www.ricardo-demi.com",
   },
   maria: {
     name: "Maria Demi",
@@ -116,6 +120,8 @@ export const AUTHORS = {
 export const authorSameAs = (who: "ricardo" | "maria") => {
   const a = AUTHORS[who];
   return [
+    "wikidata" in a ? a.wikidata : undefined,
+    "site" in a ? a.site : undefined,
     a.amazon,
     "goodreads" in a ? a.goodreads : undefined,
     "thriftbooks" in a ? a.thriftbooks : undefined,

@@ -27,6 +27,13 @@ export interface DrawingArticle {
   slug: Partial<Record<UiLang, string>>;
   /** Соседние статьи: читатель идет дальше по теме. */
   related: string[];
+  /** Книга, о которой статья, без языка издания. Пусто = "how-to-draw-111".
+      По нему кнопка в конце статьи ведет на нужную книгу, а страница
+      книги показывает только свои статьи. */
+  book?: string;
+  /** Страница бесплатных листов для кнопки в конце статьи.
+      Пусто = "draw-animals-step-by-step". */
+  freePage?: string;
   copy: Partial<Record<UiLang, TeacherArticleCopy>>;
 }
 
@@ -70,7 +77,7 @@ export const drawingHub: Partial<
   en: {
     title: "How to teach drawing",
     lead:
-      "Five practical guides for parents and teachers: what changes between ages five and ten, what step-by-step drawing actually is, and how one book can cover a school year.",
+      "Ten practical guides for parents and teachers: what changes between ages five and ten, what step-by-step drawing actually is, how one book can cover a school year, what to draw when a child has no idea, and how to start from zero.",
     seoTitle: "How to Teach a Child to Draw: Guides by Age",
     seoDescription:
       "Practical guides on teaching drawing to children ages 5 to 10: simple shapes, tracing, independent practice, and step-by-step activities for home and the classroom.",
@@ -78,7 +85,7 @@ export const drawingHub: Partial<
   es: {
     title: "Cómo enseñar a dibujar",
     lead:
-      "Cinco guías prácticas para familias y maestros: qué cambia entre los cinco y los diez años, qué es realmente el dibujo paso a paso y cómo un libro puede cubrir todo el año escolar.",
+      "Diez guías prácticas para familias y maestros: qué cambia entre los cinco y los diez años, qué es realmente el dibujo paso a paso, cómo un libro puede cubrir todo el año escolar, qué dibujar cuando el niño no tiene idea y cómo empezar desde cero.",
     seoTitle: "Cómo enseñar a dibujar a un niño: guías por edades",
     seoDescription:
       "Guías prácticas para enseñar a dibujar a niños de 5 a 10 años: formas sencillas, repaso punteado, práctica independiente y actividades paso a paso para casa y para clase.",
@@ -86,7 +93,7 @@ export const drawingHub: Partial<
   ru: {
     title: "Как научить рисовать",
     lead:
-      "Пять практических статей для родителей и учителей: что меняется между пятью и десятью годами, что такое пошаговое рисование и как одна книга закрывает учебный год.",
+      "Десять практических статей для родителей и учителей: что меняется между пятью и десятью годами, что такое пошаговое рисование, как одна книга закрывает учебный год, что нарисовать, если нет идеи, и как начать с нуля.",
     seoTitle: "Как научить ребенка рисовать: статьи по возрастам",
     seoDescription:
       "Как учить рисованию детей 5-10 лет: простые формы, обводка по пунктиру, самостоятельная практика и пошаговые задания для дома и для занятий в классе.",
@@ -1452,10 +1459,1498 @@ export const drawingArticles: DrawingArticle[] = [
       },
     },
   },
+  /* ===== "Как нарисовать все на свете": пять статей под пять разных
+     групп запросов. Тексты владельца: сама книга, начальная школа,
+     что нарисовать, занятие без экрана, рисование с нуля. ===== */
+  {
+    id: "everything-parents",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    book: "how-to-draw-everything",
+    freePage: "draw-everything-easy",
+    slug: {
+      en: "how-to-draw-everything-easy-drawing-book-for-kids",
+      es: "como-aprender-a-dibujar-paso-a-paso-ninos",
+      ru: "kak-nauchit-rebenka-risovat-s-nulya",
+    },
+    related: [
+      "everything-what-to-draw",
+      "everything-beginners",
+    ],
+    copy: {
+      ru: {
+        title: "Как научить ребенка рисовать с нуля: простые пошаговые рисунки",
+        seoTitle: "Как научить ребенка рисовать с нуля: 111 пошаговых рисунков",
+        seoDescription: "Как научить ребенка рисовать поэтапно? 111 простых пошаговых рисунков животных, цветов, еды, подарков и других предметов для начинающих.",
+        lead: "Как научить ребенка рисовать поэтапно? 111 простых пошаговых рисунков животных, цветов, еды, подарков и других предметов для начинающих.",
+        answer: "Многие дети любят рисовать, но не всегда знают, с чего начать. Ребенок берет карандаш, смотрит на чистый лист и говорит: «Я не знаю, что нарисовать». Или выбирает понравившуюся картинку, но не понимает, как самостоятельно получить такой результат. В этом случае помогает поэтапное рисование.",
+        body: [
+          {
+            h: "111 идей для рисования",
+            p: [
+              "Книга «Как нарисовать все на свете. 111 простых рисунков шаг за шагом» предлагает ребенку 111 разных рисунков, которые можно выполнять шаг за шагом.",
+              "В книге собраны милые животные, цветы, еда, подарки и другие темы.",
+              "Ребенку не обязательно заниматься только одним видом рисунков.",
+              "Сегодня можно выбрать животное. Завтра цветок. В следующий раз еду, подарок или совершенно другой предмет.",
+              "Так у ребенка всегда остается выбор, что попробовать нарисовать дальше.",
+            ],
+          },
+          {
+            h: "Пошаговое рисование для начинающих",
+            p: [
+              "Чтобы начать заниматься по книге, ребенку не нужно уже уметь хорошо рисовать.",
+              "Каждый рисунок сопровождается простой и понятной пошаговой инструкцией. Книга рассчитана в том числе на начинающих юных художников.",
+              "Вместо того чтобы сразу пытаться скопировать готовую картинку, ребенок двигается постепенно.",
+              "Сначала один этап. Потом следующий. И шаг за шагом получается законченный рисунок.",
+            ],
+          },
+          {
+            h: "Возможность потренироваться",
+            p: [
+              "Посмотреть на готовый пример недостаточно. Важно попробовать нарисовать самому.",
+              "Поэтому для каждого рисунка в книге предусмотрены два вида практики, а также место для самостоятельной работы.",
+              "Ребенок может выполнить рисунок, потренироваться и попробовать еще раз.",
+              "А готовую работу можно раскрасить.",
+            ],
+          },
+          {
+            h: "Творческое занятие без гаджетов",
+            p: [
+              "Рисование - один из простых вариантов занятия, для которого не нужны телефон, планшет или компьютер.",
+              "Ребенок может выбрать понравившуюся картинку и рисовать в собственном темпе.",
+              "Книгу можно использовать дома после школы, в выходной день, на каникулах или просто тогда, когда хочется спокойно порисовать.",
+            ],
+          },
+          {
+            h: "Для какого возраста подходит книга?",
+            p: [
+              "Книга предназначена для начинающих юных художников. В описании издателя она рекомендуется детям от 5 лет.",
+              "Поскольку каждый рисунок выполняется поэтапно, ребенок может заниматься в удобном для себя темпе.",
+            ],
+          },
+          {
+            h: "Книга, к которой можно возвращаться",
+            p: [
+              "Необязательно выполнять все 111 рисунков подряд.",
+              "Можно листать книгу и выбирать то, что хочется нарисовать именно сегодня.",
+              "А через некоторое время вернуться к уже знакомому рисунку и попробовать сделать его еще раз.",
+              "Поэтому на простой детский вопрос «Что мне нарисовать?» в книге есть сразу 111 возможных ответов.",
+            ],
+          },
+        ],
+        listTitle: "Что в книге",
+        list: [
+          "111 пошаговых рисунков в семи темах: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Два вида практики для каждого рисунка: пунктир для обводки и свободное место для своего рисунка",
+          "Черная линия показывает текущий шаг, серая то, что уже нарисовано",
+          "Готовые рисунки можно раскрасить",
+          "104 страницы, для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "С какого возраста можно учить ребенка рисовать поэтапно?",
+            a: "Книга рассчитана на начинающих юных художников. Издатель рекомендует ее детям от 5 лет.",
+          },
+          {
+            q: "Подойдет ли книга ребенку, который совсем не умеет рисовать?",
+            a: "Да. Рисунки сопровождаются простыми и понятными пошаговыми инструкциями, а сама книга рассчитана в том числе на начинающих.",
+          },
+          {
+            q: "Что ребенок сможет научиться рисовать?",
+            a: "В книге собрано 111 рисунков разных тематик: милые животные, цветы, еда, подарки и другие предметы. Ребенок может самостоятельно выбирать интересующую его тему.",
+          },
+          {
+            q: "Как работает пошаговое рисование для детей?",
+            a: "Вместо попытки сразу повторить готовую картинку ребенок выполняет рисунок последовательно, переходя от одного этапа к следующему. Так большая задача превращается в несколько более понятных действий.",
+          },
+          {
+            q: "Есть ли в книге место для самостоятельной практики?",
+            a: "Да. Для каждого рисунка предусмотрены два вида практики и место, где ребенок может самостоятельно рисовать.",
+          },
+        ],
+        ctaTitle: "Попробуйте бесплатно",
+        ctaLead: "Десять страниц из книги можно распечатать бесплатно, без регистрации и почты: вверху шаги, ниже обводка и место для своего рисунка. Если подойдет, в книге таких рисунков 111.",
+      },
+      en: {
+        title: "How to Draw Everything: An Easy Step-by-Step Drawing Book for Kids",
+        seoTitle: "How to Draw Everything for Kids: 111 Easy Step-by-Step Drawing Ideas",
+        seoDescription: "Looking for an easy drawing book for kids? Discover 111 step-by-step drawings of animals, food, flowers, gifts, and more, with plenty of room to practice.",
+        lead: "Looking for an easy drawing book for kids? Discover 111 step-by-step drawings of animals, food, flowers, gifts, and more, with plenty of room to practice.",
+        answer: "Some kids know exactly what they want to draw. Others sit down with a pencil and ask the same question: \"What should I draw?\" A drawing book with many different themes can help with both.",
+        body: [
+          {
+            h: "111 Things to Learn How to Draw",
+            p: [
+              "How to Draw Everything: 111 Easy Step-by-Step Drawings for Kids gives young artists a large collection of simple drawing ideas in one book. Instead of focusing on just animals, food, flowers, or other individual themes, children can explore many different subjects and choose what they feel like drawing that day.",
+              "The book includes 111 step-by-step drawings covering cute animals, flowers, foods, gifts, and other familiar and fun subjects.",
+              "That variety matters for children who enjoy drawing but quickly lose interest when every page follows the same theme.",
+              "One day they can draw an animal. Another day they can choose food, a flower, or something completely different.",
+              "There is always another drawing to try.",
+            ],
+          },
+          {
+            h: "Easy Step-by-Step Drawing for Beginners",
+            p: [
+              "Children do not need to know how to draw before opening the book.",
+              "Each picture is broken down into simple steps that show how the drawing develops from beginning to end. The book was created for beginning artists and uses large, easy-to-follow drawings.",
+              "Instead of asking a child to copy a finished picture all at once, step-by-step drawing gives them a clear place to begin and shows them what comes next.",
+              "This can make drawing feel much more approachable.",
+            ],
+          },
+          {
+            h: "More Than One Chance to Practice",
+            p: [
+              "Learning to draw usually takes more than looking at an example once.",
+              "That is why the book includes two types of practice for each drawing, along with space where children can work on their own.",
+              "Children can follow the example, practice the drawing, and then try again.",
+              "They can also color their finished pictures.",
+              "This turns each activity into more than a quick drawing exercise.",
+            ],
+          },
+          {
+            h: "Drawing Without a Screen",
+            p: [
+              "Drawing is also an easy screen-free activity.",
+              "A child needs only the book and basic drawing supplies to get started. There is no video to follow, app to open, or device to charge.",
+              "Children can choose a picture, work through the steps at their own pace, and spend time creating something themselves.",
+              "That makes the book useful for quiet afternoons at home, weekends, vacations, travel, or any time a child asks for something to do.",
+            ],
+          },
+          {
+            h: "What Age Is This Drawing Book For?",
+            p: [
+              "The book is designed for children who are beginning to draw. The publisher describes it as suitable for children ages 5 and older.",
+              "Because the drawings are taught step by step, children can move through the book at their own pace rather than needing to complete activities in a particular order.",
+            ],
+          },
+          {
+            h: "A Drawing Book Kids Can Keep Coming Back To",
+            p: [
+              "With 111 different drawing ideas, children do not have to finish the book from beginning to end.",
+              "They can flip through the pages and choose whatever interests them.",
+              "Today it might be a cute animal.",
+              "Tomorrow it might be food or a flower.",
+              "Later they can return to an earlier drawing and see if they can draw it again.",
+              "That freedom is part of what makes a large collection of drawing ideas useful: the question \"What can I draw?\" already has 111 possible answers.",
+            ],
+          },
+        ],
+        listTitle: "What is in the book",
+        list: [
+          "111 step-by-step drawings in seven themes: animals, flowers, nature, foods, gifts, clothing, and more",
+          "Two kinds of practice for every drawing: a dotted outline to trace and blank space to draw your own",
+          "The black line shows the current step, the gray line what is already drawn",
+          "Finished drawings can be colored in",
+          "104 pages, for ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "What is a good drawing book for kids who are beginners?",
+            a: "A good beginner drawing book shows children how to build a picture one step at a time instead of asking them to copy a finished image. How to Draw Everything includes 111 easy step-by-step drawings across different themes.",
+          },
+          {
+            q: "What age is How to Draw Everything for Kids for?",
+            a: "The book is designed for beginning young artists. The publisher describes it as suitable for ages 5 and older.",
+          },
+          {
+            q: "Does a child need drawing experience to use this book?",
+            a: "No. The drawings are presented with simple, clear step-by-step guidance intended for beginning artists, so children can start without previous drawing experience.",
+          },
+          {
+            q: "What can kids learn to draw in How to Draw Everything?",
+            a: "Kids can choose from 111 drawings covering cute animals, flowers, foods, gifts, and other themes. This gives them different types of subjects to explore instead of focusing on only one category.",
+          },
+          {
+            q: "Can kids practice the drawings more than once?",
+            a: "Yes. The book provides two types of practice for each drawing, along with space for children to practice what they have learned.",
+          },
+        ],
+        ctaTitle: "Try it before you buy",
+        ctaLead: "Ten pages from the book are free to print, with no account and no email: the steps at the top, tracing and practice below. If they work for your child, the book has 111.",
+      },
+      es: {
+        title: "Cómo Aprender a Dibujar Paso a Paso: Un Libro Fácil para Niños",
+        seoTitle: "Cómo Aprender a Dibujar Paso a Paso: 111 Dibujos Fáciles para Niños",
+        seoDescription: "¿Buscas un libro de dibujo fácil para niños? Descubre 111 dibujos paso a paso de animales, flores, comida, regalos y muchos otros temas para practicar.",
+        lead: "¿Buscas un libro de dibujo fácil para niños? Descubre 111 dibujos paso a paso de animales, flores, comida, regalos y muchos otros temas para practicar.",
+        answer: "A algunos niños les encanta dibujar, pero no siempre saben por dónde empezar. Otros toman un lápiz, miran la hoja en blanco y hacen una pregunta muy sencilla: \"¿Qué puedo dibujar?\" Un libro con muchos temas diferentes puede ayudar en ambos casos.",
+        body: [
+          {
+            h: "111 cosas diferentes para aprender a dibujar",
+            p: [
+              "Cómo Dibujar Todo: 111 dibujos fáciles paso a paso para niños reúne 111 dibujos paso a paso para que los pequeños artistas puedan elegir qué quieren aprender a dibujar.",
+              "El libro incluye animales tiernos, flores, comida, regalos y muchos otros temas.",
+              "Esta variedad permite que el niño no tenga que dibujar siempre el mismo tipo de imagen.",
+              "Un día puede elegir un animal. Otro día, una flor. Después puede probar con comida, un regalo u otro dibujo que le llame la atención.",
+              "Siempre hay algo diferente para intentar.",
+            ],
+          },
+          {
+            h: "Dibujos paso a paso para principiantes",
+            p: [
+              "El niño no necesita saber dibujar antes de comenzar.",
+              "Cada dibujo se presenta mediante una secuencia sencilla y clara que muestra cómo avanzar hasta completar la imagen. El libro está pensado para pequeños artistas que están comenzando.",
+              "En lugar de intentar copiar una ilustración terminada de una sola vez, el niño puede concentrarse en una parte a la vez.",
+              "Primero un paso. Después el siguiente. Y poco a poco aparece el dibujo completo.",
+            ],
+          },
+          {
+            h: "Más oportunidades para practicar",
+            p: [
+              "Aprender a dibujar no consiste solamente en mirar cómo se hace. También hay que intentarlo.",
+              "Por eso, el libro ofrece dos tipos de práctica para cada dibujo y espacio para que los niños trabajen en sus propias imágenes.",
+              "Pueden seguir el ejemplo, practicar y volver a intentarlo.",
+              "Después también pueden colorear el dibujo terminado.",
+            ],
+          },
+          {
+            h: "Una actividad creativa sin pantallas",
+            p: [
+              "Dibujar también puede ser una actividad sencilla para pasar un rato lejos del celular, la tableta o la televisión.",
+              "No hace falta abrir una aplicación ni buscar un nuevo video cada vez.",
+              "El niño puede elegir un dibujo, seguir los pasos y trabajar a su propio ritmo.",
+              "Es una opción para una tarde en casa, un fin de semana, un viaje o simplemente un momento tranquilo.",
+            ],
+          },
+          {
+            h: "¿Para qué edad es este libro de dibujo?",
+            p: [
+              "El libro está pensado para niños que están comenzando a dibujar. La descripción del editor indica que es apropiado a partir de los 5 años.",
+              "Como los dibujos se presentan paso a paso, cada niño puede avanzar a su propio ritmo.",
+            ],
+          },
+          {
+            h: "Un libro al que pueden volver una y otra vez",
+            p: [
+              "Los 111 dibujos no tienen que hacerse en orden.",
+              "Los niños pueden hojear el libro y elegir lo que quieran dibujar en ese momento.",
+              "Hoy puede ser un animal. Mañana, algo completamente diferente.",
+              "Y más adelante pueden regresar a un dibujo anterior y volver a intentarlo.",
+              "Así, la pregunta \"¿Qué puedo dibujar?\" tiene 111 posibles respuestas.",
+            ],
+          },
+        ],
+        listTitle: "Qué hay en el libro",
+        list: [
+          "111 dibujos paso a paso en siete temas: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Dos tipos de práctica para cada dibujo: un contorno de puntos para repasar y espacio libre para dibujar el propio",
+          "La línea negra muestra el paso actual, la gris lo que ya está dibujado",
+          "Los dibujos terminados se pueden colorear",
+          "104 páginas, a partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cuál es un buen libro de dibujo para niños principiantes?",
+            a: "Un buen libro para principiantes muestra cómo crear un dibujo poco a poco, en lugar de pedirle al niño que copie una imagen terminada. Cómo Dibujar Todo incluye 111 dibujos paso a paso de diferentes temas.",
+          },
+          {
+            q: "¿Para qué edad es Cómo Dibujar Todo?",
+            a: "El libro está pensado para pequeños artistas que están comenzando. El editor lo recomienda a partir de los 5 años.",
+          },
+          {
+            q: "¿Un niño necesita saber dibujar antes de usar este libro?",
+            a: "No. Los dibujos se presentan mediante instrucciones sencillas y claras, paso a paso, pensadas para niños que están comenzando a dibujar.",
+          },
+          {
+            q: "¿Qué pueden aprender a dibujar los niños con este libro?",
+            a: "Pueden elegir entre 111 dibujos de diferentes temas, como animales tiernos, flores, comida, regalos y mucho más.",
+          },
+          {
+            q: "¿El libro permite practicar los dibujos?",
+            a: "Sí. Cada dibujo ofrece dos tipos de práctica y espacio para que el niño pueda trabajar y volver a intentarlo.",
+          },
+        ],
+        ctaTitle: "Pruébalo antes de comprar",
+        ctaLead: "Diez páginas del libro se pueden imprimir gratis, sin registro y sin correo: los pasos arriba, el repaso y la práctica abajo. Si le funcionan a tu hijo, en el libro hay 111.",
+      },
+    },
+  },
+  {
+    id: "everything-teachers",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    book: "how-to-draw-everything",
+    freePage: "draw-everything-easy",
+    slug: {
+      en: "easy-drawing-activities-for-elementary-students",
+      es: "actividades-de-dibujo-faciles-para-primaria",
+      ru: "prostye-zadaniya-po-risovaniyu-dlya-nachalnoy-shkoly",
+    },
+    related: [
+      "everything-screen-free",
+      "everything-parents",
+    ],
+    copy: {
+      ru: {
+        title: "Пошаговое рисование для детей в начальной школе",
+        seoTitle: "Пошаговое рисование для детей: простые задания для начальной школы",
+        seoDescription: "Простые задания по пошаговому рисованию для детей начальной школы: 111 рисунков для самостоятельной работы, творческих занятий и свободного времени.",
+        lead: "Простые задания по пошаговому рисованию для детей начальной школы: 111 рисунков для самостоятельной работы, творческих занятий и свободного времени.",
+        answer: "В школе и на дополнительных занятиях бывают ситуации, когда детям нужно предложить понятную творческую работу, которую они смогут выполнять самостоятельно. Один ученик закончил основное задание раньше остальных. Нужно организовать спокойную творческую паузу. Появилось свободное время. Или педагог хочет предложить детям самостоятельное рисование. Для таких ситуаций можно использовать пошаговые рисунки.",
+        body: [
+          {
+            h: "Понятный способ начать рисовать",
+            p: [
+              "В книге «Как нарисовать все на свете» собрано 111 разных рисунков, включая милых животных, цветы, еду, подарки и другие темы.",
+              "Чистый лист бумаги иногда ставит начинающего художника в тупик. Что рисовать? С чего начать?",
+              "Пошаговая схема дает ребенку отправную точку.",
+              "Вместо копирования сразу всей готовой картинки ученик следует последовательности и наблюдает, как постепенно появляется законченный рисунок.",
+              "Книга содержит простые и понятные пошаговые инструкции и рассчитана на начинающих.",
+            ],
+          },
+          {
+            h: "111 разных вариантов",
+            p: [
+              "Не всем детям интересно рисовать одно и то же.",
+              "Кому-то нравятся животные. Другому ребенку хочется нарисовать цветок или еду. Третий выберет совершенно другую тему.",
+              "Коллекция из 111 рисунков дает детям возможность выбирать и пробовать разные сюжеты.",
+            ],
+          },
+          {
+            h: "Задание для тех, кто закончил работу раньше",
+            p: [
+              "Дети редко заканчивают школьные задания одновременно.",
+              "Рисование может стать дополнительным творческим занятием для ребенка, который уже справился с основной работой.",
+              "Он может выбрать новый рисунок и самостоятельно следовать этапам.",
+            ],
+          },
+          {
+            h: "Спокойная самостоятельная работа",
+            p: [
+              "Пошаговое рисование можно использовать и тогда, когда детям требуется спокойное индивидуальное занятие.",
+              "Каждый работает со своим рисунком и продвигается в удобном темпе.",
+              "После завершения рисунок можно раскрасить.",
+            ],
+          },
+          {
+            h: "Практика рисования",
+            p: [
+              "Книга предусматривает два вида практики для каждого рисунка и место для самостоятельной работы ребенка.",
+              "Поэтому ученик может не только посмотреть последовательность действий, но и самостоятельно попробовать воспроизвести рисунок.",
+            ],
+          },
+          {
+            h: "Ресурс, к которому можно возвращаться",
+            p: [
+              "Нет необходимости проходить книгу от первой страницы до последней.",
+              "Педагог или сам ребенок может выбрать подходящий рисунок тогда, когда требуется творческое задание.",
+              "А 111 разных вариантов позволяют многократно возвращаться к книге в течение учебного процесса.",
+            ],
+          },
+        ],
+        listTitle: "Что в книге",
+        list: [
+          "111 пошаговых рисунков в семи темах: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Два вида практики для каждого рисунка: пунктир для обводки и свободное место для своего рисунка",
+          "Черная линия показывает текущий шаг, серая то, что уже нарисовано",
+          "Готовые рисунки можно раскрасить",
+          "104 страницы, для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Какие простые задания по рисованию подойдут детям начальной школы?",
+            a: "Пошаговые рисунки удобны тем, что ребенок получает понятную последовательность действий. Он видит, с чего начать и что добавить на следующем этапе.",
+          },
+          {
+            q: "Можно ли использовать пошаговое рисование для самостоятельной работы?",
+            a: "Да. Ребенок может выбрать рисунок и самостоятельно следовать последовательности этапов. В книге «Как нарисовать все на свете» собрано 111 разных рисунков, поэтому задания можно менять.",
+          },
+          {
+            q: "Чем занять ученика, который закончил задание раньше остальных?",
+            a: "Можно предложить ему самостоятельное пошаговое рисование. Ребенок выбирает изображение, выполняет его по этапам, а затем при желании раскрашивает готовую работу.",
+          },
+          {
+            q: "Подходит ли книга для начинающих школьников?",
+            a: "Да. В книге используются простые и понятные пошаговые инструкции, а среди ее читателей прямо названы начинающие юные художники.",
+          },
+          {
+            q: "Можно ли использовать книгу не только на уроках рисования?",
+            a: "Да. Пошаговые задания можно предлагать как самостоятельную творческую работу, дополнительное задание или спокойное занятие в свободное время.",
+          },
+        ],
+        ctaTitle: "Попробуйте бесплатно",
+        ctaLead: "Десять страниц из книги можно распечатать бесплатно, без регистрации и почты: вверху шаги, ниже обводка и место для своего рисунка. Если подойдет, в книге таких рисунков 111.",
+      },
+      en: {
+        title: "Easy Step-by-Step Drawing Activities for Elementary Students",
+        seoTitle: "Easy Drawing Activities for Elementary Students: 111 Step-by-Step Ideas",
+        seoDescription: "Looking for easy drawing activities for elementary students? Discover 111 step-by-step drawings for early finishers, indoor recess, quiet time, and independent art.",
+        lead: "Looking for easy drawing activities for elementary students? Discover 111 step-by-step drawings for early finishers, indoor recess, quiet time, and independent art.",
+        answer: "Teachers often need simple activities students can work on independently. A student finishes an assignment early. Rain keeps everyone inside for recess. The class needs a quiet transition between lessons. Or students simply have some time for a creative activity. Step-by-step drawing can be useful in all of these situations.",
+        body: [
+          {
+            h: "A Simple Way to Get Students Drawing",
+            p: [
+              "How to Draw Everything: 111 Easy Step-by-Step Drawings for Kids gives young artists 111 different drawings to choose from, including cute animals, flowers, foods, gifts, and other themes.",
+              "For a beginning artist, the hardest part can be knowing where to start.",
+              "Instead of presenting only a finished picture, step-by-step drawing breaks the process into smaller stages.",
+              "Students follow the sequence and gradually build the complete picture.",
+              "The book was designed for beginning young artists and uses simple, clear step-by-step guidance.",
+            ],
+          },
+          {
+            h: "111 Different Drawing Choices",
+            p: [
+              "Children do not always want to draw the same subject.",
+              "One student may choose an animal while another wants to draw food, a flower, or something completely different.",
+              "With 111 drawings across multiple themes, students can explore different subjects instead of repeating one category throughout the book.",
+              "That variety also gives teachers many activities to choose from.",
+            ],
+          },
+          {
+            h: "Early Finishers",
+            p: [
+              "Students rarely finish classroom work at exactly the same time.",
+              "A drawing activity can give early finishers something creative to work on while other students complete their assignments.",
+              "Instead of asking, \"What should I do now?\" a student can choose another picture and begin drawing.",
+            ],
+          },
+          {
+            h: "Indoor Recess and Quiet Time",
+            p: [
+              "Bad weather sometimes means recess has to move indoors.",
+              "Drawing requires little setup and can be done quietly at a desk.",
+              "The same approach can work during quiet time, classroom transitions, or other moments when students need an independent activity.",
+            ],
+          },
+          {
+            h: "Art Centers and Independent Work",
+            p: [
+              "The book can also be available as one option in an art center or independent-work area.",
+              "Students can choose a drawing, follow the steps, practice it, and color their finished picture.",
+              "The book provides two types of practice for each drawing and space for children to work.",
+            ],
+          },
+          {
+            h: "A Drawing Resource Students Can Return To",
+            p: [
+              "A book with 111 different subjects does not need to be completed in order.",
+              "Students can return to it whenever drawing fits into the classroom day and choose something new.",
+              "For teachers looking for a collection of easy step-by-step drawing activities for elementary students, that flexibility may be just as useful as the drawings themselves.",
+            ],
+          },
+        ],
+        listTitle: "What is in the book",
+        list: [
+          "111 step-by-step drawings in seven themes: animals, flowers, nature, foods, gifts, clothing, and more",
+          "Two kinds of practice for every drawing: a dotted outline to trace and blank space to draw your own",
+          "The black line shows the current step, the gray line what is already drawn",
+          "Finished drawings can be colored in",
+          "104 pages, for ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "What are easy drawing activities for elementary students?",
+            a: "Step-by-step drawing is an easy way to give elementary students a structured art activity. Students follow the drawing in stages and gradually create the complete picture instead of starting from a blank page without guidance.",
+          },
+          {
+            q: "Can step-by-step drawing be used for early finishers?",
+            a: "Yes. Step-by-step drawing can be offered as an independent activity when students finish their regular work early. They can choose a picture and work through the steps at their own pace.",
+          },
+          {
+            q: "What are good screen-free activities for indoor recess?",
+            a: "Drawing is a simple screen-free option for indoor recess because students can work at their desks with basic drawing supplies. A collection of different drawing ideas also gives students a choice of what they want to create.",
+          },
+          {
+            q: "Can a drawing book be used for independent classroom work?",
+            a: "Yes. A step-by-step drawing book can be used for independent work because students have a visual sequence to follow. How to Draw Everything contains 111 different drawings and includes practice space for young artists.",
+          },
+          {
+            q: "Is step-by-step drawing suitable for beginning elementary students?",
+            a: "Yes. Step-by-step drawing breaks a complete picture into smaller stages, which makes the process easier to follow for beginners. How to Draw Everything was specifically created with beginning young artists in mind.",
+          },
+        ],
+        ctaTitle: "Try it before you buy",
+        ctaLead: "Ten pages from the book are free to print, with no account and no email: the steps at the top, tracing and practice below. If they work for your child, the book has 111.",
+      },
+      es: {
+        title: "Actividades de Dibujo Paso a Paso para Estudiantes de Primaria",
+        seoTitle: "Actividades de Dibujo Fáciles para Niños de Primaria Paso a Paso",
+        seoDescription: "Descubre 111 actividades de dibujo paso a paso para estudiantes de primaria, ideales para quienes terminan temprano, recreo bajo techo y trabajo independiente.",
+        lead: "Descubre 111 actividades de dibujo paso a paso para estudiantes de primaria, ideales para quienes terminan temprano, recreo bajo techo y trabajo independiente.",
+        answer: "En el salón de clases hay momentos en los que una actividad sencilla e independiente puede ser especialmente útil. Un estudiante termina su trabajo antes que los demás. El mal tiempo obliga a hacer el recreo bajo techo. La clase necesita una actividad tranquila entre dos tareas. O simplemente hay tiempo para hacer algo creativo. El dibujo paso a paso puede adaptarse a muchas de estas situaciones.",
+        body: [
+          {
+            h: "Una manera sencilla de empezar a dibujar",
+            p: [
+              "Cómo Dibujar Todo ofrece 111 dibujos diferentes, entre ellos animales tiernos, flores, comida, regalos y otros temas.",
+              "Para algunos estudiantes, una hoja completamente en blanco puede ser difícil. No saben qué dibujar ni cómo comenzar.",
+              "Una guía paso a paso les proporciona un punto de partida.",
+              "En lugar de copiar toda la imagen terminada, los estudiantes siguen una secuencia y ven cómo el dibujo se va formando poco a poco.",
+              "El libro utiliza instrucciones visuales sencillas y claras y está pensado para artistas principiantes.",
+            ],
+          },
+          {
+            h: "111 opciones diferentes",
+            p: [
+              "No todos los estudiantes quieren dibujar lo mismo.",
+              "A uno puede interesarle un animal. Otro puede preferir una flor, comida o algún otro objeto.",
+              "Una colección con 111 dibujos de diferentes temas permite que los estudiantes tengan opciones y exploren distintos tipos de imágenes.",
+            ],
+          },
+          {
+            h: "Una actividad para quienes terminan temprano",
+            p: [
+              "Los estudiantes no siempre terminan sus tareas al mismo tiempo.",
+              "El dibujo puede convertirse en una opción creativa para quienes terminan antes.",
+              "En lugar de preguntar qué deben hacer después, pueden elegir otro dibujo y comenzar a seguir los pasos.",
+            ],
+          },
+          {
+            h: "Recreo bajo techo y momentos tranquilos",
+            p: [
+              "Cuando el clima no permite salir al recreo, dibujar puede ser una actividad tranquila que los estudiantes pueden hacer en sus escritorios.",
+              "También puede utilizarse durante momentos de trabajo independiente o cuando se necesita una transición tranquila entre actividades.",
+            ],
+          },
+          {
+            h: "Centros de arte y trabajo independiente",
+            p: [
+              "El libro también puede utilizarse como una opción dentro de un centro de arte o espacio de trabajo independiente.",
+              "Los estudiantes pueden elegir un dibujo, seguir los pasos, practicar y después colorear su creación.",
+              "Cada dibujo ofrece dos tipos de práctica y espacio para trabajar.",
+            ],
+          },
+          {
+            h: "Un recurso al que los estudiantes pueden regresar",
+            p: [
+              "Los 111 dibujos no tienen que completarse en un orden determinado.",
+              "Los estudiantes pueden regresar al libro cuando haya tiempo para una actividad artística y elegir un nuevo tema.",
+              "Para un maestro que busca actividades de dibujo fáciles para estudiantes de primaria, esta flexibilidad puede resultar especialmente práctica.",
+            ],
+          },
+        ],
+        listTitle: "Qué hay en el libro",
+        list: [
+          "111 dibujos paso a paso en siete temas: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Dos tipos de práctica para cada dibujo: un contorno de puntos para repasar y espacio libre para dibujar el propio",
+          "La línea negra muestra el paso actual, la gris lo que ya está dibujado",
+          "Los dibujos terminados se pueden colorear",
+          "104 páginas, a partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cuáles son algunas actividades de dibujo fáciles para niños de primaria?",
+            a: "El dibujo paso a paso es una actividad sencilla porque muestra a los estudiantes cómo construir una imagen por etapas. Pueden seguir la secuencia y completar el dibujo a su propio ritmo.",
+          },
+          {
+            q: "¿Se puede usar el dibujo paso a paso con estudiantes que terminan temprano?",
+            a: "Sí. Los estudiantes que terminan su trabajo antes pueden elegir un dibujo y trabajar de manera independiente mientras sus compañeros completan otras actividades.",
+          },
+          {
+            q: "¿Qué actividad artística se puede usar durante el recreo bajo techo?",
+            a: "El dibujo puede ser una opción sencilla para el recreo bajo techo porque los estudiantes pueden trabajar en sus escritorios con materiales básicos y elegir entre diferentes temas.",
+          },
+          {
+            q: "¿Un libro de dibujo puede utilizarse para trabajo independiente en el salón?",
+            a: "Sí. Las instrucciones visuales paso a paso permiten que los estudiantes sigan una secuencia por sí mismos. Cómo Dibujar Todo contiene 111 dibujos diferentes y espacio para practicar.",
+          },
+          {
+            q: "¿El dibujo paso a paso es apropiado para estudiantes principiantes?",
+            a: "Sí. Dividir una imagen en etapas hace que el proceso sea más fácil de seguir. El libro fue creado pensando en pequeños artistas que están comenzando.",
+          },
+        ],
+        ctaTitle: "Pruébalo antes de comprar",
+        ctaLead: "Diez páginas del libro se pueden imprimir gratis, sin registro y sin correo: los pasos arriba, el repaso y la práctica abajo. Si le funcionan a tu hijo, en el libro hay 111.",
+      },
+    },
+  },
+  {
+    id: "everything-what-to-draw",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    book: "how-to-draw-everything",
+    freePage: "draw-everything-easy",
+    slug: {
+      en: "easy-things-to-draw-for-kids",
+      es: "dibujos-faciles-para-ninos-que-dibujar",
+      ru: "chto-narisovat-rebenku-legko",
+    },
+    related: [
+      "everything-parents",
+      "everything-screen-free",
+    ],
+    copy: {
+      ru: {
+        title: "Что нарисовать ребенку: простые идеи для начинающих",
+        seoTitle: "Что легко нарисовать ребенку: животные, еда, цветы и другие идеи",
+        seoDescription: "Что нарисовать ребенку легко и красиво? Простые пошаговые идеи: животные, цветы, еда, подарки и множество других рисунков для начинающих.",
+        lead: "Что нарисовать ребенку легко и красиво? Простые пошаговые идеи: животные, цветы, еда, подарки и множество других рисунков для начинающих.",
+        answer: "«Что мне нарисовать?» Этот вопрос знаком многим родителям. Ребенок хочет рисовать, перед ним лежат карандаши и бумага, но идеи нет. В такой ситуации можно не придумывать за него конкретную картинку, а предложить несколько разных тем и позволить выбрать самостоятельно.",
+        body: [
+          {
+            h: "Начать со знакомых предметов",
+            p: [
+              "Начинающему художнику необязательно сразу браться за сложные композиции.",
+              "Можно выбрать знакомый и интересный ребенку предмет: животное, цветок, еду, подарок.",
+              "В книге «Как нарисовать все на свете» собрано 111 пошаговых рисунков разных тематик.",
+            ],
+          },
+          {
+            h: "Как нарисовать животное поэтапно",
+            p: [
+              "Готовая картинка может показаться начинающему ребенку сложной.",
+              "Пошаговый вариант позволяет не пытаться воспроизвести все сразу.",
+              "Ребенок выполняет один этап, затем добавляет следующий и постепенно получает целое изображение.",
+              "Так перед ним находится не одна большая задача, а понятная последовательность действий.",
+            ],
+          },
+          {
+            h: "Не только животные",
+            p: [
+              "Даже если ребенок любит рисовать животных, ему может захотеться разнообразия.",
+              "Сегодня можно выбрать цветок. Завтра что-нибудь из еды. Потом подарок или другой предмет.",
+              "Разные темы позволяют каждый раз находить новую идею.",
+            ],
+          },
+          {
+            h: "Один рисунок, несколько попыток",
+            p: [
+              "Первый результат не обязательно должен быть единственным.",
+              "К одному и тому же рисунку можно вернуться еще раз.",
+              "В книге предусмотрены два вида практики для каждого изображения и место для самостоятельной работы.",
+              "Ребенок может попробовать снова и сравнить свои рисунки.",
+            ],
+          },
+          {
+            h: "Нарисовать, а потом раскрасить",
+            p: [
+              "Когда основной рисунок закончен, работа может продолжиться.",
+              "Ребенок выбирает цвета и раскрашивает получившееся изображение. Такая возможность предусмотрена самой книгой.",
+            ],
+          },
+          {
+            h: "111 ответов на вопрос «Что нарисовать?»",
+            p: [
+              "Иногда ребенку не нужен новый урок рисования. Ему просто нужна интересная идея.",
+              "Выбрать рисунок. Посмотреть первый этап. Продолжить шаг за шагом. Закончить. Раскрасить.",
+              "А в следующий раз выбрать что-нибудь новое.",
+            ],
+          },
+        ],
+        listTitle: "Что в книге",
+        list: [
+          "111 пошаговых рисунков в семи темах: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Два вида практики для каждого рисунка: пунктир для обводки и свободное место для своего рисунка",
+          "Черная линия показывает текущий шаг, серая то, что уже нарисовано",
+          "Готовые рисунки можно раскрасить",
+          "104 страницы, для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Что можно легко нарисовать ребенку?",
+            a: "Для начала можно выбрать знакомые и интересные ребенку темы: животных, цветы, еду, подарки и другие предметы. Если рисунок показан поэтапно, ребенку не приходится сразу копировать всю готовую картинку.",
+          },
+          {
+            q: "Что предложить ребенку, если он не знает, что нарисовать?",
+            a: "Можно дать ему несколько разных тем и позволить выбрать самостоятельно. В книге «Как нарисовать все на свете» собрано 111 идей для рисования, поэтому ребенок может просто пролистать книгу и найти понравившийся вариант.",
+          },
+          {
+            q: "Как ребенку научиться рисовать животных поэтапно?",
+            a: "Вместо того чтобы сразу копировать готовое животное, ребенок последовательно добавляет новые части рисунка. Шаг за шагом отдельные элементы превращаются в законченное изображение.",
+          },
+          {
+            q: "Что можно рисовать кроме животных?",
+            a: "Можно рисовать цветы, еду, подарки и множество других предметов. Разные темы позволяют ребенку менять сюжеты и каждый раз выбирать что-нибудь новое.",
+          },
+          {
+            q: "Можно ли раскрашивать готовые рисунки?",
+            a: "Да. После завершения пошагового рисунка ребенок может его раскрасить. Такая возможность предусмотрена в самой книге.",
+          },
+        ],
+        ctaTitle: "Попробуйте бесплатно",
+        ctaLead: "Десять страниц из книги можно распечатать бесплатно, без регистрации и почты: вверху шаги, ниже обводка и место для своего рисунка. Если подойдет, в книге таких рисунков 111.",
+      },
+      en: {
+        title: "Easy Things to Draw for Kids When They Don't Know What to Draw",
+        seoTitle: "Easy Things to Draw for Kids: Animals, Food, Flowers and More",
+        seoDescription: "Looking for easy things for kids to draw? Find simple step-by-step ideas including cute animals, food, flowers, gifts, and many other fun subjects.",
+        lead: "Looking for easy things for kids to draw? Find simple step-by-step ideas including cute animals, food, flowers, gifts, and many other fun subjects.",
+        answer: "\"I want to draw something, but I don't know what.\" It is a familiar problem. Children may enjoy drawing but still need an idea to get started. One solution is to give them a variety of simple subjects rather than choosing the picture for them.",
+        body: [
+          {
+            h: "Start With Something Familiar",
+            p: [
+              "Beginning artists do not necessarily need complicated scenes.",
+              "They can start with subjects they already recognize and enjoy.",
+              "Animals, flowers, foods, gifts, and other familiar objects can all become drawing ideas.",
+              "How to Draw Everything collects 111 different step-by-step drawings from several themes in one book.",
+            ],
+          },
+          {
+            h: "Easy Animals to Draw",
+            p: [
+              "Animals are a natural place to start for many children.",
+              "Instead of trying to copy a detailed realistic animal, a young artist can follow a simplified drawing one stage at a time.",
+              "The goal is not to make every line perfect. The child has a clear sequence to follow and can see how separate parts eventually become a complete picture.",
+            ],
+          },
+          {
+            h: "Food, Flowers, Gifts and More",
+            p: [
+              "Not every child wants to draw animals every day.",
+              "That is why variety can matter.",
+              "A child might choose a flower today and food tomorrow. On another day, a gift or another object may look more interesting.",
+              "A collection containing different categories gives children a simple answer to the question: \"What can I draw today?\"",
+            ],
+          },
+          {
+            h: "Follow the Drawing One Step at a Time",
+            p: [
+              "A finished illustration can look difficult to a beginner.",
+              "Breaking it into steps changes the task.",
+              "The child only needs to look at what happens next and add that part to the drawing.",
+              "The book uses simple and clear step-by-step guidance intended for young beginning artists.",
+            ],
+          },
+          {
+            h: "Try the Drawing Again",
+            p: [
+              "The first attempt does not have to be the last.",
+              "Children can practice the same subject again and see how their second drawing differs from their first.",
+              "The book includes two types of practice for each drawing and space for children to work.",
+            ],
+          },
+          {
+            h: "Add Color",
+            p: [
+              "Finishing the outline does not have to end the activity.",
+              "Children can color the pictures they have drawn and make their versions different from the examples. The book specifically encourages children to color their completed drawings.",
+            ],
+          },
+          {
+            h: "111 Answers to \"What Should I Draw?\"",
+            p: [
+              "Sometimes children do not need another lesson.",
+              "They simply need an idea.",
+              "With 111 different subjects, there is plenty to browse until something catches their attention.",
+              "Choose one. Follow the steps. Draw it. Color it.",
+              "And when it is time to draw again, choose something different.",
+            ],
+          },
+        ],
+        listTitle: "What is in the book",
+        list: [
+          "111 step-by-step drawings in seven themes: animals, flowers, nature, foods, gifts, clothing, and more",
+          "Two kinds of practice for every drawing: a dotted outline to trace and blank space to draw your own",
+          "The black line shows the current step, the gray line what is already drawn",
+          "Finished drawings can be colored in",
+          "104 pages, for ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "What are some easy things for kids to draw?",
+            a: "Kids can start with familiar subjects such as animals, flowers, foods, gifts, and everyday objects. Simple subjects are especially approachable when the finished picture is broken into smaller drawing steps.",
+          },
+          {
+            q: "What should a child draw when they don't know what to draw?",
+            a: "Give the child several different types of subjects and let them choose. How to Draw Everything contains 111 drawing ideas across multiple themes, so children can browse until they find something that interests them.",
+          },
+          {
+            q: "How can kids learn to draw cute animals step by step?",
+            a: "Instead of trying to copy the complete animal at once, children can follow a sequence that adds one part of the picture at a time. This makes a more complicated finished drawing easier for a beginner to approach.",
+          },
+          {
+            q: "What other things can kids draw besides animals?",
+            a: "Children can draw flowers, foods, gifts, and many other subjects. A drawing collection with different themes lets children switch subjects whenever they want something new to draw.",
+          },
+          {
+            q: "Can children color their step-by-step drawings?",
+            a: "Yes. After completing a drawing, children can color their finished picture. How to Draw Everything specifically includes coloring as part of the creative experience.",
+          },
+        ],
+        ctaTitle: "Try it before you buy",
+        ctaLead: "Ten pages from the book are free to print, with no account and no email: the steps at the top, tracing and practice below. If they work for your child, the book has 111.",
+      },
+      es: {
+        title: "Dibujos Fáciles para Niños Cuando No Saben Qué Dibujar",
+        seoTitle: "Dibujos Fáciles para Niños: Animales, Comida, Flores y Más",
+        seoDescription: "¿Buscas dibujos fáciles para niños? Encuentra ideas paso a paso de animales tiernos, comida, flores, regalos y muchos otros temas divertidos.",
+        lead: "¿Buscas dibujos fáciles para niños? Encuentra ideas paso a paso de animales tiernos, comida, flores, regalos y muchos otros temas divertidos.",
+        answer: "\"Quiero dibujar algo, pero no sé qué.\" A muchos niños les pasa. Les gusta dibujar, tienen lápices y papel, pero necesitan una idea para comenzar. Una solución sencilla es ofrecerles distintos tipos de dibujos y dejar que ellos elijan.",
+        body: [
+          {
+            h: "Empezar con algo conocido",
+            p: [
+              "Un niño que está aprendiendo no necesita comenzar con escenas complicadas.",
+              "Puede elegir objetos y personajes que reconozca y que le resulten interesantes.",
+              "Animales, flores, comida y regalos pueden convertirse en buenos puntos de partida.",
+              "Cómo Dibujar Todo reúne 111 dibujos paso a paso de diferentes temas.",
+            ],
+          },
+          {
+            h: "Animales fáciles de dibujar",
+            p: [
+              "Los animales son uno de los temas que muchos niños disfrutan.",
+              "En lugar de intentar copiar una imagen detallada de una sola vez, pueden seguir una secuencia sencilla.",
+              "Cada nueva parte se añade a la anterior hasta completar el dibujo.",
+              "Así, el niño no tiene que pensar en toda la imagen al mismo tiempo.",
+            ],
+          },
+          {
+            h: "Comida, flores, regalos y mucho más",
+            p: [
+              "No todos los días tienen que dibujar animales.",
+              "Hoy puede ser una flor. Mañana, algo de comida. Después, un regalo u otro objeto.",
+              "Tener diferentes categorías permite que el niño cambie de tema cuando quiera probar algo nuevo.",
+            ],
+          },
+          {
+            h: "Dibujar un paso a la vez",
+            p: [
+              "Una imagen terminada puede parecer complicada para alguien que está empezando.",
+              "Cuando esa misma imagen se divide en pasos, la tarea resulta más fácil de seguir.",
+              "El niño mira qué debe añadir a continuación y continúa hasta completar el dibujo.",
+              "El libro utiliza instrucciones paso a paso sencillas y claras para pequeños artistas principiantes.",
+            ],
+          },
+          {
+            h: "Volver a intentarlo",
+            p: [
+              "El primer dibujo no tiene que ser el último.",
+              "Los niños pueden practicar el mismo tema nuevamente y comparar sus diferentes intentos.",
+              "El libro incluye dos tipos de práctica para cada dibujo y espacio para trabajar.",
+            ],
+          },
+          {
+            h: "Dibujar y después colorear",
+            p: [
+              "Cuando el dibujo está terminado, la actividad puede continuar.",
+              "Los niños pueden elegir los colores y completar su propia versión de la imagen. El libro incluye expresamente la posibilidad de colorear los dibujos realizados.",
+            ],
+          },
+          {
+            h: "111 respuestas a \"¿Qué puedo dibujar?\"",
+            p: [
+              "A veces un niño no necesita otra explicación. Solo necesita una idea.",
+              "Puede elegir un dibujo. Seguir los pasos. Practicar. Colorearlo.",
+              "Y la próxima vez puede elegir algo completamente diferente.",
+            ],
+          },
+        ],
+        listTitle: "Qué hay en el libro",
+        list: [
+          "111 dibujos paso a paso en siete temas: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Dos tipos de práctica para cada dibujo: un contorno de puntos para repasar y espacio libre para dibujar el propio",
+          "La línea negra muestra el paso actual, la gris lo que ya está dibujado",
+          "Los dibujos terminados se pueden colorear",
+          "104 páginas, a partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Qué cosas fáciles pueden dibujar los niños?",
+            a: "Los niños pueden comenzar con temas conocidos, como animales, flores, comida, regalos y otros objetos. Una guía paso a paso les permite trabajar con una parte del dibujo a la vez.",
+          },
+          {
+            q: "¿Qué puede dibujar un niño cuando no sabe qué dibujar?",
+            a: "Puede hojear diferentes temas y elegir el que más le interese. Cómo Dibujar Todo reúne 111 ideas, por lo que el niño tiene muchas opciones sin necesidad de buscar un nuevo dibujo cada vez.",
+          },
+          {
+            q: "¿Cómo pueden los niños aprender a dibujar animales paso a paso?",
+            a: "En lugar de intentar copiar todo el animal de una sola vez, pueden seguir una secuencia que añade nuevas partes poco a poco hasta completar el dibujo.",
+          },
+          {
+            q: "¿Qué pueden dibujar los niños además de animales?",
+            a: "Pueden dibujar flores, comida, regalos y muchos otros temas. La variedad permite cambiar de tema cuando el niño quiere probar algo diferente.",
+          },
+          {
+            q: "¿Los niños pueden colorear los dibujos después de terminarlos?",
+            a: "Sí. Después de seguir los pasos y completar el dibujo, pueden colorear su creación y elegir sus propios colores.",
+          },
+        ],
+        ctaTitle: "Pruébalo antes de comprar",
+        ctaLead: "Diez páginas del libro se pueden imprimir gratis, sin registro y sin correo: los pasos arriba, el repaso y la práctica abajo. Si le funcionan a tu hijo, en el libro hay 111.",
+      },
+    },
+  },
+  {
+    id: "everything-screen-free",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    book: "how-to-draw-everything",
+    freePage: "draw-everything-easy",
+    slug: {
+      en: "screen-free-activities-for-kids-drawing",
+      es: "actividades-para-ninos-sin-pantallas-dibujo",
+      ru: "chem-zanyat-rebenka-bez-gadzhetov-risovanie",
+    },
+    related: [
+      "everything-what-to-draw",
+      "everything-teachers",
+    ],
+    copy: {
+      ru: {
+        title: "Чем занять ребенка без гаджетов: простая идея для творчества",
+        seoTitle: "Чем занять ребенка без телефона и планшета: пошаговое рисование",
+        seoDescription: "Чем занять ребенка без гаджетов? Пошаговое рисование - простое творческое занятие для дома, выходных, поездок и спокойного свободного времени.",
+        lead: "Чем занять ребенка без гаджетов? Пошаговое рисование - простое творческое занятие для дома, выходных, поездок и спокойного свободного времени.",
+        answer: "Телефон, планшет или телевизор позволяют быстро занять свободное время ребенка. Но иногда родители хотят предложить другое занятие: без экрана, без приложения, без необходимости каждый раз искать новое видео. Один из самых простых вариантов - рисование. Для начала достаточно книги, карандаша и, при желании, материалов для раскрашивания.",
+        body: [
+          {
+            h: "Ребенок создает рисунок сам",
+            p: [
+              "При рисовании ребенок не просто наблюдает за готовым изображением.",
+              "Он сам проводит линии и постепенно создает собственную работу.",
+              "При пошаговом рисовании ребенок смотрит на очередной этап, повторяет его и переходит к следующему.",
+              "В книге «Как нарисовать все на свете» собрано 111 пошаговых рисунков для юных художников.",
+            ],
+          },
+          {
+            h: "Не нужно каждый раз придумывать новое занятие",
+            p: [
+              "У чистого листа есть один недостаток: нужно решить, что на нем нарисовать.",
+              "Большая коллекция рисунков решает эту проблему.",
+              "Ребенок может пролистать разные темы: животных, цветы, еду, подарки и другие изображения, и самостоятельно выбрать понравившийся вариант.",
+            ],
+          },
+          {
+            h: "Спокойное занятие дома",
+            p: [
+              "Рисовать можно после школы, вечером, в выходной или во время каникул.",
+              "Нет необходимости выполнять определенное количество рисунков или проходить книгу по порядку.",
+              "Ребенок выбирает то, что ему интересно сейчас.",
+            ],
+          },
+          {
+            h: "Книга для поездки",
+            p: [
+              "Книгу для рисования удобно взять с собой туда, где ребенку предстоит провести некоторое время. Например, в поездку или путешествие.",
+              "Вместо необходимости каждый раз искать новое цифровое развлечение у ребенка уже есть большой выбор рисунков в одной книге.",
+            ],
+          },
+          {
+            h: "Рисование и раскрашивание",
+            p: [
+              "Работа не обязательно заканчивается после выполнения последнего этапа рисунка.",
+              "В книге предусмотрены два вида практики, а готовые изображения можно раскрашивать.",
+              "Поэтому один выбранный сюжет можно использовать для нескольких последовательных действий.",
+            ],
+          },
+          {
+            h: "111 идей для творчества без экрана",
+            p: [
+              "Чтобы предложить ребенку занятие без гаджетов, необязательно придумывать что-то сложное.",
+              "Иногда достаточно карандаша, интересной картинки и понятной последовательности.",
+              "Выбрать. Нарисовать. Попрактиковаться. Раскрасить. А потом открыть следующую страницу.",
+            ],
+          },
+        ],
+        listTitle: "Что в книге",
+        list: [
+          "111 пошаговых рисунков в семи темах: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Два вида практики для каждого рисунка: пунктир для обводки и свободное место для своего рисунка",
+          "Черная линия показывает текущий шаг, серая то, что уже нарисовано",
+          "Готовые рисунки можно раскрасить",
+          "104 страницы, для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Чем можно занять ребенка дома без телефона и планшета?",
+            a: "Рисование, раскрашивание, чтение, конструкторы, пазлы и поделки позволяют организовать свободное время без экрана. Для пошагового рисования достаточно книги, карандаша и, при желании, материалов для раскрашивания.",
+          },
+          {
+            q: "Подходит ли рисование для самостоятельного тихого занятия?",
+            a: "Да. Ребенок может выбрать рисунок, следовать показанным этапам в своем темпе, а после завершения продолжить работу и раскрасить картинку.",
+          },
+          {
+            q: "Что предложить ребенку вместо мультиков и игр на планшете?",
+            a: "Можно предложить занятие, в котором ребенок сам что-то создает: рисование, раскрашивание, чтение, конструктор, пазлы или поделки. Пошаговое рисование дополнительно дает ребенку готовую идею и понятную последовательность действий.",
+          },
+          {
+            q: "Подойдет ли книга для рисования в дорогу и путешествие?",
+            a: "Да. Книгу можно взять в поездку или путешествие как вариант спокойного занятия. Для рисования не требуется электронное устройство.",
+          },
+          {
+            q: "Как заинтересовать ребенка рисованием без гаджетов?",
+            a: "Дайте ему возможность самому выбирать тему. В книге 111 разных рисунков, включая животных, цветы, еду, подарки и другие сюжеты, поэтому ребенок не ограничен одним видом заданий.",
+          },
+        ],
+        ctaTitle: "Попробуйте бесплатно",
+        ctaLead: "Десять страниц из книги можно распечатать бесплатно, без регистрации и почты: вверху шаги, ниже обводка и место для своего рисунка. Если подойдет, в книге таких рисунков 111.",
+      },
+      en: {
+        title: "A Simple Screen-Free Activity for Kids Who Like to Create",
+        seoTitle: "Screen-Free Activities for Kids: Learn to Draw Step by Step",
+        seoDescription: "Need a screen-free activity for kids? Step-by-step drawing gives children something creative to do at home, while traveling, on weekends, or during quiet time.",
+        lead: "Need a screen-free activity for kids? Step-by-step drawing gives children something creative to do at home, while traveling, on weekends, or during quiet time.",
+        answer: "Tablets and phones make it easy to fill spare time. But sometimes parents want an activity their child can do without watching another screen. Drawing is one of the simplest options. A pencil, some coloring supplies, and a drawing book can be enough to get started.",
+        body: [
+          {
+            h: "Drawing Gives Kids Something to Do With Their Hands",
+            p: [
+              "A drawing activity is active rather than something children simply watch.",
+              "They have to make the lines themselves.",
+              "With step-by-step drawing, children can look at each stage and reproduce it on the page until their picture is complete.",
+              "How to Draw Everything contains 111 step-by-step drawings for young artists.",
+            ],
+          },
+          {
+            h: "No Need to Search for a New Idea Every Time",
+            p: [
+              "One problem with an open sheet of paper is deciding what to put on it.",
+              "A large drawing collection solves that problem.",
+              "Children can browse animals, flowers, foods, gifts, and other themes until they find something they want to draw.",
+              "Tomorrow they can choose something else.",
+            ],
+          },
+          {
+            h: "A Quiet Activity at Home",
+            p: [
+              "Drawing can fit naturally into different parts of the day.",
+              "A child can draw after school, during a quiet afternoon, on a weekend, or while other family members are busy.",
+              "There is no need to complete a certain number of pages or follow the drawings in order.",
+            ],
+          },
+          {
+            h: "Something to Take on a Trip",
+            p: [
+              "Drawing can also be a practical travel activity.",
+              "A physical drawing book can go into a backpack for a road trip, flight, vacation, or visit to relatives.",
+              "Instead of searching online for another activity, the child already has many drawing ideas collected in one place.",
+            ],
+          },
+          {
+            h: "Practice and Then Add Color",
+            p: [
+              "The activity can continue after the basic drawing is finished.",
+              "The book offers two types of practice for each drawing, and children can also color the pictures they create.",
+              "That means one drawing idea can become several stages of activity rather than something that is over after a few lines.",
+            ],
+          },
+          {
+            h: "111 Screen-Free Drawing Ideas in One Book",
+            p: [
+              "A screen-free activity does not have to be complicated.",
+              "Sometimes children just need something interesting in front of them and the freedom to create it themselves.",
+              "With 111 different step-by-step drawings, they can keep choosing, drawing, practicing, and coloring.",
+            ],
+          },
+        ],
+        listTitle: "What is in the book",
+        list: [
+          "111 step-by-step drawings in seven themes: animals, flowers, nature, foods, gifts, clothing, and more",
+          "Two kinds of practice for every drawing: a dotted outline to trace and blank space to draw your own",
+          "The black line shows the current step, the gray line what is already drawn",
+          "Finished drawings can be colored in",
+          "104 pages, for ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "What are good screen-free activities for kids at home?",
+            a: "Drawing, coloring, reading, puzzles, crafts, and building activities can all give children something to do away from screens. Step-by-step drawing is especially simple because a child can begin with a book, a pencil, and basic coloring supplies.",
+          },
+          {
+            q: "Is drawing a good independent quiet-time activity for kids?",
+            a: "Yes. Once children understand how to follow the visual steps, they can work through a drawing at their own pace. They can then practice the picture again or color their finished drawing.",
+          },
+          {
+            q: "What can kids do instead of watching a tablet or TV?",
+            a: "Children can draw, color, read, build, make crafts, play puzzles, or create their own stories. A step-by-step drawing book combines a structured activity with room for children to create something themselves.",
+          },
+          {
+            q: "Is a drawing book good for road trips and travel?",
+            a: "A physical drawing book can be a convenient screen-free activity for road trips, flights, vacations, restaurants, and waiting times. Children need only simple drawing supplies to begin.",
+          },
+          {
+            q: "How do I keep a child interested in a screen-free drawing activity?",
+            a: "Offer variety and let the child choose what to draw. How to Draw Everything contains 111 drawings across different themes, allowing children to move from one type of subject to another instead of repeating the same activity.",
+          },
+        ],
+        ctaTitle: "Try it before you buy",
+        ctaLead: "Ten pages from the book are free to print, with no account and no email: the steps at the top, tracing and practice below. If they work for your child, the book has 111.",
+      },
+      es: {
+        title: "Una Actividad Creativa para Niños Sin Pantallas",
+        seoTitle: "Actividades para Niños Sin Pantallas: Aprender a Dibujar Paso a Paso",
+        seoDescription: "¿Buscas actividades para niños sin pantallas? El dibujo paso a paso es una opción creativa para casa, viajes, fines de semana y momentos tranquilos.",
+        lead: "¿Buscas actividades para niños sin pantallas? El dibujo paso a paso es una opción creativa para casa, viajes, fines de semana y momentos tranquilos.",
+        answer: "Es fácil llenar el tiempo libre con una tableta, un celular o la televisión. Pero a veces las familias buscan algo diferente: una actividad que el niño pueda hacer con sus propias manos y sin depender de una pantalla. Dibujar es una de las opciones más sencillas. Un libro, un lápiz y algunos materiales para colorear pueden ser suficientes para empezar.",
+        body: [
+          {
+            h: "Una actividad que el niño hace por sí mismo",
+            p: [
+              "Cuando un niño dibuja, no se limita a mirar lo que sucede. Tiene que crear las líneas.",
+              "En el dibujo paso a paso, observa una etapa y la reproduce antes de continuar con la siguiente.",
+              "Cómo Dibujar Todo ofrece 111 dibujos paso a paso para pequeños artistas.",
+            ],
+          },
+          {
+            h: "No hay que buscar una idea nueva cada vez",
+            p: [
+              "Una hoja en blanco ofrece libertad, pero también plantea una pregunta: \"¿Y ahora qué dibujo?\"",
+              "Una colección amplia de dibujos ayuda a resolver ese problema.",
+              "El niño puede hojear animales, flores, comida, regalos y otros temas hasta encontrar algo que le interese.",
+            ],
+          },
+          {
+            h: "Una actividad tranquila para hacer en casa",
+            p: [
+              "El dibujo puede adaptarse fácilmente a diferentes momentos del día: después de la escuela, durante una tarde tranquila, un fin de semana o mientras otros miembros de la familia están ocupados.",
+              "No es necesario completar el libro en orden. Cada niño puede elegir el dibujo que quiera hacer.",
+            ],
+          },
+          {
+            h: "Una actividad para llevar de viaje",
+            p: [
+              "Un libro de dibujo también puede acompañar a la familia durante un viaje.",
+              "Puede llevarse en una mochila para usarlo durante un viaje por carretera, un vuelo, unas vacaciones o un tiempo de espera.",
+              "En lugar de buscar constantemente algo nuevo en una pantalla, el niño ya tiene muchas ideas para dibujar en un solo lugar.",
+            ],
+          },
+          {
+            h: "Practicar y colorear",
+            p: [
+              "La actividad no tiene que terminar cuando aparece el dibujo completo.",
+              "Cada dibujo ofrece dos tipos de práctica, y los niños también pueden colorear sus creaciones.",
+              "De esta manera, una sola idea puede convertirse en varias etapas de actividad.",
+            ],
+          },
+          {
+            h: "111 ideas creativas lejos de las pantallas",
+            p: [
+              "Una actividad sin pantallas no tiene que ser complicada.",
+              "A veces basta con ofrecerle al niño una idea interesante y dejar que la cree por sí mismo.",
+              "Con 111 dibujos diferentes, puede elegir, dibujar, practicar y colorear una y otra vez.",
+            ],
+          },
+        ],
+        listTitle: "Qué hay en el libro",
+        list: [
+          "111 dibujos paso a paso en siete temas: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Dos tipos de práctica para cada dibujo: un contorno de puntos para repasar y espacio libre para dibujar el propio",
+          "La línea negra muestra el paso actual, la gris lo que ya está dibujado",
+          "Los dibujos terminados se pueden colorear",
+          "104 páginas, a partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Qué actividades sin pantallas pueden hacer los niños en casa?",
+            a: "Dibujar, colorear, leer, hacer rompecabezas y crear manualidades son algunas opciones. El dibujo paso a paso es especialmente sencillo porque se puede comenzar con un libro, un lápiz y materiales para colorear.",
+          },
+          {
+            q: "¿Dibujar es una buena actividad independiente para momentos tranquilos?",
+            a: "Sí. Cuando el niño entiende cómo seguir la secuencia visual, puede avanzar a su propio ritmo, practicar el dibujo y después colorearlo.",
+          },
+          {
+            q: "¿Qué puede hacer un niño en lugar de usar la tableta o el celular?",
+            a: "Puede dibujar, colorear, leer, construir, hacer manualidades o resolver rompecabezas. Un libro de dibujo paso a paso le ofrece una actividad guiada en la que él mismo crea el resultado.",
+          },
+          {
+            q: "¿Un libro de dibujo es una buena actividad para viajes?",
+            a: "Sí. Puede llevarse en una mochila para usarlo durante viajes por carretera, vuelos, vacaciones o tiempos de espera. Solo hacen falta materiales básicos para dibujar.",
+          },
+          {
+            q: "¿Cómo mantener a un niño interesado en una actividad sin pantallas?",
+            a: "Una buena estrategia es ofrecer variedad y permitirle elegir. Cómo Dibujar Todo contiene 111 dibujos de diferentes temas, por lo que el niño puede cambiar de tema cuando quiera probar algo nuevo.",
+          },
+        ],
+        ctaTitle: "Pruébalo antes de comprar",
+        ctaLead: "Diez páginas del libro se pueden imprimir gratis, sin registro y sin correo: los pasos arriba, el repaso y la práctica abajo. Si le funcionan a tu hijo, en el libro hay 111.",
+      },
+    },
+  },
+  {
+    id: "everything-beginners",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    book: "how-to-draw-everything",
+    freePage: "draw-everything-easy",
+    slug: {
+      en: "how-can-a-beginner-learn-to-draw",
+      es: "aprender-a-dibujar-desde-cero-ninos",
+      ru: "ya-ne-umeyu-risovat-kak-nachat-poetapno",
+    },
+    related: [
+      "everything-parents",
+      "everything-what-to-draw",
+    ],
+    copy: {
+      ru: {
+        title: "«Я не умею рисовать»: как начать рисовать поэтапно с нуля",
+        seoTitle: "«Я не умею рисовать»: как ребенку начать рисовать поэтапно с нуля",
+        seoDescription: "Как научить ребенка рисовать с нуля? Пошаговый метод помогает начинающему двигаться от первого элемента к готовому рисунку и самостоятельно практиковаться.",
+        lead: "Как научить ребенка рисовать с нуля? Пошаговый метод помогает начинающему двигаться от первого элемента к готовому рисунку и самостоятельно практиковаться.",
+        answer: "Когда ребенок говорит «Я не умею рисовать», проблема иногда заключается не в самом рисовании. Он просто не понимает, с чего начать. Перед ним готовая картинка. Рядом чистый лист. А что должно произойти между ними, непонятно. Пошаговое рисование показывает этот путь.",
+        body: [
+          {
+            h: "Не начинать сразу со всей картинки",
+            p: [
+              "Представьте, что начинающему художнику предлагают сразу скопировать готовое изображение.",
+              "Нужно одновременно следить за множеством разных деталей.",
+              "При пошаговом подходе задача выглядит иначе.",
+              "Не нужно рисовать все сразу. Нужно выполнить только следующий этап.",
+            ],
+          },
+          {
+            h: "Рисунок появляется постепенно",
+            p: [
+              "Пошаговая схема показывает последовательность создания изображения.",
+              "Ребенок добавляет одну часть. Потом следующую. И продолжает, пока отдельные элементы не превращаются в законченный рисунок.",
+              "Книга «Как нарисовать все на свете» рассчитана в том числе на начинающих юных художников и содержит простые и понятные пошаговые инструкции.",
+            ],
+          },
+          {
+            h: "Пусть ребенок выбирает сам",
+            p: [
+              "Учиться рисовать не означает каждый раз получать готовое задание от взрослого.",
+              "Возможность выбора тоже важна.",
+              "В книге 111 разных рисунков: милые животные, цветы, еда, подарки и другие темы.",
+              "Ребенок может начать именно с того изображения, которое ему понравилось.",
+            ],
+          },
+          {
+            h: "Зачем повторять рисунок",
+            p: [
+              "Посмотреть, как создается картинка, и самостоятельно ее нарисовать - не одно и то же. Нужна практика.",
+              "Для каждого рисунка книга предлагает два вида практики и место для самостоятельной работы.",
+              "К уже выполненному рисунку можно вернуться позже и попробовать еще раз.",
+            ],
+          },
+          {
+            h: "Рисунок не обязан точно повторять образец",
+            p: [
+              "Пошаговая схема показывает, как построить изображение.",
+              "Но детская работа не обязана выглядеть как точная копия примера.",
+              "После выполнения основных этапов ребенок может раскрасить рисунок и сделать свою версию.",
+            ],
+          },
+          {
+            h: "Начинать лучше с понятной задачи",
+            p: [
+              "Для первого знакомства с рисованием необязательно изучать сложные художественные приемы.",
+              "Выберите рисунок. Выполните первый этап. Затем второй. Дойдите до готовой картинки. Попробуйте еще раз.",
+              "А потом выберите следующую из 111 идей для рисования.",
+            ],
+          },
+        ],
+        listTitle: "Что в книге",
+        list: [
+          "111 пошаговых рисунков в семи темах: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Два вида практики для каждого рисунка: пунктир для обводки и свободное место для своего рисунка",
+          "Черная линия показывает текущий шаг, серая то, что уже нарисовано",
+          "Готовые рисунки можно раскрасить",
+          "104 страницы, для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Как научить ребенка рисовать с нуля?",
+            a: "Начните с простого пошагового рисунка. Ребенку не нужно сразу воспроизводить всю готовую картинку: он выполняет один этап, затем переходит к следующему и постепенно получает законченное изображение.",
+          },
+          {
+            q: "Что делать, если ребенок говорит: «Я не умею рисовать»?",
+            a: "Можно предложить ему не начинать с самостоятельного изображения на чистом листе, а попробовать понятную пошаговую схему. Она показывает, с чего начать и что рисовать дальше.",
+          },
+          {
+            q: "Подходит ли поэтапное рисование для начинающих?",
+            a: "Да. Книга «Как нарисовать все на свете» рассчитана в том числе на начинающих юных художников и содержит простые и понятные пошаговые инструкции.",
+          },
+          {
+            q: "Зачем ребенку повторно рисовать один и тот же предмет?",
+            a: "Повторная попытка дает возможность еще раз пройти уже знакомую последовательность самостоятельно. В книге для каждого рисунка предусмотрены два вида практики и место для работы.",
+          },
+          {
+            q: "Должен ли детский рисунок точно повторять образец?",
+            a: "Нет. Пошаговый образец показывает последовательность создания изображения, но готовая работа ребенка не обязана быть точной копией. После выполнения рисунка ребенок может раскрасить его по своему выбору.",
+          },
+        ],
+        ctaTitle: "Попробуйте бесплатно",
+        ctaLead: "Десять страниц из книги можно распечатать бесплатно, без регистрации и почты: вверху шаги, ниже обводка и место для своего рисунка. Если подойдет, в книге таких рисунков 111.",
+      },
+      en: {
+        title: "How Can a Beginner Learn to Draw? Start One Step at a Time",
+        seoTitle: "How Can a Beginner Learn to Draw? Easy Step-by-Step Drawing for Kids",
+        seoDescription: "Want to help a child learn how to draw? See how simple step-by-step drawings can help beginners start with familiar subjects and practice at their own pace.",
+        lead: "Want to help a child learn how to draw? See how simple step-by-step drawings can help beginners start with familiar subjects and practice at their own pace.",
+        answer: "When children say they cannot draw, they may simply not know how to begin. They see the finished picture. They see their blank page. And the distance between the two looks enormous. Step-by-step drawing makes that distance smaller.",
+        body: [
+          {
+            h: "Don't Start With the Finished Picture",
+            p: [
+              "Imagine asking a beginning artist to draw an entire animal from a completed illustration.",
+              "There are ears, eyes, legs, a body and many other details to think about at once.",
+              "Now break that same picture into a sequence.",
+              "The task changes.",
+              "Instead of drawing everything, the child only needs to complete the next step.",
+            ],
+          },
+          {
+            h: "Build the Drawing Gradually",
+            p: [
+              "Step-by-step drawing shows how a picture develops.",
+              "The child adds one part and then another until the separate lines and shapes become a recognizable object.",
+              "How to Draw Everything was created for beginning young artists and contains simple, clear step-by-step guides for its drawings.",
+            ],
+          },
+          {
+            h: "Let Children Choose What Interests Them",
+            p: [
+              "Learning does not mean every child has to draw the same subject.",
+              "Choice can make drawing more enjoyable.",
+              "The book contains 111 different drawings, including animals, flowers, foods, gifts, and other themes.",
+              "A child can start with whichever picture looks interesting.",
+            ],
+          },
+          {
+            h: "Practice Matters",
+            p: [
+              "Seeing how something is drawn and actually drawing it are different things.",
+              "Children need an opportunity to try.",
+              "The book provides two types of practice for each drawing and space for children to work on their pictures.",
+              "They can also return to a drawing later and try it again.",
+            ],
+          },
+          {
+            h: "Don't Make Every Drawing Look the Same",
+            p: [
+              "The example provides a guide, not a requirement that every child's picture be identical.",
+              "A child can change details and choose colors for the finished drawing.",
+              "The book specifically allows children to color the pictures they create.",
+            ],
+          },
+          {
+            h: "Keep Drawing Manageable",
+            p: [
+              "For a beginning artist, learning to draw does not need to start with complicated techniques.",
+              "Start with one picture. Follow one step. Then the next. Finish the drawing. Practice it again.",
+              "Then choose another of the 111 things to draw.",
+              "That is a much less intimidating way to approach a blank page.",
+            ],
+          },
+        ],
+        listTitle: "What is in the book",
+        list: [
+          "111 step-by-step drawings in seven themes: animals, flowers, nature, foods, gifts, clothing, and more",
+          "Two kinds of practice for every drawing: a dotted outline to trace and blank space to draw your own",
+          "The black line shows the current step, the gray line what is already drawn",
+          "Finished drawings can be colored in",
+          "104 pages, for ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "How can I teach my child to draw step by step?",
+            a: "Start with a simple picture and divide the drawing process into smaller stages. Let the child complete one stage before moving to the next instead of asking them to reproduce the entire finished picture at once.",
+          },
+          {
+            q: "How can a child learn to draw without getting frustrated?",
+            a: "Begin with manageable drawings and focus on following one step at a time rather than making the picture perfect. Repeating a drawing also gives children another opportunity to practice without treating the first attempt as a final result.",
+          },
+          {
+            q: "Is step-by-step drawing good for absolute beginners?",
+            a: "Yes. Step-by-step drawing gives beginners a clear starting point and shows them what to add next. How to Draw Everything uses simple, clear drawing guidance and was created for beginning young artists.",
+          },
+          {
+            q: "Why is practice important when children learn to draw?",
+            a: "Practice lets children repeat the process rather than simply look at an example. How to Draw Everything includes two types of practice for each drawing and space for children to work on their own versions.",
+          },
+          {
+            q: "Should children copy a drawing exactly when learning?",
+            a: "No. A step-by-step example can show children how a picture is constructed, but their finished drawing does not have to be identical. Once the basic picture is complete, children can add their own details or colors.",
+          },
+        ],
+        ctaTitle: "Try it before you buy",
+        ctaLead: "Ten pages from the book are free to print, with no account and no email: the steps at the top, tracing and practice below. If they work for your child, the book has 111.",
+      },
+      es: {
+        title: "Cómo Aprender a Dibujar Desde Cero: Un Paso a la Vez",
+        seoTitle: "Cómo Aprender a Dibujar Desde Cero: Dibujos Paso a Paso para Principiantes",
+        seoDescription: "¿Quieres ayudar a un niño a aprender a dibujar? Descubre cómo los dibujos paso a paso permiten a los principiantes empezar poco a poco y practicar a su ritmo.",
+        lead: "¿Quieres ayudar a un niño a aprender a dibujar? Descubre cómo los dibujos paso a paso permiten a los principiantes empezar poco a poco y practicar a su ritmo.",
+        answer: "Cuando un niño dice \"no sé dibujar\", muchas veces el verdadero problema es que no sabe por dónde empezar. Ve el dibujo terminado. Después mira su hoja en blanco. Y no sabe cómo pasar de una cosa a la otra. El dibujo paso a paso hace que ese proceso sea más claro.",
+        body: [
+          {
+            h: "No empezar por toda la imagen",
+            p: [
+              "Pedirle a un principiante que copie directamente una ilustración completa puede resultar difícil. Hay muchas partes que observar al mismo tiempo.",
+              "Con una secuencia paso a paso, la tarea cambia.",
+              "El niño no tiene que dibujarlo todo de una vez. Solo tiene que concentrarse en lo que sigue.",
+            ],
+          },
+          {
+            h: "Construir el dibujo poco a poco",
+            p: [
+              "El método paso a paso permite observar cómo se va formando una imagen.",
+              "El niño añade una parte. Después otra. Y continúa hasta que las diferentes líneas forman el dibujo completo.",
+              "Cómo Dibujar Todo fue creado para pequeños artistas principiantes y utiliza guías paso a paso sencillas y claras.",
+            ],
+          },
+          {
+            h: "Dejar que el niño elija",
+            p: [
+              "Aprender a dibujar no significa que todos los niños tengan que trabajar con el mismo tema.",
+              "Poder elegir también forma parte de la experiencia.",
+              "El libro contiene 111 dibujos diferentes, entre ellos animales, flores, comida, regalos y otros temas.",
+              "El niño puede comenzar con el dibujo que más le interese.",
+            ],
+          },
+          {
+            h: "Practicar el mismo dibujo",
+            p: [
+              "Ver cómo se hace un dibujo y hacerlo uno mismo son cosas diferentes. Por eso es importante tener la oportunidad de practicar.",
+              "El libro ofrece dos tipos de práctica para cada dibujo y espacio para que los niños trabajen en sus propias imágenes.",
+              "También pueden regresar más adelante y volver a intentar un dibujo que ya hicieron.",
+            ],
+          },
+          {
+            h: "No todos los dibujos tienen que quedar iguales",
+            p: [
+              "El ejemplo sirve como guía. No significa que el resultado de cada niño tenga que ser idéntico.",
+              "Después de completar la estructura básica, puede elegir colores y hacer su propia versión del dibujo.",
+            ],
+          },
+          {
+            h: "Empezar de una manera sencilla",
+            p: [
+              "Aprender a dibujar no tiene que comenzar con técnicas complicadas.",
+              "Elige una imagen. Sigue el primer paso. Después el siguiente. Completa el dibujo. Practícalo otra vez.",
+              "Y cuando quieras continuar, elige otra de las 111 cosas que puedes aprender a dibujar.",
+            ],
+          },
+        ],
+        listTitle: "Qué hay en el libro",
+        list: [
+          "111 dibujos paso a paso en siete temas: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Dos tipos de práctica para cada dibujo: un contorno de puntos para repasar y espacio libre para dibujar el propio",
+          "La línea negra muestra el paso actual, la gris lo que ya está dibujado",
+          "Los dibujos terminados se pueden colorear",
+          "104 páginas, a partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cómo enseñar a dibujar paso a paso a un niño desde cero?",
+            a: "Empieza con una imagen sencilla y deja que el niño siga una etapa a la vez. Así no tiene que intentar reproducir todo el dibujo terminado de una sola vez.",
+          },
+          {
+            q: "¿Cómo ayudar a un niño a aprender a dibujar sin frustrarse?",
+            a: "Es mejor comenzar con dibujos accesibles y concentrarse en un paso a la vez, sin exigir que el resultado sea perfecto. También puede volver a practicar el mismo dibujo cuando quiera.",
+          },
+          {
+            q: "¿El dibujo paso a paso sirve para niños que nunca han dibujado?",
+            a: "Sí. Les ofrece un punto de partida claro y les muestra qué añadir después. Cómo Dibujar Todo utiliza instrucciones sencillas y claras pensadas para pequeños artistas principiantes.",
+          },
+          {
+            q: "¿Por qué es importante practicar cuando un niño aprende a dibujar?",
+            a: "Porque mirar un ejemplo y hacerlo uno mismo son experiencias diferentes. El libro ofrece dos tipos de práctica para cada dibujo y espacio para que el niño trabaje en sus propias imágenes.",
+          },
+          {
+            q: "¿El dibujo del niño tiene que quedar exactamente igual al ejemplo?",
+            a: "No. El ejemplo sirve como guía para entender cómo construir la imagen. Después, el niño puede hacer su propia versión y elegir cómo colorear el dibujo terminado.",
+          },
+        ],
+        ctaTitle: "Pruébalo antes de comprar",
+        ctaLead: "Diez páginas del libro se pueden imprimir gratis, sin registro y sin correo: los pasos arriba, el repaso y la práctica abajo. Si le funcionan a tu hijo, en el libro hay 111.",
+      },
+    },
+  },
 ];
 
 export function drawingArticlesForLang(lang: UiLang): DrawingArticle[] {
   return drawingArticles.filter((a) => a.slug[lang] && a.copy[lang]);
+}
+
+/** Статьи об одной книге. bookId можно передать с языком издания. */
+export function drawingArticlesForBook(bookId: string, lang: UiLang): DrawingArticle[] {
+  const base = bookId.replace(/-(en|es|ru)$/, "");
+  return drawingArticlesForLang(lang).filter((a) => (a.book ?? "how-to-draw-111") === base);
 }
 
 export function drawingArticleBySlug(

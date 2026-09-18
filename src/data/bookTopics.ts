@@ -179,6 +179,126 @@ const firstColoring111: TopicGroup[] = [
   },
 ];
 
+/* "Как нарисовать все на свете". Состав взят из оглавления самой книги,
+   английского и испанского изданий. Порядок как в книге. Еда в книге
+   стоит двумя блоками, здесь она собрана в одну группу. Русские
+   названия подобраны нами: русского издания в печати нет. */
+const howToDrawEverything: TopicGroup[] = [
+  {
+    id: "animals",
+    title: { en: "Animals", es: "Animales", ru: "Животные" },
+    items: {
+      en: [
+        "Raccoon", "Cat", "Goose", "Baby goose", "Dog", "Snail", "Sheep", "Bunny",
+        "Chicken", "Chick", "Squirrel", "Donkey", "Piggy", "Cow", "Fox", "Bird",
+        "Caterpillar", "Frog", "Butterfly", "Dragonfly", "Bumblebee", "Ladybug",
+      ],
+      es: [
+        "Mapache", "Gato", "Ganso", "Cría de ganso", "Perro", "Caracol", "Corderito",
+        "Liebre", "Gallina", "Pollito", "Ardilla", "Burrito", "Cerdito", "Vaca", "Zorro",
+        "Ave", "Oruga", "Rana", "Mariposa", "Libélula", "Abejorro", "Mariquita",
+      ],
+      ru: [
+        "Енот", "Кошка", "Гусь", "Гусенок", "Собака", "Улитка", "Овечка", "Зайчик",
+        "Курица", "Цыпленок", "Белка", "Ослик", "Поросенок", "Корова", "Лиса", "Птичка",
+        "Гусеница", "Лягушка", "Бабочка", "Стрекоза", "Шмель", "Божья коровка",
+      ],
+    },
+  },
+  {
+    id: "flowers",
+    title: { en: "Flowers", es: "Flores", ru: "Цветы" },
+    items: {
+      en: ["Sunflower", "Potted plant", "Flower", "Flowers in a vase", "Lotus", "Mushroom"],
+      es: ["Girasol", "Planta en maceta", "Flor", "Jarrón con flores", "Loto", "Seta"],
+      ru: ["Подсолнух", "Растение в горшке", "Цветок", "Букет в вазе", "Лотос", "Гриб"],
+    },
+  },
+  {
+    id: "nature",
+    title: { en: "Natural elements", es: "Elementos naturales", ru: "Природа" },
+    items: {
+      en: ["Leaf", "Star", "Cloud", "Sun", "Moon", "Snowflake", "Rainbow", "Christmas tree", "Tree"],
+      es: ["Hoja", "Estrella", "Nube", "Sol", "Luna", "Copo de nieve", "Arco iris", "Abeto", "Árbol"],
+      ru: ["Листик", "Звезда", "Облако", "Солнце", "Луна", "Снежинка", "Радуга", "Елка", "Дерево"],
+    },
+  },
+  {
+    id: "food",
+    title: { en: "Foods", es: "Alimentos", ru: "Еда" },
+    items: {
+      en: [
+        "Donut", "Cupcake", "Pie", "Cake", "Jam", "Ice cream", "Lemonade", "Fried egg",
+        "Toast", "Cheese", "Cabbage", "Tomato", "Carrot", "Cucumber", "Apple", "Orange",
+        "Banana", "Strawberry", "Cherry", "Raspberry", "Cookies", "Candy",
+      ],
+      es: [
+        "Donut", "Bizcocho", "Pastel", "Tarta", "Mermelada", "Helado", "Limonada",
+        "Huevos revueltos", "Tostadas", "Queso", "Col", "Tomate", "Zanahoria", "Pepino",
+        "Manzana", "Naranja", "Plátano", "Fresa", "Cereza", "Frambuesa", "Galletas", "Caramelos",
+      ],
+      ru: [
+        "Пончик", "Кекс", "Пирог", "Торт", "Варенье", "Мороженое", "Лимонад", "Яичница",
+        "Тост", "Сыр", "Капуста", "Помидор", "Морковь", "Огурец", "Яблоко", "Апельсин",
+        "Банан", "Клубника", "Вишня", "Малина", "Печенье", "Конфеты",
+      ],
+    },
+  },
+  {
+    id: "gifts",
+    title: { en: "Gifts", es: "Regalos", ru: "Подарки и игрушки" },
+    items: {
+      en: [
+        "Gift", "Kite", "Unicorn", "Rocket", "Ship", "Bus", "Teddy bear", "Car",
+        "Bucket and shovel", "Pyramid", "Ball", "Cubes", "Pencils", "Pinwheel", "Puzzles",
+      ],
+      es: [
+        "Regalo", "Cometa", "Unicornio", "Cohete", "Barquito", "Autobús", "Oso de peluche",
+        "Coche", "Cubo con pala", "Pirámide", "Pelota", "Cubos", "Lápices", "Molinillo",
+        "Rompecabezas",
+      ],
+      ru: [
+        "Подарок", "Воздушный змей", "Единорог", "Ракета", "Кораблик", "Автобус",
+        "Плюшевый мишка", "Машина", "Ведерко с лопаткой", "Пирамидка", "Мяч", "Кубики",
+        "Карандаши", "Вертушка", "Пазлы",
+      ],
+    },
+  },
+  {
+    id: "clothing",
+    title: { en: "Clothing", es: "Ropa", ru: "Одежда" },
+    items: {
+      en: ["Shorts", "Hat", "Cap", "Sneakers", "Dress", "Bucket hat", "T-shirt", "Mittens", "Socks", "Skirt"],
+      es: ["Pantalón corto", "Gorro", "Gorra", "Zapatillas", "Vestido", "Sombrero panamá", "Camiseta", "Manoplas", "Calcetines", "Falda"],
+      ru: ["Шорты", "Шапка", "Фуражка", "Кроссовки", "Платье", "Панама", "Футболка", "Варежки", "Носки", "Юбка"],
+    },
+  },
+  {
+    id: "other",
+    title: { en: "Other themes", es: "Otros temas", ru: "Разное" },
+    items: {
+      en: [
+        "Bow", "Glasses", "Book", "Umbrella", "Alarm clock", "Lamp", "Flashlight",
+        "Lantern", "Mill", "Lighthouse", "Fence", "Bench", "House", "Jug", "Mug", "Fork",
+        "Spoon", "Comb", "Telephone", "Envelope", "Ball of wool", "Threads", "Buttons",
+        "Scissors", "Needle and thread", "Feather", "Pillow",
+      ],
+      es: [
+        "Arco", "Gafas", "Libro", "Paraguas", "Despertador", "Lámpara", "Linterna",
+        "Farola", "Molino", "Faro", "Valla", "Banco", "Casa", "Jarra", "Taza", "Tenedor",
+        "Cuchara", "Peine", "Teléfono", "Sobre", "Ovillo de lana", "Hilos", "Botones",
+        "Tijeras", "Aguja e hilo", "Pluma", "Almohada",
+      ],
+      ru: [
+        "Бант", "Очки", "Книга", "Зонтик", "Будильник", "Лампа", "Фонарик", "Фонарь",
+        "Мельница", "Маяк", "Забор", "Скамейка", "Домик", "Кувшин", "Кружка", "Вилка",
+        "Ложка", "Расческа", "Телефон", "Конверт", "Клубок", "Нитки", "Пуговицы",
+        "Ножницы", "Иголка с ниткой", "Перо", "Подушка",
+      ],
+    },
+  },
+];
+
 /** Сколько примеров из группы показываем человеку на экране. */
 /** Файл рисунка по его номеру в книге. Рисунки лежат в /public/drawings
     под номерами из трех цифр. */
@@ -210,6 +330,7 @@ const TOPICS: Record<string, TopicGroup[]> = {
      раскраске, и тот же порядок: состав берется оттуда. */
   "how-to-draw-111": firstColoring111,
   "first-coloring-book-111": firstColoring111,
+  "how-to-draw-everything": howToDrawEverything,
 };
 
 /** Состав книги. Издания одной книги на разных языках имеют одинаковый
@@ -224,4 +345,40 @@ export function topicsForBook(bookId: string, lang: UiLang = "en"): TopicGroup[]
 /** Все темы одной строкой, для машинной части страницы. */
 export function allTopics(groups: TopicGroup[], lang: UiLang): string[] {
   return groups.flatMap((g) => g.items[lang] ?? g.items.en ?? []);
+}
+
+/* Готовые рисунки для сетки на странице книги, у которой нет
+   нумерованных картинок в /public/drawings. Вырезаны из страниц самой
+   книги: последний шаг каждого рисунка. Надписей на них нет, поэтому
+   картинки одни на все языки. */
+export interface FeaturedDrawing {
+  file: string;
+  name: Partial<Record<UiLang, string>>;
+}
+
+const FEATURED: Record<string, FeaturedDrawing[]> = {
+  "how-to-draw-everything": [
+    { file: "/drawings/how-to-draw-everything/dog.webp", name: { en: "Dog", es: "Perro", ru: "Собака" } },
+    { file: "/drawings/how-to-draw-everything/cat.webp", name: { en: "Cat", es: "Gato", ru: "Кошка" } },
+    { file: "/drawings/how-to-draw-everything/raccoon.webp", name: { en: "Raccoon", es: "Mapache", ru: "Енот" } },
+    { file: "/drawings/how-to-draw-everything/sheep.webp", name: { en: "Sheep", es: "Corderito", ru: "Овечка" } },
+    { file: "/drawings/how-to-draw-everything/sunflower.webp", name: { en: "Sunflower", es: "Girasol", ru: "Подсолнух" } },
+    { file: "/drawings/how-to-draw-everything/flower.webp", name: { en: "Flower", es: "Flor", ru: "Цветок" } },
+    { file: "/drawings/how-to-draw-everything/rainbow.webp", name: { en: "Rainbow", es: "Arco iris", ru: "Радуга" } },
+    { file: "/drawings/how-to-draw-everything/snowflake.webp", name: { en: "Snowflake", es: "Copo de nieve", ru: "Снежинка" } },
+    { file: "/drawings/how-to-draw-everything/cupcake.webp", name: { en: "Cupcake", es: "Bizcocho", ru: "Кекс" } },
+    { file: "/drawings/how-to-draw-everything/cake.webp", name: { en: "Cake", es: "Tarta", ru: "Торт" } },
+    { file: "/drawings/how-to-draw-everything/ice-cream.webp", name: { en: "Ice cream", es: "Helado", ru: "Мороженое" } },
+    { file: "/drawings/how-to-draw-everything/rocket.webp", name: { en: "Rocket", es: "Cohete", ru: "Ракета" } },
+    { file: "/drawings/how-to-draw-everything/car.webp", name: { en: "Car", es: "Coche", ru: "Машина" } },
+    { file: "/drawings/how-to-draw-everything/teddy-bear.webp", name: { en: "Teddy bear", es: "Oso de peluche", ru: "Плюшевый мишка" } },
+    { file: "/drawings/how-to-draw-everything/house.webp", name: { en: "House", es: "Casa", ru: "Домик" } },
+    { file: "/drawings/how-to-draw-everything/lighthouse.webp", name: { en: "Lighthouse", es: "Faro", ru: "Маяк" } },
+    { file: "/drawings/how-to-draw-everything/umbrella.webp", name: { en: "Umbrella", es: "Paraguas", ru: "Зонтик" } },
+    { file: "/drawings/how-to-draw-everything/dress.webp", name: { en: "Dress", es: "Vestido", ru: "Платье" } },
+  ],
+};
+
+export function featuredForBook(bookId: string): FeaturedDrawing[] {
+  return FEATURED[bookId.replace(/-(en|es|ru)$/, "")] ?? [];
 }

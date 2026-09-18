@@ -4313,6 +4313,840 @@ const coloringPagesBase: ColoringPage[] = [
       },
     },
   },
+  /* --------------------------------------------------------------
+     "Как нарисовать все на свете": бесплатные листы и четыре страницы
+     одного объекта. Лист здесь одна страница книги, не разворот:
+     вверху шаги, ниже пунктир и место для своего рисунка.
+     -------------------------------------------------------------- */
+  {
+    id: "draw-everything-easy",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    fromBookId: "how-to-draw-everything-en",
+    fromBookIdEs: "how-to-draw-everything-es",
+    slug: {
+      en: "free-printable-easy-drawings-for-kids-step-by-step",
+      es: "dibujos-faciles-paso-a-paso-para-ninos-imprimir-gratis",
+    },
+    groups: [
+      {
+        id: "animals",
+        title: {
+          en: "Animals",
+          es: "Animales",
+          ru: "Животные",
+        },
+        sheets: [
+          S("easy-draw-dog", "Dog", "Perro", "Собака"),
+          S("easy-draw-cat", "Cat", "Gato", "Кошка"),
+          S("easy-draw-butterfly", "Butterfly and dragonfly", "Mariposa y libélula", "Бабочка и стрекоза"),
+        ],
+      },
+      {
+        id: "nature",
+        title: {
+          en: "Flowers and nature",
+          es: "Flores y naturaleza",
+          ru: "Цветы и природа",
+        },
+        sheets: [
+          S("easy-draw-flower", "Flower", "Flor", "Цветок"),
+          S("easy-draw-rainbow", "Rainbow", "Arco iris", "Радуга"),
+          S("easy-draw-snowflake", "Snowflake", "Copo de nieve", "Снежинка"),
+        ],
+      },
+      {
+        id: "things",
+        title: {
+          en: "Food, toys and home",
+          es: "Comida, juguetes y casa",
+          ru: "Еда, игрушки и дом",
+        },
+        sheets: [
+          S("easy-draw-cupcake", "Cupcake", "Bizcocho", "Кекс"),
+          S("easy-draw-rocket", "Rocket", "Cohete", "Ракета"),
+          S("easy-draw-car", "Car", "Coche", "Машина"),
+          S("easy-draw-house", "House", "Casa", "Домик"),
+        ],
+      },
+    ],
+    copy: {
+      en: {
+        title: "Free printable easy drawings for kids. Ten simple pictures, step by step, with tracing and space to draw on the same page",
+        sheetTitle: "How to draw: {name}, step by step",
+        sheetAlt: "Free printable {name} drawing page for kids: simple steps at the top, and below a dotted outline to trace and blank space to draw your own",
+        bookSheetsLead: "Real pages from the book, one page each: the steps at the top, the tracing and practice below. Ten of them are free to print, so you can try the book at your own table first.",
+        lead: "Each download is one page. At the top the picture is built step by step, from one simple shape to the finished drawing. Below it the same picture is printed as a dotted outline to trace, with blank space for the child's own attempt.",
+        body: [
+          "These are the simplest subjects in our series: a dog, a cat, a flower, a rainbow, a rocket, a house. A child recognizes each of them at first sight, and each one is built from a few shapes. That is exactly what a beginner needs: a picture that looks possible.",
+          "On every step the new line is black and the lines drawn earlier are gray, so the child always sees what to add next. After the steps comes the dotted outline: tracing it first teaches the hand the shape, and then the blank space no longer feels scary.",
+          "These ten pages are real pages from our printed book, drawn by hand. Print as many as you like. No account, no email, nothing to pay.",
+        ],
+        howTo: [
+          "Each picture is one page",
+          "Two file sizes: US Letter and A4. Pick whichever your printer takes",
+          "Start with a plain pencil, so mistakes can be erased",
+          "Trace the dotted outline first, then draw your own in the blank space",
+          "Color the finished drawing if you like",
+        ],
+        pickLead: "If these ten go well, the book they come from has 111.",
+        pickTitle: "The book these pages come from",
+        pickPoints: [
+          "111 simple drawings: animals, flowers, nature, foods, gifts, clothing, and more",
+          "Two kinds of practice for every drawing: a dotted outline to trace and a blank space to draw your own",
+          "The black line is the current step, the gray line is what is already drawn",
+          "104 pages, for ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "Are these really free?",
+            a: "Yes. No account, no email, no payment. Print as many copies as you want, at home or at a school.",
+          },
+          {
+            q: "What age are these for?",
+            a: "Ages 5 and up. A younger child can trace the dotted outline and stop there, which is already a good result at that age.",
+          },
+          {
+            q: "Can I use them in my classroom?",
+            a: "Yes, print them and hand them out freely. Please do not resell them or republish the files on another site.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same, only the sheet size differs.",
+          },
+        ],
+      },
+      es: {
+        title: "Dibujos fáciles para niños para imprimir gratis. Diez dibujos sencillos paso a paso, con repaso y espacio para dibujar en la misma página",
+        sheetTitle: "Cómo dibujar: {name}, paso a paso",
+        sheetAlt: "Lámina gratis para imprimir de {name}: pasos sencillos arriba y, debajo, un contorno de puntos para repasar y espacio libre para dibujar el propio",
+        bookSheetsLead: "Páginas reales del libro, una página cada una: los pasos arriba, el repaso y la práctica abajo. Diez se pueden imprimir gratis, para probar el libro en casa primero.",
+        lead: "Cada descarga es una página. Arriba el dibujo se construye paso a paso, desde una forma sencilla hasta el dibujo terminado. Debajo aparece el mismo dibujo con un contorno de puntos para repasar y espacio libre para el intento del niño.",
+        body: [
+          "Son los temas más sencillos de nuestra serie: un perro, un gato, una flor, un arco iris, un cohete, una casa. El niño los reconoce a primera vista y cada uno se construye con pocas formas. Justo lo que necesita un principiante: un dibujo que parece posible.",
+          "En cada paso la línea nueva es negra y las anteriores son grises, así que el niño siempre ve qué añadir. Después de los pasos viene el contorno de puntos: repasarlo primero enseña la forma a la mano, y luego el espacio en blanco ya no asusta.",
+          "Estas diez páginas son páginas reales de nuestro libro impreso, dibujadas a mano. Imprime las que quieras. Sin registro, sin correo, sin pagar nada.",
+        ],
+        howTo: [
+          "Cada dibujo es una página",
+          "Dos tamaños de archivo: A4 y Carta. Elige el que acepte tu impresora",
+          "Primero un lápiz normal, así los errores se borran",
+          "Primero repasa el contorno de puntos y después dibuja el tuyo en el espacio libre",
+          "Si quieres, colorea el dibujo terminado",
+        ],
+        pickLead: "Si estos diez funcionan, en el libro del que salen hay 111.",
+        pickTitle: "El libro del que salen estas páginas",
+        pickPoints: [
+          "111 dibujos sencillos: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Dos tipos de práctica para cada dibujo: un contorno de puntos para repasar y un espacio libre para dibujar el propio",
+          "La línea negra es el paso actual, la gris lo que ya está dibujado",
+          "104 páginas, a partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿De verdad son gratis?",
+            a: "Sí. Sin registro, sin correo, sin pago. Imprime las copias que quieras, en casa o en una escuela.",
+          },
+          {
+            q: "¿Para qué edad son?",
+            a: "A partir de 5 años. Un niño más pequeño puede repasar el contorno de puntos y quedarse ahí, y a esa edad ya es un buen resultado.",
+          },
+          {
+            q: "¿Puedo usarlas en mi clase?",
+            a: "Sí, imprímelas y repártelas con total libertad. Solo te pedimos que no las revendas ni publiques los archivos en otra web.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elige A4. En Estados Unidos y Canadá, elige Carta. El dibujo es el mismo, solo cambia el tamaño de la hoja.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "draw-dog-easy-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    themeId: "animals",
+    fromBookId: "how-to-draw-everything-en",
+    fromBookIdEs: "how-to-draw-everything-es",
+    fromBookIdRu: "how-to-draw-everything-ru",
+    slug: {
+      en: "how-to-draw-a-dog-easy-for-kids",
+      es: "como-dibujar-un-perro-facil-para-ninos",
+      ru: "kak-narisovat-sobaku-poetapno-dlya-detey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: {
+          en: "The page",
+          es: "La página",
+          ru: "Лист",
+        },
+        sheets: [
+          S("easy-draw-dog", "Dog", "Perro", "Собака"),
+        ],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Как нарисовать собаку поэтапно для детей. Бесплатный лист для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Собака, шаг за шагом",
+        sheetAlt: "Бесплатный лист для печати: собака по шагам вверху страницы, ниже пунктирный контур для обводки и свободное место для своего рисунка",
+        lead: "Настоящая страница из печатной книги «Как нарисовать все на свете». Вверху собака собирается за несколько простых шагов, ниже тот же рисунок дан пунктиром для обводки, а рядом место, чтобы нарисовать самому.",
+        body: [
+          "Сначала голова, затем появляются туловище и лапы, и только в конце мордочка: глаза, нос и улыбка. На каждом шаге новая линия черная, а уже нарисованное становится серым, поэтому ребенку не нужно искать, что изменилось.",
+          "Потом ребенок обводит готовый рисунок по пунктиру: рука запоминает форму до того, как придется рисовать самому. После этого он рисует свой вариант на свободном месте, а готовый рисунок можно раскрасить.",
+          "Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Один рисунок на одном листе",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+          "Сначала обвести пунктир, потом нарисовать самому",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 8 лет",
+          "Он только начинает рисовать и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно короткое занятие без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот лист",
+        pickLead: "Отдельные листы теряются. В книге такие страницы уже собраны по порядку, и все рисунки ребенка остаются в одном месте.",
+        pickPoints: [
+          "111 простых рисунков: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Пунктир для обводки и место для своего рисунка на той же странице",
+          "104 страницы, отдельный альбом не нужен",
+          "Для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать собаку ребенку 5 лет?",
+            a: "Начните с одной простой формы и добавляйте по одной детали за шаг. Сначала голова, затем появляются туловище и лапы, и только в конце мордочка: глаза, нос и улыбка. Сначала полезно обвести готовый рисунок по пунктиру, а потом нарисовать свой рядом.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Какой файл печатать, Letter или A4?",
+            a: "В США и Канаде Letter, в Европе и Израиле A4. Рисунок одинаковый.",
+          },
+        ],
+      },
+      en: {
+        title: "How to draw a dog easy for kids. Free printable page with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: Dog, step by step",
+        sheetAlt: "Free printable dog drawing page for kids: simple steps at the top, and below a dotted outline to trace and blank space to draw your own",
+        lead: "A real page from the printed book How to Draw Everything. At the top the dog is built in a few simple steps. Below it the same drawing appears as a dotted outline to trace, with blank space for the child's own attempt.",
+        body: [
+          "It starts with the head, then the body and the legs appear, and only at the end the face: eyes, nose and a smile. On every step the new line is black and everything drawn earlier turns gray, so the child never has to hunt for what changed.",
+          "Then the child traces the finished drawing along the dotted line, so the hand learns the shape before drawing it alone. After that comes their own version in the blank space, and the finished picture can be colored in.",
+          "Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "One drawing on one page",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+          "Trace the dotted outline first, then draw your own",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and eight",
+          "They are just starting to draw and do not know where to begin",
+          "They like tracing first and then trying it alone",
+          "You want a short activity with no preparation",
+        ],
+        pickTitle: "The book this page comes from",
+        pickLead: "Loose sheets get lost. In the book these pages are already bound in order, and all of the child's drawings stay in one place.",
+        pickPoints: [
+          "111 simple drawings: animals, flowers, nature, foods, gifts, clothing, and more",
+          "A dotted outline to trace and space to draw your own on the same page",
+          "104 pages, so no separate sketchbook is needed",
+          "For ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "How do you draw a dog for a 5-year-old?",
+            a: "Start from one simple shape and add one detail per step. It starts with the head, then the body and the legs appear, and only at the end the face: eyes, nose and a smile. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same.",
+          },
+        ],
+      },
+      es: {
+        title: "Cómo dibujar un perro fácil para niños. Lámina gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Perro, paso a paso",
+        sheetAlt: "Lámina gratis para imprimir de perro para niños: pasos sencillos arriba y, debajo, un contorno de puntos para repasar y espacio libre para dibujar el propio",
+        lead: "Una página real del libro impreso Cómo Dibujar Todo. Arriba el perro se construye en unos pocos pasos sencillos. Debajo aparece el mismo dibujo con un contorno de puntos para repasar y espacio libre para el intento del niño.",
+        body: [
+          "Empieza por la cabeza, luego aparecen el cuerpo y las patas, y solo al final la cara: los ojos, la nariz y la sonrisa. En cada paso la línea nueva es negra y lo dibujado antes pasa a gris, así el niño no tiene que buscar qué cambió.",
+          "Después el niño repasa el dibujo terminado por la línea de puntos y su mano aprende la forma antes de dibujarla solo. Luego llega su propia versión en el espacio libre, y el dibujo terminado se puede colorear.",
+          "Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Un dibujo en una página",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+          "Primero repasar el contorno de puntos, después dibujar el propio",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y ocho años",
+          "Empieza a dibujar y no sabe por dónde comenzar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad corta sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta lámina",
+        pickLead: "Las hojas sueltas se pierden. En el libro estas páginas ya están encuadernadas en orden, y todos los dibujos del niño se quedan en un mismo sitio.",
+        pickPoints: [
+          "111 dibujos sencillos: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Un contorno de puntos para repasar y espacio para dibujar en la misma página",
+          "104 páginas, así no hace falta un cuaderno aparte",
+          "A partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar un perro para un niño de 5 años?",
+            a: "Empiece con una forma sencilla y agregue un detalle por paso. Empieza por la cabeza, luego aparecen el cuerpo y las patas, y solo al final la cara: los ojos, la nariz y la sonrisa. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elija A4. En Estados Unidos y Canadá, elija Carta. El dibujo es el mismo.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "draw-cat-easy-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    themeId: "animals",
+    fromBookId: "how-to-draw-everything-en",
+    fromBookIdEs: "how-to-draw-everything-es",
+    fromBookIdRu: "how-to-draw-everything-ru",
+    slug: {
+      en: "how-to-draw-a-cat-easy-for-kids",
+      es: "como-dibujar-un-gato-facil-para-ninos",
+      ru: "kak-narisovat-koshku-poetapno-dlya-detey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: {
+          en: "The page",
+          es: "La página",
+          ru: "Лист",
+        },
+        sheets: [
+          S("easy-draw-cat", "Cat", "Gato", "Кошка"),
+        ],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Как нарисовать кошку поэтапно для детей. Бесплатный лист для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Кошка, шаг за шагом",
+        sheetAlt: "Бесплатный лист для печати: кошка по шагам вверху страницы, ниже пунктирный контур для обводки и свободное место для своего рисунка",
+        lead: "Настоящая страница из печатной книги «Как нарисовать все на свете». Вверху кошка собирается за несколько простых шагов, ниже тот же рисунок дан пунктиром для обводки, а рядом место, чтобы нарисовать самому.",
+        body: [
+          "Сначала круглая голова с двумя ушками, затем появляются туловище и хвост, а мордочка рисуется в конце. На каждом шаге новая линия черная, а уже нарисованное становится серым, поэтому ребенку не нужно искать, что изменилось.",
+          "Потом ребенок обводит готовый рисунок по пунктиру: рука запоминает форму до того, как придется рисовать самому. После этого он рисует свой вариант на свободном месте, а готовый рисунок можно раскрасить.",
+          "Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Один рисунок на одном листе",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+          "Сначала обвести пунктир, потом нарисовать самому",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 8 лет",
+          "Он только начинает рисовать и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно короткое занятие без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот лист",
+        pickLead: "Отдельные листы теряются. В книге такие страницы уже собраны по порядку, и все рисунки ребенка остаются в одном месте.",
+        pickPoints: [
+          "111 простых рисунков: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Пунктир для обводки и место для своего рисунка на той же странице",
+          "104 страницы, отдельный альбом не нужен",
+          "Для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать кошку ребенку 5 лет?",
+            a: "Начните с одной простой формы и добавляйте по одной детали за шаг. Сначала круглая голова с двумя ушками, затем появляются туловище и хвост, а мордочка рисуется в конце. Сначала полезно обвести готовый рисунок по пунктиру, а потом нарисовать свой рядом.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Какой файл печатать, Letter или A4?",
+            a: "В США и Канаде Letter, в Европе и Израиле A4. Рисунок одинаковый.",
+          },
+        ],
+      },
+      en: {
+        title: "How to draw a cat easy for kids. Free printable page with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: Cat, step by step",
+        sheetAlt: "Free printable cat drawing page for kids: simple steps at the top, and below a dotted outline to trace and blank space to draw your own",
+        lead: "A real page from the printed book How to Draw Everything. At the top the cat is built in a few simple steps. Below it the same drawing appears as a dotted outline to trace, with blank space for the child's own attempt.",
+        body: [
+          "It starts with a round head and two ears, then the body and the tail appear, and the face comes last. On every step the new line is black and everything drawn earlier turns gray, so the child never has to hunt for what changed.",
+          "Then the child traces the finished drawing along the dotted line, so the hand learns the shape before drawing it alone. After that comes their own version in the blank space, and the finished picture can be colored in.",
+          "Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "One drawing on one page",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+          "Trace the dotted outline first, then draw your own",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and eight",
+          "They are just starting to draw and do not know where to begin",
+          "They like tracing first and then trying it alone",
+          "You want a short activity with no preparation",
+        ],
+        pickTitle: "The book this page comes from",
+        pickLead: "Loose sheets get lost. In the book these pages are already bound in order, and all of the child's drawings stay in one place.",
+        pickPoints: [
+          "111 simple drawings: animals, flowers, nature, foods, gifts, clothing, and more",
+          "A dotted outline to trace and space to draw your own on the same page",
+          "104 pages, so no separate sketchbook is needed",
+          "For ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "How do you draw a cat for a 5-year-old?",
+            a: "Start from one simple shape and add one detail per step. It starts with a round head and two ears, then the body and the tail appear, and the face comes last. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same.",
+          },
+        ],
+      },
+      es: {
+        title: "Cómo dibujar un gato fácil para niños. Lámina gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Gato, paso a paso",
+        sheetAlt: "Lámina gratis para imprimir de gato para niños: pasos sencillos arriba y, debajo, un contorno de puntos para repasar y espacio libre para dibujar el propio",
+        lead: "Una página real del libro impreso Cómo Dibujar Todo. Arriba el gato se construye en unos pocos pasos sencillos. Debajo aparece el mismo dibujo con un contorno de puntos para repasar y espacio libre para el intento del niño.",
+        body: [
+          "Empieza por una cabeza redonda con dos orejas, luego aparecen el cuerpo y la cola, y la cara llega al final. En cada paso la línea nueva es negra y lo dibujado antes pasa a gris, así el niño no tiene que buscar qué cambió.",
+          "Después el niño repasa el dibujo terminado por la línea de puntos y su mano aprende la forma antes de dibujarla solo. Luego llega su propia versión en el espacio libre, y el dibujo terminado se puede colorear.",
+          "Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Un dibujo en una página",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+          "Primero repasar el contorno de puntos, después dibujar el propio",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y ocho años",
+          "Empieza a dibujar y no sabe por dónde comenzar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad corta sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta lámina",
+        pickLead: "Las hojas sueltas se pierden. En el libro estas páginas ya están encuadernadas en orden, y todos los dibujos del niño se quedan en un mismo sitio.",
+        pickPoints: [
+          "111 dibujos sencillos: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Un contorno de puntos para repasar y espacio para dibujar en la misma página",
+          "104 páginas, así no hace falta un cuaderno aparte",
+          "A partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar un gato para un niño de 5 años?",
+            a: "Empiece con una forma sencilla y agregue un detalle por paso. Empieza por una cabeza redonda con dos orejas, luego aparecen el cuerpo y la cola, y la cara llega al final. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elija A4. En Estados Unidos y Canadá, elija Carta. El dibujo es el mismo.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "draw-flower-easy-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    themeId: "flowers",
+    fromBookId: "how-to-draw-everything-en",
+    fromBookIdEs: "how-to-draw-everything-es",
+    fromBookIdRu: "how-to-draw-everything-ru",
+    slug: {
+      en: "how-to-draw-a-flower-easy-for-kids",
+      es: "como-dibujar-una-flor-facil-para-ninos",
+      ru: "kak-narisovat-cvetok-poetapno-dlya-detey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: {
+          en: "The page",
+          es: "La página",
+          ru: "Лист",
+        },
+        sheets: [
+          S("easy-draw-flower", "Flower", "Flor", "Цветок"),
+        ],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Как нарисовать цветок поэтапно для детей. Бесплатный лист для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Цветок, шаг за шагом",
+        sheetAlt: "Бесплатный лист для печати: цветок по шагам вверху страницы, ниже пунктирный контур для обводки и свободное место для своего рисунка",
+        lead: "Настоящая страница из печатной книги «Как нарисовать все на свете». Вверху цветок собирается за несколько простых шагов, ниже тот же рисунок дан пунктиром для обводки, а рядом место, чтобы нарисовать самому.",
+        body: [
+          "Сначала маленький круг в середине, затем вокруг него лепестки, а стебель и листья рисуются в конце. На каждом шаге новая линия черная, а уже нарисованное становится серым, поэтому ребенку не нужно искать, что изменилось.",
+          "Потом ребенок обводит готовый рисунок по пунктиру: рука запоминает форму до того, как придется рисовать самому. После этого он рисует свой вариант на свободном месте, а готовый рисунок можно раскрасить.",
+          "Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Один рисунок на одном листе",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+          "Сначала обвести пунктир, потом нарисовать самому",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 8 лет",
+          "Он только начинает рисовать и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно короткое занятие без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот лист",
+        pickLead: "Отдельные листы теряются. В книге такие страницы уже собраны по порядку, и все рисунки ребенка остаются в одном месте.",
+        pickPoints: [
+          "111 простых рисунков: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Пунктир для обводки и место для своего рисунка на той же странице",
+          "104 страницы, отдельный альбом не нужен",
+          "Для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать цветок ребенку 5 лет?",
+            a: "Начните с одной простой формы и добавляйте по одной детали за шаг. Сначала маленький круг в середине, затем вокруг него лепестки, а стебель и листья рисуются в конце. Сначала полезно обвести готовый рисунок по пунктиру, а потом нарисовать свой рядом.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Какой файл печатать, Letter или A4?",
+            a: "В США и Канаде Letter, в Европе и Израиле A4. Рисунок одинаковый.",
+          },
+        ],
+      },
+      en: {
+        title: "How to draw a flower easy for kids. Free printable page with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: Flower, step by step",
+        sheetAlt: "Free printable flower drawing page for kids: simple steps at the top, and below a dotted outline to trace and blank space to draw your own",
+        lead: "A real page from the printed book How to Draw Everything. At the top the flower is built in a few simple steps. Below it the same drawing appears as a dotted outline to trace, with blank space for the child's own attempt.",
+        body: [
+          "It starts with a small circle in the middle, then the petals go around it, and the stem and leaves come last. On every step the new line is black and everything drawn earlier turns gray, so the child never has to hunt for what changed.",
+          "Then the child traces the finished drawing along the dotted line, so the hand learns the shape before drawing it alone. After that comes their own version in the blank space, and the finished picture can be colored in.",
+          "Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "One drawing on one page",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+          "Trace the dotted outline first, then draw your own",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and eight",
+          "They are just starting to draw and do not know where to begin",
+          "They like tracing first and then trying it alone",
+          "You want a short activity with no preparation",
+        ],
+        pickTitle: "The book this page comes from",
+        pickLead: "Loose sheets get lost. In the book these pages are already bound in order, and all of the child's drawings stay in one place.",
+        pickPoints: [
+          "111 simple drawings: animals, flowers, nature, foods, gifts, clothing, and more",
+          "A dotted outline to trace and space to draw your own on the same page",
+          "104 pages, so no separate sketchbook is needed",
+          "For ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "How do you draw a flower for a 5-year-old?",
+            a: "Start from one simple shape and add one detail per step. It starts with a small circle in the middle, then the petals go around it, and the stem and leaves come last. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same.",
+          },
+        ],
+      },
+      es: {
+        title: "Cómo dibujar una flor fácil para niños. Lámina gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Flor, paso a paso",
+        sheetAlt: "Lámina gratis para imprimir de flor para niños: pasos sencillos arriba y, debajo, un contorno de puntos para repasar y espacio libre para dibujar el propio",
+        lead: "Una página real del libro impreso Cómo Dibujar Todo. Arriba la flor se construye en unos pocos pasos sencillos. Debajo aparece el mismo dibujo con un contorno de puntos para repasar y espacio libre para el intento del niño.",
+        body: [
+          "Empieza por un círculo pequeño en el centro, luego los pétalos lo rodean, y el tallo y las hojas llegan al final. En cada paso la línea nueva es negra y lo dibujado antes pasa a gris, así el niño no tiene que buscar qué cambió.",
+          "Después el niño repasa el dibujo terminado por la línea de puntos y su mano aprende la forma antes de dibujarla solo. Luego llega su propia versión en el espacio libre, y el dibujo terminado se puede colorear.",
+          "Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Un dibujo en una página",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+          "Primero repasar el contorno de puntos, después dibujar el propio",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y ocho años",
+          "Empieza a dibujar y no sabe por dónde comenzar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad corta sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta lámina",
+        pickLead: "Las hojas sueltas se pierden. En el libro estas páginas ya están encuadernadas en orden, y todos los dibujos del niño se quedan en un mismo sitio.",
+        pickPoints: [
+          "111 dibujos sencillos: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Un contorno de puntos para repasar y espacio para dibujar en la misma página",
+          "104 páginas, así no hace falta un cuaderno aparte",
+          "A partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar una flor para un niño de 5 años?",
+            a: "Empiece con una forma sencilla y agregue un detalle por paso. Empieza por un círculo pequeño en el centro, luego los pétalos lo rodean, y el tallo y las hojas llegan al final. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elija A4. En Estados Unidos y Canadá, elija Carta. El dibujo es el mismo.",
+          },
+        ],
+      },
+    },
+  },
+  {
+    id: "draw-house-easy-single",
+    published: "2026-09-17",
+    updated: "2026-09-17",
+    single: true,
+    themeId: "other",
+    fromBookId: "how-to-draw-everything-en",
+    fromBookIdEs: "how-to-draw-everything-es",
+    fromBookIdRu: "how-to-draw-everything-ru",
+    slug: {
+      en: "how-to-draw-a-house-easy-for-kids",
+      es: "como-dibujar-una-casa-facil-para-ninos",
+      ru: "kak-narisovat-domik-poetapno-dlya-detey",
+    },
+    groups: [
+      {
+        id: "sheet",
+        title: {
+          en: "The page",
+          es: "La página",
+          ru: "Лист",
+        },
+        sheets: [
+          S("easy-draw-house", "House", "Casa", "Домик"),
+        ],
+      },
+    ],
+    copy: {
+      ru: {
+        title: "Как нарисовать домик поэтапно для детей. Бесплатный лист для печати: шаги, обводка и место для своего рисунка",
+        sheetTitle: "Как нарисовать: Домик, шаг за шагом",
+        sheetAlt: "Бесплатный лист для печати: домик по шагам вверху страницы, ниже пунктирный контур для обводки и свободное место для своего рисунка",
+        lead: "Настоящая страница из печатной книги «Как нарисовать все на свете». Вверху домик собирается за несколько простых шагов, ниже тот же рисунок дан пунктиром для обводки, а рядом место, чтобы нарисовать самому.",
+        body: [
+          "Сначала крыша, затем появляются стены, а дверь, окна и мелкие детали рисуются в конце. На каждом шаге новая линия черная, а уже нарисованное становится серым, поэтому ребенку не нужно искать, что изменилось.",
+          "Потом ребенок обводит готовый рисунок по пунктиру: рука запоминает форму до того, как придется рисовать самому. После этого он рисует свой вариант на свободном месте, а готовый рисунок можно раскрасить.",
+          "Печатайте сколько нужно, регистрация и почта не требуются.",
+        ],
+        howTo: [
+          "Один рисунок на одном листе",
+          "Два размера: Letter и A4, выбирайте по своему принтеру",
+          "Сначала простой карандаш, ошибку можно стереть",
+          "Сначала обвести пунктир, потом нарисовать самому",
+        ],
+        fitTitle: "Подойдет ли этот лист вашему ребенку?",
+        fitYesTitle: "Подойдет, если:",
+        fitYes: [
+          "Ребенку от 5 до 8 лет",
+          "Он только начинает рисовать и не знает, с чего начать",
+          "Ему нравится сначала обвести, а потом попробовать самому",
+          "Нужно короткое занятие без подготовки",
+        ],
+        pickTitle: "Книга, из которой взят этот лист",
+        pickLead: "Отдельные листы теряются. В книге такие страницы уже собраны по порядку, и все рисунки ребенка остаются в одном месте.",
+        pickPoints: [
+          "111 простых рисунков: животные, цветы, природа, еда, подарки, одежда и разное",
+          "Пунктир для обводки и место для своего рисунка на той же странице",
+          "104 страницы, отдельный альбом не нужен",
+          "Для детей от 5 лет",
+        ],
+        faq: [
+          {
+            q: "Как нарисовать домик ребенку 5 лет?",
+            a: "Начните с одной простой формы и добавляйте по одной детали за шаг. Сначала крыша, затем появляются стены, а дверь, окна и мелкие детали рисуются в конце. Сначала полезно обвести готовый рисунок по пунктиру, а потом нарисовать свой рядом.",
+          },
+          {
+            q: "Это бесплатно?",
+            a: "Да. Без регистрации, без почты и без оплаты. Печатайте сколько нужно, дома или в школе.",
+          },
+          {
+            q: "Какой файл печатать, Letter или A4?",
+            a: "В США и Канаде Letter, в Европе и Израиле A4. Рисунок одинаковый.",
+          },
+        ],
+      },
+      en: {
+        title: "How to draw a house easy for kids. Free printable page with the steps, tracing, and space to draw your own",
+        sheetTitle: "How to draw: House, step by step",
+        sheetAlt: "Free printable house drawing page for kids: simple steps at the top, and below a dotted outline to trace and blank space to draw your own",
+        lead: "A real page from the printed book How to Draw Everything. At the top the house is built in a few simple steps. Below it the same drawing appears as a dotted outline to trace, with blank space for the child's own attempt.",
+        body: [
+          "It starts with the roof, then the walls appear, and the door, the windows and the small details come last. On every step the new line is black and everything drawn earlier turns gray, so the child never has to hunt for what changed.",
+          "Then the child traces the finished drawing along the dotted line, so the hand learns the shape before drawing it alone. After that comes their own version in the blank space, and the finished picture can be colored in.",
+          "Print as many copies as you need; no registration and no email.",
+        ],
+        howTo: [
+          "One drawing on one page",
+          "Two sizes: US Letter and A4, whichever your printer takes",
+          "Start with a plain pencil so mistakes can be erased",
+          "Trace the dotted outline first, then draw your own",
+        ],
+        fitTitle: "Is this sheet right for your child?",
+        fitYesTitle: "It is a good fit if:",
+        fitYes: [
+          "The child is between five and eight",
+          "They are just starting to draw and do not know where to begin",
+          "They like tracing first and then trying it alone",
+          "You want a short activity with no preparation",
+        ],
+        pickTitle: "The book this page comes from",
+        pickLead: "Loose sheets get lost. In the book these pages are already bound in order, and all of the child's drawings stay in one place.",
+        pickPoints: [
+          "111 simple drawings: animals, flowers, nature, foods, gifts, clothing, and more",
+          "A dotted outline to trace and space to draw your own on the same page",
+          "104 pages, so no separate sketchbook is needed",
+          "For ages 5 and up",
+        ],
+        faq: [
+          {
+            q: "How do you draw a house for a 5-year-old?",
+            a: "Start from one simple shape and add one detail per step. It starts with the roof, then the walls appear, and the door, the windows and the small details come last. Tracing the finished outline first makes the independent attempt easier.",
+          },
+          {
+            q: "Is it really free?",
+            a: "Yes. No registration, no email, no payment. Print as many copies as you need, at home or in a school.",
+          },
+          {
+            q: "Which file do I print, Letter or A4?",
+            a: "In the United States and Canada, choose Letter. In Europe and Latin America, choose A4. The drawing is the same.",
+          },
+        ],
+      },
+      es: {
+        title: "Cómo dibujar una casa fácil para niños. Lámina gratis para imprimir con los pasos, el repaso y espacio para dibujar",
+        sheetTitle: "Cómo dibujar: Casa, paso a paso",
+        sheetAlt: "Lámina gratis para imprimir de casa para niños: pasos sencillos arriba y, debajo, un contorno de puntos para repasar y espacio libre para dibujar el propio",
+        lead: "Una página real del libro impreso Cómo Dibujar Todo. Arriba la casa se construye en unos pocos pasos sencillos. Debajo aparece el mismo dibujo con un contorno de puntos para repasar y espacio libre para el intento del niño.",
+        body: [
+          "Empieza por el tejado, luego aparecen las paredes, y la puerta, las ventanas y los detalles pequeños llegan al final. En cada paso la línea nueva es negra y lo dibujado antes pasa a gris, así el niño no tiene que buscar qué cambió.",
+          "Después el niño repasa el dibujo terminado por la línea de puntos y su mano aprende la forma antes de dibujarla solo. Luego llega su propia versión en el espacio libre, y el dibujo terminado se puede colorear.",
+          "Imprima las copias que necesite: sin registro y sin correo.",
+        ],
+        howTo: [
+          "Un dibujo en una página",
+          "Dos tamaños: Carta y A4, el que acepte su impresora",
+          "Primero un lápiz normal, así los errores se borran",
+          "Primero repasar el contorno de puntos, después dibujar el propio",
+        ],
+        fitTitle: "¿Esta lámina es adecuada para su hijo?",
+        fitYesTitle: "Encaja bien si:",
+        fitYes: [
+          "El niño tiene entre cinco y ocho años",
+          "Empieza a dibujar y no sabe por dónde comenzar",
+          "Le gusta repasar primero y después intentarlo solo",
+          "Busca una actividad corta sin preparación",
+        ],
+        pickTitle: "El libro del que sale esta lámina",
+        pickLead: "Las hojas sueltas se pierden. En el libro estas páginas ya están encuadernadas en orden, y todos los dibujos del niño se quedan en un mismo sitio.",
+        pickPoints: [
+          "111 dibujos sencillos: animales, flores, naturaleza, alimentos, regalos, ropa y más",
+          "Un contorno de puntos para repasar y espacio para dibujar en la misma página",
+          "104 páginas, así no hace falta un cuaderno aparte",
+          "A partir de 5 años",
+        ],
+        faq: [
+          {
+            q: "¿Cómo dibujar una casa para un niño de 5 años?",
+            a: "Empiece con una forma sencilla y agregue un detalle por paso. Empieza por el tejado, luego aparecen las paredes, y la puerta, las ventanas y los detalles pequeños llegan al final. Repasar primero el contorno facilita el intento independiente.",
+          },
+          {
+            q: "¿De verdad es gratis?",
+            a: "Sí. Sin registro, sin correo y sin pago. Imprima las copias que necesite, en casa o en una escuela.",
+          },
+          {
+            q: "¿Qué archivo imprimo, A4 o Carta?",
+            a: "En España y América Latina, elija A4. En Estados Unidos y Canadá, elija Carta. El dibujo es el mismo.",
+          },
+        ],
+      },
+    },
+  },
 ];
 
 export function pagesForLang(lang: UiLang): ColoringPage[] {
@@ -4560,6 +5394,48 @@ const RU_FREE: Record<string, RuColoringPage> = {
       ],
     },
   },
+  "draw-everything-easy": {
+    slug: "prostye-risunki-po-shagam-dlya-detey-raspechatat",
+    fromBookIdRu: "how-to-draw-everything-ru",
+    copy: {
+      title: "10 бесплатных листов: простые рисунки по шагам для детей. Для печати дома.",
+      lead: "Вверху листа рисунок собирается по шагам, от одной простой формы до готового рисунка. Ниже тот же рисунок дан пунктиром для обводки, а рядом место, чтобы попробовать самому. Это настоящие страницы из книги, а не картинки, сделанные специально для сайта.",
+      body: [
+        "Это самые простые рисунки нашей серии: собака, кошка, цветок, радуга, ракета, домик. Ребенок узнает каждый с первого взгляда, и каждый складывается из нескольких простых форм. Начинающему нужно именно это: рисунок, который кажется посильным.",
+        "На каждом шаге новая линия черная, а уже нарисованные серые, поэтому ребенок всегда видит, что добавить дальше. После шагов идет пунктир: сначала обвести, и рука запоминает форму, а потом свободное место уже не пугает.",
+        "Печатайте столько раз, сколько нужно. Без регистрации, без почты и без оплаты.",
+      ],
+      howTo: [
+        "Один рисунок на одном листе",
+        "Два размера файла: Letter и A4",
+        "Простой карандаш и ластик удобнее фломастера: ошибку можно исправить",
+        "Сначала обведите пунктир, потом нарисуйте свой рисунок рядом",
+        "Готовый рисунок можно раскрасить",
+      ],
+      pickLead: "Если эти десять пошли хорошо, в книге, откуда они взяты, их 111.",
+      pickTitle: "Книга, из которой эти листы",
+      pickPoints: [
+        "111 простых рисунков в семи темах",
+        "Пунктир для обводки и место для своего рисунка на той же странице",
+        "Черная линия показывает текущий шаг, серая то, что уже нарисовано",
+        "104 страницы, для детей от 5 лет",
+      ],
+      faq: [
+        {
+          q: "Это правда бесплатно?",
+          a: "Да. Без регистрации, без почты и без оплаты. Печатайте сколько нужно, дома или в школе.",
+        },
+        {
+          q: "С какого возраста это подходит?",
+          a: "Примерно с пяти лет. Ребенок помладше может просто обвести пунктир, и для его возраста это уже хороший результат.",
+        },
+        {
+          q: "Какой файл печатать, Letter или A4?",
+          a: "В США и Канаде Letter, в Европе и Израиле A4. Рисунок одинаковый.",
+        },
+      ],
+    },
+  },
 };
 
 export const coloringPages: ColoringPage[] = coloringPagesBase.map((p) => {
@@ -4607,6 +5483,10 @@ const RU_SHEETS = new Set([
   "draw-lion", "draw-elephant", "draw-zebra", "draw-parrot", "draw-crocodile",
   "draw-monkey", "draw-kangaroo", "draw-rhino", "draw-flamingo", "draw-lemur",
   "draw-unicorn", "draw-dragon", "draw-dolphin",
+  /* "Как нарисовать все на свете": русские подписи на листах сделаны
+     по английскому изданию, текст на них заменен на русский. */
+  "easy-draw-dog", "easy-draw-cat", "easy-draw-butterfly", "easy-draw-flower", "easy-draw-rainbow",
+  "easy-draw-snowflake", "easy-draw-cupcake", "easy-draw-rocket", "easy-draw-car", "easy-draw-house",
 ]);
 
 /** Имя файла листа на этом языке. Испанские рисунки лежат с суффиксом -es,

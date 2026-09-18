@@ -40,6 +40,7 @@ import {
 } from "@/data/teacherArticles";
 import {
   drawingArticlesForLang,
+  drawingArticlesForBook,
   drawingHub,
   drawingArticleBySlug,
   drawingArticleUi,
@@ -117,6 +118,7 @@ function fmtDate(iso: string, lang: string): string {
 import { reviewsForBook, editorialForBook } from "@/lib/reviews";
 import {
   topicsForBook,
+  featuredForBook,
   allTopics,
   pageFile,
   drawingFile,
@@ -288,8 +290,8 @@ export async function generateMetadata({
       ),
     );
     return {
-      title: c.title,
-      description: c.answer.slice(0, 300),
+      title: c.seoTitle ?? c.title,
+      description: (c.seoDescription ?? c.answer).slice(0, 300),
       alternates: { canonical: itemPath(lang, "learn", slug), languages },
     };
   }
@@ -373,12 +375,12 @@ export async function generateMetadata({
 /* Две ссылки в конце статьи раздела "Как научить рисовать": книга,
    о которой идет речь, и бесплатные развороты из нее. Адреса берем
    из данных, чтобы они не разошлись при смене slug. */
-function drawBookPath(lang: UiLang) {
-  const b = bookById(`how-to-draw-111-${lang}`);
+function drawBookPath(lang: UiLang, base = "how-to-draw-111") {
+  const b = bookById(`${base}-${lang}`);
   return b?.slug[lang] ? itemPath(lang, "books", b.slug[lang]!) : sectionPath(lang, "books");
 }
-function drawFreePath(lang: UiLang) {
-  const p = pagesForLang(lang).find((x) => x.id === "draw-animals-step-by-step");
+function drawFreePath(lang: UiLang, id = "draw-animals-step-by-step") {
+  const p = pagesForLang(lang).find((x) => x.id === id);
   return p?.slug[lang] ? itemPath(lang, "coloring", p.slug[lang]!) : sectionPath(lang, "coloring");
 }
 
@@ -1086,10 +1088,10 @@ export default async function ItemPage({
             <h2 className="section">{c.ctaTitle}</h2>
             <p className="teach-p">{c.ctaLead}</p>
             <p className="teach-p">
-              <Link className="btn btn--pink" href={drawBookPath(lang)}>
+              <Link className="btn btn--pink" href={drawBookPath(lang, art.book)}>
                 {t.nav.books}
               </Link>{" "}
-              <Link className="btn btn--mint" href={drawFreePath(lang)}>
+              <Link className="btn btn--mint" href={drawFreePath(lang, art.freePage)}>
                 {t.free.title}
               </Link>
             </p>
@@ -1705,7 +1707,12 @@ export default async function ItemPage({
      только там, где у книги есть такие страницы. */
   /* Книга показана целиком: наверху рисунки, полный состав и связное
      описание. Значит нижние блоки с тем же содержанием не нужны. */
-  const hasFullBook = Boolean(copy.about?.length) && topicGroups.some((g) => g.firstDrawing);
+  /* Своя сетка готовых рисунков у книг, чьи рисунки не лежат
+     в /public/drawings под номерами. */
+  const ownFeatured = featuredForBook(book.id);
+  const hasFullBook =
+    Boolean(copy.about?.length) &&
+    (topicGroups.some((g) => g.firstDrawing) || ownFeatured.length > 0);
 
   /* Книга открывается настоящим разворотом из самой книги: человек сразу
      видит, как устроена страница. Ниже идут рисунки и все баннеры. */
@@ -1717,7 +1724,13 @@ export default async function ItemPage({
     ? book.banners?.filter((b) => b.file !== leadSpread.file)
     : book.banners;
 
-  const featuredPages = topicGroups.some((g) => g.firstDrawing)
+  const featuredPages: { n: number; name: string; file?: string }[] = ownFeatured.length
+    ? ownFeatured.map((d, i) => ({
+        n: i + 1,
+        name: d.name[lang] ?? d.name.en ?? "",
+        file: d.file,
+      }))
+    : topicGroups.some((g) => g.firstDrawing)
     ? bookPages.map((n) => {
         let name = "";
         for (const g of topicGroups) {
@@ -2193,9 +2206,10 @@ export default async function ItemPage({
                   <li key={d.n}>
                     <img
                       src={
-                        book.type === "coloring"
+                        d.file ??
+                        (book.type === "coloring"
                           ? pageFile(d.n, lang)
-                          : drawingFile(d.n)
+                          : drawingFile(d.n))
                       }
                       alt={d.name}
                       width={book.type === "coloring" ? 480 : 420}
@@ -2480,11 +2494,11 @@ export default async function ItemPage({
           {/* Статьи по возрастам. Связь в обе стороны: статья ведет на книгу,
               книга на статью. Для человека это ответ на вопрос "а моему
               ребенку это подойдет", для поисковика связный раздел. */}
-          {book.type === "drawing" && drawingArticlesForLang(lang).length ? (
+          {book.type === "drawing" && drawingArticlesForBook(book.id, lang).length ? (
             <>
               <h2 className="section">{drawingHub[lang]?.title}</h2>
               <ul className="guide-next">
-                {drawingArticlesForLang(lang).map((a) => (
+                {drawingArticlesForBook(book.id, lang).map((a) => (
                   <li key={a.id}>
                     <Link href={itemPath(lang, "learn", a.slug[lang]!)}>
                       <b>{a.copy[lang]!.title}</b>

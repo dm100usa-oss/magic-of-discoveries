@@ -20,6 +20,9 @@ import type { UiLang } from "./books";
 
 export interface TeacherArticleCopy {
   title: string;
+  /** Заголовок и описание для выдачи поиска. Пусто = title и answer. */
+  seoTitle?: string;
+  seoDescription?: string;
   lead: string;
   /** Прямой ответ одним абзацем. Первое, что читает и человек, и машина. */
   answer: string;

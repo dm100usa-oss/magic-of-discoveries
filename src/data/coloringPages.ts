@@ -44,6 +44,10 @@ export interface SheetGroup {
 
 export interface ColoringCopy {
   title: string;
+  /** Описание для выдачи поиска. Пусто = берется lead. Нужно там, где
+      вводный абзац одинаковый у нескольких страниц: поиск принимает
+      страницы с одним описанием за копии друг друга. */
+  seoDescription?: string;
   /** Подпись над кнопками листа. Пусто = общая из словаря ("Раскраска {name}"). */
   sheetTitle?: string;
   /** Описание картинки словами, для Google Картинок. Пусто = общее из словаря. */
@@ -2411,6 +2415,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Как нарисовать единорога поэтапно: бесплатный разворот из книги. Сначала простые формы, потом грива и рог, а на соседней странице - обводка по пунктиру и место для своего единорога.",
         title:
           "Как нарисовать единорога поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Единорог, шаг за шагом",
@@ -2466,6 +2472,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw a unicorn step by step: a real spread from the printed book. On the left page, the unicorn is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a unicorn step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Unicorn, step by step",
@@ -2521,6 +2529,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Cómo dibujar un unicornio paso a paso: una doble página gratis del libro. Primero, formas sencillas; después, la crin y el cuerno. En la página de al lado, hay un contorno punteado para repasar y espacio para dibujar su propio unicornio.",
         title:
           "Cómo dibujar un unicornio paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: Unicornio, paso a paso",
@@ -2600,6 +2610,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Дракон шаг за шагом: бесплатный разворот из нашей книги. На одном листе этапы рисунка, на другом - пунктир для обводки и место для своего дракона.",
         title:
           "Как нарисовать дракона поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Дракон, шаг за шагом",
@@ -2655,6 +2667,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw a dragon step by step: a real spread from the printed book. On the left page, the dragon is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a dragon step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Dragon, step by step",
@@ -2710,6 +2724,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Un dragón paso a paso: una doble página gratis de nuestro libro. En una página están los pasos del dibujo; en la otra, hay un contorno punteado para repasar y espacio para dibujar su propio dragón.",
         title:
           "Cómo dibujar un dragón paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: Dragón, paso a paso",
@@ -2789,6 +2805,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Как нарисовать дельфина поэтапно. Бесплатный разворот для печати: дельфин по шагам, обводка по пунктиру и место для самостоятельного рисунка.",
         title:
           "Как нарисовать дельфина поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Дельфин, шаг за шагом",
@@ -2844,6 +2862,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw a dolphin step by step: a real spread from the printed book. On the left page, the dolphin is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a dolphin step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Dolphin, step by step",
@@ -2899,6 +2919,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Cómo dibujar un delfín paso a paso. Una doble página gratis para imprimir con los pasos del dibujo, un contorno punteado para repasar y espacio para hacer su propio dibujo.",
         title:
           "Cómo dibujar un delfín paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: Delfín, paso a paso",
@@ -2978,6 +3000,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Бесплатный разворот для печати: как нарисовать льва по шагам. Слева рисунок льва создается из простых форм, справа ребенок обводит его по пунктиру и рисует своего.",
         title:
           "Как нарисовать льва поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Лев, шаг за шагом",
@@ -3033,6 +3057,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw a lion step by step: a real spread from the printed book. On the left page, the lion is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a lion step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Lion, step by step",
@@ -3088,6 +3114,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Cómo dibujar un león paso a paso: una doble página gratis del libro. A la izquierda, el león se dibuja a partir de formas sencillas; a la derecha, el niño repasa el contorno punteado y dibuja el suyo.",
         title:
           "Cómo dibujar un león paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: León, paso a paso",
@@ -3167,6 +3195,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Слон по шагам на одном листе, пунктир для обводки и свободное место на другом. Бесплатный разворот из книги, который можно распечатать без регистрации.",
         title:
           "Как нарисовать слона поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Слон, шаг за шагом",
@@ -3222,6 +3252,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw an elephant step by step: a real spread from the printed book. On the left page, the elephant is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a elephant step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Elephant, step by step",
@@ -3277,6 +3309,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Un elefante paso a paso en una página y, en la otra, un contorno punteado para repasar y espacio para dibujar. Una doble página gratis de nuestro libro, lista para imprimir.",
         title:
           "Cómo dibujar un elefante paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: Elefante, paso a paso",
@@ -3356,6 +3390,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Как нарисовать обезьянку поэтапно: настоящий разворот из книги, бесплатно для печати. Шаги слева, справа обводка по пунктиру и место для своего рисунка.",
         title:
           "Как нарисовать обезьяну поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Обезьяна, шаг за шагом",
@@ -3411,6 +3447,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw a monkey step by step: a real spread from the printed book. On the left page, the monkey is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a monkey step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Monkey, step by step",
@@ -3466,6 +3504,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Cómo dibujar un mono paso a paso: una doble página real del libro, gratis para imprimir. Los pasos están a la izquierda; a la derecha, hay un contorno punteado para repasar y espacio para hacer su propio dibujo.",
         title:
           "Cómo dibujar un mono paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: Mono, paso a paso",
@@ -3545,6 +3585,8 @@ const coloringPagesBase: ColoringPage[] = [
     ],
     copy: {
       ru: {
+        seoDescription:
+          "Крокодил по шагам для детей от 5 лет. Бесплатный разворот из книги: слева этапы рисунка, справа пунктир для обводки и свободное место, чтобы нарисовать самому.",
         title:
           "Как нарисовать крокодила поэтапно. Бесплатный разворот для печати: шаги, обводка и место для своего рисунка",
         sheetTitle: "Как нарисовать: Крокодил, шаг за шагом",
@@ -3600,6 +3642,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       en: {
+        seoDescription:
+          "How to draw a crocodile step by step: a real spread from the printed book. On the left page, the crocodile is drawn in six simple steps. On the right, the same drawing appears as a dotted outline to trace, with blank space beside it for kids to draw their own.",
         title:
           "How to draw a crocodile step by step. Free printable spread with the steps, tracing, and space to draw your own",
         sheetTitle: "How to draw: Crocodile, step by step",
@@ -3655,6 +3699,8 @@ const coloringPagesBase: ColoringPage[] = [
         ],
       },
       es: {
+        seoDescription:
+          "Un cocodrilo paso a paso para niños a partir de 5 años. Doble página gratis del libro: los pasos están a un lado y, al otro, hay un contorno punteado para repasar y espacio para dibujarlo.",
         title:
           "Cómo dibujar un cocodrilo paso a paso. Doble página gratis para imprimir con los pasos, el repaso y espacio para dibujar",
         sheetTitle: "Cómo dibujar: Cocodrilo, paso a paso",

@@ -267,11 +267,11 @@ export async function generateMetadata({
     );
     return {
       title: copy.title,
-      description: copy.lead,
+      description: copy.seoDescription ?? copy.lead,
       alternates: { canonical: itemPath(lang, "coloring", slug), languages },
       openGraph: {
         title: copy.title,
-        description: copy.lead,
+        description: copy.seoDescription ?? copy.lead,
         type: "article",
         images: [{ url: previewUrl(page.groups[0].sheets[0].id, lang) }],
       },

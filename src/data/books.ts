@@ -1399,6 +1399,8 @@ export const books: Book[] = [
     slug: { en: "little-max-coloring-book-toddlers-1-3-volume-2" },
     copy: {
       en: {
+        seoDescription:
+          "A second coloring book for toddlers ages 1-3, with 111 new drawings to discover and color.",
         title: "Little Max Coloring Book for Toddlers Ages 1-3, Volume 2",
         subtitle: "A coloring book for toddlers ages 1-3, with new drawings",
         lead:
@@ -5487,6 +5489,8 @@ export const books: Book[] = [
     slug: { ru: "malenkiy-maks-pervaya-knizhka-raskraska-kniga-1" },
     copy: {
       ru: {
+        seoDescription:
+          "Первая книжка-раскраска для малышей 1-3 лет: 111 простых рисунков с толстым контуром. Домашние и лесные животные, цветы, фрукты, игрушки, одежда и многое другое.",
         title: "Маленький Макс. Первая книжка-раскраска, книга 1",
         subtitle: "111 рисунков для малышей от 1 до 3 лет",
         lead:
@@ -5600,6 +5604,8 @@ export const books: Book[] = [
     slug: { ru: "malenkiy-maks-pervaya-knizhka-raskraska-kniga-2" },
     copy: {
       ru: {
+        seoDescription:
+          "Вторая книжка-раскраска Маленького Макса: 111 новых рисунков для малышей 1-3 лет. Лев, панда, морские животные, фрукты, мячи, музыкальные инструменты и многое другое.",
         title: "Маленький Макс. Первая книжка-раскраска, книга 2",
         subtitle: "111 рисунков для малышей от 1 до 3 лет",
         lead:

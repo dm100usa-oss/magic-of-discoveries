@@ -639,7 +639,9 @@ export default async function ItemPage({
                   ? "sheets sheets--spread"
                   : page.single
                     ? "sheets sheets--single"
-                    : "sheets"
+                    : page.large
+                      ? "sheets sheets--large"
+                      : "sheets"
               }
             >
               {group.sheets.map((sh) => {
@@ -1751,7 +1753,7 @@ export default async function ItemPage({
     freePage && freeSlug
       /* Развороты широкие: на экране их показываем два, во всю ширину,
          один под другим. Остальные человек видит на странице листов. */
-      ? allSheets(freePage, lang).slice(0, freePage.spread ? 2 : 10)
+      ? allSheets(freePage, lang).slice(0, freePage.spread ? 2 : freePage.large ? 4 : 10)
       : [];
   // Сколько страниц реально можно распечатать. Разворот это две страницы.
   const freeSheetPages =
@@ -2465,7 +2467,7 @@ export default async function ItemPage({
                   freePage.copy[lang]?.bookSheetsLead ?? t.free.bookSheetsLead
                 ).replace("{n}", String(freeSheetPages))}
               </p>
-              <div className={freePage.spread ? "fan fan--spread" : "fan"}>
+              <div className={freePage.spread ? "fan fan--spread" : freePage.large ? "fan fan--four" : "fan"}>
                 {freeSheets.map((sh, i) => (
                   <img
                     key={sh.id}

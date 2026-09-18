@@ -100,6 +100,10 @@ export interface ColoringPage {
   /** Лист это разворот из двух страниц: слева шаги, справа практика.
       Превью широкое, поэтому сетка и веер показываются крупнее. */
   spread?: boolean;
+  /** Лист это одна страница книги с шагами. Мелкие детали в сетке из
+      пяти колонок не видны, поэтому на странице темы листы идут по три
+      в ряд, а на странице книги в веере показываем только четыре. */
+  large?: boolean;
   /** Страница про один объект. Внутри ровно один лист, и вся страница
       написана под запрос про него. */
   single?: boolean;
@@ -4322,6 +4326,7 @@ const coloringPagesBase: ColoringPage[] = [
     id: "draw-everything-easy",
     published: "2026-09-17",
     updated: "2026-09-17",
+    large: true,
     fromBookId: "how-to-draw-everything-en",
     fromBookIdEs: "how-to-draw-everything-es",
     slug: {

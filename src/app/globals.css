@@ -1379,6 +1379,23 @@ ul.award-list li {
 .sheets--spread { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 900px) { .sheets--spread { grid-template-columns: 1fr; } }
 
+/* Листы-страницы с шагами: по три в ряд, чтобы были видны детали. */
+.sheets--large { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .sheets--large { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .sheets--large { grid-template-columns: 1fr; } }
+
+/* Веер из четырех листов: каждый крупнее, наклон вокруг середины. */
+.fan--four img {
+  width: 25%; margin-left: -2%;
+  transform: rotate(calc((var(--i) - 1.5) * 2.6deg));
+}
+.fan--four img:first-child { margin-left: 0; }
+.fan--four img:hover { transform: rotate(0deg) translateY(-6px); }
+@media (max-width: 620px) {
+  .fan--four { gap: 0.8rem; }
+  .fan--four img { width: 46%; margin-left: 0; transform: rotate(calc((var(--i) - 1.5) * 1.2deg)); }
+}
+
 /* Веер из разворотов: без нахлеста и почти без поворота,
    иначе правая страница с местом для практики уходит под соседнюю. */
 .fan--spread {

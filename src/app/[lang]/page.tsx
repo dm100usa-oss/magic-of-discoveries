@@ -173,7 +173,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="wrap">
           <h2 className="section">{t.home.kidsTitle}</h2>
           <p className="lead">{t.home.kidsLead}</p>
-          <div className="grid">
+          <div className="grid grid--row">
             {kids.map((b) => (
               <BookCard key={b.id} book={b} lang={lang} />
             ))}
@@ -186,7 +186,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="wrap">
           <h2 className="section">{t.home.adultsTitle}</h2>
           <p className="lead">{t.home.adultsLead}</p>
-          <div className="grid">
+          <div className="grid grid--row">
             {adults.map((b) => (
               <BookCard key={b.id} book={b} lang={lang} />
             ))}

@@ -320,9 +320,13 @@ export function Footer({ lang }: { lang: UiLang }) {
         </div>
       </div>
 
-      <p className="footer__legal">
-        © 2024-{new Date().getFullYear()} {SITE_NAME}. {t.footer.rights}
-      </p>
+      <div className="footer__legal">
+        <p>
+          © 2024-{new Date().getFullYear()} {SITE_NAME}. {t.footer.rights}
+        </p>
+        {/* Оговорка: сайт информационный, а не консультация специалиста. */}
+        <p className="footer__disclaimer">{t.footer.disclaimer}</p>
+      </div>
     </footer>
   );
 }

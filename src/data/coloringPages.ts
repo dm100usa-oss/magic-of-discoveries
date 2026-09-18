@@ -2425,7 +2425,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с небольшого овала-мордочки и крупного овала туловища, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. грива и рог добавляются на четвертом шаге, и лошадка превращается в единорога.",
+          "Рисунок начинается с небольшого овала-мордочки и крупного овала туловища, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Грива и рог добавляются на четвертом шаге, и лошадка превращается в единорога.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -2482,7 +2482,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the unicorn is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from a small oval muzzle and a large oval body, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the mane and the horn arrive at step four, and the pony becomes a unicorn.",
+          "The drawing starts from a small oval muzzle and a large oval body, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The mane and the horn arrive at step four, and the pony becomes a unicorn.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -2539,7 +2539,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con un óvalo pequeño para el hocico y otro grande para el cuerpo y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la melena y el cuerno llegan en el cuarto paso y el caballito se convierte en unicornio.",
+          "El dibujo comienza con un óvalo pequeño para el hocico y otro grande para el cuerpo y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. La melena y el cuerno llegan en el cuarto paso y el caballito se convierte en unicornio.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
@@ -2620,7 +2620,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с вытянутой головы, похожей на облачко, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. крыло рисуется одним шагом, рога другим, и дракон получается даже у того, кто впервые взял карандаш.",
+          "Рисунок начинается с вытянутой головы, похожей на облачко, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Крыло рисуется одним шагом, рога другим, и дракон получается даже у того, кто впервые взял карандаш.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -2677,7 +2677,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the dragon is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from a long cloud-like head, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the wing is one step and the horns another, so the dragon works even for a first-timer.",
+          "The drawing starts from a long cloud-like head, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The wing is one step and the horns another, so the dragon works even for a first-timer.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -2734,7 +2734,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con una cabeza alargada parecida a una nube y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. el ala es un paso y los cuernos otro, así que el dragón sale incluso a quien dibuja por primera vez.",
+          "El dibujo comienza con una cabeza alargada parecida a una nube y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. El ala es un paso y los cuernos otro, así que el dragón sale incluso a quien dibuja por primera vez.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
@@ -2815,7 +2815,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с одной изогнутой капли, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. плавник, хвост и улыбка добавляются по одному, и дельфин узнается уже на третьем шаге.",
+          "Рисунок начинается с одной изогнутой капли, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Плавник, хвост и улыбка добавляются по одному, и дельфин узнается уже на третьем шаге.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -2872,7 +2872,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the dolphin is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from one curved drop shape, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the fin, the tail and the smile come one at a time, and the dolphin is recognizable by step three.",
+          "The drawing starts from one curved drop shape, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The fin, the tail and the smile come one at a time, and the dolphin is recognizable by step three.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -2929,7 +2929,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con una sola forma curva parecida a una gota y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la aleta, la cola y la sonrisa llegan de una en una y el delfín se reconoce ya en el tercer paso.",
+          "El dibujo comienza con una sola forma curva parecida a una gota y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. La aleta, la cola y la sonrisa llegan de una en una y el delfín se reconoce ya en el tercer paso.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
@@ -3010,7 +3010,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с круга, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. грива добавляется одним движением вокруг головы, и лев сразу становится узнаваемым.",
+          "Рисунок начинается с круга, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Грива добавляется одним движением вокруг головы, и лев сразу становится узнаваемым.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -3067,7 +3067,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the lion is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from a circle, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the mane is added in one pass around the head, and the lion becomes recognizable at once.",
+          "The drawing starts from a circle, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The mane is added in one pass around the head, and the lion becomes recognizable at once.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -3124,7 +3124,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con un círculo y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la melena se añade de una sola vez alrededor de la cabeza y el león se reconoce enseguida.",
+          "El dibujo comienza con un círculo y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. La melena se añade de una sola vez alrededor de la cabeza y el león se reconoce enseguida.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
@@ -3205,7 +3205,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с двух кругов, которые заходят друг на друга, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. хобот и уши появляются последними, поэтому ошибиться в пропорциях почти невозможно.",
+          "Рисунок начинается с двух кругов, которые заходят друг на друга, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Хобот и уши появляются последними, поэтому ошибиться в пропорциях почти невозможно.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -3262,7 +3262,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the elephant is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from two overlapping circles, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the trunk and ears come last, so the proportions are hard to get wrong.",
+          "The drawing starts from two overlapping circles, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The trunk and ears come last, so the proportions are hard to get wrong.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -3319,7 +3319,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con dos círculos superpuestos y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la trompa y las orejas llegan al final, así que es difícil equivocarse con las proporciones.",
+          "El dibujo comienza con dos círculos superpuestos y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. La trompa y las orejas llegan al final, así que es difícil equivocarse con las proporciones.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
@@ -3400,7 +3400,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с круглой головы и вытянутого туловища, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. лапы и хвост рисуются отдельными шагами, а мордочка появляется в самом конце.",
+          "Рисунок начинается с круглой головы и вытянутого туловища, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Лапы и хвост рисуются отдельными шагами, а мордочка появляется в самом конце.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -3457,7 +3457,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the monkey is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from a round head and an oval body, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the paws and tail are separate steps, and the face arrives last.",
+          "The drawing starts from a round head and an oval body, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The paws and tail are separate steps, and the face arrives last.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -3514,7 +3514,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con una cabeza redonda y un cuerpo ovalado y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. las patas y la cola son pasos aparte y la cara aparece al final.",
+          "El dibujo comienza con una cabeza redonda y un cuerpo ovalado y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. Las patas y la cola son pasos aparte y la cara aparece al final.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],
@@ -3595,7 +3595,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Настоящий разворот из печатной книги. На левом листе рисунок собирается за шесть простых шагов, на правом тот же рисунок дан пунктиром для обводки, а рядом оставлено место, чтобы ребенок нарисовал своего.",
         body: [
-          "Рисунок начинается с вытянутой формы, похожей на каплю, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. зубцы на спине добавляются одним шагом, и рисунок сразу перестает быть просто овалом.",
+          "Рисунок начинается с вытянутой формы, похожей на каплю, и дальше на каждом шаге добавляется одна деталь. Уже нарисованное становится серым, а новое остается черным, поэтому ребенку не нужно сравнивать две картинки и искать, что изменилось. Зубцы на спине добавляются одним шагом, и рисунок сразу перестает быть просто овалом.",
           "Второй лист нужен не меньше первого. Сначала ребенок обводит готовый контур по пунктиру: рука запоминает форму до того, как придется делать ее самому. Потом рядом, на чистом месте, он рисует своего. Между этими двумя действиями и происходит все обучение.",
           "Рядом с рисунком напечатан короткий интересный факт, поэтому занятие дает ребенку не только рисунок. Печатайте сколько нужно, регистрация и почта не требуются.",
         ],
@@ -3652,7 +3652,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "A real spread from the printed book. On the left page the crocodile is built in six simple steps. On the right the same drawing appears as a dotted outline to trace, with blank space beside it for the child's own attempt.",
         body: [
-          "The drawing starts from one long drop-like shape, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. the ridge on the back is one step, and the drawing stops being just an oval.",
+          "The drawing starts from one long drop-like shape, and each step adds one detail. Everything drawn earlier turns gray while the new line stays black, so the child never has to compare two pictures to find the change. The ridge on the back is one step, and the drawing stops being just an oval.",
           "The second page matters as much as the first. The child traces the finished outline, so the hand learns the shape before producing it alone. Then, in the blank space beside it, they draw their own. All the learning happens between those two actions.",
           "A short fun fact is printed beside the drawing, so the session leaves the child with more than a picture. Print as many copies as you need; no registration and no email.",
         ],
@@ -3709,7 +3709,7 @@ const coloringPagesBase: ColoringPage[] = [
         lead:
           "Una doble página real del libro impreso. En la hoja izquierda el dibujo se construye en seis pasos sencillos. En la derecha aparece el mismo dibujo punteado para repasar, con espacio al lado para el intento del niño.",
         body: [
-          "El dibujo comienza con una forma alargada parecida a una gota y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. la cresta del lomo es un solo paso y el dibujo deja de ser solo un óvalo.",
+          "El dibujo comienza con una forma alargada parecida a una gota y cada paso agrega un detalle. Lo dibujado antes queda en gris y la línea nueva permanece en negro, así que el niño no tiene que comparar dos imágenes para encontrar el cambio. La cresta del lomo es un solo paso y el dibujo deja de ser solo un óvalo.",
           "La segunda hoja importa tanto como la primera. El niño repasa el contorno terminado y su mano aprende la forma antes de tener que producirla solo. Después, en el espacio en blanco, dibuja el suyo. Todo el aprendizaje ocurre entre esas dos acciones.",
           "Junto al dibujo hay un dato curioso, así que la sesión deja algo más que una imagen. Imprima las copias que necesite: sin registro y sin correo.",
         ],

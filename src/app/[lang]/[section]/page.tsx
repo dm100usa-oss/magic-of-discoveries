@@ -11,7 +11,7 @@ import {
   type AgeGroup,
   type BookType,
 } from "@/data/books";
-import { dictionaries, activeLangs } from "@/data/dictionaries";
+import { dictionaries, activeLangs, sheetsWord } from "@/data/dictionaries";
 import { pagesForLang, sheetCount, previewUrl, groupsForLang } from "@/data/coloringPages";
 import {
   awards,
@@ -259,6 +259,11 @@ export default async function SectionPage({
     const d = drawingHub[lang];
     const list = drawingArticlesForLang(lang);
     if (!d || !list.length) notFound();
+    /* Только издания на языке страницы: на английской странице
+       испанские тома для школы лишние. */
+    const drawBooks = booksForLang(lang).filter(
+      (b) => b.type === "drawing" && b.editionLang === lang,
+    );
     return (
       <>
         <Crumbs />
@@ -275,6 +280,20 @@ export default async function SectionPage({
             ))}
           </ul>
         </div>
+        {/* Книги по рисованию. Человек прочитал, как учить, и здесь же
+            видит книги, по которым это делается. */}
+        {drawBooks.length ? (
+          <section className="band band--mint">
+            <div className="wrap">
+              <h2 className="section">{d.booksTitle}</h2>
+              <div className="grid grid--row">
+                {drawBooks.map((b) => (
+                  <BookCard key={b.id} book={b} lang={lang} />
+                ))}
+              </div>
+            </div>
+          </section>
+        ) : null}
       </>
     );
   }
@@ -542,7 +561,7 @@ export default async function SectionPage({
               </div>
             ))}
           </div>
-          <p className="buy-note">{m.ageNote}</p>
+          <p className="buy-note" style={{ marginBottom: 0 }}>{m.ageNote}</p>
         </div>
 
         {/* Руководства */}
@@ -563,8 +582,10 @@ export default async function SectionPage({
           </div>
         ) : null}
 
-        {/* Награды и рецензии */}
-        <div className="wrap" style={{ padding: "var(--band-y) clamp(1rem, 4vw, 2rem)" }}>
+        {/* Награды и рецензии. Сверху отступ меньше обычного: выше стоит
+            блок с возрастами на том же белом фоне, и два полных отступа
+            подряд давали пустую дыру. */}
+        <div className="wrap" style={{ padding: "var(--gap-3) clamp(1rem, 4vw, 2rem) var(--band-y)" }}>
           <h2 className="section">{m.awardsTitle}</h2>
           <p className="lead">{m.awardsLead}</p>
           <ul className="awards">
@@ -589,7 +610,7 @@ export default async function SectionPage({
             })}
           </ul>
 
-          <h2 className="section">{m.reviewsTitle}</h2>
+          <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>{m.reviewsTitle}</h2>
           <p>{m.reviewsLead}</p>
           <p>
             {reviewSources.map((r, i) => (
@@ -812,7 +833,7 @@ export default async function SectionPage({
             <p className="teach-p">{w.booksLead}</p>
           </div>
           <div className="wrap" style={{ paddingTop: "var(--gap-3)" }}>
-            <div className="grid">
+            <div className="grid grid--row">
               {shelf.map((b) => (
                 <BookCard key={b.id} book={b} lang={lang} />
               ))}
@@ -823,13 +844,15 @@ export default async function SectionPage({
         {/* Вопросы и ответы. Короткий вопрос, законченный ответ. */}
         <section className="teach-block">
           <div className="teach">
-            <h2 className="section">{w.faqTitle}</h2>
-            {w.faq.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
+            <h2 className="section section--center">{w.faqTitle}</h2>
+            <div className="faq faq--two">
+              {w.faq.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
       </>
@@ -846,12 +869,17 @@ export default async function SectionPage({
           {pages.length === 0 ? (
             <p className="lead">{t.free.comingSoon}</p>
           ) : (
-            <div className="themes">
+            <div className="themes themes--sheets">
               {pages.map((p) => {
                 const c = p.copy[lang]!;
-                const first = groupsForLang(p, lang)[0].sheets.slice(0, 3);
+                /* Разворот показываем один и во всю ширину карточки: три
+                   разворота в ряд превращались в полоски, где не видно
+                   ни шагов, ни надписей. Одиночный лист стоит рядом с
+                   названием, а не в трети пустой полосы. */
+                const first = groupsForLang(p, lang)[0].sheets.slice(0, p.spread ? 1 : 3);
+                const shape = p.spread ? " theme--spread" : first.length === 1 ? " theme--one" : "";
                 return (
-                  <Link className="theme" key={p.id} href={itemPath(lang, "coloring", p.slug[lang]!)}>
+                  <Link className={`theme${shape}`} key={p.id} href={itemPath(lang, "coloring", p.slug[lang]!)}>
                     <div className="theme__strip">
                       {first.map((sh) => (
                         <img
@@ -861,16 +889,18 @@ export default async function SectionPage({
                             "{name}",
                             sh.name[lang] ?? sh.name.en!
                           )}
-                          width={642}
-                          height={822}
+                          width={p.spread ? 1294 : 642}
+                          height={p.spread ? 816 : 822}
                           loading="lazy"
                         />
                       ))}
                     </div>
-                    <p className="theme__title">{c.title}</p>
-                    <p className="theme__meta">
-                      {sheetCount(p, lang)} {t.free.countLabel}
-                    </p>
+                    <div className="theme__text">
+                      <p className="theme__title">{c.title}</p>
+                      <p className="theme__meta">
+                        {sheetCount(p, lang)} {sheetsWord(sheetCount(p, lang), t.free, lang)}
+                      </p>
+                    </div>
                   </Link>
                 );
               })}
@@ -958,7 +988,7 @@ export default async function SectionPage({
           ))}
 
           <h2 className="section">{c.booksTitle}</h2>
-          <div className="grid" style={{ paddingBottom: "var(--gap-5)" }}>
+          <div className="grid grid--row" style={{ paddingBottom: "var(--gap-5)" }}>
             {series.map((b) => (
               <Link className="card" key={b.id} href={itemPath(lang, "books", b.slug[lang]!)}>
                 <div className="card__frame">

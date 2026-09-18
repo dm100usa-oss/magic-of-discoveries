@@ -72,7 +72,10 @@ export const drawingArticleUi: Partial<
 
 /** Заголовок и вступление раздела. */
 export const drawingHub: Partial<
-  Record<UiLang, { title: string; lead: string; seoTitle: string; seoDescription: string }>
+  Record<
+    UiLang,
+    { title: string; lead: string; seoTitle: string; seoDescription: string; booksTitle: string }
+  >
 > = {
   en: {
     title: "How to teach drawing",
@@ -81,6 +84,7 @@ export const drawingHub: Partial<
     seoTitle: "How to Teach a Child to Draw: Guides by Age",
     seoDescription:
       "Practical guides on teaching drawing to children ages 5 to 10: simple shapes, tracing, independent practice, and step-by-step activities for home and the classroom.",
+    booksTitle: "Drawing books",
   },
   es: {
     title: "Cómo enseñar a dibujar",
@@ -89,6 +93,7 @@ export const drawingHub: Partial<
     seoTitle: "Cómo enseñar a dibujar a un niño: guías por edades",
     seoDescription:
       "Guías prácticas para enseñar a dibujar a niños de 5 a 10 años: formas sencillas, repaso punteado, práctica independiente y actividades paso a paso para casa y para clase.",
+    booksTitle: "Libros de dibujo",
   },
   ru: {
     title: "Как научить рисовать",
@@ -97,6 +102,7 @@ export const drawingHub: Partial<
     seoTitle: "Как научить ребенка рисовать: статьи по возрастам",
     seoDescription:
       "Как учить рисованию детей 5-10 лет: простые формы, обводка по пунктиру, самостоятельная практика и пошаговые задания для дома и для занятий в классе.",
+    booksTitle: "Книги по рисованию",
   },
 };
 

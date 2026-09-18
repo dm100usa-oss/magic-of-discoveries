@@ -635,7 +635,9 @@ export default async function ItemPage({
             )}
             <div
               className={
-                page.spread
+                page.spread && page.single
+                  ? "sheets sheets--spread-one"
+                  : page.spread
                   ? "sheets sheets--spread"
                   : page.single
                     ? "sheets sheets--single"
@@ -738,7 +740,7 @@ export default async function ItemPage({
                       const oc = o.copy[lang]!;
                       return (
                         <Link
-                          className="theme"
+                          className={o.spread ? "theme theme--spread" : "theme theme--one"}
                           key={o.id}
                           href={itemPath(lang, "coloring", o.slug[lang]!)}
                         >
@@ -746,14 +748,16 @@ export default async function ItemPage({
                             <img
                               src={previewUrl(sh.id, lang)}
                               alt={oc.title}
-                              width={642}
-                              height={822}
+                              width={o.spread ? 1294 : 642}
+                              height={o.spread ? 816 : 822}
                               loading="lazy"
                             />
                           </div>
-                          <p className="theme__title">
-                            {sh.name[lang] ?? sh.name.en}
-                          </p>
+                          <div className="theme__text">
+                            <p className="theme__title">
+                              {sh.name[lang] ?? sh.name.en}
+                            </p>
+                          </div>
                         </Link>
                       );
                     })}
@@ -1594,7 +1598,7 @@ export default async function ItemPage({
             <p className="teach-p">{wc.booksLead}</p>
           </div>
           <div className="wrap" style={{ paddingTop: "var(--gap-3)" }}>
-            <div className="grid">
+            <div className="grid grid--row">
               {shelf.map((b) => (
                 <BookCard key={b.id} book={b} lang={lang} />
               ))}
@@ -1605,13 +1609,15 @@ export default async function ItemPage({
         {/* Вопросы и ответы. */}
         <section className="band band--pink">
           <div className="teach">
-            <h2 className="section">{wc.faqTitle}</h2>
-            {wc.faq.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
+            <h2 className="section section--center">{wc.faqTitle}</h2>
+            <div className="faq faq--two">
+              {wc.faq.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -2780,7 +2786,7 @@ export default async function ItemPage({
             style={{ padding: "0 clamp(1rem, 4vw, 2rem) var(--band-y)" }}
           >
             <p className="script-title">{t.book.related}</p>
-            <div className="grid">
+            <div className="grid grid--row">
               {related.map((b) => (
                 <BookCard key={b.id} book={b} lang={lang} />
               ))}

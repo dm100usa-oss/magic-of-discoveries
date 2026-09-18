@@ -181,7 +181,7 @@ img { max-width: 100%; height: auto; display: block; }
 .balloon {
   /* Уменьшен: сначала на 15 процентов, потом еще на 5.
      Было 2.7 кегля названия, стало 2.19. */
-  height: calc(2.19 * clamp(2.47rem, 1.44rem + 6vw, 4.89rem));
+  height: calc(2.19 * min(clamp(2.47rem, 1.44rem + 6vw, 4.89rem), 8.2vw));
   width: auto; flex: none;
   transform-origin: 50% 100%;
   animation: balloon-in 1.5s cubic-bezier(0.22, 0.9, 0.3, 1) both,
@@ -209,7 +209,10 @@ img { max-width: 100%; height: auto; display: block; }
   font-family: var(--font-display);
   font-weight: 800;
   /* Крупнее примерно на 15 процентов, все три числа умножены на 1.15. */
-  font-size: clamp(2.47rem, 1.44rem + 6vw, 4.89rem);
+  /* На телефоне название вместе с шаром было шире экрана, и вся страница
+     уезжала вбок. Второе число не дает ему стать шире окна; на компьютере
+     оно больше первого и ничего не меняет. */
+  font-size: min(clamp(2.47rem, 1.44rem + 6vw, 4.89rem), 8.2vw);
   letter-spacing: 0.04em;
   word-spacing: 0.3em;
   margin: 0;
@@ -403,7 +406,7 @@ h2.section {
 }
 h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var(--gap-4) 0 var(--gap-1); color: var(--ink-soft); }
 
-.lead { max-width: 58ch; font-size: var(--t-lead); color: var(--ink-2); margin: 0 0 var(--gap-3); }
+.lead { max-width: none; font-size: var(--t-lead); color: var(--ink-2); margin: 0 0 var(--gap-3); }
 
 /* ==================== КНОПКИ ==================== */
 
@@ -444,6 +447,18 @@ h3.block { font-family: var(--font-display); font-size: var(--t-h3); margin: var
 .grid { display: grid; gap: clamp(1.1rem, 2vw, 1.9rem); grid-template-columns: repeat(2, 1fr); }
 @media (min-width: 640px) { .grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 1024px) { .grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* Короткий ряд книг: на главной, в разделе для взрослых, в первых словах.
+   Книг там от трех до пяти, и сетка на четыре места оставляла то одну
+   книгу сиротой во втором ряду, то пустое место справа. Здесь карточки
+   одного размера, до пяти в ряд, а неполный ряд стоит по центру. */
+.grid--row {
+  --g: clamp(1.1rem, 2vw, 1.9rem);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--g);
+}
+.grid--row > * { flex: 0 0 calc((100% - var(--g)) / 2); min-width: 0; }
+@media (min-width: 640px) { .grid--row > * { flex-basis: calc((100% - 2 * var(--g)) / 3); } }
+@media (min-width: 1024px) { .grid--row > * { flex-basis: calc((100% - 4 * var(--g)) / 5); } }
 
 .card { display: block; color: inherit; }
 .card:hover { text-decoration: none; }
@@ -689,8 +704,10 @@ ul.inside li::marker { color: var(--pink-hot); }
 .footer a { color: #0c3f3b; font-weight: 800; }
 .footer p { margin: 0 0 0.4rem; }
 
+/* Ширина содержимого подвала равна ширине содержимого страницы:
+   левый край текста подвала стоит на одной линии с текстом выше. */
 .footer__inner {
-  max-width: var(--maxw); margin: 0 auto;
+  max-width: calc(var(--maxw) - 2 * clamp(1rem, 4vw, 2rem)); margin: 0 auto;
   display: grid; gap: var(--gap-3) var(--gap-4); grid-template-columns: 1fr;
 }
 @media (min-width: 860px) {
@@ -714,7 +731,9 @@ ul.inside li::marker { color: var(--pink-hot); }
   font-size: var(--t-micro); font-weight: 800; text-transform: uppercase;
   letter-spacing: 0.05em; opacity: 0.7; margin: 0 0 0.55rem;
 }
-.footer__title--gap { margin-top: var(--gap-2); }
+/* Правило .footer p выше обнуляло верхний отступ, и заголовок
+   второго списка прилипал к строке над ним. */
+.footer p.footer__title--gap { margin-top: var(--gap-2); }
 
 .footer__col ul {
   list-style: none; margin: 0; padding: 0;
@@ -722,8 +741,10 @@ ul.inside li::marker { color: var(--pink-hot); }
 }
 .footer__social { grid-auto-flow: column; grid-auto-columns: max-content; gap: 0.9rem; }
 
-.footer__legal {
-  max-width: var(--maxw); margin: var(--gap-3) auto 0;
+/* То же правило .footer p сбивало поля строки с годами: она уезжала
+   к краю окна и прилипала к списку разделов. */
+.footer .footer__legal {
+  max-width: calc(var(--maxw) - 2 * clamp(1rem, 4vw, 2rem)); margin: var(--gap-4) auto 0;
   padding-top: var(--gap-2);
   border-top: 1px solid rgba(12, 63, 59, 0.22);
   opacity: 0.8;
@@ -742,7 +763,15 @@ ul.inside li::marker { color: var(--pink-hot); }
 }
 .byline a { font-weight: 800; }
 
-.prose p { max-width: 66ch; font-size: var(--t-lead); }
+/* Имена под названием в шапке. Общее правило подписи автора статьи
+   выше делало их мелкими и бледными, здесь возвращен размер шапки. */
+.masthead .byline {
+  font-size: clamp(1.1rem, 0.9rem + 1.2vw, 1.65rem);
+  opacity: 1;
+  margin: 1.1rem 0 0;
+}
+
+.prose p { max-width: none; font-size: var(--t-lead); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -799,6 +828,10 @@ ul.inside li::marker { color: var(--pink-hot); }
 }
 /* Оговорка, чей это рейтинг. Тише самих звезд: она уточняет, а не спорит. */
 .rating-mini__note { font-weight: 500; color: var(--ink-soft); }
+/* В узкой карточке строка переносится целыми кусками: звезды, число,
+   оговорка. Раньше число и оговорка ломались по буквам в столбик. */
+.rating-mini { flex-wrap: wrap; row-gap: 0.1rem; }
+.rating-mini > * { white-space: nowrap; }
 
 /* Обложки книг: показываем в настоящих пропорциях, квадратные не режем */
 .book__cover .inner img { display: block; width: 100%; height: auto; }
@@ -856,7 +889,7 @@ ul.inside li::marker { color: var(--pink-hot); }
    сверху, значение крупно снизу. */
 /* Абзац "почему именно эта книга". Строку держим короткой,
    длинные строки на всю ширину читаются тяжело. */
-.why-text { max-width: 72ch; font-size: var(--t-lead); }
+.why-text { max-width: none; font-size: var(--t-lead); }
 
 .key-specs {
   list-style: none;
@@ -933,7 +966,7 @@ ul.inside li::marker { color: var(--pink-hot); }
   list-style: none;
   margin: 0 0 var(--gap-2);
   padding: 0;
-  max-width: 78ch;
+  max-width: none;
 }
 .topics li {
   display: grid;
@@ -1151,7 +1184,7 @@ dl.retail dt {
 dl.retail dd { margin: 0; font-size: var(--t-small); }
 
 /* Страница-руководство */
-.guide { padding: var(--band-y) clamp(1rem, 4vw, 2rem); max-width: 78ch; margin-inline: auto; }
+.guide { padding: var(--band-y) clamp(1rem, 4vw, 2rem); max-width: var(--maxw); margin-inline: auto; }
 .guide .prose p { font-size: var(--t-lead); max-width: none; }
 
 /* Книга-решение внизу руководства */
@@ -1254,6 +1287,23 @@ ul.award-list li {
    они лежат на одинаковом квадратном поле, и подпись под рисунком
    не должна прыгать от карточки к карточке. */
 .themes .theme__strip img { aspect-ratio: 1 / 1; object-fit: contain; }
+/* Карточка с одним листом. Лист стоит слева крупно, название рядом
+   справа. Раньше лист занимал треть полосы, рассчитанной на три
+   картинки, и две трети карточки пустовали. */
+.theme--one { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: var(--gap-2); align-items: center; }
+.theme--one .theme__strip { grid-template-columns: 1fr; margin-bottom: 0; }
+.themes .theme--one .theme__strip img { aspect-ratio: 642 / 822; object-fit: contain; }
+.theme--one .theme__title { margin-bottom: 0.4rem; }
+/* Названия листов длинные, в крупном размере они занимали по пять строк. */
+.themes--sheets .theme__title,
+.theme--one .theme__title,
+.theme--spread .theme__title { font-size: clamp(1.02rem, 0.95rem + 0.4vw, 1.22rem); line-height: 1.3; }
+
+/* Разворот: слева шаги, справа практика. Показываем его один, во всю
+   ширину карточки и в настоящей форме листа, иначе шагов не видно. */
+.theme--spread .theme__strip { grid-template-columns: 1fr; }
+.themes .theme--spread .theme__strip img { aspect-ratio: 1294 / 816; object-fit: contain; }
+
 .theme__title {
   font-family: var(--font-display); font-weight: 800; font-size: var(--t-h3);
   color: var(--pink-deep); margin: 0 0 0.25rem;
@@ -1379,6 +1429,11 @@ ul.award-list li {
 .sheets--spread { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 900px) { .sheets--spread { grid-template-columns: 1fr; } }
 
+/* Страница одного разворота: разворот во всю ширину страницы. В сетке
+   на два места он занимал половину, и шаги было не разглядеть. */
+.sheets--spread-one { grid-template-columns: 1fr; }
+.sheets--spread-one .sheet h3 { min-height: 0; }
+
 /* Листы-страницы с шагами: по три в ряд, чтобы были видны детали. */
 .sheets--large { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .sheets--large { grid-template-columns: repeat(2, 1fr); } }
@@ -1411,7 +1466,7 @@ ul.award-list li {
 .showcase { margin: var(--gap-3) 0 var(--gap-4); }
 .showcase__lead {
   font-size: var(--t-lead); color: var(--ink-2);
-  margin: 0 0 var(--gap-2); max-width: 62ch;
+  margin: 0 0 var(--gap-2); max-width: none;
 }
 .showcase .theme-banner { margin-bottom: 0.75rem; }
 .showcase .artwork { gap: 0.75rem; margin-bottom: 0.75rem; }
@@ -1543,7 +1598,7 @@ ul.award-list li {
 /* Колонка текста стоит по центру полосы, а не жмется к левому краю.
    На широком экране справа больше не остается пустого поля,
    на телефоне колонка просто занимает всю ширину. */
-.tw { max-width: 74ch; margin-inline: auto; }
+.tw { max-width: var(--maxw); margin-inline: auto; }
 .tw p { max-width: none; }
 .tw > h2.section:first-child { margin-top: 0; }
 
@@ -1585,8 +1640,10 @@ ul.award-list li {
    восьмидесяти знаков, дальше читать тяжело.                        */
 
 :root {
-  --teach-col: 1000px;   /* колонка чтения */
-  --teach-wide: 1240px;  /* парные картинки, шире колонки */
+  /* Колонка равна ширине остальных страниц сайта: общий текст идет
+     на всю ширину, как везде, а не узкой полосой посередине. */
+  --teach-col: var(--maxw);
+  --teach-wide: var(--maxw);
 }
 
 .teach {
@@ -1782,14 +1839,14 @@ ul.award-list li {
 /* Абзац "что это за сайт" на главной. Крупнее обычного текста:
    это первое, что должен прочитать и человек, и машина. */
 .what-lead {
-  max-width: 74ch;
+  max-width: none;
   font-size: clamp(1.08rem, 1rem + 0.4vw, 1.3rem);
   line-height: 1.65;
   color: var(--ink);
   margin: 0;
 }
 /* Список отличий. */
-.why-list { margin: var(--gap-3) 0 0; padding-left: 1.3rem; max-width: 74ch; }
+.why-list { margin: var(--gap-3) 0 0; padding-left: 1.3rem; max-width: none; }
 .why-list li {
   font-size: clamp(1.02rem, 0.97rem + 0.3vw, 1.18rem);
   line-height: 1.6;
@@ -2074,3 +2131,69 @@ ul.award-list li {
 /* ---- Статьи внизу: одна строка на статью ---- */
 .guide-next--tight { gap: 0.5rem; }
 .guide-next--tight a { padding: 0.6rem 0.9rem; }
+
+/* ==================== ВЫКЛЮЧКА ОБЩЕГО ТЕКСТА ====================
+   Общий текст вне карточек выровнен по обоим краям, как в книге и как
+   уже сделано на страницах книг и в разделе для учителей: правый край
+   ровный, а не рваный. Переносы включены, иначе на узком экране между
+   словами появляются дыры. Текст в карточках и заголовки не трогаем. */
+.teach-p,
+.teach-def,
+.lead,
+.what-lead,
+.why-list li,
+.why-text,
+.showcase__lead,
+.prose p,
+.guide .prose p,
+.method-line,
+.retail-line {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+/* ==================== ТЕЛЕФОН: КАРТОЧКИ ЛИСТОВ ====================
+   На узком экране лист рядом с названием выходил размером с марку.
+   Здесь лист стоит над названием, крупно и по центру. */
+@media (max-width: 620px) {
+  .theme--one { grid-template-columns: 1fr; gap: 0; }
+  .theme--one .theme__strip { margin-bottom: var(--gap-2); }
+  .theme--one .theme__strip img { max-width: 20rem; margin-inline: auto; }
+}
+
+/* Сетки с длинными словами в названиях. Длинное слово раздвигало колонку
+   шире экрана, и страница уезжала вбок: на телефоне в бесплатных заданиях
+   для учителей, на планшете в списке статей о рисовании. */
+.tfree { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 900px) { .tfree { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 720px) { .guide-next { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tfree__item, .guide-next a { min-width: 0; overflow-wrap: break-word; hyphens: auto; }
+
+/* Три шага «Что с этим делать» в разделе первых слов. На компьютере и
+   горизонтальном планшете стоят в одну линию: по два в ряд третий
+   оставался один. На телефоне по-прежнему друг под другом. */
+@media (min-width: 900px) {
+  .teach .ladder { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Заголовок по центру: вопросы родителей в разделе первых слов. */
+h2.section--center { text-align: center; }
+
+/* ==================== ПОДВАЛ КОМПАКТНЕЕ ====================
+   О издательстве одна строка вместо длинного абзаца, разделы в две
+   колонки вместо столбика из девяти строк, отступы меньше. Внизу
+   строка о правах и оговорка, что сайт информационный. */
+.footer { padding-top: var(--gap-4); }
+@media (min-width: 860px) {
+  .footer__inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.3fr) minmax(0, 1.1fr); }
+  .footer nav.footer__col ul { grid-template-columns: repeat(2, max-content); column-gap: var(--gap-4); }
+}
+@media (max-width: 859px) {
+  .footer nav.footer__col ul { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--gap-2); }
+}
+.footer p.footer__about { text-align: left; hyphens: manual; }
+.footer .footer__legal { margin-top: var(--gap-3); padding-top: var(--gap-2); }
+.footer .footer__legal p { margin: 0 0 0.3rem; }
+.footer .footer__legal p.footer__disclaimer { margin: 0; font-size: var(--t-micro); }

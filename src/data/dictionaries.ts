@@ -203,6 +203,11 @@ export interface Dictionary {
     printA4: string;
     faqTitle: string;
     countLabel: string;
+    /** Слово после числа 1 (21, 31 в русском): "1 лист". */
+    countLabelOne: string;
+    /** Русское слово после 2, 3, 4: "3 листа". В английском и испанском
+        совпадает с countLabel. */
+    countLabelFew: string;
     /* Указатель на справочник о первых раскрасках. Стоит внизу
        раздела бесплатных листов: сюда приходят родители малышей,
        и им чаще всего нужен не набор листов, а ответ, какие листы
@@ -256,6 +261,9 @@ export interface Dictionary {
        страницы, не только главной. Человек и нейросеть часто попадают
        сразу на книгу или статью, и там им тоже нужен этот якорь. */
     about: string;
+    /** Оговорка внизу каждой страницы: статьи о развитии детей носят
+        информационный характер и не заменяют врача или специалиста. */
+    disclaimer: string;
     /* Наши же соседние сайты. Стоят в подвале каждой страницы, а не
        только там, где о них зашла речь. Для человека это короткий путь
        к разбору, для машины постоянное подтверждение, что три сайта
@@ -531,6 +539,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       printA4: "Print · A4",
       faqTitle: "Questions parents ask",
       countLabel: "printable pages",
+      countLabelOne: "printable page",
+      countLabelFew: "printable pages",
       toddlerNote:
         "Coloring with a child under three, and not sure which sheets suit them? We run a " +
         "separate reference site about first coloring books for ages 1 to 3: the four stages " +
@@ -592,7 +602,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       toddlerSite: "First coloring books, ages 1 to 3",
       sections: "Sections",
       about:
-        "Magic of Discoveries is an independent family publisher run by Ricardo and Maria Demi in Miami, making books in English, Spanish and Russian for children, parents and teachers: simple coloring books with thick outlines for toddlers, short bedtime stories, step by step drawing, classroom materials for K-2, and easy coloring for teenagers and adults. Every illustration is drawn by hand, and the books are built so a child can manage on their own, finish what they started, and want to come back to it again. On this site you can pick a book by age and by kind, find the editions on Amazon, and download free printable pages.",
+        "An independent family publisher run by Ricardo and Maria Demi in Miami, Florida. Books in English, Spanish and Russian.",
+      disclaimer:
+        "Everything on this site is for general information only and is not a substitute for advice from a pediatrician, speech therapist or child psychologist.",
     },
   },
 
@@ -858,6 +870,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       printA4: "Imprimir · A4",
       faqTitle: "Preguntas que hacen los padres",
       countLabel: "láminas para imprimir",
+      countLabelOne: "lámina para imprimir",
+      countLabelFew: "láminas para imprimir",
       toddlerNote:
         "¿Colorea con un niño menor de tres años y no sabe qué hojas le convienen? Tenemos un " +
         "sitio de consulta aparte sobre los primeros libros para colorear de 1 a 3 años: las " +
@@ -919,7 +933,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       toddlerSite: "Primeros libros para colorear, de 1 a 3 años",
       sections: "Secciones",
       about:
-        "Magic of Discoveries es una editorial familiar independiente de Ricardo y Maria Demi, en Miami, que publica libros en inglés, en español y en ruso para niños, padres y maestros: libros para colorear de trazo grueso para los más pequeños, cuentos cortos para dormir, dibujo paso a paso, material de aula para K-2 y libros de colorear fáciles para adolescentes y adultos. Todas las ilustraciones están dibujadas a mano, y los libros están hechos para que un niño pueda hacerlo solo, terminar lo que empezó y querer volver a ello. En este sitio puedes elegir un libro por edad y por tipo, encontrar las ediciones en Amazon y descargar gratis páginas para imprimir.",
+        "Editorial familiar independiente de Ricardo y Maria Demi en Miami, Florida. Libros en inglés, español y ruso.",
+      disclaimer:
+        "El contenido de este sitio es solo informativo y no sustituye la consulta con un pediatra, un terapeuta del lenguaje o un psicólogo infantil.",
     },
   },
 
@@ -1181,6 +1197,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       printA4: "Печать · A4",
       faqTitle: "Вопросы родителей",
       countLabel: "листов для печати",
+      countLabelOne: "лист для печати",
+      countLabelFew: "листа для печати",
       toddlerNote:
         "Раскрашиваете с ребенком младше трех лет и не знаете, какие листы ему подойдут? У нас " +
         "есть отдельный справочный сайт о первых раскрасках для детей от года до трех: четыре " +
@@ -1242,7 +1260,9 @@ export const dictionaries: Record<UiLang, Dictionary> = {
       toddlerSite: "Первые раскраски, от 1 до 3 лет",
       sections: "Разделы",
       about:
-        "Magic of Discoveries это независимое семейное издательство Рикардо и Марии Деми из Майами, создающее книги на английском, испанском и русском языках для детей, родителей и учителей: простые раскраски с толстыми контурами для малышей, короткие сказки на ночь, пошаговое рисование и учебные материалы для K-2, а также легкие раскраски для подростков и взрослых. Все иллюстрации нарисованы от руки, а задания и книги устроены так, чтобы ребенок мог справиться самостоятельно, довести начатое до конца и захотеть вернуться к нему снова. На сайте можно подобрать книгу по возрасту и типу, найти издания на Amazon и бесплатно скачать страницы для печати.",
+        "Независимое семейное издательство Рикардо и Марии Деми, Майами, Флорида. Книги на английском, испанском и русском.",
+      disclaimer:
+        "Материалы сайта носят информационный характер и не заменяют консультацию педиатра, логопеда или детского психолога.",
     },
   },
 };
@@ -1251,3 +1271,19 @@ export const uiLangs: UiLang[] = ["en", "es", "ru"];
 
 /** Языки, которые сейчас показываются публично. */
 export const activeLangs: UiLang[] = ["en", "es", "ru"];
+
+/** Слово после числа листов с правильным окончанием:
+    1 лист, 3 листа, 10 листов. В английском и испанском форма одна
+    для единицы и одна для всех остальных чисел. */
+export function sheetsWord(
+  n: number,
+  f: { countLabel: string; countLabelOne: string; countLabelFew: string },
+  lang: UiLang,
+): string {
+  if (lang !== "ru") return n === 1 ? f.countLabelOne : f.countLabel;
+  const d = n % 10;
+  const dd = n % 100;
+  if (d === 1 && dd !== 11) return f.countLabelOne;
+  if (d >= 2 && d <= 4 && (dd < 12 || dd > 14)) return f.countLabelFew;
+  return f.countLabel;
+}

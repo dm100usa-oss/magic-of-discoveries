@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { booksForLang, type UiLang } from "@/data/books";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
-import { BookCard } from "@/components/Chrome";
+import { BookCard, bookRowClass } from "@/components/Chrome";
 import { reviewsByLang } from "@/lib/reviews";
 import { SITE_NAME, SITE_URL, PUBLISHER, SOCIAL, ADDRESS, CONTACT_EMAIL, OG_IMAGE, TODDLER_SITE } from "@/lib/site";
 import { awards } from "@/data/method";
@@ -186,7 +186,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
         <div className="wrap">
           <h2 className="section">{t.home.adultsTitle}</h2>
           <p className="lead">{t.home.adultsLead}</p>
-          <div className="grid grid--row">
+          <div className={bookRowClass(adults.length)}>
             {adults.map((b) => (
               <BookCard key={b.id} book={b} lang={lang} />
             ))}
@@ -245,7 +245,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
       {t.home.faq.length ? (
         <section className="band band--cream">
           <div className="wrap">
-            <h2 className="section">{t.home.faqTitle}</h2>
+            <h2 className="section section--center">{t.home.faqTitle}</h2>
             <div className="faq faq--two">
               {t.home.faq.map((f) => (
                 <details key={f.q}>

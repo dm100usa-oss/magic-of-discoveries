@@ -384,3 +384,12 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
     </Link>
   );
 }
+
+/** Ряд книг. Где книг две или три и места много, карточки лежат:
+    обложка слева на всю высоту, текст справа. Где книг больше, обычные
+    стоячие карточки. */
+export function bookRowClass(n: number): string {
+  if (n <= 2) return "grid grid--row grid--wide";
+  if (n === 3) return "grid grid--row grid--wide grid--wide3";
+  return "grid grid--row";
+}

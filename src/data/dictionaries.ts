@@ -222,6 +222,9 @@ export interface Dictionary {
   about: {
     title: string;
     body: string[];
+    /** Последний абзац страницы: сайт информационный и не заменяет
+        консультацию специалиста. */
+    note: string;
   };
   /* Страница со списком всех изданий и их международными номерами.
 
@@ -561,6 +564,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "We believe every child has hidden potential that can be developed from an early age. We do our best to bring something useful and something joyful to both children and their parents.",
         "We have a beloved dog, an English Cocker Spaniel called Rocky, who became the hero of his own books. Our family lives in sunny Miami, Florida, and the city's color and pace feed most of what we make.",
       ],
+      note:
+        "Everything on this site, including our articles on child development, is for general information. It is meant to help you choose a book or an activity, not to replace advice from a pediatrician, speech therapist or child psychologist. If you have concerns about your child's development, please talk to a specialist.",
     },
     catalog2: {
       title: "All books by Magic of Discoveries, with ISBN numbers",
@@ -892,6 +897,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Creemos que cada niño tiene un potencial escondido que se puede desarrollar desde muy pronto. Intentamos aportar algo útil y algo alegre, tanto a los niños como a sus padres.",
         "Tenemos un perro muy querido, un cocker spaniel inglés que se llama Rocky y que acabó siendo el protagonista de sus propios libros. Nuestra familia vive en Miami, Florida, y el color y el ritmo de la ciudad alimentan casi todo lo que hacemos.",
       ],
+      note:
+        "Todo el contenido de este sitio, incluidos los artículos sobre el desarrollo infantil, es solo informativo. Sirve para elegir un libro o una actividad, pero no sustituye la consulta con un pediatra, un terapeuta del lenguaje o un psicólogo infantil. Si le preocupa el desarrollo de su hijo, consulte con un especialista.",
     },
     catalog2: {
       title: "Todos los libros de Magic of Discoveries, con su ISBN",
@@ -1219,6 +1226,8 @@ export const dictionaries: Record<UiLang, Dictionary> = {
         "Мы верим, что у каждого ребенка есть скрытый потенциал, который можно развивать с самого раннего возраста.",
         "У нас есть любимый пес, английский кокер-спаниель Рокки, который стал героем собственных книг. Наша семья живет в солнечном Майами.",
       ],
+      note:
+        "Все материалы сайта, включая статьи о развитии детей, носят информационный характер. Они помогают выбрать книгу и занятие, но не заменяют консультацию педиатра, логопеда или детского психолога. Если вас беспокоит развитие ребенка, обратитесь к специалисту.",
     },
     catalog2: {
       title: "Все книги издательства Magic of Discoveries и их номера ISBN",

@@ -26,7 +26,7 @@ import { teacherProducts, teacherProductPath } from "@/data/teacherBooks";
 import TeacherBookRows from "@/components/TeacherBooks";
 import { articlesForLang, articleUi } from "@/data/teacherArticles";
 import { drawingArticlesForLang, drawingHub } from "@/data/drawingArticles";
-import { PageHead, BookCard } from "@/components/Chrome";
+import { PageHead, BookCard, bookRowClass } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
 import {
   SITE_URL,
@@ -286,7 +286,7 @@ export default async function SectionPage({
           <section className="band band--mint">
             <div className="wrap">
               <h2 className="section">{d.booksTitle}</h2>
-              <div className="grid grid--row">
+              <div className={bookRowClass(drawBooks.length)}>
                 {drawBooks.map((b) => (
                   <BookCard key={b.id} book={b} lang={lang} />
                 ))}
@@ -451,7 +451,7 @@ export default async function SectionPage({
         {/* Короткие вопросы. Вопросы про конкретную книгу на ее странице. */}
         <section className="teach-block">
           <div className="teach">
-            <h2 className="section">{c.faqTitle}</h2>
+            <h2 className="section section--center">{c.faqTitle}</h2>
             <div className="faq faq--two">
               {c.faq.map((f, i) => (
                 <details key={f.q} open={i < 2}>
@@ -833,7 +833,7 @@ export default async function SectionPage({
             <p className="teach-p">{w.booksLead}</p>
           </div>
           <div className="wrap" style={{ paddingTop: "var(--gap-3)" }}>
-            <div className="grid grid--row">
+            <div className={bookRowClass(shelf.length)}>
               {shelf.map((b) => (
                 <BookCard key={b.id} book={b} lang={lang} />
               ))}
@@ -860,7 +860,17 @@ export default async function SectionPage({
   }
 
   if (s === "coloring") {
-    const pages = pagesForLang(lang);
+    /* Порядок карточек: рядом стоят карточки одного вида, чтобы в ряду
+       не было пустоты. Сначала одиночные листы, потом развороты, потом
+       карточки с тремя рисунками. Если в группе нечетное число, лишняя
+       карточка уходит в самый конец, а не встает рядом с чужой. */
+    const kindOf = (p: ReturnType<typeof pagesForLang>[number]) =>
+      p.spread ? 1 : groupsForLang(p, lang)[0].sheets.length === 1 ? 0 : 2;
+    const buckets: ReturnType<typeof pagesForLang>[] = [[], [], []];
+    for (const p of pagesForLang(lang)) buckets[kindOf(p)].push(p);
+    const leftovers: ReturnType<typeof pagesForLang> = [];
+    for (const b of buckets) if (b.length % 2) leftovers.push(b.pop()!);
+    const pages = [...buckets[0], ...buckets[1], ...buckets[2], ...leftovers];
     return (
       <>
         <Crumbs />
@@ -988,7 +998,7 @@ export default async function SectionPage({
           ))}
 
           <h2 className="section">{c.booksTitle}</h2>
-          <div className="grid grid--row" style={{ paddingBottom: "var(--gap-5)" }}>
+          <div className={bookRowClass(series.length)} style={{ paddingBottom: "var(--gap-5)" }}>
             {series.map((b) => (
               <Link className="card" key={b.id} href={itemPath(lang, "books", b.slug[lang]!)}>
                 <div className="card__frame">
@@ -1015,8 +1025,8 @@ export default async function SectionPage({
             ))}
           </ul>
 
-          <h2 className="section">{t.book.faq}</h2>
-          <div className="faq">
+          <h2 className="section section--center">{t.book.faq}</h2>
+          <div className="faq faq--two">
             {c.faq.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>
@@ -1268,6 +1278,8 @@ export default async function SectionPage({
                 {t.catalog2.linkFromCatalog}
               </Link>
             </p>
+            {/* Последний абзац: сайт информационный, не консультация. */}
+            <p>{t.about.note}</p>
           </div>
         </div>
       </>

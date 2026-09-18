@@ -72,7 +72,7 @@ import {
   WORDS_BOOK_IDS_ES,
 } from "@/data/firstWords";
 import { dictionaries, activeLangs } from "@/data/dictionaries";
-import { BookCard, PageHead } from "@/components/Chrome";
+import { BookCard, PageHead, bookRowClass } from "@/components/Chrome";
 import { RatingLink } from "@/components/Rating";
 import {
   SITE_URL,
@@ -946,8 +946,8 @@ export default async function ItemPage({
         >
           <p className="rights">{f.rights}</p>
 
-          <h2 className="section">{f.faqTitle}</h2>
-          <div className="faq">
+          <h2 className="section section--center">{f.faqTitle}</h2>
+          <div className="faq faq--two">
             {copy.faq.map((q) => (
               <details key={q.q}>
                 <summary>{q.q}</summary>
@@ -1076,7 +1076,7 @@ export default async function ItemPage({
 
         <section className="teach-block">
           <div className="teach">
-            <h2 className="section">{ui.faq}</h2>
+            <h2 className="section section--center">{ui.faq}</h2>
             <div className="faq faq--two">
               {c.faq.map((f, i) => (
                 <details key={f.q} open={i < 2}>
@@ -1247,7 +1247,7 @@ export default async function ItemPage({
 
         <section className="teach-block">
           <div className="teach">
-            <h2 className="section">{ui.faq}</h2>
+            <h2 className="section section--center">{ui.faq}</h2>
             <div className="faq faq--two">
               {c.faq.map((f, i) => (
                 <details key={f.q} open={i < 2}>
@@ -1412,8 +1412,8 @@ export default async function ItemPage({
             </>
           ) : null}
 
-          <h2 className="section">{m.guideFaq}</h2>
-          <div className="faq">
+          <h2 className="section section--center">{m.guideFaq}</h2>
+          <div className="faq faq--two">
             {copy.faq.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>
@@ -1598,7 +1598,7 @@ export default async function ItemPage({
             <p className="teach-p">{wc.booksLead}</p>
           </div>
           <div className="wrap" style={{ paddingTop: "var(--gap-3)" }}>
-            <div className="grid grid--row">
+            <div className={bookRowClass(shelf.length)}>
               {shelf.map((b) => (
                 <BookCard key={b.id} book={b} lang={lang} />
               ))}
@@ -2667,10 +2667,10 @@ export default async function ItemPage({
             </div>
           </div>
 
-          <h2 className="section" style={{ marginTop: "var(--gap-4)" }}>
+          <h2 className="section section--center" style={{ marginTop: "var(--gap-4)" }}>
             {t.book.faq}
           </h2>
-          <div className="faq">
+          <div className="faq faq--two">
             {copy.faq.map((f) => (
               <details key={f.q}>
                 <summary>{f.q}</summary>
@@ -2785,8 +2785,16 @@ export default async function ItemPage({
           <section
             style={{ padding: "0 clamp(1rem, 4vw, 2rem) var(--band-y)" }}
           >
-            <p className="script-title">{t.book.related}</p>
-            <div className="grid grid--row">
+            {/* Где книг четыре, они стоят по центру, и надпись над ними тоже
+                по центру. Где книг две-три, карточки на всю ширину, и надпись
+                слева, над их левым краем. */}
+            <p
+              className="script-title"
+              style={related.length > 3 ? { textAlign: "center" } : undefined}
+            >
+              {t.book.related}
+            </p>
+            <div className={bookRowClass(related.length)}>
               {related.map((b) => (
                 <BookCard key={b.id} book={b} lang={lang} />
               ))}
@@ -3079,7 +3087,7 @@ function TeacherBookView({ p, slug }: { p: TeacherProduct; slug: string }) {
       {/* Вопросы именно про эту книгу. */}
       <section className="teach-block">
         <div className="teach">
-          <h2 className="section">Questions about this {isBundle ? "bundle" : "book"}</h2>
+          <h2 className="section section--center">Questions about this {isBundle ? "bundle" : "book"}</h2>
           <div className="faq faq--two">
             {p.faq.map((f, i) => (
               <details key={f.q} open={i < 2}>

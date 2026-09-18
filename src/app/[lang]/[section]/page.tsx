@@ -26,7 +26,7 @@ import { teacherProducts, teacherProductPath } from "@/data/teacherBooks";
 import TeacherBookRows from "@/components/TeacherBooks";
 import { articlesForLang, articleUi } from "@/data/teacherArticles";
 import { drawingArticlesForLang, drawingHub } from "@/data/drawingArticles";
-import { PageHead, BookCard, bookRowClass } from "@/components/Chrome";
+import { PageHead, BookCard, bookRowClass, cardLine } from "@/components/Chrome";
 import BookFilters, { type CardItem } from "@/components/BookFilters";
 import {
   SITE_URL,
@@ -197,6 +197,7 @@ export default async function SectionPage({
       rating: b.rating,
       ratingNote: t.book.ratingNote,
       cover: b.cover,
+      line: cardLine(b, lang),
     }));
 
     /* Каталог как список книг. Поисковик видит весь состав каталога,
@@ -228,7 +229,7 @@ export default async function SectionPage({
           <BookFilters
             items={items}
             ages={ageOrder.map((a: AgeGroup) => ({ key: a, label: t.catalog.ages[a] }))}
-            types={TYPES.map((k: BookType) => ({ key: k, label: t.catalog.types[k] }))}
+            types={TYPES.filter((k: BookType) => items.some((i) => i.type === k)).map((k: BookType) => ({ key: k, label: t.catalog.types[k] }))}
             labels={{
               age: t.catalog.filterAge,
               type: t.catalog.filterType,
@@ -1000,21 +1001,7 @@ export default async function SectionPage({
           <h2 className="section">{c.booksTitle}</h2>
           <div className={bookRowClass(series.length)} style={{ paddingBottom: "var(--gap-5)" }}>
             {series.map((b) => (
-              <Link className="card" key={b.id} href={itemPath(lang, "books", b.slug[lang]!)}>
-                <div className="card__frame">
-                  <div className="card__cover">
-                    <img src={b.cover} alt={b.copy[lang]!.title} loading="lazy" width={900} height={1160} />
-                  </div>
-                  <p className="card__title">{b.copy[lang]!.title}</p>
-                  <p className="card__meta">{b.ageShown}</p>
-                  {(() => {
-                    const price =
-                      cheapestFormat(b)?.price ??
-                      (hasPdf(b.id) ? pdfPriceLabel(b.id) : undefined);
-                    return price ? <p className="card__price">{price}</p> : null;
-                  })()}
-                </div>
-              </Link>
+              <BookCard key={b.id} book={b} lang={lang} />
             ))}
           </div>
 

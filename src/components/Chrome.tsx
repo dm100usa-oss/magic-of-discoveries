@@ -375,6 +375,7 @@ export function BookCard({ book, lang }: { book: Book; lang: UiLang }) {
           </span>
           {copy.title}
         </p>
+        {cardLine(book, lang) ? <p className="card__line">{cardLine(book, lang)}</p> : null}
         <p className="card__meta">{t.catalog.ages[book.age]}</p>
         {book.rating ? (
           <RatingMini rating={book.rating} note={t.book.ratingNote} />
@@ -392,4 +393,25 @@ export function bookRowClass(n: number): string {
   if (n <= 2) return "grid grid--row grid--wide";
   if (n === 3) return "grid grid--row grid--wide grid--wide3";
   return "grid grid--row";
+}
+
+/* Одна строка под названием на карточке книги: что внутри. Берется
+   подзаголовок книги. Там, где подзаголовок рекламный или слишком
+   длинный для карточки, стоит короткая строка из тех же фактов. */
+const CARD_LINE: Record<string, Partial<Record<UiLang, string>>> = {
+  "how-to-draw-everything-en": { en: "111 easy step-by-step drawings for kids ages 5 and up" },
+  "how-to-draw-everything-es": { es: "111 dibujos fáciles paso a paso para niños desde 5 años" },
+  "take-a-break-food-en": { en: "50 large print food drawings with thick lines, for adults and kids" },
+  "take-a-break-food-es": { es: "50 dibujos grandes de comida, de trazo grueso, para adultos y niños" },
+  "take-a-break-animals-en": { en: "50 large print hand-drawn designs, one page in one sitting" },
+  "take-a-break-animals-es": { es: "50 diseños grandes dibujados a mano, una página en una sesión" },
+  "take-a-break-ocean-en": { en: "50 large print sea drawings with thick lines" },
+  "take-a-break-ocean-es": { es: "50 dibujos marinos grandes de trazo grueso" },
+  "directed-drawing-k2-en": { en: "55 no-prep activities at two levels, 110 worksheets" },
+  "directed-drawing-k2-es": { en: "55 no-prep activities at two levels, all in Spanish" },
+  "directed-drawing-k2-2-en": { en: "55 new activities plus a bonus, 112 worksheets" },
+  "directed-drawing-k2-2-es": { en: "55 new activities plus a bonus, all in Spanish" },
+};
+export function cardLine(book: Book, lang: UiLang): string | undefined {
+  return CARD_LINE[book.id]?.[lang] ?? book.copy[lang]?.subtitle;
 }

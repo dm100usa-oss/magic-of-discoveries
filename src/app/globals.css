@@ -2261,10 +2261,63 @@ main :is(.card, .theme, .tcard, .tbook, .tfree__item, .guide-next, .review, .lad
   .thero, .tabout, .booklist) :is(p, li),
 main :is(.guide-next, .ladder, .tsteps, .wordlist, .wordpairs, .thumbs, .topics,
   .award-list, .awards) > li { text-align: left; }
-main .pagehead p, main .teach-cta, main .nf p, main p.section--center { text-align: center; }
+main .pagehead p, main .teach-cta, main .nf p, main p.section--center { text-align: center; text-align-last: center; }
 /* Названия статей в карточках на страницах книг были растянуты с дырами. */
 .book-body > ul.guide-next > li { text-align: left; }
 /* Четыре статьи стоят двумя рядами по две, а не три и одна. */
 @media (min-width: 720px) {
   .guide-next:has(> li:nth-child(4):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* Где продаются книги: на компьютере страны в три колонки, строки там
+   короткие, и столбиком половина полосы пустовала. На телефоне списком. */
+@media (min-width: 900px) {
+  dl.retail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap-3) var(--gap-4); }
+  dl.retail div { margin: 0; }
+}
+
+/* Строка «что внутри» на карточке книги, под названием. */
+.card__line { margin: 0 0 0.3rem; font-size: var(--t-micro); color: var(--ink); line-height: 1.4; }
+main .card p.card__line { text-align: left; }
+@media (min-width: 900px) {
+  .grid--wide .card__line { font-size: var(--t-small); }
+  .grid--wide .card__frame { grid-template-rows: repeat(5, auto); }
+  .grid--wide .card__cover { grid-row: 1 / span 5; }
+}
+
+
+/* Кнопки фильтров каталога. Браузер рисовал им толстую объемную рамку,
+   похожую на коричневую тень снизу. Кнопки плоские, с тонкой светлой
+   рамкой; выбранная розовая. Расположение прежнее. */
+.chip { font: inherit; font-size: var(--t-small); font-weight: 700; cursor: pointer;
+  border: 1px solid rgba(51, 32, 44, 0.1); box-shadow: none; }
+.chip:hover { border-color: var(--pink-hot); }
+.chip[aria-current="true"] { border-color: var(--pink-hot); }
+
+/* Названия статей в карточках: на компьютере без переносов по слогам. */
+@media (min-width: 900px) {
+  .guide-next a, .tfree__item { hyphens: manual; -webkit-hyphens: manual; }
+}
+
+/* Строка под заголовком в розовой плашке: на планшете и телефоне по
+   центру, как сам заголовок, и на шаг крупнее. На компьютере как было. */
+@media (max-width: 899px) {
+  main .pagehead p {
+    text-align: center; text-align-last: center; hyphens: manual; -webkit-hyphens: manual;
+    font-size: clamp(1.12rem, 1rem + 0.6vw, 1.35rem);
+  }
+}
+
+/* Остался один фильтр, по типу книги: он в одну колонку. Кнопки без
+   книг не показываются. */
+.filters.filters--one { grid-template-columns: 1fr; }
+
+/* Телефон: пункты меню дальше друг от друга, чтобы не сливались в одну
+   надпись. На планшете и компьютере как было. */
+@media (max-width: 640px) {
+  .nav ul { gap: 0.6rem 1.35rem; padding: 0.8rem 0.8rem; }
+}
+
+/* Рукописные подзаголовки не растягиваем по ширине: это заголовок,
+   а не абзац, и на телефоне между словами появлялись дыры. */
+main p.script-title { text-align: left; }

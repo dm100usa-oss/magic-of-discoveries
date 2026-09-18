@@ -19,6 +19,8 @@ export interface CardItem {
   /* Чей это рейтинг, если он взят у издания на другом языке. */
   ratingNote?: string;
   cover?: string;
+  /** Строка «что внутри» под названием, как на всех карточках сайта. */
+  line?: string;
 }
 
 interface Props {
@@ -28,38 +30,19 @@ interface Props {
   labels: { age: string; type: string; all: string; empty: string };
 }
 
-export default function BookFilters({ items, ages, types, labels }: Props) {
-  const [age, setAge] = useState<string | null>(null);
+/* Фильтр по возрасту убран: возраст на книгах примерный, и родитель
+   выбирает сам. Остался только тип книги. */
+export default function BookFilters({ items, types, labels }: Props) {
   const [type, setType] = useState<string | null>(null);
 
   const list = useMemo(
-    () => items.filter((i) => (!age || i.ages.includes(age)) && (!type || i.type === type)),
-    [items, age, type]
+    () => items.filter((i) => !type || i.type === type),
+    [items, type]
   );
 
   return (
     <>
-      <div className="filters">
-        <fieldset>
-          <legend>{labels.age}</legend>
-          <div className="chips">
-            <button type="button" className="chip" aria-current={!age} onClick={() => setAge(null)}>
-              {labels.all}
-            </button>
-            {ages.map((a) => (
-              <button
-                key={a.key}
-                type="button"
-                className="chip"
-                aria-current={age === a.key}
-                onClick={() => setAge(age === a.key ? null : a.key)}
-              >
-                {a.label}
-              </button>
-            ))}
-          </div>
-        </fieldset>
-
+      <div className="filters filters--one">
         <fieldset>
           <legend>{labels.type}</legend>
           <div className="chips">
@@ -99,6 +82,7 @@ export default function BookFilters({ items, ages, types, labels }: Props) {
                   </span>
                   {i.title}
                 </p>
+                {i.line ? <p className="card__line">{i.line}</p> : null}
                 <p className="card__meta">{i.ageLabel}</p>
                 {i.rating ? (
                   <RatingMini rating={i.rating} note={i.ratingNote} />
